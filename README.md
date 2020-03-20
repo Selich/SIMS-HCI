@@ -19,8 +19,8 @@
 - [x] Specijalizovani doktori mogu izdavati dalje upute ( snimanja npr. )?
 - [x] Da li pacijent moze da zakaze pregled samo kod izabranog lekara? Koja je uopste razlika izmedju izabranog lekara i bilo ko drugog?
 - [x] Sta moze specijalista da radi? Da li opsta praksa moze jos nesto pored izdavanja uputa i zakazivanja operacija?
-- [x] Razlika izmedju kartona i medicinske istorije?
-20.03.2020
+- [x] Razlika izmedju kartona i medicinske istorije?  
+####  20.03.2020  
 - [ ] Da li su fiksne duzine termina? Da li zaviste od vrste pregleda operacije? Da li sekretar moze da menja duzine termina?
 - [ ] Slucaj ako pacijent izabere vise doktora za trazenje termina
 - [ ] Prioritet pacijenta; Termin ili lekat
