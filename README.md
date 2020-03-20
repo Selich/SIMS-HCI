@@ -2,7 +2,10 @@
 
 - [ ] Dodavanje poena na svakom tasku (1..10)
 - [ ] Dodavanje komentara na svakom user storie-u (Filip, Nikola)
-- [ ] 
+- [ ] UseCase diagram (Uros)
+- [ ] Class diagram
+- [ ] Medju tabela Lek , Oprema, Room
+- [ ] Wireframe ( KLM )
 
 ### Pitanja za konsultacije
 
