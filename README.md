@@ -1,14 +1,11 @@
 ### TODO
 
-- [ ] Dodavanje poena na svakom tasku (1..10)
-- [ ] Uros - Notifikacija
+- [ ] Filip - Diagnosis 
 - [ ] Dodavanje komentara na svakom user storie-u (Filip)
 - [ ] UseCase diagram (Uros)
 - [ ] Class diagram
 - [ ] Medju tabela Lek , Oprema, Room
 - [ ] Wireframe ( KLM )
-- [ ] ORI - Tema
-- [ ] ORI - Dataset
 
 ### Pitanja za konsultacije
 
@@ -24,3 +21,4 @@
 - [ ] Da li su fiksne duzine termina? Da li zaviste od vrste pregleda operacije? Da li sekretar moze da menja duzine termina?
 - [ ] Slucaj ako pacijent izabere vise doktora za trazenje termina
 - [ ] Prioritet pacijenta; Termin ili lekat
+- [ ] Da li mi znambdevamo lekovima pacijente ili to radi neki treci cinioc u zdravstvenom sistemu (npr. tip entiteta apoteka )
