@@ -3,6 +3,11 @@
 Za pisanje C# koda, koristicemo Microsoft style guide.
 Vise informacija mozete videti ovde: [style guide](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/inside-a-program/coding-conventions).
 
+
+## Testiranje
+
+Praticemo Microsoft guide za TDD. Vise informacija mozete videti [ovde](https://docs.microsoft.com/en-us/visualstudio/test/quick-start-test-driven-development-with-test-explorer?view=vs-2019)
+
 ## TODO
 
 - [ ] Filip - Diagnosis 
