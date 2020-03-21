@@ -10,8 +10,6 @@ Praticemo Microsoft guide za TDD. Vise informacija mozete videti [ovde](https://
 
 ## TODO
 
-- [ ] Filip - Diagnosis 
-- [ ] Dodavanje komentara na svakom user storie-u (Filip)
 - [ ] Napravite svaku posebnu granu (npr. secretary, patient, director, doctor ). Master ide na protected
 - [ ] UseCase diagram (Uros)
 - [ ] Class diagram
