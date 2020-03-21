@@ -2,7 +2,7 @@
 
 - [ ] Filip - Diagnosis 
 - [ ] Dodavanje komentara na svakom user storie-u (Filip)
-- [ ] Napravite svaku posebnu granu, master ide na protected
+- [ ] Napravite svaku posebnu granu (npr. secretary, patient, director, doctor ). Master ide na protected
 - [ ] UseCase diagram (Uros)
 - [ ] Class diagram
 - [ ] Medju tabela Lek , Oprema, Room
