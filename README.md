@@ -1,4 +1,9 @@
-### TODO
+## Styleguide
+
+Za pisanje C# koda, koristicemo Microsoft style guide.
+Vise informacija mozete videti ovde: [style guide](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/inside-a-program/coding-conventions).
+
+## TODO
 
 - [ ] Filip - Diagnosis 
 - [ ] Dodavanje komentara na svakom user storie-u (Filip)
@@ -8,7 +13,7 @@
 - [ ] Medju tabela Lek , Oprema, Room
 - [ ] Wireframe ( KLM )
 
-### Pitanja za konsultacije
+## Pitanja za konsultacije
 
 - [x] Koji specijalizacije doktora postoje?
 - [x] Koje vrste zaposlenih postoje?
