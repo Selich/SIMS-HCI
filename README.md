@@ -29,8 +29,7 @@ Branch za poseban servis npr. "Patient" bice:
 
 ## TODO
 
-- [ ] Napravite svaku posebnu granu (npr. secretary, patient, director, doctor ). Master ide na protected
-- [ ] UseCase diagram (Uros)
+- [ ] UseCase diagram (patient, secretary, director, doctor)
 - [ ] Class diagram
 - [ ] Medju tabela Lek , Oprema, Room
 - [ ] Wireframe ( KLM )
@@ -62,5 +61,5 @@ Branch za poseban servis npr. "Patient" bice:
 - [ ] #18 Tokom renoviranja, da li mogu da se menja broj i vrste soba
 - [ ] Duzina termina kod lekara, fiksna ili ne
 - [ ] #6 CRUD za sve
-
+- [ ] Koji sve izvestaji postoje (Magacin, Sobe, Lekovi, Oprema, Pacijenti)
 
