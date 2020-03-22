@@ -7,10 +7,24 @@ Vise informacija mozete videti ovde: [style guide](https://docs.microsoft.com/en
 
 Praticemo Microsoft guide za TDD. Vise informacija mozete videti [ovde](https://docs.microsoft.com/en-us/visualstudio/test/quick-start-test-driven-development-with-test-explorer?view=vs-2019)
 
+## Git style guide
+
+Za stvaranje novih branch-ova koristimo npr. za user story: "Add ability to login" i servis "Director"
+  
+```bash
+    git checkout -b add-login-feature/director
+    git checkout -b <prvi-glagol>-<ocigledni-keyword>-feature/<rola>
+```
+  
+Branch za poseban servis npr. "Patient" bice:
+  
+```bash
+    git checkout -b patient
+```
+
+
 ## TODO
 
-- [ ] Filip - Diagnosis 
-- [ ] Dodavanje komentara na svakom user storie-u (Filip)
 - [ ] Napravite svaku posebnu granu (npr. secretary, patient, director, doctor ). Master ide na protected
 - [ ] UseCase diagram (Uros)
 - [ ] Class diagram
