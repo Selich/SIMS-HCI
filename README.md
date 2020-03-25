@@ -62,4 +62,9 @@ Branch za poseban servis npr. "Patient" bice:
 - [ ] Duzina termina kod lekara, fiksna ili ne
 - [ ] #6 CRUD za sve
 - [ ] Koji sve izvestaji postoje (Magacin, Sobe, Lekovi, Oprema, Pacijenti)
-
+- [ ] Da li Upravnik moze da prebaci lekove i opreme iz jedne sobe u drugu, ili mora preko Magacina
+- [ ] Da li postoji ogranicenje na to gde oprema i lekovi mogu da budu?
+- [ ] Da li izdvojiti pretrage kao use casove
+- [ ] Da li da omogucimo lekarima da isprave opis leka?
+- [ ] Tok nabavke i registracije novog/postojeceg leka
+- [ ] Odvojeni ili spojeni use case dijagrami
