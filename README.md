@@ -68,4 +68,7 @@ Branch za poseban servis npr. "Patient" bice:
 - [ ] Da li da omogucimo lekarima da isprave opis leka?
 - [ ] Tok nabavke i registracije novog/postojeceg leka
 - [ ] Odvojeni ili spojeni use case dijagrami
-- [ ] Pacijent ima pristup sopstvenoj istoriji lecenja
+- [ ] Pacijent ima pristup sopstvenoj istoriji lecenja?
+- [ ] Da li lekar moze da recept za apoteku?
+- [ ] Doktor ima uvid svih poslanih zahteva sa njegove strane?
+- [ ] Zajednicki Use Case za slanje zahteva (Doktor)?
