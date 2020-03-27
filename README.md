@@ -29,12 +29,39 @@ Branch za poseban servis npr. "Patient" bice:
 
 ## TODO
 
-- [ ] UseCase diagram (patient, secretary, director, doctor)
+- [ ] Use case dijagram za uloge 
+- [ ] Extend za specijaliste
+- [ ] Registrovan/neregistrovan pacijent 
+- [ ] Wireframe ( KLM )
 - [ ] Class diagram
 - [ ] Medju tabela Lek , Oprema, Room
-- [ ] Wireframe ( KLM )
 
 ## Pitanja za konsultacije
+
+- [ ] Nikola - Da li Upravnik moze da menja duzine termina?
+- [ ] Uros   - Da li su fiksne duzine termina? 
+- [ ] Filip  - Zajednicki Use Case za slanje zahteva?
+- [ ] Dusan  - Da li se lekovi nalaze u magacinu?
+- [ ] Dusan  - Da li se vodi evidencija lekova na nivou sobe?
+- [ ] Dusan  - Da li mi znambdevamo lekovima pacijente ili to radi neki treci cinioc u zdravstvenom sistemu (npr. tip entiteta apoteka )?
+- [ ] Dusan  - #30 Da li se odobrava koriscenje operacionih sala od strane sekretara
+-- Hirurzi
+- [ ] Dusan  - #29 Lekovi iz naseg "Magacina" ili ne
+- [ ] Dusan  - #23 Sta ako je veoma hitna operacija - Sekretar ili jos neko osim njega
+- [ ] Dusan  - Koji sve izvestaji postoje (Magacin, Sobe, Lekovi, Oprema, Pacijenti)
+-- Sobama,Pacijentima,Lekarima...
+- [ ] Dusan  - Duzina termina kod lekara, fiksna ili ne
+- [ ] Dusan  - Da li izdvojiti pretrage kao use casove
+- [ ] Dusan  - Tok nabavke?
+- [ ] Dusan  - Evidencija novog/postojeceg leka?
+- [ ] Dusan  - Pacijent ima pristup sopstvenoj istoriji lecenja?
+- [ ] Dusan  - Da li lekar moze da izda recept za apoteku?
+- [ ] Dusan  - Doktor ima uvid svih poslanih zahteva sa njegove strane?
+- [ ] Dusan  - Doktor zahteva lekove/opremu?
+- [ ] Dusan  - Kako odredjujemo kompatibilnost sobe sa lekarom i opremom?
+- [ ] Dusan  - Kako se zapisiju alternativni tokovi ako imam extends/include use cases?
+
+## Odgovori
 
 - [x] Koji specijalizacije doktora postoje?
 - [x] Koje vrste zaposlenih postoje?
@@ -43,32 +70,28 @@ Branch za poseban servis npr. "Patient" bice:
 - [x] Specijalizovani doktori mogu izdavati dalje upute (snimanja npr.)?
 - [x] Sta moze specijalista da radi? Da li opsta praksa moze jos nesto pored izdavanja uputa i zakazivanja operacija?
 - [x] Razlika izmedju kartona i medicinske istorije?  
-####  20.03.2020  
-- [ ] Da li su fiksne duzine termina? Da li zaviste od vrste pregleda operacije? Da li sekretar moze da menja duzine termina?
-- [ ] Slucaj ako pacijent izabere vise doktora za trazenje termina?
-- [ ] Prioritet pacijenta; Termin ili lekar?
-- [ ] Da li mi znambdevamo lekovima pacijente ili to radi neki treci cinioc u zdravstvenom sistemu (npr. tip entiteta apoteka )?
-- [ ] Koliko magacina postoje?
-- [ ] Da li pacijent moze da zakaze pregled samo kod izabranog lekara? Koja je uopste razlika izmedju izabranog lekara i bilo ko drugog?
-- [ ] Ko ima pristup zdravstvenom kartonu konkretnog pacijenta?
-####  22.03.2020  
-- [ ] #33 Zar je zaista potrebno?
-- [ ] #30 Da li se odobrava koriscenje operacionih sala od strane sekretara
-- [ ] Ko sve koristi operacione sale
-- [ ] #29 Lekovi iz naseg "Magacina" ili ne
-- [ ] #23 Sta ako je veoma hitna operacija - Sekretar
-- [ ] #22 Da li je potrebno da vidi sve pacijente i koje informacije ima PRAVO da vidi - Sekretar
-- [ ] #18 Tokom renoviranja, da li mogu da se menja broj i vrste soba
-- [ ] Duzina termina kod lekara, fiksna ili ne
-- [ ] #6 CRUD za sve
-- [ ] Koji sve izvestaji postoje (Magacin, Sobe, Lekovi, Oprema, Pacijenti)
-- [ ] Da li Upravnik moze da prebaci lekove i opreme iz jedne sobe u drugu, ili mora preko Magacina
-- [ ] Da li postoji ogranicenje na to gde oprema i lekovi mogu da budu?
-- [ ] Da li izdvojiti pretrage kao use casove
-- [ ] Da li da omogucimo lekarima da isprave opis leka?
-- [ ] Tok nabavke i registracije novog/postojeceg leka
-- [ ] Odvojeni ili spojeni use case dijagrami
-- [ ] Pacijent ima pristup sopstvenoj istoriji lecenja?
-- [ ] Da li lekar moze da recept za apoteku?
-- [ ] Doktor ima uvid svih poslanih zahteva sa njegove strane?
-- [ ] Zajednicki Use Case za slanje zahteva (Doktor)?
+- [x] Soba ima neophodne iteme?
+- Da. Lekovi se gledaju globalno 
+- [x] Prioritet pacijenta; Termin ili lekar?
+- Bira izmedju prioriteta
+- [x] Slucaj ako pacijent izabere vise doktora za trazenje termina?
+- Bira izmedju prioriteta
+- [x] Da li pacijent moze da zakaze pregled samo kod izabranog lekara? Koja je uopste razlika izmedju izabranog lekara i bilo ko drugog?
+- Ne postoji izabran lekar
+- [x] Ko ima pristup zdravstvenom kartonu konkretnog pacijenta?
+- Svako ko je vrsio pregled lekara i zadao dijagnozu ili operaciju
+- [x] #33 Zar je zaista potrebno?
+- Jeste
+- [x] Ko sve koristi operacione sale
+- [x] #22 Da li je potrebno da vidi sve pacijente i koje informacije ima PRAVO da vidi - Sekretar i Upravnik
+- Moze
+- [x] #18 Tokom renoviranja, da li mogu da se menja broj i vrste soba
+- Moze, pregradjivanje i rusenje
+- [x] #6 CRUD za sve zaposlene
+- Da
+- [x] Da li da omogucimo lekarima da isprave opis leka?
+- Moze ali ne mora
+- [x] Da li Upravnik moze da prebaci lekove i opreme iz jedne sobe u drugu, ili mora preko Magacina
+- Ne moze iz jedne sobe u drugu
+- [x] Da li postoji ogranicenje na to gde oprema i lekovi mogu da budu?
+- Samo neophodna oprema za datu vrstu sobe moze da postoji u njoj
