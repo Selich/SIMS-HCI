@@ -29,7 +29,19 @@ Branch za poseban servis npr. "Patient" bice:
 
 ## TODO
 
-- [ ] Use case dijagram za uloge 
+- [ ] Upravnik se dodaje od iz .env file
+- [ ] Samo kod lekara opste prakse se zakazuju termini za pacijenta
+- [ ] Sekretar može da poveže neki guest sa pravim nalogom pacijenta. Tj. ako pacijent odluči da ipak želi da napravi nalog onda može istorija pregleda da se učita sa prethodnog gesta
+- [ ] Mozemo Sekretare dodavati takodje iz .env file
+- [ ] Guest nalog je povezan sa JMBG i brojem licne karte/zdravstvene knjizice, Claimuje podatke
+- [ ] Pacijent ukida terminu unutar 24h preko Sekretara 
+- [ ] Lekar -> Lekar Specijalista
+- [ ] Premestanje termina - Sekretare
+- [ ] Sekretar ne mora da odobrava termin
+- [ ] Moguće je zakazati renoviranje za salu ako je prva sledeća operacija najranije 15 dana od trenutka kada se želi zakazati renoviranje. Broj dana treba da bude konfigurabilan.
+- [ ] Mogu biti konsultacije sa drugim lekarom ali se vodi kao zakazan termin za drugog lekara
+- [ ] Guest nalog ima samo neophodne podatke
+
 - [ ] Extend za specijaliste
 - [ ] Registrovan/neregistrovan pacijent 
 - [ ] Wireframe ( KLM )
@@ -95,3 +107,6 @@ Branch za poseban servis npr. "Patient" bice:
 - Ne moze iz jedne sobe u drugu
 - [x] Da li postoji ogranicenje na to gde oprema i lekovi mogu da budu?
 - Samo neophodna oprema za datu vrstu sobe moze da postoji u njoj
+
+
+
