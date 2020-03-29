@@ -30,48 +30,44 @@ Branch za poseban servis npr. "Patient" bice:
 ## TODO
 
 - [ ] Upravnik se dodaje od iz .env file
-- [ ] Samo kod lekara opste prakse se zakazuju termini za pacijenta
-- [ ] Sekretar može da poveže neki guest sa pravim nalogom pacijenta. Tj. ako pacijent odluči da ipak želi da napravi nalog onda može istorija pregleda da se učita sa prethodnog gesta
 - [ ] Mozemo Sekretare dodavati takodje iz .env file
+- [ ] Doktor termini vise na vise
+- [ ] Pacijent moze da zakaze kod opste prakse
+- [ ] Sekretar može da poveže neki guest sa pravim nalogom. Tj. ako pacijent odluči da ipak želi da napravi nalog onda može istorija pregleda da se učita sa prethodnog gesta
 - [ ] Guest nalog je povezan sa JMBG i brojem licne karte/zdravstvene knjizice, Claimuje podatke
-- [ ] Pacijent ukida terminu unutar 24h preko Sekretara 
+- [ ] Pacijent ukida terminu unutar 24h ( u intervalu od 24h ) preko Sekretara 
+- [ ] Zajednicki Use Case za slanje zahteva?
 - [ ] Lekar -> Lekar Specijalista
-- [ ] Premestanje termina - Sekretare
-- [ ] Sekretar ne mora da odobrava termin
-- [ ] Moguće je zakazati renoviranje za salu ako je prva sledeća operacija najranije 15 dana od trenutka kada se želi zakazati renoviranje. Broj dana treba da bude konfigurabilan.
+- [ ] Premestanje termina - Sekretar
+- [ ] Sekretar ne mora da odobrava termin -> Termin u timetable
+- [ ] Moguće je zakazati renoviranje za salu ako je prva sledeća operacija najranije 15(var) dana od trenutka kada se želi zakazati renoviranje.
 - [ ] Mogu biti konsultacije sa drugim lekarom ali se vodi kao zakazan termin za drugog lekara
-- [ ] Guest nalog ima samo neophodne podatke
-
-- [ ] Extend za specijaliste
-- [ ] Registrovan/neregistrovan pacijent 
+- [ ] Guest nalog ima samo neophodne podatke 
+- [ ] Extend za specijaliste -> u Use Case
+- [ ] Da li izdvojiti pretrage kao Use Casove - Upravnik
 - [ ] Wireframe ( KLM )
 - [ ] Class diagram
 - [ ] Medju tabela Lek , Oprema, Room
+- [ ] Guess nalog
+
 
 ## Pitanja za konsultacije
 
-- [ ] Nikola - Da li Upravnik moze da menja duzine termina?
-- [ ] Uros   - Da li su fiksne duzine termina? 
-- [ ] Filip  - Zajednicki Use Case za slanje zahteva?
-- [ ] Dusan  - Da li se lekovi nalaze u magacinu?
-- [ ] Dusan  - Da li se vodi evidencija lekova na nivou sobe?
-- [ ] Dusan  - Da li mi znambdevamo lekovima pacijente ili to radi neki treci cinioc u zdravstvenom sistemu (npr. tip entiteta apoteka )?
-- [ ] Dusan  - #30 Da li se odobrava koriscenje operacionih sala od strane sekretara
--- Hirurzi
-- [ ] Dusan  - #29 Lekovi iz naseg "Magacina" ili ne
-- [ ] Dusan  - #23 Sta ako je veoma hitna operacija - Sekretar ili jos neko osim njega
-- [ ] Dusan  - Koji sve izvestaji postoje (Magacin, Sobe, Lekovi, Oprema, Pacijenti)
--- Sobama,Pacijentima,Lekarima...
-- [ ] Dusan  - Duzina termina kod lekara, fiksna ili ne
-- [ ] Dusan  - Da li izdvojiti pretrage kao use casove
-- [ ] Dusan  - Tok nabavke?
-- [ ] Dusan  - Evidencija novog/postojeceg leka?
+- [ ] Nikola - Da li Upravnik moze da menja duzine termina pregleda?
+- [ ] Dusan  - Duzina termina kod lekara, fiksna ili ne?
+- [ ] Dusan  - Kako se zapisiju alternativni tokovi ako imam extends/include u Use Cases? Gde u glavnom toku upisujemo da prelazi na extends/include drugi Use Case?
+- [ ] Dusan  - Kako predstaviti grananja u Use Case-u? Npr. U zavisnosti od toga da li je pacijent izabrao lekara ili termin kao prioritet postoji grananje kada je izabrao lekara i druga grana kada izabere termin? Da li se jedan od njih vodi kao alternativni tok? 
+- [ ] Dusan  - Da li postoji magacin u kome se nalazi oprema i lekovi ili se sve odmah dodeljuje sobama/bolnici?
+- [ ] Dusan  - Da li se vodi evidencija lekova i opreme na nivou sobe?
+- [ ] Dusan  - Da li se pacijenti snabdevaju prepisanim lekovima iz naseg Magacina ili to radi neki treci cinioc van naseg sistema (npr. tip entiteta apoteka)?
+- [ ] Dusan  - Da li se odobrava koriscenje operacionih sala (operacije) od strane sekretara
+- [ ] Dusan  - Koji sve izvestaji postoje i koje sve statistike treba prikazati?(Magacin, Sobe, Lekovi, Oprema, Pacijenti)
+- [ ] Dusan  - Tok nabavke lekova i opreme? Sta Upravnik dodeljuje na zahtev, a sta sam odlucuje o raspodeli?
+- [ ] Dusan  - Tok registrovanja novog leka? Ko zahteva? Ko odobrava? Kada se javlja potreba za registrovanjem?
 - [ ] Dusan  - Pacijent ima pristup sopstvenoj istoriji lecenja?
-- [ ] Dusan  - Da li lekar moze da izda recept za apoteku?
-- [ ] Dusan  - Doktor ima uvid svih poslanih zahteva sa njegove strane?
+- [ ] Dusan  - Doktor ima uvid svih poslanih zahteva za dodatnim lekom/opremom sa njegove strane?
 - [ ] Dusan  - Doktor zahteva lekove/opremu?
-- [ ] Dusan  - Kako odredjujemo kompatibilnost sobe sa lekarom i opremom?
-- [ ] Dusan  - Kako se zapisiju alternativni tokovi ako imam extends/include use cases?
+- [ ] Dusan  - Kako odredjujemo kompatibilnost sobe sa lekarom i opremom/lekovima? 
 
 ## Odgovori
 
@@ -107,6 +103,3 @@ Branch za poseban servis npr. "Patient" bice:
 - Ne moze iz jedne sobe u drugu
 - [x] Da li postoji ogranicenje na to gde oprema i lekovi mogu da budu?
 - Samo neophodna oprema za datu vrstu sobe moze da postoji u njoj
-
-
-
