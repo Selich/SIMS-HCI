@@ -53,21 +53,8 @@ Branch za poseban servis npr. "Patient" bice:
 
 ## Pitanja za konsultacije
 
-- [ ] Nikola - Da li Upravnik moze da menja duzine termina pregleda?
-- [ ] Dusan  - Duzina termina kod lekara, fiksna ili ne?
-- [ ] Dusan  - Kako se zapisiju alternativni tokovi ako imam extends/include u Use Cases? Gde u glavnom toku upisujemo da prelazi na extends/include drugi Use Case?
-- [ ] Dusan  - Kako predstaviti grananja u Use Case-u? Npr. U zavisnosti od toga da li je pacijent izabrao lekara ili termin kao prioritet postoji grananje kada je izabrao lekara i druga grana kada izabere termin? Da li se jedan od njih vodi kao alternativni tok? 
-- [ ] Dusan  - Da li postoji magacin u kome se nalazi oprema i lekovi ili se sve odmah dodeljuje sobama/bolnici?
-- [ ] Dusan  - Da li se vodi evidencija lekova i opreme na nivou sobe?
-- [ ] Dusan  - Da li se pacijenti snabdevaju prepisanim lekovima iz naseg Magacina ili to radi neki treci cinioc van naseg sistema (npr. tip entiteta apoteka)?
-- [ ] Dusan  - Da li se odobrava koriscenje operacionih sala (operacije) od strane sekretara
-- [ ] Dusan  - Koji sve izvestaji postoje i koje sve statistike treba prikazati?(Magacin, Sobe, Lekovi, Oprema, Pacijenti)
-- [ ] Dusan  - Tok nabavke lekova i opreme? Sta Upravnik dodeljuje na zahtev, a sta sam odlucuje o raspodeli?
-- [ ] Dusan  - Tok registrovanja novog leka? Ko zahteva? Ko odobrava? Kada se javlja potreba za registrovanjem?
-- [ ] Dusan  - Pacijent ima pristup sopstvenoj istoriji lecenja?
-- [ ] Dusan  - Doktor ima uvid svih poslanih zahteva za dodatnim lekom/opremom sa njegove strane?
-- [ ] Dusan  - Doktor zahteva lekove/opremu?
-- [ ] Dusan  - Kako odredjujemo kompatibilnost sobe sa lekarom i opremom/lekovima? 
+
+- [ ] Pojasnjenje za magacin i registraciju novih lekova
 
 ## Odgovori
 
@@ -103,3 +90,30 @@ Branch za poseban servis npr. "Patient" bice:
 - Ne moze iz jedne sobe u drugu
 - [x] Da li postoji ogranicenje na to gde oprema i lekovi mogu da budu?
 - Samo neophodna oprema za datu vrstu sobe moze da postoji u njoj
+- [x] Nikola - Da li Upravnik moze da menja duzine termina pregleda?
+- Upravnik nema tu mogucnost
+- [x] Dusan  - Duzina termina kod lekara, fiksna ili ne?
+- Nije fiksna, u .env ide za svaku vrstu lekara posebno
+- [x] Dusan  - Kako se zapisiju alternativni tokovi ako imam extends/include u Use Cases? Gde u glavnom toku upisujemo da prelazi na extends/include drugi Use Case?
+- UseCase.pdf
+- [x] Dusan  - Kako predstaviti grananja u Use Case-u? Npr. U zavisnosti od toga da li je pacijent izabrao lekara ili termin kao prioritet postoji grananje kada je izabrao lekara i druga grana kada izabere termin? Da li se jedan od njih vodi kao alternativni tok? 
+- [x] Dusan  - Da li postoji magacin u kome se nalazi oprema i lekovi ili se sve odmah dodeljuje sobama/bolnici?
+-  Zamislite da ima magacin i na nivou magacina/bolnice kolicinu svega. Ne moramo se baviti kolicinama lekova na nivou sobu.
+- [x] Dusan  - Da li se pacijenti snabdevaju prepisanim lekovima iz naseg Magacina ili to radi neki treci cinioc van naseg sistema (npr. tip entiteta apoteka)?
+- Pacijenti nisu snabdevani lekovima sa recepta
+- [x] Dusan  - Da li se odobrava koriscenje operacionih sala (operacije) od strane sekretara
+- Ne
+- [x] Dusan  - Koji sve izvestaji postoje i koje sve statistike treba prikazati?(Magacin, Sobe, Lekovi, Oprema, Pacijenti)
+- Zauzece prostorija, Osovlja u nekom periodu, Sekretara najvise zanima raspored, zatim pacijenta mozda koliko puta je vio koliko je imao operacija koliko puta je otkazao pregled i slicno, A lekare koliko je pacijenata pregledao u nekom periodu koliko je imao operacija koliko je kog leka izdao i slicno
+- [x] Dusan  - Tok nabavke lekova i opreme? Sta Upravnik dodeljuje na zahtev, a sta sam odlucuje o raspodeli?
+- Upravnik vidi neki minimum u opremi -> salje zahtev za opremu/lek. 
+- [x] Dusan  - Tok registrovanja novog leka? Ko zahteva? Ko odobrava? Kada se javlja potreba za registrovanjem?
+- Lek dodje u magacin -> Upravnik unosi u sistem
+- [x] Dusan  - Pacijent ima pristup sopstvenoj istoriji lecenja?
+- Pregled svih buducih i prethodnih pregleda
+- [x] Dusan  - Doktor ima uvid svih poslanih zahteva za dodatnim lekom/opremom sa njegove strane?
+- To sami osmislite
+- [x] Dusan  - Doktor zahteva lekove/opremu?
+- Opremom i lekovima upravlja Upravnik kada dodje do minimumu
+- [x] Dusan  - Kako odredjujemo kompatibilnost sobe sa lekarom i opremom/lekovima? 
+- Pravimo razliku izmedju kancelarije i operacione sale
