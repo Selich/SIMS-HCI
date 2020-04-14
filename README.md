@@ -53,11 +53,12 @@ Branch za poseban servis npr. "Patient" bice:
 
 ## Pitanja za konsultacije
 
+- [ ] Da li nam je bitan konkretno jedan unikatni predmet ( oprema ) ili samo kolicina opreme u sobama. npr. ( Stolica: svaka ima svoj ID pri zameni ili mozemo pamtiti koliki broj stolica postoji u odredjenoj sobi )
 
-- [ ] Pojasnjenje za magacin i registraciju novih lekova
 
 ## Odgovori
 
+- [ ] Pojasnjenje za magacin i registraciju novih lekova
 - [x] Koji specijalizacije doktora postoje?
 - [x] Koje vrste zaposlenih postoje?
 - [x] Koji zaposleni uvek moraju da budu na raspolaganju?
