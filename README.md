@@ -55,6 +55,7 @@ Branch za poseban servis npr. "Patient" bice:
 
 
 - [ ] Pojasnjenje za magacin i registraciju novih lekova
+- [ ] Da li svi dele isti Login view i kasnije preusmerenje na razlicite preglede ( Zaposleni ili Pacijenti )
 
 ## Odgovori
 
