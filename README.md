@@ -56,6 +56,9 @@ Branch za poseban servis npr. "Patient" bice:
 
 - [ ] Pojasnjenje za magacin i registraciju novih lekova
 - [ ] Da li svi dele isti Login view i kasnije preusmerenje na razlicite preglede ( Zaposleni ili Pacijenti )
+- [ ] Handlovanje eventa za izvestaje ( Da li mora da klasa Izvestaj da se sadrzi u nekom modelu ( Direktor , Lekar itd.))
+- [ ] Da li Upravnik registruje Sekretara ( screenshot )
+- [ ] Lista svih renovacija kod Upravnika ili mozemo da pokupimo iz svih soba
 
 ## Odgovori
 
