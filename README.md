@@ -59,6 +59,7 @@ Branch za poseban servis npr. "Patient" bice:
 - [ ] Handlovanje eventa za izvestaje ( Da li mora da klasa Izvestaj da se sadrzi u nekom modelu ( Direktor , Lekar itd.))
 - [ ] Da li Upravnik registruje Sekretara ( screenshot )
 - [ ] Lista svih renovacija kod Upravnika ili mozemo da pokupimo iz svih soba
+- [ ] Zakazivanje sala inicira Doktor?
 
 ## Odgovori
 
