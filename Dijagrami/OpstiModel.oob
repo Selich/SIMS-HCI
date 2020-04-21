@@ -5054,12 +5054,12 @@ Shadow=0</a:DisplayPreferences>
 <a:PaperSource>15</a:PaperSource>
 <c:Symbols>
 <o:RectangleSymbol Id="o145">
-<a:ModificationDate>1587490718</a:ModificationDate>
-<a:Rect>((-8378,-26310), (12392,29502))</a:Rect>
+<a:ModificationDate>1587490766</a:ModificationDate>
+<a:Rect>((-8380,-26305), (12394,29495))</a:Rect>
 <a:TextStyle>4130</a:TextStyle>
 <a:AutoAdjustToText>0</a:AutoAdjustToText>
 <a:LineColor>128</a:LineColor>
-<a:FillColor>16777215</a:FillColor>
+<a:FillColor>16250871</a:FillColor>
 <a:ShadowColor>12632256</a:ShadowColor>
 <a:FontName>Arial,8,N</a:FontName>
 <a:ManuallyResized>1</a:ManuallyResized>
