@@ -4320,17 +4320,19 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>Registracija_pacijenta</a:Code>
 <a:CreationDate>1587488199</a:CreationDate>
 <a:Creator>Selic</a:Creator>
-<a:ModificationDate>1587488505</a:ModificationDate>
+<a:ModificationDate>1587500915</a:ModificationDate>
 <a:Modifier>Selic</a:Modifier>
 <a:Step>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
-\pard\f0\fs20 1. Unosi registracione podatke\par
+{\*\generator Riched20 10.0.19608}\viewkind4\uc1 
+\pard\f0\fs20 Funckionalnost inicira pacijent\par
+\par
+1. Unosi registracione podatke\par
 2. Proveravamo validnost podataka\par
 3. Preusmeravanje na stranicu za prijavu\par
 }
 </a:Step>
 <a:UseCase.Extension>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
+{\*\generator Riched20 10.0.19608}\viewkind4\uc1 
 \pard\f0\fs20 2a.Podaci nisu validni\par
  .1 Korisnik ponovo unosi podatke\par
 \par
@@ -4341,12 +4343,12 @@ LABL 0 Arial,8,N</a:FontList>
 }
 </a:UseCase.Extension>
 <a:PreCondition>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
+{\*\generator Riched20 10.0.19608}\viewkind4\uc1 
 \pard\f0\fs20 1.Nije prijavljen\par
 }
 </a:PreCondition>
 <a:PostCondition>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
+{\*\generator Riched20 10.0.19608}\viewkind4\uc1 
 \pard\f0\fs20 Uspesno:\par
  Korisnik je ubacen u bazu podataka i moze da se loguje\par
 \par
@@ -4361,28 +4363,30 @@ Neuspesno:\par
 <a:Code>Prijavljivanje_pacijenta</a:Code>
 <a:CreationDate>1587488199</a:CreationDate>
 <a:Creator>Selic</a:Creator>
-<a:ModificationDate>1587488512</a:ModificationDate>
+<a:ModificationDate>1587500906</a:ModificationDate>
 <a:Modifier>Selic</a:Modifier>
 <a:Step>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
-\pard\f0\fs20 1 .Unosi podatke za prijavljivanje\par
+{\*\generator Riched20 10.0.19608}\viewkind4\uc1 
+\pard\f0\fs20 Funckionalnost inicira pacijent\par
+\par
+1 .Unosi podatke za prijavljivanje\par
 2. Proveravamo validnost podataka\par
 3. Korisnik je preusmeren na home page\par
 }
 </a:Step>
 <a:UseCase.Extension>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
+{\*\generator Riched20 10.0.19608}\viewkind4\uc1 
 \pard\f0\fs20 2a.Podaci nisu validni\par
  .1 Korisnik ponovo unosi podatake\par
 }
 </a:UseCase.Extension>
 <a:PreCondition>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
+{\*\generator Riched20 10.0.19608}\viewkind4\uc1 
 \pard\f0\fs20 1.Korisnik nije prijavljen\par
 }
 </a:PreCondition>
 <a:PostCondition>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
+{\*\generator Riched20 10.0.19608}\viewkind4\uc1 
 \pard\f0\fs20 Uspesno:\par
   Pacijent je prijavljen\par
 \par
@@ -4452,21 +4456,23 @@ Neuspesno:\par
 <a:Code>Pregled_profila</a:Code>
 <a:CreationDate>1587488199</a:CreationDate>
 <a:Creator>Selic</a:Creator>
-<a:ModificationDate>1587488508</a:ModificationDate>
+<a:ModificationDate>1587500912</a:ModificationDate>
 <a:Modifier>Selic</a:Modifier>
 <a:Step>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
-\pard\f0\fs20 1.Korisnik klikne na dugme &quot;moj profil&quot;\par
+{\*\generator Riched20 10.0.19608}\viewkind4\uc1 
+\pard\f0\fs20 Funckionalnost inicira pacijent\par
+\par
+1.Korisnik klikne na dugme &quot;moj profil&quot;\par
 2.Profil se prikazije\par
 }
 </a:Step>
 <a:PreCondition>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
+{\*\generator Riched20 10.0.19608}\viewkind4\uc1 
 \pard\f0\fs20 1.Korisnik je prijavljen\par
 }
 </a:PreCondition>
 <a:PostCondition>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
+{\*\generator Riched20 10.0.19608}\viewkind4\uc1 
 \pard\f0\fs20 Uspesno:\par
  Korisniku prikazan profil\par
 \par
@@ -4481,18 +4487,20 @@ Neuspesno:\par
 <a:Code>Izmena_profila</a:Code>
 <a:CreationDate>1587488199</a:CreationDate>
 <a:Creator>Selic</a:Creator>
-<a:ModificationDate>1587488510</a:ModificationDate>
+<a:ModificationDate>1587500909</a:ModificationDate>
 <a:Modifier>Selic</a:Modifier>
 <a:Step>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
-\pard\f0\fs20 1.Koriskin klikne na &quot;izmeni profil&quot;\par
+{\*\generator Riched20 10.0.19608}\viewkind4\uc1 
+\pard\f0\fs20 Funckionalnost inicira pacijent\par
+\par
+1.Koriskin klikne na &quot;izmeni profil&quot;\par
 2.Menja licne podatke\par
 3.Podaci se proveravaju\par
 4.Potvrdjuje izmne\par
 }
 </a:Step>
 <a:UseCase.Extension>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
+{\*\generator Riched20 10.0.19608}\viewkind4\uc1 
 \pard\f0\fs20 3a.Podaci nisu validni\par
  .1 Korisnik ponovo menja podatke\par
 4a. Korisnik nije potvrdio izmene\par
@@ -4503,13 +4511,13 @@ Neuspesno:\par
 }
 </a:UseCase.Extension>
 <a:PreCondition>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
+{\*\generator Riched20 10.0.19608}\viewkind4\uc1 
 \pard\f0\fs20 1.Korisnik je prijavljen\par
 2.Korisnik se nalazi na svom profilu\par
 }
 </a:PreCondition>
 <a:PostCondition>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
+{\*\generator Riched20 10.0.19608}\viewkind4\uc1 
 \pard\f0\fs20 Uspesno:\par
  Korisnik je izmenio profil\par
 \par
@@ -4524,35 +4532,37 @@ Neuspesno:\par
 <a:Code>Ocenjivanje_doktora</a:Code>
 <a:CreationDate>1587488199</a:CreationDate>
 <a:Creator>Selic</a:Creator>
-<a:ModificationDate>1587488526</a:ModificationDate>
+<a:ModificationDate>1587500927</a:ModificationDate>
 <a:Modifier>Selic</a:Modifier>
 <a:Step>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
-\pard\f0\fs20 1.Korisnik dobija notifikaciju da oceni doktora\par
+{\*\generator Riched20 10.0.19608}\viewkind4\uc1 
+\pard\f0\fs20 Funckionalnost inicira pacijent\par
+\par
+1.Korisnik dobija notifikaciju da oceni doktora\par
 2.Ocenjuje doktora\par
 3.Notifikacija se uklanja\par
 }
 </a:Step>
 <a:UseCase.Extension>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
+{\*\generator Riched20 10.0.19608}\viewkind4\uc1 
 \pard\f0\fs20 1a.Korisnik nije hteo da oceni doktora\par
  .1 Notifikacija se uklanja\par
 }
 </a:UseCase.Extension>
 <a:Throws>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
+{\*\generator Riched20 10.0.19608}\viewkind4\uc1 
 \pard\f0\fs20 Doktor koje se ocenjuje ne postoji/nije zaposlen \par
 \par
 }
 </a:Throws>
 <a:PreCondition>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
+{\*\generator Riched20 10.0.19608}\viewkind4\uc1 
 \pard\f0\fs20 1.Korisnik je prijavljen\par
 2.Korisnik je dobio diagnozu\par
 }
 </a:PreCondition>
 <a:PostCondition>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
+{\*\generator Riched20 10.0.19608}\viewkind4\uc1 
 \pard\f0\fs20 Uspesno:\par
   Doktoru je data ocena\par
 \par
@@ -4567,28 +4577,30 @@ Neuspesno:\par
 <a:Code>Ostavljanje_feedback_a</a:Code>
 <a:CreationDate>1587488199</a:CreationDate>
 <a:Creator>Selic</a:Creator>
-<a:ModificationDate>1587488503</a:ModificationDate>
+<a:ModificationDate>1587500918</a:ModificationDate>
 <a:Modifier>Selic</a:Modifier>
 <a:Step>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
-\pard\f0\fs20 1.Korisnik klikne na ostavi feedback\par
+{\*\generator Riched20 10.0.19608}\viewkind4\uc1 
+\pard\f0\fs20 Funckionalnost inicira pacijent\par
+\par
+1.Korisnik klikne na ostavi feedback\par
 2.Korisnik unosi feedback\par
 3.Potvrduje feedback\par
 }
 </a:Step>
 <a:UseCase.Extension>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
+{\*\generator Riched20 10.0.19608}\viewkind4\uc1 
 \pard\f0\fs20 3a. Korisnik nije potvrdio feedback\par
  .1 Korisnike se preusmeruje na predhodnu gledanu stranicu\par
 }
 </a:UseCase.Extension>
 <a:PreCondition>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
+{\*\generator Riched20 10.0.19608}\viewkind4\uc1 
 \pard\f0\fs20 1.Korisnik je prijavljen\par
 }
 </a:PreCondition>
 <a:PostCondition>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
+{\*\generator Riched20 10.0.19608}\viewkind4\uc1 
 \pard\f0\fs20 Uspesno:\par
   Zabelezen feedback\ul\par
 \par
@@ -4604,21 +4616,23 @@ Neuspesno:\par
 <a:Code>Pregled_cesto_postavljenih_pitanja</a:Code>
 <a:CreationDate>1587488199</a:CreationDate>
 <a:Creator>Selic</a:Creator>
-<a:ModificationDate>1587488199</a:ModificationDate>
+<a:ModificationDate>1587500922</a:ModificationDate>
 <a:Modifier>Selic</a:Modifier>
 <a:Step>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
-\pard\f0\fs20 1.Korisnik klikne na &quot;FAQ&quot;\par
+{\*\generator Riched20 10.0.19608}\viewkind4\uc1 
+\pard\f0\fs20 Funckionalnost inicira pacijent\par
+\par
+1.Korisnik klikne na &quot;FAQ&quot;\par
 2.Prikazuje se stranica sa cesto postavljenim pitanjima\par
 }
 </a:Step>
 <a:PreCondition>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
+{\*\generator Riched20 10.0.19608}\viewkind4\uc1 
 \pard\f0\fs20 1.Korisnik je prijavljen\par
 }
 </a:PreCondition>
 <a:PostCondition>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
+{\*\generator Riched20 10.0.19608}\viewkind4\uc1 
 \pard\f0\fs20 Uspesno:\par
  Korisniku se prikazuje stranica sa cesto postavlenim pitanjima\par
 \par
