@@ -1471,7 +1471,7 @@ Shadow=0</a:DisplayPreferences>
 </o:GeneralizationSymbol>
 <o:ActorSymbol Id="o18">
 <a:CreationDate>1585325064</a:CreationDate>
-<a:ModificationDate>1587319316</a:ModificationDate>
+<a:ModificationDate>1587501172</a:ModificationDate>
 <a:IconMode>-1</a:IconMode>
 <a:Rect>((1406,27300), (6205,30899))</a:Rect>
 <a:LineColor>16744448</a:LineColor>
@@ -1491,7 +1491,7 @@ DISPNAME 0 Arial,8,N</a:FontList>
 </o:ActorSymbol>
 <o:ActorSymbol Id="o15">
 <a:CreationDate>1585325064</a:CreationDate>
-<a:ModificationDate>1587319316</a:ModificationDate>
+<a:ModificationDate>1587501161</a:ModificationDate>
 <a:IconMode>-1</a:IconMode>
 <a:Rect>((-9712,-844), (-4913,2755))</a:Rect>
 <a:LineColor>16744448</a:LineColor>
@@ -1511,7 +1511,7 @@ DISPNAME 0 Arial,8,N</a:FontList>
 </o:ActorSymbol>
 <o:ActorSymbol Id="o24">
 <a:CreationDate>1585325064</a:CreationDate>
-<a:ModificationDate>1587319316</a:ModificationDate>
+<a:ModificationDate>1587501147</a:ModificationDate>
 <a:IconMode>-1</a:IconMode>
 <a:Rect>((12601,-844), (17400,2755))</a:Rect>
 <a:LineColor>16744448</a:LineColor>
@@ -1530,7 +1530,7 @@ DISPNAME 0 Arial,8,N</a:FontList>
 </c:Object>
 </o:ActorSymbol>
 <o:ActorSymbol Id="o12">
-<a:ModificationDate>1587319316</a:ModificationDate>
+<a:ModificationDate>1587501157</a:ModificationDate>
 <a:IconMode>-1</a:IconMode>
 <a:Rect>((-20699,-844), (-15900,2755))</a:Rect>
 <a:LineColor>16744448</a:LineColor>
@@ -1549,7 +1549,7 @@ DISPNAME 0 Arial,8,N</a:FontList>
 </c:Object>
 </o:ActorSymbol>
 <o:ActorSymbol Id="o8">
-<a:ModificationDate>1587319316</a:ModificationDate>
+<a:ModificationDate>1587501166</a:ModificationDate>
 <a:IconMode>-1</a:IconMode>
 <a:Rect>((1407,-844), (6206,2755))</a:Rect>
 <a:LineColor>16744448</a:LineColor>
@@ -1568,7 +1568,7 @@ DISPNAME 0 Arial,8,N</a:FontList>
 </c:Object>
 </o:ActorSymbol>
 <o:ActorSymbol Id="o9">
-<a:ModificationDate>1587319316</a:ModificationDate>
+<a:ModificationDate>1587501151</a:ModificationDate>
 <a:IconMode>-1</a:IconMode>
 <a:Rect>((-9675,14850), (-4876,18449))</a:Rect>
 <a:LineColor>16744448</a:LineColor>
@@ -1587,7 +1587,7 @@ DISPNAME 0 Arial,8,N</a:FontList>
 </c:Object>
 </o:ActorSymbol>
 <o:ActorSymbol Id="o21">
-<a:ModificationDate>1587319316</a:ModificationDate>
+<a:ModificationDate>1587501067</a:ModificationDate>
 <a:IconMode>-1</a:IconMode>
 <a:Rect>((12601,14850), (17400,18449))</a:Rect>
 <a:LineColor>16744448</a:LineColor>
@@ -1703,65 +1703,65 @@ DISPNAME 0 Arial,8,N</a:FontList>
 <c:Actors>
 <o:Actor Id="o26">
 <a:ObjectID>AB5B6F74-2017-4D1C-83C4-2F542410848D</a:ObjectID>
-<a:Name>User</a:Name>
-<a:Code>User</a:Code>
+<a:Name>Korisnik</a:Name>
+<a:Code>Korisnik</a:Code>
 <a:CreationDate>1585325064</a:CreationDate>
 <a:Creator>LENOVO</a:Creator>
-<a:ModificationDate>1587319251</a:ModificationDate>
+<a:ModificationDate>1587501172</a:ModificationDate>
 <a:Modifier>Selic</a:Modifier>
 </o:Actor>
 <o:Actor Id="o27">
 <a:ObjectID>6ADBEFBD-FC8A-4E52-8DA0-FB5C7EFAB12C</a:ObjectID>
-<a:Name>Secretary</a:Name>
-<a:Code>Secretary</a:Code>
+<a:Name>Sekretar</a:Name>
+<a:Code>Sekretar</a:Code>
 <a:CreationDate>1585325064</a:CreationDate>
 <a:Creator>LENOVO</a:Creator>
-<a:ModificationDate>1587319236</a:ModificationDate>
+<a:ModificationDate>1587501161</a:ModificationDate>
 <a:Modifier>Selic</a:Modifier>
 </o:Actor>
 <o:Actor Id="o28">
 <a:ObjectID>EE62734B-B26B-4066-8288-9B5AE4FB27BE</a:ObjectID>
-<a:Name>Registred Patient</a:Name>
-<a:Code>Registred_Patient</a:Code>
+<a:Name>Pacijent</a:Name>
+<a:Code>Pacijent</a:Code>
 <a:CreationDate>1585325064</a:CreationDate>
 <a:Creator>LENOVO</a:Creator>
-<a:ModificationDate>1587319223</a:ModificationDate>
+<a:ModificationDate>1587501147</a:ModificationDate>
 <a:Modifier>Selic</a:Modifier>
 </o:Actor>
 <o:Actor Id="o29">
 <a:ObjectID>24FD3459-B6C9-4220-831F-8B10644242D8</a:ObjectID>
-<a:Name>Director</a:Name>
-<a:Code>Director</a:Code>
+<a:Name>Upravnik</a:Name>
+<a:Code>Upravnik</a:Code>
 <a:CreationDate>1585417968</a:CreationDate>
 <a:Creator>Selic</a:Creator>
-<a:ModificationDate>1587319242</a:ModificationDate>
+<a:ModificationDate>1587501157</a:ModificationDate>
 <a:Modifier>Selic</a:Modifier>
 </o:Actor>
 <o:Actor Id="o30">
 <a:ObjectID>268C125A-C72F-4AB2-8FB1-D2D2C40DAC03</a:ObjectID>
-<a:Name>Doctor</a:Name>
-<a:Code>Doctor</a:Code>
+<a:Name>Doktor</a:Name>
+<a:Code>Doktor</a:Code>
 <a:CreationDate>1585417969</a:CreationDate>
 <a:Creator>Selic</a:Creator>
-<a:ModificationDate>1587319233</a:ModificationDate>
+<a:ModificationDate>1587501166</a:ModificationDate>
 <a:Modifier>Selic</a:Modifier>
 </o:Actor>
 <o:Actor Id="o31">
 <a:ObjectID>168ACA23-FC88-4849-A68B-4916302534A0</a:ObjectID>
-<a:Name>Employee</a:Name>
-<a:Code>Employee</a:Code>
+<a:Name>Zaposleni</a:Name>
+<a:Code>Zaposleni</a:Code>
 <a:CreationDate>1585418020</a:CreationDate>
 <a:Creator>Selic</a:Creator>
-<a:ModificationDate>1587319246</a:ModificationDate>
+<a:ModificationDate>1587501151</a:ModificationDate>
 <a:Modifier>Selic</a:Modifier>
 </o:Actor>
 <o:Actor Id="o32">
 <a:ObjectID>222998A2-2BEB-4473-9C80-F846806BBE35</a:ObjectID>
-<a:Name>Patient</a:Name>
-<a:Code>Patient</a:Code>
+<a:Name>Guest</a:Name>
+<a:Code>Guest</a:Code>
 <a:CreationDate>1587319211</a:CreationDate>
 <a:Creator>Selic</a:Creator>
-<a:ModificationDate>1587319217</a:ModificationDate>
+<a:ModificationDate>1587501067</a:ModificationDate>
 <a:Modifier>Selic</a:Modifier>
 </o:Actor>
 </c:Actors>
@@ -4320,17 +4320,19 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>Registracija_pacijenta</a:Code>
 <a:CreationDate>1587488199</a:CreationDate>
 <a:Creator>Selic</a:Creator>
-<a:ModificationDate>1587488505</a:ModificationDate>
+<a:ModificationDate>1587500915</a:ModificationDate>
 <a:Modifier>Selic</a:Modifier>
 <a:Step>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
-\pard\f0\fs20 1. Unosi registracione podatke\par
+{\*\generator Riched20 10.0.19608}\viewkind4\uc1 
+\pard\f0\fs20 Funckionalnost inicira pacijent\par
+\par
+1. Unosi registracione podatke\par
 2. Proveravamo validnost podataka\par
 3. Preusmeravanje na stranicu za prijavu\par
 }
 </a:Step>
 <a:UseCase.Extension>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
+{\*\generator Riched20 10.0.19608}\viewkind4\uc1 
 \pard\f0\fs20 2a.Podaci nisu validni\par
  .1 Korisnik ponovo unosi podatke\par
 \par
@@ -4341,12 +4343,12 @@ LABL 0 Arial,8,N</a:FontList>
 }
 </a:UseCase.Extension>
 <a:PreCondition>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
+{\*\generator Riched20 10.0.19608}\viewkind4\uc1 
 \pard\f0\fs20 1.Nije prijavljen\par
 }
 </a:PreCondition>
 <a:PostCondition>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
+{\*\generator Riched20 10.0.19608}\viewkind4\uc1 
 \pard\f0\fs20 Uspesno:\par
  Korisnik je ubacen u bazu podataka i moze da se loguje\par
 \par
@@ -4361,28 +4363,30 @@ Neuspesno:\par
 <a:Code>Prijavljivanje_pacijenta</a:Code>
 <a:CreationDate>1587488199</a:CreationDate>
 <a:Creator>Selic</a:Creator>
-<a:ModificationDate>1587488512</a:ModificationDate>
+<a:ModificationDate>1587500906</a:ModificationDate>
 <a:Modifier>Selic</a:Modifier>
 <a:Step>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
-\pard\f0\fs20 1 .Unosi podatke za prijavljivanje\par
+{\*\generator Riched20 10.0.19608}\viewkind4\uc1 
+\pard\f0\fs20 Funckionalnost inicira pacijent\par
+\par
+1 .Unosi podatke za prijavljivanje\par
 2. Proveravamo validnost podataka\par
 3. Korisnik je preusmeren na home page\par
 }
 </a:Step>
 <a:UseCase.Extension>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
+{\*\generator Riched20 10.0.19608}\viewkind4\uc1 
 \pard\f0\fs20 2a.Podaci nisu validni\par
  .1 Korisnik ponovo unosi podatake\par
 }
 </a:UseCase.Extension>
 <a:PreCondition>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
+{\*\generator Riched20 10.0.19608}\viewkind4\uc1 
 \pard\f0\fs20 1.Korisnik nije prijavljen\par
 }
 </a:PreCondition>
 <a:PostCondition>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
+{\*\generator Riched20 10.0.19608}\viewkind4\uc1 
 \pard\f0\fs20 Uspesno:\par
   Pacijent je prijavljen\par
 \par
@@ -4452,21 +4456,23 @@ Neuspesno:\par
 <a:Code>Pregled_profila</a:Code>
 <a:CreationDate>1587488199</a:CreationDate>
 <a:Creator>Selic</a:Creator>
-<a:ModificationDate>1587488508</a:ModificationDate>
+<a:ModificationDate>1587500912</a:ModificationDate>
 <a:Modifier>Selic</a:Modifier>
 <a:Step>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
-\pard\f0\fs20 1.Korisnik klikne na dugme &quot;moj profil&quot;\par
+{\*\generator Riched20 10.0.19608}\viewkind4\uc1 
+\pard\f0\fs20 Funckionalnost inicira pacijent\par
+\par
+1.Korisnik klikne na dugme &quot;moj profil&quot;\par
 2.Profil se prikazije\par
 }
 </a:Step>
 <a:PreCondition>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
+{\*\generator Riched20 10.0.19608}\viewkind4\uc1 
 \pard\f0\fs20 1.Korisnik je prijavljen\par
 }
 </a:PreCondition>
 <a:PostCondition>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
+{\*\generator Riched20 10.0.19608}\viewkind4\uc1 
 \pard\f0\fs20 Uspesno:\par
  Korisniku prikazan profil\par
 \par
@@ -4481,18 +4487,20 @@ Neuspesno:\par
 <a:Code>Izmena_profila</a:Code>
 <a:CreationDate>1587488199</a:CreationDate>
 <a:Creator>Selic</a:Creator>
-<a:ModificationDate>1587488510</a:ModificationDate>
+<a:ModificationDate>1587500909</a:ModificationDate>
 <a:Modifier>Selic</a:Modifier>
 <a:Step>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
-\pard\f0\fs20 1.Koriskin klikne na &quot;izmeni profil&quot;\par
+{\*\generator Riched20 10.0.19608}\viewkind4\uc1 
+\pard\f0\fs20 Funckionalnost inicira pacijent\par
+\par
+1.Koriskin klikne na &quot;izmeni profil&quot;\par
 2.Menja licne podatke\par
 3.Podaci se proveravaju\par
 4.Potvrdjuje izmne\par
 }
 </a:Step>
 <a:UseCase.Extension>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
+{\*\generator Riched20 10.0.19608}\viewkind4\uc1 
 \pard\f0\fs20 3a.Podaci nisu validni\par
  .1 Korisnik ponovo menja podatke\par
 4a. Korisnik nije potvrdio izmene\par
@@ -4503,13 +4511,13 @@ Neuspesno:\par
 }
 </a:UseCase.Extension>
 <a:PreCondition>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
+{\*\generator Riched20 10.0.19608}\viewkind4\uc1 
 \pard\f0\fs20 1.Korisnik je prijavljen\par
 2.Korisnik se nalazi na svom profilu\par
 }
 </a:PreCondition>
 <a:PostCondition>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
+{\*\generator Riched20 10.0.19608}\viewkind4\uc1 
 \pard\f0\fs20 Uspesno:\par
  Korisnik je izmenio profil\par
 \par
@@ -4524,35 +4532,37 @@ Neuspesno:\par
 <a:Code>Ocenjivanje_doktora</a:Code>
 <a:CreationDate>1587488199</a:CreationDate>
 <a:Creator>Selic</a:Creator>
-<a:ModificationDate>1587488526</a:ModificationDate>
+<a:ModificationDate>1587500927</a:ModificationDate>
 <a:Modifier>Selic</a:Modifier>
 <a:Step>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
-\pard\f0\fs20 1.Korisnik dobija notifikaciju da oceni doktora\par
+{\*\generator Riched20 10.0.19608}\viewkind4\uc1 
+\pard\f0\fs20 Funckionalnost inicira pacijent\par
+\par
+1.Korisnik dobija notifikaciju da oceni doktora\par
 2.Ocenjuje doktora\par
 3.Notifikacija se uklanja\par
 }
 </a:Step>
 <a:UseCase.Extension>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
+{\*\generator Riched20 10.0.19608}\viewkind4\uc1 
 \pard\f0\fs20 1a.Korisnik nije hteo da oceni doktora\par
  .1 Notifikacija se uklanja\par
 }
 </a:UseCase.Extension>
 <a:Throws>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
+{\*\generator Riched20 10.0.19608}\viewkind4\uc1 
 \pard\f0\fs20 Doktor koje se ocenjuje ne postoji/nije zaposlen \par
 \par
 }
 </a:Throws>
 <a:PreCondition>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
+{\*\generator Riched20 10.0.19608}\viewkind4\uc1 
 \pard\f0\fs20 1.Korisnik je prijavljen\par
 2.Korisnik je dobio diagnozu\par
 }
 </a:PreCondition>
 <a:PostCondition>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
+{\*\generator Riched20 10.0.19608}\viewkind4\uc1 
 \pard\f0\fs20 Uspesno:\par
   Doktoru je data ocena\par
 \par
@@ -4567,28 +4577,30 @@ Neuspesno:\par
 <a:Code>Ostavljanje_feedback_a</a:Code>
 <a:CreationDate>1587488199</a:CreationDate>
 <a:Creator>Selic</a:Creator>
-<a:ModificationDate>1587488503</a:ModificationDate>
+<a:ModificationDate>1587500918</a:ModificationDate>
 <a:Modifier>Selic</a:Modifier>
 <a:Step>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
-\pard\f0\fs20 1.Korisnik klikne na ostavi feedback\par
+{\*\generator Riched20 10.0.19608}\viewkind4\uc1 
+\pard\f0\fs20 Funckionalnost inicira pacijent\par
+\par
+1.Korisnik klikne na ostavi feedback\par
 2.Korisnik unosi feedback\par
 3.Potvrduje feedback\par
 }
 </a:Step>
 <a:UseCase.Extension>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
+{\*\generator Riched20 10.0.19608}\viewkind4\uc1 
 \pard\f0\fs20 3a. Korisnik nije potvrdio feedback\par
  .1 Korisnike se preusmeruje na predhodnu gledanu stranicu\par
 }
 </a:UseCase.Extension>
 <a:PreCondition>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
+{\*\generator Riched20 10.0.19608}\viewkind4\uc1 
 \pard\f0\fs20 1.Korisnik je prijavljen\par
 }
 </a:PreCondition>
 <a:PostCondition>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
+{\*\generator Riched20 10.0.19608}\viewkind4\uc1 
 \pard\f0\fs20 Uspesno:\par
   Zabelezen feedback\ul\par
 \par
@@ -4604,21 +4616,23 @@ Neuspesno:\par
 <a:Code>Pregled_cesto_postavljenih_pitanja</a:Code>
 <a:CreationDate>1587488199</a:CreationDate>
 <a:Creator>Selic</a:Creator>
-<a:ModificationDate>1587488199</a:ModificationDate>
+<a:ModificationDate>1587500922</a:ModificationDate>
 <a:Modifier>Selic</a:Modifier>
 <a:Step>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
-\pard\f0\fs20 1.Korisnik klikne na &quot;FAQ&quot;\par
+{\*\generator Riched20 10.0.19608}\viewkind4\uc1 
+\pard\f0\fs20 Funckionalnost inicira pacijent\par
+\par
+1.Korisnik klikne na &quot;FAQ&quot;\par
 2.Prikazuje se stranica sa cesto postavljenim pitanjima\par
 }
 </a:Step>
 <a:PreCondition>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
+{\*\generator Riched20 10.0.19608}\viewkind4\uc1 
 \pard\f0\fs20 1.Korisnik je prijavljen\par
 }
 </a:PreCondition>
 <a:PostCondition>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
+{\*\generator Riched20 10.0.19608}\viewkind4\uc1 
 \pard\f0\fs20 Uspesno:\par
  Korisniku se prikazuje stranica sa cesto postavlenim pitanjima\par
 \par
@@ -5206,8 +5220,8 @@ Shadow=0</a:DisplayPreferences>
 </o:UseCaseAssociationSymbol>
 <o:UseCaseAssociationSymbol Id="o158">
 <a:ModificationDate>1587497144</a:ModificationDate>
-<a:Rect>((-26677,-9951), (-3518,20759))</a:Rect>
-<a:ListOfPoints>((-15350,-8565),(-26277,-8865),(-13310,-8865),(-13310,-9551),(-15097,-9551),(-15097,12419),(-3918,20359))</a:ListOfPoints>
+<a:Rect>((-15497,-5366), (-3518,20759))</a:Rect>
+<a:ListOfPoints>((-15097,-4966),(-15097,20359),(-3918,20359))</a:ListOfPoints>
 <a:CornerStyle>2</a:CornerStyle>
 <a:ArrowStyle>0</a:ArrowStyle>
 <a:LineColor>128</a:LineColor>
@@ -5342,7 +5356,7 @@ Shadow=0</a:DisplayPreferences>
 </c:Object>
 </o:UseCaseAssociationSymbol>
 <o:ActorSymbol Id="o153">
-<a:ModificationDate>1587497144</a:ModificationDate>
+<a:ModificationDate>1587501135</a:ModificationDate>
 <a:IconMode>-1</a:IconMode>
 <a:Rect>((-17508,-8565), (-12709,-4966))</a:Rect>
 <a:LineColor>128</a:LineColor>
@@ -5456,7 +5470,7 @@ LABL 0 Arial,8,N</a:FontList>
 </c:Object>
 </o:UseCaseSymbol>
 <o:ActorSymbol Id="o147">
-<a:ModificationDate>1587497144</a:ModificationDate>
+<a:ModificationDate>1587501139</a:ModificationDate>
 <a:IconMode>-1</a:IconMode>
 <a:Rect>((18819,8275), (23618,11874))</a:Rect>
 <a:LineColor>128</a:LineColor>
@@ -5541,7 +5555,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>Sekretar</a:Code>
 <a:CreationDate>1587497141</a:CreationDate>
 <a:Creator>Selic</a:Creator>
-<a:ModificationDate>1587497141</a:ModificationDate>
+<a:ModificationDate>1587501135</a:ModificationDate>
 <a:Modifier>Selic</a:Modifier>
 </o:Actor>
 <o:Actor Id="o183">
@@ -5550,7 +5564,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>Pacijent</a:Code>
 <a:CreationDate>1587497141</a:CreationDate>
 <a:Creator>Selic</a:Creator>
-<a:ModificationDate>1587497141</a:ModificationDate>
+<a:ModificationDate>1587501139</a:ModificationDate>
 <a:Modifier>Selic</a:Modifier>
 </o:Actor>
 </c:Actors>
@@ -8505,9 +8519,9 @@ Shadow=0</a:DisplayPreferences>
 <c:Symbols>
 <o:PackageSymbol Id="o255">
 <a:CreationDate>1585325064</a:CreationDate>
-<a:ModificationDate>1587227091</a:ModificationDate>
+<a:ModificationDate>1587501220</a:ModificationDate>
 <a:IconMode>-1</a:IconMode>
-<a:Rect>((-7921,13899), (-3122,17498))</a:Rect>
+<a:Rect>((-7921,15899), (-3122,19498))</a:Rect>
 <a:LineColor>11711154</a:LineColor>
 <a:FillColor>12632256</a:FillColor>
 <a:ShadowColor>12632256</a:ShadowColor>
@@ -8523,9 +8537,9 @@ LABL 0 Arial,8,N</a:FontList>
 </o:PackageSymbol>
 <o:PackageSymbol Id="o256">
 <a:CreationDate>1585325123</a:CreationDate>
-<a:ModificationDate>1587317968</a:ModificationDate>
+<a:ModificationDate>1587501206</a:ModificationDate>
 <a:IconMode>-1</a:IconMode>
-<a:Rect>((3260,21254), (7539,24853))</a:Rect>
+<a:Rect>((4060,21117), (9089,24716))</a:Rect>
 <a:AutoAdjustToText>0</a:AutoAdjustToText>
 <a:LineColor>11711154</a:LineColor>
 <a:FillColor>4210816</a:FillColor>
@@ -8543,9 +8557,9 @@ LABL 0 Arial,8,N</a:FontList>
 </o:PackageSymbol>
 <o:PackageSymbol Id="o257">
 <a:CreationDate>1585325125</a:CreationDate>
-<a:ModificationDate>1585420059</a:ModificationDate>
+<a:ModificationDate>1587501206</a:ModificationDate>
 <a:IconMode>-1</a:IconMode>
-<a:Rect>((-4021,21208), (778,24807))</a:Rect>
+<a:Rect>((-2421,21117), (2378,24716))</a:Rect>
 <a:LineColor>11711154</a:LineColor>
 <a:FillColor>4210816</a:FillColor>
 <a:ShadowColor>12632256</a:ShadowColor>
@@ -8560,9 +8574,9 @@ LABL 0 Arial,8,N</a:FontList>
 </c:Object>
 </o:PackageSymbol>
 <o:PackageSymbol Id="o258">
-<a:ModificationDate>1585419823</a:ModificationDate>
+<a:ModificationDate>1587501212</a:ModificationDate>
 <a:IconMode>-1</a:IconMode>
-<a:Rect>((-11459,21045), (-6660,24644))</a:Rect>
+<a:Rect>((-13459,21117), (-8660,24716))</a:Rect>
 <a:LineColor>11711154</a:LineColor>
 <a:FillColor>4210816</a:FillColor>
 <a:ShadowColor>12632256</a:ShadowColor>
@@ -8577,9 +8591,10 @@ LABL 0 Arial,8,N</a:FontList>
 </c:Object>
 </o:PackageSymbol>
 <o:PackageSymbol Id="o259">
-<a:ModificationDate>1585419785</a:ModificationDate>
+<a:ModificationDate>1587501212</a:ModificationDate>
 <a:IconMode>-1</a:IconMode>
-<a:Rect>((-18574,20979), (-13774,24579))</a:Rect>
+<a:Rect>((-20173,21116), (-15199,24716))</a:Rect>
+<a:AutoAdjustToText>0</a:AutoAdjustToText>
 <a:LineColor>11711154</a:LineColor>
 <a:FillColor>4210816</a:FillColor>
 <a:ShadowColor>12632256</a:ShadowColor>
@@ -8589,6 +8604,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:BrushStyle>6</a:BrushStyle>
 <a:GradientFillMode>65</a:GradientFillMode>
 <a:GradientEndColor>16777215</a:GradientEndColor>
+<a:ManuallyResized>1</a:ManuallyResized>
 <c:Object>
 <o:Package Ref="o187"/>
 </c:Object>
