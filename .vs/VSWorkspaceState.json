@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Project",
+    "\\Project\\Views"
   ],
-  "SelectedNode": "\\Dijagrami",
+  "SelectedNode": "\\Project\\Project.sln",
   "PreviewInSolutionExplorer": false
 }
