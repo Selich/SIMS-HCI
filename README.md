@@ -3,6 +3,11 @@
 Za pisanje C# koda, koristicemo Microsoft style guide.
 Vise informacija mozete videti ovde: [style guide](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/inside-a-program/coding-conventions).
 
+Instaliranje ReSharpera zahteva studentsku licensku koju mozete dobiti prijavom na ovaj [sajt](https://www.jetbrains.com/community/education/#students)
+
+Nakon instaliranog ReSharp-era mozete dodati i Clean Code linter instalirajuci odgovarajucu ekstenziju:
+![CleanCode](CleanCode.png | width=100)
+
 ## Testiranje
 
 Praticemo Microsoft guide za TDD. Vise informacija mozete videti [ovde](https://docs.microsoft.com/en-us/visualstudio/test/quick-start-test-driven-development-with-test-explorer?view=vs-2019)
@@ -12,7 +17,7 @@ Praticemo Microsoft guide za TDD. Vise informacija mozete videti [ovde](https://
 Za stvaranje novih branch-ova koristimo npr. za user story: "Add ability to login" i servis "Director"
 
 ```bash
-    git commit -m "Add ability to login"
+    git commit -m "Add Login Ability"
     git commit -m <USER-STORY>
 ```
   
