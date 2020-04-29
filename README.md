@@ -5,8 +5,7 @@ Vise informacija mozete videti ovde: [style guide](https://docs.microsoft.com/en
 
 Instaliranje ReSharpera zahteva studentsku licensku koju mozete dobiti prijavom na ovaj [sajt](https://www.jetbrains.com/community/education/#students)
 
-Nakon instaliranog ReSharp-era mozete dodati i Clean Code linter instalirajuci odgovarajucu ekstenziju:
-![CleanCode](CleanCode.png)
+Nakon instaliranog ReSharp-era mozete dodati i Clean Code linter instalirajuci odgovarajucu [ekstenziju](https://plugins.jetbrains.com/plugin/11675-clean-code) koju mozete naci u Resharper Extension Manager-u.
 
 ## Testiranje
 
