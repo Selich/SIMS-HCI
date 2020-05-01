@@ -950,7 +950,7 @@ IndxFKName=%REFR%_FK
 IndxThreshold=
 ColnFKName=%.3:PARENT%_%COLUMN%
 ColnFKNameUse=No</a:ModelOptionsText>
-<a:RepositoryFilename>C:\Users\Selic\Desktop\sims-hci\Diagrams\Sequence Diagrams\Sequence Patient.oom</a:RepositoryFilename>
+<a:RepositoryFilename>%[PRJ_ROOT_DIR]%\Sequence Diagrams\Sequence Patient.oom</a:RepositoryFilename>
 <c:ObjectLanguage>
 <o:Shortcut Id="o3">
 <a:ObjectID>45F92C20-1020-4B5C-9937-43301E8B10F3</a:ObjectID>

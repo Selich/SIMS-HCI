@@ -5,16 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project.Views"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="450" Width="800">
-    <Grid>
-        <Button Content="Secretary" HorizontalAlignment="Left" Margin="172,294,0,0" VerticalAlignment="Top" Width="75" Click="Secretary_Click"/>
-        <Button Content="Patient" HorizontalAlignment="Left" Margin="304,294,0,0" VerticalAlignment="Top" Width="75" Click="Patient_Click"/>
-        <Button Content="Doctor" HorizontalAlignment="Left" Margin="448,294,0,0" VerticalAlignment="Top" Width="75" Click="Doctor_Click"/>
-        <Button Content="Director" HorizontalAlignment="Left" Margin="592,294,0,0" VerticalAlignment="Top" Width="75" Click="Director_Click"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="349,165,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="349,216,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="346,143,0,0" VerticalAlignment="Top"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="346,194,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.552,1.998"/>
+        Title="LoginWindow" Height="350" Width="320" ResizeMode="NoResize">
+    <Grid Background="White">
+        <Button Content="Secretary" HorizontalAlignment="Left" Margin="20,289,0,0" VerticalAlignment="Top" Width="58" Click="Secretary_Click"/>
+        <Button Content="Patient" HorizontalAlignment="Left" Margin="87,289,0,0" VerticalAlignment="Top" Width="66" Click="Patient_Click"/>
+        <Button Content="Doctor" HorizontalAlignment="Left" Margin="173,289,0,0" VerticalAlignment="Top" Width="59" Click="Doctor_Click"/>
+        <Button Content="Director" HorizontalAlignment="Left" Margin="237,289,0,0" VerticalAlignment="Top" Width="61" Click="Director_Click"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="42,182,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="219" RenderTransformOrigin="0.464,0.565"/>
+        <Label Content="Email:" HorizontalAlignment="Left" Margin="42,104,0,0" VerticalAlignment="Top"/>
+        <Label Content="Password:" HorizontalAlignment="Left" Margin="42,161,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.552,1.998"/>
+        <Button Content="Login" HorizontalAlignment="Left" Margin="44,243,0,0" VerticalAlignment="Top" Width="104" RenderTransformOrigin="-0.048,0.55"/>
+        <Button Content="Register" HorizontalAlignment="Left" Margin="160,243,0,0" VerticalAlignment="Top" Width="104"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="42,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="219" RenderTransformOrigin="0.464,0.565"/>
+        <TextBlock HorizontalAlignment="Left" Margin="42,206,0,0" TextWrapping="Wrap" Text="Forgot Password?" VerticalAlignment="Top" />
+        <Image HorizontalAlignment="Left" Height="73" Margin="117,33,0,0" VerticalAlignment="Top" Width="66" Source="../Resources/hospital.png"/>
 
     </Grid>
 </Window>

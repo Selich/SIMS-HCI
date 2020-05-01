@@ -7,10 +7,7 @@ using System;
 
 public class MedicalAppointment : Appoitment
 {
-   private MedicalAppointmentType type;
-   
    public System.Collections.Generic.List<Document> documents;
-   
    /// <summary>
    /// Property for collection of Document
    /// </summary>
@@ -33,6 +30,38 @@ public class MedicalAppointment : Appoitment
          }
       }
    }
+   public Doctor[] doctors;
+
+   public Patient patient;
+   /// <summary>
+   /// Property for Patient
+   /// </summary>
+   /// <pdGenerated>Default opposite class property</pdGenerated>
+   public Patient Patient
+   {
+      get
+      {
+         return patient;
+      }
+      set
+      {
+         if (this.patient == null || !this.patient.Equals(value))
+         {
+            if (this.patient != null)
+            {
+               Patient oldPatient = this.patient;
+               this.patient = null;
+               oldPatient.RemoveAppointments(this);
+            }
+            if (value != null)
+            {
+               this.patient = value;
+               this.patient.AddAppointments(this);
+            }
+         }
+      }
+   }
+   
    
    /// <summary>
    /// Add a new Document in the collection
@@ -144,37 +173,6 @@ public class MedicalAppointment : Appoitment
    {
       if (consumebles != null)
          consumebles.Clear();
-   }
-   public Doctor[] doctors;
-   public Patient patient;
-   
-   /// <summary>
-   /// Property for Patient
-   /// </summary>
-   /// <pdGenerated>Default opposite class property</pdGenerated>
-   public Patient Patient
-   {
-      get
-      {
-         return patient;
-      }
-      set
-      {
-         if (this.patient == null || !this.patient.Equals(value))
-         {
-            if (this.patient != null)
-            {
-               Patient oldPatient = this.patient;
-               this.patient = null;
-               oldPatient.RemoveAppointments(this);
-            }
-            if (value != null)
-            {
-               this.patient = value;
-               this.patient.AddAppointments(this);
-            }
-         }
-      }
    }
 
 }
