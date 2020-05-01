@@ -175,6 +175,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Resources\Images\Faces\" />
     <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>

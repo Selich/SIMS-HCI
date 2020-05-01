@@ -5,8 +5,55 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project.Views.Secretary"
         mc:Ignorable="d"
-        Title="HomeWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="HomeWindow" Height="720" Width="1280">
+    <TabControl HorizontalAlignment="Left" Height="720" VerticalAlignment="Top" Width="1280" >
+        <TabItem Header="Termini">
+            <Grid Background="#FFE5E5E5">
+                <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="103" Margin="75,75,0,0" Stroke="Black" VerticalAlignment="Top" Width="1120"/>
+                <Label Content="Naredni termin:" HorizontalAlignment="Left" Margin="70,47,0,0" VerticalAlignment="Top" Width="126"/>
+                <TextBox HorizontalAlignment="Left" Height="24" Margin="75,24,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="187"/>
+
+                <Button Content="Pogledaj Profil&#xD;&#xA;" HorizontalAlignment="Left" Margin="183,142,0,0" VerticalAlignment="Top" Width="121" Height="23" RenderTransformOrigin="-4.198,0.493"/>
+                <Label Content="Label" HorizontalAlignment="Left" Margin="180,89,0,0" VerticalAlignment="Top" Width="94"/>
+                <Image HorizontalAlignment="Left" Height="64" Margin="96,94,0,0" VerticalAlignment="Top" Width="70"/>
+                <Label Content="Label" HorizontalAlignment="Left" Margin="985,109,0,0" VerticalAlignment="Top" Width="94"/>
+                <Label Content="Label" HorizontalAlignment="Left" Margin="985,132,0,0" VerticalAlignment="Top" Width="94"/>
+                <Label Content="Label" HorizontalAlignment="Left" Margin="180,111,0,0" VerticalAlignment="Top" Width="94"/>
+                <Button Content="Demo" HorizontalAlignment="Left" Margin="1034,629,0,0" VerticalAlignment="Top" Width="75"/>
+                <Button Content="Feedback" HorizontalAlignment="Left" Margin="1120,629,0,0" VerticalAlignment="Top" Width="75"/>
+                <TabControl HorizontalAlignment="Left" Height="367" Margin="75,243,0,0" VerticalAlignment="Top" Width="1120">
+                    <TabItem Header="Month">
+                        <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Width="1115" Background="AliceBlue" Height="349" Margin="0,0,-1,-10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="37*"/>
+                                <ColumnDefinition Width="103*"/>
+                            </Grid.ColumnDefinitions>
+                            <Button Content="Before" Background="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Height="25"/>
+                            <Button Content="After"  Background="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="748,0,0,0" Height="25" Grid.Column="1"/>
+                            <Label Content="CurrentDate" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="73,0,77,0" VerticalAlignment="Top" FontSize="14" Width="970" Background="White" Height="25" Grid.ColumnSpan="2"/>
+                        </Grid>
+                    </TabItem>
+                    <TabItem Header="Week">
+                        <Grid Background="White"/>
+                    </TabItem>
+                    <TabItem Header="Day">
+                        <Grid Background="White"/>
+                    </TabItem>
+                    <TabItem Header="List">
+                        <Grid Background="White"/>
+                    </TabItem>
+                </TabControl>
+            </Grid>
+        </TabItem>
+        <TabItem Header="Kreiraj">
+            <Grid Background="#FFE5E5E5"/>
+        </TabItem>
+        <TabItem Header="Pacijenti">
+            <Grid Background="#FFE5E5E5"/>
+        </TabItem>
+        <TabItem Header="Podesavanja">
+            <Grid Background="#FFE5E5E5"/>
+        </TabItem>
+    </TabControl>
+
 </Window>

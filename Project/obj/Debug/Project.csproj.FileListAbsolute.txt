@@ -20,3 +20,7 @@ C:\Users\Selic\Desktop\sims-hci\Project\obj\Debug\Project.csproj.GenerateResourc
 C:\Users\Selic\Desktop\sims-hci\Project\obj\Debug\Project.csproj.CoreCompileInputs.cache
 C:\Users\Selic\Desktop\sims-hci\Project\obj\Debug\Project.exe
 C:\Users\Selic\Desktop\sims-hci\Project\obj\Debug\Project.pdb
+C:\Users\Selic\Desktop\sims-hci\Project\obj\Debug\Views\Director\HomeWindow.g.cs
+C:\Users\Selic\Desktop\sims-hci\Project\obj\Debug\Views\Doctor\HomeWindow.g.cs
+C:\Users\Selic\Desktop\sims-hci\Project\obj\Debug\Views\Director\HomeWindow.baml
+C:\Users\Selic\Desktop\sims-hci\Project\obj\Debug\Views\Doctor\HomeWindow.baml
