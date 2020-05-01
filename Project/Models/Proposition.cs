@@ -10,11 +10,6 @@ public class Proposition
    private string description;
    private PropositionState state;
    
-   public List<Approval> GetAllApprovals()
-   {
-      throw new NotImplementedException();
-   }
-   
    public System.Collections.Generic.List<Approval> approval;
    
    /// <summary>

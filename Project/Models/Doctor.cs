@@ -9,31 +9,6 @@ public class Doctor : Employee
 {
    private string medicalRole;
    
-   public void HandleAppointment()
-   {
-      throw new NotImplementedException();
-   }
-   
-   public void GetPropositions()
-   {
-      throw new NotImplementedException();
-   }
-   
-   public List<Patient> GetAllTreatedPatients()
-   {
-      throw new NotImplementedException();
-   }
-   
-   public void ScheduleOperation()
-   {
-      throw new NotImplementedException();
-   }
-   
-   public void ScheduleExamination()
-   {
-      throw new NotImplementedException();
-   }
-   
    public System.Collections.Generic.List<Review> review;
    
    /// <summary>

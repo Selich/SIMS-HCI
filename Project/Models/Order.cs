@@ -5,7 +5,7 @@
 
 using System;
 
-public class Order : Scheduling
+public class Order
 {
    private DateTime date;
    private string supplier;

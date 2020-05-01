@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Project.Views.Secretary;
+
 
 namespace Project.Views
 {
@@ -22,6 +24,28 @@ namespace Project.Views
         public LoginWindow()
         {
             InitializeComponent();
+
+        }
+
+        private void Secretary_Click(object sender, RoutedEventArgs e)
+        {
+            var s = new Secretary.HomeWindow();
+            s.Show();
+        }
+        private void Doctor_Click(object sender, RoutedEventArgs e)
+        {
+            var s = new Doctor.HomeWindow();
+            s.Show();
+        }
+        private void Director_Click(object sender, RoutedEventArgs e)
+        {
+            var s = new Director.HomeWindow();
+            s.Show();
+        }
+        private void Patient_Click(object sender, RoutedEventArgs e)
+        {
+            var s = new Patient.HomeWindow();
+            s.Show();
         }
     }
 }

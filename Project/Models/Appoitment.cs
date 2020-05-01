@@ -5,7 +5,7 @@
 
 using System;
 
-public class Appoitment : Scheduling
+public class Appoitment
 {
    private DateTime begining;
    private DateTime end;

@@ -7,7 +7,7 @@ using System;
 
 public class DoctorReferral : Document
 {
-   private ReferralType type;
+   private string type;
    private DateTime date;
    
    public Doctor referredDoctor;

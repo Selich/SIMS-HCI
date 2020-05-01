@@ -7,45 +7,7 @@ using System;
 
 public class Director : Employee
 {
-   public bool ScheduleOrder()
-   {
-      throw new NotImplementedException();
-   }
-   
-   public bool ScheduleRenovation()
-   {
-      throw new NotImplementedException();
-   }
-   
-   public bool GetAppointmentsByRoom()
-   {
-      throw new NotImplementedException();
-   }
-   
-   public bool GetAppointmentsByDoctor()
-   {
-      throw new NotImplementedException();
-   }
-   
-   public new bool AddEmployee()
-   {
-      throw new NotImplementedException();
-   }
-   
-   public bool ModifyEmployee()
-   {
-      throw new NotImplementedException();
-   }
-   
-   public bool RemoveEmployee()
-   {
-      throw new NotImplementedException();
-   }
-   
-   public Static MoveInventory()
-   {
-      throw new NotImplementedException();
-   }
+  
    
    public System.Collections.ArrayList propositions;
    

@@ -11,12 +11,7 @@ public class Room
    private RoomType type;
    private string ward;
    private string floor;
-   
-   public Static GetItemByID()
-   {
-      throw new NotImplementedException();
-   }
-   
+
    public System.Collections.Generic.List<Equipment> equipment;
    
    /// <summary>

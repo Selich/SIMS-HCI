@@ -7,35 +7,6 @@ using System;
 
 public class Secretary : Employee
 {
-   public void ScheduleOperation()
-   {
-      throw new NotImplementedException();
-   }
-   
-   public void ScheduleExamination()
-   {
-      throw new NotImplementedException();
-   }
-   
-   public void GetAppointments()
-   {
-      throw new NotImplementedException();
-   }
-   
-   public RegistredPatient CreateRegistredPatient()
-   {
-      throw new NotImplementedException();
-   }
-   
-   public Patient CreateGuestPatient()
-   {
-      throw new NotImplementedException();
-   }
-   
-   public List<Question> GetAllUnansweredQuestions()
-   {
-      throw new NotImplementedException();
-   }
    
    public System.Collections.Generic.List<Question> questions;
    

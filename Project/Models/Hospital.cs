@@ -9,21 +9,6 @@ public class Hospital
 {
    private string name;
    
-   public static List<MedicalAppointment> GetAppointmentsByDoctor()
-   {
-      throw new NotImplementedException();
-   }
-   
-   public List<MedicalAppointemnt> GetAppointemntsByRoom()
-   {
-      throw new NotImplementedException();
-   }
-   
-   public List<MedicalAppointment> GetAppointmentsByTimePeriod()
-   {
-      throw new NotImplementedException();
-   }
-   
    public System.Collections.Generic.List<Medicine> medicines;
    
    /// <summary>

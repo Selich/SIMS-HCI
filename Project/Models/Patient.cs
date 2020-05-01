@@ -10,25 +10,6 @@ public class Patient : User
    private string insurenceNumber;
    private string profession;
    
-   public void ScheduleExamination()
-   {
-      throw new NotImplementedException();
-   }
-   
-   public void AddMedicalCondition()
-   {
-      throw new NotImplementedException();
-   }
-   
-   public void AddAllergies()
-   {
-      throw new NotImplementedException();
-   }
-   
-   public List<Documents> GetDocuments()
-   {
-      throw new NotImplementedException();
-   }
    
    public System.Collections.Generic.List<MedicalAppointment> appointments;
    
