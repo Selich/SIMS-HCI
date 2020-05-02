@@ -8,10 +8,26 @@
         Title="HomeWindow" Height="720" Width="1280">
     <TabControl HorizontalAlignment="Left" Height="720" VerticalAlignment="Top" Width="1280" >
         <TabItem Header="Termini">
-            <Grid Background="#FFE5E5E5">
-                <TabControl HorizontalAlignment="Left" Height="386" Margin="70,224,0,0" VerticalAlignment="Top" Width="1125">
+            <Grid Background="#FFE5E5E5" Margin="20,20,20,60">
+                <Grid Background="#FFE5E5E5" Margin="54,30,54,538">
+                    <TextBox HorizontalAlignment="Left" Height="24" Margin="32,12,0,0" TextWrapping="Wrap" Text="Dr. Filip Zdelar" VerticalAlignment="Top" Width="187"/>
+                    <Button Content="Pretrazi" HorizontalAlignment="Left" Margin="224,12,0,0" VerticalAlignment="Top" Width="77" Height="24"/>
+                </Grid>
+                <Grid Background="#FFE5E5E5" Margin="54,70,54,407">
+                    <Label Content="Naredni termin:" HorizontalAlignment="Left" Margin="15,6,0,0" VerticalAlignment="Top" Width="153" FontSize="18"/>
+                    <Grid HorizontalAlignment="Left" Height="88" Margin="31,38,0,0" VerticalAlignment="Top" Width="1067" Background="White">
+                        <Image HorizontalAlignment="Left" Height="68" Margin="10,10,0,0" VerticalAlignment="Top" Width="79" />
+                        <TextBlock HorizontalAlignment="Left" Margin="107,10,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="0.02,0.938"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="107,31,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="0.02,0.938"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="107,52,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="0.02,0.938"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="881,31,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="0.02,0.938"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="881,52,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="0.02,0.938"/>
+                        <Button Content="Profil" HorizontalAlignment="Left" Margin="948,18,0,0" VerticalAlignment="Top" Width="107" Height="55" />
+                    </Grid>
+                </Grid>
+                <TabControl HorizontalAlignment="Center" Height="386" Margin="20,210,20,0" VerticalAlignment="Top" Width="1126">
                     <TabItem Header="Month">
-                        <Grid Background="DarkGray" HorizontalAlignment="Left" Height="346" Margin="0,-3,-3,0" VerticalAlignment="Top" Width="1122">
+                        <Grid Background="DarkGray" HorizontalAlignment="Left" Height="346" Margin="-2,-1,-1,0" VerticalAlignment="Top" Width="1122">
                             <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="48" Margin="1,2,0,0"/>
                             <Button Content="Button" HorizontalAlignment="Left" Margin="1074,3,0,0" VerticalAlignment="Top" Width="48" Height="18"/>
                             <Grid ShowGridLines="True" Background="White" HorizontalAlignment="Left" Height="336" Margin="0,25,0,-15" VerticalAlignment="Top" Width="1122">
@@ -82,25 +98,6 @@
                         <Rectangle Fill="#FFF4F4F5" Height="100" Stroke="Black" Width="100"/>
                     </TabItem>
                 </TabControl>
-                <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="130" Margin="70,68,0,0" Stroke="Black" VerticalAlignment="Top" Width="1125"/>
-                <Label Content="Naredni termin:" HorizontalAlignment="Left" Margin="70,67,0,0" VerticalAlignment="Top" Width="126"/>
-                <TextBox HorizontalAlignment="Left" Height="24" Margin="70,23,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="187"/>
-                <Grid HorizontalAlignment="Left" Height="88" Margin="85,98,0,0" VerticalAlignment="Top" Width="1098" Background="White">
-                    <Button Content="Pogledaj Profil&#xA;" HorizontalAlignment="Left" Margin="183,142,0,0" VerticalAlignment="Top" Width="121" Height="23" RenderTransformOrigin="-4.198,0.493"/>
-                    <Label Content="Label" HorizontalAlignment="Left" Margin="180,89,0,0" VerticalAlignment="Top" Width="94"/>
-                    <Image HorizontalAlignment="Left" Height="64" Margin="96,94,0,0" VerticalAlignment="Top" Width="70"/>
-                    <Label Content="Label" HorizontalAlignment="Left" Margin="985,109,0,0" VerticalAlignment="Top" Width="94"/>
-                    <Label Content="Label" HorizontalAlignment="Left" Margin="985,132,0,0" VerticalAlignment="Top" Width="94"/>
-                    <Label Content="Label" HorizontalAlignment="Left" Margin="180,111,0,0" VerticalAlignment="Top" Width="94"/>
-                    <Button Content="Demo" HorizontalAlignment="Left" Margin="1034,629,0,0" VerticalAlignment="Top" Width="75"/>
-                    <Button Content="Feedback" HorizontalAlignment="Left" Margin="1120,629,0,0" VerticalAlignment="Top" Width="75"/>
-                    <Image HorizontalAlignment="Left" Height="68" Margin="10,10,0,0" VerticalAlignment="Top" Width="79" />
-                    <TextBlock HorizontalAlignment="Left" Margin="107,10,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="0.02,0.938"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="107,31,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="0.02,0.938"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="107,52,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="0.02,0.938"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="1024,18,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="0.02,0.938"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="1024,46,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="0.02,0.938"/>
-                </Grid>
             </Grid>
         </TabItem>
         <TabItem Header="Kreiraj">
