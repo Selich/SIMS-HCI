@@ -5,8 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project.Views.Doctor"
         mc:Ignorable="d"
-        Title="HomeWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="MainWindow" Height="719.8" Width="1280">
+    <Grid Margin="2,2,-2,-2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="26*"/>
+            <ColumnDefinition Width="7*"/>
+        </Grid.ColumnDefinitions>
+
+
+
+        <TabControl Margin="10,10,0.2,10.4">
+
+            <TabItem Header="Personal inforamtions">
+                <Calendar Margin="411,42,-346.6,318.4" Grid.Column="1"/>
+            </TabItem>
+            <TabItem Header="Appointments">
+                <TabControl Margin="61,92,243.6,60.6">
+                    <TabItem Header="Medical history">abc</TabItem>
+                    <TabItem Header="Prescribe medications">abc</TabItem>
+                    <TabItem Header="Diagnose">abc</TabItem>
+                    <TabItem Header="Referral the parient">abc</TabItem>
+                </TabControl>
+            </TabItem>
+            <TabItem Header="Service">abc</TabItem>
+            <TabItem Header="Feedback">abc</TabItem>
+        </TabControl>
     </Grid>
 </Window>
