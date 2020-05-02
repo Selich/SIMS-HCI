@@ -27,10 +27,12 @@
                 </Grid>
                 <TabControl HorizontalAlignment="Center" Height="386" Margin="20,210,20,0" VerticalAlignment="Top" Width="1126">
                     <TabItem Header="Month">
-                        <Grid Background="DarkGray" HorizontalAlignment="Left" Height="346" Margin="-2,-1,-1,0" VerticalAlignment="Top" Width="1122">
-                            <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="48" Margin="1,2,0,0"/>
-                            <Button Content="Button" HorizontalAlignment="Left" Margin="1074,3,0,0" VerticalAlignment="Top" Width="48" Height="18"/>
-                            <Grid ShowGridLines="True" Background="White" HorizontalAlignment="Left" Height="336" Margin="0,25,0,-15" VerticalAlignment="Top" Width="1122">
+                        <Grid Background="DarkGray" HorizontalAlignment="Left" Height="351" Margin="0,0,0,0" VerticalAlignment="Top" Width="1122">
+                            <Grid Background="DarkGray" HorizontalAlignment="Left" Height="25" Margin="0,0,0,0" VerticalAlignment="Top" Width="1122">
+                                <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Center" Width="48" Margin="0,2,0,0"/>
+                                <Button Content="Button" HorizontalAlignment="Right" Margin="0,2,0,0" VerticalAlignment="Center" Width="48" Height="18"/>
+                            </Grid>
+                        <Grid ShowGridLines="True" Background="White" HorizontalAlignment="Left" Height="336" Margin="0,25,0,-15" VerticalAlignment="Top" Width="1122">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition />
                                     <ColumnDefinition />
