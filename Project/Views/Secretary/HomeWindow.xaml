@@ -9,28 +9,84 @@
     <TabControl HorizontalAlignment="Left" Height="720" VerticalAlignment="Top" Width="1280" >
         <TabItem Header="Termini">
             <Grid Background="#FFE5E5E5">
-                <Label Content="Naredni termin:" HorizontalAlignment="Left" Margin="70,47,0,0" VerticalAlignment="Top" Width="126"/>
-                <TextBox HorizontalAlignment="Left" Height="24" Margin="75,24,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="187"/>
-                <TabControl HorizontalAlignment="Left" Height="367" Margin="75,243,0,0" VerticalAlignment="Top" Width="1120">
+                <TabControl HorizontalAlignment="Left" Height="386" Margin="70,224,0,0" VerticalAlignment="Top" Width="1125">
                     <TabItem Header="Month">
-                        <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Width="1115" Background="AliceBlue" Height="349" Margin="0,0,-1,-10">
-                            <Button Content="Before" Background="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Height="25"/>
-                            <Button Content="After"  Background="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="748,0,0,0" Height="25" Grid.Column="1"/>
-                            <Label Content="CurrentDate" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="73,0,77,0" VerticalAlignment="Top" FontSize="14" Width="970" Background="White" Height="25" Grid.ColumnSpan="2"/>
+                        <Grid Background="DarkGray" HorizontalAlignment="Left" Height="346" Margin="0,-3,-3,0" VerticalAlignment="Top" Width="1122">
+                            <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="48" Margin="1,2,0,0"/>
+                            <Button Content="Button" HorizontalAlignment="Left" Margin="1074,3,0,0" VerticalAlignment="Top" Width="48" Height="18"/>
+                            <Grid ShowGridLines="True" Background="White" HorizontalAlignment="Left" Height="336" Margin="0,25,0,-15" VerticalAlignment="Top" Width="1122">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+
+                                <Button FontSize="12" FontWeight="Bold" Grid.Row="1" Grid.Column="0" Click="Button_Click">Dan 1</Button>
+                                <Button FontSize="12" FontWeight="Bold" Grid.Row="1" Grid.Column="1" Click="Button_Click">Dan 2</Button>
+                                <Button FontSize="12" FontWeight="Bold" Grid.Row="1" Grid.Column="2" Click="Button_Click">Dan 3</Button>
+                            </Grid>
                         </Grid>
                     </TabItem>
                     <TabItem Header="Week">
-                        <Grid Background="White"/>
+                        <Grid Background="DarkGray" HorizontalAlignment="Left" Height="346" Margin="0,-3,-3,0" VerticalAlignment="Top" Width="1122">
+                            <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="48" Margin="1,2,0,0"/>
+                            <Button Content="Button" HorizontalAlignment="Left" Margin="1074,3,0,0" VerticalAlignment="Top" Width="48" Height="18"/>
+                            <Grid ShowGridLines="True" Background="White" HorizontalAlignment="Left" Height="336" Margin="0,25,0,-15" VerticalAlignment="Top" Width="1122">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+
+                            </Grid>
+                        </Grid>
                     </TabItem>
                     <TabItem Header="Day">
-                        <Grid Background="White"/>
+                        <Grid Background="DarkGray" HorizontalAlignment="Left" Height="346" Margin="0,-3,-3,0" VerticalAlignment="Top" Width="1122">
+                            <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="48" Margin="1,2,0,0"/>
+                            <Button Content="Button" HorizontalAlignment="Left" Margin="1074,3,0,0" VerticalAlignment="Top" Width="48" Height="18"/>
+                            <Grid ShowGridLines="True" Background="White" HorizontalAlignment="Left" Height="336" Margin="0,25,0,-15" VerticalAlignment="Top" Width="1122">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+
+                            </Grid>
+                        </Grid>
                     </TabItem>
                     <TabItem Header="List">
-                        <Grid Background="White"/>
+                        <Rectangle Fill="#FFF4F4F5" Height="100" Stroke="Black" Width="100"/>
                     </TabItem>
                 </TabControl>
-                <Grid HorizontalAlignment="Left" Height="88" Margin="70,89,0,0" VerticalAlignment="Top" Width="1125" Background="White">
-                    <Button Content="Pogledaj Profil&#xD;&#xA;" HorizontalAlignment="Left" Margin="183,142,0,0" VerticalAlignment="Top" Width="121" Height="23" RenderTransformOrigin="-4.198,0.493"/>
+                <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="130" Margin="70,68,0,0" Stroke="Black" VerticalAlignment="Top" Width="1125"/>
+                <Label Content="Naredni termin:" HorizontalAlignment="Left" Margin="70,67,0,0" VerticalAlignment="Top" Width="126"/>
+                <TextBox HorizontalAlignment="Left" Height="24" Margin="70,23,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="187"/>
+                <Grid HorizontalAlignment="Left" Height="88" Margin="85,98,0,0" VerticalAlignment="Top" Width="1098" Background="White">
+                    <Button Content="Pogledaj Profil&#xA;" HorizontalAlignment="Left" Margin="183,142,0,0" VerticalAlignment="Top" Width="121" Height="23" RenderTransformOrigin="-4.198,0.493"/>
                     <Label Content="Label" HorizontalAlignment="Left" Margin="180,89,0,0" VerticalAlignment="Top" Width="94"/>
                     <Image HorizontalAlignment="Left" Height="64" Margin="96,94,0,0" VerticalAlignment="Top" Width="70"/>
                     <Label Content="Label" HorizontalAlignment="Left" Margin="985,109,0,0" VerticalAlignment="Top" Width="94"/>
@@ -42,9 +98,8 @@
                     <TextBlock HorizontalAlignment="Left" Margin="107,10,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="0.02,0.938"/>
                     <TextBlock HorizontalAlignment="Left" Margin="107,31,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="0.02,0.938"/>
                     <TextBlock HorizontalAlignment="Left" Margin="107,52,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="0.02,0.938"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="952,24,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="0.02,0.938"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="952,45,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="0.02,0.938"/>
-                    <Button Content="Button" HorizontalAlignment="Left" Margin="1022,18,0,0" VerticalAlignment="Top" Width="87" Height="50"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="1024,18,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="0.02,0.938"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="1024,46,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="0.02,0.938"/>
                 </Grid>
             </Grid>
         </TabItem>
