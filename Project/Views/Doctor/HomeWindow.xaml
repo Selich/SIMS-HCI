@@ -14,19 +14,55 @@
 
 
 
-        <TabControl Margin="10,10,0.2,10.4">
+        <TabControl Grid.ColumnSpan="2" Margin="0,0,9.6,0.4" >
 
             <TabItem Header="Personal inforamtions">
-                <Calendar Margin="411,42,-346.6,318.4" Grid.Column="1"/>
+                <Calendar Margin="411,42,-346.6,318.4"/>
             </TabItem>
             <TabItem Header="Appointments">
-                <TabControl Margin="61,92,243.6,60.6">
-                    <TabItem Header="Medical history">abc</TabItem>
-                    <TabItem Header="Prescribe medications">abc</TabItem>
-                    <TabItem Header="Diagnose">abc</TabItem>
-                    <TabItem Header="Referral the parient">abc</TabItem>
-                </TabControl>
+                <Grid Background="#FFE5E5E5" Margin="0,0,-2.4,-0.4">
+                    <TabControl Margin="61,92,399.8,60.4">
+                        <TabItem Header="Medical history">abc</TabItem>
+                        <TabItem Header="Prescribe medications">abc</TabItem>
+                        <TabItem Header="Diagnose">abc</TabItem>
+                        <TabItem Header="Referral the parient">abc</TabItem>
+                    </TabControl>
+                    
+                    <ListBox HorizontalAlignment="Left" Height="451" Margin="584,92,0,0" VerticalAlignment="Top" Width="356">
+                        <Grid  Background="White" Height="25" Width="341">
+                            <CheckBox HorizontalContentAlignment="Center" VerticalAlignment="Center" Content="8:00 Term"/>
+                        </Grid>
+                        <Grid  Background="DarkSeaGreen" Height="25" Width="341">
+                            <CheckBox Background="White" HorizontalContentAlignment="Center" VerticalAlignment="Center" Content="9:00 Term"/>
+                        </Grid>
+                        <Grid  Background="White" Height="25" Width="341">
+                            <CheckBox Background="White" HorizontalContentAlignment="Center" VerticalAlignment="Center" Content="10:00 Term"/>
+                        </Grid>
+                        <Grid  Background="White" Height="25" Width="341">
+                            <CheckBox Background="White" HorizontalContentAlignment="Center" VerticalAlignment="Center" Content="11:00 Term"/>
+                        </Grid>
+                        <Grid  Background="White" Height="25" Width="341">
+                            <CheckBox Background="White" HorizontalContentAlignment="Center" VerticalAlignment="Center" Content="12:00 Term"/>
+                        </Grid>
+                        <Grid  Background="White" Height="25" Width="341">
+                            <CheckBox Background="White" HorizontalContentAlignment="Center" VerticalAlignment="Center" Content="13:00 Term"/>
+                        </Grid>
+                        <Grid  Background="DarkSeaGreen" Height="25" Width="341">
+                            <CheckBox Background="White" HorizontalContentAlignment="Center" VerticalAlignment="Center" Content="14:00 Term"/>
+                        </Grid>
+                        <Grid  Background="White" Height="25" Width="341">
+                            <CheckBox Background="White" HorizontalContentAlignment="Center" VerticalAlignment="Center" Content="15:00 Term"/>
+                        </Grid>
+                        <Grid  Background="White" Height="25" Width="341">
+                            <CheckBox Background="White" HorizontalContentAlignment="Center" VerticalAlignment="Center" Content="16:00 Term"/>
+                        </Grid>
+                        <Grid  Background="White" Height="25" Width="341">
+                            <CheckBox Background="White" HorizontalContentAlignment="Center" VerticalAlignment="Center" Content="17:00 Term"/>
+                        </Grid>
+                    </ListBox>
+                </Grid>
             </TabItem>
+            <TabItem Header="List of patients">abc</TabItem>
             <TabItem Header="Service">abc</TabItem>
             <TabItem Header="Feedback">abc</TabItem>
         </TabControl>
