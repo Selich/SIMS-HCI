@@ -117,7 +117,6 @@
                         <TextBlock HorizontalAlignment="Left" Margin="107,52,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="0.02,0.938"/>
                         <TextBlock HorizontalAlignment="Left" Margin="952,24,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="0.02,0.938"/>
                         <TextBlock HorizontalAlignment="Left" Margin="952,45,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="0.02,0.938"/>
-                        <Button Content="Button" HorizontalAlignment="Left" Margin="1022,18,0,0" VerticalAlignment="Top" Width="87" Height="50"/>
                     </Grid>
                     <Grid HorizontalAlignment="Left" Height="88" Margin="0,9,0,0" VerticalAlignment="Top" Width="1125" Background="White">
                         <Button Content="Pogledaj Profil&#xD;&#xA;" HorizontalAlignment="Left" Margin="183,142,0,0" VerticalAlignment="Top" Width="121" Height="23" RenderTransformOrigin="-4.198,0.493"/>
@@ -134,7 +133,6 @@
                         <TextBlock HorizontalAlignment="Left" Margin="107,52,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="0.02,0.938"/>
                         <TextBlock HorizontalAlignment="Left" Margin="952,24,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="0.02,0.938"/>
                         <TextBlock HorizontalAlignment="Left" Margin="952,45,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="0.02,0.938"/>
-                        <Button Content="Button" HorizontalAlignment="Left" Margin="1022,18,0,0" VerticalAlignment="Top" Width="87" Height="50"/>
                     </Grid>
                     <Grid HorizontalAlignment="Left" Height="88" Margin="0,9,0,0" VerticalAlignment="Top" Width="1125" Background="White">
                         <Button Content="Pogledaj Profil&#xD;&#xA;" HorizontalAlignment="Left" Margin="183,142,0,0" VerticalAlignment="Top" Width="121" Height="23" RenderTransformOrigin="-4.198,0.493"/>
@@ -151,7 +149,6 @@
                         <TextBlock HorizontalAlignment="Left" Margin="107,52,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="0.02,0.938"/>
                         <TextBlock HorizontalAlignment="Left" Margin="952,24,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="0.02,0.938"/>
                         <TextBlock HorizontalAlignment="Left" Margin="952,45,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="0.02,0.938"/>
-                        <Button Content="Button" HorizontalAlignment="Left" Margin="1022,18,0,0" VerticalAlignment="Top" Width="87" Height="50"/>
                     </Grid>
                     <Grid HorizontalAlignment="Left" Height="88" Margin="0,9,0,0" VerticalAlignment="Top" Width="1125" Background="White">
                         <Button Content="Pogledaj Profil&#xD;&#xA;" HorizontalAlignment="Left" Margin="183,142,0,0" VerticalAlignment="Top" Width="121" Height="23" RenderTransformOrigin="-4.198,0.493"/>
@@ -168,7 +165,6 @@
                         <TextBlock HorizontalAlignment="Left" Margin="107,52,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="0.02,0.938"/>
                         <TextBlock HorizontalAlignment="Left" Margin="952,24,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="0.02,0.938"/>
                         <TextBlock HorizontalAlignment="Left" Margin="952,45,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="0.02,0.938"/>
-                        <Button Content="Button" HorizontalAlignment="Left" Margin="1022,18,0,0" VerticalAlignment="Top" Width="87" Height="50"/>
                     </Grid>
                     <Grid HorizontalAlignment="Left" Height="88" Margin="0,9,0,0" VerticalAlignment="Top" Width="1125" Background="White">
                         <Button Content="Pogledaj Profil&#xD;&#xA;" HorizontalAlignment="Left" Margin="183,142,0,0" VerticalAlignment="Top" Width="121" Height="23" RenderTransformOrigin="-4.198,0.493"/>
@@ -185,7 +181,6 @@
                         <TextBlock HorizontalAlignment="Left" Margin="107,52,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="0.02,0.938"/>
                         <TextBlock HorizontalAlignment="Left" Margin="952,24,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="0.02,0.938"/>
                         <TextBlock HorizontalAlignment="Left" Margin="952,45,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="0.02,0.938"/>
-                        <Button Content="Button" HorizontalAlignment="Left" Margin="1022,18,0,0" VerticalAlignment="Top" Width="87" Height="50"/>
                     </Grid>
                 </ListBox>
             </Grid>
