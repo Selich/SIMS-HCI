@@ -1,0 +1,19 @@
+﻿<Window x:Class="Project.Views.Patient.Feedback"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Project.Views.Patient"
+        mc:Ignorable="d"
+        Title="Feedback" Height="458" Width="567">
+    <Grid>
+        <Label Content="Issue type:" Margin="10,10,472,383"/>
+        <ComboBox Margin="10,48,404,348">
+            <ComboBoxItem>Issue 1</ComboBoxItem>
+            <ComboBoxItem>Issue 2</ComboBoxItem>
+        </ComboBox>
+        <TextBox Margin="10,95,10,83"></TextBox>
+        <Button Content="Send" Margin="23,365,472,31"/>
+        <Button Content="Cancel" Margin="134,365,361,31" Click="Cancel_Click"/>
+    </Grid>
+</Window>
