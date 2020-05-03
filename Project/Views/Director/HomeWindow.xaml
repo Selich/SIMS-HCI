@@ -1,4 +1,5 @@
 ﻿<Window x:Class="Project.Views.Director.HomeWindow"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -8,7 +9,7 @@
         Title="HomeWindow" Height="720" Width="1280">
     <TabControl HorizontalAlignment="Left" Height="720" VerticalAlignment="Top" Width="1280" >
         <TabItem Header="Profil">
-            <Grid Background="#FFE5E5E5" Margin="0,0,0,28">
+            <Grid Margin="0,0,0,28">
                 <Image x:Name="SlikaUpravnika" Source="/Resources/hospital.png"  HorizontalAlignment="Left" Height="278" Margin="28,11,0,0" VerticalAlignment="Top" Width="276" OpacityMask="#FFF12511"/>
                 <StackPanel Margin="333,77,825,404" Orientation="Vertical">
                     <Label Content="Korisnicko ime:" HorizontalAlignment="Left" Margin="20,0,-7,0" VerticalAlignment="Top" FontSize="14"/>
@@ -48,23 +49,288 @@
                         <ImageBrush/>
                     </TextBlock.Background>
                 </TextBlock>
-                <Button Content="Prijavi gresku" HorizontalAlignment="Left" Margin="1158,629,0,0" VerticalAlignment="Top" Width="75" Click="OpenBugReportModal"/>
+                <Button Content="Prijavi gresku" HorizontalAlignment="Left" Margin="1156,603,0,0" VerticalAlignment="Top" Width="75" Click="OpenBugReportModal"/>
                 <Button Content="Podesavanja" HorizontalAlignment="Left" Margin="1158,53,0,0" VerticalAlignment="Top" Width="76" Click="OpenSettingsModal"/>
                 <Button Name="Save_btn" Content="Sacuvaj" Visibility="Hidden"  HorizontalAlignment="Left" Margin="353,244,0,0" VerticalAlignment="Top" Width="75" Click="ConfirmProfileChanges"/>
                 <Button Name="Cancel_btn" Content="Odustani" Visibility="Hidden"   HorizontalAlignment="Left" Margin="478,244,0,0" VerticalAlignment="Top" Width="76" Click="CancelProfileChanges"/>
             </Grid>
         </TabItem>
         <TabItem Header="Zaposleni">
-            <Grid Background="#FFE5E5E5" Margin="0,0,0,26" RenderTransformOrigin="0.356,0.398">
-                <Grid Margin="44,78,74,466"/>
+            <Grid Margin="0,0,0,26">
+                <Label Content="Rezultati pretrage" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,36,0,0" FontSize="20" Grid.ColumnSpan="2"/>
+                <Grid Margin="40,97,40,457">
+                    <ComboBox HorizontalAlignment="Left" Margin="24,36,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="-0.029,0.607">
+                        <ComboBoxItem IsSelected="True">Svi zaposleni</ComboBoxItem>
+                        <ComboBoxItem>Sekretari</ComboBoxItem>
+                        <ComboBoxItem>Lekari</ComboBoxItem>
+                    </ComboBox>
+                    <Label Content="Ime:" HorizontalAlignment="Left" Margin="188,40,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.472,0.75"/>
+                    <Label Content="Prezime:" HorizontalAlignment="Left" Margin="377,40,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.472,0.75"/>
+                    <Label Content="Specijalizacija:" HorizontalAlignment="Left" Margin="584,40,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.472,0.75"/>
+                    <Label Content="Sortirati po:" HorizontalAlignment="Left" Margin="839,42,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.472,0.75"/>
+                    <TextBox HorizontalAlignment="Left" Height="22" Margin="429,41,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+                    <TextBox HorizontalAlignment="Left" Height="22" Margin="224,41,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0,0.432"/>
+                    <TextBox HorizontalAlignment="Left" Height="22" Margin="678,41,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="915,40,0,0" VerticalAlignment="Top" Width="120">
+                        <ComboBoxItem IsSelected="True">Ime(A-Z)</ComboBoxItem>
+                        <ComboBoxItem>Prezime(A-Z)</ComboBoxItem>
+                        <ComboBoxItem>...</ComboBoxItem>
+                    </ComboBox>
+                    <Button Height="50" Margin="1073,29,10,29" Content="Pretraga"/>
 
+                </Grid>
+                <ListBox ScrollViewer.VerticalScrollBarVisibility="Visible" BorderThickness="2" Background="NavajoWhite" HorizontalAlignment="Left" Height="424" Margin="40,210,0,0" VerticalAlignment="Top" Width="802">
+                    <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth4" Width="726" Height="90">
+                        <Grid>
+                            <Image Source="../../Resources/Images/Faces/face1" HorizontalAlignment="Left" Height="65" Margin="26,11,0,0" VerticalAlignment="Top" Width="66" Stretch="Fill"/>
+                            <TextBlock FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" Margin="120,15,0,0" TextWrapping="Wrap" Text="Uros Miladinovic" VerticalAlignment="Top"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="120,56,0,0" TextWrapping="Wrap" Text="Telefon: +38163432444" VerticalAlignment="Top"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="514,23,0,0" TextWrapping="Wrap" Text="10:00 - 12:00" VerticalAlignment="Top"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="538,46,0,0" TextWrapping="Wrap" Text="Sala 101" VerticalAlignment="Top"/>
+                            <Button Content="Detaljnije" HorizontalAlignment="Right" Margin="0,10,30,0" VerticalAlignment="Top" Width="100" Height="65"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="120,38,0,0" TextWrapping="Wrap" Text="Adresa:" VerticalAlignment="Top"/>
+                        </Grid>
+                    </materialDesign:Card>
+                    <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth4" Width="726" Height="88">
+                        <Grid>
+                            <Image Source="../../Resources/Images/Faces/face2" HorizontalAlignment="Left" Height="65" Margin="26,11,0,0" VerticalAlignment="Top" Width="66" Stretch="Fill"/>
+                            <TextBlock FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" Margin="120,15,0,0" TextWrapping="Wrap" Text="Uros Miladinovic" VerticalAlignment="Top"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="120,56,0,0" TextWrapping="Wrap" Text="Telefon: +38163432444" VerticalAlignment="Top"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="515,22,0,0" TextWrapping="Wrap" Text="10:00 - 12:00" VerticalAlignment="Top"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="539,45,0,0" TextWrapping="Wrap" Text="Sala 101" VerticalAlignment="Top"/>
+                            <Button Content="Detaljnije" HorizontalAlignment="Right" Margin="0,10,28,0" VerticalAlignment="Top" Width="100" Height="65"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="120,38,0,0" TextWrapping="Wrap" Text="Adresa:" VerticalAlignment="Top"/>
+
+                        </Grid>
+
+                    </materialDesign:Card>
+                    <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth4" Width="725" Height="85">
+                        <Grid>
+                            <Image Source="../../Resources/Images/Faces/face3" HorizontalAlignment="Left" Height="65" Margin="26,11,0,0" VerticalAlignment="Top" Width="66" Stretch="Fill"/>
+                            <TextBlock FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" Margin="120,15,0,0" TextWrapping="Wrap" Text="Uros Miladinovic" VerticalAlignment="Top"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="120,56,0,0" TextWrapping="Wrap" Text="Telefon: +38163432444" VerticalAlignment="Top"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="515,20,0,0" TextWrapping="Wrap" Text="10:00 - 12:00" VerticalAlignment="Top"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="539,43,0,0" TextWrapping="Wrap" Text="Sala 101" VerticalAlignment="Top"/>
+                            <Button Content="Detaljnije" HorizontalAlignment="Right" Margin="0,11,25,0" VerticalAlignment="Top" Width="100" Height="65"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="120,38,0,0" TextWrapping="Wrap" Text="Adresa:" VerticalAlignment="Top"/>
+
+                        </Grid>
+
+                    </materialDesign:Card>
+                </ListBox>
+                <Button Content="Prijavi gresku" HorizontalAlignment="Left" Margin="1151,602,0,0" VerticalAlignment="Top" Width="75" Click="OpenBugReportModal"/>
+                <Button Content="Dodaj zaposlenog" HorizontalAlignment="Left" Margin="1048,38,0,0" VerticalAlignment="Top" Width="178" Height="35"/>
+                <GroupBox Header="Izvestaj" Margin="862,210,48,98" Padding="10">
+                    <StackPanel>
+                        <TextBlock>Pocetak:</TextBlock>
+                        <DatePicker/>
+
+                        <TextBlock>Kraj:</TextBlock>
+                        <DatePicker/>
+                        <TextBlock><Run Text="Filter:"/></TextBlock>
+                        <ComboBox>
+                            <ComboBoxItem IsSelected="True">Opcija 1</ComboBoxItem>
+                            <ComboBoxItem>Opcija 2</ComboBoxItem>
+                            <ComboBoxItem>Opcija 3</ComboBoxItem>
+                        </ComboBox>
+                        <Button Margin="0,20" Content="Izgenerisi izvestaj"/>
+                    </StackPanel>
+                </GroupBox>
             </Grid>
         </TabItem>
         <TabItem Header="Oprema">
+            <Grid Margin="0,0,0,26">
+                <Label Content="Rezultati pretrage" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,36,0,0" FontSize="20" Grid.ColumnSpan="2"/>
+                <Grid Margin="40,97,40,457">
+                    <ComboBox HorizontalAlignment="Left" Margin="24,36,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="-0.029,0.607">
+                        <ComboBoxItem IsSelected="True">Sva oprema</ComboBoxItem>
+                        <ComboBoxItem>Materijali</ComboBoxItem>
+                        <ComboBoxItem>Osnovna sredstva</ComboBoxItem>
+                    </ComboBox>
+                    <Label Content="ID:" HorizontalAlignment="Left" Margin="188,40,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.472,0.75"/>
+                    <Label Content="Tip::" HorizontalAlignment="Left" Margin="377,40,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.472,0.75"/>
+                    <Label Content="Odobrene za:" HorizontalAlignment="Left" Margin="584,40,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.472,0.75"/>
+                    <Label Content="Sotirati po:" HorizontalAlignment="Left" Margin="839,42,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.472,0.75"/>
+                    <TextBox HorizontalAlignment="Left" Height="22" Margin="429,41,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+                    <TextBox HorizontalAlignment="Left" Height="22" Margin="224,41,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0,0.432"/>
+                    <TextBox HorizontalAlignment="Left" Height="22" Margin="678,41,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="915,40,0,0" VerticalAlignment="Top" Width="120">
+                        <ComboBoxItem IsSelected="True">Naziv(A-Z)</ComboBoxItem>
+                        <ComboBoxItem>Tip(A-Z)</ComboBoxItem>
+                        <ComboBoxItem>...</ComboBoxItem>
+                    </ComboBox>
+                    <Button Height="50" Margin="1073,29,10,29" Content="Pretraga"/>
+
+                </Grid>
+
+                <ListBox ScrollViewer.VerticalScrollBarVisibility="Visible" BorderThickness="2" Background="NavajoWhite" HorizontalAlignment="Left" Height="450" Margin="40,188,0,0" VerticalAlignment="Top" Width="1100">
+                    <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth4" Width="1067" Height="90">
+                        <Grid>
+
+                            <Image Source="Resources/hospital.png" HorizontalAlignment="Left" Height="65" Margin="26,11,0,0" VerticalAlignment="Top" Width="66" Stretch="Fill"/>
+                            <TextBlock FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" Margin="120,15,0,0" TextWrapping="Wrap" Text="Naziv" VerticalAlignment="Top"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="120,56,0,0" TextWrapping="Wrap" Text="Tip: neka vrednost" VerticalAlignment="Top"/>
+                            <Button Content="Termin" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="100" Height="65" />
+                            <TextBlock HorizontalAlignment="Left" Margin="120,38,0,0" TextWrapping="Wrap" Text="ID: 1234" VerticalAlignment="Top"/>
+                            <Button Content="+Naruci" HorizontalAlignment="Left" Margin="266,46,0,0" VerticalAlignment="Top" Width="94"/>
+                            <TextBlock FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" Margin="371,11,0,0" TextWrapping="Wrap" Text="Trenutna kolicina" VerticalAlignment="Top"/>
+                            <ScrollViewer BorderBrush="Black" BorderThickness="2"   HorizontalAlignment="Left" Height="69" Margin="508,11,0,0" VerticalAlignment="Top" Width="77">
+                                <StackPanel>
+                                    <TextBlock>Soba 1</TextBlock>
+                                    <TextBlock>Soba 2</TextBlock>
+                                    <TextBlock>Soba 3</TextBlock>
+                                    <TextBlock>Soba 4</TextBlock>
+                                </StackPanel>
+                            </ScrollViewer>
+                            <TextBlock  HorizontalAlignment="Left" Margin="593,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="69" Width="87"><Run Text="Ukupno:"/><LineBreak/><Run Text="U upotrebi:"/><LineBreak/><Run Text="Naruceno:"/><LineBreak/><Run/></TextBlock>
+                            <ScrollViewer BorderBrush="Black" BorderThickness="2"   HorizontalAlignment="Left" Height="69" Margin="838,10,0,0" VerticalAlignment="Top" Width="77">
+                                <StackPanel>
+                                    <TextBlock><Run Text="Soba 1"/></TextBlock>
+                                    <TextBlock><Run Text="Soba 2"/></TextBlock>
+                                    <TextBlock><Run Text="Soba 3"/></TextBlock>
+                                    <TextBlock><Run Text="Soba 4"/></TextBlock>
+                                </StackPanel>
+                            </ScrollViewer>
+                            <Button Content="Premesti" HorizontalAlignment="Left" Margin="701,13,0,0" VerticalAlignment="Top" Width="94"/>
+
+                        </Grid>
+                    </materialDesign:Card>
+                    <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth4" Width="1067" Height="90">
+                        <Grid>
+
+                            <Image Source="/Project;component/Resources/hospital.png" HorizontalAlignment="Left" Height="65" Margin="26,11,0,0" VerticalAlignment="Top" Width="66" Stretch="Fill"/>
+                            <TextBlock FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" Margin="120,15,0,0" TextWrapping="Wrap" Text="Naziv" VerticalAlignment="Top"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="120,56,0,0" TextWrapping="Wrap" Text="Tip: neka vrednost" VerticalAlignment="Top"/>
+                            <Button Content="Termin" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="100" Height="65" />
+                            <TextBlock HorizontalAlignment="Left" Margin="120,38,0,0" TextWrapping="Wrap" Text="ID: 1234" VerticalAlignment="Top"/>
+                            <Button Content="+Naruci" HorizontalAlignment="Left" Margin="266,46,0,0" VerticalAlignment="Top" Width="94"/>
+                            <TextBlock FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" Margin="371,11,0,0" TextWrapping="Wrap" Text="Trenutna kolicina" VerticalAlignment="Top"/>
+                            <ScrollViewer BorderBrush="Black" BorderThickness="2"   HorizontalAlignment="Left" Height="69" Margin="508,11,0,0" VerticalAlignment="Top" Width="77">
+                                <StackPanel>
+                                    <TextBlock><Run Text="Soba 1"/></TextBlock>
+                                    <TextBlock><Run Text="Soba 2"/></TextBlock>
+                                    <TextBlock><Run Text="Soba 3"/></TextBlock>
+                                    <TextBlock><Run Text="Soba 4"/></TextBlock>
+                                </StackPanel>
+                            </ScrollViewer>
+                            <TextBlock  HorizontalAlignment="Left" Margin="593,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="69" Width="87"><Run Text="Ukupno:"/><LineBreak/><Run Text="U upotrebi:"/><LineBreak/><Run Text="Naruceno:"/><LineBreak/><Run/></TextBlock>
+                            <ScrollViewer BorderBrush="Black" BorderThickness="2"   HorizontalAlignment="Left" Height="69" Margin="838,10,0,0" VerticalAlignment="Top" Width="77">
+                                <StackPanel>
+                                    <TextBlock><Run Text="Soba 1"/></TextBlock>
+                                    <TextBlock><Run Text="Soba 2"/></TextBlock>
+                                    <TextBlock><Run Text="Soba 3"/></TextBlock>
+                                    <TextBlock><Run Text="Soba 4"/></TextBlock>
+                                </StackPanel>
+                            </ScrollViewer>
+                            <Button Content="Premesti" HorizontalAlignment="Left" Margin="701,13,0,0" VerticalAlignment="Top" Width="94"/>
+
+                        </Grid>
+                    </materialDesign:Card>
+                    <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth4" Width="1067" Height="90">
+                        <Grid>
+
+                            <Image Source="/Project;component/Resources/hospital.png" HorizontalAlignment="Left" Height="65" Margin="26,11,0,0" VerticalAlignment="Top" Width="66" Stretch="Fill"/>
+                            <TextBlock FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" Margin="120,15,0,0" TextWrapping="Wrap" Text="Naziv" VerticalAlignment="Top"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="120,56,0,0" TextWrapping="Wrap" Text="Tip: neka vrednost" VerticalAlignment="Top"/>
+                            <Button Content="Termin" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="100" Height="65" />
+                            <TextBlock HorizontalAlignment="Left" Margin="120,38,0,0" TextWrapping="Wrap" Text="ID: 1234" VerticalAlignment="Top"/>
+                            <Button Content="+Naruci" HorizontalAlignment="Left" Margin="266,46,0,0" VerticalAlignment="Top" Width="94"/>
+                            <TextBlock FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" Margin="371,11,0,0" TextWrapping="Wrap" Text="Trenutna kolicina" VerticalAlignment="Top"/>
+                            <ScrollViewer BorderBrush="Black" BorderThickness="2"   HorizontalAlignment="Left" Height="69" Margin="508,11,0,0" VerticalAlignment="Top" Width="77">
+                                <StackPanel>
+                                    <TextBlock><Run Text="Soba 1"/></TextBlock>
+                                    <TextBlock><Run Text="Soba 2"/></TextBlock>
+                                    <TextBlock><Run Text="Soba 3"/></TextBlock>
+                                    <TextBlock><Run Text="Soba 4"/></TextBlock>
+                                </StackPanel>
+                            </ScrollViewer>
+                            <TextBlock  HorizontalAlignment="Left" Margin="593,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="69" Width="87"><Run Text="Ukupno:"/><LineBreak/><Run Text="U upotrebi:"/><LineBreak/><Run Text="Naruceno:"/><LineBreak/><Run/></TextBlock>
+                            <ScrollViewer BorderBrush="Black" BorderThickness="2"   HorizontalAlignment="Left" Height="69" Margin="838,10,0,0" VerticalAlignment="Top" Width="77">
+                                <StackPanel>
+                                    <TextBlock><Run Text="Soba 1"/></TextBlock>
+                                    <TextBlock><Run Text="Soba 2"/></TextBlock>
+                                    <TextBlock><Run Text="Soba 3"/></TextBlock>
+                                    <TextBlock><Run Text="Soba 4"/></TextBlock>
+                                </StackPanel>
+                            </ScrollViewer>
+                            <Button Content="Premesti" HorizontalAlignment="Left" Margin="701,13,0,0" VerticalAlignment="Top" Width="94"/>
+
+                        </Grid>
+                    </materialDesign:Card>
+                    <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth4" Width="1067" Height="90">
+                        <Grid>
+
+                            <Image Source="/Project;component/Resources/hospital.png" HorizontalAlignment="Left" Height="65" Margin="26,11,0,0" VerticalAlignment="Top" Width="66" Stretch="Fill"/>
+                            <TextBlock FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" Margin="120,15,0,0" TextWrapping="Wrap" Text="Naziv" VerticalAlignment="Top"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="120,56,0,0" TextWrapping="Wrap" Text="Tip: neka vrednost" VerticalAlignment="Top"/>
+                            <Button Content="Termin" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="100" Height="65" />
+                            <TextBlock HorizontalAlignment="Left" Margin="120,38,0,0" TextWrapping="Wrap" Text="ID: 1234" VerticalAlignment="Top"/>
+                            <Button Content="+Naruci" HorizontalAlignment="Left" Margin="266,46,0,0" VerticalAlignment="Top" Width="94"/>
+                            <TextBlock FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" Margin="371,11,0,0" TextWrapping="Wrap" Text="Trenutna kolicina" VerticalAlignment="Top"/>
+                            <ScrollViewer BorderBrush="Black" BorderThickness="2"   HorizontalAlignment="Left" Height="69" Margin="508,11,0,0" VerticalAlignment="Top" Width="77">
+                                <StackPanel>
+                                    <TextBlock><Run Text="Soba 1"/></TextBlock>
+                                    <TextBlock><Run Text="Soba 2"/></TextBlock>
+                                    <TextBlock><Run Text="Soba 3"/></TextBlock>
+                                    <TextBlock><Run Text="Soba 4"/></TextBlock>
+                                </StackPanel>
+                            </ScrollViewer>
+                            <TextBlock  HorizontalAlignment="Left" Margin="593,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="69" Width="87"><Run Text="Ukupno:"/><LineBreak/><Run Text="U upotrebi:"/><LineBreak/><Run Text="Naruceno:"/><LineBreak/><Run/></TextBlock>
+                            <ScrollViewer BorderBrush="Black" BorderThickness="2"   HorizontalAlignment="Left" Height="69" Margin="838,10,0,0" VerticalAlignment="Top" Width="77">
+                                <StackPanel>
+                                    <TextBlock><Run Text="Soba 1"/></TextBlock>
+                                    <TextBlock><Run Text="Soba 2"/></TextBlock>
+                                    <TextBlock><Run Text="Soba 3"/></TextBlock>
+                                    <TextBlock><Run Text="Soba 4"/></TextBlock>
+                                </StackPanel>
+                            </ScrollViewer>
+                            <Button Content="Premesti" HorizontalAlignment="Left" Margin="701,13,0,0" VerticalAlignment="Top" Width="94"/>
+
+                        </Grid>
+                    </materialDesign:Card>
+                    <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth4" Width="1067" Height="90">
+                        <Grid>
+
+                            <Image Source="/Project;component/Resources/hospital.png" HorizontalAlignment="Left" Height="65" Margin="26,11,0,0" VerticalAlignment="Top" Width="66" Stretch="Fill"/>
+                            <TextBlock FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" Margin="120,15,0,0" TextWrapping="Wrap" Text="Naziv" VerticalAlignment="Top"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="120,56,0,0" TextWrapping="Wrap" Text="Tip: neka vrednost" VerticalAlignment="Top"/>
+                            <Button Content="Termin" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="100" Height="65" />
+                            <TextBlock HorizontalAlignment="Left" Margin="120,38,0,0" TextWrapping="Wrap" Text="ID: 1234" VerticalAlignment="Top"/>
+                            <Button Content="+Naruci" HorizontalAlignment="Left" Margin="266,46,0,0" VerticalAlignment="Top" Width="94"/>
+                            <TextBlock FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" Margin="371,11,0,0" TextWrapping="Wrap" Text="Trenutna kolicina" VerticalAlignment="Top"/>
+                            <ScrollViewer BorderBrush="Black" BorderThickness="2"   HorizontalAlignment="Left" Height="69" Margin="508,11,0,0" VerticalAlignment="Top" Width="77">
+                                <StackPanel>
+                                    <TextBlock><Run Text="Soba 1"/></TextBlock>
+                                    <TextBlock><Run Text="Soba 2"/></TextBlock>
+                                    <TextBlock><Run Text="Soba 3"/></TextBlock>
+                                    <TextBlock><Run Text="Soba 4"/></TextBlock>
+                                </StackPanel>
+                            </ScrollViewer>
+                            <TextBlock  HorizontalAlignment="Left" Margin="593,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="69" Width="87"><Run Text="Ukupno:"/><LineBreak/><Run Text="U upotrebi:"/><LineBreak/><Run Text="Naruceno:"/><LineBreak/><Run/></TextBlock>
+                            <ScrollViewer BorderBrush="Black" BorderThickness="2"   HorizontalAlignment="Left" Height="69" Margin="838,10,0,0" VerticalAlignment="Top" Width="77">
+                                <StackPanel>
+                                    <TextBlock><Run Text="Soba 1"/></TextBlock>
+                                    <TextBlock><Run Text="Soba 2"/></TextBlock>
+                                    <TextBlock><Run Text="Soba 3"/></TextBlock>
+                                    <TextBlock><Run Text="Soba 4"/></TextBlock>
+                                </StackPanel>
+                            </ScrollViewer>
+                            <Button Content="Premesti" HorizontalAlignment="Left" Margin="701,13,0,0" VerticalAlignment="Top" Width="94"/>
+
+                        </Grid>
+                    </materialDesign:Card>
+                </ListBox>
+                <Button Content="Prijavi gresku" HorizontalAlignment="Left" Margin="1151,602,0,0" VerticalAlignment="Top" Width="75" Click="OpenBugReportModal"/>
+
+            </Grid>
         </TabItem>
         <TabItem Header="Lekovi">
+            
+            
         </TabItem>
         <TabItem Header="Prostorije">
+            
+            
         </TabItem>
     </TabControl>
 </Window>
