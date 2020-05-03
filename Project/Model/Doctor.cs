@@ -9,7 +9,8 @@ namespace Model
 {
    public class Doctor : Employee
    {
-      private string medicalRole;
+      public string medicalRole{get;set;}
+
       
       public void HandleAppointment()
       {

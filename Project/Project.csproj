@@ -104,6 +104,7 @@
     <Compile Include="Model\TimeInterval.cs" />
     <Compile Include="Model\TypeOfIssue.cs" />
     <Compile Include="Model\User.cs" />
+    <Compile Include="Repositories\DoctorRepository.cs" />
     <Compile Include="Repositories\PatientRepository.cs" />
     <Compile Include="Views\Director\BugReportModal.xaml.cs">
       <DependentUpon>BugReportModal.xaml</DependentUpon>
@@ -140,6 +141,9 @@
     </Compile>
     <Compile Include="Views\Secretary\AppointmentModal.xaml.cs">
       <DependentUpon>AppointmentModal.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Secretary\DoctorSearchModal.xaml.cs">
+      <DependentUpon>DoctorSearchModal.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Secretary\HomeWindow.xaml.cs">
       <DependentUpon>HomeWindow.xaml</DependentUpon>
@@ -204,6 +208,10 @@
       <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
     <Page Include="Views\Secretary\AppointmentModal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Secretary\DoctorSearchModal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -20,7 +20,8 @@ namespace Project.Views.Secretary
     /// Interaction logic for HomeWindow.xaml
     /// </summary>
     public partial class HomeWindow : Window
-    {
+    { 
+        public static string selectedDoctor { get; set; }
         public HomeWindow()
         {   
             PatientRepository pr = new PatientRepository();
@@ -71,6 +72,13 @@ namespace Project.Views.Secretary
 
         private void Handle_Doctor_Search(object sender, TextChangedEventArgs e)
         {
+
+        }
+
+        private void Search_Doctor(object sender, RoutedEventArgs e)
+        {
+            var s = new DoctorSearchModal();
+            s.Show();
 
         }
     }

@@ -11,9 +11,8 @@
         <TabItem Header="Termini">
             <Grid Background="#EFFCFA" Margin="10,10,11,-2">
                 <Grid Background="#AEEBE4" Margin="0,-2,0,589">
-                    <materialDesign:PackIcon Margin="0,22,306,0" Kind="Doctor" Height="21" Width="21" HorizontalAlignment="Right"/>
-                    <TextBox HorizontalAlignment="Right" Height="24" Margin="0,17,114,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="187" TextChanged="Handle_Doctor_Search"/>
-                    <Button FontSize="12" Content="Pretrazi" HorizontalAlignment="Right" Margin="0,19,33,0" VerticalAlignment="Top" Width="76" Height="24" />
+                    <materialDesign:PackIcon Margin="41,22,0,0" Kind="Doctor" Height="21" Width="21" HorizontalAlignment="Left"/>
+                    <Button FontSize="12" Content="Izaberi Lekara" HorizontalAlignment="Left" Margin="66,22,0,0" VerticalAlignment="Top" Width="268" Height="21" Click="Search_Doctor" />
                 </Grid>
                 <Grid Background="White" Margin="0,52,-2,428">
                     <Label Content="Naredni termin:" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Top" Width="1169" FontSize="18" Height="32" Margin="32,-1,35,0"/>
@@ -274,18 +273,6 @@
 
                         </GridView>
                     </ListView.View>
-                    <!-- <ListViewItem>
-                    <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth3" Width="1067" Height="90">
-                        <Grid>
-                            <Image Source="../../Resources/Images/Faces/face1" HorizontalAlignment="Left" Height="65" Margin="26,11,0,0" VerticalAlignment="Top" Width="66" Stretch="Fill"/>
-                            <TextBlock FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" Margin="120,15,0,0" TextWrapping="Wrap" Text="{Binding firstName}" VerticalAlignment="Top"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="120,56,0,0" TextWrapping="Wrap" Text="{Binding telephone}" VerticalAlignment="Top"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="120,38,0,0" TextWrapping="Wrap" Text="{Binding address.street}"   VerticalAlignment="Top"/>
-                            <Button Content="Termin" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="100" Height="65" Click="Button_Click_1" />
-                        </Grid>
-                    </materialDesign:Card>
-
-                </ListViewItem> -->
                 </ListView>
                 <Button Content="Feedback" HorizontalAlignment="Left" Margin="1104,603,0,0" VerticalAlignment="Top" Width="100" Height="22"/>
             </Grid>
