@@ -57,6 +57,6 @@ namespace Project.Views.Director
             Change_btn.Visibility = Visibility.Visible;
         }
 
-        
+      
     }
 }
