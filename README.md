@@ -13,6 +13,46 @@ Nakon instaliranog ReSharp-era mozete dodati i Clean Code linter instalirajuci o
 Savete vezane za pisanje cistijeg koda mozete pronaci [ovde](https://github.com/thangchung/clean-code-dotnet).
 
 
+## Directory Structure
+
+```bash
+├── Diagrams 
+│   ├── Sequence Diagrams
+│   │   ├── **/*.oob
+│   │   ├── **/*.oom
+│   ├── Class Diagram.oob
+│   ├── Class Diagram.oom
+│   ├── Diagrams.pjb
+│   ├── Diagrams.prj
+│   ├── OpstiModel.oob
+│   ├── OpstiModel.oom
+├── Project
+│   ├── Data
+│   ├── Models
+│   │   ├── **/*.cs
+│   ├── packages
+│   ├── Properties
+│   ├── Resources
+│   ├── ViewModels
+│   ├── Views
+│   │   ├── Director
+│   │   ├── Doctor
+│   │   ├── Patient
+│   │   ├── Secretary
+│   │   ├── **/*.xaml
+│   │   ├── **/*.xaml.cs
+│   ├── App.config
+│   ├── App.xaml
+│   ├── App.xaml.cs
+│   ├── MainWindow.xaml
+│   ├── MainWindow.xaml.cs
+│   ├── Project.sln
+│   └── partials/template
+├── Wireframe
+├── .gitignore 
+└── README.md
+```
+
 ## Testiranje
 
 Praticemo Microsoft guide za TDD. Vise informacija mozete videti [ovde](https://docs.microsoft.com/en-us/visualstudio/test/quick-start-test-driven-development-with-test-explorer?view=vs-2019).
