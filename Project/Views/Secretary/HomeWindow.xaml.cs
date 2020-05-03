@@ -20,26 +20,19 @@ namespace Project.Views.Secretary
     /// Interaction logic for HomeWindow.xaml
     /// </summary>
     public partial class HomeWindow : Window
-    {
+    { 
+        public  Model.Doctor selectedDoctor { get; set; }
         public HomeWindow()
         {   
             PatientRepository pr = new PatientRepository();
+            DoctorRepository dr = new DoctorRepository();
             InitializeComponent();
-            //List<Model.Patient> patients = new List<Model.Patient>();
-            //patients.Add(new Model.Patient()
-            //{
-            //    firstName = "Uros", lastName = "Milovanovic", jmbg = "121212222221",
-            //    address = new Address() {city = "Novi Sad", street = "Ulica"}
-            //});
-            //patients.Add(new Model.Patient()
-            //{
-            //    firstName = "Dusan", lastName = "Urosevic", jmbg = "121212222221",
-            //    address = new Address() {city = "Novi Sad", street = "Ulica"}
-            //});
-            //listPatients.ItemsSource = patients;
             listPatients.ItemsSource = pr.ReadCSV("../../Data/patients.csv");
+            selectedDoctor = dr.ReadCSV("../../Data/patients.csv").First();
 
 
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listPatients.ItemsSource);
+            view.Filter = UserFilter;
 
         }
 
@@ -63,6 +56,31 @@ namespace Project.Views.Secretary
 
         private void Handle_Search(object sender, RoutedEventArgs e)
         {
+
+        }
+
+        private bool UserFilter(object item)
+        {
+            if (String.IsNullOrEmpty(patientFilter.Text))
+                return true;
+            else
+                return ((item as User).firstName.IndexOf(patientFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+        }
+        private void txtFilter_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            CollectionViewSource.GetDefaultView(listPatients.ItemsSource).Refresh();
+        }
+
+
+        private void Handle_Doctor_Search(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void Search_Doctor(object sender, RoutedEventArgs e)
+        {
+            var s = new DoctorSearchModal();
+            s.Show();
 
         }
     }

@@ -104,6 +104,7 @@
     <Compile Include="Model\TimeInterval.cs" />
     <Compile Include="Model\TypeOfIssue.cs" />
     <Compile Include="Model\User.cs" />
+    <Compile Include="Repositories\DoctorRepository.cs" />
     <Compile Include="Repositories\PatientRepository.cs" />
     <Compile Include="Views\Director\BugReportModal.xaml.cs">
       <DependentUpon>BugReportModal.xaml</DependentUpon>
@@ -140,6 +141,9 @@
     </Compile>
     <Compile Include="Views\Secretary\AppointmentModal.xaml.cs">
       <DependentUpon>AppointmentModal.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Secretary\DoctorSearchModal.xaml.cs">
+      <DependentUpon>DoctorSearchModal.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Secretary\HomeWindow.xaml.cs">
       <DependentUpon>HomeWindow.xaml</DependentUpon>
@@ -207,6 +211,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Secretary\DoctorSearchModal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Secretary\HomeWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -234,6 +242,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Data\doctors.csv" />
+    <None Include="Data\medicalAppointments.csv" />
+    <None Include="Data\patients.csv" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -246,7 +257,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Data\" />
     <Folder Include="Resources\Demo\Patient\" />
     <Folder Include="Resources\Demo\Secretary\" />
     <Folder Include="Resources\Images\Faces\" />

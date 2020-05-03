@@ -9,11 +9,11 @@ namespace Model
 {
    public class Employee : User
    {
-      private double salary;
-      private TimeInterval annualLeave;
-      private TimeInterval workingHours;
-      private string email;
-      private string password;
+      public double salary {get;set;}
+      public TimeInterval annualLeave {get;set;}
+      public TimeInterval workingHours {get;set;}
+      public string email {get;set;}
+      public string password {get;set;}
       
       public Report[] report;
       public Hospital hospital;

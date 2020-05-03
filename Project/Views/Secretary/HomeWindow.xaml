@@ -11,9 +11,9 @@
         <TabItem Header="Termini">
             <Grid Background="#EFFCFA" Margin="10,10,11,-2">
                 <Grid Background="#AEEBE4" Margin="0,-2,0,589">
-                    <materialDesign:PackIcon Margin="0,22,306,0" Kind="Doctor" Height="21" Width="21" HorizontalAlignment="Right"/>
-                    <TextBox HorizontalAlignment="Right" Height="24" Margin="0,17,114,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="187"/>
-                    <Button FontSize="12" Content="Pretrazi" HorizontalAlignment="Right" Margin="0,19,33,0" VerticalAlignment="Top" Width="76" Height="24" />
+                    <materialDesign:PackIcon Margin="41,22,0,0" Kind="Doctor" Height="21" Width="21" HorizontalAlignment="Left"/>
+                    <Button FontSize="12" Content="Izaberi Lekara" HorizontalAlignment="Left" Margin="66,22,0,0" VerticalAlignment="Top" Width="268" Height="21" Click="Search_Doctor" />
+                    <Label Name="Izabran_Lekar" HorizontalAlignment="Right" Margin="0,22,25,0" VerticalAlignment="Top" Width="164" Content="{Binding selectedDoctor}"/>
                 </Grid>
                 <Grid Background="White" Margin="0,52,-2,428">
                     <Label Content="Naredni termin:" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Top" Width="1169" FontSize="18" Height="32" Margin="32,-1,35,0"/>
@@ -72,7 +72,7 @@
                                 <TextBlock Background="#AEEBE4" FontSize="12" FontWeight="Bold" Grid.Row="0" Grid.Column="4" TextAlignment="Center">Pet.</TextBlock>
                                 <TextBlock Background="#AEEBE4" FontSize="12" FontWeight="Bold" Grid.Row="0" Grid.Column="5" TextAlignment="Center">Sub.</TextBlock>
                                 <TextBlock Background="#AEEBE4" FontSize="12" FontWeight="Bold" Grid.Row="0" Grid.Column="6" TextAlignment="Center">Ned.</TextBlock>
-                                <TextBlock FontSize="12" Background="White" FontWeight="Bold" Grid.Row="1" Grid.Column="0" >Dan 1</TextBlock>
+                                <TextBlock FontSize="12" Background="White" FontWeight="Bold" Grid.Row="1" Grid.Column="0" >TODO: Needs a ViewModel</TextBlock>
                                 <TextBlock FontSize="12" Background="White" FontWeight="Bold" Grid.Row="1" Grid.Column="1" >Dan 2</TextBlock>
                                 <TextBlock FontSize="12" Background="White" FontWeight="Bold" Grid.Row="1" Grid.Column="2" >Dan 3</TextBlock>
                             </Grid>
@@ -260,36 +260,26 @@
         </TabItem>
         <TabItem Header="Pacijenti">
             <Grid Background="#FFE5E5E5" Margin="20,20,20,10">
-                <Grid HorizontalAlignment="Left" Height="43" Margin="68,29,0,0" VerticalAlignment="Top" Width="1100">
-                    <TextBox Name="firstNameFilter" HorizontalAlignment="Left" Height="23" Margin="10,11,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                    <TextBox Name="lastNameFilter" HorizontalAlignment="Left" Height="23" Margin="188,11,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                    <TextBox Name="jmbgFilter" HorizontalAlignment="Left" Height="23" Margin="375,11,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                    <Button Content="Search" HorizontalAlignment="Left" Margin="539,0,0,0" VerticalAlignment="Top" Width="85" Click="Handle_Search"/>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="92*"/>
+                    <ColumnDefinition Width="83*"/>
+                </Grid.ColumnDefinitions>
+                <Grid HorizontalAlignment="Left" Height="43" Margin="68,29,0,0" VerticalAlignment="Top" Width="1100" Grid.ColumnSpan="2">
+                    <TextBox Name="patientFilter" HorizontalAlignment="Left" Height="23" Margin="10,11,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="txtFilter_TextChanged"/>
+                    <Button Content="Search" HorizontalAlignment="Left" Margin="161,2,0,0" VerticalAlignment="Top" Width="85" Click="Handle_Search"/>
                 </Grid>
                 <Label Content="Rezultati Pretrage:" HorizontalAlignment="Left" Margin="31,75,0,0" VerticalAlignment="Top" FontSize="16" Height="31" Width="138"/>
-                <ListView Name="listPatients" BorderThickness="2" Background="DarkGray" HorizontalAlignment="Left" Height="447" Margin="68,111,0,0" VerticalAlignment="Top" Width="1100">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn Header="First Name" Width="120" DisplayMemberBinding="{Binding firstName}" />
-                        <GridViewColumn Header="Last Name" Width="120" DisplayMemberBinding="{Binding lastName}" />
-                        <GridViewColumn Header="Jmbg" Width="120" DisplayMemberBinding="{Binding jmbg}" />
-                        
-                    </GridView>
-                </ListView.View>
-                <!-- <ListViewItem>
-                    <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth3" Width="1067" Height="90">
-                        <Grid>
-                            <Image Source="../../Resources/Images/Faces/face1" HorizontalAlignment="Left" Height="65" Margin="26,11,0,0" VerticalAlignment="Top" Width="66" Stretch="Fill"/>
-                            <TextBlock FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" Margin="120,15,0,0" TextWrapping="Wrap" Text="{Binding firstName}" VerticalAlignment="Top"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="120,56,0,0" TextWrapping="Wrap" Text="{Binding telephone}" VerticalAlignment="Top"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="120,38,0,0" TextWrapping="Wrap" Text="{Binding address.street}"   VerticalAlignment="Top"/>
-                            <Button Content="Termin" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="100" Height="65" Click="Button_Click_1" />
-                        </Grid>
-                    </materialDesign:Card>
+                <ListView Name="listPatients" BorderThickness="2" Background="DarkGray" HorizontalAlignment="Left" Height="447" Margin="68,111,0,0" VerticalAlignment="Top" Width="1100" Grid.ColumnSpan="2">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="First Name" Width="120" DisplayMemberBinding="{Binding firstName}" />
+                            <GridViewColumn Header="Last Name" Width="120" DisplayMemberBinding="{Binding lastName}" />
+                            <GridViewColumn Header="Jmbg" Width="120" DisplayMemberBinding="{Binding jmbg}" />
 
-                </ListViewItem> -->
+                        </GridView>
+                    </ListView.View>
                 </ListView>
-                <Button Content="Feedback" HorizontalAlignment="Left" Margin="1104,603,0,0" VerticalAlignment="Top" Width="100" Height="22"/>
+                <Button Content="Feedback" HorizontalAlignment="Left" Margin="460.5,603,0,0" VerticalAlignment="Top" Width="100" Height="22" Grid.Column="1"/>
             </Grid>
         </TabItem>
         <TabItem Header="Podesavanja">
