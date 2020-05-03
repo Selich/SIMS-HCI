@@ -25,6 +25,10 @@ namespace Project.Views
         {
             InitializeComponent();
 
+            this.FontFamily = new FontFamily("Segoe UI");
+
+
+
         }
 
         private void Secretary_Click(object sender, RoutedEventArgs e)

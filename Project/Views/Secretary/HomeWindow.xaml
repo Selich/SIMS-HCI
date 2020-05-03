@@ -6,16 +6,17 @@
         xmlns:local="clr-namespace:Project.Views.Secretary"
         mc:Ignorable="d"
         Title="HomeWindow" Height="720" Width="1280">
-    <TabControl HorizontalAlignment="Center" Height="692" VerticalAlignment="Center" Width="1280" Margin="0,0,0,0" >
+    <TabControl HorizontalAlignment="Center" Height="690" VerticalAlignment="Center" Width="1280" Margin="-4,0,-4,-1" >
         <TabItem Header="Termini">
             <Grid Background="#EFFCFA" Margin="20,10,20,10">
-                <Grid Background="#AEEBE4" Margin="54,16,54,585">
-                    <TextBox HorizontalAlignment="Left" Height="24" Margin="32,12,0,0" TextWrapping="Wrap" Text="Dr. Filip Zdelar" VerticalAlignment="Top" Width="187"/>
-                    <Button Content="Pretrazi" HorizontalAlignment="Left" Margin="224,12,0,0" VerticalAlignment="Top" Width="77" Height="24" Background="White"/>
+                <Grid Background="#AEEBE4" Margin="0,16,0,585">
+                    <TextBox HorizontalAlignment="Left" Height="24" Margin="35,12,0,0" TextWrapping="Wrap" Text="Dr. Filip Zdelar" VerticalAlignment="Top" Width="187"/>
+                    <Button Content="Pretrazi" HorizontalAlignment="Left" Margin="227,12,0,0" VerticalAlignment="Top" Width="77" Height="24" Background="White"/>
                 </Grid>
-                <Grid Background="#AEEBE4" Margin="54,64,54,430">
-                    <Label Content="Naredni termin:" HorizontalAlignment="Left" Margin="25,5,0,0" VerticalAlignment="Top" Width="1067" FontSize="18"/>
-                    <Grid HorizontalAlignment="Center" Height="88" Margin="25,40,25,0" VerticalAlignment="Top" Width="1067" Background="#EFFCFA">
+                <Grid Background="White" Margin="0,60,-2,420">
+                    <Label Content="Naredni termin:" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Top" Width="1169" FontSize="18" Height="32" Margin="34,-3,33,0"/>
+                    <Rectangle Fill="#179C8C" HorizontalAlignment="Center" Height="109" Margin="0,29,0,0" Stroke="Black" VerticalAlignment="Top" Width="1236"/>
+                    <Grid HorizontalAlignment="Center" Height="88" Margin="84,40,84,0" VerticalAlignment="Top" Width="1068" Background="#EFFCFA" Grid.RowSpan="2">
                         <Image HorizontalAlignment="Left" Height="65" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" />
                         <TextBlock HorizontalAlignment="Left" Margin="120,15,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
                         <TextBlock HorizontalAlignment="Left" Margin="120,38,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
@@ -25,14 +26,14 @@
                         <Button Background="White" Content="Termin" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="100" Height="65" />
                     </Grid>
                 </Grid>
-                <TabControl Background="White" HorizontalAlignment="Center" Height="402" Margin="54,228,54,0" VerticalAlignment="Top" Width="1126">
+                <TabControl Background="White" HorizontalAlignment="Center" Height="418" Margin="32,199,30,0" VerticalAlignment="Top" Width="1172">
                     <TabItem Header="Month" Background="White" >
-                        <Grid Background="DarkGray" HorizontalAlignment="Left" Height="376" Margin="0,0,0,0" VerticalAlignment="Top" Width="1122">
-                            <Grid Background="#179C8C" HorizontalAlignment="Left" Height="25" Margin="0,0,0,0" VerticalAlignment="Top" Width="1122">
+                        <Grid Background="White" HorizontalAlignment="Left" Height="392" Margin="0,0,-2,-2" VerticalAlignment="Top" Width="1168">
+                            <Grid Background="#179C8C" HorizontalAlignment="Left" Height="25" Margin="0,0,0,0" VerticalAlignment="Top" Width="1168">
                                 <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Center" Width="48" Margin="2,2,0,0"/>
                                 <Button Content="Button" HorizontalAlignment="Right" Margin="0,2,2,0" VerticalAlignment="Center" Width="48" Height="18"/>
                             </Grid>
-                            <Grid ShowGridLines="True" Background="White" HorizontalAlignment="Left" Margin="0,0,0,0" Width="1122">
+                            <Grid ShowGridLines="True" Background="White" HorizontalAlignment="Left" Margin="0,25,0,0" Width="1168">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition />
                                     <ColumnDefinition />
@@ -65,10 +66,12 @@
                         </Grid>
                     </TabItem>
                     <TabItem  Background="White" Header="Week">
-                        <Grid Background="DarkGray" HorizontalAlignment="Left" Height="346" Margin="0,-3,-3,0" VerticalAlignment="Top" Width="1122">
-                            <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="48" Margin="1,2,0,0"/>
-                            <Button Content="Button" HorizontalAlignment="Left" Margin="1074,3,0,0" VerticalAlignment="Top" Width="48" Height="18"/>
-                            <Grid ShowGridLines="True" Background="White" HorizontalAlignment="Left" Height="336" Margin="0,25,0,-15" VerticalAlignment="Top" Width="1122">
+                        <Grid Background="White" HorizontalAlignment="Left" Height="390" Margin="0,2,0,-2" VerticalAlignment="Top" Width="1166">
+                            <Grid Background="#179C8C" HorizontalAlignment="Left" Height="25" Margin="0,0,0,0" VerticalAlignment="Top" Width="1166">
+                                <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Center" Width="48" Margin="2,2,0,0"/>
+                                <Button Content="Button" HorizontalAlignment="Right" Margin="0,2,2,0" VerticalAlignment="Center" Width="48" Height="18"/>
+                            </Grid>
+                            <Grid ShowGridLines="True" Background="White" HorizontalAlignment="Left" Margin="0,25,0,0" Width="1166">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition />
                                     <ColumnDefinition />
@@ -79,33 +82,120 @@
                                     <ColumnDefinition />
                                 </Grid.ColumnDefinitions>
                                 <Grid.RowDefinitions>
-                                    <RowDefinition />
-                                    <RowDefinition />
-                                    <RowDefinition />
-                                    <RowDefinition />
-                                    <RowDefinition />
+                                    <RowDefinition Height="18*" />
+                                    <RowDefinition Height="55*" />
+                                    <RowDefinition Height="55*" />
+                                    <RowDefinition Height="55*" />
+                                    <RowDefinition Height="55*" />
+                                    <RowDefinition Height="55*" />
                                 </Grid.RowDefinitions>
 
+                                <TextBlock Background="#AEEBE4"  FontSize="12" FontWeight="Bold" Grid.Row="0" Grid.Column="0" TextAlignment="Center">Pon.</TextBlock>
+                                <TextBlock Background="#AEEBE4"  FontSize="12" FontWeight="Bold" Grid.Row="0" Grid.Column="1" TextAlignment="Center">Uto.</TextBlock>
+                                <TextBlock Background="#AEEBE4" FontSize="12" FontWeight="Bold" Grid.Row="0" Grid.Column="2" TextAlignment="Center">Sre.</TextBlock>
+                                <TextBlock Background="#AEEBE4"  FontSize="12" FontWeight="Bold" Grid.Row="0" Grid.Column="3" TextAlignment="Center">Cet.</TextBlock>
+                                <TextBlock Background="#AEEBE4" FontSize="12" FontWeight="Bold" Grid.Row="0" Grid.Column="4" TextAlignment="Center">Pet.</TextBlock>
+                                <TextBlock Background="#AEEBE4" FontSize="12" FontWeight="Bold" Grid.Row="0" Grid.Column="5" TextAlignment="Center">Sub.</TextBlock>
+                                <TextBlock Background="#AEEBE4" FontSize="12" FontWeight="Bold" Grid.Row="0" Grid.Column="6" TextAlignment="Center">Ned.</TextBlock>
+                                <Button FontSize="12" Background="White" FontWeight="Bold" Grid.Row="1" Grid.Column="0" Click="Button_Click">Dan 1</Button>
+                                <Button FontSize="12" Background="White" FontWeight="Bold" Grid.Row="1" Grid.Column="1" Click="Button_Click">Dan 2</Button>
+                                <Button FontSize="12" Background="White" FontWeight="Bold" Grid.Row="1" Grid.Column="2" Click="Button_Click">Dan 3</Button>
                             </Grid>
                         </Grid>
                     </TabItem>
                     <TabItem Header="Day" Background="White" >
-                        <Grid Background="DarkGray" HorizontalAlignment="Left" Height="346" Margin="0,-3,-3,0" VerticalAlignment="Top" Width="1122">
-                            <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="48" Margin="1,2,0,0"/>
-                            <Button Content="Button" HorizontalAlignment="Left" Margin="1074,3,0,0" VerticalAlignment="Top" Width="48" Height="18"/>
-                            <Grid ShowGridLines="True" Background="White" HorizontalAlignment="Left" Height="336" Margin="0,25,0,-15" VerticalAlignment="Top" Width="1122">
+                        <Grid Background="White" HorizontalAlignment="Left" Height="392" Margin="0,0,-2,-2" VerticalAlignment="Top" Width="1168">
+                            <Grid Background="#179C8C" HorizontalAlignment="Left" Height="25" Margin="0,0,0,0" VerticalAlignment="Top" Width="1168">
+                                <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Center" Width="48" Margin="2,2,0,0"/>
+                                <Button Content="Button" HorizontalAlignment="Right" Margin="0,2,2,0" VerticalAlignment="Center" Width="48" Height="18"/>
+                            </Grid>
+                            <Grid ShowGridLines="True" Background="White" HorizontalAlignment="Left" Margin="0,25,0,0" Width="1168">
                                 <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
                                     <ColumnDefinition />
                                 </Grid.ColumnDefinitions>
                                 <Grid.RowDefinitions>
-                                    <RowDefinition />
+                                    <RowDefinition Height="18*" />
+                                    <RowDefinition Height="55*" />
+                                    <RowDefinition Height="55*" />
+                                    <RowDefinition Height="55*" />
+                                    <RowDefinition Height="55*" />
+                                    <RowDefinition Height="55*" />
                                 </Grid.RowDefinitions>
 
+                                <TextBlock Background="#AEEBE4"  FontSize="12" FontWeight="Bold" Grid.Row="0" Grid.Column="0" TextAlignment="Center">Pon.</TextBlock>
+                                <TextBlock Background="#AEEBE4"  FontSize="12" FontWeight="Bold" Grid.Row="0" Grid.Column="1" TextAlignment="Center">Uto.</TextBlock>
+                                <TextBlock Background="#AEEBE4" FontSize="12" FontWeight="Bold" Grid.Row="0" Grid.Column="2" TextAlignment="Center">Sre.</TextBlock>
+                                <TextBlock Background="#AEEBE4"  FontSize="12" FontWeight="Bold" Grid.Row="0" Grid.Column="3" TextAlignment="Center">Cet.</TextBlock>
+                                <TextBlock Background="#AEEBE4" FontSize="12" FontWeight="Bold" Grid.Row="0" Grid.Column="4" TextAlignment="Center">Pet.</TextBlock>
+                                <TextBlock Background="#AEEBE4" FontSize="12" FontWeight="Bold" Grid.Row="0" Grid.Column="5" TextAlignment="Center">Sub.</TextBlock>
+                                <TextBlock Background="#AEEBE4" FontSize="12" FontWeight="Bold" Grid.Row="0" Grid.Column="6" TextAlignment="Center">Ned.</TextBlock>
+                                <Button FontSize="12" Background="White" FontWeight="Bold" Grid.Row="1" Grid.Column="0" Click="Button_Click">Dan 1</Button>
+                                <Button FontSize="12" Background="White" FontWeight="Bold" Grid.Row="1" Grid.Column="1" Click="Button_Click">Dan 2</Button>
+                                <Button FontSize="12" Background="White" FontWeight="Bold" Grid.Row="1" Grid.Column="2" Click="Button_Click">Dan 3</Button>
                             </Grid>
                         </Grid>
                     </TabItem>
                     <TabItem Header="List" Background="White" >
-                        <Rectangle Fill="#FFF4F4F5" Height="100" Stroke="Black" Width="100"/>
+                        <Grid Background="#AEEBE4" HorizontalAlignment="Left" Height="393" Margin="0,0,0,-3" VerticalAlignment="Top" Width="1166">
+                            <Grid Background="#179C8C" HorizontalAlignment="Left" Height="25" Margin="0,0,0,0" VerticalAlignment="Top" Width="1166">
+                                <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Center" Width="48" Margin="2,2,0,0"/>
+                                <Button Content="Button" HorizontalAlignment="Right" Margin="0,2,2,0" VerticalAlignment="Center" Width="48" Height="18"/>
+                            </Grid>
+                            <ListBox HorizontalAlignment="Center" Height="359" Margin="44,34,0,0" VerticalAlignment="Center" Width="1122" Background="#AEEBE4">
+                                <Grid HorizontalAlignment="Center" Height="88" VerticalAlignment="Top" Width="1066" Background="#EFFCFA">
+                                    <Image HorizontalAlignment="Left" Height="65" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" />
+                                    <TextBlock HorizontalAlignment="Left" Margin="120,15,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+                                    <TextBlock HorizontalAlignment="Left" Margin="120,38,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+                                    <TextBlock HorizontalAlignment="Left" Margin="120,56,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+                                    <TextBlock HorizontalAlignment="Left" Margin="881,37,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+                                    <TextBlock HorizontalAlignment="Left" Margin="881,56,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+                                    <Button Background="White" Content="Termin" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="100" Height="65" />
+                                </Grid>
+                                <Grid HorizontalAlignment="Center" Height="88" VerticalAlignment="Top" Width="1066" Background="#EFFCFA" Margin="0,10,0,0">
+                                    <Image HorizontalAlignment="Left" Height="65" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" />
+                                    <TextBlock HorizontalAlignment="Left" Margin="120,15,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+                                    <TextBlock HorizontalAlignment="Left" Margin="120,38,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+                                    <TextBlock HorizontalAlignment="Left" Margin="120,56,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+                                    <TextBlock HorizontalAlignment="Left" Margin="881,37,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+                                    <TextBlock HorizontalAlignment="Left" Margin="881,56,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+                                    <Button Background="White" Content="Termin" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="100" Height="65" />
+                                </Grid>
+                                <Grid HorizontalAlignment="Center" Height="88" VerticalAlignment="Top" Width="1066" Background="#EFFCFA" Margin="0,10,0,0">
+                                    <Image HorizontalAlignment="Left" Height="65" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" />
+                                    <TextBlock HorizontalAlignment="Left" Margin="120,15,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+                                    <TextBlock HorizontalAlignment="Left" Margin="120,38,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+                                    <TextBlock HorizontalAlignment="Left" Margin="120,56,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+                                    <TextBlock HorizontalAlignment="Left" Margin="881,37,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+                                    <TextBlock HorizontalAlignment="Left" Margin="881,56,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+                                    <Button Background="White" Content="Termin" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="100" Height="65" />
+                                </Grid>
+                                <Grid HorizontalAlignment="Center" Height="88" VerticalAlignment="Top" Width="1066" Background="#EFFCFA" Margin="0,10,0,0">
+                                    <Image HorizontalAlignment="Left" Height="65" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" />
+                                    <TextBlock HorizontalAlignment="Left" Margin="120,15,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+                                    <TextBlock HorizontalAlignment="Left" Margin="120,38,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+                                    <TextBlock HorizontalAlignment="Left" Margin="120,56,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+                                    <TextBlock HorizontalAlignment="Left" Margin="881,37,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+                                    <TextBlock HorizontalAlignment="Left" Margin="881,56,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+                                    <Button Background="White" Content="Termin" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="100" Height="65" />
+                                </Grid>
+                                <Grid HorizontalAlignment="Center" Height="88" VerticalAlignment="Top" Width="1066" Background="#EFFCFA" Margin="0,10,0,0">
+                                    <Image HorizontalAlignment="Left" Height="65" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" />
+                                    <TextBlock HorizontalAlignment="Left" Margin="120,15,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+                                    <TextBlock HorizontalAlignment="Left" Margin="120,38,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+                                    <TextBlock HorizontalAlignment="Left" Margin="120,56,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+                                    <TextBlock HorizontalAlignment="Left" Margin="881,37,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+                                    <TextBlock HorizontalAlignment="Left" Margin="881,56,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+                                    <Button Background="White" Content="Termin" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="100" Height="65" />
+                                </Grid>
+                            </ListBox>
+
+                        </Grid>
                     </TabItem>
                 </TabControl>
             </Grid>
