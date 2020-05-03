@@ -5,13 +5,62 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project.Views.Patient"
         mc:Ignorable="d"
-        Title="HomeWindow" Height="450" Width="800">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="67*"/>
-            <ColumnDefinition Width="329*"/>
-        </Grid.ColumnDefinitions>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="13,-39,0,0" VerticalAlignment="Top"/>
+        Title="HomeWindow" Height="720" Width="1280">
+    <TabControl Height="720" Width="1280">
+        <TabItem Header="Home">
+            <Grid>
+                <Label Content="Appoitments:" Margin="58,187,1130,478" Grid.ColumnSpan="2"/>
+                <DataGrid Margin="58,219,860,100" Grid.ColumnSpan="2"/>
+                <Label Content="History:" Margin="486.5,187,664,478" Grid.Column="1"/>
+                <DataGrid Margin="486.5,219,362,100" Grid.Column="1"/>
+                <Button Width="75" Height="25" RenderTransformOrigin="2,2.38" Margin="1063.5,575,66,92" Content="Feedback" Click="Feedback_Click" Grid.Column="1"/>
+                <Button Width="75" Height="25" RenderTransformOrigin="2,2.38" Margin="945.5,575,184,92" Content="FAQ" Grid.Column="1" Click="FAQ_Click"/>
+                <Button RenderTransformOrigin="2,2.38" Margin="798,194,362,478" Content="Detailed History" Click="History_Click"/>
+            </Grid>
+        </TabItem>
+        <TabItem Header="Profile">
+            <StackPanel Orientation="Vertical" Margin="476,25,464,35">
 
-    </Grid>
+                <Label Content="First name:"/>
+                <TextBox Margin="5"/>
+                <Label Content="Last name:"/>
+                <TextBox Margin="5"/>
+                <Label Content="Birth Date:"/>
+                <TextBox Margin="5"/>
+                <Label Content="JMBG:"/>
+                <TextBox Margin="5"/>
+                <Label Content="Insurance number:"/>
+                <TextBox Margin="5"/>
+                <Label Content="Gender:"/>
+                <ComboBox Margin="5">
+                    <ComboBoxItem>Male</ComboBoxItem>
+                    <ComboBoxItem>Female</ComboBoxItem>
+                </ComboBox>
+                <Label Content="Adress:"/>
+                <TextBox Margin="5"/>
+                <Label Content="Email:"/>
+                <TextBox Margin="5"/>
+                <Label Content="Password:"/>
+                <TextBox Margin="5"/>
+                <Grid Margin="20" Height="26">
+                    <Button Content="Edit" Width="40" Height="25" Margin="0,1,254,0"/>
+                    <Button Content="Save changes" Width="94" Height="25" Margin="200,1,0,0"/>
+                </Grid>
+            </StackPanel>
+        </TabItem>
+        <TabItem Header="Appoitments">
+            <Grid>
+                <Viewbox Margin="64,0,589,30" >
+                    <Calendar SelectionMode="SingleRange"/>
+                </Viewbox>
+                <Label Content="Doctor name:" Margin="806,63,358,592"/>
+                <ComboBox Margin="806,92,177,574">
+                    <ComboBoxItem>Doctor 1</ComboBoxItem>
+                </ComboBox>
+                <DataGrid Margin="806,147,70,132"/>
+                <Button Content="Confirm" Margin="806,581,397,85"/>
+                <Button Content="Doctor" Margin="901,581,302,85" Click="Doctor_Click"/>
+            </Grid>
+        </TabItem>
+    </TabControl>
 </Window>

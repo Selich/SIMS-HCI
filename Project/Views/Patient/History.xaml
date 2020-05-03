@@ -1,0 +1,25 @@
+﻿<Window x:Class="Project.Views.Patient.History"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Project.Views.Patient"
+        mc:Ignorable="d"
+        Title="History" Height="720" Width="1280">
+    <Grid>
+        <Label Content="Past appointments:" Margin="10,32,1073,611" FontSize="20"/>
+        <DataGrid Margin="12,78,897,10"/>
+        <DataGrid Margin="600,256,10,10"/>
+        <Image Margin="600,93,579,504">
+            <Image.Source>
+                <!--need to add a valid image--> 
+                <BitmapImage UriSource="C:\Users\Uros\Desktop\hci-sims\sims-hci\Project\Resources\hospital.png"/> 
+            </Image.Source>
+        </Image>
+        <Label Content="Doctor name:" Margin="708,88,464,552"/>
+        <Label Content="Doctor Last name:" Margin="708,142,428,504"/>
+        <Label Content="Rating:" Margin="977,93,226,547" FontSize="18" RenderTransformOrigin="1.356,0.663"/>
+        <Label Content="Appointment summary:" Margin="600,208,384,433" FontSize="18"/>
+        <Label Content="Your rating:" Margin="977,147,148,494" FontSize="18" RenderTransformOrigin="1.356,0.663"/>
+    </Grid>
+</Window>

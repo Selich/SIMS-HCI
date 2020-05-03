@@ -1,0 +1,30 @@
+﻿<Window x:Class="Project.Views.Patient.Doctor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Project.Views.Patient"
+        mc:Ignorable="d"
+        Title="Doctor" Height="720" Width="1280">
+    <Grid>
+        <Image Margin="31,42,1148,555">
+            <Image.Source>
+                <!--need to add a valid image-->
+                <BitmapImage UriSource="C:\Users\Uros\Desktop\hci-sims\sims-hci\Project\Resources\hospital.png"/>
+            </Image.Source>
+        </Image>
+        <Label Content="Doctor name:" Margin="139,37,1033,603"/>
+        <Label Content="Doctor Last name:" Margin="139,91,997,555"/>
+
+        <Canvas Margin="31,177,1033,378"/>
+        <Label Content="Ratings:" Margin="31,147,1105,512"/>
+        <Canvas Margin="31,396,1033,159"/>
+        <Label Content="Free appointments (day):" Margin="31,366,1084,293"/>
+        <Viewbox Margin="293,34,413,134" >
+            <Calendar SelectionMode="SingleRange"/>
+        </Viewbox>
+        <DataGrid Margin="887,42,28,147"/>
+        <Button Content="Confirm" Margin="887,567,309,93"/>
+        <Button Content="Cancel" Margin="992,567,204,93"/>
+    </Grid>
+</Window>

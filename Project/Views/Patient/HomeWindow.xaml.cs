@@ -23,5 +23,29 @@ namespace Project.Views.Patient
         {
             InitializeComponent();
         }
+
+        private void Feedback_Click(object sender, RoutedEventArgs e)
+        {
+            var s = new Patient.Feedback();
+            s.Show();
+        }
+
+        private void FAQ_Click(object sender, RoutedEventArgs e)
+        {
+            var s = new Patient.FAQ();
+            s.Show();
+        }
+
+        private void History_Click(object sender, RoutedEventArgs e)
+        {
+            var s = new Patient.History();
+            s.Show();
+        }
+
+        private void Doctor_Click(object sender, RoutedEventArgs e)
+        {
+            var s = new Patient.Doctor();
+            s.Show();
+        }
     }
 }
