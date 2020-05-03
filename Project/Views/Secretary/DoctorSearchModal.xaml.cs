@@ -44,12 +44,6 @@ namespace Project.Views.Secretary
 
         private void Select_Doctor(object sender, EventArgs e)
         {
-            var item = sender as ListViewItem;
-            if (item != null && item.IsSelected)
-            {
-                HomeWindow.selectedDoctor = item.DataContext as string;
-                Console.Write(HomeWindow.selectedDoctor);
-            }
 
         }
     }

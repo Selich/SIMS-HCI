@@ -21,16 +21,18 @@ namespace Project.Views.Secretary
     /// </summary>
     public partial class HomeWindow : Window
     { 
-        public static string selectedDoctor { get; set; }
+        public  Model.Doctor selectedDoctor { get; set; }
         public HomeWindow()
         {   
             PatientRepository pr = new PatientRepository();
+            DoctorRepository dr = new DoctorRepository();
             InitializeComponent();
             listPatients.ItemsSource = pr.ReadCSV("../../Data/patients.csv");
+            selectedDoctor = dr.ReadCSV("../../Data/patients.csv").First();
+
+
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listPatients.ItemsSource);
             view.Filter = UserFilter;
-
-
 
         }
 

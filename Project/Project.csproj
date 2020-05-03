@@ -242,6 +242,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Data\doctors.csv" />
+    <None Include="Data\medicalAppointments.csv" />
+    <None Include="Data\patients.csv" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -254,7 +257,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Data\" />
     <Folder Include="Resources\Demo\Patient\" />
     <Folder Include="Resources\Demo\Secretary\" />
     <Folder Include="Resources\Images\Faces\" />

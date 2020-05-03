@@ -13,6 +13,7 @@
                 <Grid Background="#AEEBE4" Margin="0,-2,0,589">
                     <materialDesign:PackIcon Margin="41,22,0,0" Kind="Doctor" Height="21" Width="21" HorizontalAlignment="Left"/>
                     <Button FontSize="12" Content="Izaberi Lekara" HorizontalAlignment="Left" Margin="66,22,0,0" VerticalAlignment="Top" Width="268" Height="21" Click="Search_Doctor" />
+                    <Label Name="Izabran_Lekar" HorizontalAlignment="Right" Margin="0,22,25,0" VerticalAlignment="Top" Width="164" Content="{Binding selectedDoctor}"/>
                 </Grid>
                 <Grid Background="White" Margin="0,52,-2,428">
                     <Label Content="Naredni termin:" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Top" Width="1169" FontSize="18" Height="32" Margin="32,-1,35,0"/>

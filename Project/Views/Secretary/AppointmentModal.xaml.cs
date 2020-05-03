@@ -23,5 +23,21 @@ namespace Project.Views.Secretary
         {
             InitializeComponent();
         }
+
+        private void Change_Doctors(object sender, RoutedEventArgs e)
+        {
+            Doctor_Search_TextBox.Visibility = Visibility.Visible;
+            Change_Doctor_Button.Visibility = Visibility.Hidden;
+            Cancel_Change_Doctor_Button.Visibility = Visibility.Visible;
+
+
+        }
+        private void Cancel_Change_Doctors(object sender, RoutedEventArgs e)
+        {
+            Doctor_Search_TextBox.Visibility = Visibility.Hidden;
+            Change_Doctor_Button.Visibility = Visibility.Visible;
+            Cancel_Change_Doctor_Button.Visibility = Visibility.Hidden;
+
+        }
     }
 }
