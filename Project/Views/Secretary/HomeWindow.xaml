@@ -258,74 +258,79 @@
         <TabItem Header="Pacijenti">
             <Grid Background="#FFE5E5E5" Margin="20,20,20,60">
                 <Label Content="Rezultati Pretrage:" HorizontalAlignment="Left" Margin="33,72,0,0" VerticalAlignment="Top" FontSize="16" Height="31" Width="138"/>
-                <TextBox HorizontalAlignment="Left" Height="23" Margin="33,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                <TextBox HorizontalAlignment="Left" Height="23" Margin="211,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                <TextBox HorizontalAlignment="Left" Height="23" Margin="398,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                <ListBox BorderThickness="2" Background="DarkGray" HorizontalAlignment="Left" Height="450" Margin="33,108,0,0" VerticalAlignment="Top" Width="1161">
-                        <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth4">
-                            <Grid>
-                                <Image Source="../../Resources/Images/Faces/face1" HorizontalAlignment="Left" Height="65" Margin="26,11,0,0" VerticalAlignment="Top" Width="66" Stretch="Fill"/>
-                                <TextBlock FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" Margin="120,15,0,0" TextWrapping="Wrap" Text="Uros Miladinovic" VerticalAlignment="Top"/>
-                                <TextBlock HorizontalAlignment="Left" Margin="120,56,0,0" TextWrapping="Wrap" Text="Telefon: +38163432444" VerticalAlignment="Top"/>
-                                <TextBlock HorizontalAlignment="Left" Margin="870,22,0,0" TextWrapping="Wrap" Text="10:00 - 12:00" VerticalAlignment="Top"/>
-                                <TextBlock HorizontalAlignment="Left" Margin="894,45,0,0" TextWrapping="Wrap" Text="Sala 101" VerticalAlignment="Top"/>
-                                <Button Content="Termin" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="100" Height="65" Click="Button_Click_1" />
-                                <TextBlock HorizontalAlignment="Left" Margin="120,38,0,0" TextWrapping="Wrap" Text="Adresa:" VerticalAlignment="Top"/>
-                            </Grid>
-                        </materialDesign:Card>
-                        <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth4">
-                            <Grid>
-                                <Image Source="../../Resources/Images/Faces/face1" HorizontalAlignment="Left" Height="65" Margin="26,11,0,0" VerticalAlignment="Top" Width="66" Stretch="Fill"/>
-                                <TextBlock FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" Margin="120,15,0,0" TextWrapping="Wrap" Text="Uros Miladinovic" VerticalAlignment="Top"/>
-                                <TextBlock HorizontalAlignment="Left" Margin="120,56,0,0" TextWrapping="Wrap" Text="Telefon: +38163432444" VerticalAlignment="Top"/>
-                                <TextBlock HorizontalAlignment="Left" Margin="870,22,0,0" TextWrapping="Wrap" Text="10:00 - 12:00" VerticalAlignment="Top"/>
-                                <TextBlock HorizontalAlignment="Left" Margin="894,45,0,0" TextWrapping="Wrap" Text="Sala 101" VerticalAlignment="Top"/>
-                                <Button Content="Termin" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="100" Height="65" Click="Button_Click_1" />
-                                <TextBlock HorizontalAlignment="Left" Margin="120,38,0,0" TextWrapping="Wrap" Text="Adresa:" VerticalAlignment="Top"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="35,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="213,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="400,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <ListBox BorderThickness="2" Background="DarkGray" HorizontalAlignment="Left" Height="450" Margin="68,108,0,0" VerticalAlignment="Top" Width="1100">
+                    <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth4" Width="1067" Height="90">
+                        <Grid>
+                            <Image Source="../../Resources/Images/Faces/face1" HorizontalAlignment="Left" Height="65" Margin="26,11,0,0" VerticalAlignment="Top" Width="66" Stretch="Fill"/>
+                            <TextBlock FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" Margin="120,15,0,0" TextWrapping="Wrap" Text="Uros Miladinovic" VerticalAlignment="Top"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="120,56,0,0" TextWrapping="Wrap" Text="Telefon: +38163432444" VerticalAlignment="Top"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="870,22,0,0" TextWrapping="Wrap" Text="10:00 - 12:00" VerticalAlignment="Top"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="894,45,0,0" TextWrapping="Wrap" Text="Sala 101" VerticalAlignment="Top"/>
+                            <Button Content="Termin" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="100" Height="65" Click="Button_Click_1" />
+                            <TextBlock HorizontalAlignment="Left" Margin="120,38,0,0" TextWrapping="Wrap" Text="Adresa:" VerticalAlignment="Top"/>
+                        </Grid>
+                    </materialDesign:Card>
+                    <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth4" Width="1066" Height="88">
+                        <Grid>
+                            <Image Source="../../Resources/Images/Faces/face2" HorizontalAlignment="Left" Height="65" Margin="26,11,0,0" VerticalAlignment="Top" Width="66" Stretch="Fill"/>
+                            <TextBlock FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" Margin="120,15,0,0" TextWrapping="Wrap" Text="Uros Miladinovic" VerticalAlignment="Top"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="120,56,0,0" TextWrapping="Wrap" Text="Telefon: +38163432444" VerticalAlignment="Top"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="870,22,0,0" TextWrapping="Wrap" Text="10:00 - 12:00" VerticalAlignment="Top"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="894,45,0,0" TextWrapping="Wrap" Text="Sala 101" VerticalAlignment="Top"/>
+                            <Button Content="Termin" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="100" Height="65" Click="Button_Click_1" />
+                            <TextBlock HorizontalAlignment="Left" Margin="120,38,0,0" TextWrapping="Wrap" Text="Adresa:" VerticalAlignment="Top"/>
 
-                            </Grid>
+                        </Grid>
 
-                        </materialDesign:Card>
-                        <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth4">
-                            <Grid>
-                                <Image Source="../../Resources/Images/Faces/face1" HorizontalAlignment="Left" Height="65" Margin="26,11,0,0" VerticalAlignment="Top" Width="66" Stretch="Fill"/>
-                                <TextBlock FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" Margin="120,15,0,0" TextWrapping="Wrap" Text="Uros Miladinovic" VerticalAlignment="Top"/>
-                                <TextBlock HorizontalAlignment="Left" Margin="120,56,0,0" TextWrapping="Wrap" Text="Telefon: +38163432444" VerticalAlignment="Top"/>
-                                <TextBlock HorizontalAlignment="Left" Margin="870,22,0,0" TextWrapping="Wrap" Text="10:00 - 12:00" VerticalAlignment="Top"/>
-                                <TextBlock HorizontalAlignment="Left" Margin="894,45,0,0" TextWrapping="Wrap" Text="Sala 101" VerticalAlignment="Top"/>
-                                <Button Content="Termin" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="100" Height="65" Click="Button_Click_1" />
-                                <TextBlock HorizontalAlignment="Left" Margin="120,38,0,0" TextWrapping="Wrap" Text="Adresa:" VerticalAlignment="Top"/>
+                    </materialDesign:Card>
+                    <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth4" Width="1066" Height="85">
+                        <Grid>
+                            <Image Source="../../Resources/Images/Faces/face3" HorizontalAlignment="Left" Height="65" Margin="26,11,0,0" VerticalAlignment="Top" Width="66" Stretch="Fill"/>
+                            <TextBlock FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" Margin="120,15,0,0" TextWrapping="Wrap" Text="Uros Miladinovic" VerticalAlignment="Top"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="120,56,0,0" TextWrapping="Wrap" Text="Telefon: +38163432444" VerticalAlignment="Top"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="870,22,0,0" TextWrapping="Wrap" Text="10:00 - 12:00" VerticalAlignment="Top"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="894,45,0,0" TextWrapping="Wrap" Text="Sala 101" VerticalAlignment="Top"/>
+                            <Button Content="Termin" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="100" Height="65" Click="Button_Click_1" />
+                            <TextBlock HorizontalAlignment="Left" Margin="120,38,0,0" TextWrapping="Wrap" Text="Adresa:" VerticalAlignment="Top"/>
 
-                            </Grid>
+                        </Grid>
 
-                        </materialDesign:Card>
+                    </materialDesign:Card>
                 </ListBox>
             </Grid>
         </TabItem>
         <TabItem Header="Podesavanja">
-            <Grid Background="#FFE5E5E5" Margin="20,20,20,60">
-                <Grid Background="White" HorizontalAlignment="Left" Height="278" Margin="92,133,0,0" VerticalAlignment="Top" Width="492">
-                    <Label Content="Podaci" HorizontalAlignment="Left" Margin="42,25,0,0" VerticalAlignment="Top"/>
-                    <Image HorizontalAlignment="Left" Height="100" Margin="42,78,0,0" VerticalAlignment="Top" Width="100"/>
-                    <Button Content="Button" HorizontalAlignment="Left" Margin="42,183,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.213,0.2"/>
-                    <TextBox HorizontalAlignment="Left" Height="23" Margin="353,58,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-                    <Label Content="Label" HorizontalAlignment="Left" Margin="285,54,0,0" VerticalAlignment="Top"/>
-                    <TextBox HorizontalAlignment="Left" Height="23" Margin="353,89,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-                    <Label Content="Label" HorizontalAlignment="Left" Margin="285,85,0,0" VerticalAlignment="Top"/>
-                    <TextBox HorizontalAlignment="Left" Height="23" Margin="353,119,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-                    <Label Content="Label" HorizontalAlignment="Left" Margin="285,115,0,0" VerticalAlignment="Top"/>
-                    <TextBox HorizontalAlignment="Left" Height="23" Margin="353,149,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-                    <Label Content="Label" HorizontalAlignment="Left" Margin="285,145,0,0" VerticalAlignment="Top"/>
-                    <TextBox HorizontalAlignment="Left" Height="23" Margin="353,183,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-                    <Label Content="Label" HorizontalAlignment="Left" Margin="285,179,0,0" VerticalAlignment="Top"/>
-                    <TextBox HorizontalAlignment="Left" Height="23" Margin="353,209,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-                    <Label Content="Label" HorizontalAlignment="Left" Margin="285,205,0,0" VerticalAlignment="Top"/>
-                    <Label Content="Label" HorizontalAlignment="Left" Margin="285,235,0,0" VerticalAlignment="Top"/>
-                    <DatePicker HorizontalAlignment="Left" Margin="356,239,0,0" VerticalAlignment="Top"/>
+            <Grid Background="#FFE5E5E5" Margin="20,20,26,23">
+                <Grid Background="White" Margin="42,40,487,193">
+                    <Grid HorizontalAlignment="Left" Height="320" Margin="38,33,0,0" VerticalAlignment="Top" Width="260">
+                        <Image HorizontalAlignment="Left" Height="204" Margin="27,36,0,0" VerticalAlignment="Top" Width="205" Source="../../Resources/Images/Faces/face5"/>
+                        <Button Content="Izmeni sliku" HorizontalAlignment="Left" Margin="27,265,0,0" VerticalAlignment="Top" Width="205"/>
+                    </Grid>
+                    <Grid HorizontalAlignment="Left" Height="320" Margin="330,33,0,0" VerticalAlignment="Top" Width="324">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="56*"/>
+                            <ColumnDefinition Width="279*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Nikola Selic" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="40,30,0,0" VerticalAlignment="Top" Width="87" Grid.ColumnSpan="2"/>
+                        <Label Content="Label" HorizontalAlignment="Left" Margin="40,77,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                        <Label Content="Label" HorizontalAlignment="Left" Margin="40,101,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                        <Label Content="Label" HorizontalAlignment="Left" Margin="40,125,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                        <Label Content="Label" HorizontalAlignment="Left" Margin="40,153,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                        <Label Content="Label" HorizontalAlignment="Left" Margin="40,177,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                        <Label Content="Label" HorizontalAlignment="Left" Margin="40,206,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                        <Button Content="Izmeni" FontSize="11" HorizontalAlignment="Left" Margin="40,241,0,0" VerticalAlignment="Top" Width="65" Height="23" Grid.ColumnSpan="2"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="42.5,77,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="42.5,102,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="42.5,125,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="42.5,153,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="42.5,184,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="42.5,206,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
+                    </Grid>
                 </Grid>
-                <Grid  Background="White"  HorizontalAlignment="Left" Height="601" Margin="631,26,0,0" VerticalAlignment="Top" Width="602">
-                    <Label Content="Podesavanja" HorizontalAlignment="Left" Margin="28,27,0,0" VerticalAlignment="Top"/>
-                </Grid>
+                <Grid HorizontalAlignment="Left" Height="477" Margin="750,42,0,0" VerticalAlignment="Top" Width="434" Background="White"/>
             </Grid>
         </TabItem>
     </TabControl>
