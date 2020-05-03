@@ -56,5 +56,7 @@ namespace Project.Views.Director
             Cancel_btn.Visibility = Visibility.Hidden; ;
             Change_btn.Visibility = Visibility.Visible;
         }
+
+        
     }
 }
