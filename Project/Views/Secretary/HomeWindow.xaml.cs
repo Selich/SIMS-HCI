@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Model;
 
 namespace Project.Views.Secretary
 {
@@ -22,6 +23,20 @@ namespace Project.Views.Secretary
         public HomeWindow()
         {
             InitializeComponent();
+            List<Model.Patient> patients = new List<Model.Patient>();
+            patients.Add(new Model.Patient()
+            {
+                firstName = "Uros", lastName = "Milovanovic", jmbg = "121212222221",
+                address = new Address() {city = "Novi Sad", street = "Ulica"}
+            });
+            patients.Add(new Model.Patient()
+            {
+                firstName = "Dusan", lastName = "Urosevic", jmbg = "121212222221",
+                address = new Address() {city = "Novi Sad", street = "Ulica"}
+            });
+            listPatients.ItemsSource = patients;
+
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -34,6 +49,16 @@ namespace Project.Views.Secretary
         {
             var s = new AppointmentModal();
             s.Show();
+
+        }
+
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void Handle_Search(object sender, RoutedEventArgs e)
+        {
 
         }
     }

@@ -9,17 +9,13 @@ namespace Model
 {
    public class User
    {
-      private DateTime dateOfBirth;
-      private string firstName;
-      private string lastName;
-      private string jmbg;
-      private string telephoneNumber;
-      private Sex gender;
+      public DateTime dateOfBirth {get; set;}
+      public string firstName {get;set;}
+      public string lastName {get;set;}
+      public string jmbg {get;set;}
+      public string telephoneNumber{get;set;}
+      public Sex gender {get;set;}
       
-      public User()
-      {
-         throw new NotImplementedException();
-      }
       
       public Feedback[] feedback;
       public Address address;

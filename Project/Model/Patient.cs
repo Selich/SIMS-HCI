@@ -9,8 +9,9 @@ namespace Model
 {
    public class Patient : User
    {
-      private string insurenceNumber;
-      private string profession;
+      public string insurenceNumber {get; set;}
+      public string profession { get; set;}
+
       
       
       public System.Collections.Generic.List<MedicalAppointment> appointments;
