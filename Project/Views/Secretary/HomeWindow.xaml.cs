@@ -29,5 +29,12 @@ namespace Project.Views.Secretary
             var s = new AppointmentModal();
             s.Show();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            var s = new AppointmentModal();
+            s.Show();
+
+        }
     }
 }
