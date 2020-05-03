@@ -24,9 +24,37 @@ namespace Project.Views.Director
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void OpenSettingsModal(object sender, RoutedEventArgs e)
         {
+            SettingsModal modal = new SettingsModal();
+            modal.ShowDialog();
+        }
 
+        private void OpenBugReportModal(object sender, RoutedEventArgs e)
+        {
+            BugReportModal modal = new BugReportModal();
+            modal.ShowDialog();
+        }
+
+        private void ChangeProfile(object sender, RoutedEventArgs e)
+        {
+            Save_btn.Visibility = Visibility.Visible; ;
+            Cancel_btn.Visibility = Visibility.Visible; ;
+            Change_btn.Visibility = Visibility.Hidden; 
+        }
+
+        private void CancelProfileChanges(object sender, RoutedEventArgs e)
+        {
+            Save_btn.Visibility = Visibility.Hidden; ;
+            Cancel_btn.Visibility = Visibility.Hidden; ;
+            Change_btn.Visibility = Visibility.Visible;
+        }
+
+        private void ConfirmProfileChanges(object sender, RoutedEventArgs e)
+        {
+            Save_btn.Visibility = Visibility.Hidden; ;
+            Cancel_btn.Visibility = Visibility.Hidden; ;
+            Change_btn.Visibility = Visibility.Visible;
         }
     }
 }
