@@ -112,13 +112,18 @@ Branch za poseban servis npr. "Patient" bice:
 
 ## Pitanja za konsultacije
 
+- [ ] Da li moramo preko razlicitih metoda, ako smo zamislili da nam u jednom CSV fajlu butu svi zaposleni, a jedina njihova razlika bice
+Role koji se dobija iz isIstanceOf() metode i kolonu MEDICAL_ROLE NULL za ostale zaposlene?
 
-- [ ] Pojasnjenje za magacin i registraciju novih lekova
-- [ ] Da li svi dele isti Login view i kasnije preusmerenje na razlicite preglede ( Zaposleni ili Pacijenti )
-- [ ] Handlovanje eventa za izvestaje ( Da li mora da klasa Izvestaj da se sadrzi u nekom modelu ( Direktor , Lekar itd.))
-- [ ] Da li Upravnik registruje Sekretara ( screenshot )
-- [ ] Lista svih renovacija kod Upravnika ili mozemo da pokupimo iz svih soba
-- [ ] Zakazivanje sala inicira Doktor?
+Npr.
+
+ID ... ROLE    | MEDICAL ROLE  | 
+1     Director | NULL          |
+2     Doctor   | Dermatologist |
+
+- [ ] Kako dodati u PowerDesigner-u da nam je povratna vrednost funkcije bude kolekcija objekata (npr. List<Medicine>)?
+Za sada smo nasli da mozemo da referenciramo klase iz modela ali ne i kolekciju samih.
+
 
 ## Odgovori
 

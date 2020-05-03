@@ -7,15 +7,15 @@
         FontFamily="Arial"
         mc:Ignorable="d"
         Title="HomeWindow" Height="720" Width="1280">
-    <TabControl HorizontalAlignment="Center" Height="690" VerticalAlignment="Center" Width="1270" Margin="0,0,2,-1" >
+    <TabControl HorizontalAlignment="Center" Height="689" VerticalAlignment="Center" Width="1270" Margin="0,0,2,0" >
         <TabItem Header="Termini">
-            <Grid Background="#EFFCFA" Margin="10,10,11,10">
-                <Grid Background="#AEEBE4" Margin="0,0,0,587">
-                    <materialDesign:PackIcon Margin="0,20,306,0" Kind="Doctor" Height="21" Width="21" HorizontalAlignment="Right"/>
+            <Grid Background="#EFFCFA" Margin="10,10,11,-2">
+                <Grid Background="#AEEBE4" Margin="0,-2,0,589">
+                    <materialDesign:PackIcon Margin="0,22,306,0" Kind="Doctor" Height="21" Width="21" HorizontalAlignment="Right"/>
                     <TextBox HorizontalAlignment="Right" Height="24" Margin="0,17,114,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="187"/>
-                    <Button FontSize="12" Content="Pretrazi" HorizontalAlignment="Right" Margin="0,17,33,0" VerticalAlignment="Top" Width="76" Height="24" />
+                    <Button FontSize="12" Content="Pretrazi" HorizontalAlignment="Right" Margin="0,19,33,0" VerticalAlignment="Top" Width="76" Height="24" />
                 </Grid>
-                <Grid Background="White" Margin="0,60,-2,420">
+                <Grid Background="White" Margin="0,52,-2,428">
                     <Label Content="Naredni termin:" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Top" Width="1169" FontSize="18" Height="32" Margin="32,-1,35,0"/>
                     <Rectangle   Fill="Gainsboro" HorizontalAlignment="Center" Height="109" Margin="34,29,33,0" Stroke="Black" VerticalAlignment="Top" Width="1169"/>
 
@@ -211,16 +211,17 @@
                         </Grid>
                     </TabItem>
                 </TabControl>
+                <Button Content="Feedback" HorizontalAlignment="Left" Margin="1108,623,0,0" VerticalAlignment="Top" Width="100" Height="22"/>
             </Grid>
         </TabItem>
         <TabItem Header="Kreiraj">
-            <Grid Background="#FFE5E5E5" Margin="20,10,20,60">
-                <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="514" Margin="792,56,0,0" Stroke="Black" VerticalAlignment="Top" Width="404"/>
+            <Grid Background="#FFE5E5E5" Margin="20,10">
+                <Grid Background="#FFF4F4F5" HorizontalAlignment="Left" Height="563" Margin="804,36,0,0"  VerticalAlignment="Top" Width="404"/>
                 <TextBox HorizontalAlignment="Left" Height="22" Margin="144,169,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="224"/>
                 <TextBox HorizontalAlignment="Left" Height="22" Margin="73,61,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="224"/>
                 <Button Content="Kreiraj" HorizontalAlignment="Left" Margin="585,61,0,0" VerticalAlignment="Top" Width="100" Height="27"/>
                 <DatePicker HorizontalAlignment="Left" Margin="346,58,0,0" VerticalAlignment="Top" Width="200"/>
-                <ListBox HorizontalAlignment="Left" Height="451" Margin="812,92,0,0" VerticalAlignment="Top" Width="356">
+                <ListBox HorizontalAlignment="Left" Height="507" Margin="826,92,0,0" VerticalAlignment="Top" Width="356">
                     <Grid  Background="White" Height="25" Width="341">
                         <CheckBox HorizontalContentAlignment="Center" VerticalAlignment="Center" Content="8:00 Term"/>
                     </Grid>
@@ -252,11 +253,13 @@
                         <CheckBox Background="White" HorizontalContentAlignment="Center" VerticalAlignment="Center" Content="17:00 Term"/>
                     </Grid>
                 </ListBox>
-                <Label Content="09. April. 2020" HorizontalAlignment="Left" Margin="812,66,0,0" VerticalAlignment="Top" Width="113"/>
+                <Label Content="09. April. 2020" HorizontalAlignment="Left" Margin="826,66,0,0" VerticalAlignment="Top" Width="113"/>
+                <Button Content="Feedback" HorizontalAlignment="Left" Margin="1108,615,0,0" VerticalAlignment="Top" Width="100" Height="22"/>
+                <Calendar Style="{x:Null}" HorizontalAlignment="Left" Margin="398,285,0,0" VerticalAlignment="Top" Foreground="#DD000000" Background="White" Height="180" />
             </Grid>
         </TabItem>
         <TabItem Header="Pacijenti">
-            <Grid Background="#FFE5E5E5" Margin="20,20,20,60">
+            <Grid Background="#FFE5E5E5" Margin="20,20,20,10">
                 <Label Content="Rezultati Pretrage:" HorizontalAlignment="Left" Margin="33,72,0,0" VerticalAlignment="Top" FontSize="16" Height="31" Width="138"/>
                 <TextBox HorizontalAlignment="Left" Height="23" Margin="35,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                 <TextBox HorizontalAlignment="Left" Height="23" Margin="213,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
@@ -300,10 +303,11 @@
 
                     </materialDesign:Card>
                 </ListBox>
+                <Button Content="Feedback" HorizontalAlignment="Left" Margin="1104,603,0,0" VerticalAlignment="Top" Width="100" Height="22"/>
             </Grid>
         </TabItem>
         <TabItem Header="Podesavanja">
-            <Grid Background="#FFE5E5E5" Margin="20,20,26,23">
+            <Grid Background="#FFE5E5E5" Margin="20,20,26,10">
                 <Grid Background="White" Margin="42,40,487,193">
                     <Grid HorizontalAlignment="Left" Height="320" Margin="38,33,0,0" VerticalAlignment="Top" Width="260">
                         <Image HorizontalAlignment="Left" Height="204" Margin="27,36,0,0" VerticalAlignment="Top" Width="205" Source="../../Resources/Images/Faces/face5"/>
@@ -331,8 +335,8 @@
                     </Grid>
                 </Grid>
                 <Grid HorizontalAlignment="Left" Height="477" Margin="750,42,0,0" VerticalAlignment="Top" Width="434" Background="White"/>
+                <Button Content="Feedback" HorizontalAlignment="Left" Margin="1104,599,0,-1" VerticalAlignment="Top" Width="100" Height="22"/>
             </Grid>
         </TabItem>
     </TabControl>
-
 </Window>

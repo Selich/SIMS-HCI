@@ -63,6 +63,47 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\Address.cs" />
+    <Compile Include="Model\Allergie.cs" />
+    <Compile Include="Model\Anamneza.cs" />
+    <Compile Include="Model\Appoitment.cs" />
+    <Compile Include="Model\Approval.cs" />
+    <Compile Include="Model\BloodType.cs" />
+    <Compile Include="Model\Consumebles.cs" />
+    <Compile Include="Model\Director.cs" />
+    <Compile Include="Model\Doctor.cs" />
+    <Compile Include="Model\DoctorReferral.cs" />
+    <Compile Include="Model\Document.cs" />
+    <Compile Include="Model\Employee.cs" />
+    <Compile Include="Model\Equipment.cs" />
+    <Compile Include="Model\Feedback.cs" />
+    <Compile Include="Model\Hospital.cs" />
+    <Compile Include="Model\LabTest.cs" />
+    <Compile Include="Model\MedicalAppointment.cs" />
+    <Compile Include="Model\MedicalAppointmentType.cs" />
+    <Compile Include="Model\MedicalChart.cs" />
+    <Compile Include="Model\MedicalConsumables.cs" />
+    <Compile Include="Model\Medicine.cs" />
+    <Compile Include="Model\Order.cs" />
+    <Compile Include="Model\Patient.cs" />
+    <Compile Include="Model\PatientReport.cs" />
+    <Compile Include="Model\Prescription.cs" />
+    <Compile Include="Model\Proposition.cs" />
+    <Compile Include="Model\PropositionState.cs" />
+    <Compile Include="Model\Question.cs" />
+    <Compile Include="Model\RegistredPatient.cs" />
+    <Compile Include="Model\Renovation.cs" />
+    <Compile Include="Model\RenovationType.cs" />
+    <Compile Include="Model\Report.cs" />
+    <Compile Include="Model\Review.cs" />
+    <Compile Include="Model\Room.cs" />
+    <Compile Include="Model\RoomType.cs" />
+    <Compile Include="Model\Scheduling.cs" />
+    <Compile Include="Model\Secretary.cs" />
+    <Compile Include="Model\Sex.cs" />
+    <Compile Include="Model\TimeInterval.cs" />
+    <Compile Include="Model\TypeOfIssue.cs" />
+    <Compile Include="Model\User.cs" />
     <Compile Include="Views\Director\BugReportModal.xaml.cs">
       <DependentUpon>BugReportModal.xaml</DependentUpon>
     </Compile>
@@ -175,50 +216,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Address.cs" />
-    <Compile Include="Models\Allergie.cs" />
-    <Compile Include="Models\Anamneza.cs" />
-    <Compile Include="Models\Appoitment.cs" />
-    <Compile Include="Models\Approval.cs" />
-    <Compile Include="Models\Consumebles.cs" />
-    <Compile Include="Models\DiagnosisType.cs" />
-    <Compile Include="Models\Director.cs" />
-    <Compile Include="Models\Doctor.cs" />
-    <Compile Include="Models\DoctorReferral.cs" />
-    <Compile Include="Models\Document.cs" />
-    <Compile Include="Models\Employee.cs" />
-    <Compile Include="Models\Equipment.cs" />
-    <Compile Include="Models\Feedback.cs" />
-    <Compile Include="Models\Hospital.cs" />
-    <Compile Include="Models\LabTest.cs" />
-    <Compile Include="Models\MedicalAppointment.cs" />
-    <Compile Include="Models\MedicalAppointmentType.cs" />
-    <Compile Include="Models\MedicalChart.cs" />
-    <Compile Include="Models\MedicalCondition.cs" />
-    <Compile Include="Models\MedicalConsumables.cs" />
-    <Compile Include="Models\Medicine.cs" />
-    <Compile Include="Models\Order.cs" />
-    <Compile Include="Models\Patient.cs" />
-    <Compile Include="Models\PatientReport.cs" />
-    <Compile Include="Models\Prescription.cs" />
-    <Compile Include="Models\Proposition.cs" />
-    <Compile Include="Models\PropositionState.cs" />
-    <Compile Include="Models\Question.cs" />
-    <Compile Include="Models\RegistredPatient.cs" />
-    <Compile Include="Models\RegistredUser.cs" />
-    <Compile Include="Models\Renovation.cs" />
-    <Compile Include="Models\RenovationType.cs" />
-    <Compile Include="Models\Report.cs" />
-    <Compile Include="Models\Review.cs" />
-    <Compile Include="Models\Room.cs" />
-    <Compile Include="Models\RoomType.cs" />
-    <Compile Include="Models\Scheduling.cs" />
-    <Compile Include="Models\Secretary.cs" />
-    <Compile Include="Models\Sex.cs" />
-    <Compile Include="Models\TestType.cs" />
-    <Compile Include="Models\TimeInterval.cs" />
-    <Compile Include="Models\TypeOfIssue.cs" />
-    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -236,7 +233,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Models\Class_Diagram.csproj" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -259,8 +255,6 @@
   <ItemGroup>
     <Content Include="Resources\Icons\8370799161557749690.svg" />
     <Resource Include="Resources\Icons\healthcare-and-medical.png" />
-    <Resource Include="healthcare-and-medical.png" />
-    <Content Include="Models\Class_Diagram.sln" />
     <Resource Include="Resources\hospital.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
