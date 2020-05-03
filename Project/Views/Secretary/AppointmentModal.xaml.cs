@@ -15,19 +15,13 @@ using System.Windows.Shapes;
 namespace Project.Views.Secretary
 {
     /// <summary>
-    /// Interaction logic for HomeWindow.xaml
+    /// Interaction logic for AppointmentModal.xaml
     /// </summary>
-    public partial class HomeWindow : Window
+    public partial class AppointmentModal : Window
     {
-        public HomeWindow()
+        public AppointmentModal()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            var s = new AppointmentModal();
-            s.Show();
         }
     }
 }

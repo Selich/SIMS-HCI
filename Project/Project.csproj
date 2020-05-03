@@ -73,6 +73,9 @@
     <Compile Include="Views\Patient\HomeWindow.xaml.cs">
       <DependentUpon>HomeWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Secretary\AppointmentModal.xaml.cs">
+      <DependentUpon>AppointmentModal.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Secretary\HomeWindow.xaml.cs">
       <DependentUpon>HomeWindow.xaml</DependentUpon>
     </Compile>
@@ -109,6 +112,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Patient\HomeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Secretary\AppointmentModal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -190,10 +197,15 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
+    <Folder Include="Resources\Demo\Patient\" />
+    <Folder Include="Resources\Demo\Secretary\" />
     <Folder Include="Resources\Images\Faces\" />
     <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\Icons\8370799161557749690.svg" />
+    <Resource Include="Resources\Icons\healthcare-and-medical.png" />
+    <Resource Include="healthcare-and-medical.png" />
     <Content Include="Models\Class_Diagram.sln" />
     <Resource Include="Resources\hospital.png" />
   </ItemGroup>
