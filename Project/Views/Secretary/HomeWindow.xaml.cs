@@ -25,19 +25,9 @@ namespace Project.Views.Secretary
         {   
             PatientRepository pr = new PatientRepository();
             InitializeComponent();
-            //List<Model.Patient> patients = new List<Model.Patient>();
-            //patients.Add(new Model.Patient()
-            //{
-            //    firstName = "Uros", lastName = "Milovanovic", jmbg = "121212222221",
-            //    address = new Address() {city = "Novi Sad", street = "Ulica"}
-            //});
-            //patients.Add(new Model.Patient()
-            //{
-            //    firstName = "Dusan", lastName = "Urosevic", jmbg = "121212222221",
-            //    address = new Address() {city = "Novi Sad", street = "Ulica"}
-            //});
-            //listPatients.ItemsSource = patients;
             listPatients.ItemsSource = pr.ReadCSV("../../Data/patients.csv");
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listPatients.ItemsSource);
+            view.Filter = UserFilter;
 
 
 
@@ -62,6 +52,24 @@ namespace Project.Views.Secretary
         }
 
         private void Handle_Search(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private bool UserFilter(object item)
+        {
+            if (String.IsNullOrEmpty(patientFilter.Text))
+                return true;
+            else
+                return ((item as User).firstName.IndexOf(patientFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+        }
+        private void txtFilter_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            CollectionViewSource.GetDefaultView(listPatients.ItemsSource).Refresh();
+        }
+
+
+        private void Handle_Doctor_Search(object sender, TextChangedEventArgs e)
         {
 
         }
