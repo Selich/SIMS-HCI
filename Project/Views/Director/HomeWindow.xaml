@@ -8,7 +8,7 @@
         Title="HomeWindow" Height="720" Width="1280">
     <TabControl HorizontalAlignment="Left" Height="720" VerticalAlignment="Top" Width="1280" >
         <TabItem Header="Profil">
-            <Grid Background="#FFE5E5E5">
+            <Grid Background="#FFE5E5E5" Margin="0,0,0,28">
                 <Image x:Name="SlikaUpravnika" Source="/Resources/hospital.png"  HorizontalAlignment="Left" Height="278" Margin="28,11,0,0" VerticalAlignment="Top" Width="276" OpacityMask="#FFF12511"/>
                 <StackPanel Margin="333,77,825,404" Orientation="Vertical">
                     <Label Content="Korisnicko ime:" HorizontalAlignment="Left" Margin="20,0,-7,0" VerticalAlignment="Top" FontSize="14"/>
@@ -55,6 +55,10 @@
             </Grid>
         </TabItem>
         <TabItem Header="Zaposleni">
+            <Grid Background="#FFE5E5E5" Margin="0,0,0,26" RenderTransformOrigin="0.356,0.398">
+                <Grid Margin="44,78,74,466"/>
+
+            </Grid>
         </TabItem>
         <TabItem Header="Oprema">
         </TabItem>
