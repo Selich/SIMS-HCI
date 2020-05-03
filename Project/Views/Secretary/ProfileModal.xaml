@@ -1,0 +1,46 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Project.Views.Secretary"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="Project.Views.Secretary.ProfileModal"
+        mc:Ignorable="d"
+        Title="ProfileModal" Height="432" Width="850">
+    <TabControl HorizontalAlignment="Left" Height="405" Margin="2,-1,0,-3" VerticalAlignment="Top" Width="838">
+        <TabItem Header="Profil">
+            <Grid Background="#FFE5E5E5">
+                <Grid HorizontalAlignment="Left" Height="320" Margin="38,33,0,0" VerticalAlignment="Top" Width="260">
+                    <Image HorizontalAlignment="Left" Height="232" Margin="27,28,0,0" VerticalAlignment="Top" Width="205"/>
+                    <Button Content="Izmeni sliku" HorizontalAlignment="Left" Margin="27,265,0,0" VerticalAlignment="Top" Width="205"/>
+                </Grid>
+                <Grid HorizontalAlignment="Left" Height="289" Margin="345,64,0,0" VerticalAlignment="Top" Width="454">
+                    <Label Content="Nikola Selic" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="40,30,0,0" VerticalAlignment="Top" Width="87"/>
+                    <Label Content="Label" HorizontalAlignment="Left" Margin="40,77,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Label" HorizontalAlignment="Left" Margin="40,101,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Label" HorizontalAlignment="Left" Margin="40,125,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Label" HorizontalAlignment="Left" Margin="40,153,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Label" HorizontalAlignment="Left" Margin="40,177,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Label" HorizontalAlignment="Left" Margin="40,206,0,0" VerticalAlignment="Top"/>
+                    <Button Content="Izmeni" FontSize="11" HorizontalAlignment="Left" Margin="40,241,0,0" VerticalAlignment="Top" Width="65" Height="23"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="98,77,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="98,102,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="98,125,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="98,153,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="98,184,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="98,206,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+                </Grid>
+            </Grid>
+        </TabItem>
+        <TabItem Header="Termini">
+            <Grid Background="#FFE5E5E5">
+                <ListBox HorizontalAlignment="Left" Height="278" Margin="24,68,0,0" VerticalAlignment="Top" Width="772"/>
+            </Grid>
+        </TabItem>
+        <TabItem Header="Istorija">
+            <Grid Background="#FFE5E5E5">
+                <ListBox HorizontalAlignment="Left" Height="278" Margin="24,68,0,0" VerticalAlignment="Top" Width="772"/>
+            </Grid>
+        </TabItem>
+    </TabControl>
+</Window>
