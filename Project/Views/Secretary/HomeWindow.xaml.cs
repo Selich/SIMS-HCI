@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Model;
+using Project.Repositories;
 
 namespace Project.Views.Secretary
 {
@@ -21,20 +22,23 @@ namespace Project.Views.Secretary
     public partial class HomeWindow : Window
     {
         public HomeWindow()
-        {
+        {   
+            PatientRepository pr = new PatientRepository();
             InitializeComponent();
-            List<Model.Patient> patients = new List<Model.Patient>();
-            patients.Add(new Model.Patient()
-            {
-                firstName = "Uros", lastName = "Milovanovic", jmbg = "121212222221",
-                address = new Address() {city = "Novi Sad", street = "Ulica"}
-            });
-            patients.Add(new Model.Patient()
-            {
-                firstName = "Dusan", lastName = "Urosevic", jmbg = "121212222221",
-                address = new Address() {city = "Novi Sad", street = "Ulica"}
-            });
-            listPatients.ItemsSource = patients;
+            //List<Model.Patient> patients = new List<Model.Patient>();
+            //patients.Add(new Model.Patient()
+            //{
+            //    firstName = "Uros", lastName = "Milovanovic", jmbg = "121212222221",
+            //    address = new Address() {city = "Novi Sad", street = "Ulica"}
+            //});
+            //patients.Add(new Model.Patient()
+            //{
+            //    firstName = "Dusan", lastName = "Urosevic", jmbg = "121212222221",
+            //    address = new Address() {city = "Novi Sad", street = "Ulica"}
+            //});
+            //listPatients.ItemsSource = patients;
+            listPatients.ItemsSource = pr.ReadCSV("../../Data/patients.csv");
+
 
 
         }

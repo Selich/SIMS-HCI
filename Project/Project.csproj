@@ -104,6 +104,7 @@
     <Compile Include="Model\TimeInterval.cs" />
     <Compile Include="Model\TypeOfIssue.cs" />
     <Compile Include="Model\User.cs" />
+    <Compile Include="Repositories\PatientRepository.cs" />
     <Compile Include="Views\Director\BugReportModal.xaml.cs">
       <DependentUpon>BugReportModal.xaml</DependentUpon>
     </Compile>
