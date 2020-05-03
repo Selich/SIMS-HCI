@@ -7,10 +7,10 @@
         mc:Ignorable="d"
         ResizeMode="NoResize"
         Title="AppointmentModal" Height="563" Width="1190">
-    <Grid Margin="0,0,0,0" Background="DarkGray">
-        <Button Content="Exit" HorizontalAlignment="Left" Margin="59,25,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Content="Demo" HorizontalAlignment="Left" Margin="1051,25,0,0" VerticalAlignment="Top" Width="75"/>
-        <Grid HorizontalAlignment="Left" Height="88" Margin="59,50,0,0" VerticalAlignment="Top" Width="1067" Background="White">
+    <Grid Background="#FFE5E5E5" Margin="20,20,20,15">
+        <Button Content="Exit" HorizontalAlignment="Left" Margin="41,17,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Demo" HorizontalAlignment="Left" Margin="1033,17,0,0" VerticalAlignment="Top" Width="75"/>
+        <Grid HorizontalAlignment="Left" Height="88" Margin="41,42,0,0" VerticalAlignment="Top" Width="1067" Background="White">
             <Image HorizontalAlignment="Left" Height="68" Margin="10,10,0,0" VerticalAlignment="Top" Width="79" />
             <TextBlock HorizontalAlignment="Left" Margin="107,10,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="0.02,0.938"/>
             <TextBlock HorizontalAlignment="Left" Margin="107,31,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="0.02,0.938"/>
@@ -19,9 +19,9 @@
             <TextBlock HorizontalAlignment="Left" Margin="881,52,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="0.02,0.938"/>
             <Button Content="Profil" HorizontalAlignment="Left" Margin="948,18,0,0" VerticalAlignment="Top" Width="107" Height="55" />
         </Grid>
-        <TextBlock HorizontalAlignment="Left" FontSize="17" Margin="59,152,0,0" TextWrapping="Wrap" Text="Kod Lekara:" VerticalAlignment="Top"/>
-        <Button Content="Izmeni" HorizontalAlignment="Left" Margin="155,155,0,0" VerticalAlignment="Top" Width="64"/>
-        <ListBox Background="Gainsboro" HorizontalAlignment="Left" Height="319" Margin="59,181,0,0" VerticalAlignment="Top" Width="337">
+        <TextBlock HorizontalAlignment="Left" FontSize="17" Margin="41,144,0,0" TextWrapping="Wrap" Text="Kod Lekara:" VerticalAlignment="Top"/>
+        <Button Content="Izmeni" HorizontalAlignment="Left" Margin="137,147,0,0" VerticalAlignment="Top" Width="64"/>
+        <ListBox Background="Gainsboro" HorizontalAlignment="Left" Height="319" Margin="41,173,0,0" VerticalAlignment="Top" Width="337">
             <Grid Background="White" HorizontalAlignment="Left" Height="88" Margin="0,5,0,0" VerticalAlignment="Top" Width="320">
                 <Image HorizontalAlignment="Left" Height="68" Margin="10,10,0,0" VerticalAlignment="Top" Width="79" Grid.RowSpan="2" />
                 <TextBlock HorizontalAlignment="Left" Height="23" Margin="94,15,0,0" TextWrapping="Wrap" Text="Dr. Filip Zdelar" VerticalAlignment="Top" Width="135" FontWeight="bold"/>
@@ -35,7 +35,7 @@
                 <Button IsEnabled="False"  Content="Obrisi" HorizontalAlignment="Left" Margin="244,58,0,0" VerticalAlignment="Top" Width="64"/>
             </Grid>
         </ListBox>
-        <Grid Background="White" HorizontalAlignment="Left" Height="319" Margin="401,181,0,0" VerticalAlignment="Top" Width="725">
+        <Grid Background="White" HorizontalAlignment="Left" Height="319" Margin="383,173,0,0" VerticalAlignment="Top" Width="725">
             <Button Content="Izmeni" HorizontalAlignment="Left" Margin="309,60,0,0" VerticalAlignment="Top" Width="64"/>
             <Label Content="Datum" HorizontalAlignment="Left" Margin="12,19,0,0" VerticalAlignment="Top"/>
             <DatePicker HorizontalAlignment="Left" Margin="59,21,0,0" VerticalAlignment="Top" Width="137"/>
@@ -52,7 +52,7 @@
             <Label Content="Prepisani lekovi:" HorizontalAlignment="Left" Margin="417,70,0,0" VerticalAlignment="Top"/>
             <ListBox HorizontalAlignment="Left" Height="207" Margin="420,100,0,0" VerticalAlignment="Top" Width="295"/>
         </Grid>
-        <TextBlock HorizontalAlignment="Left" FontSize="17" Margin="400,152,0,0" TextWrapping="Wrap" Text="Termin:" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" FontSize="17" Margin="382,144,0,0" TextWrapping="Wrap" Text="Termin:" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
