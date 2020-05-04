@@ -259,8 +259,39 @@
                 </Grid>
                 <Button Content="Feedback" HorizontalAlignment="Right" Margin="0,0,35,10" VerticalAlignment="Bottom" Width="100" Height="22"/>
                 <Grid Visibility="Visible" Background="White" HorizontalAlignment="Left" Height="528" Margin="634,98,0,0" VerticalAlignment="Top" Width="572" x:Name="Guest_Account_Create_Copy">
-                    <Grid Margin="137,0,0,440"/>
                     <Grid HorizontalAlignment="Left" Height="36" Margin="0,500,0,0" VerticalAlignment="Top" Width="572"/>
+                    <ListBox HorizontalAlignment="Left" Height="458" Margin="108,40,0,0" VerticalAlignment="Top" Width="356">
+                        <Grid  Background="White" Height="25" Width="341">
+                            <CheckBox HorizontalContentAlignment="Center" VerticalAlignment="Center" Content="8:00 Term"/>
+                        </Grid>
+                        <Grid  Background="DarkSeaGreen" Height="25" Width="341">
+                            <CheckBox Background="White" HorizontalContentAlignment="Center" VerticalAlignment="Center" Content="9:00 Term"/>
+                        </Grid>
+                        <Grid  Background="White" Height="25" Width="341">
+                            <CheckBox Background="White" HorizontalContentAlignment="Center" VerticalAlignment="Center" Content="10:00 Term"/>
+                        </Grid>
+                        <Grid  Background="White" Height="25" Width="341">
+                            <CheckBox Background="White" HorizontalContentAlignment="Center" VerticalAlignment="Center" Content="11:00 Term"/>
+                        </Grid>
+                        <Grid  Background="White" Height="25" Width="341">
+                            <CheckBox Background="White" HorizontalContentAlignment="Center" VerticalAlignment="Center" Content="12:00 Term"/>
+                        </Grid>
+                        <Grid  Background="White" Height="25" Width="341">
+                            <CheckBox Background="White" HorizontalContentAlignment="Center" VerticalAlignment="Center" Content="13:00 Term"/>
+                        </Grid>
+                        <Grid  Background="DarkSeaGreen" Height="25" Width="341">
+                            <CheckBox Background="White" HorizontalContentAlignment="Center" VerticalAlignment="Center" Content="14:00 Term"/>
+                        </Grid>
+                        <Grid  Background="White" Height="25" Width="341">
+                            <CheckBox Background="White" HorizontalContentAlignment="Center" VerticalAlignment="Center" Content="15:00 Term"/>
+                        </Grid>
+                        <Grid  Background="White" Height="25" Width="341">
+                            <CheckBox Background="White" HorizontalContentAlignment="Center" VerticalAlignment="Center" Content="16:00 Term"/>
+                        </Grid>
+                        <Grid  Background="White" Height="25" Width="341">
+                            <CheckBox Background="White" HorizontalContentAlignment="Center" VerticalAlignment="Center" Content="17:00 Term"/>
+                        </Grid>
+                    </ListBox>
                 </Grid>
             </Grid>
         </TabItem>
