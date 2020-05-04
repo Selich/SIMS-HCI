@@ -83,5 +83,20 @@ namespace Project.Views.Secretary
             s.Show();
 
         }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            List_Patients_Create.Visibility = Visibility.Hidden;
+            Guest_Button.Visibility = Visibility.Hidden;
+            Guest_Account_Create.Visibility = Visibility.Visible;
+            Cancel_Button.Visibility = Visibility.Visible;
+        }
+        private void Cancel_Button_Click(object sender, RoutedEventArgs e)
+        {
+            List_Patients_Create.Visibility = Visibility.Visible;
+            Guest_Button.Visibility = Visibility.Visible;
+            Guest_Account_Create.Visibility = Visibility.Hidden;
+            Cancel_Button.Visibility = Visibility.Hidden;
+        }
     }
 }

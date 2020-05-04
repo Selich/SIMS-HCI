@@ -264,6 +264,7 @@
     <Folder Include="Views\Patient\.vs\Patient\v15\" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Image1.png" />
     <Content Include="Resources\Icons\8370799161557749690.svg" />
     <Resource Include="Resources\Icons\healthcare-and-medical.png" />
     <Resource Include="Resources\hospital.png" />

@@ -9,15 +9,18 @@
         Title="HomeWindow" Height="720" Width="1280">
     <TabControl HorizontalAlignment="Center" Height="689" VerticalAlignment="Center" Width="1270" Margin="0,0,2,0" >
         <TabItem Header="Termini">
-            <Grid Background="#EFFCFA" Margin="10,10,11,-2">
-                <Grid Background="#AEEBE4" Margin="0,-2,0,589">
-                    <materialDesign:PackIcon Margin="41,22,0,0" Kind="Doctor" Height="21" Width="21" HorizontalAlignment="Left"/>
-                    <Button FontSize="12" Content="Izaberi Lekara" HorizontalAlignment="Left" Margin="66,22,0,0" VerticalAlignment="Top" Width="268" Height="21" Click="Search_Doctor" />
-                    <Label Name="Izabran_Lekar" HorizontalAlignment="Right" Margin="0,22,25,0" VerticalAlignment="Top" Width="164" Content="{Binding selectedDoctor}"/>
+            <Grid Background="#EFFCFA" Margin="10,-2,11,1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Width="1243">
+                    <materialDesign:PackIcon Kind="Doctor" Height="21" Width="21" HorizontalAlignment="Left" Margin="38,18,0,0"/>
+                    <Button FontSize="12" Content="Izaberi Lekara" HorizontalAlignment="Left" Margin="69,19,0,0" VerticalAlignment="Top" Width="250" Height="21" Click="Search_Doctor" />
+                    <TextBox Height="22" Margin="957,22,40,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
                 </Grid>
-                <Grid Background="White" Margin="0,52,-2,428">
-                    <Label Content="Naredni termin:" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Top" Width="1169" FontSize="18" Height="32" Margin="32,-1,35,0"/>
-                    <Rectangle   Fill="Gainsboro" HorizontalAlignment="Center" Height="109" Margin="34,29,33,0" Stroke="Black" VerticalAlignment="Top" Width="1169"/>
+                <Grid Background="White" Margin="0,66,-2,372">
+                    <Label Content="Naredni termin:" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Top" Width="1170" FontSize="18" Height="32" Margin="37,-3,38,0"/>
+                    <Rectangle   Fill="Gainsboro" HorizontalAlignment="Center" Height="109" Margin="34,29,34,0" Stroke="Black" VerticalAlignment="Top" Width="1169"/>
 
                     <Grid HorizontalAlignment="Center" Height="88" Margin="84,40,84,0" VerticalAlignment="Top" Width="1068" Background="#EFFCFA" Grid.RowSpan="2"  >
                         <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth4">
@@ -35,7 +38,7 @@
                         </materialDesign:Card>
                     </Grid>
                 </Grid>
-                <TabControl Background="White" HorizontalAlignment="Center" Height="418" Margin="32,199,30,0" VerticalAlignment="Top" Width="1172">
+                <TabControl Background="White" HorizontalAlignment="Center" Height="418" Margin="36,209,35,0" VerticalAlignment="Top" Width="1172">
                     <TabItem Header="Month" Background="White" >
                         <Grid Background="White" HorizontalAlignment="Left" Height="392" Margin="0,0,-2,-2" VerticalAlignment="Top" Width="1168">
                             <Grid Background="#179C8C" HorizontalAlignment="Left" Height="25" Margin="0,0,0,0" VerticalAlignment="Top" Width="1168">
@@ -211,51 +214,45 @@
                         </Grid>
                     </TabItem>
                 </TabControl>
-                <Button Content="Feedback" HorizontalAlignment="Left" Margin="1108,623,0,0" VerticalAlignment="Top" Width="100" Height="22"/>
+                <Button Content="Feedback" HorizontalAlignment="Left" Margin="1108,635,0,0" VerticalAlignment="Top" Width="100" Height="22"/>
             </Grid>
         </TabItem>
         <TabItem Header="Kreiraj">
-            <Grid Background="#FFE5E5E5" Margin="20,10">
-                <Grid Background="#FFF4F4F5" HorizontalAlignment="Left" Height="563" Margin="804,36,0,0"  VerticalAlignment="Top" Width="404"/>
-                <TextBox HorizontalAlignment="Left" Height="22" Margin="144,169,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="224"/>
-                <TextBox HorizontalAlignment="Left" Height="22" Margin="73,61,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="224"/>
-                <Button Content="Kreiraj" HorizontalAlignment="Left" Margin="585,61,0,0" VerticalAlignment="Top" Width="100" Height="27"/>
-                <DatePicker HorizontalAlignment="Left" Margin="346,58,0,0" VerticalAlignment="Top" Width="200"/>
-                <ListBox HorizontalAlignment="Left" Height="507" Margin="826,92,0,0" VerticalAlignment="Top" Width="356">
-                    <Grid  Background="White" Height="25" Width="341">
-                        <CheckBox HorizontalContentAlignment="Center" VerticalAlignment="Center" Content="8:00 Term"/>
+            <Grid Background="#EFFCFA" Margin="10,-2,10,10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Width="1243">
+                    <materialDesign:PackIcon Kind="Doctor" Height="21" Width="21" HorizontalAlignment="Left" Margin="38,18,0,0"/>
+                    <Button FontSize="12" Content="Izaberi Lekara" HorizontalAlignment="Left" Margin="69,19,0,0" VerticalAlignment="Top" Width="250" Height="21" Click="Search_Doctor" />
+                    <TextBox Height="22" Margin="957,22,40,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                </Grid>
+                <Grid Background="White" HorizontalAlignment="Left" Height="32" Margin="34,64,0,0" VerticalAlignment="Top" Width="572">
+                    <Label Content="Pretrazi:" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Top" Width="74" FontSize="18" Height="32" Margin="9,2,489,-2"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="90,6,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185"/>
+                    <Button Visibility="Visible" Name="Guest_Button" Content="Guest?" HorizontalAlignment="Left" Margin="487,7,0,0" VerticalAlignment="Top" Width="76" FontSize="11" Height="22" Click="Button_Click_2"/>
+                    <Button Background="DarkRed" Visibility="Hidden" Name="Cancel_Button" Content="Cancel" HorizontalAlignment="Left" Margin="487,7,0,0" VerticalAlignment="Top" Width="76" FontSize="11" Height="22" Click="Cancel_Button_Click"/>
+                </Grid>
+                <Grid Visibility="Hidden" Background="White" HorizontalAlignment="Left" Height="536" Margin="34,98,0,0" VerticalAlignment="Top" Width="572" Name="List_Patients_Create">
+                    <ListBox Background="White" HorizontalAlignment="Left" Height="526" Margin="43,0,0,0" VerticalAlignment="Top" Width="520" >
+                        <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth4" Height="85" Width="525">
+                            <Grid>
+                                <TextBlock FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" Margin="120,15,0,0" TextWrapping="Wrap" Text="Uros Miladinovic" VerticalAlignment="Top"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="120,38,0,0" TextWrapping="Wrap" Text="Adresa:" VerticalAlignment="Top"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="120,56,0,0" TextWrapping="Wrap" Text="Telefon: +38163432444" VerticalAlignment="Top"/>
+                            </Grid>
+                        </materialDesign:Card>
+                    </ListBox>
+                </Grid>
+                <Grid Visibility="Visible" Background="White" HorizontalAlignment="Left" Height="536" Margin="34,101,0,0" VerticalAlignment="Top" Width="572" Name="Guest_Account_Create">
+                    <Grid Margin="175,18,0,0">
+                        <TextBox FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+                        <TextBox HorizontalAlignment="Left" Margin="0,25,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+                        <TextBox HorizontalAlignment="Left" Margin="0,42,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
                     </Grid>
-                    <Grid  Background="DarkSeaGreen" Height="25" Width="341">
-                        <CheckBox Background="White" HorizontalContentAlignment="Center" VerticalAlignment="Center" Content="9:00 Term"/>
-                    </Grid>
-                    <Grid  Background="White" Height="25" Width="341">
-                        <CheckBox Background="White" HorizontalContentAlignment="Center" VerticalAlignment="Center" Content="10:00 Term"/>
-                    </Grid>
-                    <Grid  Background="White" Height="25" Width="341">
-                        <CheckBox Background="White" HorizontalContentAlignment="Center" VerticalAlignment="Center" Content="11:00 Term"/>
-                    </Grid>
-                    <Grid  Background="White" Height="25" Width="341">
-                        <CheckBox Background="White" HorizontalContentAlignment="Center" VerticalAlignment="Center" Content="12:00 Term"/>
-                    </Grid>
-                    <Grid  Background="White" Height="25" Width="341">
-                        <CheckBox Background="White" HorizontalContentAlignment="Center" VerticalAlignment="Center" Content="13:00 Term"/>
-                    </Grid>
-                    <Grid  Background="DarkSeaGreen" Height="25" Width="341">
-                        <CheckBox Background="White" HorizontalContentAlignment="Center" VerticalAlignment="Center" Content="14:00 Term"/>
-                    </Grid>
-                    <Grid  Background="White" Height="25" Width="341">
-                        <CheckBox Background="White" HorizontalContentAlignment="Center" VerticalAlignment="Center" Content="15:00 Term"/>
-                    </Grid>
-                    <Grid  Background="White" Height="25" Width="341">
-                        <CheckBox Background="White" HorizontalContentAlignment="Center" VerticalAlignment="Center" Content="16:00 Term"/>
-                    </Grid>
-                    <Grid  Background="White" Height="25" Width="341">
-                        <CheckBox Background="White" HorizontalContentAlignment="Center" VerticalAlignment="Center" Content="17:00 Term"/>
-                    </Grid>
-                </ListBox>
-                <Label Content="09. April. 2020" HorizontalAlignment="Left" Margin="826,66,0,0" VerticalAlignment="Top" Width="113"/>
+                    <Button Content="Create" HorizontalAlignment="Left" Margin="486,494,0,0" VerticalAlignment="Top" Width="76"/>
+                </Grid>
                 <Button Content="Feedback" HorizontalAlignment="Left" Margin="1108,615,0,0" VerticalAlignment="Top" Width="100" Height="22"/>
-                <Calendar Style="{x:Null}" HorizontalAlignment="Left" Margin="398,285,0,0" VerticalAlignment="Top" Foreground="#DD000000" Background="White" Height="180" />
             </Grid>
         </TabItem>
         <TabItem Header="Pacijenti">
