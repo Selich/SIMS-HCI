@@ -19,9 +19,27 @@ namespace Project.Views.Doctor
     /// </summary>
     public partial class HomeWindow : Window
     {
+        //private bool _isEditMod = true;
+
         public HomeWindow()
         {
             InitializeComponent();
+        }
+        /*
+        public bool EditModBool
+        {
+            get { return _isEditMod; }
+        }*/
+        
+        private void ChangeMode_Click(object sender, RoutedEventArgs e)
+        {
+            label1.Visibility = Visibility.Collapsed;
+            //_isEditMod = false;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }
