@@ -508,7 +508,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:GradientFillMode>65</a:GradientFillMode>
 <a:CustomPictureType>4</a:CustomPictureType>
 <a:CustomTextMode>1</a:CustomTextMode>
-<a:CustomPictureID>4C10AC83-C92B-4128-8868-0A4FC926D44A</a:CustomPictureID>
+<a:CustomPictureID>624EC56E-13BF-46DF-BFA2-20EE6C14C704</a:CustomPictureID>
 <a:GradientEndColor>16777215</a:GradientEndColor>
 <a:KeepAspect>1</a:KeepAspect>
 <c:Object>
@@ -530,7 +530,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:GradientFillMode>65</a:GradientFillMode>
 <a:CustomPictureType>4</a:CustomPictureType>
 <a:CustomTextMode>1</a:CustomTextMode>
-<a:CustomPictureID>4C10AC83-C92B-4128-8868-0A4FC926D44A</a:CustomPictureID>
+<a:CustomPictureID>624EC56E-13BF-46DF-BFA2-20EE6C14C704</a:CustomPictureID>
 <a:GradientEndColor>16777215</a:GradientEndColor>
 <a:KeepAspect>1</a:KeepAspect>
 <c:Object>
@@ -552,7 +552,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:GradientFillMode>65</a:GradientFillMode>
 <a:CustomPictureType>4</a:CustomPictureType>
 <a:CustomTextMode>1</a:CustomTextMode>
-<a:CustomPictureID>4C10AC83-C92B-4128-8868-0A4FC926D44A</a:CustomPictureID>
+<a:CustomPictureID>624EC56E-13BF-46DF-BFA2-20EE6C14C704</a:CustomPictureID>
 <a:GradientEndColor>16777215</a:GradientEndColor>
 <a:KeepAspect>1</a:KeepAspect>
 <c:Object>
@@ -562,6 +562,7 @@ LABL 0 Arial,8,N</a:FontList>
 <o:ModelDocumentSymbol Id="o10">
 <a:ModificationDate>1588348839</a:ModificationDate>
 <a:IconMode>2</a:IconMode>
+<a:EmptyAreaSize>(1200, 1200)</a:EmptyAreaSize>
 <a:Rect>((-1201,-26207), (1198,-23808))</a:Rect>
 <a:LineColor>12034707</a:LineColor>
 <a:FillColor>16437422</a:FillColor>
@@ -573,7 +574,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:GradientFillMode>65</a:GradientFillMode>
 <a:CustomPictureType>4</a:CustomPictureType>
 <a:CustomTextMode>1</a:CustomTextMode>
-<a:CustomPictureID>4C10AC83-C92B-4128-8868-0A4FC926D44A</a:CustomPictureID>
+<a:CustomPictureID>624EC56E-13BF-46DF-BFA2-20EE6C14C704</a:CustomPictureID>
 <a:GradientEndColor>16777215</a:GradientEndColor>
 <a:KeepAspect>1</a:KeepAspect>
 <c:Object>
@@ -583,6 +584,7 @@ LABL 0 Arial,8,N</a:FontList>
 <o:ModelDocumentSymbol Id="o12">
 <a:ModificationDate>1588348841</a:ModificationDate>
 <a:IconMode>2</a:IconMode>
+<a:EmptyAreaSize>(1200, 1200)</a:EmptyAreaSize>
 <a:Rect>((-1201,-34731), (1198,-32332))</a:Rect>
 <a:LineColor>12034707</a:LineColor>
 <a:FillColor>16437422</a:FillColor>
@@ -594,7 +596,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:GradientFillMode>65</a:GradientFillMode>
 <a:CustomPictureType>4</a:CustomPictureType>
 <a:CustomTextMode>1</a:CustomTextMode>
-<a:CustomPictureID>4C10AC83-C92B-4128-8868-0A4FC926D44A</a:CustomPictureID>
+<a:CustomPictureID>624EC56E-13BF-46DF-BFA2-20EE6C14C704</a:CustomPictureID>
 <a:GradientEndColor>16777215</a:GradientEndColor>
 <a:KeepAspect>1</a:KeepAspect>
 <c:Object>
@@ -614,7 +616,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>ObjectOrientedModel</a:Code>
 <a:CreationDate>1588348707</a:CreationDate>
 <a:Creator>Selic</a:Creator>
-<a:ModificationDate>1588348707</a:ModificationDate>
+<a:ModificationDate>1588348294</a:ModificationDate>
 <a:Modifier>Selic</a:Modifier>
 <a:Location>file:///%[PRJ_ROOT_DIR]%/Class Diagram.oom</a:Location>
 <a:Extension>oom</a:Extension>
@@ -627,7 +629,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>Sequence_Director</a:Code>
 <a:CreationDate>1588348713</a:CreationDate>
 <a:Creator>Selic</a:Creator>
-<a:ModificationDate>1588348713</a:ModificationDate>
+<a:ModificationDate>1588274535</a:ModificationDate>
 <a:Modifier>Selic</a:Modifier>
 <a:Location>file:///%[PRJ_ROOT_DIR]%/Sequence Diagrams/Sequence Director.oom</a:Location>
 <a:Extension>oom</a:Extension>
@@ -640,7 +642,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>Sequence_Secretary</a:Code>
 <a:CreationDate>1588348715</a:CreationDate>
 <a:Creator>Selic</a:Creator>
-<a:ModificationDate>1588348715</a:ModificationDate>
+<a:ModificationDate>1588348730</a:ModificationDate>
 <a:Modifier>Selic</a:Modifier>
 <a:Location>file:///%[PRJ_ROOT_DIR]%/Sequence Diagrams/Sequence Secretary.oom</a:Location>
 <a:Extension>oom</a:Extension>
@@ -653,7 +655,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>Sequence_Doctor</a:Code>
 <a:CreationDate>1588348838</a:CreationDate>
 <a:Creator>Selic</a:Creator>
-<a:ModificationDate>1588348839</a:ModificationDate>
+<a:ModificationDate>1588274541</a:ModificationDate>
 <a:Modifier>Selic</a:Modifier>
 <a:Location>file:///%[PRJ_ROOT_DIR]%/Sequence Diagrams/Sequence Doctor.oom</a:Location>
 <a:Extension>oom</a:Extension>
@@ -666,7 +668,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>Sequence_Patient</a:Code>
 <a:CreationDate>1588348841</a:CreationDate>
 <a:Creator>Selic</a:Creator>
-<a:ModificationDate>1588348841</a:ModificationDate>
+<a:ModificationDate>1588274527</a:ModificationDate>
 <a:Modifier>Selic</a:Modifier>
 <a:Location>file:///%[PRJ_ROOT_DIR]%/Sequence Diagrams/Sequence Patient.oom</a:Location>
 <a:Extension>oom</a:Extension>
