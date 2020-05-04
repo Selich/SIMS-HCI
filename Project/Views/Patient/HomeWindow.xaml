@@ -13,9 +13,9 @@
                 <DataGrid Margin="58,219,860,100" Grid.ColumnSpan="2"/>
                 <Label Content="History:" Margin="486.5,187,664,478" Grid.Column="1"/>
                 <DataGrid Margin="486.5,219,362,100" Grid.Column="1"/>
-                <Button Width="75" Height="25" RenderTransformOrigin="2,2.38" Margin="1063.5,575,66,92" Content="Feedback" Click="Feedback_Click" Grid.Column="1"/>
-                <Button Width="75" Height="25" RenderTransformOrigin="2,2.38" Margin="945.5,575,184,92" Content="FAQ" Grid.Column="1" Click="FAQ_Click"/>
-                <Button RenderTransformOrigin="2,2.38" Margin="798,194,362,478" Content="Detailed History" Click="History_Click"/>
+                <Button Height="Auto" RenderTransformOrigin="2,2.38" Margin="1070,562,105,100" Content="Feedback" Click="Feedback_Click"/>
+                <Button Width="75" Height="Auto" RenderTransformOrigin="2,2.38" Margin="963,562,236,100" Content="FAQ" Click="FAQ_Click"/>
+                <Button RenderTransformOrigin="2,2.38" Margin="759,182,362,478" Content="Detailed History" Click="History_Click"/>
             </Grid>
         </TabItem>
         <TabItem Header="Profile">
@@ -42,9 +42,9 @@
                 <TextBox Margin="5"/>
                 <Label Content="Password:"/>
                 <TextBox Margin="5"/>
-                <Grid Margin="20" Height="26">
-                    <Button Content="Edit" Width="40" Height="25" Margin="0,1,254,0"/>
-                    <Button Content="Save changes" Width="94" Height="25" Margin="200,1,0,0"/>
+                <Grid Margin="20" Height="32">
+                    <Button Content="Edit" Height="29" Margin="0,0,216,3" VerticalAlignment="Bottom"/>
+                    <Button Content="Save changes" Height="Auto" Margin="155,0,0,3"/>
                 </Grid>
             </StackPanel>
         </TabItem>
@@ -53,13 +53,13 @@
                 <Viewbox Margin="64,0,589,30" >
                     <Calendar SelectionMode="SingleRange"/>
                 </Viewbox>
-                <Label Content="Doctor name:" Margin="806,63,358,592"/>
+                <Label Content="Doctor name:" Margin="806,55,358,600"/>
                 <ComboBox Margin="806,92,177,574">
                     <ComboBoxItem>Doctor 1</ComboBoxItem>
                 </ComboBox>
                 <DataGrid Margin="806,147,70,132"/>
-                <Button Content="Confirm" Margin="806,581,397,85"/>
-                <Button Content="Doctor" Margin="901,581,302,85" Click="Doctor_Click"/>
+                <Button Content="Confirm" Margin="806,581,358,79"/>
+                <Button Content="Doctor" Margin="957,581,217,79" Click="Doctor_Click"/>
             </Grid>
         </TabItem>
     </TabControl>

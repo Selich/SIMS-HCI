@@ -7,13 +7,13 @@
         mc:Ignorable="d"
         Title="Feedback" Height="458" Width="567">
     <Grid>
-        <Label Content="Issue type:" Margin="10,10,472,383"/>
-        <ComboBox Margin="10,48,404,348">
+        <Label Content="Issue type:" Margin="10,10,459,383"/>
+        <ComboBox Margin="10,49,404,349" Height="29">
             <ComboBoxItem>Issue 1</ComboBoxItem>
             <ComboBoxItem>Issue 2</ComboBoxItem>
         </ComboBox>
         <TextBox Margin="10,95,10,83"></TextBox>
-        <Button Content="Send" Margin="23,365,472,31"/>
-        <Button Content="Cancel" Margin="134,365,361,31" Click="Cancel_Click"/>
+        <Button Content="Send" Margin="23,365,472,30"/>
+        <Button Content="Cancel" Margin="134,365,325,30" Click="Cancel_Click"/>
     </Grid>
 </Window>
