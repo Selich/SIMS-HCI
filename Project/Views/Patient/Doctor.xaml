@@ -17,14 +17,14 @@
         <Label Content="Doctor Last name:" Margin="139,91,997,555"/>
 
         <Canvas Margin="31,177,1033,378"/>
-        <Label Content="Ratings:" Margin="31,147,1105,512"/>
+        <Label Content="Ratings:" Margin="31,139,1105,512"/>
         <Canvas Margin="31,396,1033,159"/>
-        <Label Content="Free appointments (day):" Margin="31,366,1084,293"/>
-        <Viewbox Margin="293,34,413,134" >
-            <Calendar SelectionMode="SingleRange"/>
+        <Label Content="Free appointments (day):" Margin="31,356,1084,293"/>
+        <Viewbox Margin="293,34,414,115" >
+            <Calendar SelectionMode="SingleRange" Height="393"/>
         </Viewbox>
         <DataGrid Margin="887,42,28,147"/>
-        <Button Content="Confirm" Margin="887,567,309,93"/>
-        <Button Content="Cancel" Margin="992,567,204,93"/>
+        <Button Content="Confirm" Margin="887,567,291,83" Height="Auto"/>
+        <Button Content="Cancel" Margin="1012,567,164,83" Height="Auto"/>
     </Grid>
 </Window>
