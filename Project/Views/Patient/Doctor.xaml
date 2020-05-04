@@ -10,7 +10,7 @@
         <Image Margin="31,42,1148,555">
             <Image.Source>
                 <!--need to add a valid image-->
-                <BitmapImage UriSource="C:\Users\Uros\Desktop\hci-sims\sims-hci\Project\Resources\hospital.png"/>
+                <BitmapImage UriSource="../../Resources/hospital.png"/>
             </Image.Source>
         </Image>
         <Label Content="Doctor name:" Margin="139,37,1033,603"/>

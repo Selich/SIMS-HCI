@@ -10,12 +10,7 @@
         <Label Content="Past appointments:" Margin="10,32,1073,611" FontSize="20"/>
         <DataGrid Margin="12,78,897,10"/>
         <DataGrid Margin="600,256,10,10"/>
-        <Image Margin="600,93,579,504">
-            <Image.Source>
-                <!--need to add a valid image--> 
-                <BitmapImage UriSource="C:\Users\Uros\Desktop\hci-sims\sims-hci\Project\Resources\hospital.png"/> 
-            </Image.Source>
-        </Image>
+        <Image Margin="600,93,579,504" Source="../../Resources/hospital.png"/>
         <Label Content="Doctor name:" Margin="708,88,464,552"/>
         <Label Content="Doctor Last name:" Margin="708,142,428,504"/>
         <Label Content="Rating:" Margin="977,93,226,547" FontSize="18" RenderTransformOrigin="1.356,0.663"/>
