@@ -6,10 +6,10 @@
         xmlns:local="clr-namespace:Project.Views.Secretary"
         FontFamily="Arial"
         mc:Ignorable="d"
-        Title="HomeWindow" Height="720" Width="1280">
+        Title="HomeWindow" Height="723" Width="1280">
     <TabControl HorizontalAlignment="Center" Height="689" VerticalAlignment="Center" Width="1270" Margin="0,0,2,0" >
         <TabItem Header="Termini">
-            <Grid Background="#EFFCFA" Margin="10,-2,11,1">
+            <Grid Background="#EFFCFA" Margin="10,0,10,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
@@ -214,11 +214,11 @@
                         </Grid>
                     </TabItem>
                 </TabControl>
-                <Button Content="Feedback" HorizontalAlignment="Left" Margin="1108,635,0,0" VerticalAlignment="Top" Width="100" Height="22"/>
+                <Button Content="Feedback" HorizontalAlignment="Right" Margin="0,0,35,10" VerticalAlignment="Bottom" Width="100" Height="22"/>
             </Grid>
         </TabItem>
         <TabItem Header="Kreiraj">
-            <Grid Background="#EFFCFA" Margin="10,-2,10,10">
+            <Grid Background="#EFFCFA" Margin="10,0,10,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
@@ -230,8 +230,11 @@
                 <Grid Background="White" HorizontalAlignment="Left" Height="32" Margin="34,64,0,0" VerticalAlignment="Top" Width="572">
                     <Label Content="Pretrazi:" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Top" Width="74" FontSize="18" Height="32" Margin="9,2,489,-2"/>
                     <TextBox HorizontalAlignment="Left" Height="23" Margin="90,6,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185"/>
-                    <Button Visibility="Visible" Name="Guest_Button" Content="Guest?" HorizontalAlignment="Left" Margin="487,7,0,0" VerticalAlignment="Top" Width="76" FontSize="11" Height="22" Click="Button_Click_2"/>
-                    <Button Background="DarkRed" Visibility="Hidden" Name="Cancel_Button" Content="Cancel" HorizontalAlignment="Left" Margin="487,7,0,0" VerticalAlignment="Top" Width="76" FontSize="11" Height="22" Click="Cancel_Button_Click"/>
+                    <Button Visibility="Visible" Name="Guest_Button" Content="Guest?" HorizontalAlignment="Right" Margin="0,5,5,5" VerticalAlignment="Center" Width="76" FontSize="11" Height="22" Click="Button_Click_2"/>
+                    <Button Background="DarkRed" Visibility="Hidden" Name="Cancel_Button" Content="Cancel" HorizontalAlignment="Right" Margin="0,5,5,5" VerticalAlignment="Center" Width="76" FontSize="11" Height="22" Click="Cancel_Button_Click"/>
+                </Grid>
+                <Grid Background="White" HorizontalAlignment="Left" Height="32" Margin="634,64,0,0" VerticalAlignment="Top" Width="572">
+                    <DatePicker HorizontalAlignment="Left" Margin="10,4,0,0" VerticalAlignment="Top" Width="169"/>
                 </Grid>
                 <Grid Visibility="Hidden" Background="White" HorizontalAlignment="Left" Height="536" Margin="34,98,0,0" VerticalAlignment="Top" Width="572" Name="List_Patients_Create">
                     <ListBox Background="White" HorizontalAlignment="Left" Height="526" Margin="43,0,0,0" VerticalAlignment="Top" Width="520" >
@@ -244,15 +247,21 @@
                         </materialDesign:Card>
                     </ListBox>
                 </Grid>
-                <Grid Visibility="Visible" Background="White" HorizontalAlignment="Left" Height="536" Margin="34,101,0,0" VerticalAlignment="Top" Width="572" Name="Guest_Account_Create">
-                    <Grid Margin="175,18,0,0">
+                <Grid Visibility="Visible" Background="White" HorizontalAlignment="Left" Height="525" Margin="34,101,0,0" VerticalAlignment="Top" Width="572" Name="Guest_Account_Create">
+                    <Grid Margin="137,0,0,440">
                         <TextBox FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
                         <TextBox HorizontalAlignment="Left" Margin="0,25,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
                         <TextBox HorizontalAlignment="Left" Margin="0,42,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
                     </Grid>
-                    <Button Content="Create" HorizontalAlignment="Left" Margin="486,494,0,0" VerticalAlignment="Top" Width="76"/>
+                    <Grid HorizontalAlignment="Left" Height="36" Margin="0,485,0,0" VerticalAlignment="Top" Width="572">
+                        <Button Content="Create" HorizontalAlignment="Right" Margin="0,4,5,0" VerticalAlignment="Center" Width="76"/>
+                    </Grid>
                 </Grid>
-                <Button Content="Feedback" HorizontalAlignment="Left" Margin="1108,615,0,0" VerticalAlignment="Top" Width="100" Height="22"/>
+                <Button Content="Feedback" HorizontalAlignment="Right" Margin="0,0,35,10" VerticalAlignment="Bottom" Width="100" Height="22"/>
+                <Grid Visibility="Visible" Background="White" HorizontalAlignment="Left" Height="528" Margin="634,98,0,0" VerticalAlignment="Top" Width="572" x:Name="Guest_Account_Create_Copy">
+                    <Grid Margin="137,0,0,440"/>
+                    <Grid HorizontalAlignment="Left" Height="36" Margin="0,500,0,0" VerticalAlignment="Top" Width="572"/>
+                </Grid>
             </Grid>
         </TabItem>
         <TabItem Header="Pacijenti">
