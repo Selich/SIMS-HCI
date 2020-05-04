@@ -7,53 +7,85 @@
         mc:Ignorable="d"
         ResizeMode="NoResize"
         Title="AppointmentModal" Height="563" Width="1190">
-    <Grid Background="#FFE5E5E5" Margin="20,20,20,15">
-        <Grid HorizontalAlignment="Left" Height="88" Margin="41,42,0,0" VerticalAlignment="Top" Width="1067" Background="White">
+    <Grid Margin="20,20,20,2">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFCDF3EE" Offset="1"/>
+                <GradientStop Color="White" Offset="0.7"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <Grid HorizontalAlignment="Left" Height="88" Margin="31,14,0,0" VerticalAlignment="Top" Width="1089" >
+            <Grid.Effect>
+                <DropShadowEffect BlurRadius="10"/>
+            </Grid.Effect>
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#FFEEEEEE" Offset="0.093"/>
+                    <GradientStop Color="White" Offset="0.51"/>
+                    <GradientStop Color="#FFE4E3E3" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
             <Image HorizontalAlignment="Left" Height="68" Margin="10,10,0,0" VerticalAlignment="Top" Width="79" />
             <TextBlock HorizontalAlignment="Left" Margin="107,10,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="0.02,0.938"/>
             <TextBlock HorizontalAlignment="Left" Margin="107,31,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="0.02,0.938"/>
             <TextBlock HorizontalAlignment="Left" Margin="107,52,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="0.02,0.938"/>
-            <TextBlock HorizontalAlignment="Left" Margin="881,31,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="0.02,0.938"/>
-            <TextBlock HorizontalAlignment="Left" Margin="881,52,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="0.02,0.938"/>
-            <Button Content="Profil" HorizontalAlignment="Left" Margin="948,18,0,0" VerticalAlignment="Top" Width="107" Height="55" />
+            <Button Content="Profil" HorizontalAlignment="Left" Margin="968,18,0,0" VerticalAlignment="Top" Width="107" Height="55" />
         </Grid>
-        <TextBlock HorizontalAlignment="Left" FontSize="17" Margin="41,144,0,0" TextWrapping="Wrap" Text="Kod Lekara:" VerticalAlignment="Top"/>
-        <Button Visibility="Visible" FontSize="11" Content="Izmeni" HorizontalAlignment="Left" Margin="306,144,0,0" VerticalAlignment="Top" Width="71" Height="24" Click="Change_Doctors" Name="Change_Doctor_Button"/>
-        <Button Visibility="Hidden" FontSize="11" Content="X"  Background="DarkRed" HorizontalAlignment="Left" Margin="306,144,0,0" VerticalAlignment="Top" Width="71" Height="24" Click="Cancel_Change_Doctors" Name="Cancel_Change_Doctor_Button"/>
-        <TextBox Visibility="Hidden" Name="Doctor_Search_TextBox" HorizontalAlignment="Left" Height="23" Margin="132,144,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="169"/>
-        <ListBox Background="Gainsboro" HorizontalAlignment="Left" Height="319" Margin="41,173,0,0" VerticalAlignment="Top" Width="337">
-            <Grid Background="White" HorizontalAlignment="Left" Height="88" Margin="0,5,0,0" VerticalAlignment="Top" Width="320">
+        <TextBlock HorizontalAlignment="Left" FontSize="17" Margin="31,130,0,0" TextWrapping="Wrap" Text="Kod Lekara:" VerticalAlignment="Top"/>
+        <Button Visibility="Visible" FontSize="11" Content="Izmeni" HorizontalAlignment="Left" Margin="306,130,0,0" VerticalAlignment="Top" Width="71" Height="24" Click="Change_Doctors" x:Name="Change_Doctor_Button"/>
+        <Button Visibility="Hidden" FontSize="11" Content="X"  Background="DarkRed" HorizontalAlignment="Left" Margin="306,144,0,0" VerticalAlignment="Top" Width="71" Height="24" Click="Cancel_Change_Doctors" x:Name="Cancel_Change_Doctor_Button"/>
+        <TextBox Visibility="Hidden" x:Name="Doctor_Search_TextBox" HorizontalAlignment="Left" Height="23" Margin="132,144,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="169"/>
+        <ListBox HorizontalAlignment="Left" Height="319" Margin="27,161,0,0" VerticalAlignment="Top" Width="351">
+            <ListBox.Effect>
+                <DropShadowEffect BlurRadius="10"/>
+            </ListBox.Effect>
+            <ListBox.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#FFEEEEEE" Offset="0.093"/>
+                    <GradientStop Color="White" Offset="0.51"/>
+                    <GradientStop Color="#FFE4E3E3" Offset="1"/>
+                </LinearGradientBrush>
+            </ListBox.Background>
+            <Grid Background="White" HorizontalAlignment="Left" Height="88" VerticalAlignment="Top" Width="324">
                 <Image HorizontalAlignment="Left" Height="68" Margin="10,10,0,0" VerticalAlignment="Top" Width="79" Grid.RowSpan="2" />
                 <TextBlock HorizontalAlignment="Left" Height="23" Margin="94,15,0,0" TextWrapping="Wrap" Text="Dr. Filip Zdelar" VerticalAlignment="Top" Width="135" FontWeight="bold"/>
                 <TextBlock HorizontalAlignment="Left" Height="23" Margin="94,39,0,0" TextWrapping="Wrap" Text="Specijalizacija: Opsta praksa" VerticalAlignment="Top" Width="145" FontSize="11"/>
-                <Button IsEnabled="False" Content="Obrisi" HorizontalAlignment="Left" Margin="244,58,0,0" VerticalAlignment="Top" Width="64"/>
-            </Grid>
-            <Grid Background="White" HorizontalAlignment="Left" Height="88" Margin="0,5,0,0" VerticalAlignment="Top" Width="320">
-                <Image HorizontalAlignment="Left" Height="68" Margin="10,10,0,0" VerticalAlignment="Top" Width="79" Grid.RowSpan="2" />
-                <TextBlock HorizontalAlignment="Left" Height="23" Margin="94,15,0,0" TextWrapping="Wrap" Text="Dr. Filip Zdelar" VerticalAlignment="Top" Width="135" FontWeight="bold"/>
-                <TextBlock HorizontalAlignment="Left" Height="23" Margin="94,39,0,0" TextWrapping="Wrap" Text="Specijalizacija: Opsta praksa" VerticalAlignment="Top" Width="145" FontSize="11"/>
-                <Button IsEnabled="False"  Content="Obrisi" HorizontalAlignment="Left" Margin="244,58,0,0" VerticalAlignment="Top" Width="64"/>
+                <Button IsEnabled="False" Content="Obrisi" HorizontalAlignment="Left" Margin="244,58,0,0" VerticalAlignment="Top" Width="70" Height="20" FontSize="11" Background="#FF960000" BorderBrush="#FF080000"/>
             </Grid>
         </ListBox>
-        <Grid Background="White" HorizontalAlignment="Left" Height="319" Margin="383,173,0,0" VerticalAlignment="Top" Width="725">
-            <Label Content="Datum" HorizontalAlignment="Left" Margin="12,19,0,0" VerticalAlignment="Top"/>
-            <DatePicker HorizontalAlignment="Left" Margin="59,21,0,0" VerticalAlignment="Top" Width="137"/>
-            <Label Content="Od:" HorizontalAlignment="Left" Margin="201,19,0,0" VerticalAlignment="Top"/>
-            <TextBox HorizontalAlignment="Left" Height="23" Margin="234,22,0,0" TextWrapping="Wrap" Text="11" VerticalAlignment="Top" Width="54"/>
-            <Label Content="Do:" HorizontalAlignment="Left" Margin="288,19,0,0" VerticalAlignment="Top"/>
-            <TextBox HorizontalAlignment="Left" Height="23" Margin="319,22,0,0" TextWrapping="Wrap" Text="12" VerticalAlignment="Top" Width="54"/>
-            <Label Content="Sala:" HorizontalAlignment="Left" Margin="416,19,0,0" VerticalAlignment="Top"/>
-            <TextBox HorizontalAlignment="Left" Height="23" Margin="455,22,0,0" TextWrapping="Wrap" Text="101" VerticalAlignment="Top" Width="54"/>
-            <Label Content="Razlog posete:" HorizontalAlignment="Left" Margin="12,96,0,0" VerticalAlignment="Top"/>
-            <TextBox HorizontalAlignment="Left" Height="96" Margin="111,101,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="260"/>
-            <Label Content="Anamneza:" HorizontalAlignment="Left" Margin="12,206,0,0" VerticalAlignment="Top"/>
-            <TextBox HorizontalAlignment="Left" Height="96" Margin="111,211,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="260"/>
-            <Label Content="Prepisani lekovi:" HorizontalAlignment="Left" Margin="417,70,0,0" VerticalAlignment="Top"/>
-            <ListBox HorizontalAlignment="Left" Height="207" Margin="420,100,0,0" VerticalAlignment="Top" Width="295"/>
-            <Button FontSize="11" Content="Izmeni" HorizontalAlignment="Left" Margin="304,67,0,0" VerticalAlignment="Top" Width="71" Height="24"/>
+        <Grid HorizontalAlignment="Left" Height="319" Margin="383,161,0,0" VerticalAlignment="Top" Width="737">
+            <Grid.Effect>
+                <DropShadowEffect BlurRadius="10"/>
+            </Grid.Effect>
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#FFEEEEEE" Offset="0.093"/>
+                    <GradientStop Color="White" Offset="0.51"/>
+                    <GradientStop Color="#FFE4E3E3" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="25*"/>
+                <ColumnDefinition Width="713*"/>
+            </Grid.ColumnDefinitions>
+            <Label Content="Datum" HorizontalAlignment="Left" Margin="12,19,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#DD000000" Grid.ColumnSpan="2"/>
+            <DatePicker HorizontalAlignment="Left" Margin="34.5,21,0,0" VerticalAlignment="Top" Width="137" Background="White" Grid.Column="1"/>
+            <Label Content="Od:" HorizontalAlignment="Left" Margin="176.5,19,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#DD000000" Grid.Column="1"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="209.5,22,0,0" TextWrapping="Wrap" Text="11" VerticalAlignment="Top" Width="54" Background="White" Grid.Column="1"/>
+            <Label Content="Do:" HorizontalAlignment="Left" Margin="263.5,19,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#DD000000" Grid.Column="1"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="294.5,22,0,0" TextWrapping="Wrap" Text="12" VerticalAlignment="Top" Width="54" Background="White" Grid.Column="1"/>
+            <Label Content="Sala:" HorizontalAlignment="Left" Margin="391.5,19,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#DD000000" Grid.Column="1"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="430.5,22,0,0" TextWrapping="Wrap" Text="101" VerticalAlignment="Top" Width="54" Background="White" Grid.Column="1"/>
+            <Label Content="Razlog posete:" HorizontalAlignment="Left" Margin="12,96,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#DD000000" Grid.ColumnSpan="2"/>
+            <TextBox HorizontalAlignment="Left" Height="96" Margin="86.5,101,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="260" Background="White" Grid.Column="1"/>
+            <Label Content="Anamneza:" HorizontalAlignment="Left" Margin="12,206,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#DD000000" Grid.ColumnSpan="2"/>
+            <TextBox HorizontalAlignment="Left" Height="96" Margin="86.5,211,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="260" Background="White" Grid.Column="1"/>
+            <Label Content="Prepisani lekovi:" HorizontalAlignment="Left" Margin="392.5,70,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#DD000000" Grid.Column="1"/>
+            <ListBox HorizontalAlignment="Left" Height="97" Margin="395.5,100,0,0" VerticalAlignment="Top" Width="295" Background="White" Grid.Column="1"/>
+            <Button FontSize="11" Content="Izmeni" HorizontalAlignment="Left" Margin="279.5,67,0,0" VerticalAlignment="Top" Width="71" Height="24" Grid.Column="1"/>
         </Grid>
-        <TextBlock HorizontalAlignment="Left" FontSize="17" Margin="382,144,0,0" TextWrapping="Wrap" Text="Termin:" VerticalAlignment="Top"/>
-        <Button FontSize="11" Content="Demo" HorizontalAlignment="Left" Margin="1037,13,0,0" VerticalAlignment="Top" Width="71" Height="24"/>
+        <TextBlock HorizontalAlignment="Left" FontSize="17" Margin="382,130,0,0" TextWrapping="Wrap" Text="Termin:" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
