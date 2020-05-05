@@ -9,8 +9,8 @@ namespace Model
 {
    public class MedicalAppointment : Appoitment
    {
-      private int id;
-      private MedicalAppointmentType type;
+      public int id;
+      public MedicalAppointmentType type;
       
       public System.Collections.Generic.List<Document> documents;
       

@@ -9,8 +9,8 @@ namespace Model
 {
    public class Appoitment
    {
-      private DateTime begining;
-      private DateTime end;
+      public DateTime begining;
+      public DateTime end;
       
       public Room room;
    
