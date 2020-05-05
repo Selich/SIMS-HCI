@@ -112,6 +112,7 @@ Branch za poseban servis npr. "Patient" bice:
 
 ## Pitanja za konsultacije
 
+- [ ] Da li moramo implementirati simulaciju vremena da se izvrsava renovacija. Npr. Da posle odredjenog vremena napravi se nova soba itd.
 - [ ] Premestanje opreme bez zakazane renovacije
 - [ ] Da li moramo preko razlicitih metoda, ako smo zamislili da nam u jednom CSV fajlu butu svi zaposleni, a jedina njihova razlika bice
 Role koji se dobija iz isIstanceOf() metode i kolonu MEDICAL_ROLE NULL za ostale zaposlene?
