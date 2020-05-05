@@ -271,7 +271,7 @@
                 <Grid Background="White" HorizontalAlignment="Left" Height="32" Margin="634,47,0,0" VerticalAlignment="Top" Width="572">
                     <DatePicker HorizontalAlignment="Left" Margin="10,4,0,0" VerticalAlignment="Top" Width="169"/>
                 </Grid>
-                <Grid Visibility="Hidden" Background="White" HorizontalAlignment="Left" Height="536" Margin="34,98,0,0" VerticalAlignment="Top" Width="572" Name="List_Patients_Create">
+                <Grid Visibility="Visible" Background="White" HorizontalAlignment="Left" Height="536" Margin="34,98,0,0" VerticalAlignment="Top" Width="572" Name="List_Patients_Create">
                     <ListBox Background="White" HorizontalAlignment="Left" Height="526" Margin="43,0,0,0" VerticalAlignment="Top" Width="520" >
                         <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth4" Height="85" Width="525">
                             <Grid>
@@ -282,7 +282,7 @@
                         </materialDesign:Card>
                     </ListBox>
                 </Grid>
-                <Grid Visibility="Visible" Background="White" HorizontalAlignment="Left" Height="540" Margin="43,86,0,0" VerticalAlignment="Top" Width="563" Name="Guest_Account_Create">
+                <Grid Visibility="Hidden" Background="White" HorizontalAlignment="Left" Height="540" Margin="43,86,0,0" VerticalAlignment="Top" Width="563" Name="Guest_Account_Create">
                     <Grid Margin="137,0,0,440">
                         <TextBox FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
                         <TextBox HorizontalAlignment="Left" Margin="0,25,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
@@ -292,7 +292,6 @@
                         <Button Content="Create" HorizontalAlignment="Right" Margin="0,4,5,0" VerticalAlignment="Center" Width="76"/>
                     </Grid>
                 </Grid>
-                <Button Content="Feedback" HorizontalAlignment="Right" Margin="0,0,35,10" VerticalAlignment="Bottom" Width="100" Height="22"/>
                 <Grid Visibility="Visible" Background="White" HorizontalAlignment="Left" Height="528" Margin="634,98,0,0" VerticalAlignment="Top" Width="572" x:Name="Guest_Account_Create_Copy">
                     <Grid HorizontalAlignment="Left" Height="36" Margin="0,500,0,0" VerticalAlignment="Top" Width="572"/>
                     <ListBox HorizontalAlignment="Left" Height="458" Margin="108,40,0,0" VerticalAlignment="Top" Width="356">
@@ -328,6 +327,7 @@
                         </Grid>
                     </ListBox>
                 </Grid>
+                <Button Content="Feedback" HorizontalAlignment="Right" Margin="0,0,35,10" VerticalAlignment="Bottom" Width="100" Height="22"/>
             </Grid>
         </TabItem>
         <TabItem Header="Pacijenti">
