@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:Project.Views.Director"
         mc:Ignorable="d"
         Title="HomeWindow" Height="720" Width="1280">
-    <TabControl HorizontalAlignment="Left" Height="720" VerticalAlignment="Top" Width="1280" >
+    <TabControl HorizontalAlignment="Left" Height="698" VerticalAlignment="Top" Width="1280" Margin="0,0,0,0" >
         <TabItem Header="Profil">
             <Grid Margin="0,0,0,28">
                 <Image x:Name="SlikaUpravnika" Source="/Resources/hospital.png"  HorizontalAlignment="Left" Height="278" Margin="28,11,0,0" VerticalAlignment="Top" Width="276" OpacityMask="#FFF12511"/>
@@ -56,86 +56,159 @@
             </Grid>
         </TabItem>
         <TabItem Header="Zaposleni">
-            <Grid Margin="0,0,0,26">
-                <Label Content="Rezultati pretrage" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,36,0,0" FontSize="20" Grid.ColumnSpan="2"/>
-                <Grid Margin="40,97,40,457">
-                    <ComboBox HorizontalAlignment="Left" Margin="24,36,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="-0.029,0.607">
-                        <ComboBoxItem IsSelected="True">Svi zaposleni</ComboBoxItem>
-                        <ComboBoxItem>Sekretari</ComboBoxItem>
-                        <ComboBoxItem>Lekari</ComboBoxItem>
-                    </ComboBox>
-                    <Label Content="Ime:" HorizontalAlignment="Left" Margin="188,40,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.472,0.75"/>
-                    <Label Content="Prezime:" HorizontalAlignment="Left" Margin="377,40,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.472,0.75"/>
-                    <Label Content="Specijalizacija:" HorizontalAlignment="Left" Margin="584,40,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.472,0.75"/>
-                    <Label Content="Sortirati po:" HorizontalAlignment="Left" Margin="839,42,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.472,0.75"/>
-                    <TextBox HorizontalAlignment="Left" Height="22" Margin="429,41,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-                    <TextBox HorizontalAlignment="Left" Height="22" Margin="224,41,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0,0.432"/>
-                    <TextBox HorizontalAlignment="Left" Height="22" Margin="678,41,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-                    <ComboBox HorizontalAlignment="Left" Margin="915,40,0,0" VerticalAlignment="Top" Width="120">
-                        <ComboBoxItem IsSelected="True">Ime(A-Z)</ComboBoxItem>
-                        <ComboBoxItem>Prezime(A-Z)</ComboBoxItem>
-                        <ComboBoxItem>...</ComboBoxItem>
-                    </ComboBox>
-                    <Button Height="50" Margin="1073,29,10,29" Content="Pretraga"/>
+            <Grid>
+                <Grid Name="EmployeeDetailsGrid" Margin="20,20,20,20" Visibility="Collapsed">
+                    <Button Content="Nazad" HorizontalAlignment="Left" Margin="36,26,0,0" VerticalAlignment="Top" Width="74" Click="OpenEmplyees"/>
+                    <Image Source="/Project;component/Resources/hospital.png"  HorizontalAlignment="Left" Height="170" Margin="36,90,0,0" VerticalAlignment="Top" Width="170" OpacityMask="#FFF12511"/>
+                    <Label Content="Dr. Petar Petrovic" HorizontalAlignment="Left" Margin="219,91,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514" FontWeight="Bold" FontSize="15"/>
+                    <Label Content="Korisnicko ime:" HorizontalAlignment="Left" Margin="219,177,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
+                    <Label Content="Adresa:" HorizontalAlignment="Left" Margin="219,215,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
+                    <Label Content="Ime:" HorizontalAlignment="Left" Margin="219,258,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
+                    <Label Content="Prezime:" HorizontalAlignment="Left" Margin="219,298,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
+                    <Label Content="Datum rodjenja:" HorizontalAlignment="Left" Margin="219,336,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
+                    <Label Content="JMBG:" HorizontalAlignment="Left" Margin="219,371,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
+                    <Label Content="Bolnica:" HorizontalAlignment="Left" Margin="219,414,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="324,177,0,0" TextWrapping="Wrap" Text="Pera123" VerticalAlignment="Top" Width="120"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="324,214,0,0" TextWrapping="Wrap" Text="Balzakova 22,NS" VerticalAlignment="Top" Width="120"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="324,259,0,0" TextWrapping="Wrap" Text="Petar" VerticalAlignment="Top" Width="120"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="324,298,0,0" TextWrapping="Wrap" Text="Petrovic Njegos" VerticalAlignment="Top" Width="120"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="324,334,0,0" TextWrapping="Wrap" Text="13.11.1813" VerticalAlignment="Top" Width="120"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="324,373,0,0" TextWrapping="Wrap" Text="1311813022132" VerticalAlignment="Top" Width="120"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="324,414,0,0" TextWrapping="Wrap" Text="Klinicki centar Tirana" VerticalAlignment="Top" Width="120"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="324,140,0,0" TextWrapping="Wrap" Text="Lekar" VerticalAlignment="Top" Width="120"/>
+                    <Label Content="Pozicija:" HorizontalAlignment="Left" Margin="219,140,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
+                    <Button Content="Izmeni" HorizontalAlignment="Left" Margin="219,469,0,0" VerticalAlignment="Top" Width="225"/>
+                    <GroupBox Header="Godisnji odmor:" HorizontalAlignment="Left" Height="193" Margin="550,89,0,0" VerticalAlignment="Top" Width="292">
+                        <StackPanel>
+                            <TextBlock>Pocetak:</TextBlock>
+                            <DatePicker/>
+
+                            <TextBlock>Kraj:</TextBlock>
+                            <DatePicker/>
+                            <Button Margin="0,20" Content="Sacuvaj izmene"/>
+                        </StackPanel>
+                    </GroupBox>
+                    <GroupBox Header="Radno vreme:" HorizontalAlignment="Left" Height="193" Margin="906,89,0,0" VerticalAlignment="Top" Width="292">
+                        <StackPanel>
+                            <TextBlock><Run Text="Pocetak:"/></TextBlock>
+                            <TextBox>
+                                08:30
+                            </TextBox>
+
+                            <TextBlock><Run Text="Kraj:"/></TextBlock>
+                            <TextBox>
+                                17:00
+                            </TextBox>
+                            <Button Margin="0,20" Content="Sacuvaj izmene"/>
+                        </StackPanel>
+                    </GroupBox>
+                    <Button Content="Prijavi gresku" HorizontalAlignment="Left" Margin="1156,595,0,0" VerticalAlignment="Top" Width="75" Click="OpenBugReportModal"/>
+                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="256" Margin="550,315,0,0" VerticalAlignment="Top" Width="648">
+                        <Grid>
+                            <Label Content="Nedavni termini:" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514" Margin="32,24,0,0" FontSize="15" FontWeight="Bold"/>
+                            <Label Content="Opis:" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514" Margin="290,24,0,0" FontSize="15" FontWeight="Bold"/>
+                            <ListBox  HorizontalAlignment="Left" Height="156" Margin="32,77,0,0" VerticalAlignment="Top" Width="212" ScrollViewer.VerticalScrollBarVisibility="Visible">
+                                <StackPanel>
+                                    <Label>Dan,Datum,Satnica,Tip termina</Label>
+                                    <Label>Dan,Datum,Satnica,Tip termina</Label>
+                                    <Label>Dan,Datum,Satnica,Tip termina</Label>
+                                    <Label>Dan,Datum,Satnica,Tip termina</Label>
+                                    <Label>Dan,Datum,Satnica,Tip termina</Label>
+                                    <Label>Dan,Datum,Satnica,Tip termina</Label>
+                                    <Label>Dan,Datum,Satnica,Tip termina</Label>
+                                </StackPanel>
+                            </ListBox>
+                            <TextBox HorizontalAlignment="Left" Height="146" Margin="290,77,0,0" TextWrapping="Wrap" Text="Prisutni: {Lekari, Sekretari, Pacijenti}&#xA;Uloga: {Konsultovao,Pregledao,Administracija}&#xA;Ocena: 3.4/5&#xD;&#xA;Komentar:&#xD;&#xA;&#x9;Dorime,Interimo adapare dorime,&#xD;&#xA;&#x9;Ameno,ameno,latire,&#xD;&#xA;&#x9;Latire Mo" VerticalAlignment="Top" Width="318"/>
+                        </Grid>
+                    </Border>
+
+
+
+
+
 
                 </Grid>
-                <ListBox ScrollViewer.VerticalScrollBarVisibility="Visible" BorderThickness="2" Background="NavajoWhite" HorizontalAlignment="Left" Height="424" Margin="40,210,0,0" VerticalAlignment="Top" Width="802">
-                    <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth4" Width="726" Height="90">
-                        <Grid>
-                            <Image Source="../../Resources/Images/Faces/face1" HorizontalAlignment="Left" Height="65" Margin="26,11,0,0" VerticalAlignment="Top" Width="66" Stretch="Fill"/>
-                            <TextBlock FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" Margin="120,15,0,0" TextWrapping="Wrap" Text="Uros Miladinovic" VerticalAlignment="Top"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="120,56,0,0" TextWrapping="Wrap" Text="Telefon: +38163432444" VerticalAlignment="Top"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="514,23,0,0" TextWrapping="Wrap" Text="10:00 - 12:00" VerticalAlignment="Top"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="538,46,0,0" TextWrapping="Wrap" Text="Sala 101" VerticalAlignment="Top"/>
-                            <Button Content="Detaljnije" HorizontalAlignment="Right" Margin="0,10,30,0" VerticalAlignment="Top" Width="100" Height="65"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="120,38,0,0" TextWrapping="Wrap" Text="Adresa:" VerticalAlignment="Top"/>
-                        </Grid>
-                    </materialDesign:Card>
-                    <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth4" Width="726" Height="88">
-                        <Grid>
-                            <Image Source="../../Resources/Images/Faces/face2" HorizontalAlignment="Left" Height="65" Margin="26,11,0,0" VerticalAlignment="Top" Width="66" Stretch="Fill"/>
-                            <TextBlock FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" Margin="120,15,0,0" TextWrapping="Wrap" Text="Uros Miladinovic" VerticalAlignment="Top"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="120,56,0,0" TextWrapping="Wrap" Text="Telefon: +38163432444" VerticalAlignment="Top"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="515,22,0,0" TextWrapping="Wrap" Text="10:00 - 12:00" VerticalAlignment="Top"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="539,45,0,0" TextWrapping="Wrap" Text="Sala 101" VerticalAlignment="Top"/>
-                            <Button Content="Detaljnije" HorizontalAlignment="Right" Margin="0,10,28,0" VerticalAlignment="Top" Width="100" Height="65"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="120,38,0,0" TextWrapping="Wrap" Text="Adresa:" VerticalAlignment="Top"/>
-
-                        </Grid>
-
-                    </materialDesign:Card>
-                    <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth4" Width="725" Height="85">
-                        <Grid>
-                            <Image Source="../../Resources/Images/Faces/face3" HorizontalAlignment="Left" Height="65" Margin="26,11,0,0" VerticalAlignment="Top" Width="66" Stretch="Fill"/>
-                            <TextBlock FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" Margin="120,15,0,0" TextWrapping="Wrap" Text="Uros Miladinovic" VerticalAlignment="Top"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="120,56,0,0" TextWrapping="Wrap" Text="Telefon: +38163432444" VerticalAlignment="Top"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="515,20,0,0" TextWrapping="Wrap" Text="10:00 - 12:00" VerticalAlignment="Top"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="539,43,0,0" TextWrapping="Wrap" Text="Sala 101" VerticalAlignment="Top"/>
-                            <Button Content="Detaljnije" HorizontalAlignment="Right" Margin="0,11,25,0" VerticalAlignment="Top" Width="100" Height="65"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="120,38,0,0" TextWrapping="Wrap" Text="Adresa:" VerticalAlignment="Top"/>
-
-                        </Grid>
-
-                    </materialDesign:Card>
-                </ListBox>
-                <Button Content="Prijavi gresku" HorizontalAlignment="Left" Margin="1151,602,0,0" VerticalAlignment="Top" Width="75" Click="OpenBugReportModal"/>
-                <Button Content="Dodaj zaposlenog" HorizontalAlignment="Left" Margin="1048,38,0,0" VerticalAlignment="Top" Width="178" Height="35"/>
-                <GroupBox Header="Izvestaj" Margin="862,210,48,98" Padding="10">
-                    <StackPanel>
-                        <TextBlock>Pocetak:</TextBlock>
-                        <DatePicker/>
-
-                        <TextBlock>Kraj:</TextBlock>
-                        <DatePicker/>
-                        <TextBlock><Run Text="Filter:"/></TextBlock>
-                        <ComboBox>
-                            <ComboBoxItem IsSelected="True">Opcija 1</ComboBoxItem>
-                            <ComboBoxItem>Opcija 2</ComboBoxItem>
-                            <ComboBoxItem>Opcija 3</ComboBoxItem>
+                <Grid Name="EmployeesGrid" Margin="0,0,0,0">
+                    <Label Content="Rezultati pretrage" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,36,0,0" FontSize="20" Grid.ColumnSpan="2"/>
+                    <Grid Margin="40,97,40,457">
+                        <ComboBox HorizontalAlignment="Left" Margin="24,36,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="-0.029,0.607">
+                            <ComboBoxItem IsSelected="True">Svi zaposleni</ComboBoxItem>
+                            <ComboBoxItem>Sekretari</ComboBoxItem>
+                            <ComboBoxItem>Lekari</ComboBoxItem>
                         </ComboBox>
-                        <Button Margin="0,20" Content="Izgenerisi izvestaj"/>
-                    </StackPanel>
-                </GroupBox>
+                        <Label Content="Ime:" HorizontalAlignment="Left" Margin="188,40,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.472,0.75"/>
+                        <Label Content="Prezime:" HorizontalAlignment="Left" Margin="377,40,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.472,0.75"/>
+                        <Label Content="Specijalizacija:" HorizontalAlignment="Left" Margin="584,40,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.472,0.75"/>
+                        <Label Content="Sortirati po:" HorizontalAlignment="Left" Margin="839,42,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.472,0.75"/>
+                        <TextBox HorizontalAlignment="Left" Height="22" Margin="429,41,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+                        <TextBox HorizontalAlignment="Left" Height="22" Margin="224,41,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0,0.432"/>
+                        <TextBox HorizontalAlignment="Left" Height="22" Margin="678,41,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+                        <ComboBox HorizontalAlignment="Left" Margin="915,40,0,0" VerticalAlignment="Top" Width="120">
+                            <ComboBoxItem IsSelected="True">Ime(A-Z)</ComboBoxItem>
+                            <ComboBoxItem>Prezime(A-Z)</ComboBoxItem>
+                            <ComboBoxItem>...</ComboBoxItem>
+                        </ComboBox>
+                        <Button Height="50" Margin="1073,29,10,29" Content="Pretraga"/>
+
+                    </Grid>
+                    <ListBox ScrollViewer.VerticalScrollBarVisibility="Visible" BorderThickness="2" Background="NavajoWhite" HorizontalAlignment="Left" Height="424" Margin="40,210,0,0" VerticalAlignment="Top" Width="802">
+                        <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth4" Width="726" Height="90">
+                            <Grid>
+                                <Image Source="../../Resources/Images/Faces/face1" HorizontalAlignment="Left" Height="65" Margin="26,11,0,0" VerticalAlignment="Top" Width="66" Stretch="Fill"/>
+                                <TextBlock FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" Margin="120,15,0,0" TextWrapping="Wrap" Text="Uros Miladinovic" VerticalAlignment="Top"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="120,56,0,0" TextWrapping="Wrap" Text="Telefon: +38163432444" VerticalAlignment="Top"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="514,23,0,0" TextWrapping="Wrap" Text="10:00 - 12:00" VerticalAlignment="Top"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="538,46,0,0" TextWrapping="Wrap" Text="Sala 101" VerticalAlignment="Top"/>
+                                <Button Content="Detaljnije" HorizontalAlignment="Right" Margin="0,10,30,0" VerticalAlignment="Top" Width="100" Height="65" Click="OpenEmployeeDetails"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="120,38,0,0" TextWrapping="Wrap" Text="Adresa:" VerticalAlignment="Top"/>
+                            </Grid>
+                        </materialDesign:Card>
+                        <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth4" Width="726" Height="88">
+                            <Grid>
+                                <Image Source="../../Resources/Images/Faces/face2" HorizontalAlignment="Left" Height="65" Margin="26,11,0,0" VerticalAlignment="Top" Width="66" Stretch="Fill"/>
+                                <TextBlock FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" Margin="120,15,0,0" TextWrapping="Wrap" Text="Uros Miladinovic" VerticalAlignment="Top"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="120,56,0,0" TextWrapping="Wrap" Text="Telefon: +38163432444" VerticalAlignment="Top"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="515,22,0,0" TextWrapping="Wrap" Text="10:00 - 12:00" VerticalAlignment="Top"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="539,45,0,0" TextWrapping="Wrap" Text="Sala 101" VerticalAlignment="Top"/>
+                                <Button Content="Detaljnije" HorizontalAlignment="Right" Margin="0,10,28,0" VerticalAlignment="Top" Width="100" Height="65"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="120,38,0,0" TextWrapping="Wrap" Text="Adresa:" VerticalAlignment="Top"/>
+
+                            </Grid>
+
+                        </materialDesign:Card>
+                        <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth4" Width="725" Height="85">
+                            <Grid>
+                                <Image Source="../../Resources/Images/Faces/face3" HorizontalAlignment="Left" Height="65" Margin="26,11,0,0" VerticalAlignment="Top" Width="66" Stretch="Fill"/>
+                                <TextBlock FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" Margin="120,15,0,0" TextWrapping="Wrap" Text="Uros Miladinovic" VerticalAlignment="Top"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="120,56,0,0" TextWrapping="Wrap" Text="Telefon: +38163432444" VerticalAlignment="Top"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="515,20,0,0" TextWrapping="Wrap" Text="10:00 - 12:00" VerticalAlignment="Top"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="539,43,0,0" TextWrapping="Wrap" Text="Sala 101" VerticalAlignment="Top"/>
+                                <Button Content="Detaljnije" HorizontalAlignment="Right" Margin="0,11,25,0" VerticalAlignment="Top" Width="100" Height="65"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="120,38,0,0" TextWrapping="Wrap" Text="Adresa:" VerticalAlignment="Top"/>
+
+                            </Grid>
+
+                        </materialDesign:Card>
+                    </ListBox>
+                    <Button Content="Prijavi gresku" HorizontalAlignment="Left" Margin="1151,602,0,0" VerticalAlignment="Top" Width="75" Click="OpenBugReportModal"/>
+                    <Button Content="Dodaj zaposlenog" HorizontalAlignment="Left" Margin="1048,38,0,0" VerticalAlignment="Top" Width="178" Height="35" Click="OpenEmployeeDataModal"/>
+                    <GroupBox Header="Izvestaj" Margin="862,210,48,98" Padding="10">
+                        <StackPanel>
+                            <TextBlock>Pocetak:</TextBlock>
+                            <DatePicker/>
+
+                            <TextBlock>Kraj:</TextBlock>
+                            <DatePicker/>
+                            <TextBlock><Run Text="Filter:"/></TextBlock>
+                            <ComboBox>
+                                <ComboBoxItem IsSelected="True">Opcija 1</ComboBoxItem>
+                                <ComboBoxItem>Opcija 2</ComboBoxItem>
+                                <ComboBoxItem>Opcija 3</ComboBoxItem>
+                            </ComboBox>
+                            <Button Margin="0,20" Content="Izgenerisi izvestaj"/>
+                        </StackPanel>
+                    </GroupBox>
+                </Grid>
             </Grid>
         </TabItem>
         <TabItem Header="Oprema">

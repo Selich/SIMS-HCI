@@ -8,13 +8,13 @@
         Title="SettingsModal" Height="450" Width="350">
     <Grid>
         <Label Content="Jezik:" HorizontalAlignment="Left" Margin="83,110,0,0" VerticalAlignment="Top"/>
-        <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="154,112,0,0">
+        <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="154,108,0,0">
             <ComboBoxItem IsSelected="True">Srpski</ComboBoxItem>
             <ComboBoxItem>English</ComboBoxItem>
             <ComboBoxItem>Swahili</ComboBoxItem>
         </ComboBox>
         <Label Content="Tema:" HorizontalAlignment="Left" Margin="83,180,0,0" VerticalAlignment="Top"/>
-        <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="154,182,0,0">
+        <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="154,179,0,0">
             <ComboBoxItem IsSelected="True">Standard(green)</ComboBoxItem>
             <ComboBoxItem>Dracula</ComboBoxItem>
             <ComboBoxItem>Pascal</ComboBoxItem>
