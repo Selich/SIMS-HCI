@@ -115,6 +115,9 @@
     <Compile Include="Views\Director\BugReportModal.xaml.cs">
       <DependentUpon>BugReportModal.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Director\EmployeeDataModal.xaml.cs">
+      <DependentUpon>EmployeeDataModal.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Director\HomeWindow.xaml.cs">
       <DependentUpon>HomeWindow.xaml</DependentUpon>
     </Compile>
@@ -170,6 +173,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\Director\BugReportModal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Director\EmployeeDataModal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

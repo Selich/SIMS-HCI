@@ -57,6 +57,35 @@ namespace Project.Views.Director
             Change_btn.Visibility = Visibility.Visible;
         }
 
-      
+        private void OpenEmployeeDataModal(object sender, RoutedEventArgs e)
+        {
+            EmployeeDataModal modal = new EmployeeDataModal();
+            modal.ShowDialog();
+        }
+
+        private void OpenEmployeeDetails(object sender, RoutedEventArgs e)
+        {
+            EmployeesGrid.Visibility = Visibility.Collapsed;
+            EmployeeDetailsGrid.Visibility = Visibility.Visible;
+        }
+
+        private void OpenEmplyees(object sender, RoutedEventArgs e)
+        {
+            EmployeeDetailsGrid.Visibility = Visibility.Collapsed;
+            EmployeesGrid.Visibility = Visibility.Visible;
+        }
+
+       
+        private void OpenRooms(object sender, RoutedEventArgs e)
+        {
+            RoomDetails.Visibility = Visibility.Collapsed;
+            Rooms.Visibility = Visibility.Visible;
+        }
+
+        private void OpenRoomDetails(object sender, RoutedEventArgs e)
+        {
+            Rooms.Visibility = Visibility.Collapsed;
+            RoomDetails.Visibility = Visibility.Visible;
+        }
     }
 }
