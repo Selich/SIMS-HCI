@@ -9,13 +9,23 @@
     <TabControl Height="720" Width="1280">
         <TabItem Header="Home">
             <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="64*"/>
+                    <ColumnDefinition Width="1211*"/>
+                </Grid.ColumnDefinitions>
                 <Label Content="Appoitments:" Margin="58,187,1130,478" Grid.ColumnSpan="2"/>
-                <DataGrid Margin="58,219,860,100" Grid.ColumnSpan="2"/>
-                <Label Content="History:" Margin="486.5,187,664,478" Grid.Column="1"/>
-                <DataGrid Margin="486.5,219,362,100" Grid.Column="1"/>
-                <Button Height="Auto" RenderTransformOrigin="2,2.38" Margin="1070,562,105,100" Content="Feedback" Click="Feedback_Click"/>
-                <Button Width="75" Height="Auto" RenderTransformOrigin="2,2.38" Margin="963,562,236,100" Content="FAQ" Click="FAQ_Click"/>
-                <Button RenderTransformOrigin="2,2.38" Margin="759,182,362,478" Content="Detailed History" Click="History_Click"/>
+                <DataGrid Margin="58,219,860,100" x:Name="dataGridAppoitment" ItemsSource="{Binding Appoitments}" IsReadOnly="True"
+                          SelectionMode="Single" AutoGenerateColumns="False" Grid.ColumnSpan="2">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Type" Binding="{Binding type}"/>
+                        <DataGridTextColumn Header="Time" Binding="{Binding begining}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Label Content="History:" Margin="422.5,187,664,478" Grid.Column="1"/>
+                <DataGrid Margin="422.5,219,362,100" Grid.Column="1"/>
+                <Button Height="Auto" RenderTransformOrigin="2,2.38" Margin="1006.5,562,105,100" Content="Feedback" Click="Feedback_Click" Grid.Column="1"/>
+                <Button Width="75" Height="Auto" RenderTransformOrigin="2,2.38" Margin="899.5,562,236,100" Content="FAQ" Click="FAQ_Click" Grid.Column="1"/>
+                <Button RenderTransformOrigin="2,2.38" Margin="695.5,182,362,478" Content="Detailed History" Click="History_Click" Grid.Column="1"/>
             </Grid>
         </TabItem>
         <TabItem Header="Profile">
@@ -50,8 +60,8 @@
         </TabItem>
         <TabItem Header="Appoitments">
             <Grid>
-                <Viewbox Margin="64,0,589,30" >
-                    <Calendar SelectionMode="SingleRange"/>
+                <Viewbox Margin="64,0,614,79" >
+                    <Calendar SelectionMode="SingleRange" Height="390" Width="280"/>
                 </Viewbox>
                 <Label Content="Doctor name:" Margin="806,55,358,600"/>
                 <ComboBox Margin="806,92,177,574">
