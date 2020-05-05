@@ -112,6 +112,10 @@ Branch za poseban servis npr. "Patient" bice:
 
 ## Pitanja za konsultacije
 
+- [ ] Document zar nam je zaista potrebno?
+- [ ] Da li mozemo za korisnike sistema da koristimo JMBG kao Primarni Kljuc
+- [ ] Kako generisati konstruktor sa parametrima za datu klasu u PowerDesigneru?
+-------------------------------------------------
 - [ ] Da li moramo implementirati simulaciju vremena da se izvrsava renovacija. Npr. Da posle odredjenog vremena napravi se nova soba itd.
 - [ ] Premestanje opreme bez zakazane renovacije
 - [ ] Da li moramo preko razlicitih metoda, ako smo zamislili da nam u jednom CSV fajlu butu svi zaposleni, a jedina njihova razlika bice
