@@ -74,5 +74,18 @@ namespace Project.Views.Director
             EmployeeDetailsGrid.Visibility = Visibility.Collapsed;
             EmployeesGrid.Visibility = Visibility.Visible;
         }
+
+       
+        private void OpenRooms(object sender, RoutedEventArgs e)
+        {
+            RoomDetails.Visibility = Visibility.Collapsed;
+            Rooms.Visibility = Visibility.Visible;
+        }
+
+        private void OpenRoomDetails(object sender, RoutedEventArgs e)
+        {
+            Rooms.Visibility = Visibility.Collapsed;
+            RoomDetails.Visibility = Visibility.Visible;
+        }
     }
 }
