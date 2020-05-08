@@ -113,7 +113,6 @@ Branch za poseban servis npr. "Patient" bice:
 ## Pitanja za konsultacije
 
 - [ ] Da li pamtimo u kojoj sobi lezi pacijent?
-- [ ] Da li se recepti navode u Anamnezi?
 - [ ] Kako izgleda scenario pregled? Da li se pise vise dokumenata? Jedan dokument?
 - [ ] Da li je vazna informacija na kom pregledu je izdat recept za lek?
 - [ ] Document zar nam je zaista potrebno?
