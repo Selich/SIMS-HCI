@@ -32,10 +32,10 @@ namespace Project.Views.Patient
             this.DataContext = this;
             Room tempRoom = new Model.Room() { floor = "One", id = 1, ward="Check" };
             Appoitments = new ObservableCollection<Model.MedicalAppointment>();
-            Appoitments.Add(new MedicalAppointment() { room = tempRoom, begining = new DateTime(2020, 5, 10, 15, 0, 0), type = MedicalAppointmentType.examination, end = new DateTime(2020, 5, 10, 15, 30, 0) });
-            Appoitments.Add(new MedicalAppointment() { room = tempRoom, begining = new DateTime(2020, 5, 11, 15, 0, 0), type = MedicalAppointmentType.examination, end = new DateTime(2020, 5, 11, 15, 30, 0) });
-            Appoitments.Add(new MedicalAppointment() { room = tempRoom, begining = new DateTime(2020, 5, 12, 15, 0, 0), type = MedicalAppointmentType.examination, end = new DateTime(2020, 5, 12, 15, 30, 0) });
-            Appoitments.Add(new MedicalAppointment() { room = tempRoom, begining = new DateTime(2020, 5, 13, 15, 0, 0), type = MedicalAppointmentType.examination, end = new DateTime(2020, 5, 13, 15, 30, 0) });
+            Appoitments.Add(new MedicalAppointment() { room = tempRoom, beginning = new DateTime(2020, 5, 10, 15, 0, 0), type = MedicalAppointmentType.examination, end = new DateTime(2020, 5, 10, 15, 30, 0) });
+            Appoitments.Add(new MedicalAppointment() { room = tempRoom, beginning = new DateTime(2020, 5, 11, 18, 0, 0), type = MedicalAppointmentType.examination, end = new DateTime(2020, 5, 11, 18, 30, 0) });
+            Appoitments.Add(new MedicalAppointment() { room = tempRoom, beginning = new DateTime(2020, 5, 12, 15, 0, 0), type = MedicalAppointmentType.examination, end = new DateTime(2020, 5, 12, 15, 30, 0) });
+            Appoitments.Add(new MedicalAppointment() { room = tempRoom, beginning = new DateTime(2020, 5, 13, 15, 0, 0), type = MedicalAppointmentType.examination, end = new DateTime(2020, 5, 13, 15, 30, 0) });
         }
 
         private void Feedback_Click(object sender, RoutedEventArgs e)

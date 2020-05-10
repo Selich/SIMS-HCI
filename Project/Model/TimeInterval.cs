@@ -11,6 +11,12 @@ namespace Model
    {
       private DateTime start;
       private DateTime end;
+
+      public TimeInterval() {}
+      public TimeInterval(DateTime start, DateTime end){
+         this.start = start;
+         this.end = end;
+      }
    
    }
 }

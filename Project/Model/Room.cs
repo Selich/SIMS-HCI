@@ -13,6 +13,15 @@ namespace Model
       public RoomType type{get;set;}
       public string ward {get;set;}
       public string floor {get;set;}
+
+      public Room () {}
+      public Room (int id, RoomType type, string ward, string floor) {
+         this.id = id;
+         this.type = type;
+         this.ward = ward;
+         this.floor = floor;
+
+      }
       
       public System.Collections.Generic.List<Equipment> equipment;
       

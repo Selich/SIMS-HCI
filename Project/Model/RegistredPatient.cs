@@ -17,7 +17,9 @@ namespace Model
          throw new NotImplementedException();
       }
       
+
       public System.Collections.Generic.List<Question> questions;
+      public RegistredPatient() { }
       
       /// <summary>
       /// Property for collection of Question

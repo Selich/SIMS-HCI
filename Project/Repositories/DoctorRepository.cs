@@ -11,7 +11,6 @@ namespace Project.Repositories
         public IEnumerable<Doctor> ReadCSV(string fileName){
             string[] lines = File.ReadAllLines(System.IO.Path.ChangeExtension(fileName, ".csv"));
 
-
             return lines.Select(line =>
                 {
                     string[] data = line.Split(';');
@@ -23,8 +22,6 @@ namespace Project.Repositories
                     return user;
 
                 });
-
-
         }
         public Doctor getDoctorsById(int id)
         {
@@ -36,6 +33,7 @@ namespace Project.Repositories
                 string[] data = line.Split(';');
                 if(Int32.Parse(data[0]) == id)
                 {
+                    doctor.id = Int32.Parse(data[0]);
                     doctor.firstName = data[1];
                     doctor.lastName = data[2];
                     doctor.jmbg = data[3];

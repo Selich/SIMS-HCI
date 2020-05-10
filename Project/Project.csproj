@@ -85,6 +85,7 @@
     <Compile Include="Controllers\QuestionController.cs" />
     <Compile Include="Controllers\ReviewController.cs" />
     <Compile Include="Controllers\RoomController.cs" />
+    <Compile Include="ItemGenerators\Generators.cs" />
     <Compile Include="Model\Address.cs" />
     <Compile Include="Model\Anamneza.cs" />
     <Compile Include="Model\Appoitment.cs" />
@@ -120,8 +121,11 @@
     <Compile Include="Model\TypeOfIssue.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Repositories\DoctorRepository.cs" />
+    <Compile Include="Repositories\MedicalAppointmentRepository.cs" />
     <Compile Include="Repositories\PatientRepository.cs" />
     <Compile Include="Repositories\QuestionRepository.cs" />
+    <Compile Include="Repositories\RenovationRepository.cs" />
+    <Compile Include="Services\AppointmentService.cs" />
     <Compile Include="Views\Director\BugReportModal.xaml.cs">
       <DependentUpon>BugReportModal.xaml</DependentUpon>
     </Compile>

@@ -21,6 +21,8 @@ namespace Project.Repositories
                     patient.firstName = data[1];
                     patient.lastName = data[2];
                     patient.jmbg = data[3];
+                    patient.telephoneNumber = data[4];
+                    patient.email = data[5];
                     return patient;
 
                 });
@@ -40,6 +42,8 @@ namespace Project.Repositories
                     patient.firstName = data[1];
                     patient.lastName = data[2];
                     patient.jmbg = data[3];
+                    patient.telephoneNumber = data[4];
+                    patient.email = data[5];
                     break;
                 }
 

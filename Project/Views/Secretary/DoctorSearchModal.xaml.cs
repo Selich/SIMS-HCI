@@ -21,13 +21,17 @@ namespace Project.Views.Secretary
     /// </summary>
     public partial class DoctorSearchModal : Window
     {
-        public DoctorSearchModal()
+        public HomeWindow mainWin;
+        public Model.Doctor selectedDoctor;
+
+        public DoctorSearchModal(HomeWindow mainWin)
         {
             DoctorRepository dr = new DoctorRepository();
+            this.mainWin = mainWin;
             InitializeComponent();
-            listPatients.ItemsSource = dr.ReadCSV("../../Data/doctors.csv");
+            listDoctors.ItemsSource = dr.ReadCSV("../../Data/doctors.csv");
             Speciality_ComboBox.ItemsSource = dr.getTypeOfDoctors();
-            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listPatients.ItemsSource);
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listDoctors.ItemsSource);
             view.Filter = UserFilter;
         }
 
@@ -40,16 +44,48 @@ namespace Project.Views.Secretary
         }
         private void txtFilter_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
-            CollectionViewSource.GetDefaultView(listPatients.ItemsSource).Refresh();
+            CollectionViewSource.GetDefaultView(listDoctors.ItemsSource).Refresh();
         }
-
-        private void Select_Doctor(object sender, EventArgs e)
+        private void listDoctors_SelectionChanged(object sender, KeyEventArgs e)
         {
+            if((e.Key & Key.Enter) == Key.Enter)
+            {
+                if(listDoctors.SelectedItem != null)
+                {
+                    mainWin.selectedDoctor = (Model.Doctor)listDoctors.SelectedItem;
+                    mainWin.drName = listDoctors.SelectedItem.ToString();
+                }
+
+            }
 
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+
+        }
+
+        private void doctorsList_KeyDown(object sender, MouseButtonEventArgs e)
+        {
+            selectedDoctor = (Model.Doctor)listDoctors.SelectedItem;
+            var list =Application.Current.Windows;
+            Window w = new Window();
+            foreach (Window win in list)
+            {
+                if(win.Title == "HomeWindow")
+                {
+                    w = win;
+                    break;
+                }
+            }
+            var label = (Label)w.FindName("drLabel");
+            var label2 = (Label)w.FindName("drLabel2");
+            var id = (Label)w.FindName("drId");
+            label.Content = "Dr. " + selectedDoctor.firstName + " " + selectedDoctor.lastName ;
+            label2.Content = "Dr. " + selectedDoctor.firstName + " " + selectedDoctor.lastName ;
+            id.Content = selectedDoctor.id;
+            mainWin.refreshContent();
+            this.Hide();
 
         }
     }

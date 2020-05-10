@@ -4,38 +4,132 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Automation.Peers;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Forms;
 using System.Windows.Input;
+using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Model;
+using Project.ItemGenerators;
 using Project.Repositories;
 
 namespace Project.Views.Secretary
 {
+        public static class DateTimeExtensions
+        {
+            public static DateTime StartOfWeek(this DateTime dt, DayOfWeek startOfWeek)
+            {
+                int diff = (7 + (dt.DayOfWeek - startOfWeek)) % 7;
+                return dt.AddDays(-1 * diff).Date;
+            }
+        }
     /// <summary>
     /// Interaction logic for HomeWindow.xaml
     /// </summary>
     public partial class HomeWindow : Window
-    { 
+    {
+        public List<TimeInterval> listOfTerms;
         public  Model.Doctor selectedDoctor { get; set; }
+        public string drName { get; set; }
+        public List<MedicalAppointment> medicalAppointments;
+        public DoctorSearchModal doctorModal;
+        public MedicalAppointment nextAppointment;
+        public DateTime selectedDate;
         public HomeWindow()
-        {   
+        {
+            DateTime currentDate = DateTime.Now;
+            DateTime selectedDate = currentDate;
+
+            doctorModal = new DoctorSearchModal(this);
             PatientRepository pr = new PatientRepository();
             DoctorRepository dr = new DoctorRepository();
             QuestionRepository qr = new QuestionRepository();
+            Generators gen = new Generators();
+
             InitializeComponent();
+
+            medicalAppointments = gen.GetMedicalAppointments(10);
+            var weeksAppointments = GetThisWeeksAppointements(medicalAppointments);
+
             listPatients.ItemsSource = pr.ReadCSV("../../Data/patients.csv");
+            listPatientsCreate.ItemsSource = listPatients.ItemsSource;
             listQuestions.ItemsSource = qr.ReadCSV("../../Data/questions.csv");
-            selectedDoctor = dr.ReadCSV("../../Data/patients.csv").First();
+            listTerm.ItemsSource = medicalAppointments;
+            listAppointments.ItemsSource = medicalAppointments;
+            nextAppointment = medicalAppointments[0];
+
+
+            lst.ItemsSource = GenerateTerms();
 
 
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listPatients.ItemsSource);
             view.Filter = UserFilter;
+
+        }
+        public List<List<TimeInterval>> GenerateTerms()
+        {
+            List<List<TimeInterval>> lsts = new List<List<TimeInterval>>();
+            DateTime startOfTheWeek = DateTime.Now.StartOfWeek(DayOfWeek.Monday);
+            DateTime iterDay = startOfTheWeek;
+            
+            for (int i = 0; i < 7; i++)
+            {
+                lsts.Add(new List<TimeInterval>());
+                for (int j = 0; j < 7; j++)
+                {
+                    lsts[i].Add(new TimeInterval(iterDay, iterDay.AddDays(1)));
+                    iterDay.AddDays(1);
+                }
+            }
+            return lsts;
+        }
+
+        public List<MedicalAppointment> GetThisWeeksAppointements(List<MedicalAppointment> appointments)
+        {
+            //10080
+            List<MedicalAppointment> list = new List<MedicalAppointment>();
+            DateTime startOfTheWeek = DateTime.Now.StartOfWeek(DayOfWeek.Monday);
+            DateTime endOfTheWeek = startOfTheWeek.AddDays(7);
+
+            TimeSpan weekInterval = startOfTheWeek - endOfTheWeek;
+
+            foreach(MedicalAppointment item in appointments)
+            {
+                if(startOfTheWeek <= item.beginning  && item.end <= endOfTheWeek)
+                {
+                    list.Add(item);
+                }
+            }
+
+            return list;
+
+
+        }
+        public void test()
+        {
+        }
+        public void handleWeekCalendar(List<MedicalAppointment> list)
+        {
+            //var weekDg = new System.Windows.Controls.DataGrid();
+            //this.weekGrid.Children.Add(weekDg);
+            //for(int i = 1; i <= 4; ++i)
+            //{
+            //    var col = new DataGridTextColumn();
+            //    col.Header = "id";
+            //    col.Binding = new System.Windows.Data.Binding("id");
+            //    weekDg.Columns.Add(col);
+            //}
+
+            //foreach(var item in list)
+            //{
+            //    weekDg.Items.Add(item);
+
+            //}
 
         }
 
@@ -52,16 +146,6 @@ namespace Project.Views.Secretary
 
         }
 
-        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void Handle_Search(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private bool UserFilter(object item)
         {
             if (String.IsNullOrEmpty(patientFilter.Text))
@@ -74,17 +158,23 @@ namespace Project.Views.Secretary
             CollectionViewSource.GetDefaultView(listPatients.ItemsSource).Refresh();
         }
 
-
-        private void Handle_Doctor_Search(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
         private void Search_Doctor(object sender, RoutedEventArgs e)
         {
-            var s = new DoctorSearchModal();
-            s.Show();
+            doctorModal.Show();
 
+        }
+        private bool DateFilter(object item)
+        {
+            return true;
+            //if (String.IsNullOrEmpty(datePicker.SelectedDate.Value))
+            //    return true;
+            //else
+            //    return ((item as User).firstName.IndexOf(patientFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+        }
+        private void dpick_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            selectedDate = datePicker.SelectedDate.Value;
+            CollectionViewSource.GetDefaultView(listTerm.ItemsSource).Refresh();
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
@@ -101,6 +191,15 @@ namespace Project.Views.Secretary
             Guest_Account_Create.Visibility = Visibility.Hidden;
             Cancel_Button.Visibility = Visibility.Hidden;
         }
+        public void refreshContent()
+        {
+            MedicalAppointmentRepository mr = new MedicalAppointmentRepository();
+            string id = ((System.Windows.Controls.Label)this.FindName("drId")).Content.ToString();
+            mr = new MedicalAppointmentRepository();
+            medicalAppointments = mr.GetMedicalAppointmentsByDoctorId(Int32.Parse(id));
+            System.Windows.MessageBox.Show(medicalAppointments.ToString(),"test", MessageBoxButton.OK);
+
+        }
         private void questionsList_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
         {
             //TODO:  Change on enter, not on select click
@@ -111,6 +210,11 @@ namespace Project.Views.Secretary
             //    var s = new QuestionModal(q);
             //    s.Show();
             //}
+
+        }
+
+        private void listTerm_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
 
         }
     }

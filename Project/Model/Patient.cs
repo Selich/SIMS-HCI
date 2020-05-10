@@ -7,14 +7,19 @@ using System;
 
 namespace Model
 {
-   public class Patient : User
-   {
-      private string insurenceNumber;
-      private string profession;
-      private string bloodType;
-      private float height;
-      private float weight;
+    public class Patient : User
+    {
+        private string insurenceNumber;
+        private string profession;
+        private string bloodType;
+        private float height;
+        private float weight;
+        public string email
+        {get;set;}
       private int id;
+
+      public Patient(){ }
+      public Patient(string firstName, string lastName): base(firstName,lastName) { }
       
       public void AddMedicalCondition()
       {
