@@ -26,6 +26,26 @@ namespace Project.Repositories
 
 
         }
+        public Doctor getDoctorsById(int id)
+        {
+            string fileName = "../../Data/doctors.csv";
+            Doctor doctor = new Doctor();
+            string[] lines = File.ReadAllLines(System.IO.Path.ChangeExtension(fileName, ".csv"));
+            foreach(string line in lines)
+            {
+                string[] data = line.Split(';');
+                if(Int32.Parse(data[0]) == id)
+                {
+                    doctor.firstName = data[1];
+                    doctor.lastName = data[2];
+                    doctor.jmbg = data[3];
+                    break;
+                }
+
+            }
+            return doctor;
+
+        }
         public List<String> getTypeOfDoctors(){
             string fileName = "../../Data/doctors.csv";
             string[] lines = File.ReadAllLines(System.IO.Path.ChangeExtension(fileName, ".csv"));

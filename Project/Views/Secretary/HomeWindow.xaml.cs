@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -99,6 +100,18 @@ namespace Project.Views.Secretary
             Guest_Button.Visibility = Visibility.Visible;
             Guest_Account_Create.Visibility = Visibility.Hidden;
             Cancel_Button.Visibility = Visibility.Hidden;
+        }
+        private void questionsList_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            //TODO:  Change on enter, not on select click
+            //if (e.KeyCode == Keys.Enter)
+            //{
+            //    //var s = new QuestionModal(listQuestions.SelectedItem.id)
+            //    Question q = (Question)listQuestions.SelectedItem;
+            //    var s = new QuestionModal(q);
+            //    s.Show();
+            //}
+
         }
     }
 }

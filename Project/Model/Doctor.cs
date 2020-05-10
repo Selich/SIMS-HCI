@@ -9,7 +9,7 @@ namespace Model
 {
    public class Doctor : Employee
    {
-      private string medicalRole;
+      public string medicalRole { get; set; }
       
       public System.Collections.Generic.List<Approval> approval;
       

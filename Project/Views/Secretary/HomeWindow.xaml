@@ -22,8 +22,8 @@
             </StackPanel>
         </DataTemplate>
         <DataTemplate x:Key="appointmentTemplate">
-                    <Grid HorizontalAlignment="Center" Height="88" Margin="0,0,0,0" VerticalAlignment="Top" Width="1068" Background="#EFFCFA"  >
-                        <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth4" BorderBrush="#FF0E0E0E">
+            <Grid HorizontalAlignment="Center" Height="88" Margin="0,0,0,0" VerticalAlignment="Top" Width="1068" Background="#EFFCFA"  >
+                <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth4" BorderBrush="#FF0E0E0E">
                     <Grid >
                         <Grid.Background>
                             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -52,10 +52,10 @@
                         <TextBlock HorizontalAlignment="Left" Margin="894,45,0,0" TextWrapping="Wrap" Text="Sala 101" VerticalAlignment="Top"/>
                         <Button Content="Termin" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="100" Height="65" Click="Button_Click_1" />
 
-                            </Grid>
+                    </Grid>
 
-                        </materialDesign:Card>
-                            </Grid >
+                </materialDesign:Card>
+            </Grid >
         </DataTemplate>
     </Window.Resources>
     <TabControl HorizontalAlignment="Center" Height="689" VerticalAlignment="Center" Width="1270" Margin="0,0,2,0" >
@@ -411,17 +411,17 @@
             </Grid>
         </TabItem>
         <TabItem Header="Pitanja">
-            <Grid Margin="10,0,10,0">
+            <Grid Margin="0,0,0,0">
                 <Grid.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FFCDF3EE" Offset="1"/>
                         <GradientStop Color="White" Offset="0.7"/>
                     </LinearGradientBrush>
                 </Grid.Background>
-                <ListBox Name="listQuestions" BorderThickness="2" Background="White" HorizontalAlignment="Left" Height="517" Margin="44,81,0,0" VerticalAlignment="Top" Width="1170" ItemTemplate="{StaticResource questionsTemplate}">
+                <ListBox Name="listQuestions" BorderThickness="2" Background="White" HorizontalAlignment="Left" Height="517" Margin="44,81,0,0" VerticalAlignment="Top" Width="1170" ItemTemplate="{StaticResource questionsTemplate}" SelectedItem="questionsList_KeyDown">
                 </ListBox>
                 <Button Content="Feedback" HorizontalAlignment="Left" Margin="1114,603,0,0" VerticalAlignment="Top" Width="100" Height="22"/>
-                <Grid HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Width="1243">
+                <Grid HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Width="1264">
                     <Grid.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="White" Offset="0.53"/>
@@ -443,25 +443,21 @@
                         <Image HorizontalAlignment="Left" Height="204" Margin="27,36,0,0" VerticalAlignment="Top" Width="205" Source="../../Resources/Images/Faces/face5"/>
                         <Button Content="Izmeni sliku" HorizontalAlignment="Left" Margin="27,265,0,0" VerticalAlignment="Top" Width="205"/>
                     </Grid>
-                    <Grid HorizontalAlignment="Left" Height="320" Margin="330,33,0,0" VerticalAlignment="Top" Width="324">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="56*"/>
-                            <ColumnDefinition Width="279*"/>
-                        </Grid.ColumnDefinitions>
-                        <Label Content="Nikola Selic" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="40,30,0,0" VerticalAlignment="Top" Width="87" Grid.ColumnSpan="2"/>
-                        <Label Content="Label" HorizontalAlignment="Left" Margin="40,77,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-                        <Label Content="Label" HorizontalAlignment="Left" Margin="40,101,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-                        <Label Content="Label" HorizontalAlignment="Left" Margin="40,125,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-                        <Label Content="Label" HorizontalAlignment="Left" Margin="40,153,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-                        <Label Content="Label" HorizontalAlignment="Left" Margin="40,177,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-                        <Label Content="Label" HorizontalAlignment="Left" Margin="40,206,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-                        <Button Content="Izmeni" FontSize="11" HorizontalAlignment="Left" Margin="40,241,0,0" VerticalAlignment="Top" Width="65" Height="23" Grid.ColumnSpan="2"/>
-                        <TextBox HorizontalAlignment="Left" Height="23" Margin="42.5,77,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
-                        <TextBox HorizontalAlignment="Left" Height="23" Margin="42.5,102,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
-                        <TextBox HorizontalAlignment="Left" Height="23" Margin="42.5,125,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
-                        <TextBox HorizontalAlignment="Left" Height="23" Margin="42.5,153,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
-                        <TextBox HorizontalAlignment="Left" Height="23" Margin="42.5,184,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
-                        <TextBox HorizontalAlignment="Left" Height="23" Margin="42.5,206,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
+                    <Grid HorizontalAlignment="Left" Height="301" Margin="330,33,0,0" VerticalAlignment="Top" Width="245">
+                        <Label Content="Nikola Selic" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="15,15,0,0" VerticalAlignment="Top" Width="87"/>
+                        <Label Content="Label" HorizontalAlignment="Left" Margin="15,50,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                        <Label Content="Label" HorizontalAlignment="Left" Margin="15,80,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                        <Label Content="Label" HorizontalAlignment="Left" Margin="15,110,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                        <Label Content="Label" HorizontalAlignment="Left" Margin="15,140,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                        <Label Content="Label" HorizontalAlignment="Left" Margin="15,170,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                        <Label Content="Label" HorizontalAlignment="Left" Margin="15,200,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                        <Button Content="Izmeni" FontSize="11" HorizontalAlignment="Left" Margin="10,270,0,0" VerticalAlignment="Top" Width="65" Height="23"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="80,50,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="80,80,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="80,110,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="80,140,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="80,170,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="80,200,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
                     </Grid>
                 </Grid>
                 <Grid HorizontalAlignment="Left" Height="477" Margin="750,42,0,0" VerticalAlignment="Top" Width="434" Background="White"/>

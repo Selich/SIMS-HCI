@@ -4,17 +4,22 @@
 // Purpose: Definition of Class MedicalAppointment
 
 using System;
+using System.Windows.Documents;
 
 namespace Model
 {
-   public class MedicalAppointment : Appoitment
-   {
-      public int id
-      {get;set;}
-      public MedicalAppointmentType type
-      {get;set;}
-      public string creatorID
-      {get;set;}
+    public class MedicalAppointment : Appoitment
+    {
+        public int id
+        { get; set; }
+        public MedicalAppointmentType type
+        { get; set; }
+        public string creatorID
+        { get; set; }
+
+        public System.Collections.Generic.List<Doctor> doctors
+        {get;set;}
+       
       
       public System.Collections.Generic.List<Consumebles> consumebles;
       
@@ -139,7 +144,6 @@ namespace Model
          if (anamneza != null)
             anamneza.Clear();
       }
-      public Doctor[] doctors;
       public Patient patient;
       
       /// <summary>
