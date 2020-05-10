@@ -16,7 +16,6 @@ namespace Model
         private float weight;
         public string email
         {get;set;}
-      private int id;
 
       public Patient(){ }
       public Patient(string firstName, string lastName): base(firstName,lastName) { }

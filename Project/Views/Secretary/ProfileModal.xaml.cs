@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,8 +20,11 @@ namespace Project.Views.Secretary
     /// </summary>
     public partial class ProfileModal : Window
     {
-        public ProfileModal()
+        public Model.Patient selectedPatient;
+        public ProfileModal(int id)
         {
+            PatientRepository pr = new PatientRepository();
+            selectedPatient = pr.getPatientById(id);
             InitializeComponent();
         }
     }

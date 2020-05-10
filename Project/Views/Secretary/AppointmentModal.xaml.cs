@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Controller;
+using Model;
+using Project.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +22,11 @@ namespace Project.Views.Secretary
     /// </summary>
     public partial class AppointmentModal : Window
     {
-        public AppointmentModal()
+        public AppointmentModal(MedicalAppointment app)
         {
             InitializeComponent();
+            selectedAppointment.Content = app;
+
         }
 
         private void Change_Doctors(object sender, RoutedEventArgs e)
@@ -37,6 +42,15 @@ namespace Project.Views.Secretary
             Doctor_Search_TextBox.Visibility = Visibility.Hidden;
             Change_Doctor_Button.Visibility = Visibility.Visible;
             Cancel_Change_Doctor_Button.Visibility = Visibility.Hidden;
+
+        }
+
+        private void Profile_Click(object sender, RoutedEventArgs e)
+        {
+            MedicalAppointment item = (MedicalAppointment)(sender as System.Windows.Controls.Button).DataContext;
+            var id = item.patient.id;
+            var s = new ProfileModal(id);
+            s.Show();
 
         }
     }

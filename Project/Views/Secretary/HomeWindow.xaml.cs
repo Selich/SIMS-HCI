@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Automation.Peers;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Forms;
@@ -38,7 +39,7 @@ namespace Project.Views.Secretary
         public string drName { get; set; }
         public List<MedicalAppointment> medicalAppointments;
         public DoctorSearchModal doctorModal;
-        public MedicalAppointment nextAppointment;
+        public MedicalAppointment selectedAppointment;
         public DateTime selectedDate;
         public HomeWindow()
         {
@@ -61,7 +62,7 @@ namespace Project.Views.Secretary
             listQuestions.ItemsSource = qr.ReadCSV("../../Data/questions.csv");
             listTerm.ItemsSource = medicalAppointments;
             listAppointments.ItemsSource = medicalAppointments;
-            nextAppointment = medicalAppointments[0];
+            nextAppointment.Content = medicalAppointments[0];
 
 
             lst.ItemsSource = GenerateTerms();
@@ -110,9 +111,6 @@ namespace Project.Views.Secretary
 
 
         }
-        public void test()
-        {
-        }
         public void handleWeekCalendar(List<MedicalAppointment> list)
         {
             //var weekDg = new System.Windows.Controls.DataGrid();
@@ -132,16 +130,11 @@ namespace Project.Views.Secretary
             //}
 
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
+        
+        private void Term_Click(object sender, RoutedEventArgs e)
         {
-            var s = new AppointmentModal();
-            s.Show();
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            var s = new AppointmentModal();
+            MedicalAppointment item = (MedicalAppointment)(sender as System.Windows.Controls.Button).DataContext;
+            var s = new AppointmentModal(item);
             s.Show();
 
         }
