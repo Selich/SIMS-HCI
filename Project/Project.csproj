@@ -135,6 +135,18 @@
     <Compile Include="Views\Director\HomeWindow.xaml.cs">
       <DependentUpon>HomeWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Director\OrderEquipmentModal.xaml.cs">
+      <DependentUpon>OrderEquipmentModal.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Director\OrderMedicalConsumableModal.xaml.cs">
+      <DependentUpon>OrderMedicalConsumableModal.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Director\OrderMedicineModal.xaml.cs">
+      <DependentUpon>OrderMedicineModal.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Director\RegisterMedicine.xaml.cs">
+      <DependentUpon>RegisterMedicine.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Director\SettingsModal.xaml.cs">
       <DependentUpon>SettingsModal.xaml</DependentUpon>
     </Compile>
@@ -198,6 +210,22 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Director\HomeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Director\OrderEquipmentModal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Director\OrderMedicalConsumableModal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Director\OrderMedicineModal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Director\RegisterMedicine.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
