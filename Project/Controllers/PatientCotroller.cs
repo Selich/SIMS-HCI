@@ -19,7 +19,7 @@ namespace Controller
          throw new NotImplementedException();
       }
       
-      public Model.Patient GetPatient(string jmbg)
+      public Model.Patient GetPatient(int id)
       {
          throw new NotImplementedException();
       }

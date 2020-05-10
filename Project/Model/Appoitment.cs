@@ -9,12 +9,18 @@ namespace Model
 {
    public class Appoitment
    {
-      public DateTime begining
+      public DateTime beginning
       {get;set;}
       public DateTime end
       {get;set;}
       
       public Room room;
+      public Appoitment() {}
+      public Appoitment(DateTime beggining, DateTime end, Room room){
+         this.beginning = beginning;
+         this.end = end;
+         this.room = room;
+      }
    
    }
 }

@@ -10,6 +10,8 @@ namespace Model
    public class User
    {
       private DateTime dateOfBirth;
+       
+      public int id {get;set;}
       public string firstName
         { get; set; }
       public string lastName
@@ -22,6 +24,12 @@ namespace Model
       
       public Feedback[] feedback;
       public Address address;
+      public User(){}
+
+      public User(string firstName, string lastName){
+         this.firstName = firstName;
+         this.lastName = lastName;
+      }
       
       public System.Collections.Generic.List<Report> report;
       

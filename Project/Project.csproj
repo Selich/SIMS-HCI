@@ -51,6 +51,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -84,6 +85,7 @@
     <Compile Include="Controllers\QuestionController.cs" />
     <Compile Include="Controllers\ReviewController.cs" />
     <Compile Include="Controllers\RoomController.cs" />
+    <Compile Include="ItemGenerators\Generators.cs" />
     <Compile Include="Model\Address.cs" />
     <Compile Include="Model\Anamneza.cs" />
     <Compile Include="Model\Appoitment.cs" />
@@ -119,8 +121,11 @@
     <Compile Include="Model\TypeOfIssue.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Repositories\DoctorRepository.cs" />
+    <Compile Include="Repositories\MedicalAppointmentRepository.cs" />
     <Compile Include="Repositories\PatientRepository.cs" />
     <Compile Include="Repositories\QuestionRepository.cs" />
+    <Compile Include="Repositories\RenovationRepository.cs" />
+    <Compile Include="Services\AppointmentService.cs" />
     <Compile Include="Views\Director\BugReportModal.xaml.cs">
       <DependentUpon>BugReportModal.xaml</DependentUpon>
     </Compile>
@@ -169,6 +174,9 @@
     <Compile Include="Views\Secretary\ProfileModal.xaml.cs">
       <DependentUpon>ProfileModal.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Secretary\QuestionModal.xaml.cs">
+      <DependentUpon>QuestionModal.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -202,8 +210,8 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\FeedbackModal.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\LoginWindow.xaml">
       <SubType>Designer</SubType>
@@ -242,6 +250,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Secretary\ProfileModal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Secretary\QuestionModal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

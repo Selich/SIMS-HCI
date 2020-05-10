@@ -21,10 +21,34 @@ namespace Project.Repositories
                     patient.firstName = data[1];
                     patient.lastName = data[2];
                     patient.jmbg = data[3];
+                    patient.telephoneNumber = data[4];
+                    patient.email = data[5];
                     return patient;
 
                 });
 
+
+        }
+        public Patient getPatientById(int id)
+        {
+            string fileName = "../../Data/pacients.csv";
+            Patient patient = new Patient();
+            string[] lines = File.ReadAllLines(System.IO.Path.ChangeExtension(fileName, ".csv"));
+            foreach(string line in lines)
+            {
+                string[] data = line.Split(';');
+                if(Int32.Parse(data[0]) == id)
+                {
+                    patient.firstName = data[1];
+                    patient.lastName = data[2];
+                    patient.jmbg = data[3];
+                    patient.telephoneNumber = data[4];
+                    patient.email = data[5];
+                    break;
+                }
+
+            }
+            return patient;
 
         }
         

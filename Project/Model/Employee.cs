@@ -9,6 +9,7 @@ namespace Model
 {
    public class Employee : User
    {
+      public int id { get; set; }
       private double salary;
       private TimeInterval annualLeave;
       private TimeInterval workingHours;
@@ -17,5 +18,7 @@ namespace Model
       
       public Hospital hospital;
    
+      public Employee() {}
+      public Employee(string firstName, string lastName): base(firstName,lastName) { }
    }
 }

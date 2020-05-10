@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,18 @@ namespace Project.Views.Secretary
     /// </summary>
     public partial class QuestionModal : Window
     {
-        public QuestionModal()
+        
+        public QuestionModal(Question q)
         {
             InitializeComponent();
+            string question = q.question;
+            string answer = q.answer;
+            int id = q.id;
+        }
+
+        private void Profile_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
