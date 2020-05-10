@@ -87,5 +87,29 @@ namespace Project.Views.Director
             Rooms.Visibility = Visibility.Collapsed;
             RoomDetails.Visibility = Visibility.Visible;
         }
+
+        private void OpenEquipmentOrder(object sender, RoutedEventArgs e)
+        {
+            OrderEquipmentModal modal = new OrderEquipmentModal();
+            modal.Show();
+        }
+
+        private void OpenMedicineOrder(object sender, RoutedEventArgs e)
+        {
+            OrderMedicineModal modal = new OrderMedicineModal();
+            modal.Show();
+        }
+
+        private void OpenMedicineRegistration(object sender, RoutedEventArgs e)
+        {
+            RegisterMedicine modal = new RegisterMedicine();
+            modal.Show();
+        }
+
+        private void OpenMedicalConsumableOrder(object sender, RoutedEventArgs e)
+        {
+            OrderMedicalConsumableModal modal = new OrderMedicalConsumableModal();
+            modal.Show();
+        }
     }
 }
