@@ -8,7 +8,6 @@ namespace Project.Repositories
 {
     public class DoctorRepository
     {
-
         public IEnumerable<Doctor> ReadCSV(string fileName){
             string[] lines = File.ReadAllLines(System.IO.Path.ChangeExtension(fileName, ".csv"));
 
@@ -25,6 +24,20 @@ namespace Project.Repositories
 
                 });
 
+
+        }
+        public List<String> getTypeOfDoctors(){
+            string fileName = "../../Data/doctors.csv";
+            string[] lines = File.ReadAllLines(System.IO.Path.ChangeExtension(fileName, ".csv"));
+            List<String> types = new List<String>();
+
+            foreach (var line in lines)
+            { 
+                    string[] data = line.Split(';');
+                    if(!types.Contains(data[4])) types.Add(data[4]);
+                
+            }
+            return types;
 
         }
         

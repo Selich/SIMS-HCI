@@ -23,9 +23,10 @@ namespace Project.Views.Secretary
     {
         public DoctorSearchModal()
         {
-            DoctorRepository pr = new DoctorRepository();
+            DoctorRepository dr = new DoctorRepository();
             InitializeComponent();
-            listPatients.ItemsSource = pr.ReadCSV("../../Data/doctors.csv");
+            listPatients.ItemsSource = dr.ReadCSV("../../Data/doctors.csv");
+            Speciality_ComboBox.ItemsSource = dr.getTypeOfDoctors();
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listPatients.ItemsSource);
             view.Filter = UserFilter;
         }
@@ -43,6 +44,11 @@ namespace Project.Views.Secretary
         }
 
         private void Select_Doctor(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }

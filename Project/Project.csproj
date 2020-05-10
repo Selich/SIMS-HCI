@@ -169,6 +169,9 @@
     <Compile Include="Views\Secretary\ProfileModal.xaml.cs">
       <DependentUpon>ProfileModal.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Secretary\QuestionModal.xaml.cs">
+      <DependentUpon>QuestionModal.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -202,8 +205,8 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\FeedbackModal.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\LoginWindow.xaml">
       <SubType>Designer</SubType>
@@ -242,6 +245,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Secretary\ProfileModal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Secretary\QuestionModal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

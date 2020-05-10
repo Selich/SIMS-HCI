@@ -60,14 +60,14 @@
     </Window.Resources>
     <TabControl HorizontalAlignment="Center" Height="689" VerticalAlignment="Center" Width="1270" Margin="0,0,2,0" >
         <TabItem Header="Termini">
-            <Grid Margin="10,0,10,0">
+            <Grid Margin="0,0,0,0">
                 <Grid.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FFCDF3EE" Offset="1"/>
                         <GradientStop Color="White" Offset="0.7"/>
                     </LinearGradientBrush>
                 </Grid.Background>
-                <Grid HorizontalAlignment="Left" Height="53" VerticalAlignment="Top" Width="1243">
+                <Grid HorizontalAlignment="Left" Height="53" VerticalAlignment="Top" Width="1264">
                     <Grid.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="White" Offset="0.53"/>
@@ -279,11 +279,11 @@
                         </Grid>
                     </TabItem>
                 </TabControl>
-                <Button Content="Feedback" HorizontalAlignment="Right" Margin="0,0,35,10" VerticalAlignment="Bottom" Width="100" Height="22"/>
+                <Button Content="Feedback" HorizontalAlignment="Right" Margin="0,0,47,10" VerticalAlignment="Bottom" Width="100" Height="22"/>
             </Grid>
         </TabItem>
         <TabItem Header="Kreiraj">
-            <Grid  Margin="10,0,10,0">
+            <Grid  Margin="0,0,0,0">
                 <Grid.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FFCDF3EE" Offset="1"/>
@@ -369,7 +369,7 @@
                         </Grid>
                     </ListBox>
                 </Grid>
-                <Button Content="Feedback" HorizontalAlignment="Right" Margin="0,0,35,10" VerticalAlignment="Bottom" Width="100" Height="22"/>
+                <Button Content="Feedback" HorizontalAlignment="Right" Margin="0,0,57,10" VerticalAlignment="Bottom" Width="100" Height="22"/>
             </Grid>
         </TabItem>
         <TabItem Header="Pacijenti">
