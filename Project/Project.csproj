@@ -69,30 +69,39 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controllers\AppoitmentController.cs" />
+    <Compile Include="Controllers\DocumentController.cs" />
+    <Compile Include="Controllers\EmployeeController.cs" />
+    <Compile Include="Controllers\Equipment.cs" />
+    <Compile Include="Controllers\EquipmentController.cs" />
+    <Compile Include="Controllers\FeedbackController.cs" />
+    <Compile Include="Controllers\MedicalAppointmentController.cs" />
+    <Compile Include="Controllers\MedicalConsumableController.cs" />
+    <Compile Include="Controllers\MedicineController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\PatientCotroller.cs" />
+    <Compile Include="Controllers\PropositionController.cs" />
+    <Compile Include="Controllers\QuestionController.cs" />
+    <Compile Include="Controllers\ReviewController.cs" />
+    <Compile Include="Controllers\RoomController.cs" />
     <Compile Include="Model\Address.cs" />
-    <Compile Include="Model\Allergie.cs" />
     <Compile Include="Model\Anamneza.cs" />
     <Compile Include="Model\Appoitment.cs" />
     <Compile Include="Model\Approval.cs" />
-    <Compile Include="Model\BloodType.cs" />
     <Compile Include="Model\Consumebles.cs" />
     <Compile Include="Model\Director.cs" />
     <Compile Include="Model\Doctor.cs" />
-    <Compile Include="Model\DoctorReferral.cs" />
-    <Compile Include="Model\Document.cs" />
     <Compile Include="Model\Employee.cs" />
     <Compile Include="Model\Equipment.cs" />
     <Compile Include="Model\Feedback.cs" />
     <Compile Include="Model\Hospital.cs" />
-    <Compile Include="Model\LabTest.cs" />
+    <Compile Include="Model\InventoryReplacement.cs" />
     <Compile Include="Model\MedicalAppointment.cs" />
     <Compile Include="Model\MedicalAppointmentType.cs" />
-    <Compile Include="Model\MedicalChart.cs" />
     <Compile Include="Model\MedicalConsumables.cs" />
     <Compile Include="Model\Medicine.cs" />
     <Compile Include="Model\Order.cs" />
     <Compile Include="Model\Patient.cs" />
-    <Compile Include="Model\PatientReport.cs" />
     <Compile Include="Model\Prescription.cs" />
     <Compile Include="Model\Proposition.cs" />
     <Compile Include="Model\PropositionState.cs" />
@@ -104,7 +113,6 @@
     <Compile Include="Model\Review.cs" />
     <Compile Include="Model\Room.cs" />
     <Compile Include="Model\RoomType.cs" />
-    <Compile Include="Model\Scheduling.cs" />
     <Compile Include="Model\Secretary.cs" />
     <Compile Include="Model\Sex.cs" />
     <Compile Include="Model\TimeInterval.cs" />
@@ -112,6 +120,7 @@
     <Compile Include="Model\User.cs" />
     <Compile Include="Repositories\DoctorRepository.cs" />
     <Compile Include="Repositories\PatientRepository.cs" />
+    <Compile Include="Repositories\QuestionRepository.cs" />
     <Compile Include="Views\Director\BugReportModal.xaml.cs">
       <DependentUpon>BugReportModal.xaml</DependentUpon>
     </Compile>
@@ -258,6 +267,8 @@
     <None Include="Data\doctors.csv" />
     <None Include="Data\medicalAppointments.csv" />
     <None Include="Data\patients.csv" />
+    <None Include="Data\questions.csv" />
+    <None Include="Model\InventoryReplacement.csa" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

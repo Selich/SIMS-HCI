@@ -15,7 +15,6 @@ namespace Model
       private bool approved;
       
       public Prescription[] prescription;
-      public Proposition proposition;
       public System.Collections.Generic.List<Medicine> alternatives;
       
       /// <summary>
@@ -77,6 +76,7 @@ namespace Model
          if (alternatives != null)
             alternatives.Clear();
       }
+      public Proposition proposition;
    
    }
 }

@@ -9,10 +9,10 @@ namespace Model
 {
    public class Room
    {
-      public int id;
-      public RoomType type;
-      public string ward;
-      public string floor;
+      public int id { get; set; }
+      public RoomType type{get;set;}
+      public string ward {get;set;}
+      public string floor {get;set;}
       
       public System.Collections.Generic.List<Equipment> equipment;
       

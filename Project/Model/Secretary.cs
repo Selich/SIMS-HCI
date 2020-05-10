@@ -9,7 +9,6 @@ namespace Model
 {
    public class Secretary : Employee
    {
-      
       public System.Collections.Generic.List<Question> questions;
       
       /// <summary>

@@ -9,8 +9,10 @@ namespace Model
 {
    public class Appoitment
    {
-      public DateTime begining;
-      public DateTime end;
+      public DateTime begining
+      {get;set;}
+      public DateTime end
+      {get;set;}
       
       public Room room;
    

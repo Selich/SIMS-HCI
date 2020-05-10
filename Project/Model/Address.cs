@@ -9,11 +9,11 @@ namespace Model
 {
    public class Address
    {
-      public string number {get;set;}
-      public string street {get;set;}
-      public string city {get;set;}
-      public string country {get;set;}
-      public string postCode {get;set;}
+      private string number;
+      private string street;
+      private string city;
+      private string country;
+      private string postCode;
       
       public User[] user;
    

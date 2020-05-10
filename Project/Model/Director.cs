@@ -9,6 +9,10 @@ namespace Model
 {
    public class Director : Employee
    {
+      public bool GetAppointmentsByDoctor()
+      {
+         throw new NotImplementedException();
+      }
       
       public System.Collections.ArrayList propositions;
       

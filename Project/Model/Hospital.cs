@@ -11,7 +11,6 @@ namespace Model
    {
       private string name;
       
-      
       public System.Collections.Generic.List<Medicine> medicines;
       
       /// <summary>

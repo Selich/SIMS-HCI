@@ -9,7 +9,7 @@ namespace Model
 {
    public class Proposition
    {
-      private PropositionState state;
+      private string state;
       
       public System.Collections.Generic.List<Approval> approval;
       
@@ -72,6 +72,7 @@ namespace Model
          if (approval != null)
             approval.Clear();
       }
+      public Medicine medicine;
       public Director director;
       
       /// <summary>

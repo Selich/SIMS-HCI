@@ -1,11 +1,11 @@
 // File:    Equipment.cs
 // Author:  Selic
-// Created: Thursday, March 19, 2020 7:30:11 PM
+// Created: Tuesday, May 5, 2020 6:09:40 PM
 // Purpose: Definition of Class Equipment
 
 using System;
 
-namespace Model
+namespace Controller
 {
    public class Equipment
    {
@@ -13,9 +13,6 @@ namespace Model
       private string type;
       private string description;
       private string name;
-      
-      public Order[] orders;
-      public InventoryReplacement[] inventoryReplacement;
    
    }
 }

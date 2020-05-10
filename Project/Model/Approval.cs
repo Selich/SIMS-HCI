@@ -12,11 +12,6 @@ namespace Model
       private string description;
       private bool isApproved;
       
-      public void Approve()
-      {
-         throw new NotImplementedException();
-      }
-      
       public Doctor doctor;
       
       /// <summary>

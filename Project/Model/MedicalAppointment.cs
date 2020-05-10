@@ -9,84 +9,13 @@ namespace Model
 {
    public class MedicalAppointment : Appoitment
    {
-      public int id;
-      public MedicalAppointmentType type;
+      public int id
+      {get;set;}
+      public MedicalAppointmentType type
+      {get;set;}
+      public string creatorID
+      {get;set;}
       
-      public System.Collections.Generic.List<Document> documents;
-      
-      /// <summary>
-      /// Property for collection of Document
-      /// </summary>
-      /// <pdGenerated>Default opposite class collection property</pdGenerated>
-      public System.Collections.Generic.List<Document> Documents
-      {
-         get
-         {
-            if (documents == null)
-               documents = new System.Collections.Generic.List<Document>();
-            return documents;
-         }
-         set
-         {
-            RemoveAllDocuments();
-            if (value != null)
-            {
-               foreach (Document oDocument in value)
-                  AddDocuments(oDocument);
-            }
-         }
-      }
-      
-      /// <summary>
-      /// Add a new Document in the collection
-      /// </summary>
-      /// <pdGenerated>Default Add</pdGenerated>
-      public void AddDocuments(Document newDocument)
-      {
-         if (newDocument == null)
-            return;
-         if (this.documents == null)
-            this.documents = new System.Collections.Generic.List<Document>();
-         if (!this.documents.Contains(newDocument))
-         {
-            this.documents.Add(newDocument);
-            newDocument.MedicalAppointment = this;
-         }
-      }
-      
-      /// <summary>
-      /// Remove an existing Document from the collection
-      /// </summary>
-      /// <pdGenerated>Default Remove</pdGenerated>
-      public void RemoveDocuments(Document oldDocument)
-      {
-         if (oldDocument == null)
-            return;
-         if (this.documents != null)
-            if (this.documents.Contains(oldDocument))
-            {
-               this.documents.Remove(oldDocument);
-               oldDocument.MedicalAppointment = null;
-            }
-      }
-      
-      /// <summary>
-      /// Remove all instances of Document from the collection
-      /// </summary>
-      /// <pdGenerated>Default removeAll</pdGenerated>
-      public void RemoveAllDocuments()
-      {
-         if (documents != null)
-         {
-            System.Collections.ArrayList tmpDocuments = new System.Collections.ArrayList();
-            foreach (Document oldDocument in documents)
-               tmpDocuments.Add(oldDocument);
-            documents.Clear();
-            foreach (Document oldDocument in tmpDocuments)
-               oldDocument.MedicalAppointment = null;
-            tmpDocuments.Clear();
-         }
-      }
       public System.Collections.Generic.List<Consumebles> consumebles;
       
       /// <summary>
@@ -148,7 +77,68 @@ namespace Model
          if (consumebles != null)
             consumebles.Clear();
       }
-      public DoctorReferral doctorReferral;
+      public Review review;
+      public System.Collections.Generic.List<Anamneza> anamneza;
+      
+      /// <summary>
+      /// Property for collection of Anamneza
+      /// </summary>
+      /// <pdGenerated>Default opposite class collection property</pdGenerated>
+      public System.Collections.Generic.List<Anamneza> Anamneza
+      {
+         get
+         {
+            if (anamneza == null)
+               anamneza = new System.Collections.Generic.List<Anamneza>();
+            return anamneza;
+         }
+         set
+         {
+            RemoveAllAnamneza();
+            if (value != null)
+            {
+               foreach (Anamneza oAnamneza in value)
+                  AddAnamneza(oAnamneza);
+            }
+         }
+      }
+      
+      /// <summary>
+      /// Add a new Anamneza in the collection
+      /// </summary>
+      /// <pdGenerated>Default Add</pdGenerated>
+      public void AddAnamneza(Anamneza newAnamneza)
+      {
+         if (newAnamneza == null)
+            return;
+         if (this.anamneza == null)
+            this.anamneza = new System.Collections.Generic.List<Anamneza>();
+         if (!this.anamneza.Contains(newAnamneza))
+            this.anamneza.Add(newAnamneza);
+      }
+      
+      /// <summary>
+      /// Remove an existing Anamneza from the collection
+      /// </summary>
+      /// <pdGenerated>Default Remove</pdGenerated>
+      public void RemoveAnamneza(Anamneza oldAnamneza)
+      {
+         if (oldAnamneza == null)
+            return;
+         if (this.anamneza != null)
+            if (this.anamneza.Contains(oldAnamneza))
+               this.anamneza.Remove(oldAnamneza);
+      }
+      
+      /// <summary>
+      /// Remove all instances of Anamneza from the collection
+      /// </summary>
+      /// <pdGenerated>Default removeAll</pdGenerated>
+      public void RemoveAllAnamneza()
+      {
+         if (anamneza != null)
+            anamneza.Clear();
+      }
       public Doctor[] doctors;
       public Patient patient;
       

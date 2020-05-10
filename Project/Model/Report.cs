@@ -17,8 +17,6 @@ namespace Model
       {
          throw new NotImplementedException();
       }
-      
-      public Employee employee;
    
    }
 }

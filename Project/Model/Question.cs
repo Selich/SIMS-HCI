@@ -9,9 +9,12 @@ namespace Model
 {
    public class Question
    {
-      private int id;
-      private string question;
-      private string answer;
+      public int id
+      {get;set;}
+      public string question
+      {get;set;}
+      public string answer
+      {get;set;}
       
       public Secretary secretary;
       

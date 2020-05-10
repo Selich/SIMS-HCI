@@ -7,13 +7,11 @@ using System;
 
 namespace Model
 {
-   public class Anamneza : Document
+   public class Anamneza
    {
       private string name;
       private string type;
       private string description;
-      
-      public MedicalChart[] medicalChart;
    
    }
 }

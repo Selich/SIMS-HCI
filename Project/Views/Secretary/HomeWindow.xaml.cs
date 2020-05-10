@@ -26,8 +26,10 @@ namespace Project.Views.Secretary
         {   
             PatientRepository pr = new PatientRepository();
             DoctorRepository dr = new DoctorRepository();
+            QuestionRepository qr = new QuestionRepository();
             InitializeComponent();
             listPatients.ItemsSource = pr.ReadCSV("../../Data/patients.csv");
+            listQuestions.ItemsSource = qr.ReadCSV("../../Data/questions.csv");
             selectedDoctor = dr.ReadCSV("../../Data/patients.csv").First();
 
 
