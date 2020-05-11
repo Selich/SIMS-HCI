@@ -32,6 +32,7 @@ namespace Project.Repositories {
                 q.id = Int32.Parse (data[0]);
                 q.question = data[1];
                 q.answer = data[2];
+                q.registredPatient = new RegistredPatient("Zoran","Lazic");
                 return q;
 
             });

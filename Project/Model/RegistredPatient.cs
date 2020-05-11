@@ -16,10 +16,10 @@ namespace Model
       {
          throw new NotImplementedException();
       }
-      
 
       public System.Collections.Generic.List<Question> questions;
       public RegistredPatient() { }
+      public RegistredPatient(string firstName, string lastName) : base(firstName,lastName) { }
       
       /// <summary>
       /// Property for collection of Question

@@ -16,7 +16,6 @@
                             <GradientStop Color="White" Offset="0.7"/>
                         </LinearGradientBrush>
                     </Grid.Background>
-                    <Button Content="Feedback" HorizontalAlignment="Left" Margin="1114,603,0,0" VerticalAlignment="Top" Width="100" Height="22"/>
                 <Grid HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Width="1243" Margin="0,37,0,0"/>
                     <Grid HorizontalAlignment="Left" Height="320" Margin="66,38,0,0" VerticalAlignment="Top" Width="260">
                         <Image HorizontalAlignment="Left" Height="204" Margin="27,27,0,0" VerticalAlignment="Top" Width="205" Source="../../Resources/Images/Faces/face5"/>
@@ -41,13 +40,39 @@
                     </Grid>
         </TabItem>
         <TabItem Header="Termini">
-            <Grid Background="#FFE5E5E5">
-                <ListBox HorizontalAlignment="Left" Height="278" Margin="24,68,0,0" VerticalAlignment="Top" Width="772"/>
+            <Grid>
+                    <Grid.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFCDF3EE" Offset="1"/>
+                            <GradientStop Color="White" Offset="0.7"/>
+                        </LinearGradientBrush>
+                    </Grid.Background>
+                <ListView Name="listAppointments" HorizontalAlignment="Left" Height="278" Margin="24,68,0,0" VerticalAlignment="Top" Width="772">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Start" Width="120" DisplayMemberBinding="{Binding beginning}" />
+                            <GridViewColumn Header="End" Width="120" DisplayMemberBinding="{Binding end}" />
+                        </GridView>
+                    </ListView.View>
+                </ListView>
             </Grid>
         </TabItem>
         <TabItem Header="Istorija">
-            <Grid Background="#FFE5E5E5">
-                <ListBox HorizontalAlignment="Left" Height="278" Margin="24,68,0,0" VerticalAlignment="Top" Width="772"/>
+            <Grid>
+                <Grid.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFCDF3EE" Offset="1"/>
+                        <GradientStop Color="White" Offset="0.7"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
+                <ListView Name="appointmentHistory" HorizontalAlignment="Left" Height="278" Margin="24,68,0,0" VerticalAlignment="Top" Width="772" >
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Start" Width="120" DisplayMemberBinding="{Binding beginning}" />
+                            <GridViewColumn Header="End" Width="120" DisplayMemberBinding="{Binding end}" />
+                        </GridView>
+                    </ListView.View>
+                </ListView>
             </Grid>
         </TabItem>
     </TabControl>

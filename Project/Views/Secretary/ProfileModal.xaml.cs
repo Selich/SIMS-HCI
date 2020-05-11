@@ -1,4 +1,6 @@
-﻿using Project.Repositories;
+﻿using Model;
+using Project.ItemGenerators;
+using Project.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,9 +25,14 @@ namespace Project.Views.Secretary
         public Model.Patient selectedPatient;
         public ProfileModal(int id)
         {
+            Generators g = new Generators();
             PatientRepository pr = new PatientRepository();
-            selectedPatient = pr.getPatientById(id);
+            MedicalAppointmentRepository mr = new MedicalAppointmentRepository();
+            selectedPatient = g.GeneratePatient();
+
             InitializeComponent();
+            appointmentHistory.ItemsSource = mr.ReadCSV("../../Data/medicalAppointments.csv");
+            listAppointments.ItemsSource = mr.ReadCSV("../../Data/medicalAppointments.csv");
         }
     }
 }

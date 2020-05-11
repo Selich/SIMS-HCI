@@ -15,6 +15,8 @@ namespace Model
       {get;set;}
       public string answer
       {get;set;}
+
+      public RegistredPatient registredPatient;
       
       public Secretary secretary;
       

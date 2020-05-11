@@ -65,7 +65,7 @@ namespace Project.Views.Secretary
 
         }
 
-        private void doctorsList_KeyDown(object sender, MouseButtonEventArgs e)
+        private void doctorsList_KeyDown(object sender, KeyboardEventArgs e)
         {
             selectedDoctor = (Model.Doctor)listDoctors.SelectedItem;
             var list =Application.Current.Windows;

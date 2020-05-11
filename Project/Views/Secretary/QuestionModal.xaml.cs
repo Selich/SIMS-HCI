@@ -20,17 +20,15 @@ namespace Project.Views.Secretary
     /// </summary>
     public partial class QuestionModal : Window
     {
-        
         public QuestionModal(Question q)
         {
             InitializeComponent();
-            string question = q.question;
-            string answer = q.answer;
-            int id = q.id;
+            selectedQuestion.Content = q;
         }
 
         private void Profile_Click(object sender, RoutedEventArgs e)
         {
+            this.Close();
 
         }
     }

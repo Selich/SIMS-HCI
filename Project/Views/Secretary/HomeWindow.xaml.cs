@@ -40,6 +40,7 @@ namespace Project.Views.Secretary
         public List<MedicalAppointment> medicalAppointments;
         public DoctorSearchModal doctorModal;
         public MedicalAppointment selectedAppointment;
+        public Question selectedQuestion;
         public DateTime selectedDate;
         public HomeWindow()
         {
@@ -193,22 +194,14 @@ namespace Project.Views.Secretary
             System.Windows.MessageBox.Show(medicalAppointments.ToString(),"test", MessageBoxButton.OK);
 
         }
-        private void questionsList_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        private void questionsList_KeyDown(object sender, KeyboardEventArgs e)
         {
-            //TODO:  Change on enter, not on select click
-            //if (e.KeyCode == Keys.Enter)
-            //{
-            //    //var s = new QuestionModal(listQuestions.SelectedItem.id)
-            //    Question q = (Question)listQuestions.SelectedItem;
-            //    var s = new QuestionModal(q);
-            //    s.Show();
-            //}
+            selectedQuestion = (Question)listQuestions.SelectedItem;
+            var modal = new QuestionModal(selectedQuestion);
+            modal.Show();
+
 
         }
 
-        private void listTerm_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
     }
 }

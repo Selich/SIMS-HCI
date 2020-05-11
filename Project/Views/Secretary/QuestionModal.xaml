@@ -6,23 +6,36 @@
         xmlns:local="clr-namespace:Project.Views.Secretary"
         mc:Ignorable="d"
         Title="QuestionModal" Height="450" Width="800">
+    <Window.Resources>
+        <DataTemplate x:Key="questionTemplate">
+            <Grid Margin="0,0,0,0" >
+                <Grid.Background>
+                    <LinearGradientBrush EndPoint="0.5,0.5" StartPoint="0.5,0">
+                        <GradientStop Color="#FFCDF3EE" Offset="1"/>
+                        <GradientStop Color="White" Offset="0.7"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
+                <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Width="773" Height="181" >
+                    <Image Source="../../Resources/Images/Faces/face1" HorizontalAlignment="Left" Height="65" Margin="26,11,0,0" VerticalAlignment="Top" Width="66" Stretch="Fill"/>
+
+                    <TextBlock FontWeight="Bold" FontSize="13" HorizontalAlignment="Left" Margin="120,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
+                                <Run Text="{Binding registredPatient.firstName}"/>
+                                <Run Text=" "/>
+                                <Run Text="{Binding registredPatient.lastName}"/>
+                                <Run Text=" "/>
+                    </TextBlock>
+                    <Button Content="Profile" HorizontalAlignment="Left" Margin="26,81,0,0" FontSize="11" VerticalAlignment="Top" Width="66" Height="21" Click="Profile_Click" />
+                    <TextBlock HorizontalAlignment="Right" Height="177" Margin="0,0,0,0" Width="600" TextWrapping="Wrap" Text="{Binding question}" VerticalAlignment="Top" />
+                </Grid>
+                <Grid Margin="0,195,0,0">
+                    <TextBox Background="White"   VerticalScrollBarVisibility="Visible"  HorizontalAlignment="Left" FontSize="13"  Height="176" Margin="10" TextWrapping="Wrap" Text="{Binding answer}" VerticalAlignment="Bottom" Width="654"/>
+                    <Button Content="Submit" FontSize="12" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10" Width="75" Height="23"/>
+                </Grid>
+            </Grid>
+        </DataTemplate>
+    </Window.Resources>
     <Grid>
-        <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Width="253" Height="111">
-            <Image Source="../../Resources/Images/Faces/face1" HorizontalAlignment="Left" Height="65" Margin="26,11,0,0" VerticalAlignment="Top" Width="66" Stretch="Fill"/>
-
-            <TextBlock FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" Margin="120,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
-                            <Run Text="{Binding firstName}"/>
-                            <Run Text=" "/>
-                            <Run Text="{Binding lastName}"/>
-                            <Run Text=" "/>
-            </TextBlock>
-            <Button Content="Profile" HorizontalAlignment="Left" Margin="26,81,0,0" FontSize="11" VerticalAlignment="Top" Width="66" Height="21" Click="Profile_Click" />
-
-        </Grid>
-
-        <TextBlock HorizontalAlignment="Left" Height="177" Margin="291,10,0,0" TextWrapping="Wrap" Text="{Binding question}" VerticalAlignment="Top" Width="466" />
-        <TextBox HorizontalAlignment="Left" Height="176" Margin="33,192,0,0" TextWrapping="Wrap" Text="{Binding answer}" VerticalAlignment="Top" Width="724"/>
-        <Button Content="Submit" FontSize="12" HorizontalAlignment="Left" Margin="682,377,0,0" VerticalAlignment="Top" Width="75" Height="23"/>
+        <ContentControl   x:Name="selectedQuestion" HorizontalAlignment="Center" Height="399" Margin="10,10,10,0"  VerticalAlignment="Top" Width="772" ContentTemplate="{StaticResource questionTemplate}" />
 
         <!--<TextBox Name="MyTextBox" AcceptsReturn="True" AcceptsTab="True"
          Margin="5" TextWrapping="Wrap"

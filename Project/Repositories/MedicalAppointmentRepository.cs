@@ -1,4 +1,5 @@
 ﻿using Model;
+using Project.ItemGenerators;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -10,13 +11,12 @@ namespace Project.Repositories
 {
     class MedicalAppointmentRepository
     {
-        public string fileName = "../../Data/medicalAppointments.csv";
-        public IEnumerable<MedicalAppointment> ReadCSV()
+        public IEnumerable<MedicalAppointment> ReadCSV(string fileName)
         {
-            string fileName = "../../Data/medicalAppointments.csv";
             string[] lines = File.ReadAllLines(System.IO.Path.ChangeExtension(fileName, ".csv"));
             PatientRepository pr = new PatientRepository();
             DoctorRepository dr = new DoctorRepository();
+            Generators g = new Generators();
 
 
 
@@ -29,17 +29,18 @@ namespace Project.Repositories
                     appointment.beginning = DateTime.Parse(data[1]);
                     appointment.end = DateTime.Parse(data[2]);
                     appointment.type = (MedicalAppointmentType)Enum.Parse(typeof(MedicalAppointmentType), data[3]);
-                    appointment.patient = pr.getPatientById(Int32.Parse(data[4]));
-                    List<Doctor> doctors = new List<Doctor>();
-                    int i = 4;
-                    while (data[i] != null)
-                    {
-                        Doctor doctor = new Doctor();
-                        doctor = dr.getDoctorsById(Int32.Parse(data[i]));
-                        doctors.Add(doctor);
+                    appointment.patient = g.GeneratePatient();
+                    //appointment.patient = pr.getPatientById(Int32.Parse(data[4]));
+                    //List<Doctor> doctors = new List<Doctor>();
+                    //int i = 4;
+                    //while (data[i] != null)
+                    //{
+                    //    Doctor doctor = new Doctor();
+                    //    doctor = dr.getDoctorsById(Int32.Parse(data[i]));
+                    //    doctors.Add(doctor);
 
-                    }
-                    appointment.doctors = doctors;
+                    //}
+                    //appointment.doctors = doctors;
                     return appointment;
 
                 });
