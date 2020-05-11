@@ -26,18 +26,40 @@ namespace Project.Views.Secretary
         public AppointmentModal(MedicalAppointment app)
         {
             Generators gen = new Generators();
+            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             InitializeComponent();
 
             selectedAppointment.Content = app;
             listDoctors.ItemsSource = app.doctors;
             listAllDoctors.ItemsSource = gen.GenerateDoctors(10);
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listAllDoctors.ItemsSource);
+            view.Filter = DoctorFilter;
+            this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
+
+        }
+
+    private void HandleEsc(object sender, KeyEventArgs e)
+    {
+        if (e.Key == Key.Escape)
+            Close();
+    }
+
+    private bool DoctorFilter(object item)
+        {
+            if (String.IsNullOrEmpty(search.Text))
+                return true;
+            else
+                return ((item as User).firstName.IndexOf(search.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+        }
+        private void searchDoctor_TxtChanged (object sended, RoutedEventArgs e)
+        {
+            CollectionViewSource.GetDefaultView(listAllDoctors.ItemsSource).Refresh();
 
         }
 
         private void Change_Doctors(object sender, RoutedEventArgs e)
         {
             search.Visibility = Visibility.Visible;
-            kodLekara.Visibility = Visibility.Hidden;
             Change_Doctor_Button.Visibility = Visibility.Hidden;
             listDoctors.Visibility = Visibility.Hidden;
             listAllDoctors.Visibility = Visibility.Visible;
@@ -48,7 +70,6 @@ namespace Project.Views.Secretary
         private void Cancel_Change_Doctors(object sender, RoutedEventArgs e)
         {
             search.Visibility = Visibility.Hidden;
-            kodLekara.Visibility = Visibility.Visible;
             Change_Doctor_Button.Visibility = Visibility.Visible;
             listAllDoctors.Visibility = Visibility.Hidden;
             listDoctors.Visibility = Visibility.Visible;
@@ -79,7 +100,6 @@ namespace Project.Views.Secretary
         {
 
         }
-
         private void Izmeni_Click(object sender, RoutedEventArgs e)
         {
             room.IsEnabled = true;

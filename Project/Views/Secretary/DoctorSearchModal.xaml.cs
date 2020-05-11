@@ -26,6 +26,7 @@ namespace Project.Views.Secretary
 
         public DoctorSearchModal(HomeWindow mainWin)
         {
+            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             DoctorRepository dr = new DoctorRepository();
             this.mainWin = mainWin;
             InitializeComponent();
@@ -33,6 +34,13 @@ namespace Project.Views.Secretary
             Speciality_ComboBox.ItemsSource = dr.getTypeOfDoctors();
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listDoctors.ItemsSource);
             view.Filter = UserFilter;
+            this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
+        }
+
+        private void HandleEsc(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+                Close();
         }
 
         public DoctorSearchModal()

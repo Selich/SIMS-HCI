@@ -26,6 +26,7 @@ namespace Project.Views.Secretary
         public Model.Patient selectedPatient;
         public ProfileModal(int id)
         {
+            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             Generators g = new Generators();
             PatientRepository pr = new PatientRepository();
             MedicalAppointmentRepository mr = new MedicalAppointmentRepository();
@@ -42,6 +43,7 @@ namespace Project.Views.Secretary
             CollectionView viewHistory = (CollectionView)CollectionViewSource.GetDefaultView(appointmentHistory.ItemsSource);
             viewHistory.SortDescriptions.Add(new SortDescription("Beginning", ListSortDirection.Ascending));
             viewHistory.SortDescriptions.Add(new SortDescription("End", ListSortDirection.Ascending));
+            this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
         }
         public ProfileModal(Model.Patient patient)
         {
@@ -61,7 +63,15 @@ namespace Project.Views.Secretary
             CollectionView viewHistory = (CollectionView)CollectionViewSource.GetDefaultView(appointmentHistory.ItemsSource);
             viewHistory.SortDescriptions.Add(new SortDescription("Beginning", ListSortDirection.Ascending));
             viewHistory.SortDescriptions.Add(new SortDescription("End", ListSortDirection.Ascending));
+            this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
+
         }
+
+    private void HandleEsc(object sender, KeyEventArgs e)
+    {
+        if (e.Key == Key.Escape)
+            Close();
+    }
         private void Change_Click(object sender, RoutedEventArgs e)
         {
             Profile_FirstName.IsEnabled = true;

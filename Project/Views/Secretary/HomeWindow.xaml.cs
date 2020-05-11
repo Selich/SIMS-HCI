@@ -50,6 +50,7 @@ namespace Project.Views.Secretary
         public DateTime currentDate;
         public HomeWindow()
         {
+            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             isChangeble = false;
             user = new Model.Secretary();
             user.firstName = "Nikola";
@@ -340,6 +341,30 @@ namespace Project.Views.Secretary
             }
 
 
+
+        }
+
+        private void Prev_Day_Click(object sender, RoutedEventArgs e)
+        {
+            currentDate.AddDays(-1);
+            currentDayLabel.Content = currentDate.ToString("dddd, dd MMMM yyyy");
+
+        }
+
+        private void Next_Day_Click(object sender, RoutedEventArgs e)
+        {
+            currentDate.AddDays(1);
+            currentDayLabel.Content = currentDate.ToString("dddd, dd MMMM yyyy");
+
+        }
+
+        private void Prev_Week_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Next_Week_Click(object sender, RoutedEventArgs e)
+        {
 
         }
     }

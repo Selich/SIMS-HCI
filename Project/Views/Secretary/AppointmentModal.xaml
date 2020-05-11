@@ -14,7 +14,6 @@
                     <Image HorizontalAlignment="Left" Height="68" Margin="10,10,0,0" VerticalAlignment="Top" Width="79" Grid.RowSpan="2" />
                     <TextBlock HorizontalAlignment="Left" Height="23" Margin="94,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="135" FontWeight="bold">
                                     <Run Text="{Binding firstName}"/>
-                                    <Run Text=" "/>
                                     <Run Text="{Binding lastName}"/>
                     </TextBlock>
                     <TextBlock HorizontalAlignment="Left" Height="23" Margin="94,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" FontSize="11">
@@ -32,7 +31,6 @@
                     <Image HorizontalAlignment="Left" Height="68" Margin="10,10,0,0" VerticalAlignment="Top" Width="79" Grid.RowSpan="2" />
                     <TextBlock HorizontalAlignment="Left" Height="23" Margin="94,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="135" FontWeight="bold">
                                     <Run Text="{Binding firstName}"/>
-                                    <Run Text=" "/>
                                     <Run Text="{Binding lastName}"/>
                     </TextBlock>
                     <TextBlock HorizontalAlignment="Left" Height="23" Margin="94,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" FontSize="11">
@@ -58,9 +56,7 @@
                         <Image Source="../../Resources/Images/Faces/face1" HorizontalAlignment="Left" Height="65" Margin="26,11,0,0" VerticalAlignment="Top" Width="66" Stretch="Fill"/>
                         <TextBlock FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" Margin="120,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
                             <Run Text="{Binding Patient.firstName}"/>
-                            <Run Text=" "/>
                             <Run Text="{Binding Patient.lastName}"/>
-                            <Run Text=" "/>
                         </TextBlock>
 
                         <TextBlock HorizontalAlignment="Left" Margin="120,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
@@ -87,7 +83,7 @@
             </Grid >
         </DataTemplate>
     </Window.Resources>
-    <Grid Margin="20,20,20,2">
+    <Grid Margin="0,20,4,2">
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <GradientStop Color="#FFCDF3EE" Offset="1"/>
@@ -96,8 +92,8 @@
         </Grid.Background>
 
         <ContentControl Name="selectedAppointment" HorizontalAlignment="Center" Height="109" Margin="40,34,38,0"  VerticalAlignment="Top" Width="1168" ContentTemplate="{StaticResource appointmentTemplate}" Content="{Binding selectedAppointment}"/>
-        <TextBlock HorizontalAlignment="Left" FontSize="17" Margin="12,130,0,0" TextWrapping="Wrap" Text="Termin:" VerticalAlignment="Top"/>
-        <Grid HorizontalAlignment="Left" Height="319" Margin="13,161,0,0" VerticalAlignment="Top" Width="737">
+        <TextBlock HorizontalAlignment="Left" FontSize="17" Margin="36,130,0,0" TextWrapping="Wrap" Text="Termin:" VerticalAlignment="Top"/>
+        <Grid HorizontalAlignment="Left" Height="319" Margin="33,161,0,0" VerticalAlignment="Top" Width="737">
             <Grid.Effect>
                 <DropShadowEffect BlurRadius="10"/>
             </Grid.Effect>
@@ -134,13 +130,16 @@
             <Button  Visibility="Visible" FontSize="11" Content="Izmeni" HorizontalAlignment="Left" Margin="304,67,0,0" VerticalAlignment="Top" Width="72" Height="24" Click="Izmeni_Click" Name="Izmeni"/>
             <Button Visibility="Hidden" FontSize="11" Background="DarkRed" Content="X" HorizontalAlignment="Left" Margin="304,67,0,0" VerticalAlignment="Top" Width="72" Height="24" Click="Izmeni_Cancel_Click" Name="IzmeniCancel"/>
         </Grid>
-        <Grid Margin="760,130,17,32">
+        <Grid Margin="792,130,-15,32">
             <TextBox Visibility="Hidden" x:Name="doctorFilter" HorizontalAlignment="Left" Height="23" Margin="0,0,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="169" TextChanged="txtFilter_TextChanged"/>
             <Button Visibility="Hidden" FontSize="11" Content="Ponisti"  Background="DarkRed" HorizontalAlignment="Left" Margin="286,1,0,0" VerticalAlignment="Top" Width="71" Height="24" Click="Cancel_Change_Doctors" x:Name="Cancel_Change_Doctor_Button"/>
             <TextBlock Visibility="Visible" Name="kodLekara" HorizontalAlignment="Left" FontSize="17" Margin="0,0,0,0" TextWrapping="Wrap" Text="Kod Lekara:" VerticalAlignment="Top"/>
-            <TextBox Visibility="Hidden" Name="search"  HorizontalAlignment="Left" Height="23" Margin="0,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-            <Button Visibility="Visible" FontSize="11" Content="Dodaj" HorizontalAlignment="Left" Margin="286,1,0,0" VerticalAlignment="Top" Width="71" Height="24" Click="Change_Doctors" x:Name="Change_Doctor_Button"/>
+            <TextBox Visibility="Hidden" Name="search"  HorizontalAlignment="Left" Height="23" TextChanged="searchDoctor_TxtChanged" Margin="100,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <Button Visibility="Visible" FontSize="11" Content="Dodaj" HorizontalAlignment="Left" Margin="288,1,0,0" VerticalAlignment="Top" Width="71" Height="24" Click="Change_Doctors" x:Name="Change_Doctor_Button"/>
             <ListBox Name="listDoctors" HorizontalAlignment="Left" Height="319" Margin="7,30,0,0" VerticalAlignment="Top" Width="351" ItemTemplate="{StaticResource doctorsTemplate}" >
+                <ListBox.Effect>
+                    <DropShadowEffect/>
+                </ListBox.Effect>
                 <ListBox.Background>
                     <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                         <GradientStop Color="#FFEEEEEE" Offset="0.093"/>

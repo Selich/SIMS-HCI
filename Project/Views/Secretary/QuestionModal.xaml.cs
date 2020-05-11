@@ -22,9 +22,19 @@ namespace Project.Views.Secretary
     {
         public QuestionModal(Question q)
         {
+            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             InitializeComponent();
             selectedQuestion.Content = q;
+            this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
         }
+
+        private void HandleEsc(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+                Close();
+        }
+
+
 
         private void Profile_Click(object sender, RoutedEventArgs e)
         {

@@ -163,20 +163,20 @@
                 </Grid>
                 <Grid Background="White" Margin="0,53,-2,385">
                     <Label Content="Naredni termin:" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Top" Width="1170" FontSize="14" Height="32" Margin="36,2,40,0"/>
-                    <ContentControl Name="nextAppointment" HorizontalAlignment="Center" Height="109" Margin="40,34,38,0"  VerticalAlignment="Top" Width="1168" ContentTemplate="{StaticResource appointmentTemplate}" Content="{Binding nextAppointment}"/>
+                    <ContentControl Name="nextAppointment" HorizontalAlignment="Center" Height="109" Margin="50,43,48,0"  VerticalAlignment="Top" Width="1168" ContentTemplate="{StaticResource appointmentTemplate}" Content="{Binding nextAppointment}"/>
 
                 </Grid>
                 <TabControl Background="White" HorizontalAlignment="Center" Height="418" Margin="36,209,35,0" VerticalAlignment="Top" Width="1172">
                     <TabItem  Background="White" Header="Week">
                         <Grid Background="White" HorizontalAlignment="Left" Height="390" Margin="0,2,0,-2" VerticalAlignment="Top" Width="1166">
                             <Grid Background="#179C8C" HorizontalAlignment="Left" Height="25" Margin="0,0,0,0" VerticalAlignment="Top" Width="1166">
-                                <Button HorizontalAlignment="Left" VerticalAlignment="Center" Width="48" Margin="2,0,0,0" Height="25">
+                                <Button HorizontalAlignment="Left" VerticalAlignment="Center" Width="48" Margin="2,0,0,0" Height="25" Click="Prev_Week_Click">
                                     <materialDesign:PackIcon Kind="ArrowLeft"/>
                                 </Button>
                                 <Label  Foreground="White" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="-150,0,0,3" VerticalAlignment="Center" Width="1065" Name="startWeekLabel"/>
                                 <Label  Foreground="White" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,0" Content="-" VerticalAlignment="Top" Width="1065" />
                                 <Label  Foreground="White" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="150,0,0,3" VerticalAlignment="Center" Width="1065" Name="endWeekLabel"/>
-                                <Button HorizontalAlignment="Right" VerticalAlignment="Center" Width="48" Height="25" Margin="0,0,-2,0">
+                                <Button HorizontalAlignment="Right" VerticalAlignment="Center" Width="48" Height="25" Margin="0,0,-2,0" Click="Next_Week_Click">
                                     <materialDesign:PackIcon Kind="ArrowRight"/>
                                 </Button>
                             </Grid>
@@ -188,11 +188,11 @@
                     <TabItem Header="Day" Background="White" >
                         <Grid Background="White" HorizontalAlignment="Left" Height="392" Margin="0,0,-2,-2" VerticalAlignment="Top" Width="1168">
                             <Grid Background="#179C8C" HorizontalAlignment="Left" Height="25" Margin="0,0,0,0" VerticalAlignment="Top" Width="1168">
-                                <Button HorizontalAlignment="Left" VerticalAlignment="Center" Width="48" Margin="2,-2.5,0,-4.5">
+                                <Button HorizontalAlignment="Left" VerticalAlignment="Center" Width="48" Margin="2,-2.5,0,-4.5" Click="Prev_Day_Click">
                                     <materialDesign:PackIcon Kind="ArrowLeft"/>
                                 </Button>
                                 <Label  Foreground="White" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" Width="1065" Name="currentDayLabel"/>
-                                <Button HorizontalAlignment="Right" VerticalAlignment="Center" Width="48" Height="25">
+                                <Button HorizontalAlignment="Right" VerticalAlignment="Center" Width="48" Height="25" Click="Next_Day_Click">
                                     <materialDesign:PackIcon Kind="ArrowRight"/>
                                 </Button>
                             </Grid>
