@@ -7,8 +7,8 @@
         mc:Ignorable="d"
         Title="Prijavljivanje greske" Height="450" Width="350">
     <Grid>
-        <Button Content="Potvrdi" HorizontalAlignment="Left" Margin="55,355,0,0" VerticalAlignment="Top" Width="75" Click="ConfirmBugReport"/>
-        <Button Content="Odustani" HorizontalAlignment="Left" Margin="209,355,0,0" VerticalAlignment="Top" Width="75" Click="CancelBugReport"/>
+        <Button Content="Potvrdi" HorizontalAlignment="Left" Margin="55,355,0,0" VerticalAlignment="Top" Width="105" Click="ConfirmBugReport"/>
+        <Button Content="Odustani" HorizontalAlignment="Left" Margin="179,355,0,0" VerticalAlignment="Top" Width="105" Click="CancelBugReport"/>
         <Label Content="Tip greske:" HorizontalAlignment="Left" Margin="55,70,0,0" VerticalAlignment="Top"/>
         <ComboBox HorizontalAlignment="Left" Margin="164,72,0,0" VerticalAlignment="Top" Width="120">
             <ComboBoxItem>Opcija 1</ComboBoxItem>
