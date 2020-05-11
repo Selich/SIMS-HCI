@@ -142,6 +142,9 @@
     <Compile Include="Views\Director\RegisterMedicine.xaml.cs">
       <DependentUpon>RegisterMedicine.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Director\RenovationModal.xaml.cs">
+      <DependentUpon>RenovationModal.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Director\SettingsModal.xaml.cs">
       <DependentUpon>SettingsModal.xaml</DependentUpon>
     </Compile>
@@ -218,6 +221,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Director\RegisterMedicine.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Director\RenovationModal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

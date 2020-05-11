@@ -28,7 +28,7 @@
                 <Separator HorizontalAlignment="Left" Height="30" Margin="0,372,0,0" VerticalAlignment="Top" Width="1270"/>
                 <TextBlock HorizontalAlignment="Left" Margin="35,407,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Width="190" FontWeight="Bold"><Run Text="Obavestenja:"/><LineBreak/><Run/></TextBlock>
                 <ListBox HorizontalAlignment="Left" Height="174" Margin="35,460,0,0" VerticalAlignment="Top" Width="175" ScrollViewer.VerticalScrollBarVisibility="Visible">
-                    
+
                     <ListBoxItem>Jabadabadu</ListBoxItem>
                     <ListBoxItem>Jabadabadu</ListBoxItem>
                     <ListBoxItem>Jabadabadu</ListBoxItem>
@@ -41,7 +41,7 @@
                     <ListBoxItem>Jabadabadu</ListBoxItem>
                     <ListBoxItem>Jabadabadu</ListBoxItem>
                     <ListBoxItem>Jabadabadu</ListBoxItem>
-                    
+
                 </ListBox>
                 <TextBlock HorizontalAlignment="Left" Margin="320,402,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Width="190" FontWeight="Bold"><Run Text="Detaljno:"/><LineBreak/><Run/></TextBlock>
                 <TextBlock HorizontalAlignment="Left" Margin="320,442,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="192" Width="782" Text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc," FontSize="14">
@@ -108,7 +108,7 @@
                             <Label Content="Nedavni termini:" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514" Margin="32,24,0,0" FontSize="15" FontWeight="Bold"/>
                             <Label Content="Opis:" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514" Margin="290,24,0,0" FontSize="15" FontWeight="Bold"/>
                             <ListBox  HorizontalAlignment="Left" Height="156" Margin="32,77,0,0" VerticalAlignment="Top" Width="212" ScrollViewer.VerticalScrollBarVisibility="Visible">
-                                
+
                                 <ListBoxItem>Dan,Datum,Satnica,Tip termina</ListBoxItem>
                                 <ListBoxItem>Dan,Datum,Satnica,Tip termina</ListBoxItem>
                                 <ListBoxItem>Dan,Datum,Satnica,Tip termina</ListBoxItem>
@@ -116,7 +116,7 @@
                                 <ListBoxItem>Dan,Datum,Satnica,Tip termina</ListBoxItem>
                                 <ListBoxItem>Dan,Datum,Satnica,Tip termina</ListBoxItem>
                                 <ListBoxItem>Dan,Datum,Satnica,Tip termina</ListBoxItem>
-                                
+
                             </ListBox>
                             <TextBox HorizontalAlignment="Left" Height="146" Margin="290,77,0,0" TextWrapping="Wrap" Text="Prisutni: {Lekari, Sekretari, Pacijenti}&#xA;Uloga: {Konsultovao,Pregledao,Administracija}&#xA;Ocena: 3.4/5&#xD;&#xA;Komentar:&#xD;&#xA;&#x9;Dorime,Interimo adapare dorime,&#xD;&#xA;&#x9;Ameno,ameno,latire,&#xD;&#xA;&#x9;Latire Mo" VerticalAlignment="Top" Width="318"/>
                         </Grid>
@@ -247,21 +247,29 @@
                             <Button Content="+Naruci" HorizontalAlignment="Left" Margin="266,46,0,0" VerticalAlignment="Top" Width="94" Click="OpenEquipmentOrder"/>
                             <TextBlock FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" Margin="371,11,0,0" TextWrapping="Wrap" Text="Trenutna kolicina" VerticalAlignment="Top"/>
                             <ListBox BorderBrush="Black" BorderThickness="2"   HorizontalAlignment="Left" Height="69" Margin="508,11,0,0" VerticalAlignment="Top" Width="77">
-                                
+
                                 <ListBoxItem>Soba 1</ListBoxItem>
                                 <ListBoxItem>Soba 2</ListBoxItem>
                                 <ListBoxItem>Soba 3</ListBoxItem>
                                 <ListBoxItem>Soba 4</ListBoxItem>
-                                
+
                             </ListBox>
                             <TextBlock  HorizontalAlignment="Left" Margin="593,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="69" Width="87"><Run Text="Ukupno:"/><LineBreak/><Run Text="U upotrebi:"/><LineBreak/><Run Text="Naruceno:"/><LineBreak/><Run/></TextBlock>
                             <ListBox BorderBrush="Black" BorderThickness="2"   HorizontalAlignment="Left" Height="69" Margin="838,10,0,0" VerticalAlignment="Top" Width="77">
-                                
-                                    <ListBoxItem><Run Text="Soba 1"/></ListBoxItem>
-                                    <ListBoxItem><Run Text="Soba 2"/></ListBoxItem>
-                                    <ListBoxItem><Run Text="Soba 3"/></ListBoxItem>
-                                    <ListBoxItem><Run Text="Soba 4"/></ListBoxItem>
-                                
+
+                                <ListBoxItem>
+                                    <Run Text="Soba 1"/>
+                                </ListBoxItem>
+                                <ListBoxItem>
+                                    <Run Text="Soba 2"/>
+                                </ListBoxItem>
+                                <ListBoxItem>
+                                    <Run Text="Soba 3"/>
+                                </ListBoxItem>
+                                <ListBoxItem>
+                                    <Run Text="Soba 4"/>
+                                </ListBoxItem>
+
                             </ListBox>
                             <Button Content="Premesti" HorizontalAlignment="Left" Margin="701,13,0,0" VerticalAlignment="Top" Width="94"/>
 
@@ -280,7 +288,7 @@
 
                                 <ListBoxItem Content="Bolnica: 12"/>
                                 <ListBoxItem Content="Magacin: 7"/>
-                                
+
 
                             </ListBox>
 
@@ -593,17 +601,20 @@
                     <Button Content="Nazad" HorizontalAlignment="Left" Margin="25,31,0,0" VerticalAlignment="Top" Width="74" Click="OpenRooms"/>
                     <TextBlock HorizontalAlignment="Left" Margin="25,148,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="106" Width="266" FontSize="13"><Run Text="Sprat: 3."/><LineBreak/><Run Text="Vrsta: Operaciona sala"/><LineBreak/><Run Text="Procenat zauzetosti: 42%"/><LineBreak/><Run Text="Najvise koriscena za: ..."/></TextBlock>
                     <Button Content="Prijavi gresku" HorizontalAlignment="Left" Margin="1142,579,0,0" VerticalAlignment="Top" Width="74" Click="OpenBugReportModal"/>
-                    <GroupBox Header="Istorija termina" HorizontalAlignment="Left" Height="357" Margin="25,254,0,0" VerticalAlignment="Top" Width="1104" FontWeight="Bold">
+                    <GroupBox Header="Pregled tetmina" HorizontalAlignment="Left" Height="366" Margin="25,254,0,0" VerticalAlignment="Top" Width="1104" FontWeight="Bold">
                         <StackPanel Orientation="Horizontal">
                             <Calendar Margin="10,10,10,10"></Calendar>
-                            <ListBox ScrollViewer.VerticalScrollBarVisibility="Visible" Width="303" Margin="100,10,0,10" >
+                            <ListBox ScrollViewer.VerticalScrollBarVisibility="Visible" Width="303" Margin="100,10,0,10" BorderThickness="1" BorderBrush="Black" >
                                 <ListBoxItem Content="08:00-09:00"/>
                                 <ListBoxItem Content="09:15-09:45"/>
                                 <ListBoxItem Content="12:30-13:25"/>
                                 <ListBoxItem Content="13:30-14:25"/>
                                 <ListBoxItem Content="14:30-15:25" IsSelected="True"/>
                             </ListBox>
-                            <TextBlock Margin="100,10,0,10" Width="258"><Run Text="Opis:"/><LineBreak/><Run Text="&#x9;Pregled br. xyz"/><LineBreak/><Run Text="&#x9;Trajanje:"/><LineBreak/><Run Text="&#x9;Prisutni:"/><LineBreak/><Run Text="        &#x9;Lekar: {ID}"/><LineBreak/><Run Text="        &#x9;Pacijent: {ID}"/><LineBreak/><Run Text="        &#x9;Sekretar: {ID}"/><LineBreak/><Run Text="&#x9;Potroseno:"/><LineBreak/><Run Text="         &#x9;&#x9;Lek 1"/><LineBreak/><Run Text="         &#x9;&#x9;Lek 2"/><LineBreak/><Run Text="         &#x9;&#x9;Oprema 1 (npr. gaza)"/><LineBreak/><Run Text="         &#x9;&#x9;Oprema 2"/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
+                            <StackPanel Orientation="Vertical" Margin="50,0,0,0">
+                                <TextBlock  Width="258"><Run Text="Opis:"/><LineBreak/><Run Text="&#x9;Pregled br. xyz"/><LineBreak/><Run Text="&#x9;Trajanje:"/><LineBreak/><Run Text="&#x9;Prisutni:"/><LineBreak/><Run Text="        &#x9;Lekar: {ID}"/><LineBreak/><Run Text="        &#x9;Pacijent: {ID}"/><LineBreak/><Run Text="        &#x9;Sekretar: {ID}"/><LineBreak/><Run Text="&#x9;Potroseno:"/><LineBreak/><Run Text="         &#x9;&#x9;Lek 1"/><LineBreak/><Run Text="         &#x9;&#x9;Lek 2"/><LineBreak/><Run Text="         &#x9;&#x9;Oprema 1 (npr. gaza)"/><LineBreak/><Run Text="         &#x9;&#x9;Oprema 2"/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
+                                <Button Content="Zakazi renoviranje" Height="Auto" Width="200" Margin="0,15,0,0" Click="OpenRenovationAppointment"/>
+                            </StackPanel>
                         </StackPanel>
                     </GroupBox>
 
