@@ -45,10 +45,11 @@ namespace Project.Views.Secretary
         public Question selectedQuestion;
         public bool isChangeble;
         public DateTime selectedDate;
+        public DateTime startOfTheWeek;
+        public DateTime endOfTheWeek;
+        public DateTime currentDate;
         public HomeWindow()
         {
-            DateTime currentDate = DateTime.Now;
-            DateTime selectedDate = currentDate;
             isChangeble = false;
             user = new Model.Secretary();
             user.firstName = "Nikola";
@@ -57,16 +58,24 @@ namespace Project.Views.Secretary
             user.email = "n_selic@uns.ac.rs";
 
 
-
             doctorModal = new DoctorSearchModal(this);
             PatientRepository pr = new PatientRepository();
             DoctorRepository dr = new DoctorRepository();
             QuestionRepository qr = new QuestionRepository();
             Generators gen = new Generators();
 
+            currentDate = DateTime.Today;
+            startOfTheWeek = DateTime.Now.StartOfWeek(DayOfWeek.Monday);
+            endOfTheWeek = startOfTheWeek.AddDays(6);
+            selectedDate = currentDate;
+
             InitializeComponent();
 
             dateTimePicker.SelectedDate = DateTime.Today;
+
+            startWeekLabel.Content = startOfTheWeek.ToString("dddd, dd MMMM yyyy");
+            endWeekLabel.Content = endOfTheWeek.ToString("dddd, dd MMMM yyyy");
+            currentDayLabel.Content = currentDate.ToString("dddd, dd MMMM yyyy");
 
             medicalAppointments = gen.GetMedicalAppointments(10);
             var weeksAppointments = GetThisWeeksAppointements(medicalAppointments);
@@ -99,7 +108,6 @@ namespace Project.Views.Secretary
         public List<List<TimeInterval>> GenerateTerms()
         {
             List<List<TimeInterval>> lsts = new List<List<TimeInterval>>();
-            DateTime startOfTheWeek = DateTime.Now.StartOfWeek(DayOfWeek.Monday);
             DateTime iterDay = startOfTheWeek;
             
             for (int i = 0; i < 7; i++)
@@ -252,7 +260,7 @@ namespace Project.Views.Secretary
             string id = ((System.Windows.Controls.Label)this.FindName("drId")).Content.ToString();
             mr = new MedicalAppointmentRepository();
             medicalAppointments = mr.GetMedicalAppointmentsByDoctorId(Int32.Parse(id));
-            System.Windows.MessageBox.Show(medicalAppointments.ToString(),"test", MessageBoxButton.OK);
+            //System.Windows.MessageBox.Show(medicalAppointments.ToString(),"test", MessageBoxButton.OK);
 
         }
         private void questionsList_KeyDown(object sender, KeyboardEventArgs e)
@@ -298,5 +306,41 @@ namespace Project.Views.Secretary
 
         }
 
+        private void Clear_Click(object sender, RoutedEventArgs e)
+        {
+            drLabel.Content = null;
+            drLabel2.Content = null;
+
+        }
+
+        private void Create_Click(object sender, RoutedEventArgs e)
+        {
+            if(roomFilter.Text == "")
+            {
+                DialogResult result = System.Windows.Forms.MessageBox.Show(
+                    "Nije izabran ni jedna soba. Da li zelite da Vam sistem sam obezbedi dostupnu sobu?",
+                    "Potvrda",
+                    MessageBoxButtons.YesNo
+                    );
+
+            }
+            if(drLabel2.Content == null)
+            {
+                DialogResult result = System.Windows.Forms.MessageBox.Show(
+                    "Nije izabran ni jedan lekar. Da li zelite da Vam sistem sam obezbedi dostupnog lekara?",
+                    "Potvrda",
+                    MessageBoxButtons.YesNoCancel
+                    );
+                if(result == System.Windows.Forms.DialogResult.No)
+                {
+                    var s = new DoctorSearchModal(this);
+                    s.Show();
+
+                }
+            }
+
+
+
+        }
     }
 }

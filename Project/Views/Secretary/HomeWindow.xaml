@@ -28,6 +28,7 @@
                 <CheckBox Background="White" HorizontalContentAlignment="Center" VerticalAlignment="Center" />
             </Grid>
         </DataTemplate>
+
         <DataTemplate x:Key="DataTemplate_Level2">
             <Button Content="{Binding}" Height="40" Width="50" Margin="4,4,4,4"/>
         </DataTemplate>
@@ -36,7 +37,7 @@
             <ItemsControl ItemsSource="{Binding}" ItemTemplate="{DynamicResource DataTemplate_Level2}">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <StackPanel Orientation="Horizontal"/>
+                        <StackPanel  Height="390" Margin="0,2,0,-2" VerticalAlignment="Top" Width="1166" Orientation="Horizontal"/>
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
             </ItemsControl>
@@ -155,8 +156,9 @@
                     </Grid.Background>
                     <materialDesign:PackIcon Kind="Doctor" Height="21" Width="21" HorizontalAlignment="Left" Margin="38,18,0,0"/>
                     <Button FontSize="12" Content="Izaberi Lekara" HorizontalAlignment="Left" Margin="69,19,0,0" VerticalAlignment="Top" Width="250" Height="21" Click="Search_Doctor" />
-                    <Label Name="drLabel" Width ="200" FontSize="14" Height="22" Margin="0,21,50,0" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+                    <Label Name="drLabel" Width ="200" FontSize="14" Height="22" Margin="0,21,140,0" HorizontalAlignment="Right" VerticalAlignment="Top"/>
                     <Label Visibility="Hidden" Name="drId" Width ="200" FontSize="14" Height="22" Margin="0,21,50,0" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+                    <Button Visibility="Visible" Content="Clear" HorizontalAlignment="Right" Margin="0,19,50,0" VerticalAlignment="Top" Width="75" FontSize="13" Background="#FF960000" Height="24" Click="Clear_Click"/>
 
                 </Grid>
                 <Grid Background="White" Margin="0,53,-2,385">
@@ -168,15 +170,18 @@
                     <TabItem  Background="White" Header="Week">
                         <Grid Background="White" HorizontalAlignment="Left" Height="390" Margin="0,2,0,-2" VerticalAlignment="Top" Width="1166">
                             <Grid Background="#179C8C" HorizontalAlignment="Left" Height="25" Margin="0,0,0,0" VerticalAlignment="Top" Width="1166">
-                                <Button HorizontalAlignment="Left" VerticalAlignment="Center" Width="48" Margin="2,-2.5,0,-4.5">
+                                <Button HorizontalAlignment="Left" VerticalAlignment="Center" Width="48" Margin="2,0,0,0" Height="25">
                                     <materialDesign:PackIcon Kind="ArrowLeft"/>
                                 </Button>
+                                <Label  Foreground="White" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="-150,0,0,3" VerticalAlignment="Center" Width="1065" Name="startWeekLabel"/>
+                                <Label  Foreground="White" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,0" Content="-" VerticalAlignment="Top" Width="1065" />
+                                <Label  Foreground="White" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="150,0,0,3" VerticalAlignment="Center" Width="1065" Name="endWeekLabel"/>
                                 <Button HorizontalAlignment="Right" VerticalAlignment="Center" Width="48" Height="25" Margin="0,0,-2,0">
                                     <materialDesign:PackIcon Kind="ArrowRight"/>
                                 </Button>
                             </Grid>
                             <Grid>
-                                <ItemsControl x:Name="lst" ItemTemplate="{DynamicResource DataTemplate_Level1}"/>
+                                <ItemsControl x:Name="lst" ItemTemplate="{DynamicResource DataTemplate_Level1}" Margin="0,27,0,0"/>
                             </Grid>
                         </Grid>
                     </TabItem>
@@ -186,6 +191,7 @@
                                 <Button HorizontalAlignment="Left" VerticalAlignment="Center" Width="48" Margin="2,-2.5,0,-4.5">
                                     <materialDesign:PackIcon Kind="ArrowLeft"/>
                                 </Button>
+                                <Label  Foreground="White" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" Width="1065" Name="currentDayLabel"/>
                                 <Button HorizontalAlignment="Right" VerticalAlignment="Center" Width="48" Height="25">
                                     <materialDesign:PackIcon Kind="ArrowRight"/>
                                 </Button>
@@ -258,7 +264,8 @@
                     </Grid.Background>
                     <materialDesign:PackIcon Kind="Doctor" Height="21" Width="21" HorizontalAlignment="Left" Margin="38,18,0,0"/>
                     <Button FontSize="12" Content="Izaberi Lekara" HorizontalAlignment="Left" Margin="69,19,0,0" VerticalAlignment="Top" Width="250" Height="21" Click="Search_Doctor" />
-                    <Label Name="drLabel2" Width ="200" FontSize="14" Height="22" Margin="0,21,50,0" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+                    <Label Name="drLabel2" Width ="200" FontSize="14" Height="22" Margin="0,21,140,0" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+                    <Button Visibility="Visible" Content="Clear" HorizontalAlignment="Right" Margin="0,19,49,0" VerticalAlignment="Top" Width="75" FontSize="13" Background="#FF960000" Height="24" Click="Clear_Click"/>
                 </Grid>
                 <Grid HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Width="606" Margin="0,37,0,0">
                     <materialDesign:PackIcon Kind="Search" Height="21" Width="21" HorizontalAlignment="Left" Margin="39,18,0,0"/>
@@ -329,7 +336,7 @@
 
                     <Label Content="Dostupne Sobe:" HorizontalAlignment="Left" Margin="308,155,0,351"/>
                     <ListBox HorizontalAlignment="Left" Height="254" Margin="316,187,0,0" VerticalAlignment="Top" Width="229" ItemTemplate="{StaticResource roomTemplate}" x:Name="listRoom" SelectedItem="termList_KeyDown" Background="White" />
-                    <Button Content="Kreiraj" FontSize="14" HorizontalAlignment="Left" Margin="316,461,0,0" VerticalAlignment="Top" Width="229" Height="34"/>
+                    <Button Content="Kreiraj" FontSize="14" HorizontalAlignment="Left" Margin="316,461,0,0" VerticalAlignment="Top" Width="229" Height="34" Click="Create_Click"/>
                 </Grid>
                 <Button Content="Feedback" HorizontalAlignment="Right" Margin="0,0,47,10" VerticalAlignment="Bottom" Width="100" Height="22" Click="Feedback_Click"/>
                 <Button Content="Demo" HorizontalAlignment="Right" Margin="0,0,167,10" VerticalAlignment="Bottom" Width="100" Height="22" Click="Feedback_Click"/>

@@ -35,6 +35,10 @@ namespace Project.Views.Secretary
             view.Filter = UserFilter;
         }
 
+        public DoctorSearchModal()
+        {
+        }
+
         private bool UserFilter(object item)
         {
             if (String.IsNullOrEmpty(patientFilter.Text))
