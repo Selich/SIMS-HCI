@@ -23,5 +23,10 @@ namespace Project.Views
         {
             InitializeComponent();
         }
+
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }

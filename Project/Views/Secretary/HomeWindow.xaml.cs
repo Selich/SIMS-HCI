@@ -203,5 +203,11 @@ namespace Project.Views.Secretary
 
         }
 
+        private void Feedback_Click(object sender, RoutedEventArgs e)
+        {
+            var s = new FeedbackModal();
+            s.Show();
+
+        }
     }
 }
