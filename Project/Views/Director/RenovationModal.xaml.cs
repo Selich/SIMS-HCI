@@ -28,7 +28,7 @@ namespace Project.Views.Director
         {
 
             string text = ((sender as ComboBox).SelectedItem).ToString();
-            if (text != null) { 
+            if (text != null && RoomType!=null && NewRoomType!=null) { 
                 if (text.Equals("Promena funkcije"))
                 {
                     RoomType.IsEnabled = true;

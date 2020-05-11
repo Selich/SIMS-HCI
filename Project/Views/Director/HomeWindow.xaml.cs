@@ -40,7 +40,12 @@ namespace Project.Views.Director
         {
             Save_btn.Visibility = Visibility.Visible; ;
             Cancel_btn.Visibility = Visibility.Visible; ;
-            Change_btn.Visibility = Visibility.Hidden; 
+            Change_btn.Visibility = Visibility.Hidden;
+            username.IsEnabled = true;
+            adress.IsEnabled = true;
+            dateofbirth.IsEnabled = true;
+            hospital.IsEnabled = true;
+            jmbg.IsEnabled = true;
         }
 
         private void CancelProfileChanges(object sender, RoutedEventArgs e)
@@ -48,6 +53,11 @@ namespace Project.Views.Director
             Save_btn.Visibility = Visibility.Hidden; ;
             Cancel_btn.Visibility = Visibility.Hidden; ;
             Change_btn.Visibility = Visibility.Visible;
+            username.IsEnabled = false;
+            adress.IsEnabled = false;
+            dateofbirth.IsEnabled = false;
+            hospital.IsEnabled = false;
+            jmbg.IsEnabled = false;
         }
 
         private void ConfirmProfileChanges(object sender, RoutedEventArgs e)
@@ -55,6 +65,11 @@ namespace Project.Views.Director
             Save_btn.Visibility = Visibility.Hidden; ;
             Cancel_btn.Visibility = Visibility.Hidden; ;
             Change_btn.Visibility = Visibility.Visible;
+            username.IsEnabled = false;
+            adress.IsEnabled = false;
+            dateofbirth.IsEnabled = false;
+            hospital.IsEnabled = false;
+            jmbg.IsEnabled = false;
         }
 
         private void OpenEmployeeDataModal(object sender, RoutedEventArgs e)
@@ -115,6 +130,17 @@ namespace Project.Views.Director
         private void OpenRenovationAppointment(object sender, RoutedEventArgs e)
         {
             RenovationModal modal = new RenovationModal();
+            modal.Show();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void OpenInventoryManagment(object sender, RoutedEventArgs e)
+        {
+            InventoryManagmentModal modal = new InventoryManagmentModal();
             modal.Show();
         }
     }

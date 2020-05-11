@@ -9,10 +9,10 @@ namespace Model
 {
    public class Equipment
    {
-      private int id;
-      private string type;
-      private string description;
-      private string name;
+      public int id;
+      public string type { get; set; }
+      public string description;
+      public string name { get; set; }
       
       public Order[] orders;
       public InventoryReplacement[] inventoryReplacement;

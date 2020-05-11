@@ -11,7 +11,7 @@
         <Button Content="Odustani" HorizontalAlignment="Left" Margin="184,400,0,0" VerticalAlignment="Top" Width="135" Click="CloseMedicineRegistration"/>
         <Label Content="Naziv:" HorizontalAlignment="Left" Margin="67,62,0,0" VerticalAlignment="Top"/>
         <Label Content="Tip:" HorizontalAlignment="Left" Margin="67,130,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="154,63,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="154,63,0,0" TextWrapping="Wrap" Text="Morfijum" VerticalAlignment="Top" Width="120"/>
         <ComboBox HorizontalAlignment="Left" Margin="154,130,0,0" VerticalAlignment="Top" Width="120">
             <ComboBoxItem IsSelected="True">Anestetik</ComboBoxItem>
             <ComboBoxItem>Steroid</ComboBoxItem>
