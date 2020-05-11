@@ -153,6 +153,12 @@
     <Compile Include="Views\Director\SettingsModal.xaml.cs">
       <DependentUpon>SettingsModal.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Doctor\Alert.xaml.cs">
+      <DependentUpon>Alert.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Doctor\HistoryPatient.xaml.cs">
+      <DependentUpon>HistoryPatient.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Doctor\HomeWindow.xaml.cs">
       <DependentUpon>HomeWindow.xaml</DependentUpon>
     </Compile>
@@ -239,6 +245,14 @@
     <Page Include="Views\Director\SettingsModal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Doctor\Alert.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Doctor\HistoryPatient.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Doctor\HomeWindow.xaml">
       <SubType>Designer</SubType>
@@ -342,6 +356,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\Icons\8370799161557749690.svg" />
+    <Resource Include="Resources\Images\Faces\down.png" />
+    <Resource Include="Resources\Images\Faces\pat.jpg" />
+    <Resource Include="Resources\Images\Faces\up.png" />
     <Resource Include="Resources\Images\Faces\doc.jpg" />
     <Resource Include="Resources\Icons\healthcare-and-medical.png" />
     <Resource Include="Resources\hospital.png" />
