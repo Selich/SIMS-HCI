@@ -135,6 +135,9 @@
     <Compile Include="Views\Director\HomeWindow.xaml.cs">
       <DependentUpon>HomeWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Director\InventoryManagmentModal.xaml.cs">
+      <DependentUpon>InventoryManagmentModal.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Director\OrderEquipmentModal.xaml.cs">
       <DependentUpon>OrderEquipmentModal.xaml</DependentUpon>
     </Compile>
@@ -219,6 +222,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Director\HomeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Director\InventoryManagmentModal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

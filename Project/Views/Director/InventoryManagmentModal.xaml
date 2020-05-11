@@ -1,0 +1,34 @@
+﻿<Window x:Class="Project.Views.Director.InventoryManagmentModal"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Project.Views.Director"
+        mc:Ignorable="d"
+        Title="Zakazivanje opremanja" Height="550" Width="800">
+    <Grid>
+        <Button Content="Potvrdi" HorizontalAlignment="Left" Margin="131,456,0,0" VerticalAlignment="Top" Width="116" Click="CloseInventoryManagment"/>
+        <Button Content="Odustani" HorizontalAlignment="Left" Margin="485,456,0,0" VerticalAlignment="Top" Width="113" RenderTransformOrigin="-0.14,0" Click="CloseInventoryManagment"/>
+        <Label Content="Soba 205:" HorizontalAlignment="Left" Margin="39,127,0,0" VerticalAlignment="Top" FontSize="15" FontWeight="Bold"/>
+        <Label Content="Magacin:" HorizontalAlignment="Left" Margin="411,127,0,0" VerticalAlignment="Top" FontSize="15" FontWeight="Bold"/>
+        <DataGrid Name="DataGridExample"  AutoGenerateColumns="False" HorizontalAlignment="Left" Height="227" Margin="39,192,0,0" VerticalAlignment="Top" Width="281" BorderThickness="1" RowDetailsVisibilityMode="Visible">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding name}" />
+                <DataGridTextColumn Header="Type" Binding="{Binding type}" />
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <DataGrid Name="MagacinGrid"  AutoGenerateColumns="False" HorizontalAlignment="Left" Height="227" Margin="411,192,0,0" VerticalAlignment="Top" Width="281" BorderThickness="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding name}" />
+                <DataGridTextColumn Header="Type" Binding="{Binding type}" />
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <Label Content="Pocetak:" HorizontalAlignment="Left" Margin="39,40,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label Content="Kraj:" HorizontalAlignment="Left" Margin="39,80,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <DatePicker HorizontalAlignment="Left" Margin="108,40,0,0" VerticalAlignment="Top" Width="91"/>
+        <DatePicker HorizontalAlignment="Left" Margin="108,80,0,0" VerticalAlignment="Top" Width="91"/>
+
+    </Grid>
+</Window>
