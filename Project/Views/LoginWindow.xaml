@@ -10,7 +10,7 @@
         <Label Content="Email:" HorizontalAlignment="Left" Margin="42,104,0,0" VerticalAlignment="Top"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="42,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="219" RenderTransformOrigin="0.464,0.565"/>
         <Label Content="Password:" HorizontalAlignment="Left" Margin="42,161,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.552,1.998"/>
-        <PasswordBox  HorizontalAlignment="Left" Height="23" Margin="42,182,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="219" RenderTransformOrigin="0.464,0.565"/>
+        <PasswordBox  HorizontalAlignment="Left" Height="23" Margin="42,182,0,0"  VerticalAlignment="Top" Width="219" RenderTransformOrigin="0.464,0.565"/>
         <Button FontSize="11" Content="Login" HorizontalAlignment="Left" Margin="44,243,0,0" VerticalAlignment="Top" Width="71" RenderTransformOrigin="-0.048,0.55" Height="23"/>
         <Button  FontSize="11" Content="Register" HorizontalAlignment="Left" Margin="189,243,0,0" VerticalAlignment="Top" Width="72" Height="23"/>
         <Button  FontSize="11" Content="Secretary" HorizontalAlignment="Left" Margin="10,289,0,0" VerticalAlignment="Top" Width="87" Click="Secretary_Click"/>
