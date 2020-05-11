@@ -162,6 +162,13 @@ namespace Project.Views.Secretary
             s.Show();
 
         }
+        private void Question_Click(object sender, RoutedEventArgs e)
+        {
+            Question item = (Question)(sender as System.Windows.Controls.Button).DataContext;
+            var s = new QuestionModal(item);
+            s.Show();
+
+        }
         private void Profile_Click(object sender, RoutedEventArgs e)
         {
             Model.Patient item = (Model.Patient)(sender as System.Windows.Controls.Button).DataContext;

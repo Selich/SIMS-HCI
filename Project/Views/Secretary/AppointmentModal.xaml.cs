@@ -79,5 +79,30 @@ namespace Project.Views.Secretary
         {
 
         }
+
+        private void Izmeni_Click(object sender, RoutedEventArgs e)
+        {
+            room.IsEnabled = true;
+            timeFrom.IsEnabled = true;
+            timeTo.IsEnabled = true;
+            datePicker.IsEnabled = true;
+            description.IsEnabled = true;
+            appointmentType.IsEnabled = true;
+            IzmeniCancel.Visibility = Visibility.Visible;
+            Izmeni.Visibility = Visibility.Hidden;
+
+        }
+        private void Izmeni_Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            bool state = false;
+            room.IsEnabled = state;
+            timeFrom.IsEnabled = state;
+            timeTo.IsEnabled = state;
+            datePicker.IsEnabled = state;
+            description.IsEnabled = state;
+            appointmentType.IsEnabled = state;
+            IzmeniCancel.Visibility = Visibility.Hidden;
+            Izmeni.Visibility = Visibility.Visible;
+        }
     }
 }
