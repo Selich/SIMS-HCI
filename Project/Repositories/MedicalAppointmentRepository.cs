@@ -31,7 +31,10 @@ namespace Project.Repositories
                     appointment.type = (MedicalAppointmentType)Enum.Parse(typeof(MedicalAppointmentType), data[3]);
                     appointment.patient = g.GeneratePatient();
                     //appointment.patient = pr.getPatientById(Int32.Parse(data[4]));
-                    //List<Doctor> doctors = new List<Doctor>();
+                    List<Doctor> doctors = new List<Doctor>();
+                    for(int i = 0; i < 5; i++) doctors.Add(new Doctor("Nikola", "Selic"));
+                    appointment.doctors = doctors;
+                    return appointment;
                     //int i = 4;
                     //while (data[i] != null)
                     //{
@@ -40,8 +43,6 @@ namespace Project.Repositories
                     //    doctors.Add(doctor);
 
                     //}
-                    //appointment.doctors = doctors;
-                    return appointment;
 
                 });
 

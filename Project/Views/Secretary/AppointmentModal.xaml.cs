@@ -26,12 +26,14 @@ namespace Project.Views.Secretary
         {
             InitializeComponent();
             selectedAppointment.Content = app;
+            listDoctors.ItemsSource = app.doctors;
 
         }
 
         private void Change_Doctors(object sender, RoutedEventArgs e)
         {
-            Doctor_Search_TextBox.Visibility = Visibility.Visible;
+            search.Visibility = Visibility.Visible;
+            kodLekara.Visibility = Visibility.Hidden;
             Change_Doctor_Button.Visibility = Visibility.Hidden;
             Cancel_Change_Doctor_Button.Visibility = Visibility.Visible;
 
@@ -39,7 +41,8 @@ namespace Project.Views.Secretary
         }
         private void Cancel_Change_Doctors(object sender, RoutedEventArgs e)
         {
-            Doctor_Search_TextBox.Visibility = Visibility.Hidden;
+            search.Visibility = Visibility.Hidden;
+            kodLekara.Visibility = Visibility.Visible;
             Change_Doctor_Button.Visibility = Visibility.Visible;
             Cancel_Change_Doctor_Button.Visibility = Visibility.Hidden;
 
@@ -51,6 +54,10 @@ namespace Project.Views.Secretary
             var id = item.patient.id;
             var s = new ProfileModal(id);
             s.Show();
+
+        }
+        private void txtFilter_TextChanged(object sended, RoutedEventArgs e)
+        {
 
         }
     }
