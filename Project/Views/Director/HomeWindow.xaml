@@ -27,24 +27,23 @@
                 <TextBox x:Name="hospital" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="472,193,0,0" TextWrapping="Wrap" Text="Klinicki centar Vojvodina" VerticalAlignment="Top" Width="139"/>
                 <Separator HorizontalAlignment="Left" Height="30" Margin="0,372,0,0" VerticalAlignment="Top" Width="1270"/>
                 <TextBlock HorizontalAlignment="Left" Margin="35,407,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Width="190" FontWeight="Bold"><Run Text="Obavestenja:"/><LineBreak/><Run/></TextBlock>
-                <ListBox HorizontalAlignment="Left" Height="174" Margin="35,460,0,0" VerticalAlignment="Top" Width="175" ScrollViewer.VerticalScrollBarVisibility="Visible">
+                <ListBox HorizontalAlignment="Left" Height="174" Margin="35,460,0,0" VerticalAlignment="Top" Width="414" ScrollViewer.VerticalScrollBarVisibility="Visible">
 
-                    <ListBoxItem>Odgovor 1</ListBoxItem>
-                    <ListBoxItem>Odgovor 2</ListBoxItem>
-                    <ListBoxItem>Odgovor 3</ListBoxItem>
-                    <ListBoxItem>Odgovor 4</ListBoxItem>
-                    <ListBoxItem>Odgovor 5</ListBoxItem>
-                    <ListBoxItem>Odgovor 6</ListBoxItem>
-                    <ListBoxItem>Odgovor 7</ListBoxItem>
-                    <ListBoxItem>Odgovor 8</ListBoxItem>
+                    <ListBoxItem>Berodual Status:Odobreno</ListBoxItem>
+                    <ListBoxItem>Prboiotik Status:Odbijeno</ListBoxItem>
+                    <ListBoxItem>Vicodin Status:Odbijeno</ListBoxItem>
+                    <ListBoxItem>Antifreez Status:Odobreno</ListBoxItem>
+                    <ListBoxItem>Aspirin Status:Odbijeno</ListBoxItem>
+                    <ListBoxItem>Defrinol Forte Status:Odbijeno</ListBoxItem>
+                    <ListBoxItem>Lizobact Status:Odobreno</ListBoxItem>
+                    <ListBoxItem>Rakija Status:Odbijeno</ListBoxItem>
 
 
                 </ListBox>
-                <TextBlock HorizontalAlignment="Left" Margin="320,402,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Width="190" FontWeight="Bold"><Run Text="Detaljno:"/><LineBreak/><Run/></TextBlock>
-                <TextBlock HorizontalAlignment="Left" Margin="320,442,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="192" Width="782" FontSize="14">
-                    <TextBlock.Background>
-                        <ImageBrush/>
-                    </TextBlock.Background><Run Text="Status: Odobren"/><LineBreak/><Run Text="Lek: Berodual"/><LineBreak/><Run Text="Tip: Kortikosteroid"/><LineBreak/><Run Text="Kolicina: 100ml"/><LineBreak/><Run/><LineBreak/><Run Text="Komentar:"/><LineBreak/><Run Text="..."/></TextBlock>
+                <TextBlock HorizontalAlignment="Left" Margin="478,402,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Width="190" FontWeight="Bold"><Run Text="Detaljno:"/><LineBreak/><Run/></TextBlock>
+
+                <TextBlock HorizontalAlignment="Left" Margin="478,460,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="174" Width="602" FontSize="14" ScrollViewer.VerticalScrollBarVisibility="Auto"><Run Text="Status: Odobren"/><LineBreak/><Run Text="Lek: Berodual"/><LineBreak/><Run Text="Tip: Kortikosteroid"/><LineBreak/><Run Text="Kolicina: 100ml"/><LineBreak/><LineBreak/><Run Text="Komentar: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce hendrerit ante quis enim scelerisque sodales. Aenean non ligula enim. Proin vel lacus nisl. Sed quis turpis condimentum, facilisis purus nec, suscipit velit. Aenean rutrum, lacus non scelerisque condimentum, dolor tellus volutpat felis, id interdum nulla libero nec turpis. Maecenas quis sem sed felis ultricies finibus."/></TextBlock>
+
                 <Button Content="Prijavi gresku" HorizontalAlignment="Left" Margin="1107,600,0,0" VerticalAlignment="Top" Width="129" Click="OpenBugReportModal"/>
                 <Button Content="Podesavanja" HorizontalAlignment="Left" Margin="1102,53,0,0" VerticalAlignment="Top" Width="132" Click="OpenSettingsModal"/>
                 <Button Name="Save_btn" Content="Sacuvaj" Visibility="Hidden"  HorizontalAlignment="Left" Margin="353,244,0,0" VerticalAlignment="Top" Width="75" Click="ConfirmProfileChanges"/>
@@ -596,6 +595,10 @@
                         </StackPanel>
                     </GroupBox>
                 </Grid>
+
+
+
+
                 <Grid x:Name="RoomDetails" Margin="20,20,20,20" Visibility="Collapsed">
                     <Label Content="Soba br.205" HorizontalAlignment="Left" Margin="25,88,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
                     <Button Content="Nazad" HorizontalAlignment="Left" Margin="25,31,0,0" VerticalAlignment="Top" Width="74" Click="OpenRooms"/>
@@ -614,12 +617,12 @@
                                 <ListBoxItem Content="14:30-15:25" IsSelected="True"/>
                             </ListBox>
                             <StackPanel Orientation="Vertical" Margin="50,0,0,0">
-                                <TextBlock  Width="258"><Run Text="Opis:"/><LineBreak/><Run Text="&#x9;Pregled br. xyz"/><LineBreak/><Run Text="&#x9;Trajanje:"/><LineBreak/><Run Text="&#x9;Prisutni:"/><LineBreak/><Run Text="        &#x9;Lekar: {ID}"/><LineBreak/><Run Text="        &#x9;Pacijent: {ID}"/><LineBreak/><Run Text="        &#x9;Sekretar: {ID}"/><LineBreak/><Run Text="&#x9;Potroseno:"/><LineBreak/><Run Text="         &#x9;&#x9;Lek 1"/><LineBreak/><Run Text="         &#x9;&#x9;Lek 2"/><LineBreak/><Run Text="         &#x9;&#x9;Oprema 1 (npr. gaza)"/><LineBreak/><Run Text="         &#x9;&#x9;Oprema 2"/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
-                                <Button Content="Zakazi renoviranje" Height="Auto" Width="200" Margin="0,15,0,0" Click="OpenRenovationAppointment"/>
+                                <TextBlock  Width="258" Height="314"><Run Text="Opis:"/><LineBreak/><Run Text="&#x9;Pregled br. xyz"/><LineBreak/><Run Text="&#x9;Trajanje:"/><LineBreak/><Run Text="&#x9;Prisutni:"/><LineBreak/><Run Text="        &#x9;Lekar: {ID}"/><LineBreak/><Run Text="        &#x9;Pacijent: {ID}"/><LineBreak/><Run Text="        &#x9;Sekretar: {ID}"/><LineBreak/><Run Text="&#x9;Potroseno:"/><LineBreak/><Run Text="         &#x9;&#x9;Lek 1"/><LineBreak/><Run Text="         &#x9;&#x9;Lek 2"/><LineBreak/><Run Text="         &#x9;&#x9;Oprema 1 (npr. gaza)"/><LineBreak/><Run Text="         &#x9;&#x9;Oprema 2"/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
                             </StackPanel>
                         </StackPanel>
                     </GroupBox>
-                    <Button Content="Zakazi opremanje" HorizontalAlignment="Left" Margin="938,42,0,0" VerticalAlignment="Top" Width="191" Click="OpenInventoryManagment"/>
+                    <Button Content="Zakazi opremanje" HorizontalAlignment="Left" Margin="935,42,0,0" VerticalAlignment="Top" Width="194" Click="OpenInventoryManagment"/>
+                    <Button Content="Zakazi renoviranje" Height="Auto" Margin="698,42,326,558" Click="OpenRenovationAppointment"/>
 
 
 
