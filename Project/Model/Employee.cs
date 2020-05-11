@@ -13,12 +13,13 @@ namespace Model
       private double salary;
       private TimeInterval annualLeave;
       private TimeInterval workingHours;
-      private string email;
+      public string email
+      {get;set;}
       private string password;
       
       public Hospital hospital;
    
       public Employee() {}
-      public Employee(string firstName, string lastName): base(firstName,lastName) { }
+      public Employee(string firstName, string lastName): base(firstName,lastName) {}
    }
 }

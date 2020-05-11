@@ -321,6 +321,13 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Resource Include="Resources\Images\Faces\face1" />
+    <Resource Include="Resources\Images\Faces\face2" />
+    <Resource Include="Resources\Images\Faces\face3" />
+    <Resource Include="Resources\Images\Faces\face4" />
+    <Resource Include="Resources\Images\Faces\face5" />
+    <Resource Include="Resources\Images\Faces\face6" />
+    <Resource Include="Resources\Images\Faces\face7" />
     <None Include="Views\Patient\.vs\slnx.sqlite" />
     <None Include="Views\Patient\.vs\VSWorkspaceState.json" />
   </ItemGroup>
@@ -330,12 +337,12 @@
   <ItemGroup>
     <Folder Include="Resources\Demo\Patient\" />
     <Folder Include="Resources\Demo\Secretary\" />
-    <Folder Include="Resources\Images\Faces\" />
     <Folder Include="ViewModels\" />
     <Folder Include="Views\Patient\.vs\Patient\v15\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\Icons\8370799161557749690.svg" />
+    <Resource Include="Resources\Images\Faces\doc.jpg" />
     <Resource Include="Resources\Icons\healthcare-and-medical.png" />
     <Resource Include="Resources\hospital.png" />
   </ItemGroup>

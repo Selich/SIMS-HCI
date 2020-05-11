@@ -8,6 +8,9 @@
         mc:Ignorable="d"
         Title="HomeWindow" Height="723" Width="1280">
     <Window.Resources>
+
+
+        <!--Term-->
         <DataTemplate x:Key="termTemplate">
             <Grid  Background="White" Height="25" Width="341" >
                 <TextBlock FontSize="14" Text="{Binding beginning, StringFormat=hh:mm}" VerticalAlignment="Center" Margin="30,0,0,0"/>
@@ -17,6 +20,14 @@
             </Grid>
         </DataTemplate>
 
+        <!--Room-->
+        <DataTemplate x:Key="roomTemplate">
+            <Grid  Background="White" Height="25" Width="341" >
+                <TextBlock FontSize="14" Text="{Binding id}" VerticalAlignment="Center" Margin="30,0,0,0"/>
+                <TextBlock FontSize="14" Text="{Binding ward}" VerticalAlignment="Center" Margin="80,0,0,0"/>
+                <CheckBox Background="White" HorizontalContentAlignment="Center" VerticalAlignment="Center" />
+            </Grid>
+        </DataTemplate>
         <DataTemplate x:Key="DataTemplate_Level2">
             <Button Content="{Binding}" Height="40" Width="50" Margin="4,4,4,4"/>
         </DataTemplate>
@@ -32,23 +43,25 @@
         </DataTemplate>
 
 
-     <!--Patient-->
+        <!--Patient-->
         <DataTemplate x:Key="patientTemplate">
             <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth4" Height="85" Width="510">
                 <Grid>
+                    <Image Source="../../Resources/Images/Faces/face1" HorizontalAlignment="Left" Height="65" Margin="26,11,0,0" VerticalAlignment="Top" Width="66" Stretch="Fill"/>
                     <TextBlock FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" Margin="120,15,0,0" TextWrapping="Wrap"  VerticalAlignment="Top">
                                     <Run Text="{Binding firstName}"/>
-                                    <Run Text=" "/>
                                     <Run Text="{Binding lastName}"/>
-                                    <Run Text=" "/>
                     </TextBlock>
-                    <TextBlock HorizontalAlignment="Left" Margin="120,38,0,0" TextWrapping="Wrap" Text="Adresa:" VerticalAlignment="Top"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="120,38,0,0" TextWrapping="Wrap"  VerticalAlignment="Top">
+                                    <Run Text="{Binding address.number}"/>
+                                    <Run Text="{Binding address.street}"/>
+                    </TextBlock>
                     <TextBlock HorizontalAlignment="Left" Margin="120,50,0,0" TextWrapping="Wrap" Text="{Binding telephoneNumber}" VerticalAlignment="Top"/>
                     <TextBlock HorizontalAlignment="Left" Margin="120,62,0,0" TextWrapping="Wrap" Text="{Binding email}" VerticalAlignment="Top"/>
                 </Grid>
             </materialDesign:Card>
         </DataTemplate>
-     <!--Question-->
+        <!--Question-->
         <DataTemplate x:Key="questionsTemplate">
             <StackPanel Margin="3">
                 <DockPanel>
@@ -76,18 +89,18 @@
                         <Image Source="../../Resources/Images/Faces/face1" HorizontalAlignment="Left" Height="65" Margin="26,11,0,0" VerticalAlignment="Top" Width="66" Stretch="Fill"/>
                         <TextBlock FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" Margin="120,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
                             <Run Text="{Binding Patient.firstName}"/>
-                            <Run Text=" "/>
                             <Run Text="{Binding Patient.lastName}"/>
-                            <Run Text=" "/>
                         </TextBlock>
 
                         <TextBlock HorizontalAlignment="Left" Margin="120,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
-                            <Run Text="{Binding address.number}"/>
+                            <Run Text="{Binding Patient.address.number}"/>
                             <Run Text=" "/>
-                            <Run Text="{Binding address.street}"/>
+                            <Run Text="{Binding Patient.address.street}"/>
                             <Run Text=" "/>
-                            <Run Text="{Binding address.city}"/>
+                            <Run Text="{Binding Patient.address.city}"/>
                         </TextBlock>
+                        <TextBlock HorizontalAlignment="Left" Margin="120,50,0,0" TextWrapping="Wrap" Text="{Binding Patient.telephoneNumber}" VerticalAlignment="Top"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="120,62,0,0" TextWrapping="Wrap" Text="{Binding Patient.email}" VerticalAlignment="Top"/>
 
                         <TextBlock HorizontalAlignment="Left" Margin="120,56,0,0" TextWrapping="Wrap" Text="{Binding telephoneNumber}" VerticalAlignment="Top"/>
                         <TextBlock HorizontalAlignment="Left" Margin="120,46,0,0" TextWrapping="Wrap" Text="{Binding email}" VerticalAlignment="Top"/>
@@ -229,37 +242,52 @@
                 </Grid>
                 <Grid HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Width="606" Margin="0,37,0,0">
                     <materialDesign:PackIcon Kind="Search" Height="21" Width="21" HorizontalAlignment="Left" Margin="39,18,0,0"/>
-                    <TextBox x:Name="patientFilter2" HorizontalAlignment="Left" Height="23" Margin="69,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="249" TextChanged="txtFilter_TextChanged"/>
+                    <TextBox x:Name="patientFilterCreate" HorizontalAlignment="Left" Height="23" Margin="69,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="249" TextChanged="txtFilterCreate_TextChanged"/>
                     <Button Visibility="Visible" x:Name="Guest_Button" Content="Guest?" HorizontalAlignment="Right" Margin="0,16,8,6" VerticalAlignment="Center" Width="76" FontSize="11" Height="22" Click="Button_Click_2"/>
-                    <Button Visibility="Hidden" x:Name="Cancel_Button" Content="Guest?" HorizontalAlignment="Right" Margin="0,12,10,10" VerticalAlignment="Center" Width="76" FontSize="11" Height="22" Click="Button_Click_2"/>
+                    <Button Visibility="Hidden" x:Name="Cancel_Button" Content="Back" HorizontalAlignment="Right" Margin="0,16,8,6" VerticalAlignment="Center" Width="76" FontSize="11" Height="22" Click="Cancel_Button_Click"/>
+                </Grid>
+                <Grid Visibility="Visible" Background="White" HorizontalAlignment="Left" Height="528" Margin="34,98,0,0" VerticalAlignment="Top" Width="572" Name="List_Patients_Create">
+                    <ListBox  Name="listPatientsCreate" ItemTemplate="{StaticResource patientTemplate}" Background="White" HorizontalAlignment="Left" Height="518" Margin="43,0,0,0" VerticalAlignment="Top" Width="520" />
+                </Grid>
+                <Grid Visibility="Hidden" Background="White" HorizontalAlignment="Left" Height="540" Margin="43,86,0,0" VerticalAlignment="Top" Width="563" Name="Guest_Account_Create">
+                    <Grid HorizontalAlignment="Left" Height="520" Margin="10,10,0,0" VerticalAlignment="Top" Width="543">
+                        <Label Content="Ime:" HorizontalAlignment="Left" Margin="120,89,0,0" VerticalAlignment="Top" Width="87"/>
+                        <Label Content="Prezime:" HorizontalAlignment="Left" Margin="120,119,0,0" VerticalAlignment="Top" Width="87"/>
+                        <Label Content="Adresa:" HorizontalAlignment="Left" Margin="120,149,0,0" VerticalAlignment="Top"/>
+                        <Label Content="Email:" HorizontalAlignment="Left" Margin="120,179,0,0" VerticalAlignment="Top"/>
+                        <Label Content="Broj Telefona:" HorizontalAlignment="Left" Margin="120,209,0,0" VerticalAlignment="Top"/>
+                        <Label Content="Razlog Posete:" HorizontalAlignment="Left" Margin="120,299,0,0" VerticalAlignment="Top"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="221,89,0,0" TextWrapping="Wrap" Text="{Binding user.firstName}" VerticalAlignment="Top" Width="181"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="221,119,0,0" TextWrapping="Wrap" Text="{Binding user.lastName}" VerticalAlignment="Top" Width="181"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="221,149,0,0" TextWrapping="Wrap" Text="{Binding user.address}" VerticalAlignment="Top" Width="181"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="221,179,0,0" TextWrapping="Wrap" Text="{Binding user.email}" VerticalAlignment="Top" Width="181"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="221,209,0,0" TextWrapping="Wrap" Text="{Binding user.telephoneNumber}" VerticalAlignment="Top" Width="181"/>
+                        <TextBox HorizontalAlignment="Left" Height="55" Margin="221,299,0,0" TextWrapping="Wrap" Text="{Binding user.telephoneNumber}" VerticalAlignment="Top" Width="181"/>
+                        <Button Content="Kreiraj" FontSize="11" HorizontalAlignment="Left" Margin="468,487,0,0" VerticalAlignment="Top" Width="65" Height="23"/>
+                    </Grid>
                 </Grid>
                 <Grid Background="White" HorizontalAlignment="Left" Height="32" Margin="634,47,0,0" VerticalAlignment="Top" Width="572">
                     <DatePicker FirstDayOfWeek="Monday" SelectedDateFormat="Short"
-                SelectedDateChanged="dpick_SelectedDateChanged" x:Name="datePicker" HorizontalAlignment="Left" Margin="10,4,0,0" VerticalAlignment="Top" Width="169"/>
-                </Grid>
-                <Grid Visibility="Visible" Background="White" HorizontalAlignment="Left" Height="536" Margin="34,98,0,0" VerticalAlignment="Top" Width="572" Name="List_Patients_Create">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="473*"/>
-                        <RowDefinition Height="64*"/>
-                    </Grid.RowDefinitions>
-                    <ListBox  Name="listPatientsCreate" ItemTemplate="{StaticResource patientTemplate}" Background="White" HorizontalAlignment="Left" Height="526" Margin="43,0,0,0" VerticalAlignment="Top" Width="520" Grid.RowSpan="2" />
-                </Grid>
-                <Grid Visibility="Hidden" Background="White" HorizontalAlignment="Left" Height="540" Margin="43,86,0,0" VerticalAlignment="Top" Width="563" Name="Guest_Account_Create">
-                    <Grid Margin="137,0,0,440">
-                        <TextBox FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
-                        <TextBox HorizontalAlignment="Left" Margin="0,25,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
-                        <TextBox HorizontalAlignment="Left" Margin="0,42,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
-                    </Grid>
-                    <Grid HorizontalAlignment="Left" Height="36" Margin="-10,497,0,0" VerticalAlignment="Top" Width="572">
-                        <Button Content="Create" HorizontalAlignment="Right" Margin="0,4,5,0" VerticalAlignment="Center" Width="76"/>
-                    </Grid>
+                SelectedDateChanged="dpick_SelectedDateChanged" Name="dateTimePicker" HorizontalAlignment="Left" Margin="28,4,0,0" VerticalAlignment="Top" Width="183"/>
                 </Grid>
                 <Grid Visibility="Visible" Background="White" HorizontalAlignment="Left" Height="528" Margin="634,98,0,0" VerticalAlignment="Top" Width="572" x:Name="Guest_Account_Create_Copy">
-                 <Grid HorizontalAlignment="Left" Height="36" Margin="0,500,0,0" VerticalAlignment="Top" Width="572"/>
-                    <ListBox HorizontalAlignment="Left" Height="458" Margin="108,40,0,0" VerticalAlignment="Top" Width="356" ItemTemplate="{StaticResource termTemplate}" Name="listTerm" SelectedItem="termList_KeyDown" >
+                    <Grid HorizontalAlignment="Left" Height="36" Margin="0,500,0,0" VerticalAlignment="Top" Width="572"/>
+                    <ListBox HorizontalAlignment="Left" Height="455" Margin="294,40,0,0" VerticalAlignment="Top" Width="250" ItemTemplate="{StaticResource termTemplate}" Name="listTerm" SelectedItem="termList_KeyDown" >
                     </ListBox>
+                    <Label Content="Termini:" HorizontalAlignment="Left" Margin="286,10,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="roomFilter" HorizontalAlignment="Left" Height="22" Margin="88,172,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="roomFilter_TextChanged" />
+                    <Label Content="Soba:" HorizontalAlignment="Left" Margin="39,173,0,333"/>
+                    <Label Content="Tip:" HorizontalAlignment="Left" Margin="42,44,0,462"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="88,44,0,0" x:Name="appointmentType" VerticalAlignment="Top" Width="120">
+                        <ComboBoxItem IsSelected="True">Pregled</ComboBoxItem>
+                        <ComboBoxItem>Operacija</ComboBoxItem>
+                        <ComboBoxItem>Lezanje</ComboBoxItem>
+                    </ComboBox>
+
+                    <Label Content="Dostupne Sobe:" HorizontalAlignment="Left" Margin="38,211,0,295"/>
+                    <ListBox HorizontalAlignment="Left" Height="254" Margin="42,241,0,0" VerticalAlignment="Top" Width="212" ItemTemplate="{StaticResource roomTemplate}" x:Name="listRoom" SelectedItem="termList_KeyDown" />
                 </Grid>
-                <Button Content="Feedback" HorizontalAlignment="Right" Margin="0,0,57,10" VerticalAlignment="Bottom" Width="100" Height="22"/>
+                <Button Content="Feedback" HorizontalAlignment="Right" Margin="0,0,47,10" VerticalAlignment="Bottom" Width="100" Height="22" Click="Feedback_Click"/>
             </Grid>
         </TabItem>
         <TabItem Header="Pacijenti">
@@ -274,7 +302,7 @@
                     <materialDesign:PackIcon Kind="Search" Height="21" Width="21" HorizontalAlignment="Left" Margin="39,18,0,0"/>
                     <TextBox x:Name="patientFilter" HorizontalAlignment="Left" Height="23" Margin="69,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="249" TextChanged="txtFilter_TextChanged"/>
                 </Grid>
-                <ListView Name="listPatients" BorderThickness="2" Background="White" HorizontalAlignment="Left" Height="517" Margin="44,81,0,0" VerticalAlignment="Top" Width="1170">
+                <ListView Name="listPatients" BorderThickness="2" Background="White" HorizontalAlignment="Left" Height="535" Margin="44,81,0,0" VerticalAlignment="Top" Width="1170">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="First Name" Width="120" DisplayMemberBinding="{Binding firstName}" />
@@ -284,7 +312,6 @@
                         </GridView>
                     </ListView.View>
                 </ListView>
-                <Button Content="Feedback" HorizontalAlignment="Left" Margin="1114,603,0,0" VerticalAlignment="Top" Width="100" Height="22"/>
                 <Grid HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Width="1264">
                     <Grid.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -295,6 +322,7 @@
                     <materialDesign:PackIcon Kind="Doctor" Height="21" Width="21" HorizontalAlignment="Left" Margin="38,18,0,0"/>
                     <Button FontSize="12" Content="Izaberi Lekara" HorizontalAlignment="Left" Margin="70,18,0,0" VerticalAlignment="Top" Width="250" Height="21" Click="Search_Doctor" />
                 </Grid>
+                <Button Content="Feedback" HorizontalAlignment="Right" Margin="0,0,47,10" VerticalAlignment="Bottom" Width="100" Height="22" Click="Feedback_Click"/>
             </Grid>
         </TabItem>
         <TabItem Header="Pitanja">
@@ -318,8 +346,8 @@
                     <TextBox x:Name="questionFilter" HorizontalAlignment="Left" Height="23" Margin="69,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="249" TextChanged="txtFilter_TextChanged"/>
                     <CheckBox Content="Show Answered" HorizontalAlignment="Left" Margin="362,18,0,0" VerticalAlignment="Top" Width="142"/>
                 </Grid>
-                <ListBox x:Name="listQuestions" BorderThickness="2" Background="White" HorizontalAlignment="Left" Height="517" Margin="44,81,0,0" VerticalAlignment="Top" Width="1170" ItemTemplate="{StaticResource questionsTemplate}" KeyDown="questionsList_KeyDown"/>
-                <Button Content="Feedback" HorizontalAlignment="Left" Margin="1114,603,0,0" VerticalAlignment="Top" Width="100" Height="22"/>
+                <ListBox x:Name="listQuestions" BorderThickness="2" Background="White" HorizontalAlignment="Left" Height="544" Margin="44,81,0,0" VerticalAlignment="Top" Width="1170" ItemTemplate="{StaticResource questionsTemplate}" KeyDown="questionsList_KeyDown"/>
+                <Button Content="Feedback" HorizontalAlignment="Right" Margin="0,0,47,10" VerticalAlignment="Bottom" Width="100" Height="22" Click="Feedback_Click"/>
             </Grid>
         </TabItem>
         <TabItem Header="Podesavanja">
@@ -331,7 +359,6 @@
                             <GradientStop Color="White" Offset="0.7"/>
                         </LinearGradientBrush>
                     </Grid.Background>
-                    <Button Content="Feedback" HorizontalAlignment="Left" Margin="1114,603,0,0" VerticalAlignment="Top" Width="100" Height="22"/>
                     <Grid HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Width="1264">
                         <Grid.Background>
                             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -341,6 +368,7 @@
                         </Grid.Background>
                     </Grid>
                     <Grid HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Width="1243" Margin="0,37,0,0"/>
+                    <Button Content="Feedback" HorizontalAlignment="Right" Margin="0,0,34,10" VerticalAlignment="Bottom" Width="100" Height="22" Click="Feedback_Click"/>
                 </Grid>
                 <Grid Background="White" Margin="42,40,487,193">
                     <Grid HorizontalAlignment="Left" Height="320" Margin="38,33,0,0" VerticalAlignment="Top" Width="260">
@@ -348,20 +376,17 @@
                         <Button Content="Izmeni sliku" HorizontalAlignment="Left" Margin="27,265,0,0" VerticalAlignment="Top" Width="205"/>
                     </Grid>
                     <Grid HorizontalAlignment="Left" Height="301" Margin="330,33,0,0" VerticalAlignment="Top" Width="245">
-                        <Label Content="Nikola Selic" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="15,15,0,0" VerticalAlignment="Top" Width="87"/>
-                        <Label Content="Label" HorizontalAlignment="Left" Margin="15,50,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-                        <Label Content="Label" HorizontalAlignment="Left" Margin="15,80,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-                        <Label Content="Label" HorizontalAlignment="Left" Margin="15,110,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-                        <Label Content="Label" HorizontalAlignment="Left" Margin="15,140,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-                        <Label Content="Label" HorizontalAlignment="Left" Margin="15,170,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-                        <Label Content="Label" HorizontalAlignment="Left" Margin="15,200,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                        <Label Content="Ime:" HorizontalAlignment="Left" Margin="15,15,0,0" VerticalAlignment="Top" Width="87"/>
+                        <Label Content="Prezime:" HorizontalAlignment="Left" Margin="15,45,0,0" VerticalAlignment="Top" Width="87"/>
+                        <Label Content="Adresa:" HorizontalAlignment="Left" Margin="15,75,0,0" VerticalAlignment="Top"/>
+                        <Label Content="Email:" HorizontalAlignment="Left" Margin="15,105,0,0" VerticalAlignment="Top"/>
+                        <Label Content="Broj Telefona:" HorizontalAlignment="Left" Margin="15,135,0,0" VerticalAlignment="Top"/>
                         <Button Content="Izmeni" FontSize="11" HorizontalAlignment="Left" Margin="10,270,0,0" VerticalAlignment="Top" Width="65" Height="23"/>
-                        <TextBox HorizontalAlignment="Left" Height="23" Margin="80,50,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
-                        <TextBox HorizontalAlignment="Left" Height="23" Margin="80,80,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
-                        <TextBox HorizontalAlignment="Left" Height="23" Margin="80,110,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
-                        <TextBox HorizontalAlignment="Left" Height="23" Margin="80,140,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
-                        <TextBox HorizontalAlignment="Left" Height="23" Margin="80,170,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
-                        <TextBox HorizontalAlignment="Left" Height="23" Margin="80,200,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="116,15,0,0" TextWrapping="Wrap" Text="{Binding user.firstName}" VerticalAlignment="Top" Width="120"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="116,45,0,0" TextWrapping="Wrap" Text="{Binding user.lastName}" VerticalAlignment="Top" Width="120"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="116,75,0,0" TextWrapping="Wrap" Text="{Binding user.address}" VerticalAlignment="Top" Width="120"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="116,105,0,0" TextWrapping="Wrap" Text="{Binding user.email}" VerticalAlignment="Top" Width="120"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="116,135,0,0" TextWrapping="Wrap" Text="{Binding user.telephoneNumber}" VerticalAlignment="Top" Width="120"/>
                     </Grid>
                 </Grid>
                 <Grid HorizontalAlignment="Left" Height="477" Margin="750,42,0,0" VerticalAlignment="Top" Width="434" Background="White"/>

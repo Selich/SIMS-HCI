@@ -3,6 +3,7 @@ using Project.ItemGenerators;
 using Project.Repositories;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,6 +34,19 @@ namespace Project.Views.Secretary
             InitializeComponent();
             appointmentHistory.ItemsSource = mr.ReadCSV("../../Data/medicalAppointments.csv");
             listAppointments.ItemsSource = mr.ReadCSV("../../Data/medicalAppointments.csv");
+
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listAppointments.ItemsSource);
+            view.SortDescriptions.Add(new SortDescription("Beginning", ListSortDirection.Ascending));
+            view.SortDescriptions.Add(new SortDescription("End", ListSortDirection.Ascending));
+
+            CollectionView viewHistory = (CollectionView)CollectionViewSource.GetDefaultView(appointmentHistory.ItemsSource);
+            viewHistory.SortDescriptions.Add(new SortDescription("Beginning", ListSortDirection.Ascending));
+            viewHistory.SortDescriptions.Add(new SortDescription("End", ListSortDirection.Ascending));
+        }
+
+        private void listAppointments_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

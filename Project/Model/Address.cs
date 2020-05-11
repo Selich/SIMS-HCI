@@ -16,6 +16,18 @@ namespace Model
       private string postCode;
       
       public User[] user;
+
+      public Address(){
+
+      }
+      public Address(string number, string street, string city, string country, string postCode){
+         this.number = number;
+         this.street = street;
+         this.city = city;
+         this.country = country;
+         this.postCode = postCode;
+
+      }
    
    }
 }

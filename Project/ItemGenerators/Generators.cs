@@ -34,6 +34,21 @@ namespace Project.ItemGenerators
             return list;
 
         }
+        public List<Room> GetRooms(int count)
+        {
+            List<Room> list = new List<Room>();
+            for(int i = 1 ; i < count; i++){
+                Room room = new Room();
+                room.id = i;
+                room.type = RoomType.hospitalRoom;
+                room.ward = "ward";
+                room.floor = "3";
+                list.Add(room);
+
+            }
+            return list;
+
+        }
 
 
         public Patient GeneratePatient(){

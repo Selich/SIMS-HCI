@@ -37,6 +37,7 @@ namespace Project.Views.Secretary
         public List<TimeInterval> listOfTerms;
         public  Model.Doctor selectedDoctor { get; set; }
         public string drName { get; set; }
+        public Model.Secretary user;
         public List<MedicalAppointment> medicalAppointments;
         public DoctorSearchModal doctorModal;
         public MedicalAppointment selectedAppointment;
@@ -46,6 +47,13 @@ namespace Project.Views.Secretary
         {
             DateTime currentDate = DateTime.Now;
             DateTime selectedDate = currentDate;
+            user = new Model.Secretary();
+            user.firstName = "Nikola";
+            user.lastName = "Selic";
+            user.address = new Address("7a", "Bulevar deposta Stefana", "Novi Sad", "Republika Srbija", "21000");
+            user.email = "n_selic@uns.ac.rs";
+
+
 
             doctorModal = new DoctorSearchModal(this);
             PatientRepository pr = new PatientRepository();
@@ -55,22 +63,32 @@ namespace Project.Views.Secretary
 
             InitializeComponent();
 
+            dateTimePicker.SelectedDate = DateTime.Today;
+
             medicalAppointments = gen.GetMedicalAppointments(10);
             var weeksAppointments = GetThisWeeksAppointements(medicalAppointments);
 
             listPatients.ItemsSource = pr.ReadCSV("../../Data/patients.csv");
-            listPatientsCreate.ItemsSource = listPatients.ItemsSource;
+            listPatientsCreate.ItemsSource = pr.ReadCSV("../../Data/patients.csv");
+
             listQuestions.ItemsSource = qr.ReadCSV("../../Data/questions.csv");
             listTerm.ItemsSource = medicalAppointments;
             listAppointments.ItemsSource = medicalAppointments;
             nextAppointment.Content = medicalAppointments[0];
+
+            listRoom.ItemsSource = gen.GetRooms(10);
 
 
             lst.ItemsSource = GenerateTerms();
 
 
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listPatients.ItemsSource);
+            CollectionView viewCreate = (CollectionView)CollectionViewSource.GetDefaultView(listPatientsCreate.ItemsSource);
+            CollectionView viewRooms = (CollectionView)CollectionViewSource.GetDefaultView(listRoom.ItemsSource);
+
             view.Filter = UserFilter;
+            viewCreate.Filter = UserFilterCreate;
+            viewRooms.Filter = RoomFilter;
 
         }
         public List<List<TimeInterval>> GenerateTerms()
@@ -147,9 +165,32 @@ namespace Project.Views.Secretary
             else
                 return ((item as User).firstName.IndexOf(patientFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0);
         }
+        private bool UserFilterCreate(object item)
+        {
+            if (String.IsNullOrEmpty(patientFilterCreate.Text))
+                return true;
+            else
+                return ((item as User).firstName.IndexOf(patientFilterCreate.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+        }
+        private bool RoomFilter(object item)
+        {
+            if (String.IsNullOrEmpty(roomFilter.Text))
+                return true;
+            else
+                return ((item as Room).id.ToString().IndexOf(roomFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+                //return ((item as Room).id.ToString().IndexOf(roomFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0 && (item as Room).type.ToString().IndexOf(appointmentType.SelectedItem.ToString(), StringComparison.OrdinalIgnoreCase) >= 0);
+        }
         private void txtFilter_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
             CollectionViewSource.GetDefaultView(listPatients.ItemsSource).Refresh();
+        }
+        private void roomFilter_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            CollectionViewSource.GetDefaultView(listRoom.ItemsSource).Refresh();
+        }
+        private void txtFilterCreate_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            CollectionViewSource.GetDefaultView(listPatientsCreate.ItemsSource).Refresh();
         }
 
         private void Search_Doctor(object sender, RoutedEventArgs e)
@@ -167,8 +208,8 @@ namespace Project.Views.Secretary
         }
         private void dpick_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
-            selectedDate = datePicker.SelectedDate.Value;
-            CollectionViewSource.GetDefaultView(listTerm.ItemsSource).Refresh();
+            selectedDate = dateTimePicker.SelectedDate.Value;
+            //CollectionViewSource.GetDefaultView(listTerm.ItemsSource).Refresh();
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
