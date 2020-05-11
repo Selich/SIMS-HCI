@@ -180,8 +180,42 @@
                                     <materialDesign:PackIcon Kind="ArrowRight"/>
                                 </Button>
                             </Grid>
-                            <Grid>
+                            <!--<Grid>
                                 <ItemsControl x:Name="lst" ItemTemplate="{DynamicResource DataTemplate_Level1}" Margin="0,27,0,0"/>
+                            </Grid>-->
+                            <Grid  HorizontalAlignment="Left" Margin="0,25,0,0" Width="1168" Background="White">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="0.3*" />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+
+                                <TextBlock Background="#AEEBE4"  FontSize="12" FontWeight="Bold" Grid.Row="0" Grid.Column="0" TextAlignment="Center">Pon.</TextBlock>
+                                <TextBlock Background="#AEEBE4"  FontSize="12" FontWeight="Bold" Grid.Row="0" Grid.Column="1" TextAlignment="Center">Uto.</TextBlock>
+                                <TextBlock Background="#AEEBE4" FontSize="12" FontWeight="Bold" Grid.Row="0" Grid.Column="2" TextAlignment="Center">Sre.</TextBlock>
+                                <TextBlock Background="#AEEBE4"  FontSize="12" FontWeight="Bold" Grid.Row="0" Grid.Column="3" TextAlignment="Center">Cet.</TextBlock>
+                                <TextBlock Background="#AEEBE4" FontSize="12" FontWeight="Bold" Grid.Row="0" Grid.Column="4" TextAlignment="Center">Pet.</TextBlock>
+                                <TextBlock Background="#AEEBE4" FontSize="12" FontWeight="Bold" Grid.Row="0" Grid.Column="5" TextAlignment="Center">Sub.</TextBlock>
+                                <TextBlock Background="#AEEBE4" FontSize="12" FontWeight="Bold" Grid.Row="0" Grid.Column="6" TextAlignment="Center">Ned.</TextBlock>
+                                <TextBlock Background="#FFAEEBB1" FontSize="12" FontWeight="Bold" Grid.Row="1" Grid.Column="3" TextAlignment="Center">Pregled 12:00</TextBlock>
+                                <TextBlock Background="#FFAEEBB1" FontSize="12" FontWeight="Bold" Grid.Row="1" Grid.Column="4" TextAlignment="Center">Pregled 12:00</TextBlock>
+                                <TextBlock Background="#FFF3F7A0" FontSize="12" FontWeight="Bold" Grid.Row="2" Grid.Column="3" TextAlignment="Center">Operacija 13:00</TextBlock>
+                                <TextBlock Background="#FFF3F7A0" FontSize="12" FontWeight="Bold" Grid.Row="3" Grid.Column="1" TextAlignment="Center">Operacija 14:00</TextBlock>
+                                <TextBlock Background="#FFF3F7A0" FontSize="12" FontWeight="Bold" Grid.Row="4" Grid.Column="1" TextAlignment="Center"></TextBlock>
+                                <TextBlock Background="#FFF3F7A0" FontSize="12" FontWeight="Bold" Grid.Row="4" Grid.Column="2" TextAlignment="Center">Operacija 15:00</TextBlock>
                             </Grid>
                         </Grid>
                     </TabItem>
@@ -196,35 +230,20 @@
                                     <materialDesign:PackIcon Kind="ArrowRight"/>
                                 </Button>
                             </Grid>
-                            <Grid ShowGridLines="True" Background="White" HorizontalAlignment="Left" Margin="0,25,0,0" Width="1168">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition />
-                                    <ColumnDefinition />
-                                    <ColumnDefinition />
-                                    <ColumnDefinition />
-                                    <ColumnDefinition />
-                                    <ColumnDefinition />
-                                    <ColumnDefinition />
-                                </Grid.ColumnDefinitions>
+                            <Grid Background="White" HorizontalAlignment="Left" Margin="0,25,0,0" Width="1168">
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="18*" />
-                                    <RowDefinition Height="55*" />
-                                    <RowDefinition Height="55*" />
-                                    <RowDefinition Height="55*" />
-                                    <RowDefinition Height="55*" />
-                                    <RowDefinition Height="55*" />
+                                    <RowDefinition Height="0.3*" />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition />
                                 </Grid.RowDefinitions>
-
                                 <TextBlock Background="#AEEBE4"  FontSize="12" FontWeight="Bold" Grid.Row="0" Grid.Column="0" TextAlignment="Center">Pon.</TextBlock>
-                                <TextBlock Background="#AEEBE4"  FontSize="12" FontWeight="Bold" Grid.Row="0" Grid.Column="1" TextAlignment="Center">Uto.</TextBlock>
-                                <TextBlock Background="#AEEBE4" FontSize="12" FontWeight="Bold" Grid.Row="0" Grid.Column="2" TextAlignment="Center">Sre.</TextBlock>
-                                <TextBlock Background="#AEEBE4"  FontSize="12" FontWeight="Bold" Grid.Row="0" Grid.Column="3" TextAlignment="Center">Cet.</TextBlock>
-                                <TextBlock Background="#AEEBE4" FontSize="12" FontWeight="Bold" Grid.Row="0" Grid.Column="4" TextAlignment="Center">Pet.</TextBlock>
-                                <TextBlock Background="#AEEBE4" FontSize="12" FontWeight="Bold" Grid.Row="0" Grid.Column="5" TextAlignment="Center">Sub.</TextBlock>
-                                <TextBlock Background="#AEEBE4" FontSize="12" FontWeight="Bold" Grid.Row="0" Grid.Column="6" TextAlignment="Center">Ned.</TextBlock>
-                                <TextBlock FontSize="12" Background="White" FontWeight="Bold" Grid.Row="1" Grid.Column="0" >Dan 1</TextBlock>
-                                <TextBlock FontSize="12" Background="White" FontWeight="Bold" Grid.Row="1" Grid.Column="1" >Dan 2</TextBlock>
-                                <TextBlock FontSize="12" Background="White" FontWeight="Bold" Grid.Row="1" Grid.Column="2" >Dan 3</TextBlock>
+                                <TextBlock Background="#FFAEEBB1" FontSize="12" FontWeight="Bold" Grid.Row="1" Grid.Column="4" TextAlignment="Center">Pregled 12:00</TextBlock>
+                                <TextBlock Background="#FFF3F7A0" FontSize="12" FontWeight="Bold" Grid.Row="2" Grid.Column="0" TextAlignment="Center">Operacija 13:00</TextBlock>
+
                             </Grid>
                         </Grid>
                     </TabItem>

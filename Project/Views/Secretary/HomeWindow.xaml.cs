@@ -55,7 +55,7 @@ namespace Project.Views.Secretary
             user = new Model.Secretary();
             user.firstName = "Nikola";
             user.lastName = "Selic";
-            user.address = new Address("7a", "Bulevar deposta Stefana", "Novi Sad", "Republika Srbija", "21000");
+            user.address = new Address("7a", "Bulevar despota Stefana", "Novi Sad", "Republika Srbija", "21000");
             user.email = "n_selic@uns.ac.rs";
 
 
@@ -92,7 +92,7 @@ namespace Project.Views.Secretary
             listRoom.ItemsSource = gen.GetRooms(10);
 
 
-            lst.ItemsSource = GenerateTerms();
+            //lst.ItemsSource = GenerateTerms();
 
             CollectionView viewAdress = (CollectionView)CollectionViewSource.GetDefaultView(listPatients.ItemsSource);
             CollectionView viewNumber = (CollectionView)CollectionViewSource.GetDefaultView(listPatients.ItemsSource);
