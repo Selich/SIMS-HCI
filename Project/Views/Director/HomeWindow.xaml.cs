@@ -111,5 +111,11 @@ namespace Project.Views.Director
             OrderMedicalConsumableModal modal = new OrderMedicalConsumableModal();
             modal.Show();
         }
+
+        private void OpenRenovationAppointment(object sender, RoutedEventArgs e)
+        {
+            RenovationModal modal = new RenovationModal();
+            modal.Show();
+        }
     }
 }
