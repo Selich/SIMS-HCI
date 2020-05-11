@@ -9,9 +9,9 @@
     <Grid>
         <Label Content="Tip Renovacije" HorizontalAlignment="Left" Margin="79,50,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="15"/>
         <ComboBox HorizontalAlignment="Left" Margin="220,50,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="AdjustRenovationModal">
-            <ComboBoxItem IsSelected="True">Promena funkcije</ComboBoxItem>
-            <ComboBoxItem>Rusenje</ComboBoxItem>
-            <ComboBoxItem>Pregradjivanje</ComboBoxItem>
+            <ComboBoxItem IsSelected="True" Content="Promena funkcije"></ComboBoxItem>
+            <ComboBoxItem Content="Rusenje"></ComboBoxItem>
+            <ComboBoxItem Content="Pregradjivanje"></ComboBoxItem>
         </ComboBox>
         <Label Content="Pocetak:" HorizontalAlignment="Left" Margin="79,96,0,0" VerticalAlignment="Top" FontSize="15"/>
         <Label Content="Kraj:" HorizontalAlignment="Left" Margin="79,147,0,0" VerticalAlignment="Top" FontSize="15"/>

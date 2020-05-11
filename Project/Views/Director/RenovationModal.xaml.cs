@@ -19,6 +19,7 @@ namespace Project.Views.Director
     /// </summary>
     public partial class RenovationModal : Window
     {
+           
         public RenovationModal()
         {
             InitializeComponent();
@@ -27,7 +28,11 @@ namespace Project.Views.Director
         private void AdjustRenovationModal(object sender, SelectionChangedEventArgs e)
         {
 
-            string text = ((sender as ComboBox).SelectedItem).ToString();
+            var item = ((ComboBoxItem)((sender as ComboBox).SelectedItem)).Content; 
+            if(item != null)
+            {
+                string text = item.ToString();
+
             if (text != null && RoomType!=null && NewRoomType!=null) { 
                 if (text.Equals("Promena funkcije"))
                 {
@@ -38,7 +43,7 @@ namespace Project.Views.Director
                 {
                     RoomType.IsEnabled = false;
                     NewRoomType.IsEnabled = true;
-                }
+                } 
                 else
                 {
                     RoomType.IsEnabled = false;
@@ -47,6 +52,7 @@ namespace Project.Views.Director
                 }
            
              }
+            }
         }
 
         private void CloseRenovationAppointment(object sender, RoutedEventArgs e)
