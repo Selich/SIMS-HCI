@@ -362,6 +362,7 @@
     <Folder Include="Views\Patient\.vs\Patient\v15\" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\graph.png" />
     <Content Include="Resources\Icons\8370799161557749690.svg" />
     <Resource Include="Resources\Images\Faces\down.png" />
     <Resource Include="Resources\Images\Faces\pat.jpg" />
