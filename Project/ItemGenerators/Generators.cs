@@ -53,15 +53,28 @@ namespace Project.ItemGenerators
 
         public Patient GeneratePatient(){
             var random = new Random();
-            return new Patient(
+            Patient patient = new Patient(
                 firstNames[random.Next(firstNames.Length)], 
                 lastNames[random.Next(lastNames.Length)]
                 );
+
+            patient.address = new Address("12", "Bulevar despota Stefana", "Novi Sad", "Republika Srbija", "21000");
+            return patient;
+            
                 
         }
         public Doctor GenerateDoctor(){
             var random = new Random();
             return new Doctor( firstNames[random.Next(firstNames.Length)], lastNames[random.Next(lastNames.Length)]);
         }
+        public List<Doctor> GenerateDoctors(int count){
+            List<Doctor> list = new List<Doctor>();
+            for(int i = 0; i < count; i++)
+            {
+                list.Add(GenerateDoctor());
+            }
+            return list;
+        }
+
     }
 }

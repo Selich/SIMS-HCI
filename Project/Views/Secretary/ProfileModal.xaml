@@ -21,18 +21,19 @@
                         <Image HorizontalAlignment="Left" Height="204" Margin="27,27,0,0" VerticalAlignment="Top" Width="205" Source="../../Resources/Images/Faces/face5"/>
                         <Button Content="Izmeni sliku" HorizontalAlignment="Left" Margin="27,265,0,0" VerticalAlignment="Top" Width="205"/>
                     </Grid>
-                <Grid HorizontalAlignment="Left" Height="301" Margin="364,40,0,0" VerticalAlignment="Top" Width="245">
+                <Grid HorizontalAlignment="Left" Height="301" Margin="330,33,0,0" VerticalAlignment="Top" Width="245">
                     <Label Content="Ime:" HorizontalAlignment="Left" Margin="15,15,0,0" VerticalAlignment="Top" Width="87"/>
                     <Label Content="Prezime:" HorizontalAlignment="Left" Margin="15,45,0,0" VerticalAlignment="Top" Width="87"/>
                     <Label Content="Adresa:" HorizontalAlignment="Left" Margin="15,75,0,0" VerticalAlignment="Top"/>
                     <Label Content="Email:" HorizontalAlignment="Left" Margin="15,105,0,0" VerticalAlignment="Top"/>
                     <Label Content="Broj Telefona:" HorizontalAlignment="Left" Margin="15,135,0,0" VerticalAlignment="Top"/>
-                    <Button Content="Izmeni" FontSize="11" HorizontalAlignment="Left" Margin="10,270,0,0" VerticalAlignment="Top" Width="65" Height="23"/>
-                    <TextBox HorizontalAlignment="Left" Height="23" Margin="116,15,0,0" TextWrapping="Wrap" Text="{Binding user.firstName}" VerticalAlignment="Top" Width="120"/>
-                    <TextBox HorizontalAlignment="Left" Height="23" Margin="116,45,0,0" TextWrapping="Wrap" Text="{Binding user.lastName}" VerticalAlignment="Top" Width="120"/>
-                    <TextBox HorizontalAlignment="Left" Height="23" Margin="116,75,0,0" TextWrapping="Wrap" Text="{Binding user.address}" VerticalAlignment="Top" Width="120"/>
-                    <TextBox HorizontalAlignment="Left" Height="23" Margin="116,105,0,0" TextWrapping="Wrap" Text="{Binding user.email}" VerticalAlignment="Top" Width="120"/>
-                    <TextBox HorizontalAlignment="Left" Height="23" Margin="116,135,0,0" TextWrapping="Wrap" Text="{Binding user.telephoneNumber}" VerticalAlignment="Top" Width="120"/>
+                    <Button Visibility="Hidden" Content="Obustavi" FontSize="11" HorizontalAlignment="Left" Margin="10,270,0,0" VerticalAlignment="Top" Background="DarkRed" Width="83" Height="23" Click="Cancel_Click" x:Name="Obustavi"/>
+                    <TextBox x:Name="Profile_FirstName" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="116,15,0,0" TextWrapping="Wrap" Text="{Binding selectedPatient.firstName}" VerticalAlignment="Top" Width="120"/>
+                    <TextBox x:Name="Profile_LastName" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="116,45,0,0" TextWrapping="Wrap" Text="{Binding selectedPatient.lastName}" VerticalAlignment="Top" Width="120"/>
+                    <TextBox x:Name="Profile_Address" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="116,75,0,0" TextWrapping="Wrap" Text="{Binding selectedPatient.address}" VerticalAlignment="Top" Width="120"/>
+                    <TextBox x:Name="Profile_Email" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="116,105,0,0" TextWrapping="Wrap" Text="{Binding selectedPatient.email}" VerticalAlignment="Top" Width="120"/>
+                    <TextBox x:Name="Profile_TelephoneNumber" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="116,135,0,0" TextWrapping="Wrap" Text="{Binding selectedPatient.telephoneNumber}" VerticalAlignment="Top" Width="120"/>
+                    <Button Content="Izmeni" FontSize="11" HorizontalAlignment="Left" Margin="10,270,0,0" VerticalAlignment="Top" Width="83" Height="23" Click="Change_Click" x:Name="Izmeni"/>
                 </Grid>
             </Grid>
         </TabItem>

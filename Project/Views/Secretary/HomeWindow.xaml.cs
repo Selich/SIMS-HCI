@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,11 +43,13 @@ namespace Project.Views.Secretary
         public DoctorSearchModal doctorModal;
         public MedicalAppointment selectedAppointment;
         public Question selectedQuestion;
+        public bool isChangeble;
         public DateTime selectedDate;
         public HomeWindow()
         {
             DateTime currentDate = DateTime.Now;
             DateTime selectedDate = currentDate;
+            isChangeble = false;
             user = new Model.Secretary();
             user.firstName = "Nikola";
             user.lastName = "Selic";
@@ -81,6 +84,8 @@ namespace Project.Views.Secretary
 
             lst.ItemsSource = GenerateTerms();
 
+            CollectionView viewAdress = (CollectionView)CollectionViewSource.GetDefaultView(listPatients.ItemsSource);
+            CollectionView viewNumber = (CollectionView)CollectionViewSource.GetDefaultView(listPatients.ItemsSource);
 
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listPatients.ItemsSource);
             CollectionView viewCreate = (CollectionView)CollectionViewSource.GetDefaultView(listPatientsCreate.ItemsSource);
@@ -157,6 +162,14 @@ namespace Project.Views.Secretary
             s.Show();
 
         }
+        private void Profile_Click(object sender, RoutedEventArgs e)
+        {
+            Model.Patient item = (Model.Patient)(sender as System.Windows.Controls.Button).DataContext;
+            var s = new ProfileModal(item);
+            s.Show();
+
+        }
+
 
         private bool UserFilter(object item)
         {
@@ -250,5 +263,33 @@ namespace Project.Views.Secretary
             s.Show();
 
         }
+
+        private void Change_Click(object sender, RoutedEventArgs e)
+        {
+            Profile_FirstName.IsEnabled = true;
+            Profile_LastName.IsEnabled = true;
+            Profile_Email.IsEnabled = true;
+            Profile_Address.IsEnabled = true;
+            Profile_TelephoneNumber.IsEnabled = true;
+            Obustavi.Visibility = Visibility.Visible;
+            Izmeni.Visibility = Visibility.Hidden;
+        }
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            Profile_FirstName.IsEnabled = false;
+            Profile_LastName.IsEnabled = false;
+            Profile_Email.IsEnabled = false;
+            Profile_Address.IsEnabled = false;
+            Profile_TelephoneNumber.IsEnabled = false;
+            Obustavi.Visibility = Visibility.Hidden;
+            Izmeni.Visibility = Visibility.Visible;
+
+        }
+
+        private void Change_Picture(object sender, RoutedEventArgs e)
+        {
+
+        }
+
     }
 }

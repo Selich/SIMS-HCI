@@ -1,5 +1,6 @@
 ﻿using Controller;
 using Model;
+using Project.ItemGenerators;
 using Project.Repositories;
 using System;
 using System.Collections.Generic;
@@ -24,9 +25,12 @@ namespace Project.Views.Secretary
     {
         public AppointmentModal(MedicalAppointment app)
         {
+            Generators gen = new Generators();
             InitializeComponent();
+
             selectedAppointment.Content = app;
             listDoctors.ItemsSource = app.doctors;
+            listAllDoctors.ItemsSource = gen.GenerateDoctors(10);
 
         }
 
@@ -35,6 +39,8 @@ namespace Project.Views.Secretary
             search.Visibility = Visibility.Visible;
             kodLekara.Visibility = Visibility.Hidden;
             Change_Doctor_Button.Visibility = Visibility.Hidden;
+            listDoctors.Visibility = Visibility.Hidden;
+            listAllDoctors.Visibility = Visibility.Visible;
             Cancel_Change_Doctor_Button.Visibility = Visibility.Visible;
 
 
@@ -44,6 +50,8 @@ namespace Project.Views.Secretary
             search.Visibility = Visibility.Hidden;
             kodLekara.Visibility = Visibility.Visible;
             Change_Doctor_Button.Visibility = Visibility.Visible;
+            listAllDoctors.Visibility = Visibility.Hidden;
+            listDoctors.Visibility = Visibility.Visible;
             Cancel_Change_Doctor_Button.Visibility = Visibility.Hidden;
 
         }
@@ -54,6 +62,17 @@ namespace Project.Views.Secretary
             var id = item.patient.id;
             var s = new ProfileModal(id);
             s.Show();
+
+        }
+        private void Add_Doctor_Click(object sender, RoutedEventArgs e)
+        {
+            Model.Doctor item = (Model.Doctor)(sender as System.Windows.Controls.Button).DataContext;
+            MessageBox.Show("Da li ste sigurni da zelite da dodate Dr." + item.firstName + " " + item.lastName + " u termin?", "Potvrda", MessageBoxButton.OKCancel);
+            listAllDoctors.Visibility = Visibility.Hidden;
+            listDoctors.Visibility = Visibility.Visible;
+            Change_Doctor_Button.Visibility = Visibility.Visible;
+            Cancel_Change_Doctor_Button.Visibility = Visibility.Hidden;
+
 
         }
         private void txtFilter_TextChanged(object sended, RoutedEventArgs e)

@@ -61,6 +61,25 @@
                 </Grid>
             </materialDesign:Card>
         </DataTemplate>
+        <!--Details-->
+        <DataTemplate x:Key="patientDetailsTemplate">
+            <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth4" Height="85" Width="1068">
+                <Grid>
+                    <Image Source="../../Resources/Images/Faces/face1" HorizontalAlignment="Left" Height="65" Margin="26,11,0,0" VerticalAlignment="Top" Width="66" Stretch="Fill"/>
+                    <TextBlock FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" Margin="120,15,0,0" TextWrapping="Wrap"  VerticalAlignment="Top">
+                                    <Run Text="{Binding firstName}"/>
+                                    <Run Text="{Binding lastName}"/>
+                    </TextBlock>
+                    <TextBlock HorizontalAlignment="Left" Margin="120,38,0,0" TextWrapping="Wrap"  VerticalAlignment="Top">
+                                    <Run Text="{Binding Address.number}"/>
+                                    <Run Text="{Binding Address.street}"/>
+                    </TextBlock>
+                    <TextBlock HorizontalAlignment="Left" Margin="120,50,0,0" TextWrapping="Wrap" Text="{Binding telephoneNumber}" VerticalAlignment="Top"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="120,62,0,0" TextWrapping="Wrap" Text="{Binding email}" VerticalAlignment="Top"/>
+                    <Button Content="Profil" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="100" Height="65" Click="Profile_Click" />
+                </Grid>
+            </materialDesign:Card>
+        </DataTemplate>
         <!--Question-->
         <DataTemplate x:Key="questionsTemplate">
             <StackPanel Margin="3">
@@ -219,6 +238,7 @@
                     </TabItem>
                 </TabControl>
                 <Button Content="Feedback" HorizontalAlignment="Right" Margin="0,0,47,10" VerticalAlignment="Bottom" Width="100" Height="22" Click="Feedback_Click"/>
+                <Button Content="Demo" HorizontalAlignment="Right" Margin="0,0,167,10" VerticalAlignment="Bottom" Width="100" Height="22" Click="Feedback_Click"/>
             </Grid>
         </TabItem>
         <TabItem Header="Kreiraj">
@@ -246,10 +266,24 @@
                     <Button Visibility="Visible" x:Name="Guest_Button" Content="Guest?" HorizontalAlignment="Right" Margin="0,16,8,6" VerticalAlignment="Center" Width="76" FontSize="11" Height="22" Click="Button_Click_2"/>
                     <Button Visibility="Hidden" x:Name="Cancel_Button" Content="Back" HorizontalAlignment="Right" Margin="0,16,8,6" VerticalAlignment="Center" Width="76" FontSize="11" Height="22" Click="Cancel_Button_Click"/>
                 </Grid>
-                <Grid Visibility="Visible" Background="White" HorizontalAlignment="Left" Height="528" Margin="34,98,0,0" VerticalAlignment="Top" Width="572" Name="List_Patients_Create">
-                    <ListBox  Name="listPatientsCreate" ItemTemplate="{StaticResource patientTemplate}" Background="White" HorizontalAlignment="Left" Height="518" Margin="43,0,0,0" VerticalAlignment="Top" Width="520" />
+                <Grid Visibility="Visible" HorizontalAlignment="Left" Height="528" Margin="34,98,0,0" VerticalAlignment="Top" Width="572" Name="List_Patients_Create">
+                    <ListBox  Name="listPatientsCreate" ItemTemplate="{StaticResource patientTemplate}" HorizontalAlignment="Left" Height="508" Margin="43,10,0,0" VerticalAlignment="Top" Width="520" Background="{x:Null}" >
+                        <ListBox.Effect>
+                            <DropShadowEffect Direction="420" ShadowDepth="3" Opacity="0.5"/>
+                        </ListBox.Effect>
+                    </ListBox>
                 </Grid>
-                <Grid Visibility="Hidden" Background="White" HorizontalAlignment="Left" Height="540" Margin="43,86,0,0" VerticalAlignment="Top" Width="563" Name="Guest_Account_Create">
+                <Grid Visibility="Hidden" HorizontalAlignment="Left" Height="540" Margin="43,98,0,0" VerticalAlignment="Top" Width="563" Name="Guest_Account_Create">
+                    <Grid.Effect>
+                        <DropShadowEffect Direction="420" Opacity="0.5" ShadowDepth="3"/>
+                    </Grid.Effect>
+                    <Grid.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                            <GradientStop Color="#FFEAEAEA" Offset="0.007"/>
+                            <GradientStop Color="White" Offset="0.267"/>
+                            <GradientStop Color="#FFE8E8E8" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Grid.Background>
                     <Grid HorizontalAlignment="Left" Height="520" Margin="10,10,0,0" VerticalAlignment="Top" Width="543">
                         <Label Content="Ime:" HorizontalAlignment="Left" Margin="120,89,0,0" VerticalAlignment="Top" Width="87"/>
                         <Label Content="Prezime:" HorizontalAlignment="Left" Margin="120,119,0,0" VerticalAlignment="Top" Width="87"/>
@@ -263,31 +297,42 @@
                         <TextBox HorizontalAlignment="Left" Height="23" Margin="221,179,0,0" TextWrapping="Wrap" Text="{Binding user.email}" VerticalAlignment="Top" Width="181"/>
                         <TextBox HorizontalAlignment="Left" Height="23" Margin="221,209,0,0" TextWrapping="Wrap" Text="{Binding user.telephoneNumber}" VerticalAlignment="Top" Width="181"/>
                         <TextBox HorizontalAlignment="Left" Height="55" Margin="221,299,0,0" TextWrapping="Wrap" Text="{Binding user.telephoneNumber}" VerticalAlignment="Top" Width="181"/>
-                        <Button Content="Kreiraj" FontSize="11" HorizontalAlignment="Left" Margin="468,487,0,0" VerticalAlignment="Top" Width="65" Height="23"/>
                     </Grid>
                 </Grid>
                 <Grid Background="White" HorizontalAlignment="Left" Height="32" Margin="634,47,0,0" VerticalAlignment="Top" Width="572">
                     <DatePicker FirstDayOfWeek="Monday" SelectedDateFormat="Short"
                 SelectedDateChanged="dpick_SelectedDateChanged" Name="dateTimePicker" HorizontalAlignment="Left" Margin="28,4,0,0" VerticalAlignment="Top" Width="183"/>
                 </Grid>
-                <Grid Visibility="Visible" Background="White" HorizontalAlignment="Left" Height="528" Margin="634,98,0,0" VerticalAlignment="Top" Width="572" x:Name="Guest_Account_Create_Copy">
+                <Grid HorizontalAlignment="Left" Height="528" Margin="634,98,0,0" VerticalAlignment="Top" Width="583" x:Name="Guest_Account_Create_Copy">
+                    <Grid.Effect>
+                        <DropShadowEffect Direction="420" Opacity="0.5" ShadowDepth="3"/>
+                    </Grid.Effect>
+                    <Grid.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                            <GradientStop Color="#FFEAEAEA" Offset="0.007"/>
+                            <GradientStop Color="White" Offset="0.267"/>
+                            <GradientStop Color="#FFE8E8E8" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Grid.Background>
                     <Grid HorizontalAlignment="Left" Height="36" Margin="0,500,0,0" VerticalAlignment="Top" Width="572"/>
-                    <ListBox HorizontalAlignment="Left" Height="455" Margin="294,40,0,0" VerticalAlignment="Top" Width="250" ItemTemplate="{StaticResource termTemplate}" Name="listTerm" SelectedItem="termList_KeyDown" >
+                    <ListBox HorizontalAlignment="Left" Height="455" Margin="39,40,0,0" VerticalAlignment="Top" Width="250" ItemTemplate="{StaticResource termTemplate}" Name="listTerm" SelectedItem="termList_KeyDown" Background="White" >
                     </ListBox>
-                    <Label Content="Termini:" HorizontalAlignment="Left" Margin="286,10,0,0" VerticalAlignment="Top"/>
-                    <TextBox x:Name="roomFilter" HorizontalAlignment="Left" Height="22" Margin="88,172,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="roomFilter_TextChanged" />
-                    <Label Content="Soba:" HorizontalAlignment="Left" Margin="39,173,0,333"/>
-                    <Label Content="Tip:" HorizontalAlignment="Left" Margin="42,44,0,462"/>
-                    <ComboBox HorizontalAlignment="Left" Margin="88,44,0,0" x:Name="appointmentType" VerticalAlignment="Top" Width="120">
+                    <Label Content="Termini:" HorizontalAlignment="Left" Margin="31,10,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Tip:" HorizontalAlignment="Left" Margin="312,42,0,464"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="358,42,0,0" x:Name="appointmentType" VerticalAlignment="Top" Width="120" Background="White">
                         <ComboBoxItem IsSelected="True">Pregled</ComboBoxItem>
                         <ComboBoxItem>Operacija</ComboBoxItem>
                         <ComboBoxItem>Lezanje</ComboBoxItem>
                     </ComboBox>
+                    <Label Content="Soba:" HorizontalAlignment="Left" Margin="309,117,0,389"/>
+                    <TextBox x:Name="roomFilter" HorizontalAlignment="Left" Height="22" Margin="358,116,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="roomFilter_TextChanged" Background="White" />
 
-                    <Label Content="Dostupne Sobe:" HorizontalAlignment="Left" Margin="38,211,0,295"/>
-                    <ListBox HorizontalAlignment="Left" Height="254" Margin="42,241,0,0" VerticalAlignment="Top" Width="212" ItemTemplate="{StaticResource roomTemplate}" x:Name="listRoom" SelectedItem="termList_KeyDown" />
+                    <Label Content="Dostupne Sobe:" HorizontalAlignment="Left" Margin="308,155,0,351"/>
+                    <ListBox HorizontalAlignment="Left" Height="254" Margin="316,187,0,0" VerticalAlignment="Top" Width="229" ItemTemplate="{StaticResource roomTemplate}" x:Name="listRoom" SelectedItem="termList_KeyDown" Background="White" />
+                    <Button Content="Kreiraj" FontSize="14" HorizontalAlignment="Left" Margin="316,461,0,0" VerticalAlignment="Top" Width="229" Height="34"/>
                 </Grid>
                 <Button Content="Feedback" HorizontalAlignment="Right" Margin="0,0,47,10" VerticalAlignment="Bottom" Width="100" Height="22" Click="Feedback_Click"/>
+                <Button Content="Demo" HorizontalAlignment="Right" Margin="0,0,167,10" VerticalAlignment="Bottom" Width="100" Height="22" Click="Feedback_Click"/>
             </Grid>
         </TabItem>
         <TabItem Header="Pacijenti">
@@ -301,17 +346,18 @@
                 <Grid HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Width="1243" Margin="0,37,0,0">
                     <materialDesign:PackIcon Kind="Search" Height="21" Width="21" HorizontalAlignment="Left" Margin="39,18,0,0"/>
                     <TextBox x:Name="patientFilter" HorizontalAlignment="Left" Height="23" Margin="69,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="249" TextChanged="txtFilter_TextChanged"/>
+                    <CheckBox Content="Prikazi samo registrovane" HorizontalAlignment="Left" Margin="339,18,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="addressFilter" HorizontalAlignment="Left" Height="23" Margin="580,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166" TextChanged="txtFilter_TextChanged"/>
+                    <Label Content="Adresa:" HorizontalAlignment="Left" Margin="522,16,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="numberFilter" HorizontalAlignment="Left" Height="23" Margin="822,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166" TextChanged="txtFilter_TextChanged"/>
+                    <Label Content=" Telefon:" HorizontalAlignment="Left" Margin="759,16,0,0" VerticalAlignment="Top"/>
+                    <Button Content="Generisi Izvestaj" HorizontalAlignment="Left" Margin="1064,6,0,0" VerticalAlignment="Top" Width="161"/>
                 </Grid>
-                <ListView Name="listPatients" BorderThickness="2" Background="White" HorizontalAlignment="Left" Height="535" Margin="44,81,0,0" VerticalAlignment="Top" Width="1170">
-                    <ListView.View>
-                        <GridView>
-                            <GridViewColumn Header="First Name" Width="120" DisplayMemberBinding="{Binding firstName}" />
-                            <GridViewColumn Header="Last Name" Width="120" DisplayMemberBinding="{Binding lastName}" />
-                            <GridViewColumn Header="Jmbg" Width="120" DisplayMemberBinding="{Binding jmbg}" />
-
-                        </GridView>
-                    </ListView.View>
-                </ListView>
+                <ListBox  Name="listPatients" ItemTemplate="{StaticResource patientDetailsTemplate}" HorizontalAlignment="Left" Height="508" Margin="70,98,0,0" VerticalAlignment="Top" Width="1147" Background="{x:Null}" >
+                    <ListBox.Effect>
+                        <DropShadowEffect Direction="420" ShadowDepth="3" Opacity="0.5"/>
+                    </ListBox.Effect>
+                </ListBox>
                 <Grid HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Width="1264">
                     <Grid.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -319,10 +365,9 @@
                             <GradientStop Color="#FFAEEBE4"/>
                         </LinearGradientBrush>
                     </Grid.Background>
-                    <materialDesign:PackIcon Kind="Doctor" Height="21" Width="21" HorizontalAlignment="Left" Margin="38,18,0,0"/>
-                    <Button FontSize="12" Content="Izaberi Lekara" HorizontalAlignment="Left" Margin="70,18,0,0" VerticalAlignment="Top" Width="250" Height="21" Click="Search_Doctor" />
                 </Grid>
                 <Button Content="Feedback" HorizontalAlignment="Right" Margin="0,0,47,10" VerticalAlignment="Bottom" Width="100" Height="22" Click="Feedback_Click"/>
+                <Button Content="Demo" HorizontalAlignment="Right" Margin="0,0,167,10" VerticalAlignment="Bottom" Width="100" Height="22" Click="Feedback_Click"/>
             </Grid>
         </TabItem>
         <TabItem Header="Pitanja">
@@ -348,6 +393,7 @@
                 </Grid>
                 <ListBox x:Name="listQuestions" BorderThickness="2" Background="White" HorizontalAlignment="Left" Height="544" Margin="44,81,0,0" VerticalAlignment="Top" Width="1170" ItemTemplate="{StaticResource questionsTemplate}" KeyDown="questionsList_KeyDown"/>
                 <Button Content="Feedback" HorizontalAlignment="Right" Margin="0,0,47,10" VerticalAlignment="Bottom" Width="100" Height="22" Click="Feedback_Click"/>
+                <Button Content="Demo" HorizontalAlignment="Right" Margin="0,0,167,10" VerticalAlignment="Bottom" Width="100" Height="22" Click="Feedback_Click"/>
             </Grid>
         </TabItem>
         <TabItem Header="Podesavanja">
@@ -368,12 +414,12 @@
                         </Grid.Background>
                     </Grid>
                     <Grid HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Width="1243" Margin="0,37,0,0"/>
-                    <Button Content="Feedback" HorizontalAlignment="Right" Margin="0,0,34,10" VerticalAlignment="Bottom" Width="100" Height="22" Click="Feedback_Click"/>
+                    <Button Content="Feedback" HorizontalAlignment="Right" Margin="0,0,50,10" VerticalAlignment="Bottom" Width="100" Height="22" Click="Feedback_Click"/>
                 </Grid>
-                <Grid Background="White" Margin="42,40,487,193">
+                <Grid Background="White" Margin="42,80,551,153">
                     <Grid HorizontalAlignment="Left" Height="320" Margin="38,33,0,0" VerticalAlignment="Top" Width="260">
                         <Image HorizontalAlignment="Left" Height="204" Margin="27,36,0,0" VerticalAlignment="Top" Width="205" Source="../../Resources/Images/Faces/face5"/>
-                        <Button Content="Izmeni sliku" HorizontalAlignment="Left" Margin="27,265,0,0" VerticalAlignment="Top" Width="205"/>
+                        <Button Content="Izmeni sliku" HorizontalAlignment="Left" Margin="27,265,0,0" VerticalAlignment="Top" Width="205" Click="Change_Picture"/>
                     </Grid>
                     <Grid HorizontalAlignment="Left" Height="301" Margin="330,33,0,0" VerticalAlignment="Top" Width="245">
                         <Label Content="Ime:" HorizontalAlignment="Left" Margin="15,15,0,0" VerticalAlignment="Top" Width="87"/>
@@ -381,24 +427,36 @@
                         <Label Content="Adresa:" HorizontalAlignment="Left" Margin="15,75,0,0" VerticalAlignment="Top"/>
                         <Label Content="Email:" HorizontalAlignment="Left" Margin="15,105,0,0" VerticalAlignment="Top"/>
                         <Label Content="Broj Telefona:" HorizontalAlignment="Left" Margin="15,135,0,0" VerticalAlignment="Top"/>
-                        <Button Content="Izmeni" FontSize="11" HorizontalAlignment="Left" Margin="10,270,0,0" VerticalAlignment="Top" Width="65" Height="23"/>
-                        <TextBox HorizontalAlignment="Left" Height="23" Margin="116,15,0,0" TextWrapping="Wrap" Text="{Binding user.firstName}" VerticalAlignment="Top" Width="120"/>
-                        <TextBox HorizontalAlignment="Left" Height="23" Margin="116,45,0,0" TextWrapping="Wrap" Text="{Binding user.lastName}" VerticalAlignment="Top" Width="120"/>
-                        <TextBox HorizontalAlignment="Left" Height="23" Margin="116,75,0,0" TextWrapping="Wrap" Text="{Binding user.address}" VerticalAlignment="Top" Width="120"/>
-                        <TextBox HorizontalAlignment="Left" Height="23" Margin="116,105,0,0" TextWrapping="Wrap" Text="{Binding user.email}" VerticalAlignment="Top" Width="120"/>
-                        <TextBox HorizontalAlignment="Left" Height="23" Margin="116,135,0,0" TextWrapping="Wrap" Text="{Binding user.telephoneNumber}" VerticalAlignment="Top" Width="120"/>
+                        <Button Content="Izmeni" FontSize="11" HorizontalAlignment="Left" Margin="10,270,0,0" VerticalAlignment="Top" Width="83" Height="23" Click="Change_Click" Name="Izmeni"/>
+                        <Button Visibility="Hidden" Content="Obustavi" FontSize="11" HorizontalAlignment="Left" Margin="10,270,0,0" VerticalAlignment="Top" Background="DarkRed" Width="83" Height="23" Click="Cancel_Click" Name="Obustavi"/>
+                        <TextBox Name="Profile_FirstName" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="116,15,0,0" TextWrapping="Wrap" Text="{Binding user.firstName}" VerticalAlignment="Top" Width="120"/>
+                        <TextBox Name="Profile_LastName" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="116,45,0,0" TextWrapping="Wrap" Text="{Binding user.lastName}" VerticalAlignment="Top" Width="120"/>
+                        <TextBox Name="Profile_Address" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="116,75,0,0" TextWrapping="Wrap" Text="{Binding user.address}" VerticalAlignment="Top" Width="120"/>
+                        <TextBox Name="Profile_Email" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="116,105,0,0" TextWrapping="Wrap" Text="{Binding user.email}" VerticalAlignment="Top" Width="120"/>
+                        <TextBox Name="Profile_TelephoneNumber" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="116,135,0,0" TextWrapping="Wrap" Text="{Binding user.telephoneNumber}" VerticalAlignment="Top" Width="120"/>
                     </Grid>
                 </Grid>
-                <Grid HorizontalAlignment="Left" Height="477" Margin="770,42,0,0" VerticalAlignment="Top" Width="434" Background="White">
-                    <ListView Name="Shortcut_List" HorizontalAlignment="Left" Height="457" Margin="10,10,0,0" VerticalAlignment="Top" Width="414">
-                    <ListView.View>
-                        <GridView>
-                            <GridViewColumn Header="Shortcut" Width="120" DisplayMemberBinding="{Binding shortcut}" />
-                            <GridViewColumn Header="Command" Width="120" DisplayMemberBinding="{Binding command}" />
-                        </GridView>
-                    </ListView.View>
+                <Grid HorizontalAlignment="Left" Height="477" Margin="714,42,0,0" VerticalAlignment="Top" Width="478" >
+                    <Grid.Effect>
+                        <DropShadowEffect Direction="420" Opacity="0.5" ShadowDepth="3"/>
+                    </Grid.Effect>
+                    <Grid.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                            <GradientStop Color="#FFEAEAEA" Offset="0.007"/>
+                            <GradientStop Color="White" Offset="0.267"/>
+                            <GradientStop Color="#FFE8E8E8" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Grid.Background>
+                    <ListView Name="Shortcut_List" HorizontalAlignment="Left" Height="457" Margin="10,10,0,0" VerticalAlignment="Top" Width="458">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Shortcut" Width="120" DisplayMemberBinding="{Binding shortcut}" />
+                                <GridViewColumn Header="Command" Width="120" DisplayMemberBinding="{Binding command}" />
+                            </GridView>
+                        </ListView.View>
                     </ListView>
                 </Grid>
+                <Button Content="Demo" HorizontalAlignment="Right" Margin="0,0,143,0" VerticalAlignment="Bottom" Width="100" Height="22" Click="Feedback_Click"/>
             </Grid>
         </TabItem>
     </TabControl>

@@ -43,6 +43,46 @@ namespace Project.Views.Secretary
             viewHistory.SortDescriptions.Add(new SortDescription("Beginning", ListSortDirection.Ascending));
             viewHistory.SortDescriptions.Add(new SortDescription("End", ListSortDirection.Ascending));
         }
+        public ProfileModal(Model.Patient patient)
+        {
+            Generators g = new Generators();
+            PatientRepository pr = new PatientRepository();
+            MedicalAppointmentRepository mr = new MedicalAppointmentRepository();
+            selectedPatient = patient;
+
+            InitializeComponent();
+            appointmentHistory.ItemsSource = mr.ReadCSV("../../Data/medicalAppointments.csv");
+            listAppointments.ItemsSource = mr.ReadCSV("../../Data/medicalAppointments.csv");
+
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listAppointments.ItemsSource);
+            view.SortDescriptions.Add(new SortDescription("Beginning", ListSortDirection.Ascending));
+            view.SortDescriptions.Add(new SortDescription("End", ListSortDirection.Ascending));
+
+            CollectionView viewHistory = (CollectionView)CollectionViewSource.GetDefaultView(appointmentHistory.ItemsSource);
+            viewHistory.SortDescriptions.Add(new SortDescription("Beginning", ListSortDirection.Ascending));
+            viewHistory.SortDescriptions.Add(new SortDescription("End", ListSortDirection.Ascending));
+        }
+        private void Change_Click(object sender, RoutedEventArgs e)
+        {
+            Profile_FirstName.IsEnabled = true;
+            Profile_LastName.IsEnabled = true;
+            Profile_Email.IsEnabled = true;
+            Profile_Address.IsEnabled = true;
+            Profile_TelephoneNumber.IsEnabled = true;
+            Obustavi.Visibility = Visibility.Visible;
+            Izmeni.Visibility = Visibility.Hidden;
+        }
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            Profile_FirstName.IsEnabled = false;
+            Profile_LastName.IsEnabled = false;
+            Profile_Email.IsEnabled = false;
+            Profile_Address.IsEnabled = false;
+            Profile_TelephoneNumber.IsEnabled = false;
+            Obustavi.Visibility = Visibility.Hidden;
+            Izmeni.Visibility = Visibility.Visible;
+
+        }
 
         private void listAppointments_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

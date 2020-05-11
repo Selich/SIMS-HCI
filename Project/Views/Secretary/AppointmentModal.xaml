@@ -17,11 +17,30 @@
                                     <Run Text=" "/>
                                     <Run Text="{Binding lastName}"/>
                                     </TextBlock>
-                <TextBlock HorizontalAlignment="Left" Height="23" Margin="94,39,0,0" TextWrapping="Wrap" Text="Specijalizacija: Opsta praksa" VerticalAlignment="Top" Width="145" FontSize="11">
+                <TextBlock HorizontalAlignment="Left" Height="23" Margin="94,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" FontSize="11">
                                     <Run Text="Specijalizacija: "/>
                                     <Run Text="{Binding medicalRole}"/>
                                     </TextBlock>
-                <Button IsEnabled="False" Content="Obrisi" HorizontalAlignment="Left" Margin="244,58,0,0" VerticalAlignment="Top" Width="70" Height="20" FontSize="11" Background="#FF960000" BorderBrush="#FF080000"/>
+                <Button IsEnabled="True" Content="Obrisi" HorizontalAlignment="Left" Margin="244,58,0,0" VerticalAlignment="Top" Width="70" Height="20" FontSize="11" Background="#FF960000" BorderBrush="#FF080000"/>
+
+            </Grid>
+                </materialDesign:Card>
+        </DataTemplate>
+        <DataTemplate x:Key="addDoctorsTemplate">
+                <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth4" BorderBrush="#FF0E0E0E">
+            <Grid Background="White" HorizontalAlignment="Left" Height="88" VerticalAlignment="Top" Width="324">
+                <Image HorizontalAlignment="Left" Height="68" Margin="10,10,0,0" VerticalAlignment="Top" Width="79" Grid.RowSpan="2" />
+                <TextBlock HorizontalAlignment="Left" Height="23" Margin="94,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="135" FontWeight="bold">
+                                    <Run Text="{Binding firstName}"/>
+                                    <Run Text=" "/>
+                                    <Run Text="{Binding lastName}"/>
+                                    </TextBlock>
+                <TextBlock HorizontalAlignment="Left" Height="23" Margin="94,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" FontSize="11">
+                                    <Run Text="Specijalizacija: "/>
+                                    <Run Text="{Binding medicalRole}"/>
+                                    </TextBlock>
+                <Button IsEnabled="True" Content="Dodaj" HorizontalAlignment="Left" Margin="244,58,0,0" VerticalAlignment="Top" Width="70" Height="20" FontSize="11" Click="Add_Doctor_Click"/>
+                
 
             </Grid>
                 </materialDesign:Card>
@@ -80,8 +99,8 @@
         <Button Visibility="Hidden" FontSize="11" Content="Ponisti"  Background="DarkRed" HorizontalAlignment="Left" Margin="306,130,0,0" VerticalAlignment="Top" Width="71" Height="24" Click="Cancel_Change_Doctors" x:Name="Cancel_Change_Doctor_Button"/>
         <ContentControl Name="selectedAppointment" HorizontalAlignment="Center" Height="109" Margin="40,34,38,0"  VerticalAlignment="Top" Width="1168" ContentTemplate="{StaticResource appointmentTemplate}" Content="{Binding selectedAppointment}"/>
         <TextBlock Visibility="Visible" Name="kodLekara" HorizontalAlignment="Left" FontSize="17" Margin="31,130,0,0" TextWrapping="Wrap" Text="Kod Lekara:" VerticalAlignment="Top"/>
-        <TextBox Visibility="Hidden" Name="search"  HorizontalAlignment="Left" Height="23" Margin="31,131,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <Button Visibility="Visible" FontSize="11" Content="Izmeni" HorizontalAlignment="Left" Margin="306,130,0,0" VerticalAlignment="Top" Width="71" Height="24" Click="Change_Doctors" x:Name="Change_Doctor_Button"/>
+        <TextBox Visibility="Hidden" Name="search"  HorizontalAlignment="Left" Height="23" Margin="31,131,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button Visibility="Visible" FontSize="11" Content="Dodaj" HorizontalAlignment="Left" Margin="306,130,0,0" VerticalAlignment="Top" Width="71" Height="24" Click="Change_Doctors" x:Name="Change_Doctor_Button"/>
         <ListBox Name="listDoctors" HorizontalAlignment="Left" Height="319" Margin="27,161,0,0" VerticalAlignment="Top" Width="351" ItemTemplate="{StaticResource doctorsTemplate}" >
             <ListBox.Background>
                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
@@ -91,7 +110,7 @@
                 </LinearGradientBrush>
             </ListBox.Background>
         </ListBox>
-        <ListBox Visibility="Hidden" Name="listAllDoctors" HorizontalAlignment="Left" Height="319" Margin="27,161,0,0" VerticalAlignment="Top" Width="351" ItemTemplate="{StaticResource doctorsTemplate}" >
+        <ListBox Visibility="Hidden" Name="listAllDoctors" HorizontalAlignment="Left" Height="319" Margin="27,161,0,0" VerticalAlignment="Top" Width="351" ItemTemplate="{StaticResource addDoctorsTemplate}" >
             <ListBox.Background>
                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                     <GradientStop Color="#FFEEEEEE" Offset="0.093"/>
