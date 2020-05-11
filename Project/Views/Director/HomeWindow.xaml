@@ -20,11 +20,11 @@
                 </StackPanel>
                 <Button Content="Izmeni" Name="Change_btn" HorizontalAlignment="Left" Margin="375,276,0,0" VerticalAlignment="Top" Width="197" Height="53" Click="ChangeProfile" FontSize="25" FontWeight="Bold"/>
                 <TextBlock HorizontalAlignment="Left" Margin="353,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Width="190"><Run Text="Ime Prezime"/><LineBreak/><Run/></TextBlock>
-                <TextBox x:Name="username" HorizontalAlignment="Left" Height="23" Margin="472,77,0,0" TextWrapping="Wrap" Text="Pera123" VerticalAlignment="Top" Width="139"/>
-                <TextBox x:Name="adress" HorizontalAlignment="Left" Height="23" Margin="472,106,0,0" TextWrapping="Wrap" Text="Despote Stefana 17" VerticalAlignment="Top" Width="139"/>
-                <TextBox x:Name="dateofbirth" HorizontalAlignment="Left" Height="23" Margin="472,136,0,0" TextWrapping="Wrap" Text="4.5.1990." VerticalAlignment="Top" Width="139"/>
-                <TextBox x:Name="jmbg"  HorizontalAlignment="Left" Height="23" Margin="472,164,0,0" TextWrapping="Wrap" Text="0405990800001" VerticalAlignment="Top" Width="139"/>
-                <TextBox x:Name="hospital"  HorizontalAlignment="Left" Height="23" Margin="472,193,0,0" TextWrapping="Wrap" Text="Klinicki centar Vojvodina" VerticalAlignment="Top" Width="139"/>
+                <TextBox x:Name="username" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="472,77,0,0" TextWrapping="Wrap" Text="Pera123" VerticalAlignment="Top" Width="139"/>
+                <TextBox x:Name="adress" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="472,106,0,0" TextWrapping="Wrap" Text="Despote Stefana 17" VerticalAlignment="Top" Width="139"/>
+                <TextBox x:Name="dateofbirth" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="472,136,0,0" TextWrapping="Wrap" Text="4.5.1990." VerticalAlignment="Top" Width="139"/>
+                <TextBox x:Name="jmbg" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="472,164,0,0" TextWrapping="Wrap" Text="0405990800001" VerticalAlignment="Top" Width="139"/>
+                <TextBox x:Name="hospital" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="472,193,0,0" TextWrapping="Wrap" Text="Klinicki centar Vojvodina" VerticalAlignment="Top" Width="139"/>
                 <Separator HorizontalAlignment="Left" Height="30" Margin="0,372,0,0" VerticalAlignment="Top" Width="1270"/>
                 <TextBlock HorizontalAlignment="Left" Margin="35,407,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Width="190" FontWeight="Bold"><Run Text="Obavestenja:"/><LineBreak/><Run/></TextBlock>
                 <ListBox HorizontalAlignment="Left" Height="174" Margin="35,460,0,0" VerticalAlignment="Top" Width="175" ScrollViewer.VerticalScrollBarVisibility="Visible">
@@ -45,8 +45,8 @@
                     <TextBlock.Background>
                         <ImageBrush/>
                     </TextBlock.Background><Run Text="Status: Odobren"/><LineBreak/><Run Text="Lek: Berodual"/><LineBreak/><Run Text="Tip: Kortikosteroid"/><LineBreak/><Run Text="Kolicina: 100ml"/><LineBreak/><Run/><LineBreak/><Run Text="Komentar:"/><LineBreak/><Run Text="..."/></TextBlock>
-                <Button Content="Prijavi gresku" HorizontalAlignment="Left" Margin="1156,603,0,0" VerticalAlignment="Top" Width="75" Click="OpenBugReportModal"/>
-                <Button Content="Podesavanja" HorizontalAlignment="Left" Margin="1158,53,0,0" VerticalAlignment="Top" Width="76" Click="OpenSettingsModal"/>
+                <Button Content="Prijavi gresku" HorizontalAlignment="Left" Margin="1107,600,0,0" VerticalAlignment="Top" Width="129" Click="OpenBugReportModal"/>
+                <Button Content="Podesavanja" HorizontalAlignment="Left" Margin="1102,53,0,0" VerticalAlignment="Top" Width="132" Click="OpenSettingsModal"/>
                 <Button Name="Save_btn" Content="Sacuvaj" Visibility="Hidden"  HorizontalAlignment="Left" Margin="353,244,0,0" VerticalAlignment="Top" Width="75" Click="ConfirmProfileChanges"/>
                 <Button Name="Cancel_btn" Content="Odustani" Visibility="Hidden"   HorizontalAlignment="Left" Margin="478,244,0,0" VerticalAlignment="Top" Width="76" Click="CancelProfileChanges"/>
             </Grid>
@@ -64,16 +64,18 @@
                     <Label Content="Datum rodjenja:" HorizontalAlignment="Left" Margin="219,336,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
                     <Label Content="JMBG:" HorizontalAlignment="Left" Margin="219,371,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
                     <Label Content="Bolnica:" HorizontalAlignment="Left" Margin="219,414,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
-                    <TextBox HorizontalAlignment="Left" Height="23" Margin="324,177,0,0" TextWrapping="Wrap" Text="Pera123" VerticalAlignment="Top" Width="120"/>
-                    <TextBox HorizontalAlignment="Left" Height="23" Margin="324,214,0,0" TextWrapping="Wrap" Text="Balzakova 22,NS" VerticalAlignment="Top" Width="120"/>
-                    <TextBox HorizontalAlignment="Left" Height="23" Margin="324,259,0,0" TextWrapping="Wrap" Text="Petar" VerticalAlignment="Top" Width="120"/>
-                    <TextBox HorizontalAlignment="Left" Height="23" Margin="324,298,0,0" TextWrapping="Wrap" Text="Petrovic Njegos" VerticalAlignment="Top" Width="120"/>
-                    <TextBox HorizontalAlignment="Left" Height="23" Margin="324,334,0,0" TextWrapping="Wrap" Text="13.11.1813" VerticalAlignment="Top" Width="120"/>
-                    <TextBox HorizontalAlignment="Left" Height="23" Margin="324,373,0,0" TextWrapping="Wrap" Text="1311813022132" VerticalAlignment="Top" Width="120"/>
-                    <TextBox HorizontalAlignment="Left" Height="23" Margin="324,414,0,0" TextWrapping="Wrap" Text="Klinicki centar Tirana" VerticalAlignment="Top" Width="120"/>
-                    <TextBox HorizontalAlignment="Left" Height="23" Margin="324,140,0,0" TextWrapping="Wrap" Text="Lekar" VerticalAlignment="Top" Width="120"/>
+                    <Grid Name="employeeData" Margin="324,140,790,193">
+                        <TextBox IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="0,37,0,0" TextWrapping="Wrap" Text="Pera123" VerticalAlignment="Top" Width="120"/>
+                        <TextBox IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="0,74,0,0" TextWrapping="Wrap" Text="Balzakova 22,NS" VerticalAlignment="Top" Width="120"/>
+                        <TextBox IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="0,119,0,0" TextWrapping="Wrap" Text="Petar" VerticalAlignment="Top" Width="120"/>
+                        <TextBox IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="0,158,0,0" TextWrapping="Wrap" Text="Petrovic Njegos" VerticalAlignment="Top" Width="120"/>
+                        <TextBox IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="0,194,0,0" TextWrapping="Wrap" Text="13.11.1813" VerticalAlignment="Top" Width="120"/>
+                        <TextBox IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="0,233,0,0" TextWrapping="Wrap" Text="1311813022132" VerticalAlignment="Top" Width="120"/>
+                        <TextBox IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="0,274,0,0" TextWrapping="Wrap" Text="Klinicki centar Tirana" VerticalAlignment="Top" Width="120"/>
+                        <TextBox IsEnabled="False" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Lekar" VerticalAlignment="Top" Width="120"/>
+                    </Grid>
                     <Label Content="Pozicija:" HorizontalAlignment="Left" Margin="219,140,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
-                    <Button Content="Izmeni" HorizontalAlignment="Left" Margin="219,469,0,0" VerticalAlignment="Top" Width="225"/>
+                    <Button Name="Change_employee" Content="Izmeni" HorizontalAlignment="Left" Margin="219,522,0,0" VerticalAlignment="Top" Width="225" RenderTransformOrigin="0.68,3.484" Click="ChangeEmployeeProfile"/>
                     <GroupBox Header="Godisnji odmor:" HorizontalAlignment="Left" Height="193" Margin="550,89,0,0" VerticalAlignment="Top" Width="292">
                         <StackPanel>
                             <TextBlock>Pocetak:</TextBlock>
@@ -117,6 +119,8 @@
                             <TextBox HorizontalAlignment="Left" Height="146" Margin="290,77,0,0" TextWrapping="Wrap" Text="Prisutni: {Lekari, Sekretari, Pacijenti}&#xA;Uloga: {Konsultovao,Pregledao,Administracija}&#xA;Ocena: 3.4/5&#xD;&#xA;Komentar:&#xD;&#xA;&#x9;Dorime,Interimo adapare dorime,&#xD;&#xA;&#x9;Ameno,ameno,latire,&#xD;&#xA;&#x9;Latire Mo" VerticalAlignment="Top" Width="318"/>
                         </Grid>
                     </Border>
+                    <Button x:Name="Save_employee" Content="Sacuvaj" Visibility="Collapsed" HorizontalAlignment="Left" Margin="219,468,0,0" VerticalAlignment="Top" Width="107" Click="CloseEmpoyeeProfileChanges"/>
+                    <Button Name="Cancel_employee" Content="Odustani" Visibility="Collapsed" HorizontalAlignment="Left" Margin="349,468,0,0" VerticalAlignment="Top" Width="95" Click="CloseEmpoyeeProfileChanges"/>
 
 
 
@@ -124,7 +128,7 @@
 
 
                 </Grid>
-                <Grid Name="EmployeesGrid" Margin="0,0,0,0">
+                <Grid Name="EmployeesGrid" Margin="0,0,0,0" Visibility="Visible">
                     <Label Content="Rezultati pretrage" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,36,0,0" FontSize="20" Grid.ColumnSpan="2"/>
                     <Grid Margin="40,97,40,457">
                         <ComboBox HorizontalAlignment="Left" Margin="24,36,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="-0.029,0.607">
@@ -513,9 +517,9 @@
                         <Label Content="Sprat:" HorizontalAlignment="Left" Margin="377,40,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.472,0.75"/>
                         <Label Content="Departman:" HorizontalAlignment="Left" Margin="584,40,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.472,0.75"/>
                         <Label Content="Sortirati po:" HorizontalAlignment="Left" Margin="839,42,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.472,0.75"/>
-                        <TextBox HorizontalAlignment="Left" Height="22" Margin="429,41,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-                        <TextBox HorizontalAlignment="Left" Height="22" Margin="234,41,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0,0.432"/>
-                        <TextBox HorizontalAlignment="Left" Height="22" Margin="668,41,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+                        <TextBox HorizontalAlignment="Left" Height="22" Margin="429,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                        <TextBox HorizontalAlignment="Left" Height="22" Margin="234,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0,0.432"/>
+                        <TextBox HorizontalAlignment="Left" Height="22" Margin="668,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                         <ComboBox HorizontalAlignment="Left" Margin="915,40,0,0" VerticalAlignment="Top" Width="120">
                             <ComboBoxItem IsSelected="True">Broj sobe(rastuce)</ComboBoxItem>
                             <ComboBoxItem>Departman(A-Z)</ComboBoxItem>
@@ -544,7 +548,7 @@
                                 <TextBlock HorizontalAlignment="Left" Margin="120,56,0,0" TextWrapping="Wrap" Text="Departman" VerticalAlignment="Top"/>
                                 <TextBlock HorizontalAlignment="Left" Margin="514,31,0,0" TextWrapping="Wrap" Text="10:00 - 12:00" VerticalAlignment="Top"/>
                                 <TextBlock HorizontalAlignment="Left" Margin="538,56,0,0" TextWrapping="Wrap" Text="Operacija" VerticalAlignment="Top"/>
-                                <Button Content="Detaljnije" HorizontalAlignment="Right" Margin="0,18,30,0" VerticalAlignment="Top" Width="100" Height="65"/>
+                                <Button Content="Detaljnije" HorizontalAlignment="Right" Margin="0,18,30,0" VerticalAlignment="Top" Width="100" Height="65" Click="OpenRoomDetails"/>
                                 <TextBlock HorizontalAlignment="Left" Margin="120,38,0,0" TextWrapping="Wrap" Text="Sprat:" VerticalAlignment="Top"/>
                                 <TextBlock HorizontalAlignment="Left" Margin="120,77,0,0" TextWrapping="Wrap" Text="Status:" VerticalAlignment="Top"/>
                             </Grid>
@@ -556,7 +560,7 @@
                                 <TextBlock HorizontalAlignment="Left" Margin="120,56,0,0" TextWrapping="Wrap" Text="Departman" VerticalAlignment="Top"/>
                                 <TextBlock HorizontalAlignment="Left" Margin="514,31,0,0" TextWrapping="Wrap" Text="10:00 - 12:00" VerticalAlignment="Top"/>
                                 <TextBlock HorizontalAlignment="Left" Margin="538,56,0,0" TextWrapping="Wrap" Text="Operacija" VerticalAlignment="Top"/>
-                                <Button Content="Detaljnije" HorizontalAlignment="Right" Margin="0,18,30,0" VerticalAlignment="Top" Width="100" Height="65"/>
+                                <Button Content="Detaljnije" HorizontalAlignment="Right" Margin="0,18,30,0" VerticalAlignment="Top" Width="100" Height="65" Click="OpenRoomDetails"/>
                                 <TextBlock HorizontalAlignment="Left" Margin="120,38,0,0" TextWrapping="Wrap" Text="Sprat:" VerticalAlignment="Top"/>
                                 <TextBlock HorizontalAlignment="Left" Margin="120,77,0,0" TextWrapping="Wrap" Text="Status:" VerticalAlignment="Top"/>
                             </Grid>
@@ -568,7 +572,7 @@
                                 <TextBlock HorizontalAlignment="Left" Margin="120,56,0,0" TextWrapping="Wrap" Text="Departman" VerticalAlignment="Top"/>
                                 <TextBlock HorizontalAlignment="Left" Margin="514,31,0,0" TextWrapping="Wrap" Text="10:00 - 12:00" VerticalAlignment="Top"/>
                                 <TextBlock HorizontalAlignment="Left" Margin="538,56,0,0" TextWrapping="Wrap" Text="Operacija" VerticalAlignment="Top"/>
-                                <Button Content="Detaljnije" HorizontalAlignment="Right" Margin="0,18,30,0" VerticalAlignment="Top" Width="100" Height="65"/>
+                                <Button Content="Detaljnije" HorizontalAlignment="Right" Margin="0,18,30,0" VerticalAlignment="Top" Width="100" Height="65" Click="OpenRoomDetails"/>
                                 <TextBlock HorizontalAlignment="Left" Margin="120,38,0,0" TextWrapping="Wrap" Text="Sprat:" VerticalAlignment="Top"/>
                                 <TextBlock HorizontalAlignment="Left" Margin="120,77,0,0" TextWrapping="Wrap" Text="Status:" VerticalAlignment="Top"/>
                             </Grid>
@@ -601,8 +605,8 @@
                         <StackPanel Orientation="Horizontal">
                             <Viewbox Margin="10,10,10,10">
                                 <Calendar ></Calendar>
-                                </Viewbox>
-                                    <ListBox ScrollViewer.VerticalScrollBarVisibility="Visible" Width="303" Margin="100,10,0,10" BorderThickness="1" BorderBrush="Black" >
+                            </Viewbox>
+                            <ListBox ScrollViewer.VerticalScrollBarVisibility="Visible" Width="303" Margin="100,10,0,10" BorderThickness="1" BorderBrush="Black" >
                                 <ListBoxItem Content="08:00-09:00"/>
                                 <ListBoxItem Content="09:15-09:45"/>
                                 <ListBoxItem Content="12:30-13:25"/>

@@ -19,8 +19,8 @@
             <ComboBoxItem>Dracula</ComboBoxItem>
             <ComboBoxItem>Pascal</ComboBoxItem>
         </ComboBox>
-        <Button Content="Potvrdi" HorizontalAlignment="Left" Margin="55,355,0,0" VerticalAlignment="Top" Width="75" Click="ConfirmSettingsChange"/>
-        <Button Content="Odustani" HorizontalAlignment="Left" Margin="209,355,0,0" VerticalAlignment="Top" Width="75" Click="CancelSettingsChange"/>
+        <Button Content="Potvrdi" HorizontalAlignment="Left" Margin="55,355,0,0" VerticalAlignment="Top" Width="106" Click="ConfirmSettingsChange"/>
+        <Button Content="Odustani" HorizontalAlignment="Left" Margin="185,355,0,0" VerticalAlignment="Top" Width="99" Click="CancelSettingsChange"/>
 
     </Grid>
 </Window>

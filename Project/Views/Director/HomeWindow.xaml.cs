@@ -143,5 +143,23 @@ namespace Project.Views.Director
             InventoryManagmentModal modal = new InventoryManagmentModal();
             modal.Show();
         }
+
+        private void ChangeEmployeeProfile(object sender, RoutedEventArgs e)
+        {
+            foreach (TextBox textBox in employeeData.Children)
+                textBox.IsEnabled = true;
+            Save_employee.Visibility = Visibility.Visible;
+            Cancel_employee.Visibility = Visibility.Visible;
+            Change_employee.Visibility = Visibility.Collapsed;
+        }
+
+        private void CloseEmpoyeeProfileChanges(object sender, RoutedEventArgs e)
+        {
+            foreach (TextBox textBox in employeeData.Children)
+                textBox.IsEnabled = false;
+            Save_employee.Visibility = Visibility.Collapsed;
+            Cancel_employee.Visibility = Visibility.Collapsed;
+            Change_employee.Visibility = Visibility.Visible;
+        }
     }
 }
