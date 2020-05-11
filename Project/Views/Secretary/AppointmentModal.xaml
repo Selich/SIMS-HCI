@@ -7,43 +7,43 @@
         mc:Ignorable="d"
         ResizeMode="NoResize"
         Title="AppointmentModal" Height="563" Width="1190">
-        <Window.Resources>
+    <Window.Resources>
         <DataTemplate x:Key="doctorsTemplate">
-                <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth4" BorderBrush="#FF0E0E0E">
-            <Grid Background="White" HorizontalAlignment="Left" Height="88" VerticalAlignment="Top" Width="324">
-                <Image HorizontalAlignment="Left" Height="68" Margin="10,10,0,0" VerticalAlignment="Top" Width="79" Grid.RowSpan="2" />
-                <TextBlock HorizontalAlignment="Left" Height="23" Margin="94,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="135" FontWeight="bold">
+            <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth4" BorderBrush="#FF0E0E0E">
+                <Grid Background="White" HorizontalAlignment="Left" Height="88" VerticalAlignment="Top" Width="324">
+                    <Image HorizontalAlignment="Left" Height="68" Margin="10,10,0,0" VerticalAlignment="Top" Width="79" Grid.RowSpan="2" />
+                    <TextBlock HorizontalAlignment="Left" Height="23" Margin="94,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="135" FontWeight="bold">
                                     <Run Text="{Binding firstName}"/>
                                     <Run Text=" "/>
                                     <Run Text="{Binding lastName}"/>
-                                    </TextBlock>
-                <TextBlock HorizontalAlignment="Left" Height="23" Margin="94,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" FontSize="11">
+                    </TextBlock>
+                    <TextBlock HorizontalAlignment="Left" Height="23" Margin="94,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" FontSize="11">
                                     <Run Text="Specijalizacija: "/>
                                     <Run Text="{Binding medicalRole}"/>
-                                    </TextBlock>
-                <Button IsEnabled="True" Content="Obrisi" HorizontalAlignment="Left" Margin="244,58,0,0" VerticalAlignment="Top" Width="70" Height="20" FontSize="11" Background="#FF960000" BorderBrush="#FF080000"/>
+                    </TextBlock>
+                    <Button IsEnabled="True" Content="Obrisi" HorizontalAlignment="Left" Margin="244,58,0,0" VerticalAlignment="Top" Width="70" Height="20" FontSize="11" Background="#FF960000" BorderBrush="#FF080000"/>
 
-            </Grid>
-                </materialDesign:Card>
+                </Grid>
+            </materialDesign:Card>
         </DataTemplate>
         <DataTemplate x:Key="addDoctorsTemplate">
-                <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth4" BorderBrush="#FF0E0E0E">
-            <Grid Background="White" HorizontalAlignment="Left" Height="88" VerticalAlignment="Top" Width="324">
-                <Image HorizontalAlignment="Left" Height="68" Margin="10,10,0,0" VerticalAlignment="Top" Width="79" Grid.RowSpan="2" />
-                <TextBlock HorizontalAlignment="Left" Height="23" Margin="94,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="135" FontWeight="bold">
+            <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth4" BorderBrush="#FF0E0E0E">
+                <Grid Background="White" HorizontalAlignment="Left" Height="88" VerticalAlignment="Top" Width="324">
+                    <Image HorizontalAlignment="Left" Height="68" Margin="10,10,0,0" VerticalAlignment="Top" Width="79" Grid.RowSpan="2" />
+                    <TextBlock HorizontalAlignment="Left" Height="23" Margin="94,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="135" FontWeight="bold">
                                     <Run Text="{Binding firstName}"/>
                                     <Run Text=" "/>
                                     <Run Text="{Binding lastName}"/>
-                                    </TextBlock>
-                <TextBlock HorizontalAlignment="Left" Height="23" Margin="94,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" FontSize="11">
+                    </TextBlock>
+                    <TextBlock HorizontalAlignment="Left" Height="23" Margin="94,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" FontSize="11">
                                     <Run Text="Specijalizacija: "/>
                                     <Run Text="{Binding medicalRole}"/>
-                                    </TextBlock>
-                <Button IsEnabled="True" Content="Dodaj" HorizontalAlignment="Left" Margin="244,58,0,0" VerticalAlignment="Top" Width="70" Height="20" FontSize="11" Click="Add_Doctor_Click"/>
-                
+                    </TextBlock>
+                    <Button IsEnabled="True" Content="Dodaj" HorizontalAlignment="Left" Margin="244,58,0,0" VerticalAlignment="Top" Width="70" Height="20" FontSize="11" Click="Add_Doctor_Click"/>
 
-            </Grid>
-                </materialDesign:Card>
+
+                </Grid>
+            </materialDesign:Card>
         </DataTemplate>
         <DataTemplate x:Key="appointmentTemplate">
             <Grid  Focusable="False" HorizontalAlignment="Center" Height="88" Margin="0,0,0,0" VerticalAlignment="Top" Width="1068" Background="#EFFCFA"  >
@@ -86,7 +86,7 @@
                 </materialDesign:Card>
             </Grid >
         </DataTemplate>
-        </Window.Resources>
+    </Window.Resources>
     <Grid Margin="20,20,20,2">
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -95,31 +95,9 @@
             </LinearGradientBrush>
         </Grid.Background>
 
-        <TextBox Visibility="Hidden" x:Name="doctorFilter" HorizontalAlignment="Left" Height="23" Margin="132,144,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="169" TextChanged="txtFilter_TextChanged"/>
-        <Button Visibility="Hidden" FontSize="11" Content="Ponisti"  Background="DarkRed" HorizontalAlignment="Left" Margin="306,130,0,0" VerticalAlignment="Top" Width="71" Height="24" Click="Cancel_Change_Doctors" x:Name="Cancel_Change_Doctor_Button"/>
         <ContentControl Name="selectedAppointment" HorizontalAlignment="Center" Height="109" Margin="40,34,38,0"  VerticalAlignment="Top" Width="1168" ContentTemplate="{StaticResource appointmentTemplate}" Content="{Binding selectedAppointment}"/>
-        <TextBlock Visibility="Visible" Name="kodLekara" HorizontalAlignment="Left" FontSize="17" Margin="31,130,0,0" TextWrapping="Wrap" Text="Kod Lekara:" VerticalAlignment="Top"/>
-        <TextBox Visibility="Hidden" Name="search"  HorizontalAlignment="Left" Height="23" Margin="31,131,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button Visibility="Visible" FontSize="11" Content="Dodaj" HorizontalAlignment="Left" Margin="306,130,0,0" VerticalAlignment="Top" Width="71" Height="24" Click="Change_Doctors" x:Name="Change_Doctor_Button"/>
-        <ListBox Name="listDoctors" HorizontalAlignment="Left" Height="319" Margin="27,161,0,0" VerticalAlignment="Top" Width="351" ItemTemplate="{StaticResource doctorsTemplate}" >
-            <ListBox.Background>
-                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                    <GradientStop Color="#FFEEEEEE" Offset="0.093"/>
-                    <GradientStop Color="White" Offset="0.51"/>
-                    <GradientStop Color="#FFE4E3E3" Offset="1"/>
-                </LinearGradientBrush>
-            </ListBox.Background>
-        </ListBox>
-        <ListBox Visibility="Hidden" Name="listAllDoctors" HorizontalAlignment="Left" Height="319" Margin="27,161,0,0" VerticalAlignment="Top" Width="351" ItemTemplate="{StaticResource addDoctorsTemplate}" >
-            <ListBox.Background>
-                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                    <GradientStop Color="#FFEEEEEE" Offset="0.093"/>
-                    <GradientStop Color="White" Offset="0.51"/>
-                    <GradientStop Color="#FFE4E3E3" Offset="1"/>
-                </LinearGradientBrush>
-            </ListBox.Background>
-        </ListBox>
-        <Grid HorizontalAlignment="Left" Height="319" Margin="383,161,0,0" VerticalAlignment="Top" Width="737">
+        <TextBlock HorizontalAlignment="Left" FontSize="17" Margin="12,130,0,0" TextWrapping="Wrap" Text="Termin:" VerticalAlignment="Top"/>
+        <Grid HorizontalAlignment="Left" Height="319" Margin="13,161,0,0" VerticalAlignment="Top" Width="737">
             <Grid.Effect>
                 <DropShadowEffect BlurRadius="10"/>
             </Grid.Effect>
@@ -131,26 +109,56 @@
                 </LinearGradientBrush>
             </Grid.Background>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="25*"/>
-                <ColumnDefinition Width="713*"/>
+                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Label Content="Datum" HorizontalAlignment="Left" Margin="12,19,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#DD000000" Grid.ColumnSpan="2"/>
-            <DatePicker HorizontalAlignment="Left" Margin="34.5,21,0,0" VerticalAlignment="Top" Width="137" Background="White" Grid.Column="1"/>
-            <Label Content="Od:" HorizontalAlignment="Left" Margin="176.5,19,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#DD000000" Grid.Column="1"/>
-            <TextBox HorizontalAlignment="Left" Height="23" Margin="209.5,22,0,0" TextWrapping="Wrap" Text="11" VerticalAlignment="Top" Width="54" Background="White" Grid.Column="1"/>
-            <Label Content="Do:" HorizontalAlignment="Left" Margin="263.5,19,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#DD000000" Grid.Column="1"/>
-            <TextBox HorizontalAlignment="Left" Height="23" Margin="294.5,22,0,0" TextWrapping="Wrap" Text="12" VerticalAlignment="Top" Width="54" Background="White" Grid.Column="1"/>
-            <Label Content="Sala:" HorizontalAlignment="Left" Margin="391.5,19,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#DD000000" Grid.Column="1"/>
-            <TextBox HorizontalAlignment="Left" Height="23" Margin="430.5,22,0,0" TextWrapping="Wrap" Text="101" VerticalAlignment="Top" Width="54" Background="White" Grid.Column="1"/>
-            <Label Content="Razlog posete:" HorizontalAlignment="Left" Margin="12,96,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#DD000000" Grid.ColumnSpan="2"/>
-            <TextBox HorizontalAlignment="Left" Height="96" Margin="86.5,101,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="260" Background="White" Grid.Column="1"/>
-            <Label Content="Anamneza:" HorizontalAlignment="Left" Margin="12,206,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#DD000000" Grid.ColumnSpan="2"/>
-            <TextBox HorizontalAlignment="Left" Height="96" Margin="86.5,211,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="260" Background="White" Grid.Column="1"/>
-            <Label Content="Prepisani lekovi:" HorizontalAlignment="Left" Margin="392.5,70,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#DD000000" Grid.Column="1"/>
-            <ListBox HorizontalAlignment="Left" Height="97" Margin="395.5,100,0,0" VerticalAlignment="Top" Width="295" Background="White" Grid.Column="1"/>
-            <Button FontSize="11" Content="Izmeni" HorizontalAlignment="Left" Margin="279.5,67,0,0" VerticalAlignment="Top" Width="71" Height="24" Grid.Column="1"/>
+            <Label Content="Datum" HorizontalAlignment="Left" Margin="12,19,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#DD000000"/>
+            <DatePicker IsEnabled="False" Name="datePicker" HorizontalAlignment="Left" Margin="60,21,0,0" VerticalAlignment="Top" Width="136" Background="White"/>
+            <Label Content="Od:" HorizontalAlignment="Left" Margin="202,19,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#DD000000"/>
+            <TextBox IsEnabled="False" Name="timeFrom" HorizontalAlignment="Left" Height="23" Margin="234,22,0,0" TextWrapping="Wrap" Text="11" VerticalAlignment="Top" Width="54" Background="White"/>
+            <Label Content="Do:" HorizontalAlignment="Left" Margin="288,19,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#DD000000"/>
+            <TextBox IsEnabled="False" Name="timeTo" HorizontalAlignment="Left" Height="23" Margin="320,22,0,0" TextWrapping="Wrap" Text="12" VerticalAlignment="Top" Width="54" Background="White"/>
+            <Label Content="Tip:" HorizontalAlignment="Left" Margin="417,19,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#DD000000"/>
+            <ComboBox IsEnabled="False" HorizontalAlignment="Left" Margin="451,23,0,0" x:Name="appointmentType" VerticalAlignment="Top" Width="120" Background="White">
+                 <ComboBoxItem IsSelected="True">Pregled</ComboBoxItem>
+                 <ComboBoxItem>Operacija</ComboBoxItem>
+                 <ComboBoxItem>Lezanje</ComboBoxItem>
+             </ComboBox>
+            <Label Content="Sala:" HorizontalAlignment="Left" Margin="617,19,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#DD000000"/>
+            <TextBox IsEnabled="False" Name="room" HorizontalAlignment="Left" Height="23" Margin="657,22,0,0" TextWrapping="Wrap" Text="101" VerticalAlignment="Top" Width="54" Background="White"/>
+            <Label Content="Razlog posete:" HorizontalAlignment="Left" Margin="12,96,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#DD000000"/>
+            <TextBox Name="description" IsEnabled="False" HorizontalAlignment="Left" Height="96" Margin="112,101,0,0" TextWrapping="Wrap" Text="Glavobolja" VerticalAlignment="Top" Width="260" Background="White"/>
+            <Label Content="Anamneza:" HorizontalAlignment="Left" Margin="12,206,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#DD000000"/>
+            <TextBox IsEnabled="False" HorizontalAlignment="Left" Height="96" Margin="112,211,0,0" TextWrapping="Wrap" Text="F 20.0" VerticalAlignment="Top" Width="260" Background="White"/>
+            <Label Content="Prepisani lekovi:" HorizontalAlignment="Left" Margin="418,70,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#DD000000"/>
+            <ListBox IsEnabled="False" HorizontalAlignment="Left" Height="207" Margin="420,100,0,0" VerticalAlignment="Top" Width="296" Background="White"/>
+            <Button  Visibility="Visible" FontSize="11" Content="Izmeni" HorizontalAlignment="Left" Margin="304,67,0,0" VerticalAlignment="Top" Width="72" Height="24" Click="Izmeni_Click" Name="Izmeni"/>
+            <Button Visibility="Hidden" FontSize="11" Background="DarkRed" Content="X" HorizontalAlignment="Left" Margin="304,67,0,0" VerticalAlignment="Top" Width="72" Height="24" Click="Izmeni_Cancel_Click" Name="IzmeniCancel"/>
         </Grid>
-        <TextBlock HorizontalAlignment="Left" FontSize="17" Margin="382,130,0,0" TextWrapping="Wrap" Text="Termin:" VerticalAlignment="Top"/>
+        <Grid Margin="760,130,17,32">
+            <TextBox Visibility="Hidden" x:Name="doctorFilter" HorizontalAlignment="Left" Height="23" Margin="0,0,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="169" TextChanged="txtFilter_TextChanged"/>
+            <Button Visibility="Hidden" FontSize="11" Content="Ponisti"  Background="DarkRed" HorizontalAlignment="Left" Margin="286,1,0,0" VerticalAlignment="Top" Width="71" Height="24" Click="Cancel_Change_Doctors" x:Name="Cancel_Change_Doctor_Button"/>
+            <TextBlock Visibility="Visible" Name="kodLekara" HorizontalAlignment="Left" FontSize="17" Margin="0,0,0,0" TextWrapping="Wrap" Text="Kod Lekara:" VerticalAlignment="Top"/>
+            <TextBox Visibility="Hidden" Name="search"  HorizontalAlignment="Left" Height="23" Margin="0,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <Button Visibility="Visible" FontSize="11" Content="Dodaj" HorizontalAlignment="Left" Margin="286,1,0,0" VerticalAlignment="Top" Width="71" Height="24" Click="Change_Doctors" x:Name="Change_Doctor_Button"/>
+            <ListBox Name="listDoctors" HorizontalAlignment="Left" Height="319" Margin="7,30,0,0" VerticalAlignment="Top" Width="351" ItemTemplate="{StaticResource doctorsTemplate}" >
+                <ListBox.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                        <GradientStop Color="#FFEEEEEE" Offset="0.093"/>
+                        <GradientStop Color="White" Offset="0.51"/>
+                        <GradientStop Color="#FFE4E3E3" Offset="1"/>
+                    </LinearGradientBrush>
+                </ListBox.Background>
+            </ListBox>
+            <ListBox Visibility="Hidden" Name="listAllDoctors" HorizontalAlignment="Left" Height="319" Margin="7,30,0,0" VerticalAlignment="Top" Width="351" ItemTemplate="{StaticResource addDoctorsTemplate}" >
+                <ListBox.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                        <GradientStop Color="#FFEEEEEE" Offset="0.093"/>
+                        <GradientStop Color="White" Offset="0.51"/>
+                        <GradientStop Color="#FFE4E3E3" Offset="1"/>
+                    </LinearGradientBrush>
+                </ListBox.Background>
+            </ListBox>
+        </Grid>
 
     </Grid>
 </Window>
