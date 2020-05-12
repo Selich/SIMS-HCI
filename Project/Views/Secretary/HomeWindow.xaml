@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project.Views.Secretary"
+        xmlns:tz="http://schemas.abtsoftware.co.uk/transitionz" 
         FontFamily="Arial"
         mc:Ignorable="d"
         Title="HomeWindow" Height="723" Width="1280">
@@ -98,7 +99,7 @@
         <!-- Appointment -->
         <DataTemplate x:Key="appointmentTemplate">
             <Grid HorizontalAlignment="Center" Height="88" Margin="0,0,0,0" VerticalAlignment="Top" Width="1068" Background="#EFFCFA"  >
-                <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth4" BorderBrush="#FF0E0E0E">
+                <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth5" BorderBrush="#FF0E0E0E">
                     <Grid >
                         <Grid.Background>
                             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -139,43 +140,110 @@
         </DataTemplate>
     </Window.Resources>
     <TabControl HorizontalAlignment="Center" Height="689" VerticalAlignment="Center" Width="1270" Margin="0,0,2,0" >
+        <TabControl.Resources>
+            <Style TargetType="TabItem">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="TabItem">
+                            <Border Name="Border" BorderThickness="0" BorderBrush="#FF666565"  Margin="2,0">
+                                <Border.Effect>
+                                    <DropShadowEffect BlurRadius="3" Opacity="0.5" ShadowDepth="3"/>
+                                </Border.Effect>
+                                <ContentPresenter x:Name="ContentSite"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"
+                                        ContentSource="Header"
+                                        Margin="102,1"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter TargetName="Border" Property="Background" Value="White" />
+                                </Trigger>
+                                <Trigger Property="IsSelected" Value="False">
+                                    <Setter TargetName="Border" Property="Background" Value="#FF009688" />
+                                    <Setter Property="Foreground" Value="White" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </TabControl.Resources>
         <TabItem Header="Termini">
             <Grid Margin="0,0,0,0">
-                <Grid.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#FFCDF3EE" Offset="1"/>
-                        <GradientStop Color="White" Offset="0.7"/>
-                    </LinearGradientBrush>
-                </Grid.Background>
-                <Grid HorizontalAlignment="Left" Height="53" VerticalAlignment="Top" Width="1264">
-                    <Grid.Background>
-                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="White" Offset="0.53"/>
-                            <GradientStop Color="#FFAEEBE4"/>
+                <Rectangle HorizontalAlignment="Left" Height="300" VerticalAlignment="Top" Width="1266" Margin="0,-22,-2,0">
+                    <Rectangle.Fill>
+                        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                            <GradientStop Color="#FF45B3DC" Offset="0.303"/>
+                            <GradientStop Color="#FFAEEBE4" Offset="0.893"/>
+                            <GradientStop Color="#FFBCF0F0" Offset="0.05"/>
+                            <GradientStop Color="#FF45B6D7" Offset="0.523"/>
+                            <GradientStop Color="#FF45BCD7" Offset="0.423"/>
                         </LinearGradientBrush>
-                    </Grid.Background>
-                    <materialDesign:PackIcon Kind="Doctor" Height="21" Width="21" HorizontalAlignment="Left" Margin="38,18,0,0"/>
-                    <Button FontSize="12" Content="Izaberi Lekara" HorizontalAlignment="Left" Margin="69,19,0,0" VerticalAlignment="Top" Width="250" Height="21" Click="Search_Doctor" />
-                    <Label Name="drLabel" Width ="200" FontSize="14" Height="22" Margin="0,21,140,0" HorizontalAlignment="Right" VerticalAlignment="Top"/>
-                    <Label Visibility="Hidden" Name="drId" Width ="200" FontSize="14" Height="22" Margin="0,21,50,0" HorizontalAlignment="Right" VerticalAlignment="Top"/>
-                    <Button Visibility="Visible" Content="Clear" HorizontalAlignment="Right" Margin="0,19,50,0" VerticalAlignment="Top" Width="75" FontSize="13" Background="#FF960000" Height="24" Click="Clear_Click"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Grid HorizontalAlignment="Left" Height="53" VerticalAlignment="Top" Width="1264">
+                    <Button FontSize="12" HorizontalAlignment="Left" Margin="54,21,0,0" VerticalAlignment="Top" Width="83" Height="32" Click="Search_Doctor" Opacity="0.999">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Doctor" Height="21" Width="23" HorizontalAlignment="Left"  Foreground="White"/>
+                            <materialDesign:PackIcon Kind="Plus" Height="22" Width="30" HorizontalAlignment="Left"  Foreground="White"/>
+                        </StackPanel>
+                    </Button>
+                    <Label x:Name="drLabel" Width ="200" FontSize="14" Height="22" Margin="0,21,140,0" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+                    <Label Visibility="Hidden" x:Name="drId" Width ="200" FontSize="14" Height="22" Margin="0,21,50,0" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+                    <Button Visibility="Visible" Content="Clear" HorizontalAlignment="Right" Margin="0,19,50,0" VerticalAlignment="Top" Width="75" FontSize="13" Background="#FF960000" Height="24" Click="Clear_Click" BorderBrush="{x:Null}"/>
 
                 </Grid>
-                <Grid Background="White" Margin="0,53,-2,385">
-                    <Label Content="Naredni termin:" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Top" Width="1170" FontSize="14" Height="32" Margin="36,2,40,0"/>
-                    <ContentControl Name="nextAppointment" HorizontalAlignment="Center" Height="109" Margin="50,43,48,0"  VerticalAlignment="Top" Width="1168" ContentTemplate="{StaticResource appointmentTemplate}" Content="{Binding nextAppointment}"/>
+                <Grid Margin="0,53,-2,385">
+                    <Label Content="Naredni termin:" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Top" Width="1164" FontSize="20" Height="32" Margin="50,6,52,0"/>
+                    <ContentControl 
+                    tz:Transitionz.Opacity="{tz:OpacityParams Duration=100, From=0, TransitionOn=Loaded, To=1}"
+                   tz:Transitionz.Blur="{tz:BlurParams Duration=240, From=20, TransitionOn=Loaded, To=0}"
+                        x:Name="nextAppointment" HorizontalAlignment="Center" Height="109" Margin="50,43,48,0"  VerticalAlignment="Top" Width="1168" ContentTemplate="{StaticResource appointmentTemplate}" Content="{Binding nextAppointment}"/>
 
                 </Grid>
-                <TabControl Background="White" HorizontalAlignment="Center" Height="418" Margin="36,209,35,0" VerticalAlignment="Top" Width="1172">
+                <TabControl Background="White" HorizontalAlignment="Center" Height="405" Margin="46,209,46,0" VerticalAlignment="Top" Width="1172">
+        <TabControl.Resources>
+            <Style TargetType="TabItem">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="TabItem">
+                            <Border Name="Border" BorderThickness="0" BorderBrush="#FF666565"  Margin="2,0">
+                                <Border.Effect>
+                                    <DropShadowEffect BlurRadius="3" Opacity="0.5" ShadowDepth="3"/>
+                                </Border.Effect>
+                                <ContentPresenter x:Name="ContentSite"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"
+                                        ContentSource="Header"
+                                        Margin="180,1"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter TargetName="Border" Property="Background" Value="White" />
+                                </Trigger>
+                                <Trigger Property="IsSelected" Value="False">
+                                    <Setter TargetName="Border" Property="Background" Value="#FF009688" />
+                                    <Setter Property="Foreground" Value="White" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </TabControl.Resources>
+                    <TabControl.Effect>
+                        <DropShadowEffect Direction="270" Opacity="0.4" ShadowDepth="8" BlurRadius="20"/>
+                    </TabControl.Effect>
                     <TabItem  Background="White" Header="Week">
                         <Grid Background="White" HorizontalAlignment="Left" Height="390" Margin="0,2,0,-2" VerticalAlignment="Top" Width="1166">
                             <Grid Background="#179C8C" HorizontalAlignment="Left" Height="25" Margin="0,0,0,0" VerticalAlignment="Top" Width="1166">
                                 <Button HorizontalAlignment="Left" VerticalAlignment="Center" Width="48" Margin="2,0,0,0" Height="25" Click="Prev_Week_Click">
                                     <materialDesign:PackIcon Kind="ArrowLeft"/>
                                 </Button>
-                                <Label  Foreground="White" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="-150,0,0,3" VerticalAlignment="Center" Width="1065" Name="startWeekLabel"/>
+                                <Label  Foreground="White" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="-150,0,0,3" VerticalAlignment="Center" Width="1065" x:Name="startWeekLabel"/>
                                 <Label  Foreground="White" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,0" Content="-" VerticalAlignment="Top" Width="1065" />
-                                <Label  Foreground="White" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="150,0,0,3" VerticalAlignment="Center" Width="1065" Name="endWeekLabel"/>
+                                <Label  Foreground="White" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="150,0,0,3" VerticalAlignment="Center" Width="1065" x:Name="endWeekLabel"/>
                                 <Button HorizontalAlignment="Right" VerticalAlignment="Center" Width="48" Height="25" Margin="0,0,-2,0" Click="Next_Week_Click">
                                     <materialDesign:PackIcon Kind="ArrowRight"/>
                                 </Button>
@@ -183,7 +251,15 @@
                             <!--<Grid>
                                 <ItemsControl x:Name="lst" ItemTemplate="{DynamicResource DataTemplate_Level1}" Margin="0,27,0,0"/>
                             </Grid>-->
-                            <Grid  HorizontalAlignment="Left" Margin="0,25,0,0" Width="1168" Background="White">
+                            <Grid  HorizontalAlignment="Left" Margin="0,25,0,0" Width="1168">
+                                <Grid.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="Black" Offset="0"/>
+                                        <GradientStop Color="White" Offset="0.107"/>
+                                        <GradientStop Color="LightGray"/>
+                                        <GradientStop Color="#FFEEEEEE" Offset="0.837"/>
+                                    </LinearGradientBrush>
+                                </Grid.Background>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition />
                                     <ColumnDefinition />
@@ -203,19 +279,19 @@
                                     <RowDefinition />
                                 </Grid.RowDefinitions>
 
-                                <TextBlock Background="#AEEBE4"  FontSize="12" FontWeight="Bold" Grid.Row="0" Grid.Column="0" TextAlignment="Center">Pon.</TextBlock>
-                                <TextBlock Background="#AEEBE4"  FontSize="12" FontWeight="Bold" Grid.Row="0" Grid.Column="1" TextAlignment="Center">Uto.</TextBlock>
-                                <TextBlock Background="#AEEBE4" FontSize="12" FontWeight="Bold" Grid.Row="0" Grid.Column="2" TextAlignment="Center">Sre.</TextBlock>
-                                <TextBlock Background="#AEEBE4"  FontSize="12" FontWeight="Bold" Grid.Row="0" Grid.Column="3" TextAlignment="Center">Cet.</TextBlock>
-                                <TextBlock Background="#AEEBE4" FontSize="12" FontWeight="Bold" Grid.Row="0" Grid.Column="4" TextAlignment="Center">Pet.</TextBlock>
-                                <TextBlock Background="#AEEBE4" FontSize="12" FontWeight="Bold" Grid.Row="0" Grid.Column="5" TextAlignment="Center">Sub.</TextBlock>
-                                <TextBlock Background="#AEEBE4" FontSize="12" FontWeight="Bold" Grid.Row="0" Grid.Column="6" TextAlignment="Center">Ned.</TextBlock>
-                                <TextBlock Background="#FFAEEBB1" FontSize="12" FontWeight="Bold" Grid.Row="1" Grid.Column="3" TextAlignment="Center">Pregled 12:00</TextBlock>
-                                <TextBlock Background="#FFAEEBB1" FontSize="12" FontWeight="Bold" Grid.Row="1" Grid.Column="4" TextAlignment="Center">Pregled 12:00</TextBlock>
-                                <TextBlock Background="#FFF3F7A0" FontSize="12" FontWeight="Bold" Grid.Row="2" Grid.Column="3" TextAlignment="Center">Operacija 13:00</TextBlock>
-                                <TextBlock Background="#FFF3F7A0" FontSize="12" FontWeight="Bold" Grid.Row="3" Grid.Column="1" TextAlignment="Center">Operacija 14:00</TextBlock>
-                                <TextBlock Background="#FFF3F7A0" FontSize="12" FontWeight="Bold" Grid.Row="4" Grid.Column="1" TextAlignment="Center"></TextBlock>
-                                <TextBlock Background="#FFF3F7A0" FontSize="12" FontWeight="Bold" Grid.Row="4" Grid.Column="2" TextAlignment="Center">Operacija 15:00</TextBlock>
+                                <TextBlock Background="#AEEBE4"  FontSize="12" FontWeight="Bold" Grid.Row="0" Grid.Column="0" TextAlignment="Center"><Run Text="Pon."/></TextBlock>
+                                <TextBlock Background="#AEEBE4"  FontSize="12" FontWeight="Bold" Grid.Row="0" Grid.Column="1" TextAlignment="Center"><Run Text="Uto."/></TextBlock>
+                                <TextBlock Background="#AEEBE4" FontSize="12" FontWeight="Bold" Grid.Row="0" Grid.Column="2" TextAlignment="Center"><Run Text="Sre."/></TextBlock>
+                                <TextBlock Background="#AEEBE4"  FontSize="12" FontWeight="Bold" Grid.Row="0" Grid.Column="3" TextAlignment="Center"><Run Text="Cet."/></TextBlock>
+                                <TextBlock Background="#AEEBE4" FontSize="12" FontWeight="Bold" Grid.Row="0" Grid.Column="4" TextAlignment="Center"><Run Text="Pet."/></TextBlock>
+                                <TextBlock Background="#AEEBE4" FontSize="12" FontWeight="Bold" Grid.Row="0" Grid.Column="5" TextAlignment="Center"><Run Text="Sub."/></TextBlock>
+                                <TextBlock Background="#AEEBE4" FontSize="12" FontWeight="Bold" Grid.Row="0" Grid.Column="6" TextAlignment="Center"><Run Text="Ned."/></TextBlock>
+                                <TextBlock Background="#FFAEEBB1" FontSize="12" FontWeight="Bold" Grid.Row="1" Grid.Column="3" TextAlignment="Center"><Run Text="Pregled 12:00"/></TextBlock>
+                                <TextBlock Background="#FFAEEBB1" FontSize="12" FontWeight="Bold" Grid.Row="1" Grid.Column="4" TextAlignment="Center"><Run Text="Pregled 12:00"/></TextBlock>
+                                <TextBlock Background="#FFF3F7A0" FontSize="12" FontWeight="Bold" Grid.Row="2" Grid.Column="3" TextAlignment="Center"><Run Text="Operacija 13:00"/></TextBlock>
+                                <TextBlock Background="#FFF3F7A0" FontSize="12" FontWeight="Bold" Grid.Row="3" Grid.Column="1" TextAlignment="Center"><Run Text="Operacija 14:00"/></TextBlock>
+                                <TextBlock Background="#FFF3F7A0" FontSize="12" FontWeight="Bold" Grid.Row="4" Grid.Column="1" TextAlignment="Center"/>
+                                <TextBlock Background="#FFF3F7A0" FontSize="12" FontWeight="Bold" Grid.Row="4" Grid.Column="2" TextAlignment="Center"><Run Text="Operacija 15:00"/></TextBlock>
                             </Grid>
                         </Grid>
                     </TabItem>
@@ -225,12 +301,20 @@
                                 <Button HorizontalAlignment="Left" VerticalAlignment="Center" Width="48" Margin="2,-2.5,0,-4.5" Click="Prev_Day_Click">
                                     <materialDesign:PackIcon Kind="ArrowLeft"/>
                                 </Button>
-                                <Label  Foreground="White" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" Width="1065" Name="currentDayLabel"/>
+                                <Label  Foreground="White" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" Width="1065" x:Name="currentDayLabel"/>
                                 <Button HorizontalAlignment="Right" VerticalAlignment="Center" Width="48" Height="25" Click="Next_Day_Click">
                                     <materialDesign:PackIcon Kind="ArrowRight"/>
                                 </Button>
                             </Grid>
-                            <Grid Background="White" HorizontalAlignment="Left" Margin="0,25,0,0" Width="1168">
+                            <Grid HorizontalAlignment="Left" Margin="0,25,0,0" Width="1168">
+                                <Grid.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="Black" Offset="0"/>
+                                        <GradientStop Color="White" Offset="0.303"/>
+                                        <GradientStop Color="LightGray"/>
+                                        <GradientStop Color="#FFEEEEEE" Offset="0.837"/>
+                                    </LinearGradientBrush>
+                                </Grid.Background>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="0.3*" />
                                     <RowDefinition />
@@ -240,15 +324,23 @@
                                     <RowDefinition />
                                     <RowDefinition />
                                 </Grid.RowDefinitions>
-                                <TextBlock Background="#AEEBE4"  FontSize="12" FontWeight="Bold" Grid.Row="0" Grid.Column="0" TextAlignment="Center">Pon.</TextBlock>
-                                <TextBlock Background="#FFAEEBB1" FontSize="12" FontWeight="Bold" Grid.Row="1" Grid.Column="4" TextAlignment="Center">Pregled 12:00</TextBlock>
-                                <TextBlock Background="#FFF3F7A0" FontSize="12" FontWeight="Bold" Grid.Row="2" Grid.Column="0" TextAlignment="Center">Operacija 13:00</TextBlock>
+                                <TextBlock Background="#AEEBE4"  FontSize="12" FontWeight="Bold" Grid.Row="0" Grid.Column="0" TextAlignment="Center"><Run Text="Pon."/></TextBlock>
+                                <TextBlock Background="#FFAEEBB1" FontSize="12" FontWeight="Bold" Grid.Row="1" Grid.Column="4" TextAlignment="Center"><Run Text="Pregled 12:00"/></TextBlock>
+                                <TextBlock Background="#FFF3F7A0" FontSize="12" FontWeight="Bold" Grid.Row="2" Grid.Column="0" TextAlignment="Center"><Run Text="Operacija 13:00"/></TextBlock>
 
                             </Grid>
                         </Grid>
                     </TabItem>
                     <TabItem Header="List" Background="White" >
-                        <Grid Background="#AEEBE4" HorizontalAlignment="Left" Height="393" Margin="0,0,0,-3" VerticalAlignment="Top" Width="1166">
+                        <Grid HorizontalAlignment="Left" Height="393" Margin="0,0,0,-3" VerticalAlignment="Top" Width="1166">
+                            <Grid.Background>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="Black" Offset="0"/>
+                                    <GradientStop Color="White" Offset="0.303"/>
+                                    <GradientStop Color="LightGray"/>
+                                    <GradientStop Color="#FFEEEEEE" Offset="0.837"/>
+                                </LinearGradientBrush>
+                            </Grid.Background>
                             <Grid Background="#179C8C" HorizontalAlignment="Left" Height="25" Margin="0,0,0,0" VerticalAlignment="Top" Width="1166">
                                 <Button HorizontalAlignment="Left" VerticalAlignment="Center" Width="48" Margin="2,-2.5,0,-4.5">
                                     <materialDesign:PackIcon Kind="ArrowLeft"/>
@@ -257,13 +349,13 @@
                                     <materialDesign:PackIcon Kind="ArrowRight"/>
                                 </Button>
                             </Grid>
-                            <ListBox Name="listAppointments" HorizontalAlignment="Center" Height="359" Margin="44,34,0,0" VerticalAlignment="Center" Width="1122" Background="#AEEBE4" ItemTemplate="{StaticResource appointmentTemplate}" SelectedItem="appointmentList_KeyDown"/>
+                            <ListBox x:Name="listAppointments" HorizontalAlignment="Center" Height="359" Margin="44,34,0,0" VerticalAlignment="Center" Width="1122" ItemTemplate="{StaticResource appointmentTemplate}" SelectedItem="appointmentList_KeyDown"/>
 
                         </Grid>
                     </TabItem>
                 </TabControl>
-                <Button Content="Feedback" HorizontalAlignment="Right" Margin="0,0,47,10" VerticalAlignment="Bottom" Width="100" Height="22" Click="Feedback_Click"/>
-                <Button Content="Demo" HorizontalAlignment="Right" Margin="0,0,167,10" VerticalAlignment="Bottom" Width="100" Height="22" Click="Feedback_Click"/>
+                <Button Content="Feedback" HorizontalAlignment="Right" Margin="0,0,48,10" VerticalAlignment="Bottom" Width="86" Height="20" Click="Feedback_Click" FontSize="11"/>
+                <Button Content="Demo" HorizontalAlignment="Right" Margin="0,0,151,10" VerticalAlignment="Bottom" Width="86" Height="21" Click="Feedback_Click" FontSize="11"/>
             </Grid>
         </TabItem>
         <TabItem Header="Kreiraj">
@@ -274,32 +366,34 @@
                         <GradientStop Color="White" Offset="0.7"/>
                     </LinearGradientBrush>
                 </Grid.Background>
-                <Grid HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Width="1264">
-                    <Grid.Background>
-                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="White" Offset="0.53"/>
-                            <GradientStop Color="#FFAEEBE4"/>
+                <Rectangle HorizontalAlignment="Left" Height="278" VerticalAlignment="Top" Width="1266" Margin="0,-21,-2,0">
+                    <Rectangle.Fill>
+                        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                            <GradientStop Color="#FF5FCEC8" Offset="0.273"/>
+                            <GradientStop Color="#FFAEEBE4" Offset="0.893"/>
                         </LinearGradientBrush>
-                    </Grid.Background>
-                    <materialDesign:PackIcon Kind="Doctor" Height="21" Width="21" HorizontalAlignment="Left" Margin="38,18,0,0"/>
-                    <Button FontSize="12" Content="Izaberi Lekara" HorizontalAlignment="Left" Margin="69,19,0,0" VerticalAlignment="Top" Width="250" Height="21" Click="Search_Doctor" />
-                    <Label Name="drLabel2" Width ="200" FontSize="14" Height="22" Margin="0,21,140,0" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Grid HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Width="1264">
+                    <Label x:Name="drLabel2" Width ="200" FontSize="14" Height="22" Margin="0,21,140,0" HorizontalAlignment="Right" VerticalAlignment="Top"/>
                     <Button Visibility="Visible" Content="Clear" HorizontalAlignment="Right" Margin="0,19,49,0" VerticalAlignment="Top" Width="75" FontSize="13" Background="#FF960000" Height="24" Click="Clear_Click"/>
+                    <materialDesign:PackIcon Kind="Doctor" Height="25" Width="30" HorizontalAlignment="Left" Margin="52,18,0,0" Foreground="Black"/>
+                    <Button FontSize="12" Content="Izaberi Lekara" HorizontalAlignment="Left" Margin="87,19,0,0" VerticalAlignment="Top" Width="250" Height="24" Click="Search_Doctor" Opacity="0.999" />
                 </Grid>
                 <Grid HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Width="606" Margin="0,37,0,0">
-                    <materialDesign:PackIcon Kind="Search" Height="21" Width="21" HorizontalAlignment="Left" Margin="39,18,0,0"/>
-                    <TextBox x:Name="patientFilterCreate" HorizontalAlignment="Left" Height="23" Margin="69,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="249" TextChanged="txtFilterCreate_TextChanged"/>
+                    <materialDesign:PackIcon Kind="Search" Height="21" Width="21" HorizontalAlignment="Left" Margin="57,18,0,0"/>
+                    <TextBox x:Name="patientFilterCreate" HorizontalAlignment="Left" Height="23" Margin="87,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="249" TextChanged="txtFilterCreate_TextChanged"/>
                     <Button Visibility="Visible" x:Name="Guest_Button" Content="Guest?" HorizontalAlignment="Right" Margin="0,16,8,6" VerticalAlignment="Center" Width="76" FontSize="11" Height="22" Click="Button_Click_2"/>
                     <Button Visibility="Hidden" x:Name="Cancel_Button" Content="Back" HorizontalAlignment="Right" Margin="0,16,8,6" VerticalAlignment="Center" Width="76" FontSize="11" Height="22" Click="Cancel_Button_Click"/>
                 </Grid>
-                <Grid Visibility="Visible" HorizontalAlignment="Left" Height="528" Margin="34,98,0,0" VerticalAlignment="Top" Width="572" Name="List_Patients_Create">
-                    <ListBox  Name="listPatientsCreate" ItemTemplate="{StaticResource patientTemplate}" HorizontalAlignment="Left" Height="508" Margin="43,10,0,0" VerticalAlignment="Top" Width="520" Background="{x:Null}" >
+                <Grid Visibility="Visible" HorizontalAlignment="Left" Height="528" Margin="34,98,0,0" VerticalAlignment="Top" Width="572" x:Name="List_Patients_Create">
+                    <ListBox  x:Name="listPatientsCreate" ItemTemplate="{StaticResource patientTemplate}" HorizontalAlignment="Left" Height="508" Margin="43,10,0,0" VerticalAlignment="Top" Width="520" Background="{x:Null}" >
                         <ListBox.Effect>
                             <DropShadowEffect Direction="420" ShadowDepth="3" Opacity="0.5"/>
                         </ListBox.Effect>
                     </ListBox>
                 </Grid>
-                <Grid Visibility="Hidden" HorizontalAlignment="Left" Height="540" Margin="43,98,0,0" VerticalAlignment="Top" Width="563" Name="Guest_Account_Create">
+                <Grid Visibility="Hidden" HorizontalAlignment="Left" Height="540" Margin="43,98,0,0" VerticalAlignment="Top" Width="563" x:Name="Guest_Account_Create">
                     <Grid.Effect>
                         <DropShadowEffect Direction="420" Opacity="0.5" ShadowDepth="3"/>
                     </Grid.Effect>
@@ -325,9 +419,9 @@
                         <TextBox HorizontalAlignment="Left" Height="55" Margin="221,299,0,0" TextWrapping="Wrap" Text="{Binding user.telephoneNumber}" VerticalAlignment="Top" Width="181"/>
                     </Grid>
                 </Grid>
-                <Grid Background="White" HorizontalAlignment="Left" Height="32" Margin="634,47,0,0" VerticalAlignment="Top" Width="572">
+                <Grid HorizontalAlignment="Left" Height="32" Margin="634,47,0,0" VerticalAlignment="Top" Width="572">
                     <DatePicker FirstDayOfWeek="Monday" SelectedDateFormat="Short"
-                SelectedDateChanged="dpick_SelectedDateChanged" Name="dateTimePicker" HorizontalAlignment="Left" Margin="28,4,0,0" VerticalAlignment="Top" Width="183"/>
+                SelectedDateChanged="dpick_SelectedDateChanged" x:Name="dateTimePicker" HorizontalAlignment="Left" Margin="28,4,0,0" VerticalAlignment="Top" Width="183"/>
                 </Grid>
                 <Grid HorizontalAlignment="Left" Height="528" Margin="634,98,0,0" VerticalAlignment="Top" Width="583" x:Name="Guest_Account_Create_Copy">
                     <Grid.Effect>
@@ -341,14 +435,13 @@
                         </LinearGradientBrush>
                     </Grid.Background>
                     <Grid HorizontalAlignment="Left" Height="36" Margin="0,500,0,0" VerticalAlignment="Top" Width="572"/>
-                    <ListBox HorizontalAlignment="Left" Height="455" Margin="39,40,0,0" VerticalAlignment="Top" Width="250" ItemTemplate="{StaticResource termTemplate}" Name="listTerm" SelectedItem="termList_KeyDown" Background="White" >
-                    </ListBox>
+                    <ListBox HorizontalAlignment="Left" Height="455" Margin="39,40,0,0" VerticalAlignment="Top" Width="250" ItemTemplate="{StaticResource termTemplate}" x:Name="listTerm" SelectedItem="termList_KeyDown" Background="White" />
                     <Label Content="Termini:" HorizontalAlignment="Left" Margin="31,10,0,0" VerticalAlignment="Top"/>
                     <Label Content="Tip:" HorizontalAlignment="Left" Margin="312,42,0,464"/>
                     <ComboBox HorizontalAlignment="Left" Margin="358,42,0,0" x:Name="appointmentType" VerticalAlignment="Top" Width="120" Background="White">
-                        <ComboBoxItem IsSelected="True">Pregled</ComboBoxItem>
-                        <ComboBoxItem>Operacija</ComboBoxItem>
-                        <ComboBoxItem>Lezanje</ComboBoxItem>
+                        <ComboBoxItem IsSelected="True" Content="Pregled"/>
+                        <ComboBoxItem Content="Operacija"/>
+                        <ComboBoxItem Content="Lezanje"/>
                     </ComboBox>
                     <Label Content="Soba:" HorizontalAlignment="Left" Margin="309,117,0,389"/>
                     <TextBox x:Name="roomFilter" HorizontalAlignment="Left" Height="22" Margin="358,116,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="roomFilter_TextChanged" Background="White" />
@@ -369,6 +462,14 @@
                         <GradientStop Color="White" Offset="0.7"/>
                     </LinearGradientBrush>
                 </Grid.Background>
+                <Rectangle HorizontalAlignment="Left" Height="257" VerticalAlignment="Top" Width="1266" Margin="0,0,-2,0">
+                    <Rectangle.Fill>
+                        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                            <GradientStop Color="#FF5FCEC8" Offset="0.273"/>
+                            <GradientStop Color="#FFAEEBE4" Offset="0.893"/>
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
                 <Grid HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Width="1243" Margin="0,37,0,0">
                     <materialDesign:PackIcon Kind="Search" Height="21" Width="21" HorizontalAlignment="Left" Margin="39,18,0,0"/>
                     <TextBox x:Name="patientFilter" HorizontalAlignment="Left" Height="23" Margin="69,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="249" TextChanged="txtFilter_TextChanged"/>
@@ -379,19 +480,15 @@
                     <Label Content=" Telefon:" HorizontalAlignment="Left" Margin="759,16,0,0" VerticalAlignment="Top"/>
                     <Button Content="Generisi Izvestaj" HorizontalAlignment="Left" Margin="1064,6,0,0" VerticalAlignment="Top" Width="161"/>
                 </Grid>
-                <ListBox  Name="listPatients" ItemTemplate="{StaticResource patientDetailsTemplate}" HorizontalAlignment="Left" Height="508" Margin="70,98,0,0" VerticalAlignment="Top" Width="1147" Background="{x:Null}" >
+                <ListBox  x:Name="listPatients" 
+                tz:Transitionz.Opacity="{tz:OpacityParams Duration=500, From=0, To=1, TransitionOn=Loaded}"
+                   tz:Transitionz.Blur="{tz:BlurParams Duration=500, From=20, To=0, TransitionOn=Loaded}"
+                          ItemTemplate="{StaticResource patientDetailsTemplate}" HorizontalAlignment="Left" Height="508" Margin="70,98,0,0" VerticalAlignment="Top" Width="1147" Background="{x:Null}" >
                     <ListBox.Effect>
-                        <DropShadowEffect Direction="420" ShadowDepth="3" Opacity="0.5"/>
+                        <DropShadowEffect/>
                     </ListBox.Effect>
                 </ListBox>
-                <Grid HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Width="1264">
-                    <Grid.Background>
-                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="White" Offset="0.53"/>
-                            <GradientStop Color="#FFAEEBE4"/>
-                        </LinearGradientBrush>
-                    </Grid.Background>
-                </Grid>
+                <Grid HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Width="1264"/>
                 <Button Content="Feedback" HorizontalAlignment="Right" Margin="0,0,47,10" VerticalAlignment="Bottom" Width="100" Height="22" Click="Feedback_Click"/>
                 <Button Content="Demo" HorizontalAlignment="Right" Margin="0,0,167,10" VerticalAlignment="Bottom" Width="100" Height="22" Click="Feedback_Click"/>
             </Grid>
