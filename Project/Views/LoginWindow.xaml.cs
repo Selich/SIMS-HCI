@@ -51,5 +51,12 @@ namespace Project.Views
             var s = new Patient.HomeWindow();
             s.Show();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var s = new Secretary.HomeWindow();
+            s.Show();
+
+        }
     }
 }

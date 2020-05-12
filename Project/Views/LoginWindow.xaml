@@ -11,12 +11,8 @@
         <TextBox HorizontalAlignment="Left" Height="23" Margin="45,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="219" RenderTransformOrigin="0.464,0.565"/>
         <Label Content="Password:" HorizontalAlignment="Left" Margin="42,161,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.552,1.998"/>
         <PasswordBox  HorizontalAlignment="Left" Height="23" Margin="45,182,0,0"  VerticalAlignment="Top" Width="219" RenderTransformOrigin="0.464,0.565"/>
-        <Button FontSize="11" Content="Login" HorizontalAlignment="Left" Margin="44,243,0,0" VerticalAlignment="Top" Width="80" RenderTransformOrigin="-0.048,0.55" Height="23"/>
+        <Button FontSize="11" Content="Login" HorizontalAlignment="Left" Margin="45,250,0,0" VerticalAlignment="Top" Width="80" RenderTransformOrigin="-0.048,0.55" Height="23" Click="Button_Click"/>
         <Button  FontSize="11" Content="Register" HorizontalAlignment="Left" Margin="182,243,0,0" VerticalAlignment="Top" Width="79" Height="23"/>
-        <Button  FontSize="11" Content="Secretary" HorizontalAlignment="Left" Margin="43,275,0,0" VerticalAlignment="Top" Width="81" Click="Secretary_Click" Height="23"/>
-        <Button  FontSize="11" Content="Patient" HorizontalAlignment="Left" Margin="43,300,0,0" VerticalAlignment="Top" Width="81" Click="Patient_Click" Height="23"/>
-        <Button  FontSize="11" Content="Doctor" HorizontalAlignment="Left" Margin="183,274,0,0" VerticalAlignment="Top" Width="78" Click="Doctor_Click" Height="23"/>
-        <Button  FontSize="11" Content="Director" HorizontalAlignment="Left" Margin="183,298,0,0" VerticalAlignment="Top" Width="78" Click="Director_Click" Height="23"/>
         <TextBlock HorizontalAlignment="Left" Margin="42,206,0,0" TextWrapping="Wrap" Text="Forgot Password?" VerticalAlignment="Top" />
         <Image HorizontalAlignment="Left" Height="73" Margin="121,33,0,0" VerticalAlignment="Top" Width="66" Source="../Resources/hospital.png"/>
 
