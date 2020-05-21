@@ -88,40 +88,45 @@ Branch za poseban servis npr. "Patient" bice:
 
 
 #### Ostalo
-- [ ] Upravnik se dodaje od iz .env file
-- [ ] Mozemo Sekretare dodavati takodje iz .env file
-- [ ] Doktor termini vise na vise
-- [ ] Pacijent moze da zakaze kod opste prakse
+- [ ] Upravnik, Sekretar se dodaje od iz .env file
+- [ ] Pacijent ukida terminu unutar 24h ( u intervalu od 24h ) preko Sekretara .env
+
+
+
+- [ ] QL za repozitorijume
+
+- [ ] Sekretar - Uvid u sve guest naloge ( Patient repo email/pass )
 - [ ] Sekretar može da poveže neki guest sa pravim nalogom. Tj. ako pacijent odluči da ipak želi da napravi nalog onda može istorija pregleda da se učita sa prethodnog gesta
 - [ ] Guest nalog je povezan sa JMBG i brojem licne karte/zdravstvene knjizice, Claimuje podatke
-- [ ] Pacijent ukida terminu unutar 24h ( u intervalu od 24h ) preko Sekretara 
-- [ ] Zajednicki Use Case za slanje zahteva?
-- [ ] Lekar -> Lekar Specijalista
-- [ ] Premestanje termina - Sekretar
-- [ ] Sekretar ne mora da odobrava termin -> Termin u timetable
-- [ ] Moguće je zakazati renoviranje za salu ako je prva sledeća operacija najranije 15(var) dana od trenutka kada se želi zakazati renoviranje.
+
+- [ ] Renoviranje mora da se zakaze 2 nedelje unapred
+
+
 - [ ] Mogu biti konsultacije sa drugim lekarom ali se vodi kao zakazan termin za drugog lekara
-- [ ] Guest nalog ima samo neophodne podatke 
-- [ ] Extend za specijaliste -> u Use Case
-- [ ] Da li izdvojiti pretrage kao Use Casove - Upravnik
-- [ ] Wireframe ( KLM )
-- [ ] Class diagram
-- [ ] Medju tabela Lek , Oprema, Room
-- [ ] Guess nalog
+- [ ] Doctor - Use case diagram
 
 
 ## Pitanja za konsultacije
 
-- [ ] Da li pamtimo u kojoj sobi lezi pacijent?
-- [ ] Kako izgleda scenario pregled? Da li se pise vise dokumenata? Jedan dokument?
-- [ ] Da li je vazna informacija na kom pregledu je izdat recept za lek?
-- [ ] Document zar nam je zaista potrebno?
-- [ ] Da li mozemo za korisnike sistema da koristimo JMBG kao Primarni Kljuc
-- [ ] Kako generisati konstruktor sa parametrima za datu klasu u PowerDesigneru?
--------------------------------------------------
-- [ ] Da li moramo implementirati simulaciju vremena da se izvrsava renovacija. Npr. Da posle odredjenog vremena napravi se nova soba itd.
-- [ ] Premestanje opreme bez zakazane renovacije
-- [ ] Da li moramo preko razlicitih metoda, ako smo zamislili da nam u jednom CSV fajlu butu svi zaposleni, a jedina njihova razlika bice
+- [ ] Da li mozemo za korisnike sistema da koristimo JMBG kao Primarni Kljuc?
+
+
+## Odgovori
+- [x] Da li moramo implementirati simulaciju vremena da se izvrsava renovacija. Npr. Da posle odredjenog vremena napravi se nova soba itd.
+- sync
+- [x] Premestanje opreme bez zakazane renovacije
+- Inventory Replacment
+- [x] Kako generisati konstruktor sa parametrima za datu klasu u PowerDesigneru?
+- Dodajemo u preview.
+- [x] Document zar nam je zaista potrebno?
+- Ne
+- [x] Da li je vazna informacija na kom pregledu je izdat recept za lek?
+- Nije vezan za termin.
+- [x] Kako izgleda scenario pregled? Da li se pise vise dokumenata? Jedan dokument?
+- Moze vise.
+- [x] Da li pamtimo u kojoj sobi lezi pacijent?
+- Pamtimo pacijenta u terminu.
+- [x] Da li moramo preko razlicitih metoda, ako smo zamislili da nam u jednom CSV fajlu butu svi zaposleni, a jedina njihova razlika bice
 Role koji se dobija iz isIstanceOf() metode i kolonu MEDICAL_ROLE NULL za ostale zaposlene?
 
 Npr.
@@ -130,12 +135,8 @@ ID ... ROLE    | MEDICAL ROLE  |
 1     Director | NULL          |
 2     Doctor   | Dermatologist |
 
-- [ ] Kako dodati u PowerDesigner-u da nam je povratna vrednost funkcije bude kolekcija objekata (npr. List<Medicine>)?
-Za sada smo nasli da mozemo da referenciramo klase iz modela ali ne i kolekciju samih.
-
-
-## Odgovori
-
+- [x] Kako dodati u PowerDesigner-u da nam je povratna vrednost funkcije bude kolekcija objekata (npr. List<Medicine>)?
+Za sada smo nasli da mozemo da referenciramo klase iz modela ali ne i kolekciju samih
 - [x] Koji specijalizacije doktora postoje?
 - [x] Koje vrste zaposlenih postoje?
 - [x] Koji zaposleni uvek moraju da budu na raspolaganju?

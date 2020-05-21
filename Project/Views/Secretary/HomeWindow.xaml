@@ -203,35 +203,35 @@
 
                 </Grid>
                 <TabControl Background="White" HorizontalAlignment="Center" Height="405" Margin="46,209,46,0" VerticalAlignment="Top" Width="1172">
-        <TabControl.Resources>
-            <Style TargetType="TabItem">
-                <Setter Property="Template">
-                    <Setter.Value>
-                        <ControlTemplate TargetType="TabItem">
-                            <Border Name="Border" BorderThickness="0" BorderBrush="#FF666565"  Margin="2,0">
-                                <Border.Effect>
-                                    <DropShadowEffect BlurRadius="3" Opacity="0.5" ShadowDepth="3"/>
-                                </Border.Effect>
-                                <ContentPresenter x:Name="ContentSite"
+                    <TabControl.Resources>
+                        <Style TargetType="TabItem">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="TabItem">
+                                        <Border Name="Border" BorderThickness="0" BorderBrush="#FF666565"  Margin="2,0">
+                                            <Border.Effect>
+                                                <DropShadowEffect BlurRadius="3" Opacity="0.5" ShadowDepth="3"/>
+                                            </Border.Effect>
+                                            <ContentPresenter x:Name="ContentSite"
                                         VerticalAlignment="Center"
                                         HorizontalAlignment="Center"
                                         ContentSource="Header"
                                         Margin="180,1"/>
-                            </Border>
-                            <ControlTemplate.Triggers>
-                                <Trigger Property="IsSelected" Value="True">
-                                    <Setter TargetName="Border" Property="Background" Value="White" />
-                                </Trigger>
-                                <Trigger Property="IsSelected" Value="False">
-                                    <Setter TargetName="Border" Property="Background" Value="#FF009688" />
-                                    <Setter Property="Foreground" Value="White" />
-                                </Trigger>
-                            </ControlTemplate.Triggers>
-                        </ControlTemplate>
-                    </Setter.Value>
-                </Setter>
-            </Style>
-        </TabControl.Resources>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsSelected" Value="True">
+                                                <Setter TargetName="Border" Property="Background" Value="White" />
+                                            </Trigger>
+                                            <Trigger Property="IsSelected" Value="False">
+                                                <Setter TargetName="Border" Property="Background" Value="#FF496A66" />
+                                                <Setter Property="Foreground" Value="White" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </TabControl.Resources>
                     <TabControl.Effect>
                         <DropShadowEffect Direction="270" Opacity="0.4" ShadowDepth="8" BlurRadius="20"/>
                     </TabControl.Effect>

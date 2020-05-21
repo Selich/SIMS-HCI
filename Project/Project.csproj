@@ -124,6 +124,7 @@
     <Compile Include="Model\TypeOfIssue.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Repositories\DoctorRepository.cs" />
+    <Compile Include="Repositories\FeedbackRepository.cs" />
     <Compile Include="Repositories\MedicalAppointmentRepository.cs" />
     <Compile Include="Repositories\PatientRepository.cs" />
     <Compile Include="Repositories\QuestionRepository.cs" />
