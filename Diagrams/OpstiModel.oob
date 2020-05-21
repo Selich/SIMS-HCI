@@ -2214,8 +2214,8 @@ LABL 0 Arial,8,N</a:FontList>
 </c:Object>
 </o:UseCaseSymbol>
 <o:UseCaseSymbol Id="o43">
-<a:ModificationDate>1588166398</a:ModificationDate>
-<a:Rect>((5362,1756), (17926,7156))</a:Rect>
+<a:ModificationDate>1590076468</a:ModificationDate>
+<a:Rect>((5082,3525), (17646,8925))</a:Rect>
 <a:AutoAdjustToText>0</a:AutoAdjustToText>
 <a:LineColor>128</a:LineColor>
 <a:LineWidth>1</a:LineWidth>
@@ -2290,8 +2290,8 @@ DISPNAME 0 Arial,8,N</a:FontList>
 </c:Object>
 </o:ActorSymbol>
 <o:UseCaseSymbol Id="o51">
-<a:ModificationDate>1588166398</a:ModificationDate>
-<a:Rect>((4660,-6464), (18476,-1064))</a:Rect>
+<a:ModificationDate>1590076494</a:ModificationDate>
+<a:Rect>((4615,-4509), (18431,891))</a:Rect>
 <a:AutoAdjustToText>0</a:AutoAdjustToText>
 <a:LineColor>128</a:LineColor>
 <a:LineWidth>1</a:LineWidth>
@@ -2565,9 +2565,9 @@ LABL 0 Arial,8,N</a:FontList>
 </c:Object>
 </o:UseCaseAssociationSymbol>
 <o:UseCaseAssociationSymbol Id="o80">
-<a:ModificationDate>1588166398</a:ModificationDate>
-<a:Rect>((-1373,1956), (12044,2756))</a:Rect>
-<a:ListOfPoints>((-973,2356),(11644,2356))</a:ListOfPoints>
+<a:ModificationDate>1590076468</a:ModificationDate>
+<a:Rect>((-1373,1956), (11764,4525))</a:Rect>
+<a:ListOfPoints>((-973,2356),(-973,4125),(11364,4125))</a:ListOfPoints>
 <a:CornerStyle>2</a:CornerStyle>
 <a:ArrowStyle>0</a:ArrowStyle>
 <a:LineColor>128</a:LineColor>
@@ -2584,9 +2584,9 @@ LABL 0 Arial,8,N</a:FontList>
 </c:Object>
 </o:UseCaseAssociationSymbol>
 <o:UseCaseAssociationSymbol Id="o82">
-<a:ModificationDate>1588166398</a:ModificationDate>
-<a:Rect>((-1373,-4164), (22204,10690))</a:Rect>
-<a:ListOfPoints>((-973,1156),(21804,10290),(11568,-3764))</a:ListOfPoints>
+<a:ModificationDate>1590076494</a:ModificationDate>
+<a:Rect>((-1373,-2209), (11923,1556))</a:Rect>
+<a:ListOfPoints>((-973,1156),(11523,1156),(11523,-1809))</a:ListOfPoints>
 <a:CornerStyle>2</a:CornerStyle>
 <a:ArrowStyle>0</a:ArrowStyle>
 <a:LineColor>128</a:LineColor>
@@ -2622,14 +2622,15 @@ LABL 0 Arial,8,N</a:FontList>
 </c:Object>
 </o:UseCaseAssociationSymbol>
 <o:UseCaseAssociationSymbol Id="o86">
-<a:ModificationDate>1588166398</a:ModificationDate>
-<a:Rect>((-3472,-17451), (14858,2177))</a:Rect>
-<a:ListOfPoints>((-3072,1777),(7164,-2770),(14458,-2770),(4222,-17051))</a:ListOfPoints>
+<a:ModificationDate>1590076491</a:ModificationDate>
+<a:Rect>((-3472,-17451), (4622,2177))</a:Rect>
+<a:ListOfPoints>((-3072,1777),(-3072,-2630),(4222,-2630),(4222,-17051))</a:ListOfPoints>
 <a:CornerStyle>2</a:CornerStyle>
 <a:ArrowStyle>0</a:ArrowStyle>
 <a:LineColor>128</a:LineColor>
 <a:ShadowColor>12632256</a:ShadowColor>
 <a:FontList>CENTER 0 Arial,8,N</a:FontList>
+<a:AutomaticRoutingState>4</a:AutomaticRoutingState>
 <c:SourceSymbol>
 <o:ActorSymbol Ref="o37"/>
 </c:SourceSymbol>
@@ -2977,31 +2978,31 @@ Neuspesno:\par
 <a:Code>Zakazivanje_operacione_sale</a:Code>
 <a:CreationDate>1588166398</a:CreationDate>
 <a:Creator>Selic</a:Creator>
-<a:ModificationDate>1588166398</a:ModificationDate>
+<a:ModificationDate>1590076844</a:ModificationDate>
 <a:Modifier>Selic</a:Modifier>
 <a:Step>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033\deflangfe1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.18362}\viewkind4\uc1 
+{\*\generator Riched20 10.0.19613}\viewkind4\uc1 
 \pard\sl240\slmult1\f0\fs20 Funkcionalnost inicira doktor\line\par
-1. Pretrazuje slobodne sale\par
-2. Bira  salu\par
-3. Bira  termin \par
-4. Definise pacijenta\par
-5. Potvrdjuje zakazivanje termin\par
+1. Bira pacijenta\par
+2. Bira salu\par
+3. Bira termin \par
+4. Potvrdjuje zakazivanje termina\par
+\par
 }
 </a:Step>
 <a:UseCase.Extension>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033\deflangfe1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.18362}\viewkind4\uc1 
+{\*\generator Riched20 10.0.19613}\viewkind4\uc1 
 \pard\sl240\slmult1\f0\fs20\par
 \par
 }
 </a:UseCase.Extension>
 <a:PreCondition>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033\deflangfe1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.18362}\viewkind4\uc1 
+{\*\generator Riched20 10.0.19613}\viewkind4\uc1 
 \pard\sl240\slmult1\f0\fs20 Postoji bar jedna operaciona sala u bolnici\par
 }
 </a:PreCondition>
 <a:PostCondition>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033\deflangfe1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.18362}\viewkind4\uc1 
+{\*\generator Riched20 10.0.19613}\viewkind4\uc1 
 \pard\sl240\slmult1\f0\fs20 Uspesno:\par
  - Doktor zakazuje operacionu salu\par
 \par
@@ -4516,10 +4517,10 @@ Neuspesno:\par
 <a:Code>Registracija_pacijenta</a:Code>
 <a:CreationDate>1588166373</a:CreationDate>
 <a:Creator>Selic</a:Creator>
-<a:ModificationDate>1588166373</a:ModificationDate>
+<a:ModificationDate>1590077353</a:ModificationDate>
 <a:Modifier>Selic</a:Modifier>
 <a:Step>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
+{\*\generator Riched20 10.0.19613}\viewkind4\uc1 
 \pard\f0\fs20 Funckionalnost inicira pacijent\par
 \par
 1. Unosi registracione podatke\par
@@ -4528,18 +4529,18 @@ Neuspesno:\par
 }
 </a:Step>
 <a:UseCase.Extension>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
+{\*\generator Riched20 10.0.19613}\viewkind4\uc1 
 \pard\f0\fs20\par
 \par
 }
 </a:UseCase.Extension>
 <a:PreCondition>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
+{\*\generator Riched20 10.0.19613}\viewkind4\uc1 
 \pard\f0\fs20 1.Korisnik nije prijavljen\par
 }
 </a:PreCondition>
 <a:PostCondition>{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
-{\*\generator Riched20 10.0.17134}\viewkind4\uc1 
+{\*\generator Riched20 10.0.19613}\viewkind4\uc1 
 \pard\f0\fs20 Uspesno:\par
  Korisnik je ubacen u bazu podataka i moze da se loguje\par
 \par

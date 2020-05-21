@@ -669,7 +669,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>Sequence_Secretary</a:Code>
 <a:CreationDate>1588348715</a:CreationDate>
 <a:Creator>Selic</a:Creator>
-<a:ModificationDate>1588878798</a:ModificationDate>
+<a:ModificationDate>1588923709</a:ModificationDate>
 <a:Modifier>Selic</a:Modifier>
 <a:Location>file:///%[PRJ_ROOT_DIR]%/Sequence Diagrams/Sequence Secretary.oom</a:Location>
 <a:Extension>oom</a:Extension>
@@ -682,7 +682,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>Sequence_Director</a:Code>
 <a:CreationDate>1588348713</a:CreationDate>
 <a:Creator>Selic</a:Creator>
-<a:ModificationDate>1588893710</a:ModificationDate>
+<a:ModificationDate>1588898207</a:ModificationDate>
 <a:Modifier>Selic</a:Modifier>
 <a:Location>file:///%[PRJ_ROOT_DIR]%/Sequence Diagrams/Sequence Director.oom</a:Location>
 <a:Extension>oom</a:Extension>
