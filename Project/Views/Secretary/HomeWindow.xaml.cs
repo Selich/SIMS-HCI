@@ -348,6 +348,7 @@ namespace Project.Views.Secretary
         {
             currentDate.AddDays(-1);
             currentDayLabel.Content = currentDate.ToString("dddd, dd MMMM yyyy");
+            CollectionViewSource.GetDefaultView(currentDayLabel.Content).Refresh();
 
         }
 
@@ -355,7 +356,7 @@ namespace Project.Views.Secretary
         {
             currentDate.AddDays(1);
             currentDayLabel.Content = currentDate.ToString("dddd, dd MMMM yyyy");
-
+            CollectionViewSource.GetDefaultView(currentDayLabel.Content).Refresh();
         }
 
         private void Prev_Week_Click(object sender, RoutedEventArgs e)
