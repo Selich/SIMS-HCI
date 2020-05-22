@@ -9,6 +9,7 @@ namespace Model
 {
    public class Address
    {
+      public int id {get;set;}
       private string number;
       private string street;
       private string city;
@@ -20,7 +21,8 @@ namespace Model
       public Address(){
 
       }
-      public Address(string number, string street, string city, string country, string postCode){
+      public Address(int id,string number, string street, string city, string country, string postCode){
+         this.id = id;
          this.number = number;
          this.street = street;
          this.city = city;

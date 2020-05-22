@@ -112,6 +112,8 @@ Branch za poseban servis npr. "Patient" bice:
 ## Pitanja za konsultacije
 
 
+- [ ] Da li servisi mogu samo pozivati svoj repozitorijum i druge servise, ili mogu direktno pozivati repozitorijume drugih entiteta
+- [ ]
 
 
 
@@ -119,9 +121,11 @@ Branch za poseban servis npr. "Patient" bice:
 - [x] Structure Code into Namespaces by Feature
 - Nije potrebno
 - [x] Konvencija naziva metoda
-- save,update<entitet>,delete,get
+- save,update + <entitet>,delete,get
 - [x] Auth service ( logovanje, naziv )
 - Moze
+- [x] DTO?
+- User bez password
 - [x] Da li mozemo za korisnike sistema da koristimo JMBG kao Primarni Kljuc?
 - Ne
 - [x] Da li moramo implementirati simulaciju vremena da se izvrsava renovacija. Npr. Da posle odredjenog vremena napravi se nova soba itd.
