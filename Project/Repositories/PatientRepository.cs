@@ -7,96 +7,38 @@ using Model;
 
 namespace Project.Repositories
 {
-    public class PatientRepository
+    public class PatientRepository : CSVRepository<Client, long>, IClientRepository, IEagerCSVRepository<Client, long>
     {
-        public AddressRepository addressRepository;
-        private string fileName;
+        private const string ENTITY_NAME = "Patient";
+        private readonly IEagerCSVRepository<Address, long> _addressRepository;
 
-        public PatientRepository(){
-             fileName = "../../Data/patients.csv";
-             addressRepository = new AddressRepository();
-
+        public PatientRepository(ICSVStream<Patient> stream, ISequencer<long> sequencer, IEagerCSVRepository<Account, long> accountRepository) : base(ENTITY_NAME, stream, sequencer) {
+            _addressRepository = addressRepository;
         }
 
-        public Patient convertFromCSVToPatient(string line){
-            Patient patient = null;
-            try
-            {
-                string[] data = line.Split(Util.Environment.delimiter);
-                patient = new Patient();
-                patient.id = Int32.Parse(data[0]);
-                patient.firstName = data[1];
-                patient.lastName = data[2];
-                patient.jmbg = data[3];
-                patient.gender = (Sex) Enum.Parse(typeof(Sex),data[4]);
-                patient.telephoneNumber = data[5];
-                patient.email = data[6];
-                patient.address = addressRepository.GetAddressById(Util.HelperFunctions.ConvertIDToInt(data[7]));
-            }
-            catch (System.Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
+        public new IEnumerable<Patient> Find(Func<Patient, bool> predicate) => GetAllEager().Where(predicate);
 
-            return patient;
-
-        }
-
-        // TODO: Sredi
-        public IEnumerable<Patient> ReadCSV(string fileName){
-            string[] lines = File.ReadAllLines(System.IO.Path.ChangeExtension(fileName, ".csv"));
-
-            return lines.Select(line =>
-                {
-                    string[] data = line.Split(';');
-
-                    Patient patient = new Patient();
-                    patient.firstName = data[1];
-                    patient.lastName = data[2];
-                    patient.jmbg = data[3];
-                    patient.telephoneNumber = data[4];
-                    patient.email = data[5];
-                    return patient;
-
-                });
-
-
-        }
-        public Patient Save(Patient patient){
-            Patient patient;
-            return patient;
-
-        }
-        public Patient GetPatientById(int patientID)
+        public IEnumerable<Patient> GetAllEager()
         {
-            string[] items = Util.HelperFunctions.ReadFile(fileName);
-            Patient patient = null;
-            foreach(string item in items)
-            {
-                patient = convertFromCSVToPatient(item);
-                if (patient.id == patientID){
-                    return patient;
-                }
+            var address = _addressRepository.GetAllEager();
+            var patients = GetAll();
+            BindAccountsWithClients(address, patients);
+            return patients;
+        }
 
-            }
+        public Patient GetEager(long id)
+        {
+            var patient = Get(id);
+            patient.Address = _addressRepository.GetEager(patient.Address.Id);
             return patient;
         }
 
-        public Patient GetPatientByEmail(string patientEmail){
-            string[] items = Util.HelperFunctions.ReadFile(fileName);
-            Patient patient = null;
-            foreach(string item in items)
-            {
-                patient = convertFromCSVToPatient(item);
-                if (patient.email == patientEmail){
-                    return patient;
-                }
+        private void BindAddressWithPAtient(IEnumerable<Address> addressses, IEnumerable<Patient> patients)
+           => patients
+           .ToList()
+           .ForEach(patient = patient.Address = GetAddressById(addresses, patient.Id));
 
-            }
-            return patient;
-
-        }
-        
+        private Address GetAccountById(IEnumerable<Address> addresses, long id)
+            => addresses.SingleOrDefault(address => address.Id == id);
     }
 }
