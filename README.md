@@ -106,12 +106,24 @@ Branch za poseban servis npr. "Patient" bice:
 - [ ] Doctor - Use case diagram
 
 
+- [ ] CleanCode playlist - Repo demo ( DBC demo )
+
+
 ## Pitanja za konsultacije
 
-- [ ] Da li mozemo za korisnike sistema da koristimo JMBG kao Primarni Kljuc?
+
+
 
 
 ## Odgovori
+- [x] Structure Code into Namespaces by Feature
+- Nije potrebno
+- [x] Konvencija naziva metoda
+- save,update<entitet>,delete,get
+- [x] Auth service ( logovanje, naziv )
+- Moze
+- [x] Da li mozemo za korisnike sistema da koristimo JMBG kao Primarni Kljuc?
+- Ne
 - [x] Da li moramo implementirati simulaciju vremena da se izvrsava renovacija. Npr. Da posle odredjenog vremena napravi se nova soba itd.
 - sync
 - [x] Premestanje opreme bez zakazane renovacije

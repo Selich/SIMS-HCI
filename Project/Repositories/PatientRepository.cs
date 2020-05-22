@@ -51,6 +51,11 @@ namespace Project.Repositories
             return patient;
 
         }
+
+        public Patient GetPatientByEmail(string email){
+            return new Patient();
+
+        }
         
     }
 }
