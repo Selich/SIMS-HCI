@@ -113,7 +113,9 @@ Branch za poseban servis npr. "Patient" bice:
 
 
 - [ ] Da li servisi mogu samo pozivati svoj repozitorijum i druge servise, ili mogu direktno pozivati repozitorijume drugih entiteta
-- [ ]
+- [ ] Izvestaj design pattern -> Factory
+- [ ] Work with files -> Template Method
+- [ ] Validation hooks -> Template Method
 
 
 
