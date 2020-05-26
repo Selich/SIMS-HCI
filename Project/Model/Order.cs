@@ -5,7 +5,7 @@
 
 using System;
 
-namespace Model
+namespace Project.Model
 {
    public class Order
    {

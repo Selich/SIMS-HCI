@@ -23,7 +23,7 @@ namespace Project.Views.Secretary
     /// </summary>
     public partial class ProfileModal : Window
     {
-        public Model.Patient selectedPatient;
+        public Model.Guest selectedPatient;
         public ProfileModal(int id)
         {
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
@@ -45,7 +45,7 @@ namespace Project.Views.Secretary
             viewHistory.SortDescriptions.Add(new SortDescription("End", ListSortDirection.Ascending));
             this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
         }
-        public ProfileModal(Model.Patient patient)
+        public ProfileModal(Model.Guest patient)
         {
             Generators g = new Generators();
             PatientRepository pr = new PatientRepository();

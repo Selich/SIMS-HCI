@@ -2,15 +2,26 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Model;
-
+using Project.Model;
+using Project.Repositories.Abstract;
+using Project.Repositories.CSV;
+using Project.Repositories.CSV.Stream;
+using Project.Repositories.Sequencer;
 
 namespace Project.Repositories
 {
-    public class PatientRepository : CSVRepository<Client, long>, IClientRepository, IEagerCSVRepository<Client, long>
+    public class PatientRepository : CSVRepository<Patient, long>, IPatientRepository, IEagerCSVRepository<Patient, long>
     {
         private const string ENTITY_NAME = "Patient";
         private readonly IEagerCSVRepository<Address, long> _addressRepository;
+        private CSVStream<Address> cSVStream;
+        private LongSequencer longSequencer;
+
+        public PatientRepository(CSVStream<Address> cSVStream, LongSequencer longSequencer)
+        {
+            this.cSVStream = cSVStream;
+            this.longSequencer = longSequencer;
+        }
 
         public PatientRepository(ICSVStream<Patient> stream, ISequencer<long> sequencer, IEagerCSVRepository<Account, long> accountRepository) : base(ENTITY_NAME, stream, sequencer) {
             _addressRepository = addressRepository;
@@ -22,7 +33,7 @@ namespace Project.Repositories
         {
             var address = _addressRepository.GetAllEager();
             var patients = GetAll();
-            BindAccountsWithClients(address, patients);
+            BindAddressWithPatient(address, patients);
             return patients;
         }
 
@@ -33,7 +44,7 @@ namespace Project.Repositories
             return patient;
         }
 
-        private void BindAddressWithPAtient(IEnumerable<Address> addressses, IEnumerable<Patient> patients)
+        private void BindAddressWithPatient(IEnumerable<Address> addressses, IEnumerable<Patient> patients)
            => patients
            .ToList()
            .ForEach(patient = patient.Address = GetAddressById(addresses, patient.Id));

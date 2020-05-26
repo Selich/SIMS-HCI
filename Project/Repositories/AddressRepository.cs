@@ -1,65 +1,42 @@
-using Model;
-using System;
+﻿using Project.Model;
+using Project.Model.Util;
+using Project.Repository.Abstract;
+using Project.Repository.CSV;
+using Project.Repository.CSV.Stream;
+using Project.Repository.Sequencer;
 using System.Collections.Generic;
-using System.IO;
+using System.Linq;
 
 namespace Project.Repositories
 {
-    public class AddressRepository
+    public class AddressRepository : CSVRepository<Address, long>, 
+        IAddressRepository,
+        IEagerCSVRepository<Address, long>
     {
-        private string fileName;
-        public AddressRepository()
-        {
-            // TODO: Maybe add ReadFile here
-            fileName = "../../Data/address.csv";
+        private const string ENTITY_NAME = "Address";
 
-        }
-        public Address ConvertFromCSVToAddress(string line)
+
+        public AddressRepository(ICSVStream<Address> stream, ISequencer<long> sequencer)
+            : base(ENTITY_NAME, stream, sequencer)
         {
-            Address address = null;
-            try
-            {
-                string[] data = line.Split(Util.Environment.delimiter);
-                address = new Address(
-                    Int32.Parse(data[0]), data[1], data[2],
-                    data[3], data[4], data[5]
-                );
-            }
-            catch (System.Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
-            return address;
         }
 
-        public Address GetAddressById(int addressID)
+        public new Address Create(Address Address)
         {
-            string[] items = Util.HelperFunctions.ReadFile(fileName);
-            Address address = null;
-            foreach (string item in items)
-            {
-                    address = ConvertFromCSVToAddress(item);
-                    if (address.id == addressID)
-                    {
-                        return address;
-                    }
-
-            }
-            return null;
-        }
-        public List<Address> GetAllAddress()
-        {
-            string[] items = Util.HelperFunctions.ReadFile(fileName);
-            List<Address> addresses = new List<Address>();
-            foreach (string item in items)
-            {
-                addresses.Add(ConvertFromCSVToAddress(item));
-            }
-            return addresses;
+            if (IsAddressNumberUnique(Address.Number))
+                return base.Create(Address);
+            else
+                throw new Exception();
         }
 
+        private bool IsAddressNumberUnique(AddressNumber AddressNumber)
+           => GetAddressByAddressName(AddressNumber) == null;
 
+        private Address GetAddressByAddressName(AddressNumber AddressNumber)
+            => _stream.ReadAll().SingleOrDefault(Address => Address.Number.Equals(AddressNumber));
 
+        public Address GetEager(long id) => Get(id);
+
+        public IEnumerable<Address> GetAllEager() => GetAll();
     }
 }

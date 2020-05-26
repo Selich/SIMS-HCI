@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Project.Repositories.CSV.Converter
+namespace Project.Repositories.CSV.Stream
 {
     
     public interface ICSVStream<E>

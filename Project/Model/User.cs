@@ -4,95 +4,39 @@
 // Purpose: Definition of Class User
 
 using System;
+using System.Collections.Generic;
 
-namespace Model
+namespace Project.Model
 {
     public class User
     {
-        private DateTime dateOfBirth;
+        public long Id { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Jmbg { get; set; }
+        public string TelephoneNumber { get; set; }
+        public string Gender { get; set; }
+        public DateTime DateOfBirth { get; set; }
 
-        public string firstName
-        { get; set; }
-        public string lastName
-        { get; set; }
-        public string jmbg
-        { get; set; }
-        public string telephoneNumber
-        { get; set; }
-        public Sex gender
-        { get; set; }
+        public Feedback[] Feedbacks;
+        public Address Address;
+        public List<Report> Reports;
 
-        public Feedback[] feedback;
-        public Address address;
-        public User() { }
-
-        public User(string firstName, string lastName)
+        public User(long id, Address address,string firstName, string lastName, string jmbg, string telephoneNumber, string gender, DateTime dateOfBirth)
         {
-            this.firstName = firstName;
-            this.lastName = lastName;
+            Id = id;
+            Address = address;
+            FirstName = firstName;
+            LastName = lastName;
+            Jmbg = jmbg;
+            TelephoneNumber = telephoneNumber;
+            Gender = gender;
+            DateOfBirth = dateOfBirth;
         }
 
-        public System.Collections.Generic.List<Report> report;
-
-        /// <summary>
-        /// Property for collection of Report
-        /// </summary>
-        /// <pdGenerated>Default opposite class collection property</pdGenerated>
-        public System.Collections.Generic.List<Report> Report
+        public User()
         {
-            get
-            {
-                if (report == null)
-                    report = new System.Collections.Generic.List<Report>();
-                return report;
-            }
-            set
-            {
-                RemoveAllReport();
-                if (value != null)
-                {
-                    foreach (Report oReport in value)
-                        AddReport(oReport);
-                }
-            }
         }
-
-        /// <summary>
-        /// Add a new Report in the collection
-        /// </summary>
-        /// <pdGenerated>Default Add</pdGenerated>
-        public void AddReport(Report newReport)
-        {
-            if (newReport == null)
-                return;
-            if (this.report == null)
-                this.report = new System.Collections.Generic.List<Report>();
-            if (!this.report.Contains(newReport))
-                this.report.Add(newReport);
-        }
-
-        /// <summary>
-        /// Remove an existing Report from the collection
-        /// </summary>
-        /// <pdGenerated>Default Remove</pdGenerated>
-        public void RemoveReport(Report oldReport)
-        {
-            if (oldReport == null)
-                return;
-            if (this.report != null)
-                if (this.report.Contains(oldReport))
-                    this.report.Remove(oldReport);
-        }
-
-        /// <summary>
-        /// Remove all instances of Report from the collection
-        /// </summary>
-        /// <pdGenerated>Default removeAll</pdGenerated>
-        public void RemoveAllReport()
-        {
-            if (report != null)
-                report.Clear();
-        }
-
     }
+
 }

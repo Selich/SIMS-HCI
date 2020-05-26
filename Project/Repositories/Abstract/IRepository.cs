@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Project.Repository.Abstract
+namespace Project.Repositories.Abstract
 {
     public interface IRepository<E, ID>
         where E : IIdentifiable<ID>

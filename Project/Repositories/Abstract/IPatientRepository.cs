@@ -1,8 +1,9 @@
 ﻿using Project;
+using Project.Model;
 
-namespace Project.Repository.Abstract
+namespace Project.Repositories.Abstract
 {
-    public interface IPatientRepository : IRepository<Model.Patient, long>
+    public interface IPatientRepository : IRepository<Patient, long>
     {
     }
 }

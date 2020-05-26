@@ -16,7 +16,7 @@ using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Model;
+using Project.Model;
 using Project.ItemGenerators;
 using Project.Repositories;
 
@@ -52,17 +52,8 @@ namespace Project.Views.Secretary
         {
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             isChangeble = false;
-            user = new Model.Secretary();
-            user.firstName = "Nikola";
-            user.lastName = "Selic";
-            user.address = new Address("7a", "Bulevar despota Stefana", "Novi Sad", "Republika Srbija", "21000");
-            user.email = "n_selic@uns.ac.rs";
-
 
             doctorModal = new DoctorSearchModal(this);
-            PatientRepository pr = new PatientRepository();
-            DoctorRepository dr = new DoctorRepository();
-            QuestionRepository qr = new QuestionRepository();
             Generators gen = new Generators();
 
             currentDate = DateTime.Today;
@@ -78,13 +69,10 @@ namespace Project.Views.Secretary
             endWeekLabel.Content = endOfTheWeek.ToString("dddd, dd MMMM yyyy");
             currentDayLabel.Content = currentDate.ToString("dddd, dd MMMM yyyy");
 
-            medicalAppointments = gen.GetMedicalAppointments(10);
-            var weeksAppointments = GetThisWeeksAppointements(medicalAppointments);
+            //listPatients.ItemsSource = pr.ReadCSV("../../Data/patients.csv");
+            //listPatientsCreate.ItemsSource = pr.ReadCSV("../../Data/patients.csv");
 
-            listPatients.ItemsSource = pr.ReadCSV("../../Data/patients.csv");
-            listPatientsCreate.ItemsSource = pr.ReadCSV("../../Data/patients.csv");
-
-            listQuestions.ItemsSource = qr.ReadCSV("../../Data/questions.csv");
+            //listQuestions.ItemsSource = qr.ReadCSV("../../Data/questions.csv");
             listTerm.ItemsSource = medicalAppointments;
             listAppointments.ItemsSource = medicalAppointments;
             nextAppointment.Content = medicalAppointments[0];
@@ -180,7 +168,7 @@ namespace Project.Views.Secretary
         }
         private void Profile_Click(object sender, RoutedEventArgs e)
         {
-            Model.Patient item = (Model.Patient)(sender as System.Windows.Controls.Button).DataContext;
+            Model.Guest item = (Model.Guest)(sender as System.Windows.Controls.Button).DataContext;
             var s = new ProfileModal(item);
             s.Show();
 

@@ -5,31 +5,38 @@
 
 using System;
 
-namespace Model
+namespace Project.Model
 {
-   public class Address
-   {
-      public int id {get;set;}
-      private string number;
-      private string street;
-      private string city;
-      private string country;
-      private string postCode;
-      
-      public User[] user;
+    public class Address
+    {
+        public int Id { get; set; }
+        public string Number { get; set; }
+        public string Street { get; set; }
+        public string City { get; set; }
+        public string Country { get; set; }
+        public string PostCode { get; set; }
 
-      public Address(){
+        public User[] User;
+        private long v;
 
-      }
-      public Address(int id,string number, string street, string city, string country, string postCode){
-         this.id = id;
-         this.number = number;
-         this.street = street;
-         this.city = city;
-         this.country = country;
-         this.postCode = postCode;
+        public Address()
+        {
 
-      }
-   
-   }
+        }
+
+        public Address(int id, string number, string street, string city, string country, string postCode)
+        {
+            Id = id;
+            Number = number;
+            Street = street;
+            City = city;
+            Country = country;
+            PostCode = postCode;
+        }
+
+        public Address(long v)
+        {
+            this.v = v;
+        }
+    }
 }

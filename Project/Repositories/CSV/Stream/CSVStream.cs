@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Repositories.CSV.Converter;
+using Project.Repositories.CSV.Converter;
 
-namespace Project.Repositories.CSV.Converter
+namespace Project.Repositories.CSV.Stream
 {
      public class CSVStream<E> : ICSVStream<E> where E : class
     {

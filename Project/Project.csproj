@@ -74,11 +74,13 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Controllers\AppoitmentController.cs" />
+    <Compile Include="Controllers\AuthenticationController.cs" />
     <Compile Include="Controllers\DocumentController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\Equipment.cs" />
     <Compile Include="Controllers\EquipmentController.cs" />
     <Compile Include="Controllers\FeedbackController.cs" />
+    <Compile Include="Controllers\IController.cs" />
     <Compile Include="Controllers\MedicalAppointmentController.cs" />
     <Compile Include="Controllers\MedicalConsumableController.cs" />
     <Compile Include="Controllers\MedicineController.cs" />
@@ -88,11 +90,24 @@
     <Compile Include="Controllers\QuestionController.cs" />
     <Compile Include="Controllers\ReviewController.cs" />
     <Compile Include="Controllers\RoomController.cs" />
+    <Compile Include="Entities\Anamneza.cs" />
+    <Compile Include="Entities\Appoitment.cs" />
+    <Compile Include="Entities\Approval.cs" />
+    <Compile Include="Entities\Consumebles.cs" />
+    <Compile Include="Entities\Director.cs" />
+    <Compile Include="Entities\Doctor.cs" />
+    <Compile Include="Entities\Employee.cs" />
+    <Compile Include="Entities\EmployeeDTO.cs" />
+    <Compile Include="Entities\Equipment.cs" />
+    <Compile Include="Entities\InventoryReplacement.cs" />
+    <Compile Include="Entities\MedicalAppointment.cs" />
+    <Compile Include="Entities\Medicine.cs" />
+    <Compile Include="Entities\Order.cs" />
+    <Compile Include="Entities\Patient.cs" />
     <Compile Include="ItemGenerators\Generators.cs" />
     <Compile Include="Model\Address.cs" />
     <Compile Include="Model\Anamneza.cs" />
     <Compile Include="Model\Appoitment.cs" />
-    <Compile Include="Model\Approval.cs" />
     <Compile Include="Model\Consumebles.cs" />
     <Compile Include="Model\Director.cs" />
     <Compile Include="Model\Doctor.cs" />
@@ -106,14 +121,13 @@
     <Compile Include="Model\MedicalConsumables.cs" />
     <Compile Include="Model\Medicine.cs" />
     <Compile Include="Model\Order.cs" />
-    <Compile Include="Model\Patient.cs" />
+    <Compile Include="Model\Guest.cs" />
     <Compile Include="Model\Prescription.cs" />
     <Compile Include="Model\Proposition.cs" />
     <Compile Include="Model\PropositionState.cs" />
     <Compile Include="Model\Question.cs" />
-    <Compile Include="Model\RegistredPatient.cs" />
+    <Compile Include="Model\Patient.cs" />
     <Compile Include="Model\Renovation.cs" />
-    <Compile Include="Model\RenovationType.cs" />
     <Compile Include="Model\Report.cs" />
     <Compile Include="Model\Review.cs" />
     <Compile Include="Model\Room.cs" />
@@ -121,15 +135,24 @@
     <Compile Include="Model\Secretary.cs" />
     <Compile Include="Model\Sex.cs" />
     <Compile Include="Model\TimeInterval.cs" />
-    <Compile Include="Model\TypeOfIssue.cs" />
     <Compile Include="Model\User.cs" />
-    <Compile Include="Repositories\DoctorRepository.cs" />
-    <Compile Include="Repositories\FeedbackRepository.cs" />
-    <Compile Include="Repositories\MedicalAppointmentRepository.cs" />
+    <Compile Include="Repositories\Abstract\IIdentifiable.cs" />
+    <Compile Include="Repositories\Abstract\IPatientRepository.cs" />
+    <Compile Include="Repositories\Abstract\IRepository.cs" />
+    <Compile Include="Repositories\AddressRepository.cs" />
+    <Compile Include="Repositories\CSV\Converter\PatientCSVConverter.cs" />
+    <Compile Include="Repositories\CSV\Converter\ICSVConverter.cs" />
+    <Compile Include="Repositories\CSV\CSVRepository.cs" />
+    <Compile Include="Repositories\CSV\IEagerCSVRepository.cs" />
+    <Compile Include="Repositories\CSV\Stream\CSVStream.cs" />
+    <Compile Include="Repositories\CSV\Stream\ICSVStream.cs" />
     <Compile Include="Repositories\PatientRepository.cs" />
-    <Compile Include="Repositories\QuestionRepository.cs" />
-    <Compile Include="Repositories\RenovationRepository.cs" />
+    <Compile Include="Repositories\Sequencer\ISequencer.cs" />
+    <Compile Include="Repositories\Sequencer\LongSequencer.cs" />
     <Compile Include="Services\AppointmentService.cs" />
+    <Compile Include="Services\AuthenticationService.cs" />
+    <Compile Include="Services\IService.cs" />
+    <Compile Include="Services\RenovationService.cs" />
     <Compile Include="Views\Director\BugReportModal.xaml.cs">
       <DependentUpon>BugReportModal.xaml</DependentUpon>
     </Compile>
@@ -336,11 +359,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Data\doctors.csv" />
-    <None Include="Data\medicalAppointments.csv" />
-    <None Include="Data\patients.csv" />
-    <None Include="Data\questions.csv" />
-    <None Include="Model\InventoryReplacement.csa" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -353,6 +371,15 @@
     <Resource Include="Resources\Images\Faces\face5" />
     <Resource Include="Resources\Images\Faces\face6" />
     <Resource Include="Resources\Images\Faces\face7" />
+    <None Include="Resources\Data\address.csv" />
+    <None Include="Resources\Data\doctorMedicalAppointment.csv" />
+    <None Include="Resources\Data\doctors.csv" />
+    <None Include="Resources\Data\equipmentInventory.csv" />
+    <None Include="Resources\Data\equipmentOrder.csv" />
+    <None Include="Resources\Data\medicalAppointments.csv" />
+    <None Include="Resources\Data\patientPrescription.csv" />
+    <None Include="Resources\Data\patients.csv" />
+    <None Include="Resources\Data\questions.csv" />
     <None Include="Views\Patient\.vs\slnx.sqlite" />
     <None Include="Views\Patient\.vs\VSWorkspaceState.json" />
   </ItemGroup>
@@ -362,18 +389,18 @@
   <ItemGroup>
     <Folder Include="Resources\Demo\Patient\" />
     <Folder Include="Resources\Demo\Secretary\" />
-    <Folder Include="ViewModels\" />
+    <Folder Include="Resources\Styles\" />
     <Folder Include="Views\Patient\.vs\Patient\v15\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\graph.png" />
+    <Resource Include="Resources\Icons\graph.png" />
     <Content Include="Resources\Icons\8370799161557749690.svg" />
     <Resource Include="Resources\Images\Faces\down.png" />
     <Resource Include="Resources\Images\Faces\pat.jpg" />
     <Resource Include="Resources\Images\Faces\up.png" />
     <Resource Include="Resources\Images\Faces\doc.jpg" />
     <Resource Include="Resources\Icons\healthcare-and-medical.png" />
-    <Resource Include="Resources\hospital.png" />
+    <Resource Include="Resources\Icons\hospital.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\MaterialDesignThemes.3.1.1\build\MaterialDesignThemes.targets" Condition="Exists('packages\MaterialDesignThemes.3.1.1\build\MaterialDesignThemes.targets')" />

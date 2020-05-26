@@ -5,11 +5,11 @@
 
 using System;
 
-namespace Model
+namespace Project.Model
 {
    public class Feedback
    {
-      private TypeOfIssue issue;
+      private string issue;
       private string desc;
    
    }

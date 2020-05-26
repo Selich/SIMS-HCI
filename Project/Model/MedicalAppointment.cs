@@ -6,7 +6,7 @@
 using System;
 using System.Windows.Documents;
 
-namespace Model
+namespace Project.Model
 {
     public class MedicalAppointment : Appoitment
     {
@@ -15,11 +15,11 @@ namespace Model
         public MedicalAppointmentType type
         { get; set; }
         public System.Collections.Generic.List<Doctor> doctors;
-        public Patient patient;
+        public Guest patient;
       
       public MedicalAppointment(){}
 
-      public MedicalAppointment(int id, DateTime beginning, DateTime end, Room room, MedicalAppointmentType type, Patient patient, System.Collections.Generic.List<Doctor> doctors) 
+      public MedicalAppointment(int id, DateTime beginning, DateTime end, Room room, MedicalAppointmentType type, Guest patient, System.Collections.Generic.List<Doctor> doctors) 
       : base(beginning, end, room){
          this.id = id;
          this.type = type;
@@ -154,7 +154,7 @@ namespace Model
       /// Property for Patient
       /// </summary>
       /// <pdGenerated>Default opposite class property</pdGenerated>
-      public Patient Patient
+      public Guest Patient
       {
          get
          {
@@ -166,7 +166,7 @@ namespace Model
             {
                if (this.patient != null)
                {
-                  Patient oldPatient = this.patient;
+                  Guest oldPatient = this.patient;
                   this.patient = null;
                   oldPatient.RemoveAppointments(this);
                }

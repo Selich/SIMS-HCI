@@ -5,11 +5,11 @@
 
 using System;
 
-namespace Model
+namespace Project.Model
 {
    public class Renovation : Appoitment
    {
-      private RenovationType type;
+      private string type;
       private string contractor;
    
    }

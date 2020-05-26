@@ -5,24 +5,25 @@
 
 using System;
 
-namespace Model
+namespace Project.Model
 {
    public class Prescription
    {
-      private int id;
-      private int dosage;
-      private string usage;
-      private string period;
-      private int hospitalID;
-      private DateTime date;
+      public int Id {get;set;}
+      private int Dosage {get;set;}
+      ;
+      private string Usage {get;set;}
+      private string Period {get;set;}
+      private int HospitalID {get;set;}
+      private DateTime Date {get;set;}
       
-      public Patient patient;
+      public Guest patient;
       
       /// <summary>
       /// Property for Patient
       /// </summary>
       /// <pdGenerated>Default opposite class property</pdGenerated>
-      public Patient Patient
+      public Guest Patient
       {
          get
          {
@@ -34,7 +35,7 @@ namespace Model
             {
                if (this.patient != null)
                {
-                  Patient oldPatient = this.patient;
+                  Guest oldPatient = this.patient;
                   this.patient = null;
                   oldPatient.RemovePrescription(this);
                }
