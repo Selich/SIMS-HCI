@@ -1,15 +1,12 @@
-// File:    User.cs
-// Author:  Selic
-// Created: Thursday, March 19, 2020 7:12:43 PM
-// Purpose: Definition of Class User
-
-using Project.Repositories.Abstract;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Project.Model
+namespace Project.Entity
 {
-    public class User : IIdentifiable<long>
+    class UserDTO
     {
         public long Id;
         public string FirstName { get; set; }
@@ -19,11 +16,10 @@ namespace Project.Model
         public string Gender { get; set; }
         public DateTime DateOfBirth { get; set; }
 
-        public Feedback[] Feedbacks;
-        public Address Address;
-        public List<Report> Reports;
+        public AddressDTO Address;
+        public UserDTO() { }
 
-        public User(long id, Address address,string firstName, string lastName, string jmbg, string telephoneNumber, string gender, DateTime dateOfBirth)
+        public UserDTO(long id, AddressDTO address,string firstName, string lastName, string jmbg, string telephoneNumber, string gender, DateTime dateOfBirth)
         {
             Id = id;
             Address = address;
@@ -34,7 +30,7 @@ namespace Project.Model
             Gender = gender;
             DateOfBirth = dateOfBirth;
         }
-        public User(Address address,string firstName, string lastName, string jmbg, string telephoneNumber, string gender, DateTime dateOfBirth)
+        public UserDTO(AddressDTO address,string firstName, string lastName, string jmbg, string telephoneNumber, string gender, DateTime dateOfBirth)
         {
             Address = address;
             FirstName = firstName;
@@ -45,13 +41,5 @@ namespace Project.Model
             DateOfBirth = dateOfBirth;
         }
 
-        public User()
-        {
-        }
-
-        public long GetId() => Id;
-
-        public void SetId(long id) => Id = id;
     }
-
 }

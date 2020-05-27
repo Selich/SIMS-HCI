@@ -21,13 +21,13 @@ namespace Project.Views
     /// </summary>
     public partial class LoginWindow : Window
     {
+        private Application app;
         public LoginWindow()
         {
+            app = Application.Current as App;
             InitializeComponent();
 
             this.FontFamily = new FontFamily("Segoe UI");
-
-
 
         }
 
@@ -55,6 +55,14 @@ namespace Project.Views
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             var s = new Secretary.HomeWindow();
+            s.Show();
+
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            //var s = new Patient.RegisterPatient(app.PatientController);
+            var s = new Patient.RegisterPatient();
             s.Show();
 
         }

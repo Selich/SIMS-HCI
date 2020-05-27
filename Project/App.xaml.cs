@@ -13,6 +13,8 @@ using System.Configuration;
 using Project.Repositories.CSV.Stream;
 using Project.Model;
 using Project.Repositories.Sequencer;
+using Project.Services;
+using Project.Controllers;
 
 namespace Project
 {
@@ -29,16 +31,15 @@ namespace Project
         public App()
         {
             // Repositories
-            //var patientRepository = new PatientRepository(new CSVStream<Patient>(PATIENT_FILE, new AddressCSVConverter(CSV_DELIMITER)), new LongSequencer());
+            var patientRepository = new PatientRepository(new CSVStream<Patient>("../../Resources/Data/patients.csv", new PatientCSVConverter(",", DATETIME_FORMAT)), new LongSequencer());
 
             // Services
-            //var patientService = new ClientService(clientRepository, accountService);
+            var patientService = new PatientService(patientRepository);
 
             // Controllers
-            //ClientController = new ClientController(clientService);
+            PatientController = new PatientController(patientService);
         }
 
-        //public IController<Account, long> AccountController { get; private set; }
-        //public IController<Client, long> ClientController { get; private set; }
+        public IController<Patient, long> PatientController { get; private set; }
     }
 }

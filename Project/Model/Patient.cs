@@ -5,10 +5,11 @@
 
 using System;
 using System.Collections.Generic;
+using Project.Repositories.Abstract;
 
 namespace Project.Model
 {
-    public class Patient : Guest
+    public class Patient : Guest   
     {
         public string Email { get; set; }
         public string Password { get; set; }
@@ -18,6 +19,12 @@ namespace Project.Model
 
         public Patient(long id, Address address, string firstName, string lastName, string jmbg, string telephoneNumber, string gender, DateTime dateOfBirth,string insurenceNumber, string profession, string bloodType, float height, float weight, string email, string password)
             : base( id, address, firstName,  lastName,  jmbg,  telephoneNumber,  gender,  dateOfBirth, insurenceNumber,  profession,  bloodType,  height,  weight)
+        {
+            Email = email;
+            Password = password;
+        }
+        public Patient(Address address, string firstName, string lastName, string jmbg, string telephoneNumber, string gender, DateTime dateOfBirth,string insurenceNumber, string profession, string bloodType, float height, float weight, string email, string password)
+            : base(address, firstName,  lastName,  jmbg,  telephoneNumber,  gender,  dateOfBirth, insurenceNumber,  profession,  bloodType,  height,  weight)
         {
             Email = email;
             Password = password;

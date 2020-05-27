@@ -73,7 +73,7 @@ namespace Project.Views.Secretary
             //listQuestions.ItemsSource = qr.ReadCSV("../../Data/questions.csv");
             listTerm.ItemsSource = medicalAppointments;
             listAppointments.ItemsSource = medicalAppointments;
-            nextAppointment.Content = medicalAppointments[0];
+            //nextAppointment.Content = medicalAppointments[0];
 
             //listRoom.ItemsSource = gen.GetRooms(10);
 

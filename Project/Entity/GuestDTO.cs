@@ -1,14 +1,12 @@
-// File:    Patient.cs
-// Author:  Selic
-// Created: Friday, April 17, 2020 2:46:58 PM
-// Purpose: Definition of Class Patient
-
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Project.Model
+namespace Project.Entity
 {
-    public class Guest : User
+    class GuestDTO : UserDTO
     {
         public string InsurenceNumber { get; set; }
         public string Profession { get; set; }
@@ -16,11 +14,10 @@ namespace Project.Model
         public float Height { get; set; }
         public float Weight { get; set; }
 
-        public List<MedicalAppointment> appointments;
 
-        public Guest() { }
+        public GuestDTO() { }
 
-        public Guest(long id, Address address,string firstName, string lastName, string jmbg, string telephoneNumber, string gender, DateTime dateOfBirth,string insurenceNumber, string profession, string bloodType, float height, float weight) 
+        public GuestDTO(long id, AddressDTO address,string firstName, string lastName, string jmbg, string telephoneNumber, string gender, DateTime dateOfBirth,string insurenceNumber, string profession, string bloodType, float height, float weight) 
          : base(id, address, firstName,  lastName,  jmbg,  telephoneNumber,  gender,  dateOfBirth)
         {
             InsurenceNumber = insurenceNumber;
@@ -29,7 +26,7 @@ namespace Project.Model
             Height = height;
             Weight = weight;
         }
-        public Guest(Address address,string firstName, string lastName, string jmbg, string telephoneNumber, string gender, DateTime dateOfBirth,string insurenceNumber, string profession, string bloodType, float height, float weight) 
+        public GuestDTO(AddressDTO address,string firstName, string lastName, string jmbg, string telephoneNumber, string gender, DateTime dateOfBirth,string insurenceNumber, string profession, string bloodType, float height, float weight) 
          : base(address, firstName,  lastName,  jmbg,  telephoneNumber,  gender,  dateOfBirth)
         {
             InsurenceNumber = insurenceNumber;

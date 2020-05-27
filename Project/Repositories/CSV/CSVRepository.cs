@@ -32,20 +32,6 @@ namespace Project.Repositories.CSV
             return entity;
         }
 
-        public void Delete(E entity)
-        {
-            var entities = _stream.ReadAll().ToList();
-            var entityToRemove = entities.SingleOrDefault(ent => ent.GetId().CompareTo(entity.GetId()) == 0);
-            if (entityToRemove != null)
-            {
-                entities.Remove(entityToRemove);
-                _stream.SaveAll(entities);
-            }
-            else
-            {
-                ThrowEntityNotFoundException("id", entity.GetId());
-            }
-        }
 
         public IEnumerable<E> Find(Func<E, bool> predicate)
             => _stream
@@ -69,26 +55,46 @@ namespace Project.Repositories.CSV
 
         public IEnumerable<E> GetAll() => _stream.ReadAll();
 
-        public void Update(E entity)
+
+        protected void InitializeId() => _sequencer.Initialize(GetMaxId(_stream.ReadAll()));
+
+        E IRepository<E, ID>.Delete(E entity)
         {
-            try
+            var entities = _stream.ReadAll().ToList();
+            var entityToRemove = entities.SingleOrDefault(ent => ent.GetId().CompareTo(entity.GetId()) == 0);
+            if (entityToRemove != null)
             {
-                var entities = _stream.ReadAll().ToList();
-                entities[entities.FindIndex(ent => ent.GetId().CompareTo(entity.GetId()) == 0)] = entity;
+                entities.Remove(entityToRemove);
                 _stream.SaveAll(entities);
+                return entityToRemove;
             }
-            catch (ArgumentException)
+            else
             {
                 ThrowEntityNotFoundException("id", entity.GetId());
             }
+            return default;
         }
-
-        protected void InitializeId() => _sequencer.Initialize(GetMaxId(_stream.ReadAll()));
 
         private ID GetMaxId(IEnumerable<E> entities)
            => entities.Count() == 0 ? default : entities.Max(entity => entity.GetId());
 
         private void ThrowEntityNotFoundException(string key, object value)
           => throw new Exception(string.Format(NOT_FOUND_ERROR, _entityName, key, value));
+
+        E IRepository<E, ID>.Update(E entity)
+        {
+            try
+            {
+                var entities = _stream.ReadAll().ToList();
+                entities[entities.FindIndex(ent => ent.GetId().CompareTo(entity.GetId()) == 0)] = entity;
+                _stream.SaveAll(entities);
+                return entity;
+            }
+            catch (ArgumentException)
+            {
+                ThrowEntityNotFoundException("id", entity.GetId());
+                return default;
+            }
+        }
     }
 }

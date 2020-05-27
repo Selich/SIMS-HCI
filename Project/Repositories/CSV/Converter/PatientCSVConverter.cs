@@ -22,25 +22,25 @@ namespace Project.Repositories.CSV.Converter
                patient.DateOfBirth.ToString(_datetimeFormat),
                patient.Address.Id);
 
-        public Patient ConvertCSVFormatToEntity(string clientCSVFormat)
+        public Patient ConvertCSVFormatToEntity(string patientCSVFormat)
         {
-            string[] tokens = clientCSVFormat.Split(_delimiter.ToCharArray());
+            string[] tokens = patientCSVFormat.Split(_delimiter.ToCharArray());
             return new Patient(
                 long.Parse(tokens[0]),
-                new Address(long.Parse(tokens[1])), 
+                new Address(), 
+                tokens[1],
                 tokens[2],
                 tokens[3],
                 tokens[4],
                 tokens[5],
-                tokens[6],
-                DateTime.Parse(tokens[7]),
+                DateTime.Parse(tokens[6]),
+                tokens[7],
                 tokens[8],
                 tokens[9],
-                tokens[10],
+                float.Parse(tokens[10]),
                 float.Parse(tokens[11]),
-                float.Parse(tokens[12]),
-                tokens[13],
-                tokens[14]
+                tokens[12],
+                tokens[13]
             );
         }
     }

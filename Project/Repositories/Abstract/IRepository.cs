@@ -10,8 +10,8 @@ namespace Project.Repositories.Abstract
         E Get(ID id);
         IEnumerable<E> GetAll();
         E Create(E entity);
-        void Update(E entity);
-        void Delete(E entity);
+        E Update(E entity);
+        E Delete(E entity);
         IEnumerable<E> Find(Func<E, bool> predicate);
     }
 }

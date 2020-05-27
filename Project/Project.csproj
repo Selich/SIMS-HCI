@@ -102,11 +102,15 @@
     <Compile Include="Controllers\MedicalConsumableController.cs" />
     <Compile Include="Controllers\MedicineController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
-    <Compile Include="Controllers\PatientCotroller.cs" />
+    <Compile Include="Controllers\PatientController.cs" />
     <Compile Include="Controllers\PropositionController.cs" />
     <Compile Include="Controllers\QuestionController.cs" />
     <Compile Include="Controllers\ReviewController.cs" />
     <Compile Include="Controllers\RoomController.cs" />
+    <Compile Include="Entity\AddressDTO.cs" />
+    <Compile Include="Entity\GuestDTO.cs" />
+    <Compile Include="Entity\PatientDTO.cs" />
+    <Compile Include="Entity\UserDTO.cs" />
     <Compile Include="Model\Address.cs" />
     <Compile Include="Model\Anamneza.cs" />
     <Compile Include="Model\Appoitment.cs" />
@@ -153,6 +157,7 @@
     <Compile Include="Repositories\Sequencer\ISequencer.cs" />
     <Compile Include="Repositories\Sequencer\LongSequencer.cs" />
     <Compile Include="Services\IService.cs" />
+    <Compile Include="Services\PatientService.cs" />
     <Compile Include="Views\Director\BugReportModal.xaml.cs">
       <DependentUpon>BugReportModal.xaml</DependentUpon>
     </Compile>
@@ -212,6 +217,9 @@
     </Compile>
     <Compile Include="Views\Patient\HomeWindow.xaml.cs">
       <DependentUpon>HomeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Patient\RegisterPatient.xaml.cs">
+      <DependentUpon>RegisterPatient.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Secretary\AppointmentModal.xaml.cs">
       <DependentUpon>AppointmentModal.xaml</DependentUpon>
@@ -320,6 +328,10 @@
       <SubType>Designer</SubType>
       <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
+    <Page Include="Views\Patient\RegisterPatient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Secretary\AppointmentModal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -390,6 +402,7 @@
     <Folder Include="Resources\Demo\Patient\" />
     <Folder Include="Resources\Demo\Secretary\" />
     <Folder Include="Resources\Styles\" />
+    <Folder Include="Views\Converters\" />
     <Folder Include="Views\Patient\.vs\Patient\v15\" />
   </ItemGroup>
   <ItemGroup>
