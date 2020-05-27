@@ -1,15 +1,7 @@
-﻿using System;
-using LiveCharts;
-using LiveCharts.Wpf;
-using System.Collections.Generic;
-using System.Configuration;
+﻿using System.Configuration;
 using Project.Repositories;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
 using Project.Repositories.CSV.Converter;
-using System.Configuration;
 using Project.Repositories.CSV.Stream;
 using Project.Model;
 using Project.Repositories.Sequencer;
@@ -24,14 +16,15 @@ namespace Project
     public partial class App : Application
     {
         // TODO: Treba da se nalazi u conf fajlu
-        //private const string PATIENT_FILE = System.Configuration.ConfigurationManager.AppSettings["PatientPath"].ToString();
+        private static string PATIENT_FILEPATH = ConfigurationManager.AppSettings["PatientPath"].ToString();
+        private static string DELIMITER = ConfigurationManager.AppSettings["DelimiterValue"].ToString();
+        private static string DATETIME_FORMAT = ConfigurationManager.AppSettings["DateTimeFormat"].ToString();
 
-        private const string DATETIME_FORMAT = "dd.MM.yyyy.";
 
         public App()
         {
             // Repositories
-            var patientRepository = new PatientRepository(new CSVStream<Patient>("../../Resources/Data/patients.csv", new PatientCSVConverter(",", DATETIME_FORMAT)), new LongSequencer());
+            var patientRepository = new PatientRepository(new CSVStream<Patient>(PATIENT_FILEPATH, new PatientCSVConverter(DELIMITER, DATETIME_FORMAT)), new LongSequencer());
 
             // Services
             var patientService = new PatientService(patientRepository);
@@ -39,6 +32,8 @@ namespace Project
             // Controllers
             PatientController = new PatientController(patientService);
         }
+
+
 
         public IController<Patient, long> PatientController { get; private set; }
     }
