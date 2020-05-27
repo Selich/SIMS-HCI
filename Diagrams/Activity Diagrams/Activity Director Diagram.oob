@@ -3785,9 +3785,10 @@ Shadow=0</a:DisplayPreferences>
 <c:Symbols>
 <o:NoteSymbol Id="o139">
 <a:Text>Dijagram aktivnosti:Porucivanje dodatne opreme i/ili lekova-Upravnik
-Pocetna tacka-Inicijalno otvaranje glavnog prozora nakon login-a</a:Text>
-<a:ModificationDate>1588807307</a:ModificationDate>
-<a:Rect>((-25412,29562), (-8562,34861))</a:Rect>
+Pocetna tacka-Inicijalno otvaranje glavnog prozora nakon login-a ili nakon zavrsvanja prethodne porudzbine
+</a:Text>
+<a:ModificationDate>1588892234</a:ModificationDate>
+<a:Rect>((-25412,29075), (-8562,35348))</a:Rect>
 <a:TextStyle>4130</a:TextStyle>
 <a:LineColor>16711680</a:LineColor>
 <a:FillColor>16777215</a:FillColor>

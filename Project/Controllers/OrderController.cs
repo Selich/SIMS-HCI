@@ -4,32 +4,33 @@
 // Purpose: Definition of Class OrderController
 
 using System;
+using Project.Model;
 
 namespace Controller
 {
    public class OrderController
    {
-      public Model.Order ScheduleOrder(Model.Order order)
+      public Order ScheduleOrder(Order order)
       {
          throw new NotImplementedException();
       }
       
-      public Model.Order GetAllOrders()
+      public Order GetAllOrders()
       {
          throw new NotImplementedException();
       }
       
-      public Model.Medicine AddMedicine(int medicineId)
+      public Medicine AddMedicine(int medicineId)
       {
          throw new NotImplementedException();
       }
       
-      public Model.Equipment AddEquipment(int equipmentId)
+      public Equipment AddEquipment(int equipmentId)
       {
          throw new NotImplementedException();
       }
       
-      public Model.MedicalConsumables AddMedicalConsumables(int medConsumablesId)
+      public MedicalConsumables AddMedicalConsumables(int medConsumablesId)
       {
          throw new NotImplementedException();
       }

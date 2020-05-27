@@ -10,7 +10,6 @@ using System.Threading.Tasks;
 using System.Windows;
 using Project.Repositories.CSV.Converter;
 using System.Configuration;
-using Model;
 using Project.Repositories.CSV.Stream;
 using Project.Model;
 using Project.Repositories.Sequencer;
@@ -23,14 +22,14 @@ namespace Project
     public partial class App : Application
     {
         // TODO: Treba da se nalazi u conf fajlu
-        private const string PATIENT_FILE = ConfigurationSettings.AppSettings["PatientPath"].ToString();
+        //private const string PATIENT_FILE = System.Configuration.ConfigurationManager.AppSettings["PatientPath"].ToString();
 
         private const string DATETIME_FORMAT = "dd.MM.yyyy.";
 
         public App()
         {
             // Repositories
-            var patientRepository = new PatientRepository(new CSVStream<Patient>(PATIENT_FILE, new AddressCSVConverter(CSV_DELIMITER)), new LongSequencer());
+            //var patientRepository = new PatientRepository(new CSVStream<Patient>(PATIENT_FILE, new AddressCSVConverter(CSV_DELIMITER)), new LongSequencer());
 
             // Services
             //var patientService = new ClientService(clientRepository, accountService);

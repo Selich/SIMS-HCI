@@ -27,13 +27,12 @@ namespace Project.Views.Secretary
         public DoctorSearchModal(HomeWindow mainWin)
         {
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
-            DoctorRepository dr = new DoctorRepository();
             this.mainWin = mainWin;
             InitializeComponent();
-            listDoctors.ItemsSource = dr.ReadCSV("../../Data/doctors.csv");
-            Speciality_ComboBox.ItemsSource = dr.getTypeOfDoctors();
-            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listDoctors.ItemsSource);
-            view.Filter = UserFilter;
+            //listDoctors.ItemsSource = dr.ReadCSV("../../Data/doctors.csv");
+            //Speciality_ComboBox.ItemsSource = dr.getTypeOfDoctors();
+            //CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listDoctors.ItemsSource);
+            //view.Filter = UserFilter;
             this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
         }
 
@@ -52,7 +51,7 @@ namespace Project.Views.Secretary
             if (String.IsNullOrEmpty(patientFilter.Text))
                 return true;
             else
-                return ((item as Model.Doctor).firstName.IndexOf(patientFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+                return ((item as Model.Doctor).FirstName.IndexOf(patientFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0);
         }
         private void txtFilter_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
@@ -93,9 +92,9 @@ namespace Project.Views.Secretary
             var label = (Label)w.FindName("drLabel");
             var label2 = (Label)w.FindName("drLabel2");
             var id = (Label)w.FindName("drId");
-            label.Content = "Dr. " + selectedDoctor.firstName + " " + selectedDoctor.lastName ;
-            label2.Content = "Dr. " + selectedDoctor.firstName + " " + selectedDoctor.lastName ;
-            id.Content = selectedDoctor.id;
+            label.Content = "Dr. " + selectedDoctor.FirstName + " " + selectedDoctor.LastName ;
+            label2.Content = "Dr. " + selectedDoctor.FirstName + " " + selectedDoctor.LastName ;
+            id.Content = selectedDoctor.Id;
             mainWin.refreshContent();
             this.Hide();
 

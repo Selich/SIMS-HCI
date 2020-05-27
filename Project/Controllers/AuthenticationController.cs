@@ -1,17 +1,15 @@
 using Project.Services;
+using Project.Model;
 
 namespace Project.Controllers
 {
     public class AuthenticationController
     {
-        AuthenticationService authService = new AuthenticationService();
         
+        public User loginUser(string email, string password){
 
-        public Model.User loginUser(string email, string password){
 
-            Model.User user = authService.loginUser(email, password);
-
-            return user;
+            return null;
 
 
 

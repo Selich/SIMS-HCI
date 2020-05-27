@@ -4,27 +4,28 @@
 // Purpose: Definition of Class AppoitmentController
 
 using System;
+using Project.Model;
 
-namespace Controller
+namespace Project.Controller
 {
    public class AppoitmentController
    {
-      public Model.MedicalAppointment ScheduleMedicalAppoitment(Model.MedicalAppointmentType type, DateTime period)
+      public MedicalAppointment ScheduleMedicalAppoitment(string type, DateTime period)
       {
          throw new NotImplementedException();
       }
       
-      public Model.MedicalAppointment GetMedicalAppotment(int appotmentId)
+      public MedicalAppointment GetMedicalAppotment(int appotmentId)
       {
          throw new NotImplementedException();
       }
       
-      public Model.MedicalAppointment GetAllMedicalAppoitmentsPatinet(DateTime beggining, DateTime end, string patientJMBG)
+      public MedicalAppointment GetAllMedicalAppoitmentsPatinet(DateTime beggining, DateTime end, string patientJMBG)
       {
          throw new NotImplementedException();
       }
       
-      public Model.MedicalAppointment GetAllMedicalAppoitmentsDoctor(DateTime beggining, DateTime end, string doctorJMBG)
+      public MedicalAppointment GetAllMedicalAppoitmentsDoctor(DateTime beggining, DateTime end, string doctorJMBG)
       {
          throw new NotImplementedException();
       }

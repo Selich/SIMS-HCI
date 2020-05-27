@@ -4,27 +4,28 @@
 // Purpose: Definition of Class RoomController
 
 using System;
+using Project.Model;
 
 namespace Controller
 {
    public class RoomController
    {
-      public Model.Room ScheduleRenovation(Model.RoomType type, int roomId)
+      public Room ScheduleRenovation(RoomType type, int roomId)
       {
          throw new NotImplementedException();
       }
       
-      public Model.Room MergeRooms(int roomId1, int roomId2)
+      public Room MergeRooms(int roomId1, int roomId2)
       {
          throw new NotImplementedException();
       }
       
-      public Model.Room SplitRoom(int roomId)
+      public Room SplitRoom(int roomId)
       {
          throw new NotImplementedException();
       }
       
-      public Model.Appoitment GetAllAppoitments(int roomId)
+      public Appoitment GetAllAppoitments(int roomId)
       {
          throw new NotImplementedException();
       }

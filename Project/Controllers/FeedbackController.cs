@@ -4,12 +4,13 @@
 // Purpose: Definition of Class FeedbackController
 
 using System;
+using Project.Model;
 
 namespace Controller
 {
    public class FeedbackController
    {
-      public Model.Feedback SendFeedback(Model.TypeOfIssue typeOfIssue, string description)
+      public Feedback SendFeedback(string typeOfIssue, string descriptio)
       {
          throw new NotImplementedException();
       }

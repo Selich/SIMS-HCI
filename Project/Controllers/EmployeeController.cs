@@ -3,13 +3,14 @@
 // Created: Thursday, April 30, 2020 10:17:54 PM
 // Purpose: Definition of Class EmployeeController
 
+using Project.Model;
 using System;
 
 namespace Controller
 {
    public class EmployeeController
    {
-      public Model.Employee RegisterEmployee(string firstName, string lastName, string jmbg, string telephoneNumber, Model.Sex gender, string email, string password, string role, string number, string street, string city, string country, string postCode)
+      public Employee RegisterEmployee(string firstName, string lastName, string jmbg, string telephoneNumber, Sex gender, string email, string password, string role, string number, string street, string city, string country, string postCode)
       {
          throw new NotImplementedException();
       }
@@ -19,22 +20,22 @@ namespace Controller
          throw new NotImplementedException();
       }
       
-      public void SetAnnualLeave(Model.TimeInterval period)
+      public void SetAnnualLeave(TimeInterval period)
       {
          throw new NotImplementedException();
       }
       
-      public void SetWorkingHours(Model.TimeInterval hours)
+      public void SetWorkingHours(TimeInterval hours)
       {
          throw new NotImplementedException();
       }
       
-      public Model.Employee UpdateEmployee(Model.Employee employee)
+      public Employee UpdateEmployee(Employee employee)
       {
          throw new NotImplementedException();
       }
       
-      public Model.Employee DeleteEmployee(Model.Employee employee)
+      public Employee DeleteEmployee(Employee employee)
       {
          throw new NotImplementedException();
       }

@@ -4,6 +4,7 @@
 // Purpose: Definition of Class EquipmentController
 
 using System;
+using Project.Model;
 
 namespace Controller
 {
@@ -19,7 +20,7 @@ namespace Controller
          throw new NotImplementedException();
       }
       
-      public Model.Equipment SetEquipment(Equipment equipment)
+      public Equipment SetEquipment(Equipment equipment)
       {
          throw new NotImplementedException();
       }

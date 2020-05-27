@@ -1,6 +1,5 @@
 ﻿using Controller;
-using Model;
-using Project.ItemGenerators;
+using Project.Model;
 using Project.Repositories;
 using System;
 using System.Collections.Generic;
@@ -25,33 +24,33 @@ namespace Project.Views.Secretary
     {
         public AppointmentModal(MedicalAppointment app)
         {
-            Generators gen = new Generators();
-            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
-            InitializeComponent();
+            //Generators gen = new Generators();
+            //WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
+            //InitializeComponent();
 
-            selectedAppointment.Content = app;
-            listDoctors.ItemsSource = app.doctors;
-            listAllDoctors.ItemsSource = gen.GenerateDoctors(10);
-            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listAllDoctors.ItemsSource);
-            view.Filter = DoctorFilter;
-            this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
+            //selectedAppointment.Content = app;
+            //listDoctors.ItemsSource = app.doctors;
+            //listAllDoctors.ItemsSource = gen.GenerateDoctors(10);
+            //CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listAllDoctors.ItemsSource);
+            //view.Filter = DoctorFilter;
+            //this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
 
         }
 
-    private void HandleEsc(object sender, KeyEventArgs e)
-    {
-        if (e.Key == Key.Escape)
-            Close();
-    }
+        private void HandleEsc(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+                Close();
+        }
 
-    private bool DoctorFilter(object item)
+        private bool DoctorFilter(object item)
         {
             if (String.IsNullOrEmpty(search.Text))
                 return true;
             else
-                return ((item as User).firstName.IndexOf(search.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+                return ((item as User).FirstName.IndexOf(search.Text, StringComparison.OrdinalIgnoreCase) >= 0);
         }
-        private void searchDoctor_TxtChanged (object sended, RoutedEventArgs e)
+        private void searchDoctor_TxtChanged(object sended, RoutedEventArgs e)
         {
             CollectionViewSource.GetDefaultView(listAllDoctors.ItemsSource).Refresh();
 
@@ -80,7 +79,7 @@ namespace Project.Views.Secretary
         private void Profile_Click(object sender, RoutedEventArgs e)
         {
             MedicalAppointment item = (MedicalAppointment)(sender as System.Windows.Controls.Button).DataContext;
-            var id = item.patient.id;
+            var id = item.patient.Id;
             var s = new ProfileModal(id);
             s.Show();
 
@@ -88,7 +87,7 @@ namespace Project.Views.Secretary
         private void Add_Doctor_Click(object sender, RoutedEventArgs e)
         {
             Model.Doctor item = (Model.Doctor)(sender as System.Windows.Controls.Button).DataContext;
-            MessageBox.Show("Da li ste sigurni da zelite da dodate Dr." + item.firstName + " " + item.lastName + " u termin?", "Potvrda", MessageBoxButton.OKCancel);
+            MessageBox.Show("Da li ste sigurni da zelite da dodate Dr." + item.FirstName + " " + item.LastName + " u termin?", "Potvrda", MessageBoxButton.OKCancel);
             listAllDoctors.Visibility = Visibility.Hidden;
             listDoctors.Visibility = Visibility.Visible;
             Change_Doctor_Button.Visibility = Visibility.Visible;

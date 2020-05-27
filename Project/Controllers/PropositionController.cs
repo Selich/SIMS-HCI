@@ -4,27 +4,29 @@
 // Purpose: Definition of Class PropositionController
 
 using System;
+using Project.Model;
+
 
 namespace Controller
 {
    public class PropositionController
    {
-      public Model.Proposition CreateProposition(string name, string purpose, string administration, string description, string type)
+      public Proposition CreateProposition(string name, string purpose, string administration, string description, string type)
       {
          throw new NotImplementedException();
       }
       
-      public Model.Proposition ApproveProposition(Model.Proposition proposition)
+      public Proposition ApproveProposition(Proposition proposition)
       {
          throw new NotImplementedException();
       }
       
-      public Model.Proposition GetAllProposition()
+      public Proposition GetAllProposition()
       {
          throw new NotImplementedException();
       }
       
-      public Model.Approval GetAllApprovals(int propositionId)
+      public Approval GetAllApprovals(int propositionId)
       {
          throw new NotImplementedException();
       }

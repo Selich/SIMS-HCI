@@ -9,17 +9,22 @@ namespace Project.Model
 {
    public class Employee : User
    {
-      public int id { get; set; }
-      private double salary;
-      private TimeInterval annualLeave;
-      private TimeInterval workingHours;
-      public string email
-      {get;set;}
-      private string password;
+      public double Salary { get; set; }
+      private TimeInterval AnnualLeave { get; set; }
+      private TimeInterval WorkingHours { get; set; }
+      public string Email {get;set;}
+      private string Password {get;set;}
       
-      public Hospital hospital;
+      public Hospital Hospital { get; set; }
    
       public Employee() {}
-      public Employee(string firstName, string lastName): base(firstName,lastName) {}
+      public Employee(long id, Address address,string firstName, string lastName, string jmbg, string telephoneNumber, string gender, DateTime dateOfBirth, double salary, TimeInterval annualLeave, TimeInterval workingHours, string email, string password): 
+            base( id,  address, firstName,  lastName,  jmbg,  telephoneNumber,  gender,  dateOfBirth) {
+            Salary = salary;
+            AnnualLeave = annualLeave;
+            WorkingHours = workingHours;
+            Email = email;
+            Password = password;
+      }
    }
 }

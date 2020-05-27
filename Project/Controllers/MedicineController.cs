@@ -4,32 +4,33 @@
 // Purpose: Definition of Class MedicineController
 
 using System;
+using Project.Model;
 
 namespace Controller
 {
    public class MedicineController
    {
-      public Model.Medicine GetAllMedicine()
+      public Medicine GetAllMedicine()
       {
          throw new NotImplementedException();
       }
       
-      public Model.Medicine AddMedicine(Model.Medicine medicine)
+      public Medicine AddMedicine(Medicine medicine)
       {
          throw new NotImplementedException();
       }
       
-      public Model.Medicine SetMedicine(Model.Medicine medicine)
+      public Medicine SetMedicine(Medicine medicine)
       {
          throw new NotImplementedException();
       }
       
-      public Model.Medicine GetMedicine(int id)
+      public Medicine GetMedicine(int id)
       {
          throw new NotImplementedException();
       }
       
-      public Model.Medicine RegisterMedicine(string purpose, string administarion, string name, string type, string description)
+      public Medicine RegisterMedicine(string purpose, string administarion, string name, string type, string description)
       {
          throw new NotImplementedException();
       }

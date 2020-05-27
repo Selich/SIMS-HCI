@@ -1,5 +1,4 @@
-﻿using Model;
-using Project.ItemGenerators;
+﻿using Project.Model;
 using Project.Repositories;
 using System;
 using System.Collections.Generic;
@@ -23,47 +22,47 @@ namespace Project.Views.Secretary
     /// </summary>
     public partial class ProfileModal : Window
     {
-        public Model.Guest selectedPatient;
-        public ProfileModal(int id)
+        public Guest selectedPatient;
+        public ProfileModal(double id)
         {
-            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
-            Generators g = new Generators();
-            PatientRepository pr = new PatientRepository();
-            MedicalAppointmentRepository mr = new MedicalAppointmentRepository();
-            selectedPatient = g.GeneratePatient();
+            //WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
+            //Generators g = new Generators();
+            //PatientRepository pr = new PatientRepository();
+            //MedicalAppointmentRepository mr = new MedicalAppointmentRepository();
+            //selectedPatient = g.GeneratePatient();
 
-            InitializeComponent();
-            appointmentHistory.ItemsSource = mr.ReadCSV("../../Data/medicalAppointments.csv");
-            listAppointments.ItemsSource = mr.ReadCSV("../../Data/medicalAppointments.csv");
+            //InitializeComponent();
+            //appointmentHistory.ItemsSource = mr.ReadCSV("../../Data/medicalAppointments.csv");
+            //listAppointments.ItemsSource = mr.ReadCSV("../../Data/medicalAppointments.csv");
 
-            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listAppointments.ItemsSource);
-            view.SortDescriptions.Add(new SortDescription("Beginning", ListSortDirection.Ascending));
-            view.SortDescriptions.Add(new SortDescription("End", ListSortDirection.Ascending));
+            //CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listAppointments.ItemsSource);
+            //view.SortDescriptions.Add(new SortDescription("Beginning", ListSortDirection.Ascending));
+            //view.SortDescriptions.Add(new SortDescription("End", ListSortDirection.Ascending));
 
-            CollectionView viewHistory = (CollectionView)CollectionViewSource.GetDefaultView(appointmentHistory.ItemsSource);
-            viewHistory.SortDescriptions.Add(new SortDescription("Beginning", ListSortDirection.Ascending));
-            viewHistory.SortDescriptions.Add(new SortDescription("End", ListSortDirection.Ascending));
-            this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
+            //CollectionView viewHistory = (CollectionView)CollectionViewSource.GetDefaultView(appointmentHistory.ItemsSource);
+            //viewHistory.SortDescriptions.Add(new SortDescription("Beginning", ListSortDirection.Ascending));
+            //viewHistory.SortDescriptions.Add(new SortDescription("End", ListSortDirection.Ascending));
+            //this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
         }
         public ProfileModal(Model.Guest patient)
         {
-            Generators g = new Generators();
-            PatientRepository pr = new PatientRepository();
-            MedicalAppointmentRepository mr = new MedicalAppointmentRepository();
-            selectedPatient = patient;
+            //Generators g = new Generators();
+            //PatientRepository pr = new PatientRepository();
+            //MedicalAppointmentRepository mr = new MedicalAppointmentRepository();
+            //selectedPatient = patient;
 
             InitializeComponent();
-            appointmentHistory.ItemsSource = mr.ReadCSV("../../Data/medicalAppointments.csv");
-            listAppointments.ItemsSource = mr.ReadCSV("../../Data/medicalAppointments.csv");
+            //appointmentHistory.ItemsSource = mr.ReadCSV("../../Data/medicalAppointments.csv");
+            //listAppointments.ItemsSource = mr.ReadCSV("../../Data/medicalAppointments.csv");
 
-            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listAppointments.ItemsSource);
-            view.SortDescriptions.Add(new SortDescription("Beginning", ListSortDirection.Ascending));
-            view.SortDescriptions.Add(new SortDescription("End", ListSortDirection.Ascending));
+            //CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listAppointments.ItemsSource);
+            //view.SortDescriptions.Add(new SortDescription("Beginning", ListSortDirection.Ascending));
+            //view.SortDescriptions.Add(new SortDescription("End", ListSortDirection.Ascending));
 
-            CollectionView viewHistory = (CollectionView)CollectionViewSource.GetDefaultView(appointmentHistory.ItemsSource);
-            viewHistory.SortDescriptions.Add(new SortDescription("Beginning", ListSortDirection.Ascending));
-            viewHistory.SortDescriptions.Add(new SortDescription("End", ListSortDirection.Ascending));
-            this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
+            //CollectionView viewHistory = (CollectionView)CollectionViewSource.GetDefaultView(appointmentHistory.ItemsSource);
+            //viewHistory.SortDescriptions.Add(new SortDescription("Beginning", ListSortDirection.Ascending));
+            //viewHistory.SortDescriptions.Add(new SortDescription("End", ListSortDirection.Ascending));
+            //this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
 
         }
 

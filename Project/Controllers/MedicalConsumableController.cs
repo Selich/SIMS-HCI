@@ -4,27 +4,28 @@
 // Purpose: Definition of Class MedicalConsumableController
 
 using System;
+using Project.Model;
 
 namespace Controller
 {
    public class MedicalConsumableController
    {
-      public Model.MedicalConsumables GetAllMedicalConsumable()
+      public MedicalConsumables GetAllMedicalConsumable()
       {
          throw new NotImplementedException();
       }
       
-      public Model.MedicalConsumables AddMedicalConsumable(string type, string description, string name)
+      public MedicalConsumables AddMedicalConsumable(string type, string description, string name)
       {
          throw new NotImplementedException();
       }
       
-      public Model.MedicalConsumables SetMedicalConsumable(Model.MedicalConsumables medicalConsumable)
+      public MedicalConsumables SetMedicalConsumable(MedicalConsumables medicalConsumable)
       {
          throw new NotImplementedException();
       }
       
-      public Model.MedicalConsumables GetMedicalCosumable(int id)
+      public MedicalConsumables GetMedicalCosumable(int id)
       {
          throw new NotImplementedException();
       }

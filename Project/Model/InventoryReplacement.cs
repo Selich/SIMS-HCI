@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project.Model
 {
-    public class InventoryReplacement : Model.Appoitment
+    public class InventoryReplacement : Appoitment
     {
         public System.Collections.Generic.List<Equipment> equipment;
 

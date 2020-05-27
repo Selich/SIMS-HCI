@@ -4,22 +4,23 @@
 // Purpose: Definition of Class QuestionController
 
 using System;
+using Project.Model;
 
 namespace Controller
 {
    public class QuestionController
    {
-      public Model.Question CreateQuestion(string question)
+      public Question CreateQuestion(string question)
       {
          throw new NotImplementedException();
       }
       
-      public Model.Question GeatAllUnanswered()
+      public Question GeatAllUnanswered()
       {
          throw new NotImplementedException();
       }
       
-      public Model.Question AnswerQuestion(string answer, int questionId)
+      public Question AnswerQuestion(string answer, int questionId)
       {
          throw new NotImplementedException();
       }

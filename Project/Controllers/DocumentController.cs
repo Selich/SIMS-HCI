@@ -4,13 +4,14 @@
 // Purpose: Definition of Class DocumentController
 
 using System;
+using Project.Model;
 
 namespace Controller
 {
    public class DocumentController
    {
          
-      public Model.Prescription CreatePrescription(int dosage, string usage, string period, DateTime date)
+      public Prescription CreatePrescription(int dosage, string usage, string period, DateTime date)
       {
          throw new NotImplementedException();
       }

@@ -9,14 +9,12 @@ namespace Project.Model
 {
    public class Question
    {
-      public int id
-      {get;set;}
-      public string question
-      {get;set;}
-      public string answer
-      {get;set;}
+      public int Id {get;set;}
+      public string QuestionText { get; set; }
+      public string AnswerText {get;set;}
 
-      public RegistredPatient registredPatient;
+      public Patient Patient
+      {get;set;}
       
       public Secretary secretary;
       

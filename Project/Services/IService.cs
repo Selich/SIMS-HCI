@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-namespace Project.Service
+namespace Project.Services
 {
     public interface IService<E, ID> where E : class
     {

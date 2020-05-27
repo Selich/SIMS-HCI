@@ -150,34 +150,10 @@ namespace Project.Model
          if (anamneza != null)
             anamneza.Clear();
       }
-      /// <summary>
-      /// Property for Patient
-      /// </summary>
-      /// <pdGenerated>Default opposite class property</pdGenerated>
-      public Guest Patient
-      {
-         get
-         {
-            return patient;
-         }
-         set
-         {
-            if (this.patient == null || !this.patient.Equals(value))
-            {
-               if (this.patient != null)
-               {
-                  Guest oldPatient = this.patient;
-                  this.patient = null;
-                  oldPatient.RemoveAppointments(this);
-               }
-               if (value != null)
-               {
-                  this.patient = value;
-                  this.patient.AddAppointments(this);
-               }
-            }
-         }
-      }
-   
+        /// <summary>
+        /// Property for Patient
+        /// </summary>
+        /// <pdGenerated>Default opposite class property</pdGenerated>
+        public Guest Patient;
    }
 }

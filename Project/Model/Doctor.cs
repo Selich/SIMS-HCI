@@ -13,7 +13,6 @@ namespace Project.Model
       
       public System.Collections.Generic.List<Approval> approval;
       public Doctor() {}
-      public Doctor(string firstName, string lastName): base(firstName,lastName) { }
       
       /// <summary>
       /// Property for collection of Approval

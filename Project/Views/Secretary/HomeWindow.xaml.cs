@@ -17,7 +17,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Project.Model;
-using Project.ItemGenerators;
 using Project.Repositories;
 
 namespace Project.Views.Secretary
@@ -54,7 +53,6 @@ namespace Project.Views.Secretary
             isChangeble = false;
 
             doctorModal = new DoctorSearchModal(this);
-            Generators gen = new Generators();
 
             currentDate = DateTime.Today;
             startOfTheWeek = DateTime.Now.StartOfWeek(DayOfWeek.Monday);
@@ -77,7 +75,7 @@ namespace Project.Views.Secretary
             listAppointments.ItemsSource = medicalAppointments;
             nextAppointment.Content = medicalAppointments[0];
 
-            listRoom.ItemsSource = gen.GetRooms(10);
+            //listRoom.ItemsSource = gen.GetRooms(10);
 
 
             //lst.ItemsSource = GenerateTerms();
@@ -180,14 +178,14 @@ namespace Project.Views.Secretary
             if (String.IsNullOrEmpty(patientFilter.Text))
                 return true;
             else
-                return ((item as User).firstName.IndexOf(patientFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+                return ((item as User).FirstName.IndexOf(patientFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0);
         }
         private bool UserFilterCreate(object item)
         {
             if (String.IsNullOrEmpty(patientFilterCreate.Text))
                 return true;
             else
-                return ((item as User).firstName.IndexOf(patientFilterCreate.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+                return ((item as User).FirstName.IndexOf(patientFilterCreate.Text, StringComparison.OrdinalIgnoreCase) >= 0);
         }
         private bool RoomFilter(object item)
         {
@@ -245,10 +243,10 @@ namespace Project.Views.Secretary
         }
         public void refreshContent()
         {
-            MedicalAppointmentRepository mr = new MedicalAppointmentRepository();
-            string id = ((System.Windows.Controls.Label)this.FindName("drId")).Content.ToString();
-            mr = new MedicalAppointmentRepository();
-            medicalAppointments = mr.GetMedicalAppointmentsByDoctorId(Int32.Parse(id));
+            ////MedicalAppointmentRepository mr = new MedicalAppointmentRepository();
+            //string id = ((System.Windows.Controls.Label)this.FindName("drId")).Content.ToString();
+            //mr = new MedicalAppointmentRepository();
+            //medicalAppointments = mr.GetMedicalAppointmentsByDoctorId(Int32.Parse(id));
             //System.Windows.MessageBox.Show(medicalAppointments.ToString(),"test", MessageBoxButton.OK);
 
         }
