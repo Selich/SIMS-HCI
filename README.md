@@ -1,4 +1,3 @@
-
 ## Styleguide
 
 Za pisanje C# koda, koristicemo Microsoft style guide.
@@ -111,7 +110,7 @@ Branch za poseban servis npr. "Patient" bice:
 
 ## Pitanja za konsultacije
 
-
+- [ ] Da li napraviti odvojeno funkcije za filtriranje po svakom parametru ili FilterDTO
 - [ ] U kom delu mi modelujemo Sablone, 
 Da li treba IzvestajFacotry pa razne tipove izvestaja u model staviti ili negde drugde
 Metode u modelima?
