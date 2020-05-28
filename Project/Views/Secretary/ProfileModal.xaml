@@ -9,18 +9,18 @@
         Title="ProfileModal" Height="432" Width="850">
     <TabControl HorizontalAlignment="Left" Height="405" Margin="2,-1,0,-3" VerticalAlignment="Top" Width="838">
         <TabItem Header="Profil">
-                <Grid Margin="0,-20,-4,0">
-                    <Grid.Background>
-                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="#FFCDF3EE" Offset="1"/>
-                            <GradientStop Color="White" Offset="0.7"/>
-                        </LinearGradientBrush>
-                    </Grid.Background>
+            <Grid Margin="0,-20,-4,0">
+                <Grid.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFCDF3EE" Offset="1"/>
+                        <GradientStop Color="White" Offset="0.7"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
                 <Grid HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Width="1243" Margin="0,37,0,0"/>
-                    <Grid HorizontalAlignment="Left" Height="320" Margin="66,38,0,0" VerticalAlignment="Top" Width="260">
-                        <Image HorizontalAlignment="Left" Height="204" Margin="27,27,0,0" VerticalAlignment="Top" Width="205" Source="../../Resources/Images/Faces/face5"/>
-                        <Button Content="Izmeni sliku" HorizontalAlignment="Left" Margin="27,265,0,0" VerticalAlignment="Top" Width="205"/>
-                    </Grid>
+                <Grid HorizontalAlignment="Left" Height="320" Margin="66,38,0,0" VerticalAlignment="Top" Width="260">
+                    <Image HorizontalAlignment="Left" Height="204" Margin="27,27,0,0" VerticalAlignment="Top" Width="205" Source="../../Resources/Images/Faces/face5"/>
+                    <Button Content="Izmeni sliku" HorizontalAlignment="Right" Margin="0,265,28,0" VerticalAlignment="Top" Width="205"/>
+                </Grid>
                 <Grid HorizontalAlignment="Left" Height="301" Margin="330,33,0,0" VerticalAlignment="Top" Width="245">
                     <Label Content="Ime:" HorizontalAlignment="Left" Margin="15,15,0,0" VerticalAlignment="Top" Width="87"/>
                     <Label Content="Prezime:" HorizontalAlignment="Left" Margin="15,45,0,0" VerticalAlignment="Top" Width="87"/>
@@ -39,12 +39,12 @@
         </TabItem>
         <TabItem Header="Termini">
             <Grid>
-                    <Grid.Background>
-                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="#FFCDF3EE" Offset="1"/>
-                            <GradientStop Color="White" Offset="0.7"/>
-                        </LinearGradientBrush>
-                    </Grid.Background>
+                <Grid.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFCDF3EE" Offset="1"/>
+                        <GradientStop Color="White" Offset="0.7"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
                 <ListView Name="listAppointments" HorizontalAlignment="Left" Height="278" Margin="24,68,0,0" VerticalAlignment="Top" Width="772" SelectionChanged="listAppointments_SelectionChanged">
                     <ListView.View>
                         <GridView>
