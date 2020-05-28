@@ -46,7 +46,11 @@
             <Image HorizontalAlignment="Left" Height="157" Margin="23,27,0,0" VerticalAlignment="Top" Width="158" Source="/Project;component/Resources/Images/Faces/face5"/>
             <Button Content="Izmeni sliku" HorizontalAlignment="Right" Margin="0,199,25,0" VerticalAlignment="Top" Width="158" Height="34"/>
         </Grid>
-        <Grid HorizontalAlignment="Left" Height="293" Margin="535,109,0,0" VerticalAlignment="Top" Width="343">
+        <Grid HorizontalAlignment="Left" Height="335" Margin="469,67,0,0" VerticalAlignment="Top" Width="409">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
             <Grid.Effect>
                 <DropShadowEffect Direction="270" BlurRadius="10" ShadowDepth="3"/>
             </Grid.Effect>
@@ -56,7 +60,7 @@
                     <GradientStop Color="White" Offset="1"/>
                 </LinearGradientBrush>
             </Grid.Background>
-            <StackPanel Margin="10,10,10,-15">
+            <StackPanel Margin="10,10,10,-15" Grid.ColumnSpan="2">
                 <Label Content="BloodType:"       HorizontalAlignment="Left"/>
                 <TextBox x:Name="Profile_BloodType" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding BloodType}"  Width="157" Background="White" />
                 <Label Content="Height:"       HorizontalAlignment="Left"/>
@@ -69,7 +73,7 @@
                 <TextBox x:Name="Profile_InsurenceNumber" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Weight}"  Width="157" Background="White" />
                 <DatePicker x:Name="Profile_DateOfBirth" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="15.714,1.6" Width="157"/>
             </StackPanel>
-            <Button Content="Kreiraj Korisnika" HorizontalAlignment="Right" Margin="0,249,10,0" VerticalAlignment="Top" Width="158" Height="34" Click="CreatePatient_Click" RenderTransformOrigin="0.5,1.5" />
+            <Button Content="Kreiraj Korisnika" HorizontalAlignment="Right" Margin="0,249,10,0" VerticalAlignment="Top" Width="158" Height="34" Click="CreatePatient_Click" RenderTransformOrigin="0.5,1.5" Grid.ColumnSpan="2" />
         </Grid>
 
     </Grid>
