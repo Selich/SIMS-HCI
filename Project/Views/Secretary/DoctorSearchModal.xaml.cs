@@ -21,20 +21,8 @@ namespace Project.Views.Secretary
     /// </summary>
     public partial class DoctorSearchModal : Window
     {
-        public HomeWindow mainWin;
+        public SecretaryHomeWindow mainWin;
         public Model.Doctor selectedDoctor;
-
-        public DoctorSearchModal(HomeWindow mainWin)
-        {
-            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
-            this.mainWin = mainWin;
-            InitializeComponent();
-            //listDoctors.ItemsSource = dr.ReadCSV("../../Data/doctors.csv");
-            //Speciality_ComboBox.ItemsSource = dr.getTypeOfDoctors();
-            //CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listDoctors.ItemsSource);
-            //view.Filter = UserFilter;
-            this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
-        }
 
         private void HandleEsc(object sender, KeyEventArgs e)
         {
@@ -42,8 +30,15 @@ namespace Project.Views.Secretary
                 Close();
         }
 
-        public DoctorSearchModal()
+        public DoctorSearchModal(SecretaryHomeWindow secretaryHomeWindow)
         {
+            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
+            InitializeComponent();
+            //listDoctors.ItemsSource = dr.ReadCSV("../../Data/doctors.csv");
+            //Speciality_ComboBox.ItemsSource = dr.getTypeOfDoctors();
+            //CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listDoctors.ItemsSource);
+            //view.Filter = UserFilter;
+            this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
         }
 
         private bool UserFilter(object item)
@@ -63,8 +58,8 @@ namespace Project.Views.Secretary
             {
                 if(listDoctors.SelectedItem != null)
                 {
-                    mainWin.selectedDoctor = (Model.Doctor)listDoctors.SelectedItem;
-                    mainWin.drName = listDoctors.SelectedItem.ToString();
+                    //mainWin.selectedDoctor = (Model.Doctor)listDoctors.SelectedItem;
+                    //mainWin.drName = listDoctors.SelectedItem.ToString();
                 }
 
             }
@@ -95,7 +90,7 @@ namespace Project.Views.Secretary
             label.Content = "Dr. " + selectedDoctor.FirstName + " " + selectedDoctor.LastName ;
             label2.Content = "Dr. " + selectedDoctor.FirstName + " " + selectedDoctor.LastName ;
             id.Content = selectedDoctor.Id;
-            mainWin.refreshContent();
+            //mainWin.refreshContent();
             this.Hide();
 
         }

@@ -1,78 +1,59 @@
-﻿using System;
+﻿using Project.Model;
+using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Automation.Peers;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Forms;
 using System.Windows.Input;
-using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Project.Model;
-using Project.Repositories;
 
 namespace Project.Views.Secretary
 {
-        public static class DateTimeExtensions
-        {
-            public static DateTime StartOfWeek(this DateTime dt, DayOfWeek startOfWeek)
-            {
-                int diff = (7 + (dt.DayOfWeek - startOfWeek)) % 7;
-                return dt.AddDays(-1 * diff).Date;
-            }
-        }
     /// <summary>
-    /// Interaction logic for HomeWindow.xaml
+    /// Interaction logic for SecretaryHomeWindow.xaml
     /// </summary>
-    public partial class HomeWindow : Window
+    public partial class SecretaryHomeWindow : Window
     {
-        public List<TimeInterval> listOfTerms;
-        public  Model.Doctor selectedDoctor { get; set; }
         public string drName { get; set; }
-        public Model.Secretary user;
-        public List<MedicalAppointment> medicalAppointments;
+
         public DoctorSearchModal doctorModal;
         public MedicalAppointment selectedAppointment;
         public Question selectedQuestion;
-        public bool isChangeble;
-        public DateTime selectedDate;
-        public DateTime startOfTheWeek;
-        public DateTime endOfTheWeek;
-        public DateTime currentDate;
-        public HomeWindow()
-        {
-            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
-            isChangeble = false;
 
+        public DateTime SelectedDate;
+        public DateTime StartOfTheWeek;
+        public DateTime EndOfTheWeek;
+        public DateTime CurrentDate;
+        public SecretaryHomeWindow()
+        {
             doctorModal = new DoctorSearchModal(this);
 
-            currentDate = DateTime.Today;
-            startOfTheWeek = DateTime.Now.StartOfWeek(DayOfWeek.Monday);
-            endOfTheWeek = startOfTheWeek.AddDays(6);
-            selectedDate = currentDate;
+            CurrentDate    = DateTime.Today;
+            StartOfTheWeek = DateTime.Now.StartOfWeek(DayOfWeek.Monday);
+            EndOfTheWeek   = StartOfTheWeek.AddDays(6);
+            SelectedDate   = CurrentDate;
 
             InitializeComponent();
 
             dateTimePicker.SelectedDate = DateTime.Today;
 
-            startWeekLabel.Content = startOfTheWeek.ToString("dddd, dd MMMM yyyy");
-            endWeekLabel.Content = endOfTheWeek.ToString("dddd, dd MMMM yyyy");
-            currentDayLabel.Content = currentDate.ToString("dddd, dd MMMM yyyy");
+            startWeekLabel.Content  = StartOfTheWeek.ToString("dddd, dd MMMM yyyy");
+            endWeekLabel.Content    = EndOfTheWeek.ToString("dddd, dd MMMM yyyy");
+            currentDayLabel.Content = CurrentDate.ToString("dddd, dd MMMM yyyy");
 
             //listPatients.ItemsSource = pr.ReadCSV("../../Data/patients.csv");
             //listPatientsCreate.ItemsSource = pr.ReadCSV("../../Data/patients.csv");
 
             //listQuestions.ItemsSource = qr.ReadCSV("../../Data/questions.csv");
-            listTerm.ItemsSource = medicalAppointments;
-            listAppointments.ItemsSource = medicalAppointments;
+            //listTerm.ItemsSource = medicalAppointments;
+            //listAppointments.ItemsSource = medicalAppointments;
             //nextAppointment.Content = medicalAppointments[0];
 
             //listRoom.ItemsSource = gen.GetRooms(10);
@@ -82,20 +63,24 @@ namespace Project.Views.Secretary
 
             CollectionView viewAdress = (CollectionView)CollectionViewSource.GetDefaultView(listPatients.ItemsSource);
             CollectionView viewNumber = (CollectionView)CollectionViewSource.GetDefaultView(listPatients.ItemsSource);
-
-            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listPatients.ItemsSource);
+            CollectionView view       = (CollectionView)CollectionViewSource.GetDefaultView(listPatients.ItemsSource);
             CollectionView viewCreate = (CollectionView)CollectionViewSource.GetDefaultView(listPatientsCreate.ItemsSource);
-            CollectionView viewRooms = (CollectionView)CollectionViewSource.GetDefaultView(listRoom.ItemsSource);
+            CollectionView viewRooms  = (CollectionView)CollectionViewSource.GetDefaultView(listRoom.ItemsSource);
 
-            view.Filter = UserFilter;
-            viewCreate.Filter = UserFilterCreate;
-            viewRooms.Filter = RoomFilter;
+            //view.Filter = UserFilter;
+            //viewCreate.Filter = UserFilterCreate;
+            //viewRooms.Filter = RoomFilter;
+
+        }
+
+        public void ViewHelp()
+        {
 
         }
         public List<List<TimeInterval>> GenerateTerms()
         {
             List<List<TimeInterval>> lsts = new List<List<TimeInterval>>();
-            DateTime iterDay = startOfTheWeek;
+            DateTime iterDay = StartOfTheWeek;
             
             for (int i = 0; i < 7; i++)
             {
@@ -223,7 +208,7 @@ namespace Project.Views.Secretary
         }
         private void dpick_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
-            selectedDate = dateTimePicker.SelectedDate.Value;
+            SelectedDate = dateTimePicker.SelectedDate.Value;
             //CollectionViewSource.GetDefaultView(listTerm.ItemsSource).Refresh();
         }
 
@@ -332,16 +317,16 @@ namespace Project.Views.Secretary
 
         private void Prev_Day_Click(object sender, RoutedEventArgs e)
         {
-            currentDate.AddDays(-1);
-            currentDayLabel.Content = currentDate.ToString("dddd, dd MMMM yyyy");
+            CurrentDate.AddDays(-1);
+            currentDayLabel.Content = CurrentDate.ToString("dddd, dd MMMM yyyy");
             CollectionViewSource.GetDefaultView(currentDayLabel.Content).Refresh();
 
         }
 
         private void Next_Day_Click(object sender, RoutedEventArgs e)
         {
-            currentDate.AddDays(1);
-            currentDayLabel.Content = currentDate.ToString("dddd, dd MMMM yyyy");
+            CurrentDate.AddDays(1);
+            currentDayLabel.Content = CurrentDate.ToString("dddd, dd MMMM yyyy");
             CollectionViewSource.GetDefaultView(currentDayLabel.Content).Refresh();
         }
 
@@ -355,4 +340,4 @@ namespace Project.Views.Secretary
 
         }
     }
-}
+    }
