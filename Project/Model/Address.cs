@@ -17,7 +17,6 @@ namespace Project.Model
         public string PostCode { get; set; }
 
         public User[] User;
-        private long v;
 
         public Address()
         {
@@ -34,9 +33,5 @@ namespace Project.Model
             PostCode = postCode;
         }
 
-        public Address(long v)
-        {
-            this.v = v;
-        }
     }
 }
