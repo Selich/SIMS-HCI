@@ -16,7 +16,7 @@ namespace Project.Model
       public int HospitalID {get;set;}
       public DateTime Date {get;set;}
 
-      public Guest Patient { get; set; }
+      public Patient Patient { get; set; }
    
    }
 }

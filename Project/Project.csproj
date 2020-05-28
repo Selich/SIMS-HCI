@@ -107,8 +107,9 @@
     <Compile Include="Controllers\QuestionController.cs" />
     <Compile Include="Controllers\ReviewController.cs" />
     <Compile Include="Controllers\RoomController.cs" />
-    <Compile Include="Views\Converters\AbstractConverter.cs" />
+    <Compile Include="Views\Converters\IConverter.cs" />
     <Compile Include="Views\Converters\AddressConverter.cs" />
+    <Compile Include="Views\Converters\PatientConverter.cs" />
     <Compile Include="Views\Model\AddressDTO.cs" />
     <Compile Include="Views\Model\GuestDTO.cs" />
     <Compile Include="Views\Model\PatientDTO.cs" />
@@ -241,6 +242,15 @@
     <Compile Include="Views\Secretary\SecretaryHomeWindow.xaml.cs">
       <DependentUpon>SecretaryHomeWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Tabs\AppointmentTabs\AppointmentsDay.xaml.cs">
+      <DependentUpon>AppointmentsDay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tabs\AppointmentTabs\AppointmentsList.xaml.cs">
+      <DependentUpon>AppointmentsList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tabs\AppointmentTabs\AppointmentsWeek.xaml.cs">
+      <DependentUpon>AppointmentsWeek.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Tabs\SecretaryAppointments.xaml.cs">
       <DependentUpon>SecretaryAppointments.xaml</DependentUpon>
     </Compile>
@@ -268,6 +278,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Resources\Styles\Buttons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Resources\Styles\Colors.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -381,6 +395,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Secretary\SecretaryHomeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Tabs\AppointmentTabs\AppointmentsDay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Tabs\AppointmentTabs\AppointmentsList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Tabs\AppointmentTabs\AppointmentsWeek.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -15,11 +15,11 @@ namespace Project.Model
         public MedicalAppointmentType type
         { get; set; }
         public System.Collections.Generic.List<Doctor> doctors;
-        public Guest patient;
+        public Patient patient;
       
       public MedicalAppointment(){}
 
-      public MedicalAppointment(int id, DateTime beginning, DateTime end, Room room, MedicalAppointmentType type, Guest patient, System.Collections.Generic.List<Doctor> doctors) 
+      public MedicalAppointment(int id, DateTime beginning, DateTime end, Room room, MedicalAppointmentType type, Patient patient, System.Collections.Generic.List<Doctor> doctors) 
       : base(beginning, end, room){
          this.id = id;
          this.type = type;
@@ -154,6 +154,6 @@ namespace Project.Model
         /// Property for Patient
         /// </summary>
         /// <pdGenerated>Default opposite class property</pdGenerated>
-        public Guest Patient;
+        public Patient Patient;
    }
 }

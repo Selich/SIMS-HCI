@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project.Entity
+namespace Project.Views.Model
 {
-    class AddressDTO
+    public class AddressDTO
     {
         public int Id { get; set; }
         public string Number { get; set; }

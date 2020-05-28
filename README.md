@@ -106,31 +106,38 @@ Branch za poseban servis npr. "Patient" bice:
 - [ ] Doctor - Use case diagram
 
 
-- [ ] CleanCode playlist - Repo demo ( DBC demo )
 
+- [ ] Strategy, Decorator
 
 ## Pitanja za konsultacije
 
 
-- [ ] Da li servisi mogu samo pozivati svoj repozitorijum i druge servise, ili mogu direktno pozivati repozitorijume drugih entiteta
-- [ ] Izvestaj design pattern -> Factory
-- [ ] Work with files -> Template Method
-- [ ] Validation hooks -> Template Method
-- [ ] Kako ce se medjutabele raditi. Kako bi veze izmedju objekata pamtili u bazi. Da li praviti za njih posebne Servise(ili Kontrolere)?
-- [ ] Kada koristiti ENUM a kada klasu za validaciju.
-- [ ] Dijagrami-sekvence,aktivnost.
-- [ ] Komunikacija sa frontom-DTO ili klase iz modela.
-- [ ] Da li kao u projektu sve instancirati u App.cs-(Kontroler,Servis,Repozitorijum)
-- [ ] Da li Servisi mogu da pozivaju vise Repozitorijua ili moraju da imaju vezu ka drugim servisima.
-
-
+- [ ] U kom delu mi modelujemo Sablone, 
+Da li treba IzvestajFacotry pa razne tipove izvestaja u model staviti ili negde drugde
+Metode u modelima?
 
 
 ## Odgovori
+- [x] Dijagrami-sekvence,aktivnost Pacijent.
+- Oznacivanje prioriteta checkbox
+- [x] Kada koristiti ENUM a kada klasu za validaciju.
+- Posebna klasa ( tip sobe, tip appointmenta )
+- [x] Validation hooks -> Template Method
+- Samo front ( input string itd. )
+- [x] Izvestaj design pattern -> Factory
+- Da
+- [x] Work with files -> Template Method
+- Da
+- [x] Komunikacija sa frontom , DTO ili klase iz modela.
+- Ostavimo class dijagram da radi sa modelima
+- [x] Medju tabele , csv
+- Ne mora poseban repozitorijum
+- [x] Da li servisi mogu samo pozivati svoj repozitorijum i druge servise, ili mogu direktno pozivati repozitorijume drugih entiteta
+- Dobra praksa. 
 - [x] Structure Code into Namespaces by Feature
 - Nije potrebno
 - [x] Konvencija naziva metoda
-- save,update + <entitet>,delete,get
+- save,update,delete,get
 - [x] Auth service ( logovanje, naziv )
 - Moze
 - [x] DTO?

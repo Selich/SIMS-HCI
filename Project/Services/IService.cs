@@ -5,8 +5,8 @@ namespace Project.Services
     {
         E Get(ID id);
         IEnumerable<E> GetAll();
-        E Create(E entity);
+        E Save(E entity);
         E Update(E entity);
-        E Delete(E entity);
+        E Remove(E entity);
     }
 }

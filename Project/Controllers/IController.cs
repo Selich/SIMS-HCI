@@ -6,9 +6,9 @@ namespace Project.Controllers
     {
         IEnumerable<E> GetAll();
         E Get(ID id);
-        E Create(E entity);
-        void Update(E entity);
-        void Delete(E entity);
+        E Save(E entity);
+        E Update(E entity);
+        E Remove(E entity);
          
     }
 }

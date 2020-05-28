@@ -22,11 +22,11 @@ namespace Project.Services
 
         public Patient Get(long id) => _patientRepository.Get(id);
 
-        public Patient Create(Patient patient) => _patientRepository.Create(patient);
+        public Patient Save(Patient patient) => _patientRepository.Save(patient);
 
         public Patient Update(Patient patient) => _patientRepository.Update(patient);
 
-        public Patient Delete(Patient client) => _patientRepository.Delete(client);
+        public Patient Remove(Patient client) => _patientRepository.Remove(client);
 
     }
 }

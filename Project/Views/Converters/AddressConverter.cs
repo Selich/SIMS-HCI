@@ -1,4 +1,5 @@
-﻿using Project.Entity;
+﻿using Project.Model;
+using Project.Views.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,18 +8,32 @@ using System.Threading.Tasks;
 
 namespace Project.Views.Converters
 {
-    class AddressConverter : AbstractConverter
+    class AddressConverter : IConverter<Address, AddressDTO>
     {
-        public static string ConvertAddressToString(AddressDTO address)
-            => string.Join(" ", 
-                address.Number,
-                address.Street,
-                address.City,
-                address.Country,
-                address.PostCode
-                );
+        public Address ConvertDTOToEntity(AddressDTO dto)
+            => new Address(
+                dto.Id,
+                dto.Number,
+                dto.Street,
+                dto.City,
+                dto.Country,
+                dto.PostCode
+            );
 
-        public static IList<string> ConvertAddressListToStringList(IList<AddressDTO> addresses)
-            => ConvertEntityListToViewList(addresses, ConvertAddressToString);
+        public AddressDTO ConvertEntityToDTO(Address entity)
+            => new AddressDTO(
+                entity.Id,
+                entity.Number,
+                entity.Street,
+                entity.City,
+                entity.Country,
+                entity.PostCode
+            );
+
+        public List<Address> ConvertListDTOToListEntity(List<AddressDTO> dtos)
+            => dtos.Select(dto => ConvertDTOToEntity(dto)).ToList();
+
+        public List<AddressDTO> ConvertListEntityToListDTO(List<Address> entities)
+            => entities.Select(entity => ConvertEntityToDTO(entity)).ToList();
     }
 }

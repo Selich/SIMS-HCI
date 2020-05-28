@@ -22,7 +22,7 @@ namespace Project.Views.Secretary
     /// </summary>
     public partial class ProfileModal : Window
     {
-        public Guest selectedPatient;
+        public Patient selectedPatient;
         public ProfileModal(double id)
         {
             //WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;

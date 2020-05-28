@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project.Entity
+namespace Project.Views.Model
 {
-    class UserDTO
+    public class UserDTO
     {
         public long Id;
         public string FirstName { get; set; }

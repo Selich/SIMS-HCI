@@ -7,85 +7,52 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Project.Controllers;
-using Project.Entity;
+using Project.Views.Model;
 using Project.Model;
 using Project.Services;
+using Project.Views.Converters;
 
 namespace Project.Controllers
 {
-   public class PatientController : IController<Patient, long>
-   {
-      private IService<Patient, long> _service;
-    
-      public PatientController(IService<Patient, long> service)
-      {
+    public class PatientController : IController<PatientDTO, long>
+    {
+        private IService<Patient, long> _service;
+        PatientConverter converter;
+
+        public PatientController(IService<Patient, long> service)
+        {
             _service = service;
+            converter = new PatientConverter();
 
-      }
-        public IEnumerable<Patient> GetAll()
+        }
+        public PatientDTO Get(long id)
         {
             throw new NotImplementedException();
         }
 
-        public Patient Get(long id)
+        public IEnumerable<PatientDTO> GetAll()
         {
-            throw new NotImplementedException();
+            //List<Patient> patients = _service.GetAll();
+            return null;
         }
 
-        public Patient Create(string firstName, string lastName, string jmbg, string telephoneNumber, string gender, DateTime dateOfBirth, string insuranceNumber, string proffesion, string bloodType, float height, float weight, string email, string password)
-            => _service.Create(new Patient(new Address(), firstName, lastName, jmbg, email, telephoneNumber, dateOfBirth, insuranceNumber, proffesion, bloodType, height, weight, email, password));
-
-        internal void Create(PatientDTO patientDTO)
-            => _service.Create(new Patient(
-                new Address(),
-                patientDTO.FirstName, 
-                patientDTO.LastName, 
-                patientDTO.Jmbg, 
-                patientDTO.TelephoneNumber, 
-                patientDTO.Gender, 
-                patientDTO.DateOfBirth, 
-                patientDTO.InsurenceNumber, 
-                patientDTO.Profession, 
-                patientDTO.BloodType, 
-                patientDTO.Height, 
-                patientDTO.Weight, 
-                patientDTO.Email, 
-                patientDTO.Password));
-        public Patient Create(Patient entity)
+        public PatientDTO Remove(PatientDTO entity)
         {
-            throw new NotImplementedException();
+            Patient patient = _service.Remove(converter.ConvertDTOToEntity(entity));
+            return converter.ConvertEntityToDTO(patient);
         }
 
-        public void Update(Patient entity)
+        public PatientDTO Save(PatientDTO entity)
         {
-            throw new NotImplementedException();
+            Patient patient = _service.Save(converter.ConvertDTOToEntity(entity));
+            return converter.ConvertEntityToDTO(patient);
         }
 
-        public void Delete(Patient entity)
+        public PatientDTO Update(PatientDTO entity)
         {
-            throw new NotImplementedException();
+            Patient patient = _service.Update(converter.ConvertDTOToEntity(entity));
+            return converter.ConvertEntityToDTO(patient);
         }
-      
-      public Patient RegisterGuest(long id, string firstName, string lastName, string jmbg, string telephoneNumber, string gender, DateTime dateOfBirth, string insuranceNumber, string proffesion)
-      {
-         throw new NotImplementedException();
-      }
-      
-      
-      public Anamneza AddPrecondition(string name, string type, string description)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public float AddWeight(float weight)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public float AddHeight(float height)
-      {
-         throw new NotImplementedException();
-      }
 
     }
 }
