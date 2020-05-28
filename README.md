@@ -116,6 +116,13 @@ Branch za poseban servis npr. "Patient" bice:
 - [ ] Izvestaj design pattern -> Factory
 - [ ] Work with files -> Template Method
 - [ ] Validation hooks -> Template Method
+- [ ] Kako ce se medjutabele raditi. Kako bi veze izmedju objekata pamtili u bazi. Da li praviti za njih posebne Servise(ili Kontrolere)?
+- [ ] Kada koristiti ENUM a kada klasu za validaciju.
+- [ ] Dijagrami-sekvence,aktivnost.
+- [ ] Komunikacija sa frontom-DTO ili klase iz modela.
+- [ ] Da li kao u projektu sve instancirati u App.cs-(Kontroler,Servis,Repozitorijum)
+- [ ] Da li Servisi mogu da pozivaju vise Repozitorijua ili moraju da imaju vezu ka drugim servisima.
+
 
 
 
