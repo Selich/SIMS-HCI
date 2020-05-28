@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project.Views.Secretary;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -40,5 +41,11 @@ namespace Project.Views.Tabs
 
         }
 
+        private void CreatePatient_Click(object sender, RoutedEventArgs e)
+        {
+            var s = new CreatePatientModal();
+            s.Show();
+
+        }
     }
 }

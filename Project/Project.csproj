@@ -226,6 +226,9 @@
     <Compile Include="Views\Secretary\AppointmentModal.xaml.cs">
       <DependentUpon>AppointmentModal.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Secretary\CreatePatientModal.xaml.cs">
+      <DependentUpon>CreatePatientModal.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Secretary\DoctorSearchModal.xaml.cs">
       <DependentUpon>DoctorSearchModal.xaml</DependentUpon>
     </Compile>
@@ -358,6 +361,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Secretary\AppointmentModal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Secretary\CreatePatientModal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
