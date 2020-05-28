@@ -110,8 +110,8 @@ Branch za poseban servis npr. "Patient" bice:
 - [ ] Strategy, Decorator
 
 ## Pitanja za konsultacije
-
-
+- [ ] Da li moze za Appointmente da se napravi interfejs i da se onda svuda koristi save,update...
+- [ ] Da li praviti FilterDTO i jednu filter funkciju ili filtriranje po svakom parametru
 - [ ] U kom delu mi modelujemo Sablone, 
 Da li treba IzvestajFacotry pa razne tipove izvestaja u model staviti ili negde drugde
 Metode u modelima?
