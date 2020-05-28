@@ -643,8 +643,8 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>Sequence_Patient</a:Code>
 <a:CreationDate>1588348841</a:CreationDate>
 <a:Creator>Selic</a:Creator>
-<a:ModificationDate>1588875764</a:ModificationDate>
-<a:Modifier>Uros</a:Modifier>
+<a:ModificationDate>1590509198</a:ModificationDate>
+<a:Modifier>Selic</a:Modifier>
 <a:Location>file:///%[PRJ_ROOT_DIR]%/Sequence Diagrams/Sequence Patient.oom</a:Location>
 <a:Extension>oom</a:Extension>
 <a:ModelDocument.ModelID>698241FB-55A7-4A0E-A883-FEABADCE82CD</a:ModelDocument.ModelID>
@@ -669,7 +669,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>Sequence_Secretary</a:Code>
 <a:CreationDate>1588348715</a:CreationDate>
 <a:Creator>Selic</a:Creator>
-<a:ModificationDate>1588923709</a:ModificationDate>
+<a:ModificationDate>1590078091</a:ModificationDate>
 <a:Modifier>Selic</a:Modifier>
 <a:Location>file:///%[PRJ_ROOT_DIR]%/Sequence Diagrams/Sequence Secretary.oom</a:Location>
 <a:Extension>oom</a:Extension>
@@ -706,7 +706,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>Activity_Director_Diagram</a:Code>
 <a:CreationDate>1588778477</a:CreationDate>
 <a:Creator>Selic</a:Creator>
-<a:ModificationDate>1588778542</a:ModificationDate>
+<a:ModificationDate>1588886918</a:ModificationDate>
 <a:Modifier>Selic</a:Modifier>
 <a:Location>file:///%[PRJ_ROOT_DIR]%/Activity Diagrams/Activity Director Diagram.oom</a:Location>
 <a:Extension>oom</a:Extension>
@@ -732,7 +732,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>Activity_Secretary_Diagram</a:Code>
 <a:CreationDate>1588778513</a:CreationDate>
 <a:Creator>Selic</a:Creator>
-<a:ModificationDate>1588796817</a:ModificationDate>
+<a:ModificationDate>1588924895</a:ModificationDate>
 <a:Modifier>Selic</a:Modifier>
 <a:Location>file:///%[PRJ_ROOT_DIR]%/Activity Diagrams/Activity Secretary Diagram.oom</a:Location>
 <a:Extension>oom</a:Extension>
@@ -746,7 +746,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:CreationDate>1588778529</a:CreationDate>
 <a:Creator>Selic</a:Creator>
 <a:ModificationDate>1588794023</a:ModificationDate>
-<a:Modifier>Uros</a:Modifier>
+<a:Modifier>Selic</a:Modifier>
 <a:Location>file:///%[PRJ_ROOT_DIR]%/Activity Diagrams/Activity Patient Diagram.oom</a:Location>
 <a:Extension>oom</a:Extension>
 <a:ModelDocument.ModelID>69893675-D7AD-401D-90A1-C5C90FBA40F5</a:ModelDocument.ModelID>
