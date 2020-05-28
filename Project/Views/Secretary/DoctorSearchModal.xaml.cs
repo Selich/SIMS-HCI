@@ -23,7 +23,6 @@ namespace Project.Views.Secretary
     public partial class DoctorSearchModal : Window
     {
         public SecretaryHomeWindow mainWin;
-        public Model.Doctor selectedDoctor;
         private SecretaryCreate secretaryCreate;
         private SecretaryAppointments secretaryAppointments;
 
@@ -56,10 +55,11 @@ namespace Project.Views.Secretary
 
         private bool UserFilter(object item)
         {
-            if (String.IsNullOrEmpty(patientFilter.Text))
-                return true;
-            else
-                return ((item as Model.Doctor).FirstName.IndexOf(patientFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+            return true;
+            //if (String.IsNullOrEmpty(patientFilter.Text))
+            //    return true;
+            //else
+            //    //return ((item as DoctorDTO).FirstName.IndexOf(patientFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0);
         }
         private void txtFilter_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
@@ -86,7 +86,7 @@ namespace Project.Views.Secretary
 
         private void doctorsList_KeyDown(object sender, KeyboardEventArgs e)
         {
-            selectedDoctor = (Model.Doctor)listDoctors.SelectedItem;
+            //selectedDoctor = (Model.Doctor)listDoctors.SelectedItem;
             var list =Application.Current.Windows;
             Window w = new Window();
             foreach (Window win in list)
@@ -100,9 +100,9 @@ namespace Project.Views.Secretary
             var label = (Label)w.FindName("drLabel");
             var label2 = (Label)w.FindName("drLabel2");
             var id = (Label)w.FindName("drId");
-            label.Content = "Dr. " + selectedDoctor.FirstName + " " + selectedDoctor.LastName ;
-            label2.Content = "Dr. " + selectedDoctor.FirstName + " " + selectedDoctor.LastName ;
-            id.Content = selectedDoctor.Id;
+            ////label.Content = "Dr. " + selectedDoctor.FirstName + " " + selectedDoctor.LastName ;
+            //label2.Content = "Dr. " + selectedDoctor.FirstName + " " + selectedDoctor.LastName ;
+            //id.Content = selectedDoctor.Id;
             //mainWin.refreshContent();
             this.Hide();
 

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Project.Controllers;
+using Project.Views.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +21,59 @@ namespace Project.Views.Secretary
     /// </summary>
     public partial class CreatePatientModal : Window
     {
+        private readonly IController<PatientDTO, long> _patientController;
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string JMBG { get; set; }
+        public string Address { get; set; }
+        public string TelephoneNumber { get; set; }
+        public string Profession { get; set; }
+        public string Email { get; set; }
+        public string BloodType { get; set; }
+        public string Weight { get; set; }
+        public string Height { get; set; }
         public CreatePatientModal()
         {
             InitializeComponent();
+
+            var app = Application.Current as App;
+            _patientController = app.PatientController;
         }
+        private bool isValidInputLength(string input) => (input.Length == 0) ? false : true;
+
+        private void validateInput(TextBox input)
+        {
+            if (!isValidInputLength(Profile_FirstName.Text)) input.Focus();
+        }
+
+        private void CreatePatient_Click(object sender, RoutedEventArgs e)
+        {
+            validateInput(Profile_FirstName);
+            validateInput(Profile_LastName);
+            validateInput(Profile_JMBG);
+            validateInput(Profile_Email);
+
+            AddressDTO addressDTO = AddressParser.ConvertStringToAddressDTO(Profile_Address.Text);
+
+//TODO: Add telephone number parser
+            _patientController.Save(new PatientDTO(
+                addressDTO,
+                Profile_FirstName.Text,
+                Profile_LastName.Text,
+                Profile_JMBG.Text,
+                Profile_TelephoneNumber.Text,
+                Profile_Gender.Text,
+                Profile_DateOfBirth.SelectedDate.GetValueOrDefault(),
+                Profile_InsurenceNumber.Text,
+                Profile_Profession.Text,
+                Profile_BloodType.Text,
+                float.Parse(Profile_Height.Text),
+                float.Parse(Profile_Weight.Text),
+                Profile_Email.Text,
+                ""
+                ));
+
+        }
+
     }
 }

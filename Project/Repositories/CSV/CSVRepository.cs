@@ -25,7 +25,7 @@ namespace Project.Repositories.CSV
             InitializeId();
         }
 
-        public E Create(E entity)
+        public E Save(E entity)
         {
             entity.SetId(_sequencer.GenerateId());
             _stream.AppendToFile(entity);
@@ -55,10 +55,9 @@ namespace Project.Repositories.CSV
 
         public IEnumerable<E> GetAll() => _stream.ReadAll();
 
-
         protected void InitializeId() => _sequencer.Initialize(GetMaxId(_stream.ReadAll()));
 
-        E IRepository<E, ID>.Delete(E entity)
+        E IRepository<E, ID>.Remove(E entity)
         {
             var entities = _stream.ReadAll().ToList();
             var entityToRemove = entities.SingleOrDefault(ent => ent.GetId().CompareTo(entity.GetId()) == 0);

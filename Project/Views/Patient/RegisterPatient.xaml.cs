@@ -11,7 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Project.Entity;
+using Project.Views.Model;
 using Project.Controllers;
 
 namespace Project.Views.Patient
@@ -21,20 +21,17 @@ namespace Project.Views.Patient
     /// </summary>
     public partial class RegisterPatient : Window
     {
-        PatientController patientController;
         public RegisterPatient() {
 
         }
         public RegisterPatient(PatientController patientController)
         {
-            this.patientController = patientController;
             InitializeComponent();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             PatientDTO patientDTO = new PatientDTO();
-            patientController.Create(patientDTO);
 
         }
     }

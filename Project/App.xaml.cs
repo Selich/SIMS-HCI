@@ -7,6 +7,7 @@ using Project.Model;
 using Project.Repositories.Sequencer;
 using Project.Services;
 using Project.Controllers;
+using Project.Views.Model;
 
 namespace Project
 {
@@ -35,6 +36,6 @@ namespace Project
 
 
 
-        public IController<Patient, long> PatientController { get; private set; }
+        public IController<PatientDTO, long> PatientController { get; private set; }
     }
 }

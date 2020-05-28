@@ -29,6 +29,14 @@ namespace Project.Views.Model
             Country = country;
             PostCode = postCode;
         }
+        public AddressDTO(string number, string street, string city, string country, string postCode)
+        {
+            Number = number;
+            Street = street;
+            City = city;
+            Country = country;
+            PostCode = postCode;
+        }
 
     }
 }

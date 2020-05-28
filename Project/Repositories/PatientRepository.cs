@@ -13,17 +13,27 @@ namespace Project.Repositories
     public class PatientRepository : CSVRepository<Patient, long>, IPatientRepository, IEagerCSVRepository<Patient, long>
     {
         private const string ENTITY_NAME = "Patient";
-        private LongSequencer longSequencer;
 
-        public PatientRepository(CSVStream<Patient> stream, LongSequencer sequencer) : base(ENTITY_NAME, stream, sequencer)
+        public PatientRepository(ICSVStream<Patient> stream, ISequencer<long> sequencer) : base(ENTITY_NAME, stream, sequencer)
         {
         }
-
-
         public new IEnumerable<Patient> Find(Func<Patient, bool> predicate) => GetAllEager().Where(predicate);
 
         public IEnumerable<Patient> GetAllEager() => GetAll();
         public Patient GetEager(long id) => Get(id);
+
+        public new Patient Save(Patient patient)
+        {
+            if (IsEmailUnique(patient.Email))
+                return base.Save(patient);
+            else
+                throw new Exception();
+        }
+        private bool IsEmailUnique(string email)
+         => GetPatientByEmail(email) == null;
+
+        private Patient GetPatientByEmail(string email)
+    => _stream.ReadAll().SingleOrDefault(patient => patient.Email.Equals(email));
 
     }
 }

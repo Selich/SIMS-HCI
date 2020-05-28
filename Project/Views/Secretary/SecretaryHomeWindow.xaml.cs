@@ -1,4 +1,5 @@
 ﻿using Project.Model;
+using Project.Views.Model;
 using Project.Views.Tabs;
 using System;
 using System.Collections.Generic;
@@ -81,7 +82,7 @@ namespace Project.Views.Secretary
         }
         private void Profile_Click(object sender, RoutedEventArgs e)
         {
-            Model.Guest item = (Model.Guest)(sender as System.Windows.Controls.Button).DataContext;
+            GuestDTO item = (GuestDTO)(sender as System.Windows.Controls.Button).DataContext;
             var s = new ProfileModal(item);
             s.Show();
 

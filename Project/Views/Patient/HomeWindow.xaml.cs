@@ -21,7 +21,7 @@ namespace Project.Views.Patient
     /// </summary>
     public partial class HomeWindow : Window
     {
-        public ObservableCollection<Model.MedicalAppointment> Appoitments
+        public ObservableCollection<Project.Model.MedicalAppointment> Appoitments
         {
             get;
             set;
@@ -30,8 +30,8 @@ namespace Project.Views.Patient
         {
             InitializeComponent();
             this.DataContext = this;
-            Room tempRoom = new Model.Room() { floor = "One", id = 1, ward="Check" };
-            Appoitments = new ObservableCollection<Model.MedicalAppointment>();
+            Room tempRoom = new Project.Model.Room() { floor = "One", id = 1, ward="Check" };
+            Appoitments = new ObservableCollection<Project.Model.MedicalAppointment>();
             Appoitments.Add(new MedicalAppointment() { room = tempRoom, beginning = new DateTime(2020, 5, 10, 15, 0, 0), type = MedicalAppointmentType.examination, end = new DateTime(2020, 5, 10, 15, 30, 0) });
             Appoitments.Add(new MedicalAppointment() { room = tempRoom, beginning = new DateTime(2020, 5, 11, 18, 0, 0), type = MedicalAppointmentType.examination, end = new DateTime(2020, 5, 11, 18, 30, 0) });
             Appoitments.Add(new MedicalAppointment() { room = tempRoom, beginning = new DateTime(2020, 5, 12, 15, 0, 0), type = MedicalAppointmentType.examination, end = new DateTime(2020, 5, 12, 15, 30, 0) });

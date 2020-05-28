@@ -9,7 +9,7 @@ namespace Project.Model
 {
    public class Doctor : Employee
    {
-      public string medicalRole { get; set; }
+      public string MedicalRole { get; set; }
       
       public System.Collections.Generic.List<Approval> approval;
       public Doctor() {}

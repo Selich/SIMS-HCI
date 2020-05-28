@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project.Views.Secretary"
         mc:Ignorable="d"
-        Title="CreatePatientModal" Height="390" Width="886">
-    <Grid>
-        <Rectangle HorizontalAlignment="Left" Height="257" VerticalAlignment="Top" Width="950">
+        Title="CreatePatientModal" Height="432" Width="886">
+    <Grid Margin="0,0,0,-31" Height="402" VerticalAlignment="Top">
+        <Rectangle HorizontalAlignment="Left" Height="402" VerticalAlignment="Top" Width="878">
             <Rectangle.Fill>
                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                     <GradientStop Color="#FF5FCEC8" Offset="0.273"/>
@@ -15,33 +15,25 @@
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <Grid HorizontalAlignment="Left" Height="336" Margin="246,23,0,0" VerticalAlignment="Top" Width="615">
-            <Grid.Effect>
-                <DropShadowEffect Direction="270" BlurRadius="10" ShadowDepth="3"/>
-            </Grid.Effect>
-            <Grid.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FFE8E8E8" Offset="0"/>
-                    <GradientStop Color="White" Offset="1"/>
-                </LinearGradientBrush>
-            </Grid.Background>
-
-            <Label Content="Ime:" HorizontalAlignment="Left" Margin="21,20,0,0" VerticalAlignment="Top" Width="87"/>
-            <Label Content="Prezime:" HorizontalAlignment="Left" Margin="21,47,0,0" VerticalAlignment="Top" Width="87"/>
-            <Label Content="Adresa:" HorizontalAlignment="Left" Margin="21,172,0,0" VerticalAlignment="Top"/>
-            <Label Content="JMBG:" HorizontalAlignment="Left" Margin="21,76,0,0" VerticalAlignment="Top"/>
-            <Label Content="Email:" HorizontalAlignment="Left" Margin="21,107,0,0" VerticalAlignment="Top"/>
-            <Label Content="Profesija:" HorizontalAlignment="Left" Margin="21,205,0,0" VerticalAlignment="Top"/>
-            <Label Content="Broj Telefona:" HorizontalAlignment="Left" Margin="21,137,0,0" VerticalAlignment="Top"/>
-            <TextBox x:Name="Profile_FirstName"  HorizontalAlignment="Left" Height="23" Margin="122,20,0,0" TextWrapping="Wrap" Text="{Binding NewPatient.firstName}" VerticalAlignment="Top" Width="120" Background="White"/>
-            <TextBox x:Name="Profile_LastName" HorizontalAlignment="Left" Height="23" Margin="122,47,0,0" TextWrapping="Wrap" Text="{Binding NewPatient.lastName}" VerticalAlignment="Top" Width="120" Background="White"/>
-            <TextBox x:Name="Profile_Address" HorizontalAlignment="Left" Height="23" Margin="122,173,0,0" TextWrapping="Wrap" Text="{Binding NewPatient.address}" VerticalAlignment="Top" Width="120" Background="White"/>
-            <TextBox x:Name="Profile_Email"  HorizontalAlignment="Left" Height="23" Margin="122,107,0,0" TextWrapping="Wrap" Text="{Binding NewPatient.email}" VerticalAlignment="Top" Width="120" Background="White"/>
-            <TextBox x:Name="Profile_TelephoneNumber" HorizontalAlignment="Left" Height="23" Margin="122,137,0,0" TextWrapping="Wrap" Text="{Binding NewPatient.telephoneNumber}" VerticalAlignment="Top" Width="120" Background="White"/>
-            <TextBox x:Name="Profile_LastName_Copy" HorizontalAlignment="Left" Height="23" Margin="122,76,0,0" TextWrapping="Wrap" Text="{Binding NewPatient.lastName}" VerticalAlignment="Top" Width="120" Background="White"/>
-            <TextBox x:Name="Profile_Address_Copy" HorizontalAlignment="Left" Height="23" Margin="122,202,0,0" TextWrapping="Wrap" Text="{Binding NewPatient.address}" VerticalAlignment="Top" Width="120" Background="White"/>
+        <Grid HorizontalAlignment="Left" Height="353" Margin="246,23,0,0" VerticalAlignment="Top" Width="632">
+            <StackPanel Margin="0,10,0,-15">
+                <Label Content="Ime:"       HorizontalAlignment="Left"/>
+                <TextBox x:Name="Profile_FirstName" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding FirstName}"  Width="157" Background="White" />
+                <Label Content="Prezime:"   HorizontalAlignment="Left"/>
+                <TextBox x:Name="Profile_LastName"  HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding LastName}"  Width="157" Background="White" />
+                <Label Content="JMBG:"      HorizontalAlignment="Left"/>
+                <TextBox x:Name="Profile_JMBG"  HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding JMBG}"  Width="157" Background="White" />
+                <Label Content="Email:"     HorizontalAlignment="Left"/>
+                <TextBox x:Name="Profile_Email"  HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Email}"  Width="157" Background="White" />
+                <Label Content="Adresa:"    HorizontalAlignment="Left"/>
+                <TextBox x:Name="Profile_Address"  HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Address}"  Width="157" Background="White" />
+                <Label Content="Profesija:" HorizontalAlignment="Left"/>
+                <TextBox x:Name="Profile_Profession"  HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Profession}"  Width="157" Background="White" />
+                <Label Content="Broj Telefona:" HorizontalAlignment="Left"/>
+                <TextBox x:Name="Profile_TelephoneNumber"  HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding TelephoneNumber}"  Width="157" Background="White" />
+            </StackPanel>
         </Grid>
-        <Grid HorizontalAlignment="Left" Height="336" Margin="23,23,0,0" VerticalAlignment="Top" Width="202">
+        <Grid HorizontalAlignment="Left" Height="379" Margin="0,23,0,0" VerticalAlignment="Top" Width="206">
             <Grid.Effect>
                 <DropShadowEffect BlurRadius="10" ShadowDepth="3" Direction="270"/>
             </Grid.Effect>
@@ -52,9 +44,9 @@
                 </LinearGradientBrush>
             </Grid.Background>
             <Image HorizontalAlignment="Left" Height="157" Margin="23,27,0,0" VerticalAlignment="Top" Width="158" Source="/Project;component/Resources/Images/Faces/face5"/>
-            <Button Content="Izmeni sliku" HorizontalAlignment="Right" Margin="0,199,21,0" VerticalAlignment="Top" Width="158" Height="34"/>
+            <Button Content="Izmeni sliku" HorizontalAlignment="Right" Margin="0,199,25,0" VerticalAlignment="Top" Width="158" Height="34"/>
         </Grid>
-        <Grid HorizontalAlignment="Left" Height="255" Margin="538,104,0,0" VerticalAlignment="Top" Width="323">
+        <Grid HorizontalAlignment="Left" Height="293" Margin="535,109,0,0" VerticalAlignment="Top" Width="343">
             <Grid.Effect>
                 <DropShadowEffect Direction="270" BlurRadius="10" ShadowDepth="3"/>
             </Grid.Effect>
@@ -64,13 +56,20 @@
                     <GradientStop Color="White" Offset="1"/>
                 </LinearGradientBrush>
             </Grid.Background>
-
-            <Label Content="Krvna Grupa:" HorizontalAlignment="Left" Margin="15,15,0,0" VerticalAlignment="Top" Width="87"/>
-            <Label Content="Visina:" HorizontalAlignment="Left" Margin="15,45,0,0" VerticalAlignment="Top" Width="87"/>
-            <Label Content="Tezina:" HorizontalAlignment="Left" Margin="15,75,0,0" VerticalAlignment="Top"/>
-            <TextBox x:Name="Profile_FirstName1"  HorizontalAlignment="Left" Height="23" Margin="116,15,0,0" TextWrapping="Wrap" Text="{Binding NewPatient.firstName}" VerticalAlignment="Top" Width="120" Background="White"/>
-            <TextBox x:Name="Profile_LastName1" HorizontalAlignment="Left" Height="23" Margin="116,45,0,0" TextWrapping="Wrap" Text="{Binding NewPatient.lastName}" VerticalAlignment="Top" Width="120" Background="White"/>
-            <TextBox x:Name="Profile_Address1" HorizontalAlignment="Left" Height="23" Margin="116,75,0,0" TextWrapping="Wrap" Text="{Binding NewPatient.address}" VerticalAlignment="Top" Width="120" Background="White"/>
+            <StackPanel Margin="10,10,10,-15">
+                <Label Content="BloodType:"       HorizontalAlignment="Left"/>
+                <TextBox x:Name="Profile_BloodType" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding BloodType}"  Width="157" Background="White" />
+                <Label Content="Height:"       HorizontalAlignment="Left"/>
+                <TextBox x:Name="Profile_Height" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Height}"  Width="157" Background="White" />
+                <Label Content="Weight:"       HorizontalAlignment="Left"/>
+                <TextBox x:Name="Profile_Weight" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Weight}"  Width="157" Background="White" />
+                <Label Content="Gender:"       HorizontalAlignment="Left"/>
+                <TextBox x:Name="Profile_Gender" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Weight}"  Width="157" Background="White" />
+                <Label Content="Insurence Number:"       HorizontalAlignment="Left"/>
+                <TextBox x:Name="Profile_InsurenceNumber" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Weight}"  Width="157" Background="White" />
+                <DatePicker x:Name="Profile_DateOfBirth" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="15.714,1.6" Width="157"/>
+            </StackPanel>
+            <Button Content="Kreiraj Korisnika" HorizontalAlignment="Right" Margin="0,249,10,0" VerticalAlignment="Top" Width="158" Height="34" Click="CreatePatient_Click" RenderTransformOrigin="0.5,1.5" />
         </Grid>
 
     </Grid>

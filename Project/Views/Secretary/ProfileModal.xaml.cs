@@ -1,5 +1,6 @@
 ﻿using Project.Model;
 using Project.Repositories;
+using Project.Views.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,7 +23,9 @@ namespace Project.Views.Secretary
     /// </summary>
     public partial class ProfileModal : Window
     {
-        public Patient selectedPatient;
+        public Project.Model.Patient selectedPatient;
+        private GuestDTO item;
+
         public ProfileModal(double id)
         {
             //WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
@@ -44,7 +47,7 @@ namespace Project.Views.Secretary
             //viewHistory.SortDescriptions.Add(new SortDescription("End", ListSortDirection.Ascending));
             //this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
         }
-        public ProfileModal(Model.Guest patient)
+        public ProfileModal(Project.Model.Guest patient)
         {
             //Generators g = new Generators();
             //PatientRepository pr = new PatientRepository();
@@ -66,7 +69,12 @@ namespace Project.Views.Secretary
 
         }
 
-    private void HandleEsc(object sender, KeyEventArgs e)
+        public ProfileModal(GuestDTO item)
+        {
+            this.item = item;
+        }
+
+        private void HandleEsc(object sender, KeyEventArgs e)
     {
         if (e.Key == Key.Escape)
             Close();

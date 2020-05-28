@@ -1,6 +1,7 @@
 ﻿using Controller;
 using Project.Model;
 using Project.Repositories;
+using Project.Views.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -86,7 +87,7 @@ namespace Project.Views.Secretary
         }
         private void Add_Doctor_Click(object sender, RoutedEventArgs e)
         {
-            Model.Doctor item = (Model.Doctor)(sender as System.Windows.Controls.Button).DataContext;
+            DoctorDTO item = (DoctorDTO)(sender as System.Windows.Controls.Button).DataContext;
             MessageBox.Show("Da li ste sigurni da zelite da dodate Dr." + item.FirstName + " " + item.LastName + " u termin?", "Potvrda", MessageBoxButton.OKCancel);
             listAllDoctors.Visibility = Visibility.Hidden;
             listDoctors.Visibility = Visibility.Visible;

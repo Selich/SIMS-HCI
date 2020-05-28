@@ -111,6 +111,8 @@
     <Compile Include="Views\Converters\AddressConverter.cs" />
     <Compile Include="Views\Converters\PatientConverter.cs" />
     <Compile Include="Views\Model\AddressDTO.cs" />
+    <Compile Include="Views\Model\DoctorDTO.cs" />
+    <Compile Include="Views\Model\EmployeeDTO.cs" />
     <Compile Include="Views\Model\GuestDTO.cs" />
     <Compile Include="Views\Model\PatientDTO.cs" />
     <Compile Include="Views\Model\UserDTO.cs" />
@@ -272,6 +274,7 @@
     <Compile Include="Views\Templates\Details.xaml.cs">
       <DependentUpon>Details.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Utils\AddressParser.cs" />
     <Compile Include="Views\Utils\DateTimeExtensions.cs" />
     <Compile Include="Views\Utils\FuzzyMatcher.cs" />
     <Compile Include="App.xaml.cs">
@@ -287,6 +290,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Resources\Styles\Tabs.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Styles\TextInput.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -501,6 +508,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Model\Util\" />
     <Folder Include="Resources\Demo\Patient\" />
     <Folder Include="Resources\Demo\Secretary\" />
     <Folder Include="Views\Patient\.vs\Patient\v15\" />

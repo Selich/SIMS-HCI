@@ -3,12 +3,13 @@
 // Created: Friday, April 17, 2020 2:53:38 PM
 // Purpose: Definition of Class RegistredPatient
 
+using Project.Repositories.Abstract;
 using System;
 using System.Collections.Generic;
 
 namespace Project.Model
 {
-    public class Patient : Guest   
+    public class Patient : Guest
     {
         public string Email { get; set; }
         public string Password { get; set; }
