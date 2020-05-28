@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MaterialDesignThemes.Wpf.Transitions;
 using Project.Repositories;
+using Project.Views.Tabs;
 
 namespace Project.Views.Secretary
 {
@@ -23,6 +24,8 @@ namespace Project.Views.Secretary
     {
         public SecretaryHomeWindow mainWin;
         public Model.Doctor selectedDoctor;
+        private SecretaryCreate secretaryCreate;
+        private SecretaryAppointments secretaryAppointments;
 
         private void HandleEsc(object sender, KeyEventArgs e)
         {
@@ -39,6 +42,16 @@ namespace Project.Views.Secretary
             //CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listDoctors.ItemsSource);
             //view.Filter = UserFilter;
             this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
+        }
+
+        public DoctorSearchModal(SecretaryCreate secretaryCreate)
+        {
+            this.secretaryCreate = secretaryCreate;
+        }
+
+        public DoctorSearchModal(SecretaryAppointments secretaryAppointments)
+        {
+            this.secretaryAppointments = secretaryAppointments;
         }
 
         private bool UserFilter(object item)

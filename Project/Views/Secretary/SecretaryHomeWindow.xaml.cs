@@ -1,4 +1,5 @@
 ﻿using Project.Model;
+using Project.Views.Tabs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,30 +24,16 @@ namespace Project.Views.Secretary
     {
         public string drName { get; set; }
 
-        public DoctorSearchModal doctorModal;
         public MedicalAppointment selectedAppointment;
         public Question selectedQuestion;
 
-        public DateTime SelectedDate;
-        public DateTime StartOfTheWeek;
-        public DateTime EndOfTheWeek;
-        public DateTime CurrentDate;
         public SecretaryHomeWindow()
         {
-            doctorModal = new DoctorSearchModal(this);
 
-            CurrentDate    = DateTime.Today;
-            StartOfTheWeek = DateTime.Now.StartOfWeek(DayOfWeek.Monday);
-            EndOfTheWeek   = StartOfTheWeek.AddDays(6);
-            SelectedDate   = CurrentDate;
+
+            SecretaryAppointments appointmentsView = new SecretaryAppointments();
 
             InitializeComponent();
-
-            dateTimePicker.SelectedDate = DateTime.Today;
-
-            startWeekLabel.Content  = StartOfTheWeek.ToString("dddd, dd MMMM yyyy");
-            endWeekLabel.Content    = EndOfTheWeek.ToString("dddd, dd MMMM yyyy");
-            currentDayLabel.Content = CurrentDate.ToString("dddd, dd MMMM yyyy");
 
             //listPatients.ItemsSource = pr.ReadCSV("../../Data/patients.csv");
             //listPatientsCreate.ItemsSource = pr.ReadCSV("../../Data/patients.csv");
@@ -61,11 +48,11 @@ namespace Project.Views.Secretary
 
             //lst.ItemsSource = GenerateTerms();
 
-            CollectionView viewAdress = (CollectionView)CollectionViewSource.GetDefaultView(listPatients.ItemsSource);
-            CollectionView viewNumber = (CollectionView)CollectionViewSource.GetDefaultView(listPatients.ItemsSource);
-            CollectionView view       = (CollectionView)CollectionViewSource.GetDefaultView(listPatients.ItemsSource);
-            CollectionView viewCreate = (CollectionView)CollectionViewSource.GetDefaultView(listPatientsCreate.ItemsSource);
-            CollectionView viewRooms  = (CollectionView)CollectionViewSource.GetDefaultView(listRoom.ItemsSource);
+            //CollectionView viewAdress = (CollectionView)CollectionViewSource.GetDefaultView(listPatients.ItemsSource);
+            //CollectionView viewNumber = (CollectionView)CollectionViewSource.GetDefaultView(listPatients.ItemsSource);
+            //CollectionView view       = (CollectionView)CollectionViewSource.GetDefaultView(listPatients.ItemsSource);
+            //CollectionView viewCreate = (CollectionView)CollectionViewSource.GetDefaultView(listPatientsCreate.ItemsSource);
+            //CollectionView viewRooms  = (CollectionView)CollectionViewSource.GetDefaultView(listRoom.ItemsSource);
 
             //view.Filter = UserFilter;
             //viewCreate.Filter = UserFilterCreate;
@@ -75,63 +62,6 @@ namespace Project.Views.Secretary
 
         public void ViewHelp()
         {
-
-        }
-        public List<List<TimeInterval>> GenerateTerms()
-        {
-            List<List<TimeInterval>> lsts = new List<List<TimeInterval>>();
-            DateTime iterDay = StartOfTheWeek;
-            
-            for (int i = 0; i < 7; i++)
-            {
-                lsts.Add(new List<TimeInterval>());
-                for (int j = 0; j < 7; j++)
-                {
-                    lsts[i].Add(new TimeInterval(iterDay, iterDay.AddDays(1)));
-                    iterDay.AddDays(1);
-                }
-            }
-            return lsts;
-        }
-
-        public List<MedicalAppointment> GetThisWeeksAppointements(List<MedicalAppointment> appointments)
-        {
-            //10080
-            List<MedicalAppointment> list = new List<MedicalAppointment>();
-            DateTime startOfTheWeek = DateTime.Now.StartOfWeek(DayOfWeek.Monday);
-            DateTime endOfTheWeek = startOfTheWeek.AddDays(7);
-
-            TimeSpan weekInterval = startOfTheWeek - endOfTheWeek;
-
-            foreach(MedicalAppointment item in appointments)
-            {
-                if(startOfTheWeek <= item.beginning  && item.end <= endOfTheWeek)
-                {
-                    list.Add(item);
-                }
-            }
-
-            return list;
-
-
-        }
-        public void handleWeekCalendar(List<MedicalAppointment> list)
-        {
-            //var weekDg = new System.Windows.Controls.DataGrid();
-            //this.weekGrid.Children.Add(weekDg);
-            //for(int i = 1; i <= 4; ++i)
-            //{
-            //    var col = new DataGridTextColumn();
-            //    col.Header = "id";
-            //    col.Binding = new System.Windows.Data.Binding("id");
-            //    weekDg.Columns.Add(col);
-            //}
-
-            //foreach(var item in list)
-            //{
-            //    weekDg.Items.Add(item);
-
-            //}
 
         }
         
@@ -157,47 +87,29 @@ namespace Project.Views.Secretary
 
         }
 
+        //private bool UserFilter(object item)
+        //{
+        //    if (String.IsNullOrEmpty(patientFilter.Text))
+        //        return true;
+        //    else
+        //        return ((item as User).FirstName.IndexOf(patientFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+        //}
+        //private bool UserFilterCreate(object item)
+        //{
+        //    if (String.IsNullOrEmpty(patientFilterCreate.Text))
+        //        return true;
+        //    else
+        //        return ((item as User).FirstName.IndexOf(patientFilterCreate.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+        //}
+        //private bool RoomFilter(object item)
+        //{
+        //    if (String.IsNullOrEmpty(roomFilter.Text))
+        //        return true;
+        //    else
+        //        return ((item as Room).id.ToString().IndexOf(roomFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+        //        //return ((item as Room).id.ToString().IndexOf(roomFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0 && (item as Room).type.ToString().IndexOf(appointmentType.SelectedItem.ToString(), StringComparison.OrdinalIgnoreCase) >= 0);
+        //}
 
-        private bool UserFilter(object item)
-        {
-            if (String.IsNullOrEmpty(patientFilter.Text))
-                return true;
-            else
-                return ((item as User).FirstName.IndexOf(patientFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0);
-        }
-        private bool UserFilterCreate(object item)
-        {
-            if (String.IsNullOrEmpty(patientFilterCreate.Text))
-                return true;
-            else
-                return ((item as User).FirstName.IndexOf(patientFilterCreate.Text, StringComparison.OrdinalIgnoreCase) >= 0);
-        }
-        private bool RoomFilter(object item)
-        {
-            if (String.IsNullOrEmpty(roomFilter.Text))
-                return true;
-            else
-                return ((item as Room).id.ToString().IndexOf(roomFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0);
-                //return ((item as Room).id.ToString().IndexOf(roomFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0 && (item as Room).type.ToString().IndexOf(appointmentType.SelectedItem.ToString(), StringComparison.OrdinalIgnoreCase) >= 0);
-        }
-        private void txtFilter_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
-        {
-            CollectionViewSource.GetDefaultView(listPatients.ItemsSource).Refresh();
-        }
-        private void roomFilter_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
-        {
-            CollectionViewSource.GetDefaultView(listRoom.ItemsSource).Refresh();
-        }
-        private void txtFilterCreate_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
-        {
-            CollectionViewSource.GetDefaultView(listPatientsCreate.ItemsSource).Refresh();
-        }
-
-        private void Search_Doctor(object sender, RoutedEventArgs e)
-        {
-            doctorModal.Show();
-
-        }
         private bool DateFilter(object item)
         {
             return true;
@@ -206,26 +118,7 @@ namespace Project.Views.Secretary
             //else
             //    return ((item as User).firstName.IndexOf(patientFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0);
         }
-        private void dpick_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
-        {
-            SelectedDate = dateTimePicker.SelectedDate.Value;
-            //CollectionViewSource.GetDefaultView(listTerm.ItemsSource).Refresh();
-        }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            List_Patients_Create.Visibility = Visibility.Hidden;
-            Guest_Button.Visibility = Visibility.Hidden;
-            Guest_Account_Create.Visibility = Visibility.Visible;
-            Cancel_Button.Visibility = Visibility.Visible;
-        }
-        private void Cancel_Button_Click(object sender, RoutedEventArgs e)
-        {
-            List_Patients_Create.Visibility = Visibility.Visible;
-            Guest_Button.Visibility = Visibility.Visible;
-            Guest_Account_Create.Visibility = Visibility.Hidden;
-            Cancel_Button.Visibility = Visibility.Hidden;
-        }
         public void refreshContent()
         {
             ////MedicalAppointmentRepository mr = new MedicalAppointmentRepository();
@@ -235,109 +128,12 @@ namespace Project.Views.Secretary
             //System.Windows.MessageBox.Show(medicalAppointments.ToString(),"test", MessageBoxButton.OK);
 
         }
-        private void questionsList_KeyDown(object sender, KeyboardEventArgs e)
-        {
-            selectedQuestion = (Question)listQuestions.SelectedItem;
-            var modal = new QuestionModal(selectedQuestion);
-            modal.Show();
-
-
-        }
-
-        private void Feedback_Click(object sender, RoutedEventArgs e)
-        {
-            var s = new FeedbackModal();
-            s.Show();
-
-        }
-
-        private void Change_Click(object sender, RoutedEventArgs e)
-        {
-            Profile_FirstName.IsEnabled = true;
-            Profile_LastName.IsEnabled = true;
-            Profile_Email.IsEnabled = true;
-            Profile_Address.IsEnabled = true;
-            Profile_TelephoneNumber.IsEnabled = true;
-            Obustavi.Visibility = Visibility.Visible;
-            Izmeni.Visibility = Visibility.Hidden;
-        }
-        private void Cancel_Click(object sender, RoutedEventArgs e)
-        {
-            Profile_FirstName.IsEnabled = false;
-            Profile_LastName.IsEnabled = false;
-            Profile_Email.IsEnabled = false;
-            Profile_Address.IsEnabled = false;
-            Profile_TelephoneNumber.IsEnabled = false;
-            Obustavi.Visibility = Visibility.Hidden;
-            Izmeni.Visibility = Visibility.Visible;
-
-        }
-
-        private void Change_Picture(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Clear_Click(object sender, RoutedEventArgs e)
-        {
-            drLabel.Content = null;
-            drLabel2.Content = null;
-
-        }
-
-        private void Create_Click(object sender, RoutedEventArgs e)
-        {
-            if(roomFilter.Text == "")
-            {
-                DialogResult result = System.Windows.Forms.MessageBox.Show(
-                    "Nije izabran ni jedna soba. Da li zelite da Vam sistem sam obezbedi dostupnu sobu?",
-                    "Potvrda",
-                    MessageBoxButtons.YesNo
-                    );
-
-            }
-            if(drLabel2.Content == null)
-            {
-                DialogResult result = System.Windows.Forms.MessageBox.Show(
-                    "Nije izabran ni jedan lekar. Da li zelite da Vam sistem sam obezbedi dostupnog lekara?",
-                    "Potvrda",
-                    MessageBoxButtons.YesNoCancel
-                    );
-                if(result == System.Windows.Forms.DialogResult.No)
-                {
-                    var s = new DoctorSearchModal(this);
-                    s.Show();
-
-                }
-            }
 
 
 
-        }
 
-        private void Prev_Day_Click(object sender, RoutedEventArgs e)
-        {
-            CurrentDate.AddDays(-1);
-            currentDayLabel.Content = CurrentDate.ToString("dddd, dd MMMM yyyy");
-            CollectionViewSource.GetDefaultView(currentDayLabel.Content).Refresh();
 
-        }
 
-        private void Next_Day_Click(object sender, RoutedEventArgs e)
-        {
-            CurrentDate.AddDays(1);
-            currentDayLabel.Content = CurrentDate.ToString("dddd, dd MMMM yyyy");
-            CollectionViewSource.GetDefaultView(currentDayLabel.Content).Refresh();
-        }
 
-        private void Prev_Week_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Next_Week_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
     }

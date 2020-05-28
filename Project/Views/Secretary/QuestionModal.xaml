@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project.Views.Secretary"
         mc:Ignorable="d"
-        Title="QuestionModal" Height="450" Width="800">
+        Title="Question Window" Height="450" Width="800">
     <Window.Resources>
         <DataTemplate x:Key="questionTemplate">
-            <Grid Margin="0,0,0,0" >
+            <Grid>
                 <Grid.Background>
                     <LinearGradientBrush EndPoint="0.5,0.5" StartPoint="0.5,0">
                         <GradientStop Color="#FFCDF3EE" Offset="1"/>
@@ -36,9 +36,5 @@
     </Window.Resources>
     <Grid>
         <ContentControl   x:Name="selectedQuestion" HorizontalAlignment="Center" Height="399" Margin="10,10,10,0"  VerticalAlignment="Top" Width="772" ContentTemplate="{StaticResource questionTemplate}" />
-
-        <!--<TextBox Name="MyTextBox" AcceptsReturn="True" AcceptsTab="True"
-         Margin="5" TextWrapping="Wrap"
-         VerticalScrollBarVisibility="Auto"/>-->
     </Grid>
 </Window>
