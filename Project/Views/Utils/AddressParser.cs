@@ -14,7 +14,7 @@ namespace Project.Views
         {
             var list = addressString.Split();
             //return new AddressDTO(list[0],list[1],list[2],list[3],list[4]);
-            return new AddressDTO("","","","","");
+            return new AddressDTO("number","street","city","country","postCode");
 
         }
 

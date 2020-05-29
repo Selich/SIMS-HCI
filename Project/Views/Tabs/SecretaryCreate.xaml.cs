@@ -1,4 +1,6 @@
-﻿using Project.Model;
+﻿using Project.Controllers;
+using Project.Model;
+using Project.Views.Model;
 using Project.Views.Secretary;
 using System;
 using System.Collections.Generic;
@@ -24,11 +26,20 @@ namespace Project.Views.Tabs
     public partial class SecretaryCreate : System.Windows.Controls.UserControl
     {
         public DoctorSearchModal DoctorModal;
+        private readonly IController<PatientDTO, long> _patientController;
         public SecretaryCreate()
         {
             DoctorModal = new DoctorSearchModal(this);
             InitializeComponent();
+
+
+            var app = System.Windows.Application.Current as App;
+
             dateTimePicker.SelectedDate = DateTime.Today;
+
+            _patientController = app.PatientController;
+
+            ListPatientsCreate.ItemsSource = _patientController.GetAll();
         }
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
@@ -100,5 +111,6 @@ namespace Project.Views.Tabs
         {
 
         }
+
     }
 }
