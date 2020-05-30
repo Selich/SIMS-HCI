@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -41,6 +41,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -50,6 +51,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="itextsharp, Version=5.5.13.1, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
@@ -128,10 +130,18 @@
     <Compile Include="Views\Converters\AddressConverter.cs" />
     <Compile Include="Views\Converters\PatientConverter.cs" />
     <Compile Include="Views\Model\AddressDTO.cs" />
+    <Compile Include="Views\Model\AnamnezaDTO.cs" />
+    <Compile Include="Views\Model\AppoitmentDTO.cs" />
+    <Compile Include="Views\Model\ApprovalDTO.cs" />
+    <Compile Include="Views\Model\Consumebles.cs" />
     <Compile Include="Views\Model\DoctorDTO.cs" />
     <Compile Include="Views\Model\EmployeeDTO.cs" />
+    <Compile Include="Views\Model\EmplyeeDTO.cs" />
     <Compile Include="Views\Model\GuestDTO.cs" />
+    <Compile Include="Views\Model\MedicalAppointmentDTO.cs" />
     <Compile Include="Views\Model\PatientDTO.cs" />
+    <Compile Include="Views\Model\ReviewDTO.cs" />
+    <Compile Include="Views\Model\RoomDTO.cs" />
     <Compile Include="Views\Model\UserDTO.cs" />
     <Compile Include="Model\Address.cs" />
     <Compile Include="Model\Anamneza.cs" />

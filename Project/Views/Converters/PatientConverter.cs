@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +8,7 @@ using Project.Model;
 
 namespace Project.Views.Converters
 {
-    class PatientConverter : IConverter<Project.Model.Patient, PatientDTO>
+    public class PatientConverter : IConverter<Project.Model.Patient, PatientDTO>
     {
         public Project.Model.Patient ConvertDTOToEntity(PatientDTO dto)
             => new Project.Model.Patient(
