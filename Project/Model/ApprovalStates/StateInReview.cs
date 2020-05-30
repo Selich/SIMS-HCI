@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project.Model.ApprovalStates
 {
-    class StateInReview
+    public class StateInReview
     {
     }
 }
