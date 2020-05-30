@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Controller;
+using iTextSharp.text.pdf;
+using Project.Controllers;
+using Project.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +23,13 @@ namespace Project.Views.Director
     /// </summary>
     public partial class HomeWindow : Window
     {
+        private ReportController _reportController;
         public HomeWindow()
         {
             InitializeComponent();
+
+            var app = Application.Current as App;
+            _reportController = new ReportController();
         }
 
         private void OpenSettingsModal(object sender, RoutedEventArgs e)
@@ -160,6 +168,18 @@ namespace Project.Views.Director
             Save_employee.Visibility = Visibility.Collapsed;
             Cancel_employee.Visibility = Visibility.Collapsed;
             Change_employee.Visibility = Visibility.Visible;
+        }
+
+        private void Generate_Room_Report(object sender, RoutedEventArgs e)
+        {
+            string fileType = "pdf";
+            string type = "room";
+            DateTime beginning = new DateTime();
+            DateTime end = new DateTime();
+
+            _reportController.Generate(type, fileType, new TimeInterval(beginning, end));
+
+
         }
     }
 }

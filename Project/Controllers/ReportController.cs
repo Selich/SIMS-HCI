@@ -1,5 +1,6 @@
 ﻿using Project.Model;
 using Project.Services;
+using Project.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,12 +9,30 @@ using System.Threading.Tasks;
 
 namespace Project.Controllers
 {
-    abstract class ReportController
+    public class ReportController
     {
 
-        public ReportController() { }
+        public ReportController() {
 
-        //public void Save(Report report) => report.GenerateReport();
+        }
+
+        public void Generate(string type, string fileType, TimeInterval time) {
+            Report report = null;
+            switch (fileType)
+            {
+                case "pdf":
+                    report = PDFReportFactory.Generate(type);
+                    break;
+                default:
+                    report = PDFReportFactory.Generate(type);
+                    break;
+
+            }
+
+
+
+        }
+
 
     }
 }

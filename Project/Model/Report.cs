@@ -7,23 +7,21 @@ using System;
 
 namespace Project.Model
 {
-    public class Report
+    abstract class Report
     {
-        protected long Id { get; set; }
         protected string Path { get; set; }
         protected DateTime Date { get; set; }
         protected string Type {get;set;}
 
-        //public abstract void InitializeReport();
-        //public abstract void PopulateReport();
-        //public abstract void FinalizeReport();
+        public Report(string path, DateTime date, string type)
+        {
+            Path = path;
+            Date = date;
+            Type = type;
+        }
 
-        //public void GenerateReport()
-        //{
-        //    InitializeReport();
-        //    PopulateReport();
-        //    FinalizeReport();
-        //}
+        public abstract void Generate();
 
     }
+
 }

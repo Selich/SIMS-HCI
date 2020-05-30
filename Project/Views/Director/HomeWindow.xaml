@@ -591,7 +591,7 @@
                                 <ComboBoxItem>Opcija 2</ComboBoxItem>
                                 <ComboBoxItem>Opcija 3</ComboBoxItem>
                             </ComboBox>
-                            <Button Margin="0,20" Content="Izgenerisi izvestaj"/>
+                            <Button Margin="0,20" Content="Izgenerisi izvestaj" Click="Generate_Room_Report"/>
                         </StackPanel>
                     </GroupBox>
                 </Grid>

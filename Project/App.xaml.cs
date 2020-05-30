@@ -8,6 +8,7 @@ using Project.Repositories.Sequencer;
 using Project.Services;
 using Project.Controllers;
 using Project.Views.Model;
+using Controller;
 
 namespace Project
 {
@@ -21,8 +22,7 @@ namespace Project
         private static string DELIMITER = ConfigurationManager.AppSettings["DelimiterValue"].ToString();
         private static string DATETIME_FORMAT = ConfigurationManager.AppSettings["DateTimeFormat"].ToString();
 
-        private static string REPORT_ROOM_FILEPATH = ConfigurationManager.AppSettings["ReportRoomPath"].ToString();
-        private static string REPORT_MEDICINE_FILEPATH = ConfigurationManager.AppSettings["ReportRoomPath"].ToString();
+        private static string REPORT_ROOM_PATH = ConfigurationManager.AppSettings["ReportRoomPath"].ToString();
 
         public App()
         {
@@ -35,11 +35,12 @@ namespace Project
 
             // Controllers
             PatientController = new PatientController(patientService);
-            //ReportController = new ReportController();
+            ReportController = new ReportController();
         }
 
 
 
         public IController<PatientDTO, long> PatientController { get; private set; }
+        public ReportController ReportController { get; private set; }
     }
 }
