@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Project.Views.Model;
 using Project.Model;
+using Project.Entity;
 
 namespace Project.Views.Converters
 {
-    class PatientConverter : IConverter<Project.Model.Patient, PatientDTO>
+    public class PatientConverter : IConverter<Project.Model.Patient, PatientDTO>
     {
         public Project.Model.Patient ConvertDTOToEntity(PatientDTO dto)
             => new Project.Model.Patient(

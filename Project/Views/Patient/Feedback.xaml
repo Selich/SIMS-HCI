@@ -6,14 +6,25 @@
         xmlns:local="clr-namespace:Project.Views.Patient"
         mc:Ignorable="d"
         Title="Feedback" Height="463" Width="567">
-    <Grid Margin="0,0,0,-44">
-        <Label Content="Issue type:" Margin="23,10,459,428"/>
-        <ComboBox Margin="23,48,391,400" Height="28">
-            <ComboBoxItem>Issue 1</ComboBoxItem>
-            <ComboBoxItem>Issue 2</ComboBoxItem>
-        </ComboBox>
-        <TextBox Margin="10,95,10,138" TextWrapping="Wrap"></TextBox>
-        <Button Content="Send" Margin="23,351,459,76"/>
-        <Button Content="Cancel" Margin="164,351,284,76" Click="Cancel_Click"/>
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="178*"/>
+            <ColumnDefinition Width="381*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="71*"/>
+            <RowDefinition Height="253*"/>
+            <RowDefinition Height="108*"/>
+        </Grid.RowDefinitions>
+        <StackPanel VerticalAlignment="Bottom">
+        <Label Content="Issue type:" Margin="5"/>
+            <ComboBox Height="Auto" VerticalAlignment="Bottom" Margin="5" >
+                <ComboBoxItem>Issue 1</ComboBoxItem>
+                <ComboBoxItem>Issue 2</ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
+        <TextBox TextWrapping="Wrap" Grid.Row="1" Grid.ColumnSpan="2" Margin="5"/>
+        <Button Content="Send" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5" />
+        <Button Content="Cancel" Margin="5" Click="Cancel_Click" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"/>
     </Grid>
 </Window>

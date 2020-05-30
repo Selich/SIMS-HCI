@@ -7,14 +7,50 @@
         mc:Ignorable="d"
         Title="History" Height="720" Width="1280">
     <Grid>
-        <Label Content="Past appointments:" Margin="10,32,1073,611" FontSize="20"/>
-        <DataGrid Margin="12,78,897,10"/>
-        <DataGrid Margin="600,256,10,10"/>
-        <Image Margin="600,93,579,504" Source="../../Resources/hospital.png"/>
-        <Label Content="Doctor name:" Margin="708,88,464,552"/>
-        <Label Content="Doctor Last name:" Margin="708,142,428,504"/>
-        <Label Content="Rating:" Margin="977,93,226,547" FontSize="18" RenderTransformOrigin="1.356,0.663"/>
-        <Label Content="Appointment summary:" Margin="600,208,384,433" FontSize="18"/>
-        <Label Content="Your rating:" Margin="977,147,148,494" FontSize="18" RenderTransformOrigin="1.356,0.663"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="68*"/>
+            <RowDefinition Height="69*"/>
+            <RowDefinition Height="58*"/>
+            <RowDefinition Height="57*"/>
+            <RowDefinition Height="39*"/>
+            <RowDefinition Height="38*"/>
+            <RowDefinition Height="316*"/>
+            <RowDefinition Height="44*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="26*"/>
+            <ColumnDefinition Width="362*"/>
+            <ColumnDefinition Width="201*"/>
+            <ColumnDefinition Width="165*"/>
+            <ColumnDefinition Width="169*"/>
+            <ColumnDefinition Width="250*"/>
+            <ColumnDefinition Width="99*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Content="Past appointments:" FontSize="20" VerticalAlignment="Bottom" Height="35" Grid.Column="1"/>
+        <DataGrid Grid.Row="1" Grid.RowSpan="6" ItemsSource="{Binding PastAppoitments}" IsReadOnly="True" AutoGenerateColumns="False" Grid.Column="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Time" Binding="{Binding beginning, StringFormat=f}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Doctor" Binding="{Binding Doctors[0].FirstName}"/>
+                <DataGridTextColumn Header="Rating" Binding="{Binding review.rating}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Image  Source="/Project;component/Resources/Images/Faces/doc.jpg" Grid.Column="3" Grid.Row="1" Grid.RowSpan="2"/>
+        <StackPanel Orientation="Horizontal" Grid.Column="4" Grid.Row="1" VerticalAlignment="Bottom" Height="Auto" >
+            <Label Content="{Binding SelectedDoctor.FirstName}" FontSize="15"  Height="Auto" />
+            <Label Content="{Binding SelectedDoctor.LastName}" FontSize="15"  Height="Auto"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="4" Orientation="Horizontal" >
+            <Label Content="Rating:"  FontSize="15"/>
+            <Label Content="{Binding SelectedDoctor.AvrageReviewScore}"  Height="Auto" FontSize="15"/>
+        </StackPanel>
+        <Label Content="Appointment Type:" FontSize="15" Grid.Column="3" Grid.Row="3"  VerticalAlignment="Bottom" Height="Auto"/>
+        <Label Content="{Binding SelectedAnamneza.Type}" FontSize="15" Grid.Column="3" Grid.Row="4"  VerticalAlignment="Top" Height="Auto"/>
+        <Label Content="Appointment Subject:" FontSize="15" Grid.Column="4" Grid.Row="3" VerticalAlignment="Bottom" Height="Auto"/>
+        <Label Content="{Binding SelectedAnamneza.Name}" FontSize="15" Grid.Column="4" Grid.Row="4"  VerticalAlignment="Top" Height="Auto"/>
+
+        <Label Content="Appointment summary:" FontSize="18" Grid.Column="3" Grid.Row="5" Grid.ColumnSpan="2" VerticalAlignment="Bottom" Height="32"/>
+        <TextBlock Grid.Row="6" Grid.Column="3" Grid.ColumnSpan="3" Margin="5" Text="{Binding SelectedAnamneza.Description}" FontSize="14" TextWrapping="Wrap" />
     </Grid>
 </Window>

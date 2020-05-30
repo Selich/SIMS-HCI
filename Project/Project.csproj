@@ -41,6 +41,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -50,6 +51,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
@@ -111,10 +113,18 @@
     <Compile Include="Views\Converters\AddressConverter.cs" />
     <Compile Include="Views\Converters\PatientConverter.cs" />
     <Compile Include="Views\Model\AddressDTO.cs" />
+    <Compile Include="Views\Model\AnamnezaDTO.cs" />
+    <Compile Include="Views\Model\AppoitmentDTO.cs" />
+    <Compile Include="Views\Model\ApprovalDTO.cs" />
+    <Compile Include="Views\Model\Consumebles.cs" />
     <Compile Include="Views\Model\DoctorDTO.cs" />
     <Compile Include="Views\Model\EmployeeDTO.cs" />
+    <Compile Include="Views\Model\EmplyeeDTO.cs" />
     <Compile Include="Views\Model\GuestDTO.cs" />
+    <Compile Include="Views\Model\MedicalAppointmentDTO.cs" />
     <Compile Include="Views\Model\PatientDTO.cs" />
+    <Compile Include="Views\Model\ReviewDTO.cs" />
+    <Compile Include="Views\Model\RoomDTO.cs" />
     <Compile Include="Views\Model\UserDTO.cs" />
     <Compile Include="Model\Address.cs" />
     <Compile Include="Model\Anamneza.cs" />

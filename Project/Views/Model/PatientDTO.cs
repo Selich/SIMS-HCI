@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project.Views.Model
+namespace Project.Entity
 {
-    public class PatientDTO : GuestDTO { 
+    public class PatientDTO : GuestDTO
+    { 
         public string Email { get; set; }
         public string Password { get; set; }
 

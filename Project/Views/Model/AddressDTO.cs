@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project.Views.Model
+namespace Project.Entity
 {
     public class AddressDTO
     {
@@ -23,14 +23,6 @@ namespace Project.Views.Model
         public AddressDTO(int id, string number, string street, string city, string country, string postCode)
         {
             Id = id;
-            Number = number;
-            Street = street;
-            City = city;
-            Country = country;
-            PostCode = postCode;
-        }
-        public AddressDTO(string number, string street, string city, string country, string postCode)
-        {
             Number = number;
             Street = street;
             City = city;

@@ -1,4 +1,5 @@
-﻿using Project.Model;
+﻿using Project.Entity;
+using Project.Model;
 using Project.Views.Model;
 using System;
 using System.Collections.Generic;

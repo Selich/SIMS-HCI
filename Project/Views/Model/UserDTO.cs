@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project.Views.Model
+namespace Project.Entity
 {
     public class UserDTO
     {
-        public long Id;
+        public long Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Jmbg { get; set; }

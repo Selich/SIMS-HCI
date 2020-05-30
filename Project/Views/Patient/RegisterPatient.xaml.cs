@@ -11,8 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Project.Views.Model;
-using Project.Controllers;
+using Project.Model;
 
 namespace Project.Views.Patient
 {
@@ -21,18 +20,27 @@ namespace Project.Views.Patient
     /// </summary>
     public partial class RegisterPatient : Window
     {
-        public RegisterPatient() {
-
+        public Model.Patient registeringPatient
+        {
+            get;
+            set;
         }
-        public RegisterPatient(PatientController patientController)
+        public RegisterPatient()
         {
             InitializeComponent();
+            this.DataContext = this;
+            //Profile
+            registeringPatient = new Model.Patient() { FirstName = "Uros", LastName = "Milovanovic",
+                DateOfBirth = new DateTime(1998, 8, 25), Email = "urke123@gmail.com", Gender = "Male",
+                InsurenceNumber = "1234567", Jmbg = "1234567890", TelephoneNumber = "06551232123",
+                Address = new Model.Address()
+                { City = "Novi Sad", Country = "Serbia", Number = "25", PostCode = "21000", Street = "Petra Petrovica" } };
+
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Submit_Click(object sender, RoutedEventArgs e)
         {
-            PatientDTO patientDTO = new PatientDTO();
-
+            Close();
         }
     }
 }
