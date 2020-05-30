@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Project.Model;
+using Project.Views.Secretary;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,33 +22,30 @@ namespace Project.Views.Tabs.AppointmentTabs
     /// </summary>
     public partial class AppointmentsDay : UserControl
     {
-        public DateTime SelectedDate;
-        public DateTime StartOfTheWeek;
-        public DateTime EndOfTheWeek;
-        public DateTime CurrentDate;
+        public List<MedicalAppointment> appointments;
         public AppointmentsDay()
         {
-            CurrentDate    = DateTime.Today;
-            StartOfTheWeek = DateTime.Now.StartOfWeek(DayOfWeek.Monday);
-            EndOfTheWeek   = StartOfTheWeek.AddDays(6);
-            SelectedDate   = CurrentDate;
+            appointments = new List<MedicalAppointment>();
             InitializeComponent();
+            DataContext = appointments;
 
-            currentDayLabel.Content = CurrentDate.ToString("dddd, dd MMMM yyyy");
-        }
-        private void Prev_Day_Click(object sender, RoutedEventArgs e)
-        {
-            CurrentDate.AddDays(-1);
-            currentDayLabel.Content = CurrentDate.ToString("dddd, dd MMMM yyyy");
-            CollectionViewSource.GetDefaultView(currentDayLabel.Content).Refresh();
 
         }
 
-        private void Next_Day_Click(object sender, RoutedEventArgs e)
+        private void Calendar_AddAppointment(object sender, RoutedEventArgs e)
         {
-            CurrentDate.AddDays(1);
-            currentDayLabel.Content = CurrentDate.ToString("dddd, dd MMMM yyyy");
-            CollectionViewSource.GetDefaultView(currentDayLabel.Content).Refresh();
+            MedicalAppointment appointment = new MedicalAppointment
+            {
+                Beginning = new DateTime(2008, 10, 22, 16, 00, 00),
+                End = new DateTime(2008, 10, 22, 17, 00, 00)
+            };
+
+            AddAppointmentWindow aaw = new AddAppointmentWindow();
+            aaw.DataContext = appointment;
+            aaw.ShowDialog();
+
+            appointments.Add(appointment);
+
         }
     }
 }

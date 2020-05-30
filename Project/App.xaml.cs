@@ -21,6 +21,8 @@ namespace Project
         private static string DELIMITER = ConfigurationManager.AppSettings["DelimiterValue"].ToString();
         private static string DATETIME_FORMAT = ConfigurationManager.AppSettings["DateTimeFormat"].ToString();
 
+        private static string REPORT_ROOM_FILEPATH = ConfigurationManager.AppSettings["ReportRoomPath"].ToString();
+        private static string REPORT_MEDICINE_FILEPATH = ConfigurationManager.AppSettings["ReportRoomPath"].ToString();
 
         public App()
         {
@@ -29,9 +31,11 @@ namespace Project
 
             // Services
             var patientService = new PatientService(patientRepository);
+            var reportService = new ReportService();
 
             // Controllers
             PatientController = new PatientController(patientService);
+            //ReportController = new ReportController();
         }
 
 

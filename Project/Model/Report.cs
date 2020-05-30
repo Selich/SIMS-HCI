@@ -7,16 +7,23 @@ using System;
 
 namespace Project.Model
 {
-   public class Report
-   {
-      private string path;
-      private DateTime date;
-      private string type;
-      
-      public static Report GenerateReport(string type, TimeInterval interval)
-      {
-         throw new NotImplementedException();
-      }
-   
-   }
+    public class Report
+    {
+        protected long Id { get; set; }
+        protected string Path { get; set; }
+        protected DateTime Date { get; set; }
+        protected string Type {get;set;}
+
+        //public abstract void InitializeReport();
+        //public abstract void PopulateReport();
+        //public abstract void FinalizeReport();
+
+        //public void GenerateReport()
+        //{
+        //    InitializeReport();
+        //    PopulateReport();
+        //    FinalizeReport();
+        //}
+
+    }
 }

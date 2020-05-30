@@ -17,10 +17,21 @@ namespace Project.Repositories.CSV.Converter
         public string ConvertEntityToCSVFormat(Patient patient)
            => string.Join(_delimiter,
                patient.Id,
+               patient.Address.Id,
                patient.FirstName,
                patient.LastName,
+               patient.Jmbg,
+               patient.TelephoneNumber,
+               patient.Gender,
                patient.DateOfBirth.ToString(_datetimeFormat),
-               patient.Address.Id);
+               patient.InsurenceNumber,
+               patient.Profession,
+               patient.BloodType,
+               patient.Height,
+               patient.Weight,
+               patient.Email,
+               patient.Password
+               );
 
         public Patient ConvertCSVFormatToEntity(string patientCSVFormat)
         {

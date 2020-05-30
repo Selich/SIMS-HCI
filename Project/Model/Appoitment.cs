@@ -9,17 +9,17 @@ namespace Project.Model
 {
    public class Appoitment
    {
-      public DateTime beginning
+      public DateTime Beginning
       {get;set;}
-      public DateTime end
+      public DateTime End
       {get;set;}
       
-      public Room room;
+      public Room Room;
       public Appoitment() {}
-      public Appoitment(DateTime beggining, DateTime end, Room room){
-         this.beginning = beginning;
-         this.end = end;
-         this.room = room;
+      public Appoitment(DateTime beginning, DateTime end, Room room){
+         Beginning = beginning;
+         End = end;
+         Room = room;
       }
    
    }

@@ -105,8 +105,21 @@
     <Compile Include="Controllers\PatientController.cs" />
     <Compile Include="Controllers\PropositionController.cs" />
     <Compile Include="Controllers\QuestionController.cs" />
+    <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\ReviewController.cs" />
     <Compile Include="Controllers\RoomController.cs" />
+    <Compile Include="Model\BindableObject.cs" />
+    <Compile Include="Model\Reports\MedicineReport.cs" />
+    <Compile Include="Model\Reports\RoomReport.cs" />
+    <Compile Include="Services\ReportService.cs" />
+    <Compile Include="Views\Controls\Calendar.cs" />
+    <Compile Include="Views\Controls\CalendarAppointmentItem.cs" />
+    <Compile Include="Views\Controls\CalendarDay.cs" />
+    <Compile Include="Views\Controls\CalendarLedger.cs" />
+    <Compile Include="Views\Controls\CalendarLedgerItem.cs" />
+    <Compile Include="Views\Controls\CalendarTimeslotItem.cs" />
+    <Compile Include="Views\Controls\Filters.cs" />
+    <Compile Include="Views\Controls\TimeslotPanel.cs" />
     <Compile Include="Views\Converters\IConverter.cs" />
     <Compile Include="Views\Converters\AddressConverter.cs" />
     <Compile Include="Views\Converters\PatientConverter.cs" />
@@ -226,6 +239,9 @@
     <Compile Include="Views\Patient\RegisterPatient.xaml.cs">
       <DependentUpon>RegisterPatient.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Secretary\AddAppointmentWindow.xaml.cs">
+      <DependentUpon>AddAppointmentWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Secretary\AppointmentModal.xaml.cs">
       <DependentUpon>AppointmentModal.xaml</DependentUpon>
     </Compile>
@@ -241,8 +257,14 @@
     <Compile Include="Views\Secretary\QuestionModal.xaml.cs">
       <DependentUpon>QuestionModal.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Secretary\SecretaryGenerateReport.xaml.cs">
+      <DependentUpon>SecretaryGenerateReport.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Secretary\SecretaryHomeWindow.xaml.cs">
       <DependentUpon>SecretaryHomeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Secretary\Test.xaml.cs">
+      <DependentUpon>Test.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Tabs\AppointmentTabs\AppointmentsDay.xaml.cs">
       <DependentUpon>AppointmentsDay.xaml</DependentUpon>
@@ -288,6 +310,10 @@
     <Page Include="Resources\Styles\Colors.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Styles\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Resources\Styles\Tabs.xaml">
       <SubType>Designer</SubType>
@@ -381,6 +407,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Secretary\AddAppointmentWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\Secretary\AppointmentModal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -401,7 +431,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Secretary\SecretaryGenerateReport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Secretary\SecretaryHomeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Secretary\Test.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -501,6 +539,7 @@
     <None Include="Resources\Data\patientPrescription.csv" />
     <None Include="Resources\Data\patients.csv" />
     <None Include="Resources\Data\questions.csv" />
+    <None Include="Resources\Data\reports.csv" />
     <None Include="Views\Patient\.vs\slnx.sqlite" />
     <None Include="Views\Patient\.vs\VSWorkspaceState.json" />
   </ItemGroup>
@@ -511,6 +550,7 @@
     <Folder Include="Model\Util\" />
     <Folder Include="Resources\Demo\Patient\" />
     <Folder Include="Resources\Demo\Secretary\" />
+    <Folder Include="Resources\Reports\RoomReports\" />
     <Folder Include="Views\Patient\.vs\Patient\v15\" />
   </ItemGroup>
   <ItemGroup>

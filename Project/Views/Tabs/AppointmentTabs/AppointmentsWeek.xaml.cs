@@ -56,7 +56,7 @@ namespace Project.Views.Tabs.AppointmentTabs
 
             foreach(MedicalAppointment item in appointments)
             {
-                if(startOfTheWeek <= item.beginning  && item.end <= endOfTheWeek)
+                if(startOfTheWeek <= item.Beginning  && item.End <= endOfTheWeek)
                 {
                     list.Add(item);
                 }

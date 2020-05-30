@@ -1,5 +1,6 @@
 ﻿using Project.Model;
 using Project.Views.Secretary;
+using Project.Views.Templates;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,10 +28,12 @@ namespace Project.Views.Tabs
         public DateTime EndOfTheWeek;
         public DateTime CurrentDate;
         public DoctorSearchModal DoctorModal;
+        public List<Appointment> appointments;
         public SecretaryAppointments()
         {
             DoctorModal = new DoctorSearchModal(this);
             InitializeComponent();
+            DataContext = appointments;
 
         }
         private void Search_Doctor(object sender, RoutedEventArgs e) => DoctorModal.Show();
@@ -43,6 +46,14 @@ namespace Project.Views.Tabs
         {
             var s = new FeedbackModal();
             s.Show();
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var s = new SecretaryGenerateReport();
+            s.Show();
+
 
         }
     }
