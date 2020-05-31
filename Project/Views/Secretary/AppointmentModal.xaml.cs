@@ -80,7 +80,7 @@ namespace Project.Views.Secretary
         private void Profile_Click(object sender, RoutedEventArgs e)
         {
             MedicalAppointment item = (MedicalAppointment)(sender as System.Windows.Controls.Button).DataContext;
-            var id = item.patient.Id;
+            var id = item.Patient.Id;
             var s = new ProfileModal(id);
             s.Show();
 

@@ -5,14 +5,14 @@
 
 using System;
 
-namespace Project.Entity
+namespace Project.Views.Model
 {
    public class ConsumeblesDTO
    {
-      private int quantity;
-      private string type;
-      private string description;
-      private string name;
+      public int Quantity {get;set;}
+      public string Type {get;set;}
+      public string Description {get;set;}
+      public string Name {get;set;}
       
       public MedicalAppointmentDTO[] medicalAppointment;
    

@@ -7,10 +7,15 @@ using System;
 
 namespace Project.Model
 {
-   public class Renovation : Appoitment
-   {
-      private string type;
-      private string contractor;
-   
-   }
+    public class Renovation : Appointment
+    {
+        public string Type { get; set; }
+        public string Contractor { get; set; }
+
+        public Renovation(string type, string contractor)
+        {
+            Type = type;
+            Contractor = contractor;
+        }
+    }
 }

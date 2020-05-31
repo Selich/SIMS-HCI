@@ -7,7 +7,7 @@ using System;
 
 namespace Project.Model
 {
-    abstract class Report
+    public class Report
     {
         protected string Path { get; set; }
         protected DateTime Date { get; set; }
@@ -20,7 +20,6 @@ namespace Project.Model
             Type = type;
         }
 
-        public abstract void Generate();
 
     }
 

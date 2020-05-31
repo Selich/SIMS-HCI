@@ -5,21 +5,21 @@
 
 using System;
 
-namespace Project.Entity
+namespace Project.Views.Model
 {
    public class AppoitmentDTO
    {
-      public DateTime beginning
+      public DateTime Beginning
       {get;set;}
-      public DateTime end
+      public DateTime End
       {get;set;}
       
-      public RoomDTO room;
+      public RoomDTO Room;
       public AppoitmentDTO() {}
-      public AppoitmentDTO(DateTime beggining, DateTime end, RoomDTO room){
-         this.beginning = beginning;
-         this.end = end;
-         this.room = room;
+      public AppoitmentDTO(DateTime beginning, DateTime end, RoomDTO room){
+         Beginning = beginning;
+         End = end;
+         Room = room;
       }
    
    }

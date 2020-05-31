@@ -5,12 +5,21 @@
 
 using System;
 
-namespace Project.Entity
+namespace Project.Views.Model
 {
    public class ReviewDTO
    {
-        public int rating { get; set; }
-        public string description { get; set; }
-   
-   }
+        public int Rating { get; set; }
+        public string Description { get; set; }
+
+        public ReviewDTO(int rating, string description)
+        {
+            Rating = rating;
+            Description = description;
+        }
+
+        public ReviewDTO()
+        {
+        }
+    }
 }

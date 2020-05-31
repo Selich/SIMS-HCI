@@ -116,27 +116,19 @@
     <Compile Include="Model\BindableObject.cs" />
     <Compile Include="Model\Reports\MedicineReport.cs" />
     <Compile Include="Model\Reports\RoomReport.cs" />
+    <Compile Include="Model\Anamnesis.cs" />
     <Compile Include="Services\ReportService.cs" />
     <Compile Include="Utility\PDFReportFactory.cs" />
-    <Compile Include="Views\Controls\Calendar.cs" />
-    <Compile Include="Views\Controls\CalendarAppointmentItem.cs" />
-    <Compile Include="Views\Controls\CalendarDay.cs" />
-    <Compile Include="Views\Controls\CalendarLedger.cs" />
-    <Compile Include="Views\Controls\CalendarLedgerItem.cs" />
-    <Compile Include="Views\Controls\CalendarTimeslotItem.cs" />
-    <Compile Include="Views\Controls\Filters.cs" />
-    <Compile Include="Views\Controls\TimeslotPanel.cs" />
     <Compile Include="Views\Converters\IConverter.cs" />
     <Compile Include="Views\Converters\AddressConverter.cs" />
     <Compile Include="Views\Converters\PatientConverter.cs" />
     <Compile Include="Views\Model\AddressDTO.cs" />
-    <Compile Include="Views\Model\AnamnezaDTO.cs" />
+    <Compile Include="Views\Model\AnamnesisDTO.cs" />
     <Compile Include="Views\Model\AppoitmentDTO.cs" />
     <Compile Include="Views\Model\ApprovalDTO.cs" />
-    <Compile Include="Views\Model\Consumebles.cs" />
+    <Compile Include="Views\Model\ConsumeblesDTO.cs" />
     <Compile Include="Views\Model\DoctorDTO.cs" />
     <Compile Include="Views\Model\EmployeeDTO.cs" />
-    <Compile Include="Views\Model\EmplyeeDTO.cs" />
     <Compile Include="Views\Model\GuestDTO.cs" />
     <Compile Include="Views\Model\MedicalAppointmentDTO.cs" />
     <Compile Include="Views\Model\PatientDTO.cs" />
@@ -144,7 +136,6 @@
     <Compile Include="Views\Model\RoomDTO.cs" />
     <Compile Include="Views\Model\UserDTO.cs" />
     <Compile Include="Model\Address.cs" />
-    <Compile Include="Model\Anamneza.cs" />
     <Compile Include="Model\Appoitment.cs" />
     <Compile Include="Model\Approval.cs" />
     <Compile Include="Model\Consumebles.cs" />
@@ -324,10 +315,6 @@
     <Page Include="Resources\Styles\Colors.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Resources\Styles\Generic.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Page Include="Resources\Styles\Tabs.xaml">
       <SubType>Designer</SubType>

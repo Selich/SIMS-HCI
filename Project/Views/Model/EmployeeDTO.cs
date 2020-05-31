@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Project.Views.Model
 {
-    class EmployeeDTO : UserDTO
+    public class EmployeeDTO : UserDTO
     {
         public double Salary { get; set; }
         public TimeInterval AnnualLeave { get; set; }

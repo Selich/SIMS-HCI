@@ -1,4 +1,5 @@
 ﻿using Project.Model;
+using Project.Views.Model;
 using Project.Views.Secretary;
 using Project.Views.Templates;
 using System;
@@ -28,7 +29,7 @@ namespace Project.Views.Tabs
         public DateTime EndOfTheWeek;
         public DateTime CurrentDate;
         public DoctorSearchModal DoctorModal;
-        public List<Appointment> appointments;
+        public List<MedicalAppointmentDTO> appointments;
         public SecretaryAppointments()
         {
             DoctorModal = new DoctorSearchModal(this);

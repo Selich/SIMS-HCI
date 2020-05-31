@@ -84,7 +84,7 @@ namespace Project.Model
          if (equipment != null)
             equipment.Clear();
       }
-      public Appoitment[] appointments;
+      public Appointment[] appointments;
       public Hospital hospital;
       
       /// <summary>

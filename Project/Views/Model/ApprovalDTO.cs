@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project.Entity
+namespace Project.Views.Model
 {
 
         public class ApprovalDTO
         {
-            public string Description;
-            public bool IsApproved;
+            public string Description {get;set;}
+            public bool IsApproved {get;set;}
             public DoctorDTO Doctor { get; set; }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Project.Model;
+using Project.Views.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -21,22 +22,10 @@ namespace Project.Views.Patient
     /// </summary>
     public partial class HomeWindow : Window
     {
-        public ObservableCollection<Model.MedicalAppointmentDTO> Appoitments
-        {
-            get;
-            set;
-        }
-        public ObservableCollection<Model.MedicalAppointmentDTO> PastAppoitments
-        {
-            get;
-            set;
-        }
+        public ObservableCollection<MedicalAppointmentDTO> Appoitments { get; set; }
+        public ObservableCollection<MedicalAppointmentDTO> PastAppoitments { get; set; }
 
-        public Model.Patient LoggedInPatient
-        {
-            get;
-            set;
-        }
+        public PatientDTO LoggedInPatient { get; set; }
 
         public HomeWindow()
         {
@@ -44,31 +33,31 @@ namespace Project.Views.Patient
             this.DataContext = this;
 
             //Appoitments
-            Room tempRoom = new Model.Room() { floor = "One", id = 4, ward="Check" };
+            RoomDTO tempRoom = new RoomDTO() { Floor = "One", Id = 4, Ward="Check" };
             Appoitments = new ObservableCollection<Model.MedicalAppointmentDTO>();
-            Appoitments.Add(new MedicalAppointmentDTO() { room = tempRoom, beginning = new DateTime(2020, 5, 10, 15, 0, 0), type = MedicalAppointmentType.examination, end = new DateTime(2020, 5, 10, 15, 30, 0) });
-            Appoitments.Add(new MedicalAppointmentDTO() { room = tempRoom, beginning = new DateTime(2020, 5, 11, 18, 0, 0), type = MedicalAppointmentType.examination, end = new DateTime(2020, 5, 11, 18, 30, 0) });
-            Appoitments.Add(new MedicalAppointmentDTO() { room = tempRoom, beginning = new DateTime(2020, 5, 12, 15, 0, 0), type = MedicalAppointmentType.examination, end = new DateTime(2020, 5, 12, 15, 30, 0) });
-            Appoitments.Add(new MedicalAppointmentDTO() { room = tempRoom, beginning = new DateTime(2020, 5, 13, 15, 0, 0), type = MedicalAppointmentType.examination, end = new DateTime(2020, 5, 13, 15, 30, 0) });
-            Appoitments.Add(new MedicalAppointmentDTO() { room = tempRoom, beginning = new DateTime(2020, 5, 14, 11, 0, 0), type = MedicalAppointmentType.operation, end = new DateTime(2020, 5, 14, 11, 30, 0) });
-            Appoitments.Add(new MedicalAppointmentDTO() { room = tempRoom, beginning = new DateTime(2020, 5, 15, 14, 0, 0), type = MedicalAppointmentType.operation, end = new DateTime(2020, 5, 15, 14, 30, 0) });
+            Appoitments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 10, 15, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 10, 15, 30, 0) });
+            Appoitments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 11, 18, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 11, 18, 30, 0) });
+            Appoitments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 12, 15, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 12, 15, 30, 0) });
+            Appoitments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 13, 15, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 13, 15, 30, 0) });
+            Appoitments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 14, 11, 0, 0), Type = MedicalAppointmentType.operation, End = new DateTime(2020, 5, 14, 11, 30, 0) });
+            Appoitments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 15, 14, 0, 0), Type = MedicalAppointmentType.operation, End = new DateTime(2020, 5, 15, 14, 30, 0) });
 
 
             //History
-            Model.Doctor tempDoctor = new Model.Doctor() {FirstName = "Filip Zdelar" };
-            List<Model.Doctor> tempDoctors = new List<Model.Doctor>();
+            DoctorDTO tempDoctor = new DoctorDTO() { FirstName = "Filip Zdelar" };
+            List<DoctorDTO> tempDoctors = new List<DoctorDTO>();
             tempDoctors.Add(tempDoctor);
 
             PastAppoitments = new ObservableCollection<Model.MedicalAppointmentDTO>();
-            PastAppoitments.Add(new MedicalAppointmentDTO() { room = tempRoom, beginning = new DateTime(2020, 5, 1, 15, 0, 0), type = MedicalAppointmentType.examination, end = new DateTime(2020, 5, 1, 15, 30, 0), Doctors = tempDoctors });
-            PastAppoitments.Add(new MedicalAppointmentDTO() { room = tempRoom, beginning = new DateTime(2020, 5, 2, 18, 0, 0), type = MedicalAppointmentType.examination, end = new DateTime(2020, 5, 2, 18, 30, 0), Doctors = tempDoctors });
-            PastAppoitments.Add(new MedicalAppointmentDTO() { room = tempRoom, beginning = new DateTime(2020, 5, 3, 15, 0, 0), type = MedicalAppointmentType.examination, end = new DateTime(2020, 5, 3, 15, 30, 0), Doctors = tempDoctors });
-            PastAppoitments.Add(new MedicalAppointmentDTO() { room = tempRoom, beginning = new DateTime(2020, 5, 4, 15, 0, 0), type = MedicalAppointmentType.examination, end = new DateTime(2020, 5, 4, 15, 30, 0), Doctors = tempDoctors });
-            PastAppoitments.Add(new MedicalAppointmentDTO() { room = tempRoom, beginning = new DateTime(2020, 5, 5, 11, 0, 0), type = MedicalAppointmentType.operation, end = new DateTime(2020, 5, 5, 11, 30, 0), Doctors = tempDoctors });
-            PastAppoitments.Add(new MedicalAppointmentDTO() { room = tempRoom, beginning = new DateTime(2020, 5, 7, 14, 0, 0), type = MedicalAppointmentType.operation, end = new DateTime(2020, 5, 7, 14, 30, 0), Doctors = tempDoctors });
+            PastAppoitments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 10, 15, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 10, 15, 30, 0) });
+            PastAppoitments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 11, 18, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 11, 18, 30, 0) });
+            PastAppoitments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 12, 15, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 12, 15, 30, 0) });
+            PastAppoitments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 13, 15, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 13, 15, 30, 0) });
+            PastAppoitments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 14, 11, 0, 0), Type = MedicalAppointmentType.operation, End = new DateTime(2020, 5, 14, 11, 30, 0) });
+            PastAppoitments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 15, 14, 0, 0), Type = MedicalAppointmentType.operation, End = new DateTime(2020, 5, 15, 14, 30, 0) });
             //Profile
-            Model.Address tempAddress = new Model.Address() { City = "Novi Sad", Country = "Serbia", Number = "25", PostCode = "21000", Street = "Petra Petrovica" };
-            LoggedInPatient = new Model.Patient() { FirstName = "Uros", LastName = "Milovanovic", DateOfBirth = new DateTime(1998, 8, 25), Email = "urke123@gmail.com", Gender = "Male", InsurenceNumber = "1234567", Jmbg = "1234567890", TelephoneNumber= "06551232123", Address = new Model.Address() { City = "Novi Sad", Country = "Serbia", Number = "25", PostCode = "21000", Street = "Petra Petrovica" } };
+            AddressDTO tempAddress = new AddressDTO() { City = "Novi Sad", Country = "Serbia", Number = "25", PostCode = "21000", Street = "Petra Petrovica" };
+            LoggedInPatient = new PatientDTO() { FirstName = "Uros", LastName = "Milovanovic", DateOfBirth = new DateTime(1998, 8, 25), Email = "urke123@gmail.com", Gender = "Male", InsurenceNumber = "1234567", Jmbg = "1234567890", TelephoneNumber= "06551232123", Address = new AddressDTO() { City = "Novi Sad", Country = "Serbia", Number = "25", PostCode = "21000", Street = "Petra Petrovica" } };
         }
 
         private void Feedback_Click(object sender, RoutedEventArgs e)

@@ -21,7 +21,7 @@ namespace Project.Model
 
         public Feedback[] Feedbacks;
         public Address Address;
-        public List<Report> Reports;
+        public List<Report> Reports { get; set; }
 
         public User(long id, Address address,string firstName, string lastName, string jmbg, string telephoneNumber, string gender, DateTime dateOfBirth)
         {

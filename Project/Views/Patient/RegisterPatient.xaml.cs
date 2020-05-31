@@ -20,7 +20,7 @@ namespace Project.Views.Patient
     /// </summary>
     public partial class RegisterPatient : Window
     {
-        public Model.Patient registeringPatient
+        public Project.Model.Patient registeringPatient
         {
             get;
             set;
@@ -30,10 +30,10 @@ namespace Project.Views.Patient
             InitializeComponent();
             this.DataContext = this;
             //Profile
-            registeringPatient = new Model.Patient() { FirstName = "Uros", LastName = "Milovanovic",
+            registeringPatient = new Project.Model.Patient() { FirstName = "Uros", LastName = "Milovanovic",
                 DateOfBirth = new DateTime(1998, 8, 25), Email = "urke123@gmail.com", Gender = "Male",
                 InsurenceNumber = "1234567", Jmbg = "1234567890", TelephoneNumber = "06551232123",
-                Address = new Model.Address()
+                Address = new Project.Model.Address()
                 { City = "Novi Sad", Country = "Serbia", Number = "25", PostCode = "21000", Street = "Petra Petrovica" } };
 
         }
