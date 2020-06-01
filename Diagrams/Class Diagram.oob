@@ -11769,11 +11769,11 @@ LABL 0 Arial,8,N</a:FontList>
 </o:Operation>
 <o:Operation Id="o483">
 <a:ObjectID>1B51C183-BE14-4B32-B891-BD7B70E99C84</a:ObjectID>
-<a:Name>getAllOperationsByDoctorID</a:Name>
-<a:Code>GetAllOperationsByDoctorID</a:Code>
+<a:Name>getAllAvailableMedicalAppointmentByDoctorID</a:Name>
+<a:Code>GetAllAvailableMedicalAppointmentByDoctorID</a:Code>
 <a:CreationDate>1588874375</a:CreationDate>
 <a:Creator>Selic</a:Creator>
-<a:ModificationDate>1590074100</a:ModificationDate>
+<a:ModificationDate>1590963772</a:ModificationDate>
 <a:Modifier>Selic</a:Modifier>
 <a:ReturnType>List&lt;MedicalAppointment&gt;</a:ReturnType>
 <a:TemplateBody>%DefaultBody%</a:TemplateBody>

@@ -11769,11 +11769,11 @@ LABL 0 Arial,8,N</a:FontList>
 </o:Operation>
 <o:Operation Id="o483">
 <a:ObjectID>1B51C183-BE14-4B32-B891-BD7B70E99C84</a:ObjectID>
-<a:Name>getAllOperationsByDoctorID</a:Name>
-<a:Code>GetAllOperationsByDoctorID</a:Code>
+<a:Name>getAllAvailableMedicalAppointmentByDoctorID</a:Name>
+<a:Code>GetAllAvailableMedicalAppointmentByDoctorID</a:Code>
 <a:CreationDate>1588874375</a:CreationDate>
 <a:Creator>Selic</a:Creator>
-<a:ModificationDate>1590074100</a:ModificationDate>
+<a:ModificationDate>1590963772</a:ModificationDate>
 <a:Modifier>Selic</a:Modifier>
 <a:ReturnType>List&lt;MedicalAppointment&gt;</a:ReturnType>
 <a:TemplateBody>%DefaultBody%</a:TemplateBody>
@@ -23750,7 +23750,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Creator>Selic</a:Creator>
 <a:ModificationDate>1590168847</a:ModificationDate>
 <a:Modifier>Selic</a:Modifier>
-<a:ReturnType>Appoitment</a:ReturnType>
+<a:ReturnType>Room</a:ReturnType>
 <a:TemplateBody>%DefaultBody%</a:TemplateBody>
 <c:ObjectReturnType>
 <o:Shortcut Ref="o1203"/>
@@ -23775,7 +23775,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>GetAllAvailableOperationRoom</a:Code>
 <a:CreationDate>1590168847</a:CreationDate>
 <a:Creator>Selic</a:Creator>
-<a:ModificationDate>1590168847</a:ModificationDate>
+<a:ModificationDate>1590965404</a:ModificationDate>
 <a:Modifier>Selic</a:Modifier>
 <a:ReturnType>List&lt;Room&gt;</a:ReturnType>
 <a:TemplateBody>%DefaultBody%</a:TemplateBody>
@@ -23786,11 +23786,13 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>beggining</a:Code>
 <a:CreationDate>1590168847</a:CreationDate>
 <a:Creator>Selic</a:Creator>
-<a:ModificationDate>1590168847</a:ModificationDate>
+<a:ModificationDate>1590965404</a:ModificationDate>
 <a:Modifier>Selic</a:Modifier>
-<a:WSDLDataType>DateTime</a:WSDLDataType>
-<a:Parameter.DataType>DateTime</a:Parameter.DataType>
+<a:Parameter.DataType>TimeInterval</a:Parameter.DataType>
 <a:ParameterType>I</a:ParameterType>
+<c:ObjectDataType>
+<o:Shortcut Ref="o883"/>
+</c:ObjectDataType>
 </o:Parameter>
 <o:Parameter Id="o1207">
 <a:ObjectID>E62A468D-CD83-4756-A221-830A5BE1C069</a:ObjectID>
@@ -24029,7 +24031,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>Appoitment</a:Code>
 <a:CreationDate>1590168847</a:CreationDate>
 <a:Creator>Selic</a:Creator>
-<a:ModificationDate>1590168847</a:ModificationDate>
+<a:ModificationDate>1590965383</a:ModificationDate>
 <a:Modifier>Selic</a:Modifier>
 <a:TargetStereotype/>
 <a:TargetID>2ABFA23E-976E-44DF-9214-0A32A50AD5C6</a:TargetID>
