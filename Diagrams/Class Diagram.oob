@@ -10143,7 +10143,7 @@ Da li praviti poseban servis za Opremanje sobe ili to staviti kod renoviranja/so
 </o:NoteSymbol>
 <o:AssociationSymbol Id="o331">
 <a:ModificationDate>1590964521</a:ModificationDate>
-<a:Rect>((-15170,101633), (-3719,129155))</a:Rect>
+<a:Rect>((-15170,101633), (-3719,129153))</a:Rect>
 <a:ListOfPoints>((-15170,128208),(-4019,128208),(-4019,101633))</a:ListOfPoints>
 <a:CornerStyle>2</a:CornerStyle>
 <a:ArrowStyle>8</a:ArrowStyle>
@@ -10207,7 +10207,7 @@ SOURCE 0 Arial,8,N</a:FontList>
 </o:AssociationSymbol>
 <o:AssociationSymbol Id="o341">
 <a:ModificationDate>1590958801</a:ModificationDate>
-<a:Rect>((-17611,108280), (21273,130922))</a:Rect>
+<a:Rect>((-17611,108280), (21273,130920))</a:Rect>
 <a:ListOfPoints>((-17611,129980),(20973,129980),(20973,108280))</a:ListOfPoints>
 <a:CornerStyle>2</a:CornerStyle>
 <a:ArrowStyle>8</a:ArrowStyle>
