@@ -16,7 +16,7 @@ namespace Project.Views.Model
         public string Gender { get; set; }
         public DateTime DateOfBirth { get; set; }
 
-        public AddressDTO Address;
+        public AddressDTO Address { get; set; }
         public UserDTO() { }
 
         public UserDTO(long id, AddressDTO address,string firstName, string lastName, string jmbg, string telephoneNumber, string gender, DateTime dateOfBirth)

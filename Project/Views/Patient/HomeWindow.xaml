@@ -30,16 +30,16 @@
                 <DataGrid x:Name="dataGridAppoitment" ItemsSource="{Binding Appoitments}" IsReadOnly="True"
                           SelectionMode="Single" AutoGenerateColumns="False" Grid.Column="1" Grid.Row="2" Grid.RowSpan="2">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Type" Binding="{Binding type}"/>
-                        <DataGridTextColumn Header="Time" Binding="{Binding beginning, StringFormat=f}"/>
+                        <DataGridTextColumn Header="Type" Binding="{Binding Type}"/>
+                        <DataGridTextColumn Header="Time" Binding="{Binding Beginning, StringFormat=f}"/>
                     </DataGrid.Columns>
                 </DataGrid>
                 <Label Content="History:" Grid.Column="3" Grid.Row="1" VerticalAlignment="Bottom"/>
                 <DataGrid  x:Name="dataGridPastAppoitment" ItemsSource="{Binding PastAppoitments}" IsReadOnly="True"
                           SelectionMode="Extended" AutoGenerateColumns="False" Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="2">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Type" Binding="{Binding type}"/>
-                        <DataGridTextColumn Header="Time" Binding="{Binding beginning, StringFormat=g}"/>
+                        <DataGridTextColumn Header="Type" Binding="{Binding Type}"/>
+                        <DataGridTextColumn Header="Time" Binding="{Binding Beginning, StringFormat=g}"/>
                         <DataGridTextColumn Header="Doctor" Binding="{Binding Doctors[0].FirstName}"/>
                         <DataGridTemplateColumn Header="Rate">
                             <DataGridTemplateColumn.CellTemplate>
@@ -156,7 +156,7 @@
                 </StackPanel>
                 <DataGrid Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="2" ItemsSource="{Binding Appoitments}" AutoGenerateColumns="False">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Time" Binding="{Binding beginning, StringFormat=f}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Time" Binding="{Binding Beginning, StringFormat=f}" IsReadOnly="True"/>
                         <DataGridCheckBoxColumn Header="Scheduled" IsReadOnly="False"/>
                     </DataGrid.Columns>
                 </DataGrid>

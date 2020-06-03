@@ -19,7 +19,7 @@ namespace Project.Views.Patient
 {
     public partial class Doctor : Window
     {
-        public DoctorDTO doctor { get; set; }
+        public DoctorDTO SelectedDoctor { get; set; }
         public ObservableCollection<MedicalAppointmentDTO> AvailableAppoitments { get; set; }
 
         public Doctor()
@@ -37,7 +37,7 @@ namespace Project.Views.Patient
             tempAppointments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 12, 15, 0, 0), Type = Project.Model.MedicalAppointmentType.examination, End = new DateTime(2020, 5, 12, 15, 30, 0) });
             tempAppointments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 13, 15, 0, 0), Type = Project.Model.MedicalAppointmentType.examination, End = new DateTime(2020, 5, 13, 15, 30, 0) });
             tempAppointments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 14, 15, 0, 0), Type = Project.Model.MedicalAppointmentType.examination, End = new DateTime(2020, 5, 14, 15, 30, 0) });
-            doctor = new DoctorDTO() { Appointments = tempAppointments, FirstName = "Filip", LastName = "Zdelar", AverageReviewScore = 4.5F};
+            SelectedDoctor = new DoctorDTO() { Appointments = tempAppointments, FirstName = "Filip", LastName = "Zdelar", AverageReviewScore = 4.5F};
 
             //list of available medical appoitments for the selected period nad this doctor
             AvailableAppoitments = new ObservableCollection<MedicalAppointmentDTO>();
