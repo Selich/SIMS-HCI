@@ -10,11 +10,17 @@ using Project.Repositories.Sequencer;
 
 namespace Project.Repositories
 {
-    public class PatientRepository : CSVRepository<Patient, long>, IPatientRepository, IEagerCSVRepository<Patient, long>
+    public class PatientRepository :
+        CSVRepository<Patient, long>,
+        IPatientRepository,
+        IEagerCSVRepository<Patient, long>
     {
         private const string ENTITY_NAME = "Patient";
 
-        public PatientRepository(ICSVStream<Patient> stream, ISequencer<long> sequencer) : base(ENTITY_NAME, stream, sequencer)
+        public PatientRepository(
+            ICSVStream<Patient> stream,
+            ISequencer<long> sequencer
+            ) : base(ENTITY_NAME, stream, sequencer)
         {
         }
         public new IEnumerable<Patient> Find(Func<Patient, bool> predicate) => GetAllEager().Where(predicate);

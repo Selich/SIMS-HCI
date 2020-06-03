@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project.Views.Converters
 {
-    interface IConverter<E, DTO> 
+    public interface IConverter<E, DTO> 
         where E : class 
         where DTO : class
     {

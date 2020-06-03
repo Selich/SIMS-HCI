@@ -1,4 +1,5 @@
 ﻿using Project.Model;
+using Project.Views.Model;
 using Project.Views.Secretary;
 using System;
 using System.Collections.Generic;
@@ -23,9 +24,11 @@ namespace Project.Views.Tabs
     public partial class SecretaryQuestions : UserControl
     {
         private Question selectedQuestion;
+        private List<QuestionDTO> questions;
 
         public SecretaryQuestions()
         {
+            var app = Application.Current as App;
             InitializeComponent();
         }
         private void QuestionsList_KeyDown(object sender, KeyboardEventArgs e)
@@ -33,7 +36,6 @@ namespace Project.Views.Tabs
             selectedQuestion = (Question)listQuestions.SelectedItem;
             var modal = new QuestionModal(selectedQuestion);
             modal.Show();
-
 
         }
         private void txtFilter_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)

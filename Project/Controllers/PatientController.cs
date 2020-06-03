@@ -17,12 +17,12 @@ namespace Project.Controllers
     public class PatientController : IController<PatientDTO, long>
     {
         private IService<Patient, long> _service;
-        PatientConverter converter;
+        private IConverter<Patient, PatientDTO> _converter;
 
-        public PatientController(IService<Patient, long> service)
+        public PatientController(IService<Patient, long> service, IConverter<Patient, PatientDTO> converter)
         {
             _service = service;
-            converter = new PatientConverter();
+            _converter = converter;
 
         }
         public PatientDTO Get(long id)
@@ -38,20 +38,20 @@ namespace Project.Controllers
 
         public PatientDTO Remove(PatientDTO entity)
         {
-            Patient patient = _service.Remove(converter.ConvertDTOToEntity(entity));
-            return converter.ConvertEntityToDTO(patient);
+            Patient patient = _service.Remove(_converter.ConvertDTOToEntity(entity));
+            return _converter.ConvertEntityToDTO(patient);
         }
 
         public PatientDTO Save(PatientDTO entity)
         {
-            Patient patient = _service.Save(converter.ConvertDTOToEntity(entity));
-            return converter.ConvertEntityToDTO(patient);
+            Patient patient = _service.Save(_converter.ConvertDTOToEntity(entity));
+            return _converter.ConvertEntityToDTO(patient);
         }
 
         public PatientDTO Update(PatientDTO entity)
         {
-            Patient patient = _service.Update(converter.ConvertDTOToEntity(entity));
-            return converter.ConvertEntityToDTO(patient);
+            Patient patient = _service.Update(_converter.ConvertDTOToEntity(entity));
+            return _converter.ConvertEntityToDTO(patient);
         }
 
     }

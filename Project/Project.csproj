@@ -117,11 +117,16 @@
     <Compile Include="Model\Reports\MedicineReport.cs" />
     <Compile Include="Model\Reports\RoomReport.cs" />
     <Compile Include="Model\Anamnesis.cs" />
+    <Compile Include="Repositories\Abstract\IQuestionRepository.cs" />
+    <Compile Include="Repositories\CSV\Converter\QuestionCSVConverter.cs" />
+    <Compile Include="Repositories\QuestionRepository.cs" />
+    <Compile Include="Services\QuestionService.cs" />
     <Compile Include="Services\ReportService.cs" />
     <Compile Include="Utility\PDFReportFactory.cs" />
     <Compile Include="Views\Converters\IConverter.cs" />
     <Compile Include="Views\Converters\AddressConverter.cs" />
     <Compile Include="Views\Converters\PatientConverter.cs" />
+    <Compile Include="Views\Converters\QuestionConverter.cs" />
     <Compile Include="Views\Model\AddressDTO.cs" />
     <Compile Include="Views\Model\AnamnesisDTO.cs" />
     <Compile Include="Views\Model\AppoitmentDTO.cs" />
@@ -132,8 +137,10 @@
     <Compile Include="Views\Model\GuestDTO.cs" />
     <Compile Include="Views\Model\MedicalAppointmentDTO.cs" />
     <Compile Include="Views\Model\PatientDTO.cs" />
+    <Compile Include="Views\Model\QuestionDTO.cs" />
     <Compile Include="Views\Model\ReviewDTO.cs" />
     <Compile Include="Views\Model\RoomDTO.cs" />
+    <Compile Include="Views\Model\SecretaryDTO.cs" />
     <Compile Include="Views\Model\UserDTO.cs" />
     <Compile Include="Model\Address.cs" />
     <Compile Include="Model\Appoitment.cs" />
