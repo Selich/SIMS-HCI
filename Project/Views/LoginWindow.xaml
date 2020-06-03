@@ -46,6 +46,7 @@
             <Button  FontSize="11" Content="Register" HorizontalAlignment="Left" Margin="187,251,0,0" VerticalAlignment="Top" Width="79" Height="23" Click="Button_Click_1"/>
             <TextBlock HorizontalAlignment="Left" Margin="42,206,0,0" TextWrapping="Wrap" Text="Forgot Password?" VerticalAlignment="Top" />
             <Image HorizontalAlignment="Left" Height="73" Margin="121,33,0,0" VerticalAlignment="Top" Width="66" Source="../Resources/Icons/hospital.png"/>
+            <Button FontSize="11" Content="Director" HorizontalAlignment="Left" Margin="-32,316,0,-34" VerticalAlignment="Top" Width="80" RenderTransformOrigin="-0.048,0.55" Height="23" Click="Director_Click"/>
 
         </Grid>
     </Grid>
