@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Project.Model;
+using Project.Views.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,9 +15,7 @@ namespace Project.Views.Converters
         DTO ConvertEntityToDTO(E entity);
 
         E ConvertDTOToEntity(DTO dto);
-        List<DTO> ConvertListEntityToListDTO(List<E> entities);
-
-        List<E> ConvertListDTOToListEntity(List<DTO> dtos);
-
+        IEnumerable<E> ConvertListDTOToListEntity(IEnumerable<DTO> dtos);
+        IEnumerable<DTO> ConvertListEntityToListDTO(IEnumerable<E> entities);
     }
 }

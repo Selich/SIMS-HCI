@@ -30,10 +30,10 @@ namespace Project.Views.Converters
                 entity.PostCode
             );
 
-        public List<Address> ConvertListDTOToListEntity(List<AddressDTO> dtos)
+        public IEnumerable<Address> ConvertListDTOToListEntity(IEnumerable<AddressDTO> dtos)
             => dtos.Select(dto => ConvertDTOToEntity(dto)).ToList();
 
-        public List<AddressDTO> ConvertListEntityToListDTO(List<Address> entities)
+        public IEnumerable<AddressDTO> ConvertListEntityToListDTO(IEnumerable<Address> entities)
             => entities.Select(entity => ConvertEntityToDTO(entity)).ToList();
     }
 }

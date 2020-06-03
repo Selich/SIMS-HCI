@@ -18,7 +18,7 @@ namespace Project.Services
         }
         public IEnumerable<Question> GetAll() => _questionRepository.GetAll();
 
-        public Question Get(long id) => _questionRepository.Get(id);
+        public Question GetById(long id) => _questionRepository.Get(id);
 
         public Question Save(Question question) => _questionRepository.Save(question);
 

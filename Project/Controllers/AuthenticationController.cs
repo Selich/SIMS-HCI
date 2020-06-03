@@ -6,7 +6,7 @@ namespace Project.Controllers
 {
     public class AuthenticationController : IController<User, long>
     {
-        public User Get(long id)
+        public User GetById(long id)
         {
             throw new System.NotImplementedException();
         }

@@ -25,7 +25,7 @@ namespace Project.Controllers
             _converter = converter;
 
         }
-        public PatientDTO Get(long id)
+        public PatientDTO GetById(long id)
         {
             throw new NotImplementedException();
         }

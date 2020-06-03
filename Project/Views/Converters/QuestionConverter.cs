@@ -35,10 +35,10 @@ namespace Project.Views.Converters
                     new SecretaryDTO()
                     );
 
-        public List<Question> ConvertListDTOToListEntity(List<QuestionDTO> dtos)
+        public IEnumerable<Question> ConvertListDTOToListEntity(IEnumerable<QuestionDTO> dtos)
             => dtos.Select(dto => ConvertDTOToEntity(dto)).ToList();
 
-        public List<QuestionDTO> ConvertListEntityToListDTO(List<Question> entities)
+        public IEnumerable<QuestionDTO> ConvertListEntityToListDTO(IEnumerable<Question> entities)
             => entities.Select(entity => ConvertEntityToDTO(entity)).ToList();
     }
 }

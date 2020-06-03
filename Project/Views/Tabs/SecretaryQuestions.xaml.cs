@@ -23,20 +23,22 @@ namespace Project.Views.Tabs
     /// </summary>
     public partial class SecretaryQuestions : UserControl
     {
-        private Question selectedQuestion;
-        private List<QuestionDTO> questions;
+        private QuestionDTO selectedQuestion;
 
         public SecretaryQuestions()
         {
             var app = Application.Current as App;
             InitializeComponent();
+
+            QuestionsList.ItemsSource = app.QuestionController.GetAll();
+
+
         }
         private void QuestionsList_KeyDown(object sender, KeyboardEventArgs e)
         {
-            selectedQuestion = (Question)listQuestions.SelectedItem;
+            selectedQuestion = (QuestionDTO) QuestionsList.SelectedItem;
             var modal = new QuestionModal(selectedQuestion);
             modal.Show();
-
         }
         private void txtFilter_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {

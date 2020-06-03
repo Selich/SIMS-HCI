@@ -1,4 +1,5 @@
 ﻿using Project.Model;
+using Project.Views.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,12 +21,19 @@ namespace Project.Views.Secretary
     /// </summary>
     public partial class QuestionModal : Window
     {
+        private QuestionDTO selectedQuestion1;
+
         public QuestionModal(Question q)
         {
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             InitializeComponent();
             selectedQuestion.Content = q;
             this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
+        }
+
+        public QuestionModal(QuestionDTO selectedQuestion1)
+        {
+            this.selectedQuestion1 = selectedQuestion1;
         }
 
         private void HandleEsc(object sender, KeyEventArgs e)
