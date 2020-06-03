@@ -31,21 +31,21 @@
             </Image.Source>
         </Image>
         <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column ="1" VerticalAlignment="Bottom" Height="Auto" >
-            <Label Content="{Binding doctor.FirstName}"   Height="Auto" />
-            <Label Content="{Binding doctor.LastName}"   Height="Auto"/>
+            <Label Content="{Binding SelectedDoctor.FirstName}"   Height="Auto" />
+            <Label Content="{Binding SelectedDoctor.LastName}"   Height="Auto"/>
         </StackPanel>
         <StackPanel Grid.Row="2" Grid.Column="1" >
             <Label Content="Doctor Rating:" Height="Auto"/>
-            <Label Content="{Binding doctor.AvrageReviewScore}"  Height="Auto"/>
+            <Label Content="{Binding SelectedDoctor.AverageReviewScore}"  Height="Auto"/>
         </StackPanel>
 
 
         <Label Content="Ratings" Margin="5" Grid.Row="3" VerticalAlignment="Bottom"/>
         <Canvas  Margin="5,5,5,5" Grid.Row="4" Grid.ColumnSpan="2"/>
         <Label Content="Scheduled Appoitments" Margin="5" Grid.Row="5" VerticalAlignment="Bottom"/>
-        <DataGrid ItemsSource="{Binding doctor.Appointments}" AutoGenerateColumns="False"  Grid.Row="6" Grid.ColumnSpan="2">
+        <DataGrid ItemsSource="{Binding SelectedDoctor.Appointments}" AutoGenerateColumns="False"  Grid.Row="6" Grid.ColumnSpan="2">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Time" Binding="{Binding beginning, StringFormat=f}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Time" Binding="{Binding Beginning, StringFormat=f}" IsReadOnly="True"/>
                 <DataGridCheckBoxColumn Header="Scheduled" IsReadOnly="False"/>
             </DataGrid.Columns>
         </DataGrid>
@@ -57,7 +57,7 @@
         <Button Content="View Available Appointments"  Grid.Row="2" Grid.Column ="3" Grid.ColumnSpan="2" VerticalAlignment="Bottom" Margin="5,0,5,5" />
         <DataGrid  Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="2" Grid.RowSpan="4" ItemsSource="{Binding AvailableAppoitments}" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Time" Binding="{Binding beginning, StringFormat=f}"/>
+                <DataGridTextColumn Header="Time" Binding="{Binding Beginning, StringFormat=f}"/>
                 <DataGridCheckBoxColumn Header="Select"/>
             </DataGrid.Columns>
         </DataGrid>

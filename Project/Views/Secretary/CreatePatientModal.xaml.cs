@@ -31,7 +31,7 @@ namespace Project.Views.Secretary
         public string Email { get; set; }
         public string BloodType { get; set; }
         public string Weight { get; set; }
-        public string Height { get; set; }
+        public new string Height { get; set; }
         public CreatePatientModal()
         {
             InitializeComponent();

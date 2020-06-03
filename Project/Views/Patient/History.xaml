@@ -30,9 +30,9 @@
         <Label Content="Past appointments:" FontSize="20" VerticalAlignment="Bottom" Height="35" Grid.Column="1"/>
         <DataGrid Grid.Row="1" Grid.RowSpan="6" ItemsSource="{Binding PastAppoitments}" IsReadOnly="True" AutoGenerateColumns="False" Grid.Column="1">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Time" Binding="{Binding beginning, StringFormat=f}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Time" Binding="{Binding Beginning, StringFormat=f}" IsReadOnly="True"/>
                 <DataGridTextColumn Header="Doctor" Binding="{Binding Doctors[0].FirstName}"/>
-                <DataGridTextColumn Header="Rating" Binding="{Binding review.rating}"/>
+                <DataGridTextColumn Header="Rating" Binding="{Binding Review.Rating}"/>
             </DataGrid.Columns>
         </DataGrid>
 
@@ -43,7 +43,7 @@
         </StackPanel>
         <StackPanel Grid.Row="2" Grid.Column="4" Orientation="Horizontal" >
             <Label Content="Rating:"  FontSize="15"/>
-            <Label Content="{Binding SelectedDoctor.AvrageReviewScore}"  Height="Auto" FontSize="15"/>
+            <Label Content="{Binding SelectedDoctor.AverageReviewScore}"  Height="Auto" FontSize="15"/>
         </StackPanel>
         <Label Content="Appointment Type:" FontSize="15" Grid.Column="3" Grid.Row="3"  VerticalAlignment="Bottom" Height="Auto"/>
         <Label Content="{Binding SelectedAnamneza.Type}" FontSize="15" Grid.Column="3" Grid.Row="4"  VerticalAlignment="Top" Height="Auto"/>
