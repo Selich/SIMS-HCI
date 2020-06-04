@@ -9,9 +9,9 @@ using System.Linq;
 
 namespace Project.Repositories
 {
-    public class QuestionRepository : 
-        CSVRepository<Question, long>, 
-        IQuestionRepository, 
+    public class QuestionRepository :
+        CSVRepository<Question, long>,
+        IQuestionRepository,
         IEagerCSVRepository<Question, long>
     {
         private const string ENTITY_NAME = "Question";

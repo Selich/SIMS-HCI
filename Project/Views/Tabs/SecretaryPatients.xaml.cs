@@ -23,7 +23,12 @@ namespace Project.Views.Tabs
     {
         public SecretaryPatients()
         {
+
+            var app = Application.Current as App;
             InitializeComponent();
+
+
+            PatientList.ItemsSource = app.PatientController.GetAll();
         }
         private void Feedback_Click(object sender, RoutedEventArgs e)
         {
