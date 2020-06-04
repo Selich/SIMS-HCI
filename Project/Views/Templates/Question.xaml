@@ -5,7 +5,8 @@
         <DataTemplate x:Key="questionsTemplate">
             <StackPanel Margin="3">
                 <DockPanel>
-                    <TextBlock Text="{Binding QuestionText}" Foreground="Green" FontWeight="Bold" />
+                    <TextBlock Text="{Binding QuestionText}" Foreground="Black" FontWeight="Bold" />
+                    <TextBlock Text="{Binding CreationDate}" HorizontalAlignment="Right" TextAlignment="Right"/>
                 </DockPanel>
             </StackPanel>
         </DataTemplate>
