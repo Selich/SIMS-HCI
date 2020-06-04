@@ -33,21 +33,16 @@ namespace Controller
 
         public QuestionDTO GetById(long id) => _questionConverter.ConvertEntityToDTO(_service.GetById(id));
 
-        public IEnumerable<QuestionDTO> GetAll() => _questionConverter.ConvertListEntityToListDTO(_service.GetAll());
+        public IEnumerable<QuestionDTO> GetAll() => 
+            _questionConverter.ConvertListEntityToListDTO(_service.GetAll());
 
-        public QuestionDTO Remove(QuestionDTO entity)
-        {
-            throw new NotImplementedException();
-        }
+        public QuestionDTO Remove(QuestionDTO entity) =>
+            _questionConverter.ConvertEntityToDTO(_service.Remove(_questionConverter.ConvertDTOToEntity(entity)));
 
-        public QuestionDTO Save(QuestionDTO entity)
-        {
-            throw new NotImplementedException();
-        }
+        public QuestionDTO Save(QuestionDTO entity) =>
+            _questionConverter.ConvertEntityToDTO(_service.Save(_questionConverter.ConvertDTOToEntity(entity)));
 
-        public QuestionDTO Update(QuestionDTO entity)
-        {
-            throw new NotImplementedException();
-        }
+        public QuestionDTO Update(QuestionDTO entity) =>
+            _questionConverter.ConvertEntityToDTO(_service.Update(_questionConverter.ConvertDTOToEntity(entity)));
     }
 }

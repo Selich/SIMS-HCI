@@ -25,16 +25,9 @@ namespace Project.Controllers
             _converter = converter;
 
         }
-        public PatientDTO GetById(long id)
-        {
-            throw new NotImplementedException();
-        }
+        public PatientDTO GetById(long id) => _converter.ConvertEntityToDTO(_service.GetById(id));
 
-        public IEnumerable<PatientDTO> GetAll()
-        {
-            //List<Patient> patients = _service.GetAll();
-            return null;
-        }
+        public IEnumerable<PatientDTO> GetAll() => _converter.ConvertListEntityToListDTO(_service.GetAll());
 
         public PatientDTO Remove(PatientDTO entity)
         {

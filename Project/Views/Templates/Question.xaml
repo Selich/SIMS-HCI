@@ -5,13 +5,7 @@
         <DataTemplate x:Key="questionsTemplate">
             <StackPanel Margin="3">
                 <DockPanel>
-                    <TextBlock FontWeight="Bold" Text="Pitanje:" DockPanel.Dock="Left" Margin="5,0,10,0" />
-                    <TextBlock Text="" />
-                    <TextBlock Text="{Binding question}" Foreground="Green" FontWeight="Bold" />
-                </DockPanel>
-                <DockPanel>
-                    <TextBlock FontWeight="Bold" Text="Odgovor:" Foreground="DarkOrange" DockPanel.Dock="Left" Margin="5,0,5,0" />
-                    <TextBlock Text="{Binding answer}" />
+                    <TextBlock Text="{Binding QuestionText}" Foreground="Green" FontWeight="Bold" />
                 </DockPanel>
             </StackPanel>
         </DataTemplate>

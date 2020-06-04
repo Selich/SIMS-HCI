@@ -29,7 +29,8 @@ namespace Project.Repositories.CSV.Converter
                question.QuestionText,
                question.AnswerText,
                question.Patient.Id,
-               question.Secretary.Id
+               question.Secretary.Id,
+               question.CreationDate
                );
 
         public Question ConvertCSVFormatToEntity(string questionCSVFormat)
@@ -40,7 +41,8 @@ namespace Project.Repositories.CSV.Converter
                 tokens[1],
                 tokens[2],
                 new Patient(),
-                new Secretary()
+                new Secretary(),
+                DateTime.Parse(tokens[5])
             );
         }
     }

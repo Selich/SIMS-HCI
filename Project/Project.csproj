@@ -120,6 +120,7 @@
     <Compile Include="Repositories\Abstract\IQuestionRepository.cs" />
     <Compile Include="Repositories\CSV\Converter\QuestionCSVConverter.cs" />
     <Compile Include="Repositories\QuestionRepository.cs" />
+    <Compile Include="Repositories\RoomRepository.cs" />
     <Compile Include="Services\QuestionService.cs" />
     <Compile Include="Services\ReportService.cs" />
     <Compile Include="Utility\PDFReportFactory.cs" />
@@ -266,14 +267,14 @@
     <Compile Include="Views\Secretary\ProfileModal.xaml.cs">
       <DependentUpon>ProfileModal.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Secretary\QuestionModal.xaml.cs">
-      <DependentUpon>QuestionModal.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\Secretary\SecretaryGenerateReport.xaml.cs">
       <DependentUpon>SecretaryGenerateReport.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Secretary\SecretaryHomeWindow.xaml.cs">
       <DependentUpon>SecretaryHomeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Secretary\ShortcutsModal.xaml.cs">
+      <DependentUpon>ShortcutsModal.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Secretary\Test.xaml.cs">
       <DependentUpon>Test.xaml</DependentUpon>
@@ -435,15 +436,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Secretary\QuestionModal.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\Secretary\SecretaryGenerateReport.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Secretary\SecretaryHomeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Secretary\ShortcutsModal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

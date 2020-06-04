@@ -3,6 +3,7 @@ using Project.Views.Model;
 using Project.Views.Secretary;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,7 +24,7 @@ namespace Project.Views.Tabs
     /// </summary>
     public partial class SecretaryQuestions : UserControl
     {
-        private QuestionDTO selectedQuestion;
+        public QuestionDTO CurrentQuestion { get; set; }
 
         public SecretaryQuestions()
         {
@@ -31,20 +32,25 @@ namespace Project.Views.Tabs
             InitializeComponent();
 
             QuestionsList.ItemsSource = app.QuestionController.GetAll();
-
+            CurrentQuestion = null;
+            SelectedQuestion.Visibility = Visibility.Hidden;
 
         }
         private void QuestionsList_KeyDown(object sender, KeyboardEventArgs e)
         {
-            selectedQuestion = (QuestionDTO) QuestionsList.SelectedItem;
-            var modal = new QuestionModal(selectedQuestion);
-            modal.Show();
         }
         private void txtFilter_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
             //CollectionViewSource.GetDefaultView(listPatients.ItemsSource).Refresh();
         }
         private void Feedback_Click(object sender, RoutedEventArgs e)
+        {
+            var s = new FeedbackModal();
+            s.Show();
+
+        }
+
+        private void Profile_Click(object sender, RoutedEventArgs e)
         {
             var s = new FeedbackModal();
             s.Show();

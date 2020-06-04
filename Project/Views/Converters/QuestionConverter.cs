@@ -23,7 +23,9 @@ namespace Project.Views.Converters
                 dto.QuestionText,
                 dto.AnswerText,
                 _patientConverter.ConvertDTOToEntity(dto.Patient),
-                new Project.Model.Secretary()
+                new Project.Model.Secretary(),
+                dto.CreationDate
+
             );
 
         public QuestionDTO ConvertEntityToDTO(Question entity)
@@ -32,7 +34,8 @@ namespace Project.Views.Converters
                     entity.QuestionText,
                     entity.AnswerText,
                     _patientConverter.ConvertEntityToDTO(entity.Patient),
-                    new SecretaryDTO()
+                    new SecretaryDTO(),
+                    entity.CreationDate
                     );
 
         public IEnumerable<Question> ConvertListDTOToListEntity(IEnumerable<QuestionDTO> dtos)

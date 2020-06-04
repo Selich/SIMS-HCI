@@ -73,17 +73,16 @@ namespace Project.Views.Secretary
             s.Show();
 
         }
-        private void Question_Click(object sender, RoutedEventArgs e)
-        {
-            Question item = (Question)(sender as System.Windows.Controls.Button).DataContext;
-            var s = new QuestionModal(item);
-            s.Show();
-
-        }
         private void Profile_Click(object sender, RoutedEventArgs e)
         {
             GuestDTO item = (GuestDTO)(sender as System.Windows.Controls.Button).DataContext;
             var s = new ProfileModal(item);
+            s.Show();
+
+        }
+        private void Show_Shortcuts(object sender, RoutedEventArgs e)
+        {
+            var s = new ShortcutsModal();
             s.Show();
 
         }
