@@ -15,6 +15,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Project.Views.Model;
+using System.Collections.ObjectModel;
 
 namespace Project.Views.Director
 {
@@ -24,12 +26,56 @@ namespace Project.Views.Director
     public partial class HomeWindow : Window
     {
         private ReportController _reportController;
-        public HomeWindow()
-        {
-            InitializeComponent();
+        public AddressDTO DirectorAddress { get; set; }
+        public DirectorDTO Director { get; set; }
 
+        public ObservableCollection<PropositionDTO> Propositions {get; set;}
+
+        public ObservableCollection<EmployeeDTO> Employees { get; set; }
+
+        public ObservableCollection<EquipmentDTO> Equipment { get; set; }
+
+        public ObservableCollection<MedicalConsumableDTO> MedicalConsumables { get; set; }
+
+    public HomeWindow()
+        {
+           
+            InitializeComponent();
+            this.DataContext = this;
             var app = Application.Current as App;
+
             _reportController = new ReportController();
+            AddressDTO address = new AddressDTO("15", "Bulevar Cara Lazara", "Skoplje", "Severna Makedonija", "17954");
+            Director = new DirectorDTO(address,"Pera", "Peric", "0102031234567", "012/173212", "Male", new DateTime(1985, 11, 5), 13000, null, null, "pera@makedonac.nmac", "pass");
+            Director.Hospital = "Klinicki Centar Vojvodina";
+            Propositions = new ObservableCollection<PropositionDTO>();
+            Propositions.Add(new PropositionDTO("Berodual","JabadabaduOpisjuemLekNeki", "Odobren"));
+            Propositions.Add(new PropositionDTO("Promazepam", "JabadabaduOpisjuemLekNeki", "Odbijen"));
+            Propositions.Add(new PropositionDTO("Febricet", "JabadabaduOpisjuemLekNeki", "Odobren"));
+            Propositions.Add(new PropositionDTO("Strepsils", "JabadabaduOpisjuemLekNeki", "Odobren"));
+            Propositions.Add(new PropositionDTO("Venospas", "JabadabaduOpisjuemLekNeki", "U razmatranju"));
+
+            Employees = new ObservableCollection<EmployeeDTO>();
+            Employees.Add(new EmployeeDTO(address, "Sima", "Paroski", "0412631232567", "022/353452", "Male", new DateTime(1969, 6, 24), 24000, null, null, "simo@gmail.com", "sifria1"));
+            Employees.Add(new EmployeeDTO(address, "Humus", "Dumus", "05553331232567", "028/352352", "Female", new DateTime(1969, 6, 24), 23000, null, null, "simo@gmail.com", "sifria1"));
+            Employees.Add(new EmployeeDTO(address, "Petar", "Gringovic", "0412631232567", "022/353652", "Male", new DateTime(1969, 6, 24), 28000, null, null, "simo@gmail.com", "sifria1"));
+            Employees.Add(new EmployeeDTO(address, "Slavica", "Bubregovic", "0412631232567", "022/253452", "Female", new DateTime(1980, 6, 24), 2200, null, null, "simo@gmail.com", "sifria1"));
+
+            Equipment = new ObservableCollection<EquipmentDTO>();
+            RoomDTO room = new RoomDTO(0,RoomType.hospitalRoom,"magacin","");
+            Equipment.Add(new EquipmentDTO("Sto", "Namestaj", "Ovo je sto ima cetiri noge i na njega se stavljaju stvari", room));
+            Equipment.Add(new EquipmentDTO("Stolica", "Namestaj", "Ovo je stolica, ima cetiri noge i na njoj se sedi", room));
+            Equipment.Add(new EquipmentDTO("Operacioni sto", "Oprema", "Model XYZ,...", room));
+            Equipment.Add(new EquipmentDTO("Vrata", "Infrastuktura", "Open Sesame", room));
+            Equipment.Add(new EquipmentDTO("Respirator", "Donacija", "Mehanicko disanje???", room));
+
+            MedicalConsumables = new ObservableCollection<MedicalConsumableDTO>();
+            MedicalConsumables.Add(new MedicalConsumableDTO(1, "Gaza", "zavoj", "zavoj je izmislio Vasko Popa...", 23));
+            MedicalConsumables.Add(new MedicalConsumableDTO(2, "Hanzaplast", "zavoj", "zavoj je izmislio Vasko Popa...", 16));
+            MedicalConsumables.Add(new MedicalConsumableDTO(3, "Hidrogen", "rastvor", "zavoj je izmislio Vasko Popa...", 18));
+            MedicalConsumables.Add(new MedicalConsumableDTO(4, "Fizioloski rastvor", "rastvor", "zavoj je izmislio Vasko Popa...", 5));
+
+
         }
 
         private void OpenSettingsModal(object sender, RoutedEventArgs e)
@@ -49,7 +95,7 @@ namespace Project.Views.Director
             Save_btn.Visibility = Visibility.Visible; ;
             Cancel_btn.Visibility = Visibility.Visible; ;
             Change_btn.Visibility = Visibility.Hidden;
-            username.IsEnabled = true;
+            email.IsEnabled = true;
             adress.IsEnabled = true;
             dateofbirth.IsEnabled = true;
             hospital.IsEnabled = true;
@@ -61,7 +107,7 @@ namespace Project.Views.Director
             Save_btn.Visibility = Visibility.Hidden; ;
             Cancel_btn.Visibility = Visibility.Hidden; ;
             Change_btn.Visibility = Visibility.Visible;
-            username.IsEnabled = false;
+            email.IsEnabled = false;
             adress.IsEnabled = false;
             dateofbirth.IsEnabled = false;
             hospital.IsEnabled = false;
@@ -73,7 +119,7 @@ namespace Project.Views.Director
             Save_btn.Visibility = Visibility.Hidden; ;
             Cancel_btn.Visibility = Visibility.Hidden; ;
             Change_btn.Visibility = Visibility.Visible;
-            username.IsEnabled = false;
+            email.IsEnabled = false;
             adress.IsEnabled = false;
             dateofbirth.IsEnabled = false;
             hospital.IsEnabled = false;

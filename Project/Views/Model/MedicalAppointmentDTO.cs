@@ -16,7 +16,7 @@ namespace Project.Views.Model
         public System.Collections.Generic.List<DoctorDTO> Doctors { get; set; }
         public GuestDTO Patient { get; set; }
         public ReviewDTO Review { get; set; }
-        public System.Collections.Generic.List<ConsumeblesDTO> Consumebles;
+        public System.Collections.Generic.List<ConsumabelsDTO> Consumebles;
 
         public MedicalAppointmentDTO() { }
 
