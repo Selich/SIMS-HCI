@@ -133,11 +133,17 @@
     <Compile Include="Views\Model\AppoitmentDTO.cs" />
     <Compile Include="Views\Model\ApprovalDTO.cs" />
     <Compile Include="Views\Model\ConsumeblesDTO.cs" />
+    <Compile Include="Views\Model\DirectorDTO.cs" />
     <Compile Include="Views\Model\DoctorDTO.cs" />
     <Compile Include="Views\Model\EmployeeDTO.cs" />
+    <Compile Include="Views\Model\EquipmentDTO.cs" />
     <Compile Include="Views\Model\GuestDTO.cs" />
     <Compile Include="Views\Model\MedicalAppointmentDTO.cs" />
+    <Compile Include="Views\Model\MedicalConsumableDTO.cs" />
+    <Compile Include="Views\Model\MedicineDTO.cs" />
     <Compile Include="Views\Model\PatientDTO.cs" />
+    <Compile Include="Views\Model\PrescriptionDTO.cs" />
+    <Compile Include="Views\Model\PropositionDTO.cs" />
     <Compile Include="Views\Model\QuestionDTO.cs" />
     <Compile Include="Views\Model\ReviewDTO.cs" />
     <Compile Include="Views\Model\RoomDTO.cs" />

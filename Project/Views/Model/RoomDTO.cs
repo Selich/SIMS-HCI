@@ -4,6 +4,7 @@
 // Purpose: Definition of Class Room
 
 using System;
+using System.Collections.Generic;
 using Project.Model;
 
 namespace Project.Views.Model
@@ -15,8 +16,8 @@ namespace Project.Views.Model
       public string Ward {get;set;}
       public string Floor {get;set;}
       
-      public System.Collections.Generic.List<Equipment> Equipment;
-      public AppoitmentDTO[] appointments;
+      public List<EquipmentDTO> Equipment { get; set; }
+      public List<AppoitmentDTO> Appointments { get; set; }
 
       public RoomDTO() {}
       public RoomDTO(int id, RoomType type, string ward, string floor) {

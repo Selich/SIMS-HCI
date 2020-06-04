@@ -4,10 +4,11 @@
 // Purpose: Definition of Class Consumebles
 
 using System;
+using System.Reflection.Emit;
 
 namespace Project.Views.Model
 {
-   public class ConsumeblesDTO
+   public class ConsumabelsDTO
    {
       public int Quantity {get;set;}
       public string Type {get;set;}
@@ -15,6 +16,17 @@ namespace Project.Views.Model
       public string Name {get;set;}
       
       public MedicalAppointmentDTO[] medicalAppointment;
-   
+
+      public ConsumabelsDTO() { }
+
+      public ConsumabelsDTO(string name,string type, string description,int quantitiy) 
+      {
+            this.Name = name;
+            this.Type = type;
+            this.Description = description;
+            this.Quantity = quantitiy;
+            
+      }
+
    }
 }
