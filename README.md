@@ -68,7 +68,7 @@ Za stvaranje novih branch-ova koristimo npr. za user story: "Add ability to logi
 ```
   
 ```bash
-    git checkout -b add-login-feature/director
+    git checkout -b secretary/add-login-feature
     git checkout -b <GLAGOL>-<KEYWORD>-feature/<ROLE>
 ```
   
