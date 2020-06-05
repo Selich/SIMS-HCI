@@ -9,24 +9,32 @@ using Project.Model;
 
 namespace Project.Views.Model
 {
-   public class RoomDTO
-   {
-      public int Id { get; set; }
-      public RoomType Type{get;set;}
-      public string Ward {get;set;}
-      public string Floor {get;set;}
-      
-      public List<EquipmentDTO> Equipment { get; set; }
-      public List<AppoitmentDTO> Appointments { get; set; }
+    public class RoomDTO
+    {
+        public long Id { get; set; }
+        public RoomType Type { get; set; }
+        public string Ward { get; set; }
+        public string Floor { get; set; }
 
-      public RoomDTO() {}
-      public RoomDTO(int id, RoomType type, string ward, string floor) {
-         Id = id;
-         Type = type;
-         Ward = ward;
-         Floor = floor;
+        public List<EquipmentDTO> Equipment { get; set; }
+        public List<AppointmentDTO> Appointments { get; set; }
 
-      }
-   
-   }
+        public RoomDTO() { }
+        public RoomDTO(long id, RoomType type, string ward, string floor)
+        {
+            Id = id;
+            Type = type;
+            Ward = ward;
+            Floor = floor;
+
+        }
+        public RoomDTO(RoomType type, string ward, string floor)
+        {
+            Type = type;
+            Ward = ward;
+            Floor = floor;
+
+        }
+
+    }
 }

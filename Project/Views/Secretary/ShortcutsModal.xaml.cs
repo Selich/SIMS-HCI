@@ -22,6 +22,8 @@ namespace Project.Views.Secretary
         public ShortcutsModal()
         {
             InitializeComponent();
+
+            var app = Application.Current as App;
         }
     }
 }

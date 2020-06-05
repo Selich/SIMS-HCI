@@ -54,10 +54,10 @@ namespace Project.Views.Converters
                 entity.Email,
                 entity.Password);
 
-        public IEnumerable<Project.Model.Patient> ConvertListDTOToListEntity(IEnumerable<PatientDTO> dtos)
+        public List<Project.Model.Patient> ConvertListDTOToListEntity(IEnumerable<PatientDTO> dtos)
             => dtos.Select(dto => ConvertDTOToEntity(dto)).ToList();
 
-        public IEnumerable<PatientDTO> ConvertListEntityToListDTO(IEnumerable<Project.Model.Patient> entities)
+        public IEnumerable<PatientDTO> ConvertListEntityToListDTO(List<Project.Model.Patient> entities)
             => entities.Select(entity => ConvertEntityToDTO(entity)).ToList();
     }
 }

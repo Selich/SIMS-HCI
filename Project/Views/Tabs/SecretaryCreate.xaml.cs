@@ -39,7 +39,7 @@ namespace Project.Views.Tabs
 
             _patientController = app.PatientController;
 
-            ListPatientsCreate.ItemsSource = _patientController.GetAll();
+            ListPatients.ItemsSource = _patientController.GetAll();
         }
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
@@ -60,7 +60,7 @@ namespace Project.Views.Tabs
             if(roomFilter.Text == "")
             {
                 System.Windows.Forms.MessageBox.Show(
-                    "Nije izabran ni jedna soba. Da li zelite da Vam sistem sam obezbedi dostupnu sobu?",
+                    "Nije izabrana soba. Da li zelite da Vam sistem sam obezbedi dostupnu sobu?",
                     "Potvrda",
                     MessageBoxButtons.YesNo
                     );

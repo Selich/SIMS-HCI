@@ -4,36 +4,41 @@
 // Purpose: Definition of Class MedicalAppointmentController
 
 using System;
+using System.Collections.Generic;
+using Project.Controllers;
 using Project.Model;
+using Project.Services;
+using Project.Views.Converters;
+using Project.Views.Model;
 
 namespace Controller
 {
-   public class MedicalAppointmentController
-   {
-      public MedicalAppointmentController EditMedicalAppointment(string type, DateTime date, TimeSpan time, Array doctorsID, int patientID, int roomID)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public MedicalAppointment GetAllMedicalAppoitmentsDoctor(DateTime beggining, DateTime end, string doctorJMBG)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public MedicalAppointment GetAllMedicalAppoitmentsPatinet(DateTime beggining, DateTime end, string patientJMBG)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public MedicalAppointment GetMedicalAppotment(int appotmentId)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public MedicalAppointment ScheduleMedicalAppoitment(MedicalAppointmentType type, DateTime period)
-      {
-         throw new NotImplementedException();
-      }
-   
-   }
+    public class MedicalAppointmentController : IController<MedicalAppointmentDTO, long>
+    {
+        private IService<MedicalAppointment, long> _service;
+        private IConverter<MedicalAppointment, MedicalAppointmentDTO> _medicalAppointmentConverter;
+        public MedicalAppointmentController( 
+            IService<MedicalAppointment, long> service ,
+            IConverter<MedicalAppointment, MedicalAppointmentDTO> medicalAppointmentConverter
+            )
+        {
+            _service = service;
+            _medicalAppointmentConverter = medicalAppointmentConverter;
+        }
+        public IEnumerable<MedicalAppointmentDTO> GetAll()
+            => _medicalAppointmentConverter.ConvertListEntityToListDTO((List<MedicalAppointment>)_service.GetAll());
+
+        public MedicalAppointmentDTO GetById(long id)
+            => _medicalAppointmentConverter.ConvertEntityToDTO(_service.GetById(id));
+
+        public MedicalAppointmentDTO Remove(MedicalAppointmentDTO entity)
+            => _medicalAppointmentConverter.ConvertEntityToDTO(_service.Remove(_medicalAppointmentConverter.ConvertDTOToEntity(entity)));
+
+        public MedicalAppointmentDTO Save(MedicalAppointmentDTO entity)
+            => _medicalAppointmentConverter.ConvertEntityToDTO(_service.Save(_medicalAppointmentConverter.ConvertDTOToEntity(entity)));
+
+        public MedicalAppointmentDTO Update(MedicalAppointmentDTO entity)
+            => _medicalAppointmentConverter.ConvertEntityToDTO(_service.Update(_medicalAppointmentConverter.ConvertDTOToEntity(entity)));
+
+    }
 }
