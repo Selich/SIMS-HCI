@@ -37,6 +37,10 @@ namespace Project.Views.Director
 
         public ObservableCollection<MedicalConsumableDTO> MedicalConsumables { get; set; }
 
+        public ObservableCollection<MedicineDTO> Medicine { get; set; }
+
+        public ObservableCollection<RoomDTO> RoomList { get; set; }
+
     public HomeWindow()
         {
            
@@ -75,7 +79,17 @@ namespace Project.Views.Director
             MedicalConsumables.Add(new MedicalConsumableDTO(3, "Hidrogen", "rastvor", "zavoj je izmislio Vasko Popa...", 18));
             MedicalConsumables.Add(new MedicalConsumableDTO(4, "Fizioloski rastvor", "rastvor", "zavoj je izmislio Vasko Popa...", 5));
 
+            Medicine = new ObservableCollection<MedicineDTO>();
+            Medicine.Add(new MedicineDTO(5, "Berodual", "kortikosteroid", "zavoj je izmislio Vasko Popa...", 23,"","intravenozno",false));
+            Medicine.Add(new MedicineDTO(6, "Probiotik Ivancic&sons", "probiotik", "zavoj je izmislio Vasko Popa...", 16, "", "oralno", false));
+            Medicine.Add(new MedicineDTO(7, "Fervex", "prasak", "zavoj je izmislio Vasko Popa...", 18, "", "", true));
+            Medicine.Add(new MedicineDTO(8, "Zufiofilum", "antibiotik", "zavoj je izmislio Vasko Popa...", 5, "", "", true));
 
+            RoomList = new ObservableCollection<RoomDTO>();
+            RoomList.Add(new RoomDTO(12,RoomType.hospitalRoom,"Intenzivna nega","4"));
+            RoomList.Add(new RoomDTO(24, RoomType.operationHall, "Kardiovaskularna", "2"));
+            RoomList.Add(new RoomDTO(17, RoomType.medicalRoom, "Pregledi", "1"));
+            RoomList.Add(new RoomDTO(5, RoomType.hospitalRoom, "Intenzivna nega", "3"));
         }
 
         private void OpenSettingsModal(object sender, RoutedEventArgs e)

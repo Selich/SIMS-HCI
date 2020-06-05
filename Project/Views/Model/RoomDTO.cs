@@ -27,6 +27,12 @@ namespace Project.Views.Model
          Floor = floor;
 
       }
-   
-   }
+       public RoomDTO(RoomType type, string ward, string floor)
+       {
+            Type = type;
+            Ward = ward;
+            Floor = floor;
+       }
+
+    }
 }
