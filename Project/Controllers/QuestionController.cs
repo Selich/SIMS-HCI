@@ -31,18 +31,19 @@ namespace Controller
             _questionConverter = questionConverter;
         }
 
-        public QuestionDTO GetById(long id) => _questionConverter.ConvertEntityToDTO(_service.GetById(id));
+        public QuestionDTO GetById(long id) 
+            => _questionConverter.ConvertEntityToDTO(_service.GetById(id));
 
-        public IEnumerable<QuestionDTO> GetAll() => 
-            _questionConverter.ConvertListEntityToListDTO((List<Question>)_service.GetAll());
+        public IEnumerable<QuestionDTO> GetAll() 
+            => _questionConverter.ConvertListEntityToListDTO((List<Question>)_service.GetAll());
 
-        public QuestionDTO Remove(QuestionDTO entity) =>
-            _questionConverter.ConvertEntityToDTO(_service.Remove(_questionConverter.ConvertDTOToEntity(entity)));
+        public QuestionDTO Remove(QuestionDTO entity) 
+            => _questionConverter.ConvertEntityToDTO(_service.Remove(_questionConverter.ConvertDTOToEntity(entity)));
 
-        public QuestionDTO Save(QuestionDTO entity) =>
-            _questionConverter.ConvertEntityToDTO(_service.Save(_questionConverter.ConvertDTOToEntity(entity)));
+        public QuestionDTO Save(QuestionDTO entity) 
+            => _questionConverter.ConvertEntityToDTO(_service.Save(_questionConverter.ConvertDTOToEntity(entity)));
 
-        public QuestionDTO Update(QuestionDTO entity) =>
-            _questionConverter.ConvertEntityToDTO(_service.Update(_questionConverter.ConvertDTOToEntity(entity)));
+        public QuestionDTO Update(QuestionDTO entity) 
+            => _questionConverter.ConvertEntityToDTO(_service.Update(_questionConverter.ConvertDTOToEntity(entity)));
     }
 }

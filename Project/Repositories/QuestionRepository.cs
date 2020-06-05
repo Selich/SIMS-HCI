@@ -27,7 +27,7 @@ namespace Project.Repositories
 
 
         public IEnumerable<Question> GetAllEager() => GetAll();
-        public Question GetEager(long id) => Get(id);
+        public Question GetEager(long id) => GetById(id);
 
     }
 }

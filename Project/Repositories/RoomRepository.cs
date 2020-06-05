@@ -38,7 +38,7 @@ namespace Project.Repositories
         => _stream.ReadAll().SingleOrDefault(patient => patient.Id.Equals(id));
 
         public IEnumerable<Room> GetAllEager() => GetAll();
-        public Room GetEager(long id) => Get(id);
+        public Room GetEager(long id) => GetById(id);
 
     }
 }

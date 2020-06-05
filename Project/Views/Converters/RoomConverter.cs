@@ -11,7 +11,7 @@ namespace Project.Views.Converters
             => new Room( dto.Id, dto.Type, dto.Ward, dto.Floor );
 
         public RoomDTO ConvertEntityToDTO(Room entity) 
-            => new RoomDTO( entity.Id, entity.Type, entity.Ward, entity.Floor );
+            => new RoomDTO(entity.Id, entity.Type, entity.Ward, entity.Floor );
 
         public List<Room> ConvertListDTOToListEntity(System.Collections.Generic.IEnumerable<RoomDTO> dtos)
             => dtos.Select(dto => ConvertDTOToEntity(dto)).ToList();

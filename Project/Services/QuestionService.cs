@@ -20,7 +20,7 @@ namespace Project.Services
             => _questionRepository.GetAll();
 
         public Question GetById(long id) 
-            => _questionRepository.Get(id);
+            => _questionRepository.GetById(id);
 
         public Question Save(Question question) 
             => _questionRepository.Save(question);

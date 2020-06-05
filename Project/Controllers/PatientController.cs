@@ -27,7 +27,7 @@ namespace Project.Controllers
         }
         public PatientDTO GetById(long id) => _converter.ConvertEntityToDTO(_service.GetById(id));
 
-        public IEnumerable<PatientDTO> GetAll() => _converter.ConvertListEntityToListDTO(_service.GetAll());
+        public IEnumerable<PatientDTO> GetAll() => _converter.ConvertListEntityToListDTO((List<Patient>)_service.GetAll());
 
         public PatientDTO Remove(PatientDTO entity)
         {

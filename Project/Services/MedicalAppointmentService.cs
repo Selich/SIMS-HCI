@@ -1,4 +1,5 @@
 ﻿using Project.Model;
+using Project.Repositories.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace Project.Services
     {
         private readonly IMedicalAppointmentRepository _medicalAppointmentRepository;
 
-        public QuestionService(IMedicalAppointmentRepository medicalAppointmentRepository)
+        public MedicalAppointmentService(IMedicalAppointmentRepository medicalAppointmentRepository)
         {
             _medicalAppointmentRepository = medicalAppointmentRepository;
         }

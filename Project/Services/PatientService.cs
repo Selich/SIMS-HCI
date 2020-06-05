@@ -20,7 +20,7 @@ namespace Project.Services
 
         public IEnumerable<Patient> GetAll() => _patientRepository.GetAll();
 
-        public Patient GetById(long id) => _patientRepository.Get(id);
+        public Patient GetById(long id) => _patientRepository.GetById(id);
 
         public Patient Save(Patient patient) => _patientRepository.Save(patient);
 
