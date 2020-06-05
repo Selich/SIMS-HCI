@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project.Views.Secretary"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         Title="CreatePatientModal" Height="432" Width="886">
     <Grid Margin="0,0,0,-31" Height="402" VerticalAlignment="Top">
         <Rectangle HorizontalAlignment="Left" Height="402" VerticalAlignment="Top" Width="878">
@@ -23,14 +24,14 @@
                 <TextBox x:Name="Profile_LastName"  HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding LastName}"  Width="157" Background="White" />
                 <Label Content="JMBG:"      HorizontalAlignment="Left"/>
                 <TextBox x:Name="Profile_JMBG"  HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding JMBG}"  Width="157" Background="White" />
-                <Label Content="Email:"     HorizontalAlignment="Left"/>
-                <TextBox x:Name="Profile_Email"  HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Email}"  Width="157" Background="White" />
                 <Label Content="Adresa:"    HorizontalAlignment="Left"/>
                 <TextBox x:Name="Profile_Address"  HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Address}"  Width="157" Background="White" />
                 <Label Content="Profesija:" HorizontalAlignment="Left"/>
                 <TextBox x:Name="Profile_Profession"  HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Profession}"  Width="157" Background="White" />
                 <Label Content="Broj Telefona:" HorizontalAlignment="Left"/>
                 <TextBox x:Name="Profile_TelephoneNumber"  HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding TelephoneNumber}"  Width="157" Background="White" />
+                <Label Content="Datum rođenja:"       HorizontalAlignment="Left"/>
+                <DatePicker x:Name="Profile_DateOfBirth" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="15.714,1.6" Width="157"/>
             </StackPanel>
         </Grid>
         <Grid HorizontalAlignment="Left" Height="379" Margin="0,23,0,0" VerticalAlignment="Top" Width="206">
@@ -62,18 +63,44 @@
             </Grid.Background>
             <StackPanel Margin="10,10,10,-15" Grid.ColumnSpan="2">
                 <Label Content="BloodType:"       HorizontalAlignment="Left"/>
-                <TextBox x:Name="Profile_BloodType" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding BloodType}"  Width="157" Background="White" />
+                <ComboBox x:Name="Profile_BloodType"
+                          HorizontalAlignment="Left"
+                          Text="{Binding BloodType}"
+                          Width="157"
+                          Background="White">
+                    <ComboBoxItem Tag="A+" Content="A+" />
+                    <ComboBoxItem Tag="A-" Content="A-" />
+                    <ComboBoxItem Tag="B+" Content="B+" />
+                    <ComboBoxItem Tag="B-" Content="B-" />
+                    <ComboBoxItem Tag="0+" Content="0+" />
+                    <ComboBoxItem Tag="0-" Content="0-" />
+                    <ComboBoxItem Tag="AB+" Content="AB+" />
+                    <ComboBoxItem Tag="AB-" Content="AB-" />
+                </ComboBox>
                 <Label Content="Height:"       HorizontalAlignment="Left"/>
                 <TextBox x:Name="Profile_Height" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Height}"  Width="157" Background="White" />
                 <Label Content="Weight:"       HorizontalAlignment="Left"/>
                 <TextBox x:Name="Profile_Weight" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Weight}"  Width="157" Background="White" />
                 <Label Content="Gender:"       HorizontalAlignment="Left"/>
-                <TextBox x:Name="Profile_Gender" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Weight}"  Width="157" Background="White" />
+                <ComboBox x:Name="Profile_Gender"
+                          HorizontalAlignment="Left"
+                          Text="{Binding Gender}"
+                          Width="157"
+                          Background="White">
+                    <ComboBoxItem Tag="Muški"
+                                  Content="Muški" />
+                    <ComboBoxItem Tag="Ženski"
+                                  Content="Ženski" />
+                </ComboBox>
+
                 <Label Content="Insurence Number:"       HorizontalAlignment="Left"/>
                 <TextBox x:Name="Profile_InsurenceNumber" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Weight}"  Width="157" Background="White" />
-                <DatePicker x:Name="Profile_DateOfBirth" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="15.714,1.6" Width="157"/>
+                <Label Content="Email:"     HorizontalAlignment="Left"/>
+                <TextBox x:Name="Profile_Email"  HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Email}"  Width="157" Background="White" />
             </StackPanel>
-            <Button Content="Kreiraj Korisnika" HorizontalAlignment="Right" Margin="0,249,10,0" VerticalAlignment="Top" Width="158" Height="34" Click="CreatePatient_Click" RenderTransformOrigin="0.5,1.5" Grid.ColumnSpan="2" />
+            <Button Content="Kreiraj Korisnika" HorizontalAlignment="Right"
+                    Margin="0,279,23,0"
+                    VerticalAlignment="Top" Width="158" Height="34" Click="CreatePatient_Click" RenderTransformOrigin="0.5,1.5" Grid.ColumnSpan="2" />
         </Grid>
 
     </Grid>

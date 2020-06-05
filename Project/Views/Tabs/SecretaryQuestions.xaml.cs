@@ -56,5 +56,16 @@ namespace Project.Views.Tabs
             s.Show();
 
         }
+
+        private void QuestionsList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            CurrentQuestion = (QuestionDTO)QuestionsList.SelectedItem;
+            SelectedQuestion.Visibility = Visibility.Visible;
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
