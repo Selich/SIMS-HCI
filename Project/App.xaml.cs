@@ -18,11 +18,11 @@ namespace Project
     /// </summary>
     public partial class App : Application
     {
-        // TODO: Treba da se nalazi u conf fajlu
         private static string PATIENT_FILEPATH = ConfigurationManager.AppSettings["PatientPath"].ToString();
         private static string QUESTION_FILEPATH = ConfigurationManager.AppSettings["QuestionPath"].ToString();
         private static string DELIMITER = ConfigurationManager.AppSettings["DelimiterValue"].ToString();
         private static string DATETIME_FORMAT = ConfigurationManager.AppSettings["DateTimeFormat"].ToString();
+
 
         private static string REPORT_ROOM_PATH = ConfigurationManager.AppSettings["ReportRoomPath"].ToString();
 

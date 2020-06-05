@@ -124,6 +124,10 @@
     <Compile Include="Services\QuestionService.cs" />
     <Compile Include="Services\ReportService.cs" />
     <Compile Include="Utility\PDFReportFactory.cs" />
+    <Compile Include="Views\Commands\DataContext.cs" />
+    <Compile Include="Views\Commands\MessageCommand.cs" />
+    <Compile Include="Views\Commands\ShowShortcutsCommand.cs" />
+    <Compile Include="Views\Converters\BoolToVisibilityConverter.cs" />
     <Compile Include="Views\Converters\IConverter.cs" />
     <Compile Include="Views\Converters\AddressConverter.cs" />
     <Compile Include="Views\Converters\PatientConverter.cs" />

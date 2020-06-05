@@ -23,6 +23,9 @@ namespace Project.Views.Tabs.AppointmentTabs
         public AppointmentsList()
         {
             InitializeComponent();
+
+
+            var app = Application.Current as App;
         }
     }
 }
