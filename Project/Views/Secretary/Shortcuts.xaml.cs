@@ -15,19 +15,13 @@ using System.Windows.Shapes;
 namespace Project.Views.Secretary
 {
     /// <summary>
-    /// Interaction logic for Test.xaml
+    /// Interaction logic for Shortcuts.xaml
     /// </summary>
-    public partial class Test : Window
+    public partial class Shortcuts : Window
     {
-        public Test()
+        public Shortcuts()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-
         }
     }
 }

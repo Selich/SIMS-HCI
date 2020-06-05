@@ -1,4 +1,5 @@
 ﻿using LiveCharts.Wpf;
+using MaterialDesignThemes.Wpf;
 using Project.Views.Secretary;
 using System;
 using System.Collections.Generic;
@@ -18,12 +19,12 @@ namespace Project.Views.Commands
 
             if (parameter.Equals("Shortcuts"))
             {
-                ShortcutsModal s = new ShortcutsModal();
+                Shortcuts s = new Shortcuts();
                 s.Show();
             }
             else if (parameter.Equals("Help"))
             {
-                ShortcutsModal s = new ShortcutsModal();
+                Shortcuts s = new Shortcuts();
                 s.Show();
 
             }
