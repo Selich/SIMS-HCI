@@ -15,7 +15,7 @@ namespace Project.Views.Converters
         DTO ConvertEntityToDTO(E entity);
 
         E ConvertDTOToEntity(DTO dto);
-        IEnumerable<E> ConvertListDTOToListEntity(IEnumerable<DTO> dtos);
-        IEnumerable<DTO> ConvertListEntityToListDTO(IEnumerable<E> entities);
+        List<E> ConvertListDTOToListEntity(IEnumerable<DTO> dtos);
+        IEnumerable<DTO> ConvertListEntityToListDTO(List<E> entities);
     }
 }

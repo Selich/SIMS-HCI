@@ -17,7 +17,7 @@ namespace Project.Views.Model
       public string Floor {get;set;}
       
       public List<EquipmentDTO> Equipment { get; set; }
-      public List<AppoitmentDTO> Appointments { get; set; }
+      public List<AppointmentDTO> Appointments { get; set; }
 
       public RoomDTO() {}
       public RoomDTO(int id, RoomType type, string ward, string floor) {

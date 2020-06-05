@@ -38,10 +38,10 @@ namespace Project.Views.Converters
                     entity.CreationDate
                     );
 
-        public IEnumerable<Question> ConvertListDTOToListEntity(IEnumerable<QuestionDTO> dtos)
+        public List<Question> ConvertListDTOToListEntity(IEnumerable<QuestionDTO> dtos)
             => dtos.Select(dto => ConvertDTOToEntity(dto)).ToList();
 
-        public IEnumerable<QuestionDTO> ConvertListEntityToListDTO(IEnumerable<Question> entities)
+        public IEnumerable<QuestionDTO> ConvertListEntityToListDTO(List<Question> entities)
             => entities.Select(entity => ConvertEntityToDTO(entity)).ToList();
     }
 }

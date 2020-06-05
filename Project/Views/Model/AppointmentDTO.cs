@@ -7,21 +7,21 @@ using System;
 
 namespace Project.Views.Model
 {
-    public class AppoitmentDTO
+    public class AppointmentDTO
     {
         public long Id { get; set; }
         public DateTime Beginning { get; set; }
         public DateTime End { get; set; }
 
-        public RoomDTO Room;
-        public AppoitmentDTO() { }
-        public AppoitmentDTO(DateTime beginning, DateTime end, RoomDTO room)
+        public RoomDTO Room { get; set; }
+        public AppointmentDTO() { }
+        public AppointmentDTO(DateTime beginning, DateTime end, RoomDTO room)
         {
             Beginning = beginning;
             End = end;
             Room = room;
         }
-        public AppoitmentDTO(long id, DateTime beginning, DateTime end, RoomDTO room)
+        public AppointmentDTO(long id, DateTime beginning, DateTime end, RoomDTO room)
         {
             Id = id;
             Beginning = beginning;

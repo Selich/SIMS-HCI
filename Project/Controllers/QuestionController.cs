@@ -34,7 +34,7 @@ namespace Controller
         public QuestionDTO GetById(long id) => _questionConverter.ConvertEntityToDTO(_service.GetById(id));
 
         public IEnumerable<QuestionDTO> GetAll() => 
-            _questionConverter.ConvertListEntityToListDTO(_service.GetAll());
+            _questionConverter.ConvertListEntityToListDTO((List<Question>)_service.GetAll());
 
         public QuestionDTO Remove(QuestionDTO entity) =>
             _questionConverter.ConvertEntityToDTO(_service.Remove(_questionConverter.ConvertDTOToEntity(entity)));

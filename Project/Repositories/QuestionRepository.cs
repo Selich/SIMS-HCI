@@ -25,6 +25,7 @@ namespace Project.Repositories
         public new IEnumerable<Question> Find(Func<Question, bool> predicate) => GetAllEager().Where(predicate);
 
 
+
         public IEnumerable<Question> GetAllEager() => GetAll();
         public Question GetEager(long id) => Get(id);
 

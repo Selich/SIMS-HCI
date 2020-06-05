@@ -16,15 +16,20 @@ namespace Project.Services
         {
             _questionRepository = questionRepository;
         }
-        public IEnumerable<Question> GetAll() => _questionRepository.GetAll();
+        public IEnumerable<Question> GetAll() 
+            => _questionRepository.GetAll();
 
-        public Question GetById(long id) => _questionRepository.Get(id);
+        public Question GetById(long id) 
+            => _questionRepository.Get(id);
 
-        public Question Save(Question question) => _questionRepository.Save(question);
+        public Question Save(Question question) 
+            => _questionRepository.Save(question);
 
-        public Question Update(Question question) => _questionRepository.Update(question);
+        public Question Update(Question question) 
+            => _questionRepository.Update(question);
 
-        public Question Remove(Question question) => _questionRepository.Remove(question);
+        public Question Remove(Question question) 
+            => _questionRepository.Remove(question);
 
     }
 }
