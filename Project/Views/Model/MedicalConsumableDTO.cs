@@ -8,14 +8,19 @@ namespace Project.Views.Model
 {
     public class MedicalConsumableDTO:ConsumabelsDTO
     {
-        public int Id { get; set; }
 
+        public List<MedicalAppointmentDTO> Appointments { get; set; }
         public MedicalConsumableDTO() { }
 
         public MedicalConsumableDTO(int id,string name, string type, string description, int quantitiy)
-            :base(name,type,description,quantitiy) 
+            :base(id,name,type,description,quantitiy) 
         {
-            this.Id = id;
+            
+        }
+        public MedicalConsumableDTO(string name, string type, string description, int quantitiy)
+            : base(name, type, description, quantitiy)
+        {
+
         }
     }
 }
