@@ -39,19 +39,19 @@ namespace Project.Repositories.CSV.Converter
             return new Patient(
                 long.Parse(tokens[0]),
                 new Address(), 
-                tokens[1],
                 tokens[2],
                 tokens[3],
                 tokens[4],
                 tokens[5],
-                DateTime.Parse(tokens[6]),
-                tokens[7],
+                tokens[6],
+                DateTime.Parse(tokens[7]),
                 tokens[8],
                 tokens[9],
-                float.Parse(tokens[10]),
+                tokens[10],
                 float.Parse(tokens[11]),
-                tokens[12],
-                tokens[13]
+                float.Parse(tokens[12]),
+                tokens[13],
+                tokens[14]
             );
         }
     }
