@@ -38,21 +38,13 @@ namespace Project.Repositories.CSV.Converter
                medicalAppointment.Room.Id,
                medicalAppointment.Type,
                medicalAppointment.Patient.Id,
-               _medicalAppointmentToDoctorRepository.Save(
-
+               ""
                );
 
         public MedicalAppointment ConvertCSVFormatToEntity(string questionCSVFormat)
         {
             string[] tokens = questionCSVFormat.Split(_delimiter.ToCharArray());
-            return new MedicalAppointment(
-                long.Parse(tokens[0]),
-                tokens[1],
-                tokens[2],
-                new Patient(),
-                new Secretary(),
-                DateTime.Parse(tokens[5])
-            );
+            return null;
         }
     }
 }
