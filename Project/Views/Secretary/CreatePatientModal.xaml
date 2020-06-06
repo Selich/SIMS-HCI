@@ -6,102 +6,189 @@
         xmlns:local="clr-namespace:Project.Views.Secretary"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="CreatePatientModal" Height="432" Width="886">
-    <Grid Margin="0,0,0,-31" Height="402" VerticalAlignment="Top">
-        <Rectangle HorizontalAlignment="Left" Height="402" VerticalAlignment="Top" Width="878">
-            <Rectangle.Fill>
-                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                    <GradientStop Color="#FF5FCEC8" Offset="0.273"/>
-                    <GradientStop Color="#FFAEEBE4" Offset="0.893"/>
-                </LinearGradientBrush>
-            </Rectangle.Fill>
-        </Rectangle>
-        <Grid HorizontalAlignment="Left" Height="353" Margin="246,23,0,0" VerticalAlignment="Top" Width="632">
-            <StackPanel Margin="0,10,0,-15">
-                <Label Content="Ime:"       HorizontalAlignment="Left"/>
-                <TextBox x:Name="Profile_FirstName" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding FirstName}"  Width="157" Background="White" />
-                <Label Content="Prezime:"   HorizontalAlignment="Left"/>
-                <TextBox x:Name="Profile_LastName"  HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding LastName}"  Width="157" Background="White" />
-                <Label Content="JMBG:"      HorizontalAlignment="Left"/>
-                <TextBox x:Name="Profile_JMBG"  HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding JMBG}"  Width="157" Background="White" />
-                <Label Content="Adresa:"    HorizontalAlignment="Left"/>
-                <TextBox x:Name="Profile_Address"  HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Address}"  Width="157" Background="White" />
-                <Label Content="Profesija:" HorizontalAlignment="Left"/>
-                <TextBox x:Name="Profile_Profession"  HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Profession}"  Width="157" Background="White" />
-                <Label Content="Broj Telefona:" HorizontalAlignment="Left"/>
-                <TextBox x:Name="Profile_TelephoneNumber"  HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding TelephoneNumber}"  Width="157" Background="White" />
-                <Label Content="Datum rođenja:"       HorizontalAlignment="Left"/>
-                <DatePicker x:Name="Profile_DateOfBirth" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="15.714,1.6" Width="157"/>
-            </StackPanel>
-        </Grid>
-        <Grid HorizontalAlignment="Left" Height="379" Margin="0,23,0,0" VerticalAlignment="Top" Width="206">
-            <Grid.Effect>
-                <DropShadowEffect BlurRadius="10" ShadowDepth="3" Direction="270"/>
-            </Grid.Effect>
-            <Grid.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FFD8D8D8" Offset="0"/>
-                    <GradientStop Color="#FFFFEDED" Offset="1"/>
-                </LinearGradientBrush>
-            </Grid.Background>
-            <Image HorizontalAlignment="Left" Height="157" Margin="23,27,0,0" VerticalAlignment="Top" Width="158" Source="/Project;component/Resources/Images/Faces/face5"/>
-            <Button Content="Izmeni sliku" HorizontalAlignment="Right" Margin="0,199,25,0" VerticalAlignment="Top" Width="158" Height="34"/>
-        </Grid>
-        <Grid HorizontalAlignment="Left" Height="335" Margin="469,67,0,0" VerticalAlignment="Top" Width="409">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0*"/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Grid.Effect>
-                <DropShadowEffect Direction="270" BlurRadius="10" ShadowDepth="3"/>
-            </Grid.Effect>
-            <Grid.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FFFDFDFD" Offset="0"/>
-                    <GradientStop Color="White" Offset="1"/>
-                </LinearGradientBrush>
-            </Grid.Background>
-            <StackPanel Margin="10,10,10,-15" Grid.ColumnSpan="2">
-                <Label Content="BloodType:"       HorizontalAlignment="Left"/>
-                <ComboBox x:Name="Profile_BloodType"
-                          HorizontalAlignment="Left"
-                          Text="{Binding BloodType}"
-                          Width="157"
-                          Background="White">
-                    <ComboBoxItem Tag="A+" Content="A+" />
-                    <ComboBoxItem Tag="A-" Content="A-" />
-                    <ComboBoxItem Tag="B+" Content="B+" />
-                    <ComboBoxItem Tag="B-" Content="B-" />
-                    <ComboBoxItem Tag="0+" Content="0+" />
-                    <ComboBoxItem Tag="0-" Content="0-" />
-                    <ComboBoxItem Tag="AB+" Content="AB+" />
-                    <ComboBoxItem Tag="AB-" Content="AB-" />
-                </ComboBox>
-                <Label Content="Height:"       HorizontalAlignment="Left"/>
-                <TextBox x:Name="Profile_Height" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Height}"  Width="157" Background="White" />
-                <Label Content="Weight:"       HorizontalAlignment="Left"/>
-                <TextBox x:Name="Profile_Weight" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Weight}"  Width="157" Background="White" />
-                <Label Content="Gender:"       HorizontalAlignment="Left"/>
+        Title="CreatePatientModal"
+        Height="706"
+        Width="378">
+    <Grid Height="635"
+          Margin="17,27,16,0"
+          VerticalAlignment="Top">
+        <Grid.Effect>
+            <DropShadowEffect Direction="270"
+                              BlurRadius="10"
+                              ShadowDepth="3" />
+        </Grid.Effect>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1"
+                                 StartPoint="0.5,0">
+                <GradientStop Color="#FFFDFDFD"
+                              Offset="0" />
+                <GradientStop Color="White"
+                              Offset="1" />
+            </LinearGradientBrush>
+        </Grid.Background>
+        <StackPanel Margin="10"
+                    Grid.ColumnSpan="2">
+            <Grid Margin="0,0,118,0"
+                  Height="49">
+                <Label Content="Ime:"
+                       HorizontalAlignment="Left"
+                       Margin="0,0,0,25" />
+                <TextBox x:Name="Profile_FirstName"
+                         HorizontalAlignment="Left"
+                         TextWrapping="Wrap"
+                         Text="{Binding FirstName}"
+                         Width="135"
+                         Background="White"
+                         Margin="32,19,0,5" />
+            </Grid>
+            <Grid Margin="0,0,118,0"
+                  Height="49">
+                <Label Content="Prezime:"
+                       HorizontalAlignment="Left"
+                       Margin="0,0,0,25" />
+                <TextBox x:Name="Profile_LastName"
+                         HorizontalAlignment="Left"
+                         TextWrapping="Wrap"
+                         Text="{Binding LastName}"
+                         Width="135"
+                         Background="White"
+                         Margin="32,19,0,5" />
+            </Grid>
+            <Grid Margin="0,0,118,0"
+                  Height="49">
+                <Label Content="JMBG"
+                       HorizontalAlignment="Left"
+                       Margin="0,0,0,25" />
+                <TextBox x:Name="Profile_JMBG"
+                         HorizontalAlignment="Left"
+                         TextWrapping="Wrap"
+                         Text="{Binding JMBG}"
+                         Width="135"
+                         Background="White"
+                         Margin="32,19,0,5" />
+            </Grid>
+            <Grid Margin="0,0,118,0"
+                  Height="49">
+                <Label Content="Adresa:"
+                       HorizontalAlignment="Left"
+                       Margin="0,0,0,25" />
+                <TextBox x:Name="Profile_Address"
+                         HorizontalAlignment="Left"
+                         TextWrapping="Wrap"
+                         Text="{Binding Address}"
+                         Width="135"
+                         Background="White"
+                         Margin="32,19,0,5" />
+            </Grid>
+            <Grid Margin="0,0,118,0"
+                  Height="49">
+                <Label Content="Broj telefona:"
+                       HorizontalAlignment="Left"
+                       Margin="0,0,0,25" />
+                <TextBox x:Name="Profile_TelephoneNumber"
+                         HorizontalAlignment="Left"
+                         TextWrapping="Wrap"
+                         Text="{Binding TelephoneNumber}"
+                         Width="135"
+                         Background="White"
+                         Margin="32,19,0,5" />
+            </Grid>
+            <Grid Margin="0,0,118,0"
+                  Height="49">
+                <Label Content="Datum rodjenja:"
+                       HorizontalAlignment="Left"
+                       Margin="0,0,0,25" />
+                <DatePicker x:Name="Profile_DateOfBirth"
+                            HorizontalAlignment="Left"
+                            Text="{Binding DateOfBirth}"
+                            Width="135"
+                            Background="White"
+                            Margin="32,19,0,5" />
+            </Grid>
+            <StackPanel Margin="0,0,185,0"
+                        Orientation="Vertical" />
+            <StackPanel Height="52"
+                        Margin="0,0,185,0"
+                        Orientation="Horizontal">
+                <Label Content="Pol:"
+                       HorizontalAlignment="Left"
+                       Margin="0,4,0,24" />
                 <ComboBox x:Name="Profile_Gender"
                           HorizontalAlignment="Left"
                           Text="{Binding Gender}"
-                          Width="157"
-                          Background="White">
+                          Width="56"
+                          Background="White"
+                          Margin="0,19,0,5">
                     <ComboBoxItem Tag="Muški"
                                   Content="Muški" />
                     <ComboBoxItem Tag="Ženski"
                                   Content="Ženski" />
                 </ComboBox>
 
-                <Label Content="Insurence Number:"       HorizontalAlignment="Left"/>
-                <TextBox x:Name="Profile_InsurenceNumber" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Weight}"  Width="157" Background="White" />
-                <Label Content="Email:"     HorizontalAlignment="Left"/>
-                <TextBox x:Name="Profile_Email"  HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Email}"  Width="157" Background="White" />
             </StackPanel>
-            <Button Content="Kreiraj Korisnika" HorizontalAlignment="Right"
-                    Margin="0,279,23,0"
-                    VerticalAlignment="Top" Width="158" Height="34" Click="CreatePatient_Click" RenderTransformOrigin="0.5,1.5" Grid.ColumnSpan="2" />
-        </Grid>
+            <StackPanel Height="53"
+                        Margin="0,0,173,0"
+                        Orientation="Horizontal">
+                <Label Content="Krvna Grupa:"
+                       HorizontalAlignment="Left"
+                       Margin="0,0,0,28" />
+                <ComboBox x:Name="Profile_BloodType"
+                          HorizontalAlignment="Left"
+                          Text="{Binding BloodType}"
+                          Width="57"
+                          Background="White"
+                          Margin="0,17,0,8">
+                    <ComboBoxItem Tag="A+"
+                                  Content="A+" />
+                    <ComboBoxItem Tag="A-"
+                                  Content="A-" />
+                    <ComboBoxItem Tag="B+"
+                                  Content="B+" />
+                    <ComboBoxItem Tag="B-"
+                                  Content="B-" />
+                    <ComboBoxItem Tag="0+"
+                                  Content="0+" />
+                    <ComboBoxItem Tag="0-"
+                                  Content="0-" />
+                    <ComboBoxItem Tag="AB+"
+                                  Content="AB+" />
+                    <ComboBoxItem Tag="AB-"
+                                  Content="AB-" />
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Margin="0,0,96,0"
+                        Orientation="Vertical"
+                        Height="71">
 
+                <Label Content="Broj osiguranja:"
+                       HorizontalAlignment="Left" />
+                <TextBox x:Name="Profile_InsurenceNumber"
+                         HorizontalAlignment="Left"
+                         TextWrapping="Wrap"
+                         Text="{Binding Weight}"
+                         Width="157"
+                         Background="White"
+                         Margin="39,0,-39,0" />
+            </StackPanel>
+            <StackPanel Height="49"
+                        Margin="0,0,87,0"
+                        Orientation="Horizontal">
+                <Label Content="Email:"
+                       HorizontalAlignment="Left"
+                       Margin="0,0,0,25" />
+                <TextBox x:Name="Profile_Email"
+                         HorizontalAlignment="Left"
+                         TextWrapping="Wrap"
+                         Text="{Binding Email}"
+                         Width="157"
+                         Background="White"
+                         Margin="0,22,0,2"
+                         RenderTransformOrigin="0.529,0" />
+            </StackPanel>
+            <Button Content="Kreiraj"
+                    Height="44"
+                    Margin="0,50,0,0"
+                    Click="CreatePatient_Click" />
+        </StackPanel>
     </Grid>
 </Window>

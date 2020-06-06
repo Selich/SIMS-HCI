@@ -298,6 +298,9 @@
     <Compile Include="Views\Secretary\SecretaryHomeWindow.xaml.cs">
       <DependentUpon>SecretaryHomeWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Secretary\Shortcuts.xaml.cs">
+      <DependentUpon>Shortcuts.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Secretary\ShortcutsModal.xaml.cs">
       <DependentUpon>ShortcutsModal.xaml</DependentUpon>
     </Compile>
@@ -341,6 +344,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Views\Validators\EmailValidationRule.cs" />
+    <Compile Include="Views\Validators\NotEmptyValidationRule.cs" />
     <Page Include="Resources\Styles\Buttons.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -462,6 +467,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Secretary\SecretaryHomeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Secretary\Shortcuts.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
