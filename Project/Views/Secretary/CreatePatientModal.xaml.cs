@@ -28,6 +28,9 @@ namespace Project.Views.Secretary
         public string Address { get; set; }
         public string TelephoneNumber { get; set; }
         public string Profession { get; set; }
+        public string Gender { get; set; }
+        public DateTime DateOfBirth { get; set; }
+        public string InsurenceNumber { get; set; }
         public string Email { get; set; }
         public string BloodType { get; set; }
         public string Weight { get; set; }
@@ -41,35 +44,34 @@ namespace Project.Views.Secretary
         }
         private bool isValidInputLength(string input) => (input.Length == 0) ? false : true;
 
-        private void validateInput(TextBox input)
-        {
-            if (!isValidInputLength(Profile_FirstName.Text)) input.Focus();
-        }
-
         private void CreatePatient_Click(object sender, RoutedEventArgs e)
         {
-            validateInput(Profile_FirstName);
-            validateInput(Profile_LastName);
-            validateInput(Profile_JMBG);
-            validateInput(Profile_Email);
-
-            AddressDTO addressDTO = AddressParser.ConvertStringToAddressDTO(Profile_Address.Text);
+            FirstName = Profile_FirstName.Text;
+            LastName = Profile_LastName.Text;
+            JMBG = Profile_JMBG.Text;
+            TelephoneNumber = Profile_TelephoneNumber.Text;
+            Gender = Profile_Gender.Text;
+            DateOfBirth = Profile_DateOfBirth.SelectedDate.GetValueOrDefault();
+            InsurenceNumber = Profile_InsurenceNumber.Text;
+            BloodType = Profile_BloodType.SelectedItem.ToString();
+            //Height = Profile_Height.Text;
+            //Weight = Profile_Weight.Text;
 
 //TODO: Add telephone number parser
             _patientController.Save(new PatientDTO(
-                addressDTO,
-                Profile_FirstName.Text,
-                Profile_LastName.Text,
-                Profile_JMBG.Text,
-                Profile_TelephoneNumber.Text,
-                Profile_Gender.Text,
-                Profile_DateOfBirth.SelectedDate.GetValueOrDefault(),
-                Profile_InsurenceNumber.Text,
-                Profile_Profession.Text,
-                Profile_BloodType.Text,
-                float.Parse(Profile_Height.Text),
-                float.Parse(Profile_Weight.Text),
-                Profile_Email.Text,
+                new AddressDTO(),
+                FirstName,
+                LastName,
+                JMBG,
+                TelephoneNumber,
+                Gender,
+                DateOfBirth,
+                InsurenceNumber,
+                Profession,
+                BloodType,
+                float.Parse(Height),
+                float.Parse(Weight),
+                Email,
                 ""
                 ));
 
