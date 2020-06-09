@@ -54,7 +54,7 @@
                     </ListBox.ItemTemplate>
                 </ListBox>
                 <TextBlock HorizontalAlignment="Left" Margin="149,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Width="190" FontWeight="Bold" Grid.Row="2" Grid.Column="1"><Run Text="Detaljno:"/><LineBreak/><Run/></TextBlock>
-                <StackPanel Margin="149,88,10,8" Orientation="Vertical" DataContext="{Binding ElementName=PropositionList, Path=SelectedItem}" Grid.Row="2" Grid.Column="1">
+                <StackPanel Grid.Row="2" Grid.Column="1" Margin="149,88,10,8" Orientation="Vertical" DataContext="{Binding ElementName=PropositionList, Path=SelectedItem}">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock>Status:</TextBlock>
                         <TextBlock Text="{Binding State}"/>
@@ -90,14 +90,14 @@
                     <Button Content="Nazad" HorizontalAlignment="Left" Margin="36,26,0,0" VerticalAlignment="Top" Width="74" Click="OpenEmplyees"/>
                     <Image Source="/Project;component/Resources/Icons/hospital.png"  HorizontalAlignment="Left" Height="170" Margin="36,90,0,0" VerticalAlignment="Top" Width="170" OpacityMask="#FFF12511"/>
                     <Label Content="Dr. Petar Petrovic" HorizontalAlignment="Left" Margin="219,91,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514" FontWeight="Bold" FontSize="15"/>
-                    <Label Content="Korisnicko ime:" HorizontalAlignment="Left" Margin="219,177,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
+                    <Label Content="Email:" HorizontalAlignment="Left" Margin="219,177,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
                     <Label Content="Adresa:" HorizontalAlignment="Left" Margin="219,215,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
                     <Label Content="Ime:" HorizontalAlignment="Left" Margin="219,258,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
                     <Label Content="Prezime:" HorizontalAlignment="Left" Margin="219,298,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
                     <Label Content="Datum rodjenja:" HorizontalAlignment="Left" Margin="219,336,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
                     <Label Content="JMBG:" HorizontalAlignment="Left" Margin="219,371,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
                     <Label Content="Bolnica:" HorizontalAlignment="Left" Margin="219,414,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
-                    <Grid Name="employeeData" Margin="324,140,790,193">
+                    <Grid Name="employeeData" Margin="324,140,790,175">
                         <TextBox IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="0,37,0,0" TextWrapping="Wrap" Text="Pera123" VerticalAlignment="Top" Width="120"/>
                         <TextBox IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="0,74,0,0" TextWrapping="Wrap" Text="Balzakova 22,NS" VerticalAlignment="Top" Width="120"/>
                         <TextBox IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="0,119,0,0" TextWrapping="Wrap" Text="Petar" VerticalAlignment="Top" Width="120"/>

@@ -11,17 +11,17 @@
         <Button Content="Odustani" HorizontalAlignment="Left" Margin="485,456,0,0" VerticalAlignment="Top" Width="113" RenderTransformOrigin="-0.14,0" Click="CloseInventoryManagment"/>
         <Label Content="Soba 205:" HorizontalAlignment="Left" Margin="39,127,0,0" VerticalAlignment="Top" FontSize="15" FontWeight="Bold"/>
         <Label Content="Magacin:" HorizontalAlignment="Left" Margin="411,127,0,0" VerticalAlignment="Top" FontSize="15" FontWeight="Bold"/>
-        <DataGrid Name="DataGridExample"  AutoGenerateColumns="False" HorizontalAlignment="Left" Height="227" Margin="39,192,0,0" VerticalAlignment="Top" Width="281" BorderThickness="1" RowDetailsVisibilityMode="Visible">
+        <DataGrid Name="DataGridLeft" ItemsSource="{Binding Equipment}" PreviewMouseLeftButtonDown="ListView_PreviewMouseLeftButtonDown" MouseMove="ListView_MouseMove" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="227" Margin="39,192,0,0" VerticalAlignment="Top" Width="281" BorderThickness="1" RowDetailsVisibilityMode="Visible">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Name" Binding="{Binding name}" />
-                <DataGridTextColumn Header="Type" Binding="{Binding type}" />
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+                <DataGridTextColumn Header="Type" Binding="{Binding Type}" />
             </DataGrid.Columns>
 
         </DataGrid>
-        <DataGrid Name="MagacinGrid"  AutoGenerateColumns="False" HorizontalAlignment="Left" Height="227" Margin="411,192,0,0" VerticalAlignment="Top" Width="281" BorderThickness="1">
+        <DataGrid  ItemsSource="{Binding Equipment2}" Name="DataGridRight" AllowDrop="True" DragOver="ListView_DragOver" Drop="ListView_Drop"   AutoGenerateColumns="False" HorizontalAlignment="Left" Height="227" Margin="411,192,0,0" VerticalAlignment="Top" Width="281" BorderThickness="1">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Name" Binding="{Binding name}" />
-                <DataGridTextColumn Header="Type" Binding="{Binding type}" />
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+                <DataGridTextColumn Header="Type" Binding="{Binding Type}" />
             </DataGrid.Columns>
 
         </DataGrid>
