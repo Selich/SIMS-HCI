@@ -24,24 +24,72 @@ namespace Project.Views.Secretary
     /// </summary>
     public partial class DoctorSearchModal : Window
     {
-        public ObservableCollection<DoctorDTO> Doctors { get; set; }
+        App app;
+        public List<String> MedicalRoles;
+        private SecretaryCreate secretaryCreate;
 
         public DoctorSearchModal()
         {
             this.DataContext = this;
-            var app = System.Windows.Application.Current as App;
-            Doctors = new ObservableCollection<DoctorDTO>
-            {
-                new DoctorDTO() { Id = 0, FirstName = "Nikola", LastName = "Selic" },
-                new DoctorDTO() { Id = 1, FirstName = "Nikola", LastName = "Selic" },
-                new DoctorDTO() { Id = 2, FirstName = "Nikola", LastName = "Selic" },
-                new DoctorDTO() { Id = 3, FirstName = "Nikola", LastName = "Selic" }
-            };
+            app = System.Windows.Application.Current as App;
+            InitializeComponent();
+            DoctorList.ItemsSource = app.doctors;
+            MedicalRole_ComboBox.ItemsSource = app.medicalRoles;
+
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(DoctorList.ItemsSource);
+            view.Filter = CombinedFilter;
 
         }
 
-        private void DoctorList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        public DoctorSearchModal(SecretaryCreate secretaryCreate)
         {
+            this.DataContext = this;
+            app = System.Windows.Application.Current as App;
+            InitializeComponent();
+            DoctorList.ItemsSource = app.doctors;
+            MedicalRole_ComboBox.ItemsSource = app.medicalRoles;
+
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(DoctorList.ItemsSource);
+            view.Filter = CombinedFilter;
+        }
+
+        private bool FirstNameFilter(object item)
+          => (String.IsNullOrEmpty(NameSearch_TextBox.Text) ||
+            (item as DoctorDTO).FirstName.IndexOf(NameSearch_TextBox.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+        private bool LastNameFilter(object item)
+          => (String.IsNullOrEmpty(LastNameSearch_TextBox.Text) ||
+            (item as DoctorDTO).LastName.IndexOf(LastNameSearch_TextBox.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+        private bool MedicalRoleFilter(object item)
+          => (MedicalRole_ComboBox.SelectedItem.ToString().Contains("Sve")) ||
+            (item as DoctorDTO).MedicalRole.IndexOf(MedicalRole_ComboBox.SelectedItem.ToString(), StringComparison.OrdinalIgnoreCase) >= 0;
+
+        private bool CombinedFilter(object item)
+            => FirstNameFilter(item) &&
+               LastNameFilter(item) &&
+               MedicalRoleFilter(item);
+
+
+
+        private void NameSearch_TextBox_TextChanged(object sender, TextChangedEventArgs e)
+            => CollectionViewSource.GetDefaultView(DoctorList.ItemsSource).Refresh();
+        private void LastNameSearch_TextBox_TextChanged(object sender, TextChangedEventArgs e)
+            => CollectionViewSource.GetDefaultView(DoctorList.ItemsSource).Refresh();
+
+
+        private void MedicalRole_ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+            => CollectionViewSource.GetDefaultView(DoctorList.ItemsSource).Refresh();
+
+        private void DoctorList_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                app.selectedDoctor = (DoctorList.SelectedItem as DoctorDTO);
+                //CollectionViewSource.GetDefaultView(createP).Refresh();
+
+                this.Close();
+
+            }
+                
 
         }
     }

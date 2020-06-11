@@ -26,56 +26,65 @@ namespace Project.Views.Tabs
     /// </summary>
     public partial class SecretaryCreate : System.Windows.Controls.UserControl
     {
-        public DoctorSearchModal DoctorModal;
-        public ObservableCollection<MedicalAppointmentDTO> Appoitments { get; set; }
-        public ObservableCollection<RoomDTO> Rooms { get; set; }
         private readonly IController<PatientDTO, long> _patientController;
+        App app;
         public SecretaryCreate()
         {
             InitializeComponent();
 
 
             this.DataContext = this;
-            var app = System.Windows.Application.Current as App;
+            app = System.Windows.Application.Current as App;
 
-            dateTimePicker.SelectedDate = DateTime.Today;
+            StartDateTime.SelectedDate = DateTime.Now;
+            EndDateTime.SelectedDate = DateTime.Now.AddMinutes(30);
 
-            _patientController = app.PatientController;
+            //_patientController = app.PatientController;
+            //ListPatients.ItemsSource = _patientController.GetAll();
 
-            ListPatients.ItemsSource = _patientController.GetAll();
-            RoomDTO tempRoom = new RoomDTO() { Floor = "One", Id = 4, Ward = "Check" };
-            Appoitments = new ObservableCollection<MedicalAppointmentDTO>();
-            Appoitments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 10, 15, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 10, 15, 30, 0) });
-            Appoitments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 11, 18, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 11, 18, 30, 0) });
-            Appoitments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 12, 15, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 12, 15, 30, 0) });
-            Appoitments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 13, 15, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 13, 15, 30, 0) });
-            Appoitments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 14, 11, 0, 0), Type = MedicalAppointmentType.operation, End = new DateTime(2020, 5, 14, 11, 30, 0) });
-            Appoitments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 15, 14, 0, 0), Type = MedicalAppointmentType.operation, End = new DateTime(2020, 5, 15, 14, 30, 0) });
-            Rooms = new ObservableCollection<RoomDTO>();
-            Rooms.Add(new RoomDTO() { Id = 0, Type = RoomType.hospitalRoom, Floor = "1", Ward = "F" });
-            Rooms.Add(new RoomDTO() { Id = 1, Type = RoomType.hospitalRoom, Floor = "1", Ward = "D" });
-            Rooms.Add(new RoomDTO() { Id = 2, Type = RoomType.hospitalRoom, Floor = "2", Ward = "F" });
-            Rooms.Add(new RoomDTO() { Id = 3, Type = RoomType.hospitalRoom, Floor = "3", Ward = "F" });
+            // HCI
+            ListPatients.ItemsSource = app.patients;
+            ListTerms.ItemsSource = app.medicalAppointments;
+            ListRooms.ItemsSource = app.rooms;
+            AppointmentType.ItemsSource = app.medicalAppointmentTypes;
+
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(ListPatients.ItemsSource);
+            view.Filter = CombinedFilter;
+
+
         }
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private bool CombinedFilter(object item)
+            => FirstNameFilter(item) && JMBGFilter( item);
+        private bool FirstNameFilter(object item)
+          => (String.IsNullOrEmpty(FirstNameSearch_TextBox.Text) ||
+            (item as PatientDTO).FirstName.IndexOf(FirstNameSearch_TextBox.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+        private bool JMBGFilter(object item)
+          => (String.IsNullOrEmpty(JMBGSearch_TextBox.Text) ||
+            (item as PatientDTO).Jmbg.IndexOf(FirstNameSearch_TextBox.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+        private void FirstNameSearch_TextBox_TextChanged(object sender, TextChangedEventArgs e)
+            => CollectionViewSource.GetDefaultView(ListPatients.ItemsSource).Refresh();
+
+
+        private void JMBGSearch_TextBox_TextChanged(object sender, TextChangedEventArgs e)
+            => CollectionViewSource.GetDefaultView(ListPatients.ItemsSource).Refresh();
+
+
+        private void AppointmentType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var s = new Test();
-            s.Show();
-            //List_Patients_Create.Visibility = Visibility.Hidden;
-            //Guest_Button.Visibility = Visibility.Hidden;
-            //Guest_Account_Create.Visibility = Visibility.Visible;
-            //Cancel_Button.Visibility = Visibility.Visible;
+
         }
-        private void Cancel_Button_Click(object sender, RoutedEventArgs e)
+        private void Cancel_Guest_Button_Click(object sender, RoutedEventArgs e)
         {
-            //List_Patients_Create.Visibility = Visibility.Visible;
-            //Guest_Button.Visibility = Visibility.Visible;
-            //Guest_Account_Create.Visibility = Visibility.Hidden;
-            //Cancel_Button.Visibility = Visibility.Hidden;
         }
+
+        private void Create_Guest_Button_Click(object sender, RoutedEventArgs e) => new Test().Show();
+        private void Feedback_Click(object sender, RoutedEventArgs e) => new FeedbackModal().Show();
+
+        private void Search_Doctor(object sender, RoutedEventArgs e) => new DoctorSearchModal(this).Show();
+
         private void Create_Click(object sender, RoutedEventArgs e)
         {
-            if (roomFilter.Text == "")
+            if (RoomNumber_TextBox.Text == "")
             {
                 System.Windows.Forms.MessageBox.Show(
                     "Nije izabrana soba. Da li zelite da Vam sistem sam obezbedi dostupnu sobu?",
@@ -84,7 +93,7 @@ namespace Project.Views.Tabs
                     );
 
             }
-            if (drLabel2.Content == null)
+            if (RoomNumber_TextBox.Text == null)
             {
                 DialogResult result = System.Windows.Forms.MessageBox.Show(
                     "Nije izabran ni jedan lekar. Da li zelite da Vam sistem sam obezbedi dostupnog lekara?",
@@ -102,37 +111,27 @@ namespace Project.Views.Tabs
 
 
         }
-        private void Clear_Click(object sender, RoutedEventArgs e)
-        {
-            drLabel2.Content = null;
 
-        }
-
-        private void Feedback_Click(object sender, RoutedEventArgs e)
-        {
-            var s = new FeedbackModal();
-            s.Show();
-
-        }
-        private void RoomFilter_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
-        {
-            //CollectionViewSource.GetDefaultView(listRoom.ItemsSource).Refresh();
-        }
-        private void TxtFilterCreate_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
-        {
-            //CollectionViewSource.GetDefaultView(listPatientsCreate.ItemsSource).Refresh();
-        }
-
-        private void Search_Doctor(object sender, RoutedEventArgs e) => DoctorModal.Show();
-
-        private void DatePick_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        private void RoomNumber_TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }
 
-        private void listRoom_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void StartDateTime_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void EndDateTime_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void ListPatients_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+                app.selectedPatient = (ListPatients.SelectedItem as PatientDTO);
+                
         }
     }
 }

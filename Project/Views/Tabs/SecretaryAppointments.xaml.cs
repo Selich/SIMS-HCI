@@ -11,6 +11,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -22,41 +23,21 @@ namespace Project.Views.Tabs
     /// <summary>
     /// Interaction logic for SecretaryAppointments.xaml
     /// </summary>
-    public partial class SecretaryAppointments : UserControl
+    public partial class SecretaryAppointments : System.Windows.Controls.UserControl
     {
-        public DateTime SelectedDate;
-        public DateTime StartOfTheWeek;
-        public DateTime EndOfTheWeek;
-        public DateTime CurrentDate;
-        public List<MedicalAppointmentDTO> appointments;
+        App app;
         public SecretaryAppointments()
         {
             InitializeComponent();
-            DataContext = appointments;
-
-        }
-        private void Search_Doctor(object sender, RoutedEventArgs e) {
-            var s = new DoctorSearchModal();
-            s.Show();
-        }
-        private void Clear_Click(object sender, RoutedEventArgs e)
-        {
-            drLabel.Content = null;
-
-        }
-        private void Feedback_Click(object sender, RoutedEventArgs e)
-        {
-            var s = new FeedbackModal();
-            s.Show();
-
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            var s = new SecretaryGenerateReport();
-            s.Show();
+            DataContext = this;
+            app = System.Windows.Application.Current as App;
+            CurrentDoctor.Content = app.selectedDoctor;
+            nextAppointment.Content = app.medicalAppointments[0];
 
 
         }
+        private void Search_Doctor(object sender, RoutedEventArgs e) => new DoctorSearchModal().Show();
+        private void Feedback_Click(object sender, RoutedEventArgs e) => new FeedbackModal().Show();
+        private void Button_Click(object sender, RoutedEventArgs e) => new SecretaryGenerateReport().Show();
     }
 }

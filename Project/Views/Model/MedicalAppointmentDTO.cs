@@ -17,6 +17,7 @@ namespace Project.Views.Model
         public GuestDTO Patient { get; set; }
         public ReviewDTO Review { get; set; }
         public IEnumerable<ConsumabelsDTO> Consumebles;
+        public List<AnamnesisDTO> Anamnesis { get; set; }
 
         public MedicalAppointmentDTO() { }
 

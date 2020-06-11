@@ -12,11 +12,12 @@ namespace Project.Model
     public class MedicalAppointment : Appointment
     {
         public MedicalAppointmentType Type { get; set; }
-        public List<Doctor> Doctors;
-        public Guest Patient;
-        public List<Consumebles> Consumebles;
-        public Review Review;
-        public List<Anamnesis> Anamnesis;
+        public List<Doctor> Doctors { get; set; }
+        public Guest Patient{ get; set; }
+
+        public List<Consumebles> Consumebles{ get; set; }
+        public Review Review{ get; set; }
+        public List<Anamnesis> Anamnesis { get; set; }
 
         public MedicalAppointment() { }
 

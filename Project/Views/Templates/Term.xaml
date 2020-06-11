@@ -6,7 +6,6 @@
                 <TextBlock FontSize="14" Text="{Binding Beginning, StringFormat=hh:mm}" VerticalAlignment="Center" Margin="30,0,0,0"/>
                 <TextBlock FontSize="14" Text="-" VerticalAlignment="Center" Margin="70,0,0,0"/>
                 <TextBlock FontSize="14" Text="{Binding End, StringFormat=hh:mm}" VerticalAlignment="Center" Margin="80,0,0,0"/>
-                <CheckBox Background="White" HorizontalContentAlignment="Center" VerticalAlignment="Center" />
             </Grid>
         </DataTemplate>
     

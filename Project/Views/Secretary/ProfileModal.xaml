@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project.Views.Secretary"
+        WindowStartupLocation="CenterScreen"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="Project.Views.Secretary.ProfileModal"
         mc:Ignorable="d"
         Title="ProfileModal" Height="432" Width="850">
@@ -39,13 +40,7 @@
         </TabItem>
         <TabItem Header="Termini">
             <Grid>
-                <Grid.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#FFCDF3EE" Offset="1"/>
-                        <GradientStop Color="White" Offset="0.7"/>
-                    </LinearGradientBrush>
-                </Grid.Background>
-                <ListView Name="listAppointments" HorizontalAlignment="Left" Height="278" Margin="24,68,0,0" VerticalAlignment="Top" Width="772" SelectionChanged="listAppointments_SelectionChanged">
+                <ListView Name="ListAppointments" HorizontalAlignment="Left" Height="278" Margin="24,68,0,0" VerticalAlignment="Top" Width="772" SelectionChanged="listAppointments_SelectionChanged">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="Start" Width="120" DisplayMemberBinding="{Binding beginning}" />
@@ -57,13 +52,7 @@
         </TabItem>
         <TabItem Header="Istorija">
             <Grid>
-                <Grid.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#FFCDF3EE" Offset="1"/>
-                        <GradientStop Color="White" Offset="0.7"/>
-                    </LinearGradientBrush>
-                </Grid.Background>
-                <ListView Name="appointmentHistory" HorizontalAlignment="Left" Height="278" Margin="24,68,0,0" VerticalAlignment="Top" Width="772" >
+                <ListView Name="ListHistory" HorizontalAlignment="Left" Height="278" Margin="24,68,0,0" VerticalAlignment="Top" Width="772" >
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="Start" Width="120" DisplayMemberBinding="{Binding beginning}" />
