@@ -303,11 +303,18 @@
     </Compile>
     <Compile Include="Views\Utils\AddressParser.cs" />
     <Compile Include="Views\Utils\DateTimeExtensions.cs" />
+    <Compile Include="Views\Utils\Validation\AddressNumberValidate.cs" />
+    <Compile Include="Views\Utils\Validation\AddressValidate.cs" />
+    <Compile Include="Views\Utils\Validation\EmailValidate.cs" />
     <Compile Include="Views\Utils\FuzzyMatcher.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Views\Utils\Validation\InsuranceNumberValidate.cs" />
+    <Compile Include="Views\Utils\Validation\JmbgValidate.cs" />
+    <Compile Include="Views\Utils\Validation\NameValidate.cs" />
+    <Compile Include="Views\Utils\Validation\PostCodeValidate.cs" />
     <Page Include="Resources\Styles\Buttons.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
