@@ -68,11 +68,14 @@ namespace Project.Views.Director
 
        // public EmployeeDTO SelectedEmployee { get; set; }
 
+        public RoomDTO SelectedRoom { get; set; }
+
     public HomeWindow()
         {
            
             InitializeComponent();
             this.DataContext = this;
+            this.SelectedRoom = null;
             var app = Application.Current as App;
 
             _reportController = new ReportController();
@@ -198,12 +201,16 @@ namespace Project.Views.Director
        
         private void OpenRooms(object sender, RoutedEventArgs e)
         {
+           
             RoomDetails.Visibility = Visibility.Collapsed;
             Rooms.Visibility = Visibility.Visible;
         }
 
         private void OpenRoomDetails(object sender, RoutedEventArgs e)
         {
+            var btn = sender as Button;
+            RoomsList.SelectedItem = btn.DataContext;
+            SelectedRoom = btn.DataContext as RoomDTO;
             Rooms.Visibility = Visibility.Collapsed;
             RoomDetails.Visibility = Visibility.Visible;
         }

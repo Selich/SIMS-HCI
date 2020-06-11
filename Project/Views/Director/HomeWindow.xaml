@@ -407,7 +407,7 @@
         </TabItem>
         <TabItem Header="Prostorije">
             <Grid>
-                <Grid Name="Rooms" Visibility="Visible" Margin="0,0,0,0">
+                <Grid Name="Rooms" Visibility="Collapsed" Margin="0,0,0,0">
                     <Label Content="Rezultati pretrage" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,36,0,0" FontSize="20" Grid.ColumnSpan="2"/>
                     <Grid Margin="40,97,40,457">
                         <ComboBox HorizontalAlignment="Left" Margin="24,36,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="-0.029,0.607">
@@ -430,7 +430,7 @@
                         <Button Height="50" Margin="1063,24,20,16" Content="Pretraga"/>
 
                     </Grid>
-                    <ListBox ItemsSource="{Binding RoomList}" ScrollViewer.VerticalScrollBarVisibility="Visible" BorderThickness="2" Background="NavajoWhite" HorizontalAlignment="Left" Height="424" Margin="40,210,0,0" VerticalAlignment="Top" Width="802">
+                    <ListBox Name="RoomsList" ItemsSource="{Binding RoomList}" ScrollViewer.VerticalScrollBarVisibility="Visible" BorderThickness="2" Background="NavajoWhite" HorizontalAlignment="Left" Height="424" Margin="40,210,0,0" VerticalAlignment="Top" Width="802">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth4" Width="742" Height="110">
@@ -478,10 +478,9 @@
 
 
 
-                <Grid x:Name="RoomDetails" Margin="20,20,20,20" Visibility="Collapsed">
-                    <Label Content="Soba br.205" HorizontalAlignment="Left" Margin="25,88,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
+                <Grid x:Name="RoomDetails" Margin="0,0,0,0" Visibility="Visible" DataContext="{Binding ElementName=RoomsList, Path=SelectedItem}">
+                    <Label Content="Soba br." HorizontalAlignment="Left" Margin="25,88,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Width="89"/>
                     <Button Content="Nazad" HorizontalAlignment="Left" Margin="25,31,0,0" VerticalAlignment="Top" Width="74" Click="OpenRooms"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="25,148,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="106" Width="266" FontSize="13"><Run Text="Sprat: 3."/><LineBreak/><Run Text="Vrsta: Operaciona sala"/><LineBreak/><Run Text="Procenat zauzetosti: 42%"/><LineBreak/><Run Text="Najvise koriscena za: ..."/></TextBlock>
                     <Button Content="Prijavi gresku" HorizontalAlignment="Left" Margin="1142,579,0,0" VerticalAlignment="Top" Width="74" Click="OpenBugReportModal"/>
                     <GroupBox Header="Pregled tetmina" HorizontalAlignment="Left" Height="366" Margin="25,254,0,0" VerticalAlignment="Top" Width="1104" FontWeight="Bold">
                         <StackPanel Orientation="Horizontal">
@@ -500,8 +499,15 @@
                             </StackPanel>
                         </StackPanel>
                     </GroupBox>
-                    <Button Content="Zakazi opremanje" HorizontalAlignment="Left" Margin="935,42,0,0" VerticalAlignment="Top" Width="194" Click="OpenInventoryManagment"/>
-                    <Button Content="Zakazi renoviranje" Height="Auto" Margin="698,42,326,542" Click="OpenRenovationAppointment"/>
+                    <Button Content="Zakazi opremanje" HorizontalAlignment="Left" Margin="976,42,0,0" VerticalAlignment="Top" Width="194" Click="OpenInventoryManagment"/>
+                    <Button Content="Zakazi renoviranje" Height="Auto" Margin="698,42,326,582" Click="OpenRenovationAppointment"/>
+                    <Label Content="Sprat:" HorizontalAlignment="Left" Margin="25,146,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.306,-0.208"/>
+                    <TextBlock Text="{Binding Path=Id}" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" Margin="114,92,0,0" TextWrapping="Wrap" Width="70" VerticalAlignment="Top"/>
+                    <Label Content="Departman:" HorizontalAlignment="Left" Margin="25,175,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.306,-0.208"/>
+                    <TextBlock Text="{Binding Path=Floor}" HorizontalAlignment="Left" Margin="68,150,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="141"/>
+                    <TextBlock Text="{Binding Path=Ward}" HorizontalAlignment="Left" Margin="95,179,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="114"/>
+                    <Label Content="Tip:" HorizontalAlignment="Left" Margin="29,204,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.306,-0.208"/>
+                    <TextBlock Text="{Binding Path=Type}" HorizontalAlignment="Left" Margin="61,208,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="148"/>
 
 
 
