@@ -17,41 +17,34 @@ namespace Project.Controllers
     public class PatientController : IController<PatientDTO, long>
     {
         private IService<Patient, long> _service;
-        PatientConverter converter;
+        private IConverter<Patient, PatientDTO> _converter;
 
-        public PatientController(IService<Patient, long> service)
+        public PatientController(IService<Patient, long> service, IConverter<Patient, PatientDTO> converter)
         {
             _service = service;
-            converter = new PatientConverter();
+            _converter = converter;
 
         }
-        public PatientDTO Get(long id)
-        {
-            throw new NotImplementedException();
-        }
+        public PatientDTO GetById(long id) => _converter.ConvertEntityToDTO(_service.GetById(id));
 
-        public IEnumerable<PatientDTO> GetAll()
-        {
-            //List<Patient> patients = _service.GetAll();
-            return null;
-        }
+        public IEnumerable<PatientDTO> GetAll() => _converter.ConvertListEntityToListDTO((List<Patient>)_service.GetAll());
 
         public PatientDTO Remove(PatientDTO entity)
         {
-            Patient patient = _service.Remove(converter.ConvertDTOToEntity(entity));
-            return converter.ConvertEntityToDTO(patient);
+            Patient patient = _service.Remove(_converter.ConvertDTOToEntity(entity));
+            return _converter.ConvertEntityToDTO(patient);
         }
 
         public PatientDTO Save(PatientDTO entity)
         {
-            Patient patient = _service.Save(converter.ConvertDTOToEntity(entity));
-            return converter.ConvertEntityToDTO(patient);
+            Patient patient = _service.Save(_converter.ConvertDTOToEntity(entity));
+            return _converter.ConvertEntityToDTO(patient);
         }
 
         public PatientDTO Update(PatientDTO entity)
         {
-            Patient patient = _service.Update(converter.ConvertDTOToEntity(entity));
-            return converter.ConvertEntityToDTO(patient);
+            Patient patient = _service.Update(_converter.ConvertDTOToEntity(entity));
+            return _converter.ConvertEntityToDTO(patient);
         }
 
     }

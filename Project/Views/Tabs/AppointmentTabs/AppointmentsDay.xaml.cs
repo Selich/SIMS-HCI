@@ -40,11 +40,6 @@ namespace Project.Views.Tabs.AppointmentTabs
                 End = new DateTime(2008, 10, 22, 17, 00, 00)
             };
 
-            AddAppointmentWindow aaw = new AddAppointmentWindow();
-            aaw.DataContext = appointment;
-            aaw.ShowDialog();
-
-            appointments.Add(appointment);
 
         }
     }

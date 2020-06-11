@@ -1,4 +1,5 @@
 ﻿using Project.Model;
+using Project.Views.Commands;
 using Project.Views.Model;
 using Project.Views.Tabs;
 using System;
@@ -23,10 +24,7 @@ namespace Project.Views.Secretary
     /// </summary>
     public partial class SecretaryHomeWindow : Window
     {
-        public string drName { get; set; }
-
-        public MedicalAppointment selectedAppointment;
-        public Question selectedQuestion;
+        public MedicalAppointmentDTO SelectedAppointment;
 
         public SecretaryHomeWindow()
         {
@@ -36,30 +34,20 @@ namespace Project.Views.Secretary
 
             InitializeComponent();
 
-            //listPatients.ItemsSource = pr.ReadCSV("../../Data/patients.csv");
-            //listPatientsCreate.ItemsSource = pr.ReadCSV("../../Data/patients.csv");
-
-            //listQuestions.ItemsSource = qr.ReadCSV("../../Data/questions.csv");
-            //listTerm.ItemsSource = medicalAppointments;
-            //listAppointments.ItemsSource = medicalAppointments;
-            //nextAppointment.Content = medicalAppointments[0];
-
-            //listRoom.ItemsSource = gen.GetRooms(10);
+            DataContext = new DataContext();
 
 
-            //lst.ItemsSource = GenerateTerms();
+        //CollectionView viewAdress = (CollectionView)CollectionViewSource.GetDefaultView(listPatients.ItemsSource);
+        //CollectionView viewNumber = (CollectionView)CollectionViewSource.GetDefaultView(listPatients.ItemsSource);
+        //CollectionView view       = (CollectionView)CollectionViewSource.GetDefaultView(listPatients.ItemsSource);
+        //CollectionView viewCreate = (CollectionView)CollectionViewSource.GetDefaultView(listPatientsCreate.ItemsSource);
+        //CollectionView viewRooms  = (CollectionView)CollectionViewSource.GetDefaultView(listRoom.ItemsSource);
 
-            //CollectionView viewAdress = (CollectionView)CollectionViewSource.GetDefaultView(listPatients.ItemsSource);
-            //CollectionView viewNumber = (CollectionView)CollectionViewSource.GetDefaultView(listPatients.ItemsSource);
-            //CollectionView view       = (CollectionView)CollectionViewSource.GetDefaultView(listPatients.ItemsSource);
-            //CollectionView viewCreate = (CollectionView)CollectionViewSource.GetDefaultView(listPatientsCreate.ItemsSource);
-            //CollectionView viewRooms  = (CollectionView)CollectionViewSource.GetDefaultView(listRoom.ItemsSource);
+        //view.Filter = UserFilter;
+        //viewCreate.Filter = UserFilterCreate;
+        //viewRooms.Filter = RoomFilter;
 
-            //view.Filter = UserFilter;
-            //viewCreate.Filter = UserFilterCreate;
-            //viewRooms.Filter = RoomFilter;
-
-        }
+    }
 
         public void ViewHelp()
         {
@@ -73,17 +61,16 @@ namespace Project.Views.Secretary
             s.Show();
 
         }
-        private void Question_Click(object sender, RoutedEventArgs e)
-        {
-            Question item = (Question)(sender as System.Windows.Controls.Button).DataContext;
-            var s = new QuestionModal(item);
-            s.Show();
-
-        }
         private void Profile_Click(object sender, RoutedEventArgs e)
         {
             GuestDTO item = (GuestDTO)(sender as System.Windows.Controls.Button).DataContext;
             var s = new ProfileModal(item);
+            s.Show();
+
+        }
+        private void ShowShortcuts(object sender, RoutedEventArgs e)
+        {
+            var s = new ShortcutsModal();
             s.Show();
 
         }

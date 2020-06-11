@@ -42,10 +42,11 @@
             <TextBox HorizontalAlignment="Left" Height="23" Margin="45,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="219" RenderTransformOrigin="0.464,0.565"/>
             <Label Content="Password:" HorizontalAlignment="Left" Margin="42,161,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.552,1.998"/>
             <PasswordBox  HorizontalAlignment="Left" Height="23" Margin="45,182,0,0"  VerticalAlignment="Top" Width="219" RenderTransformOrigin="0.464,0.565"/>
-            <Button FontSize="11" Content="Login" HorizontalAlignment="Left" Margin="45,250,0,0" VerticalAlignment="Top" Width="80" RenderTransformOrigin="-0.048,0.55" Height="23" Click="Button_Click"/>
-            <Button  FontSize="11" Content="Register" HorizontalAlignment="Left" Margin="187,251,0,0" VerticalAlignment="Top" Width="79" Height="23" Click="Button_Click_1"/>
+            <Button FontSize="11" Content="Login" HorizontalAlignment="Left" Margin="45,250,0,0" VerticalAlignment="Top" Width="80" RenderTransformOrigin="-0.048,0.55" Height="23" Click="Login_Click"/>
+            <Button  FontSize="11" Content="Register" HorizontalAlignment="Left" Margin="187,251,0,0" VerticalAlignment="Top" Width="79" Height="23" Click="Register_Click"/>
             <TextBlock HorizontalAlignment="Left" Margin="42,206,0,0" TextWrapping="Wrap" Text="Forgot Password?" VerticalAlignment="Top" />
             <Image HorizontalAlignment="Left" Height="73" Margin="121,33,0,0" VerticalAlignment="Top" Width="66" Source="../Resources/Icons/hospital.png"/>
+            <Button FontSize="11" Content="Director" HorizontalAlignment="Left" Margin="-32,316,0,-34" VerticalAlignment="Top" Width="80" RenderTransformOrigin="-0.048,0.55" Height="23" Click="Director_Click"/>
 
         </Grid>
     </Grid>

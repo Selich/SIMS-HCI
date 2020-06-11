@@ -28,16 +28,17 @@ namespace Project.Views.Tabs
         public DateTime StartOfTheWeek;
         public DateTime EndOfTheWeek;
         public DateTime CurrentDate;
-        public DoctorSearchModal DoctorModal;
         public List<MedicalAppointmentDTO> appointments;
         public SecretaryAppointments()
         {
-            DoctorModal = new DoctorSearchModal(this);
             InitializeComponent();
             DataContext = appointments;
 
         }
-        private void Search_Doctor(object sender, RoutedEventArgs e) => DoctorModal.Show();
+        private void Search_Doctor(object sender, RoutedEventArgs e) {
+            var s = new DoctorSearchModal();
+            s.Show();
+        }
         private void Clear_Click(object sender, RoutedEventArgs e)
         {
             drLabel.Content = null;

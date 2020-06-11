@@ -3,7 +3,7 @@ namespace Project.Services
 {
     public interface IService<E, ID> where E : class
     {
-        E Get(ID id);
+        E GetById(ID id);
         IEnumerable<E> GetAll();
         E Save(E entity);
         E Update(E entity);

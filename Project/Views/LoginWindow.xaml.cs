@@ -28,6 +28,7 @@ namespace Project.Views
 
             this.FontFamily = new FontFamily("Segoe UI");
 
+
         }
 
         private void Secretary_Click(object sender, RoutedEventArgs e)
@@ -51,16 +52,16 @@ namespace Project.Views
             s.Show();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Login_Click(object sender, RoutedEventArgs e)
         {
-            var s = new Patient.HomeWindow();
+            
+            var s = new Secretary.SecretaryHomeWindow();
             s.Show();
 
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Register_Click(object sender, RoutedEventArgs e)
         {
-            //var s = new Patient.RegisterPatient(app.PatientController);
             var s = new Patient.RegisterPatient();
             s.Show();
 

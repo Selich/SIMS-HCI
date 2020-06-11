@@ -5,22 +5,30 @@
 
 using System;
 using System.Windows.Documents;
+using System.Collections.Generic;
 
 namespace Project.Model
 {
     public class MedicalAppointment : Appointment
     {
         public MedicalAppointmentType Type { get; set; }
-        public System.Collections.Generic.List<Doctor> Doctors;
-        public Patient Patient;
-        public System.Collections.Generic.List<Consumebles> Consumebles;
+        public List<Doctor> Doctors;
+        public Guest Patient;
+        public List<Consumebles> Consumebles;
         public Review Review;
-        public System.Collections.Generic.List<Anamnesis> Anamnesis;
+        public List<Anamnesis> Anamnesis;
 
         public MedicalAppointment() { }
 
-        public MedicalAppointment(int id, DateTime beginning, DateTime end, Room room, MedicalAppointmentType type, Patient patient, System.Collections.Generic.List<Doctor> doctors)
+        public MedicalAppointment(long id, DateTime beginning, DateTime end, Room room, MedicalAppointmentType type, Guest patient, List<Doctor> doctors)
         : base(id, beginning, end, room)
+        {
+            Type = type;
+            Patient = patient;
+            Doctors = doctors;
+        }
+        public MedicalAppointment(DateTime beginning, DateTime end, Room room, MedicalAppointmentType type, Guest patient, List<Doctor> doctors)
+        : base(beginning, end, room)
         {
             Type = type;
             Patient = patient;

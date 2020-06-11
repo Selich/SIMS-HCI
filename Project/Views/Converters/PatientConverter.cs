@@ -33,12 +33,12 @@ namespace Project.Views.Converters
                 => new PatientDTO(
                 entity.Id,
                 new AddressDTO(
-                    entity.Address.Id,
-                    entity.Address.Number,
-                    entity.Address.Street,
-                    entity.Address.City,
-                    entity.Address.Country,
-                    entity.Address.PostCode
+                    //entity.Address.Id,
+                    //entity.Address.Number,
+                    //entity.Address.Street,
+                    //entity.Address.City,
+                    //entity.Address.Country,
+                    //entity.Address.PostCode
                 ),
                 entity.FirstName,
                 entity.LastName,
@@ -54,10 +54,10 @@ namespace Project.Views.Converters
                 entity.Email,
                 entity.Password);
 
-        public List<Project.Model.Patient> ConvertListDTOToListEntity(List<PatientDTO> dtos)
+        public List<Project.Model.Patient> ConvertListDTOToListEntity(IEnumerable<PatientDTO> dtos)
             => dtos.Select(dto => ConvertDTOToEntity(dto)).ToList();
 
-        public List<PatientDTO> ConvertListEntityToListDTO(List<Project.Model.Patient> entities)
+        public IEnumerable<PatientDTO> ConvertListEntityToListDTO(List<Project.Model.Patient> entities)
             => entities.Select(entity => ConvertEntityToDTO(entity)).ToList();
     }
 }

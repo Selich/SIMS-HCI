@@ -9,7 +9,7 @@ namespace Project.Services
 {
     class ReportService : IService<Report, long>
     {
-        public Report Get(long id)
+        public Report GetById(long id)
         {
             throw new NotImplementedException();
         }

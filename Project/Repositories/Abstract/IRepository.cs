@@ -7,7 +7,7 @@ namespace Project.Repositories.Abstract
         where E : IIdentifiable<ID>
         where ID : IComparable
     {
-        E Get(ID id);
+        E GetById(ID id);
         IEnumerable<E> GetAll();
         E Save(E entity);
         E Update(E entity);

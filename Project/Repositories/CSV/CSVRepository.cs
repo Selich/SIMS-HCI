@@ -39,7 +39,7 @@ namespace Project.Repositories.CSV
             .Where(predicate);
 
 
-        public E Get(ID id)
+        public E GetById(ID id)
         {
             try
             {

@@ -66,6 +66,9 @@
     <Reference Include="MaterialDesignColors, Version=1.2.4.1361, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\MaterialDesignColors.1.2.4\lib\net45\MaterialDesignColors.dll</HintPath>
     </Reference>
+    <Reference Include="MaterialDesignExtensions, Version=3.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\MaterialDesignExtensions.3.1.0\lib\net45\MaterialDesignExtensions.dll</HintPath>
+    </Reference>
     <Reference Include="MaterialDesignThemes.Wpf, Version=3.1.1.1361, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\MaterialDesignThemes.3.1.1\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
     </Reference>
@@ -113,30 +116,66 @@
     <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\ReviewController.cs" />
     <Compile Include="Controllers\RoomController.cs" />
+    <Compile Include="Model\Appointment.cs" />
+    <Compile Include="Model\ApprovalStates\StateApproved.cs" />
+    <Compile Include="Model\ApprovalStates\StateInReview.cs" />
+    <Compile Include="Model\ApprovalStates\StateRejected.cs" />
     <Compile Include="Model\BindableObject.cs" />
     <Compile Include="Model\Reports\MedicineReport.cs" />
     <Compile Include="Model\Reports\RoomReport.cs" />
     <Compile Include="Model\Anamnesis.cs" />
+    <Compile Include="Repositories\Abstract\IMedicalAppointmentRepository.cs" />
+    <Compile Include="Repositories\Abstract\IQuestionRepository.cs" />
+    <Compile Include="Repositories\Abstract\IRoomRepository.cs" />
+    <Compile Include="Repositories\CSV\Converter\MedicalAppointmentCSVConverter.cs" />
+    <Compile Include="Repositories\CSV\Converter\QuestionCSVConverter.cs" />
+    <Compile Include="Repositories\CSV\Converter\RoomCSVConverter.cs" />
+    <Compile Include="Repositories\ManyToMany\Converter\MedicalAppointmentToDoctorCSVConverter.cs" />
+    <Compile Include="Repositories\ManyToMany\Model\MedicalAppointmentToDoctor.cs" />
+    <Compile Include="Repositories\ManyToMany\Repositories\Abstract\IMedicalAppointmentToDoctorRepository.cs" />
+    <Compile Include="Repositories\ManyToMany\Repositories\MedicalAppointmentToDoctorRepository.cs" />
+    <Compile Include="Repositories\MedicalAppointmentRepository.cs" />
+    <Compile Include="Repositories\QuestionRepository.cs" />
+    <Compile Include="Repositories\RoomRepository.cs" />
+    <Compile Include="Services\MedicalAppointmentService.cs" />
+    <Compile Include="Services\QuestionService.cs" />
     <Compile Include="Services\ReportService.cs" />
     <Compile Include="Utility\PDFReportFactory.cs" />
+    <Compile Include="Views\Commands\DataContext.cs" />
+    <Compile Include="Views\Commands\MessageCommand.cs" />
+    <Compile Include="Views\Commands\ShowShortcutsCommand.cs" />
+    <Compile Include="Views\Converters\AppointmentConverter.cs" />
+    <Compile Include="Views\Converters\BoolToVisibilityConverter.cs" />
+    <Compile Include="Views\Converters\DoctorConverter.cs" />
+    <Compile Include="Views\Converters\GuestConverter.cs" />
     <Compile Include="Views\Converters\IConverter.cs" />
     <Compile Include="Views\Converters\AddressConverter.cs" />
+    <Compile Include="Views\Converters\MedicalAppointmentConverter.cs" />
     <Compile Include="Views\Converters\PatientConverter.cs" />
+    <Compile Include="Views\Converters\QuestionConverter.cs" />
+    <Compile Include="Views\Converters\RoomConverter.cs" />
     <Compile Include="Views\Model\AddressDTO.cs" />
     <Compile Include="Views\Model\AnamnesisDTO.cs" />
-    <Compile Include="Views\Model\AppoitmentDTO.cs" />
+    <Compile Include="Views\Model\AppointmentDTO.cs" />
     <Compile Include="Views\Model\ApprovalDTO.cs" />
     <Compile Include="Views\Model\ConsumeblesDTO.cs" />
+    <Compile Include="Views\Model\DirectorDTO.cs" />
     <Compile Include="Views\Model\DoctorDTO.cs" />
     <Compile Include="Views\Model\EmployeeDTO.cs" />
+    <Compile Include="Views\Model\EquipmentDTO.cs" />
     <Compile Include="Views\Model\GuestDTO.cs" />
     <Compile Include="Views\Model\MedicalAppointmentDTO.cs" />
+    <Compile Include="Views\Model\MedicalConsumableDTO.cs" />
+    <Compile Include="Views\Model\MedicineDTO.cs" />
     <Compile Include="Views\Model\PatientDTO.cs" />
+    <Compile Include="Views\Model\PrescriptionDTO.cs" />
+    <Compile Include="Views\Model\PropositionDTO.cs" />
+    <Compile Include="Views\Model\QuestionDTO.cs" />
     <Compile Include="Views\Model\ReviewDTO.cs" />
     <Compile Include="Views\Model\RoomDTO.cs" />
+    <Compile Include="Views\Model\SecretaryDTO.cs" />
     <Compile Include="Views\Model\UserDTO.cs" />
     <Compile Include="Model\Address.cs" />
-    <Compile Include="Model\Appoitment.cs" />
     <Compile Include="Model\Approval.cs" />
     <Compile Include="Model\Consumebles.cs" />
     <Compile Include="Model\Director.cs" />
@@ -244,9 +283,6 @@
     <Compile Include="Views\Patient\RegisterPatient.xaml.cs">
       <DependentUpon>RegisterPatient.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Secretary\AddAppointmentWindow.xaml.cs">
-      <DependentUpon>AddAppointmentWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\Secretary\AppointmentModal.xaml.cs">
       <DependentUpon>AppointmentModal.xaml</DependentUpon>
     </Compile>
@@ -259,14 +295,17 @@
     <Compile Include="Views\Secretary\ProfileModal.xaml.cs">
       <DependentUpon>ProfileModal.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Secretary\QuestionModal.xaml.cs">
-      <DependentUpon>QuestionModal.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\Secretary\SecretaryGenerateReport.xaml.cs">
       <DependentUpon>SecretaryGenerateReport.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Secretary\SecretaryHomeWindow.xaml.cs">
       <DependentUpon>SecretaryHomeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Secretary\Shortcuts.xaml.cs">
+      <DependentUpon>Shortcuts.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Secretary\ShortcutsModal.xaml.cs">
+      <DependentUpon>ShortcutsModal.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Secretary\Test.xaml.cs">
       <DependentUpon>Test.xaml</DependentUpon>
@@ -303,18 +342,13 @@
     </Compile>
     <Compile Include="Views\Utils\AddressParser.cs" />
     <Compile Include="Views\Utils\DateTimeExtensions.cs" />
-    <Compile Include="Views\Utils\Validation\AddressNumberValidate.cs" />
-    <Compile Include="Views\Utils\Validation\AddressValidate.cs" />
-    <Compile Include="Views\Utils\Validation\EmailValidate.cs" />
     <Compile Include="Views\Utils\FuzzyMatcher.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Views\Utils\Validation\InsuranceNumberValidate.cs" />
-    <Compile Include="Views\Utils\Validation\JmbgValidate.cs" />
-    <Compile Include="Views\Utils\Validation\NameValidate.cs" />
-    <Compile Include="Views\Utils\Validation\PostCodeValidate.cs" />
+    <Compile Include="Views\Validators\EmailValidationRule.cs" />
+    <Compile Include="Views\Validators\NotEmptyValidationRule.cs" />
     <Page Include="Resources\Styles\Buttons.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -415,10 +449,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Secretary\AddAppointmentWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Views\Secretary\AppointmentModal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -435,15 +465,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Secretary\QuestionModal.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\Secretary\SecretaryGenerateReport.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Secretary\SecretaryHomeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Secretary\Shortcuts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Secretary\ShortcutsModal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
