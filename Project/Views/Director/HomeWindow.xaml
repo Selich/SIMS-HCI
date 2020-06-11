@@ -7,9 +7,9 @@
         xmlns:local="clr-namespace:Project.Views.Director"
         mc:Ignorable="d"
         Title="HomeWindow" Height="720" Width="1280">
-    <TabControl HorizontalAlignment="Left"  VerticalAlignment="Top">
+    <TabControl HorizontalAlignment="Left"  VerticalAlignment="Top" Height="684" Width="1270">
         <TabItem Header="Profil">
-            <Grid>
+            <Grid Height="662">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="329*"/>
                     <ColumnDefinition Width="478*"/>
@@ -29,14 +29,16 @@
                     <Label Content="Bolnica:" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="14" Margin="18,0,0,0"/>
                 </StackPanel>
                 <Button Grid.Column="1" Grid.Row="1" Content="Izmeni" Name="Change_btn" Margin="50,19,228,0" VerticalAlignment="Top" Height="53" Click="ChangeProfile" FontSize="25" FontWeight="Bold"/>
-                <TextBlock HorizontalAlignment="Left" Margin="24,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Width="120" Grid.Column="1"><Run Text="Ime Prezime"/><LineBreak/><Run/></TextBlock>
-
-                <Grid Margin="143,77,196,59" Grid.Column="1" >
-                    <TextBox x:Name="email" IsEnabled="False" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding Path=Director.Email}" VerticalAlignment="Top" Width="139"/>
-                    <TextBox x:Name="adress" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="0,29,0,0" TextWrapping="Wrap" Text="{Binding Path=Director.Address}" VerticalAlignment="Top" Width="139"/>
-                    <TextBox x:Name="dateofbirth" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="0,59,0,0" TextWrapping="Wrap" Text="{Binding Path=Director.DateOfBirth}" VerticalAlignment="Top" Width="139"/>
-                    <TextBox x:Name="jmbg" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="0,87,0,0" TextWrapping="Wrap" Text="{Binding Path=Director.Jmbg}" VerticalAlignment="Top" Width="139"/>
-                    <TextBox x:Name="hospital" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="0,116,0,0" TextWrapping="Wrap" Text="{Binding Path=Director.Hospital}" VerticalAlignment="Top" Width="139"/>
+                <StackPanel Orientation="Horizontal" Margin="24,24,147,241" Grid.Column="1">
+                    <TextBlock Text="{Binding Path=Director.FirstName}" HorizontalAlignment="Left"  TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Width="87"  Height="33"/>
+                    <TextBlock Text="{Binding Path=Director.LastName}" HorizontalAlignment="Left"  TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Width="94"  Height="33"/>
+                </StackPanel>
+                <Grid Margin="143,77,68,59" Grid.Column="1" DataContext="{Binding Path=Director}">
+                    <TextBox x:Name="email"  IsEnabled="False" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding Path=Email}" VerticalAlignment="Top" Width="254"/>
+                    <TextBox x:Name="adress" IsReadOnly="True" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="0,29,0,0" TextWrapping="Wrap" Text="{Binding Path=Address,Mode=OneWay, Converter={local:AdressToStringConverter}}"  VerticalAlignment="Top" Width="254"/>
+                    <TextBox x:Name="dateofbirth" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="0,59,0,0" TextWrapping="Wrap" Text="{Binding Path=DateOfBirth}" VerticalAlignment="Top" Width="254"/>
+                    <TextBox x:Name="jmbg" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="0,87,0,0" TextWrapping="Wrap" Text="{Binding Path=Jmbg}" VerticalAlignment="Top" Width="254"/>
+                    <TextBox x:Name="hospital" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="0,116,0,0" TextWrapping="Wrap" Text="{Binding Path=Hospital}" VerticalAlignment="Top" Width="254"/>
                 </Grid>
 
                 <Separator Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" Height="30" Margin="0" VerticalAlignment="Top" Width="1270" Grid.ColumnSpan="3"/>
@@ -69,11 +71,11 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock>Broj pozitivnih odgovora:</TextBlock>
-                        <TextBlock  Text="DORADITI"/>
+                        <TextBlock  Text="{Binding Positive}"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock>Broj negativnih odgovora:</TextBlock>
-                        <TextBlock Text="DORADITI"/>
+                        <TextBlock Text="{Binding Negative}"/>
                     </StackPanel>
 
                 </StackPanel>
@@ -86,10 +88,9 @@
         </TabItem>
         <TabItem Header="Zaposleni">
             <Grid>
-                <Grid Name="EmployeeDetailsGrid" Margin="20,20,20,20" Visibility="Collapsed">
+                <Grid Name="EmployeeDetailsGrid" Margin="0,0,0,0" Visibility="Collapsed" DataContext="{Binding ElementName=EmployeeList, Path=SelectedItem}">
                     <Button Content="Nazad" HorizontalAlignment="Left" Margin="36,26,0,0" VerticalAlignment="Top" Width="74" Click="OpenEmplyees"/>
                     <Image Source="/Project;component/Resources/Icons/hospital.png"  HorizontalAlignment="Left" Height="170" Margin="36,90,0,0" VerticalAlignment="Top" Width="170" OpacityMask="#FFF12511"/>
-                    <Label Content="Dr. Petar Petrovic" HorizontalAlignment="Left" Margin="219,91,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514" FontWeight="Bold" FontSize="15"/>
                     <Label Content="Email:" HorizontalAlignment="Left" Margin="219,177,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
                     <Label Content="Adresa:" HorizontalAlignment="Left" Margin="219,215,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
                     <Label Content="Ime:" HorizontalAlignment="Left" Margin="219,258,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
@@ -97,17 +98,15 @@
                     <Label Content="Datum rodjenja:" HorizontalAlignment="Left" Margin="219,336,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
                     <Label Content="JMBG:" HorizontalAlignment="Left" Margin="219,371,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
                     <Label Content="Bolnica:" HorizontalAlignment="Left" Margin="219,414,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
-                    <Grid Name="employeeData" Margin="324,140,790,175">
-                        <TextBox IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="0,37,0,0" TextWrapping="Wrap" Text="Pera123" VerticalAlignment="Top" Width="120"/>
-                        <TextBox IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="0,74,0,0" TextWrapping="Wrap" Text="Balzakova 22,NS" VerticalAlignment="Top" Width="120"/>
-                        <TextBox IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="0,119,0,0" TextWrapping="Wrap" Text="Petar" VerticalAlignment="Top" Width="120"/>
-                        <TextBox IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="0,158,0,0" TextWrapping="Wrap" Text="Petrovic Njegos" VerticalAlignment="Top" Width="120"/>
-                        <TextBox IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="0,194,0,0" TextWrapping="Wrap" Text="13.11.1813" VerticalAlignment="Top" Width="120"/>
-                        <TextBox IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="0,233,0,0" TextWrapping="Wrap" Text="1311813022132" VerticalAlignment="Top" Width="120"/>
-                        <TextBox IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="0,274,0,0" TextWrapping="Wrap" Text="Klinicki centar Tirana" VerticalAlignment="Top" Width="120"/>
-                        <TextBox IsEnabled="False" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Lekar" VerticalAlignment="Top" Width="120"/>
+                    <Grid Name="employeeData" Margin="312,140,726,170">
+                        <TextBox Text="{Binding Path=Email}" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="0,37,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="178"/>
+                        <TextBox IsReadOnly="True" Text="{Binding Path=Address,Converter={local:AdressToStringConverter}}" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="0,74,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178"/>
+                        <TextBox Text="{Binding Path=FirstName}" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="0,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178"/>
+                        <TextBox Text="{Binding Path=LastName}" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="0,158,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178"/>
+                        <TextBox Text="{Binding Path=DateOfBirth}" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="0,194,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178"/>
+                        <TextBox Text="{Binding Path=Jmbg}" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="0,233,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="178"/>
+                        <TextBox Text="{Binding Path=Hospital}" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="0,274,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178"/>
                     </Grid>
-                    <Label Content="Pozicija:" HorizontalAlignment="Left" Margin="219,140,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
                     <Button Name="Change_employee" Content="Izmeni" HorizontalAlignment="Left" Margin="219,522,0,0" VerticalAlignment="Top" Width="225" RenderTransformOrigin="0.68,3.484" Click="ChangeEmployeeProfile"/>
                     <GroupBox Header="Godisnji odmor:" HorizontalAlignment="Left" Height="193" Margin="550,89,0,0" VerticalAlignment="Top" Width="292">
                         <StackPanel>
@@ -154,6 +153,7 @@
                     </Border>
                     <Button x:Name="Save_employee" Content="Sacuvaj" Visibility="Collapsed" HorizontalAlignment="Left" Margin="219,468,0,0" VerticalAlignment="Top" Width="107" Click="CloseEmpoyeeProfileChanges"/>
                     <Button Name="Cancel_employee" Content="Odustani" Visibility="Collapsed" HorizontalAlignment="Left" Margin="349,468,0,0" VerticalAlignment="Top" Width="95" Click="CloseEmpoyeeProfileChanges"/>
+                    <Label Content="Dr. Petar Petrovic" HorizontalAlignment="Left" Margin="219,112,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514" FontWeight="Bold" FontSize="15"/>
 
 
 
@@ -192,7 +192,7 @@
                         <Button Height="50" Margin="1073,29,10,29" Content="Pretraga"/>
 
                     </Grid>
-                    <ListBox ItemsSource="{Binding Employees}" ScrollViewer.VerticalScrollBarVisibility="Visible" BorderThickness="2" Background="NavajoWhite" HorizontalAlignment="Left" Height="424" Margin="40,120,0,0" VerticalAlignment="Top" Width="802" Grid.Row="1">
+                    <ListBox Name="EmployeeList"  ItemsSource="{Binding Employees}" ScrollViewer.VerticalScrollBarVisibility="Visible" BorderThickness="2" Background="NavajoWhite" HorizontalAlignment="Left" Height="424" Margin="40,120,0,0" VerticalAlignment="Top" Width="802" Grid.Row="1">
                         <!--    <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth4" Width="726" Height="90">
                             <Grid>
                                 <Image Source="../../Resources/Images/Faces/face1" HorizontalAlignment="Left" Height="65" Margin="26,11,0,0" VerticalAlignment="Top" Width="66" Stretch="Fill"/>
@@ -246,12 +246,12 @@
                 <Label Content="Rezultati pretrage" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,36,0,0" FontSize="20" Grid.ColumnSpan="2"/>
                 <Grid Margin="40,97,40,457">
                     <Label Content="ID:" HorizontalAlignment="Left" Margin="68,46,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.472,0.75"/>
-                    <Label Content="Tip::" HorizontalAlignment="Left" Margin="256,46,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.472,0.75"/>
-                    <Label Content="Odobrene za:" HorizontalAlignment="Left" Margin="464,46,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.472,0.75"/>
+                    <Label Content="Tip:" HorizontalAlignment="Left" Margin="256,46,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.472,0.75"/>
+                    <Label Content="Naziv:" HorizontalAlignment="Left" Margin="480,45,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.472,0.75" Width="49"/>
                     <Label Content="Sotirati po:" HorizontalAlignment="Left" Margin="718,48,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.472,0.75"/>
                     <TextBox HorizontalAlignment="Left" Height="22" Margin="308,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                     <TextBox HorizontalAlignment="Left" Height="22" Margin="104,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0,0.432"/>
-                    <TextBox HorizontalAlignment="Left" Height="22" Margin="558,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <TextBox HorizontalAlignment="Left" Height="22" Margin="534,48,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                     <ComboBox HorizontalAlignment="Left" Margin="794,46,0,0" VerticalAlignment="Top" Width="120">
                         <ComboBoxItem IsSelected="True">Naziv(A-Z)</ComboBoxItem>
                         <ComboBoxItem>Tip(A-Z)</ComboBoxItem>
@@ -261,7 +261,7 @@
 
                 </Grid>
 
-                <ListBox ItemsSource="{Binding Equipment}" ScrollViewer.VerticalScrollBarVisibility="Visible" BorderThickness="2" Background="NavajoWhite" HorizontalAlignment="Left" Height="450" Margin="40,188,0,0" VerticalAlignment="Top" Width="1100">
+                <ListBox Name="EquipmentList" ItemsSource="{Binding Equipment}" ScrollViewer.VerticalScrollBarVisibility="Visible" BorderThickness="2" Background="NavajoWhite" HorizontalAlignment="Left" Height="450" Margin="40,188,0,0" VerticalAlignment="Top" Width="1100">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth4" Width="1067" Height="90">
@@ -302,8 +302,8 @@
                 <Grid Margin="40,97,40,457">
 
                     <Label Content="ID:" HorizontalAlignment="Left" Margin="48,38,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.472,0.75"/>
-                    <Label Content="Tip::" HorizontalAlignment="Left" Margin="229,36,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.472,0.75"/>
-                    <Label Content="Odobrene za:" HorizontalAlignment="Left" Margin="401,38,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.472,0.75"/>
+                    <Label Content="Tip:" HorizontalAlignment="Left" Margin="229,36,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.472,0.75"/>
+                    <Label Content="Naziv:" HorizontalAlignment="Left" Margin="433,38,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.472,0.75" Width="47"/>
                     <Label Content="Sotirati po:" HorizontalAlignment="Left" Margin="660,36,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.472,0.75"/>
                     <TextBox HorizontalAlignment="Left" Height="22" Margin="263,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                     <TextBox HorizontalAlignment="Left" Height="22" Margin="75,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0,0.432"/>
@@ -317,7 +317,7 @@
 
                 </Grid>
 
-                <ListBox ItemsSource="{Binding MedicalConsumables}" ScrollViewer.VerticalScrollBarVisibility="Visible" BorderThickness="2" Background="NavajoWhite" HorizontalAlignment="Left" Height="450" Margin="40,188,0,0" VerticalAlignment="Top" Width="1100">
+                <ListBox ItemsSource="{Binding MedicalConsumables, NotifyOnSourceUpdated=True}" ScrollViewer.VerticalScrollBarVisibility="Visible" BorderThickness="2" Background="NavajoWhite" HorizontalAlignment="Left" Height="450" Margin="40,188,0,0" VerticalAlignment="Top" Width="1100">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth4" Width="1067" Height="108">
@@ -501,7 +501,7 @@
                         </StackPanel>
                     </GroupBox>
                     <Button Content="Zakazi opremanje" HorizontalAlignment="Left" Margin="935,42,0,0" VerticalAlignment="Top" Width="194" Click="OpenInventoryManagment"/>
-                    <Button Content="Zakazi renoviranje" Height="Auto" Margin="698,42,326,558" Click="OpenRenovationAppointment"/>
+                    <Button Content="Zakazi renoviranje" Height="Auto" Margin="698,42,326,542" Click="OpenRenovationAppointment"/>
 
 
 

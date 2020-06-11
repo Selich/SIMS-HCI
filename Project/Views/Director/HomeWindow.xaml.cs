@@ -17,17 +17,39 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Project.Views.Model;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 
 namespace Project.Views.Director
 {
     /// <summary>
     /// Interaction logic for HomeWindow.xaml
     /// </summary>
-    public partial class HomeWindow : Window
+    /// 
+
+    /*
+     private string test1; --Binding je na Test1
+     public string Test1
+        {
+            get
+            {
+                return test1;
+            }
+            set
+            {
+                if (value != test1)
+                {
+                    test1 = value;
+                    OnPropertyChanged("Test1");
+                }
+            }
+        }
+     */
+    public partial class HomeWindow : Window, INotifyPropertyChanged
     {
         private ReportController _reportController;
         public AddressDTO DirectorAddress { get; set; }
         public DirectorDTO Director { get; set; }
+
 
         public ObservableCollection<PropositionDTO> Propositions {get; set;}
 
@@ -41,6 +63,11 @@ namespace Project.Views.Director
 
         public ObservableCollection<RoomDTO> RoomList { get; set; }
 
+        public RoomDTO Magacin { get; set; }
+
+
+       // public EmployeeDTO SelectedEmployee { get; set; }
+
     public HomeWindow()
         {
            
@@ -50,28 +77,32 @@ namespace Project.Views.Director
 
             _reportController = new ReportController();
             AddressDTO address = new AddressDTO("15", "Bulevar Cara Lazara", "Skoplje", "Severna Makedonija", "17954");
-            Director = new DirectorDTO(address,"Pera", "Peric", "0102031234567", "012/173212", "Male", new DateTime(1985, 11, 5), 13000, null, null, "pera@makedonac.nmac", "pass");
-            Director.Hospital = "Klinicki Centar Vojvodina";
+            Director = new DirectorDTO(address,"Pera", "Peric", "0102031234567", "012/173212", "Male", new DateTime(1985, 11, 5), 13000, null, null, "pera@makedonac.nmac", "pass", "Klinicki Centar Vojvodina");
+         
             Propositions = new ObservableCollection<PropositionDTO>();
-            Propositions.Add(new PropositionDTO("Berodual","JabadabaduOpisjuemLekNeki", "Odobren"));
-            Propositions.Add(new PropositionDTO("Promazepam", "JabadabaduOpisjuemLekNeki", "Odbijen"));
-            Propositions.Add(new PropositionDTO("Febricet", "JabadabaduOpisjuemLekNeki", "Odobren"));
-            Propositions.Add(new PropositionDTO("Strepsils", "JabadabaduOpisjuemLekNeki", "Odobren"));
-            Propositions.Add(new PropositionDTO("Venospas", "JabadabaduOpisjuemLekNeki", "U razmatranju"));
+            Propositions.Add(new PropositionDTO(1,"Berodual","Berodual je ...", "Odobren",5,2));
+            Propositions.Add(new PropositionDTO(2,"Promazepam", "Promazepam sluzi za ...", "Odbijen",3,7));
+            Propositions.Add(new PropositionDTO(3,"Febricet", "Febricet je valjda za temperaturu, Dr. Kon aj proveri", "Odobren",3,0));
+            Propositions.Add(new PropositionDTO(4,"Strepsils", "Tablete za upalu grla", "Odobren",6,2));
+            Propositions.Add(new PropositionDTO(5,"Venospas", "Revolucionarno lecenje ozoniranjem krvi", "U razmatranju",1,1));
+            Propositions.Add(new PropositionDTO(5, "ZdravkoHerbiko", "Sirup za grlo", "Odbijen", 1, 8));
+
 
             Employees = new ObservableCollection<EmployeeDTO>();
-            Employees.Add(new EmployeeDTO(address, "Sima", "Paroski", "0412631232567", "022/353452", "Male", new DateTime(1969, 6, 24), 24000, null, null, "simo@gmail.com", "sifria1"));
-            Employees.Add(new EmployeeDTO(address, "Humus", "Dumus", "05553331232567", "028/352352", "Female", new DateTime(1969, 6, 24), 23000, null, null, "simo@gmail.com", "sifria1"));
-            Employees.Add(new EmployeeDTO(address, "Petar", "Gringovic", "0412631232567", "022/353652", "Male", new DateTime(1969, 6, 24), 28000, null, null, "simo@gmail.com", "sifria1"));
-            Employees.Add(new EmployeeDTO(address, "Slavica", "Bubregovic", "0412631232567", "022/253452", "Female", new DateTime(1980, 6, 24), 2200, null, null, "simo@gmail.com", "sifria1"));
+            Employees.Add(new EmployeeDTO(address, "Sima", "Paroski", "0412631232567", "022/353452", "Male", new DateTime(1969, 6, 24), 24000, null, null, "simo@gmail.com", "sifria1","Klinicko Centar Vojvodina"));
+            Employees.Add(new EmployeeDTO(address, "Humus", "Dumus", "05553331232567", "028/352352", "Female", new DateTime(1969, 6, 24), 23000, null, null, "simo@gmail.com", "sifria1","Klinicko Centar Vojvodina"));
+            Employees.Add(new EmployeeDTO(address, "Petar", "Gringovic", "0412631232567", "022/353652", "Male", new DateTime(1969, 6, 24), 28000, null, null, "simo@gmail.com", "sifria1", "Klinicko Centar Vojvodina"));
+            Employees.Add(new EmployeeDTO(address, "Slavica", "Bubregovic", "0412631232567", "022/253452", "Female", new DateTime(1980, 6, 24), 2200, null, null, "simo@gmail.com", "sifria1","Klinicko Centar Vojvodina"));
+
 
             Equipment = new ObservableCollection<EquipmentDTO>();
-            RoomDTO room = new RoomDTO(0,RoomType.hospitalRoom,"magacin","");
-            Equipment.Add(new EquipmentDTO("Sto", "Namestaj", "Ovo je sto ima cetiri noge i na njega se stavljaju stvari", room));
-            Equipment.Add(new EquipmentDTO("Stolica", "Namestaj", "Ovo je stolica, ima cetiri noge i na njoj se sedi", room));
-            Equipment.Add(new EquipmentDTO("Operacioni sto", "Oprema", "Model XYZ,...", room));
-            Equipment.Add(new EquipmentDTO("Vrata", "Infrastuktura", "Open Sesame", room));
-            Equipment.Add(new EquipmentDTO("Respirator", "Donacija", "Mehanicko disanje???", room));
+            Magacin = new RoomDTO(0,RoomType.hospitalRoom,"magacin","");
+            Equipment.Add(new EquipmentDTO(1,"Sto", "Namestaj", "Ovo je sto ima cetiri noge i na njega se stavljaju stvari", Magacin));
+            Equipment.Add(new EquipmentDTO(2,"Stolica", "Namestaj", "Ovo je stolica, ima cetiri noge i na njoj se sedi", Magacin));
+            Equipment.Add(new EquipmentDTO(3,"Operacioni sto", "Oprema", "Model XYZ,...", Magacin));
+            Equipment.Add(new EquipmentDTO(4,"Vrata", "Infrastuktura", "Open Sesame", Magacin));
+            Equipment.Add(new EquipmentDTO(5,"Respirator", "Donacija", "Mehanicko disanje???", Magacin));
+
 
             MedicalConsumables = new ObservableCollection<MedicalConsumableDTO>();
             MedicalConsumables.Add(new MedicalConsumableDTO(1, "Gaza", "zavoj", "zavoj je izmislio Vasko Popa...", 23));
@@ -79,11 +110,13 @@ namespace Project.Views.Director
             MedicalConsumables.Add(new MedicalConsumableDTO(3, "Hidrogen", "rastvor", "zavoj je izmislio Vasko Popa...", 18));
             MedicalConsumables.Add(new MedicalConsumableDTO(4, "Fizioloski rastvor", "rastvor", "zavoj je izmislio Vasko Popa...", 5));
 
+
             Medicine = new ObservableCollection<MedicineDTO>();
             Medicine.Add(new MedicineDTO(5, "Berodual", "kortikosteroid", "zavoj je izmislio Vasko Popa...", 23,"","intravenozno",false));
             Medicine.Add(new MedicineDTO(6, "Probiotik Ivancic&sons", "probiotik", "zavoj je izmislio Vasko Popa...", 16, "", "oralno", false));
             Medicine.Add(new MedicineDTO(7, "Fervex", "prasak", "zavoj je izmislio Vasko Popa...", 18, "", "", true));
             Medicine.Add(new MedicineDTO(8, "Zufiofilum", "antibiotik", "zavoj je izmislio Vasko Popa...", 5, "", "", true));
+
 
             RoomList = new ObservableCollection<RoomDTO>();
             RoomList.Add(new RoomDTO(12,RoomType.hospitalRoom,"Intenzivna nega","4"));
@@ -142,12 +175,16 @@ namespace Project.Views.Director
 
         private void OpenEmployeeDataModal(object sender, RoutedEventArgs e)
         {
-            EmployeeDataModal modal = new EmployeeDataModal();
+            
+            EmployeeDataModal modal = new EmployeeDataModal(this); //prosledjujemo home window da bi mogli novog zaposlenog da dodamo u listu Employees
             modal.ShowDialog();
         }
 
         private void OpenEmployeeDetails(object sender, RoutedEventArgs e)
         {
+            // SelectedEmployee = (EmployeeDTO)EmployeeList.SelectedItem;
+            var btn = sender as Button;
+            EmployeeList.SelectedItem = btn.DataContext;
             EmployeesGrid.Visibility = Visibility.Collapsed;
             EmployeeDetailsGrid.Visibility = Visibility.Visible;
         }
@@ -173,25 +210,30 @@ namespace Project.Views.Director
 
         private void OpenEquipmentOrder(object sender, RoutedEventArgs e)
         {
-            OrderEquipmentModal modal = new OrderEquipmentModal();
+            var btn = sender as Button;
+            //EquipmentList.SelectedItem = btn.DataContext;
+            OrderEquipmentModal modal = new OrderEquipmentModal(this,(EquipmentDTO)btn.DataContext);
             modal.Show();
         }
 
         private void OpenMedicineOrder(object sender, RoutedEventArgs e)
         {
-            OrderMedicineModal modal = new OrderMedicineModal();
+            var btn = sender as Button;
+            OrderMedicineModal modal = new OrderMedicineModal(this, (MedicineDTO)btn.DataContext);
             modal.Show();
         }
 
         private void OpenMedicineRegistration(object sender, RoutedEventArgs e)
         {
-            RegisterMedicine modal = new RegisterMedicine();
+
+            RegisterMedicine modal = new RegisterMedicine(this);
             modal.Show();
         }
 
         private void OpenMedicalConsumableOrder(object sender, RoutedEventArgs e)
         {
-            OrderMedicalConsumableModal modal = new OrderMedicalConsumableModal();
+            var btn = sender as Button;     
+            OrderMedicalConsumableModal modal = new OrderMedicalConsumableModal(this, (MedicalConsumableDTO)btn.DataContext);
             modal.Show();
         }
 
@@ -241,5 +283,15 @@ namespace Project.Views.Director
 
 
         }
+
+        protected virtual void OnPropertyChanged(string name)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(name));
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }
