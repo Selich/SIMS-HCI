@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project.Views.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,16 @@ namespace Project.Views.Director
     /// </summary>
     public partial class OrderMedicineModal : Window
     {
-        public OrderMedicineModal()
+        public HomeWindow Home { get; set; }
+
+        public MedicineDTO Medicine{ get; set; }
+
+        public OrderMedicineModal(HomeWindow home,MedicineDTO medicine)
         {
             InitializeComponent();
+            this.DataContext = this;
+            this.Home = home;
+            this.Medicine = medicine;
         }
 
         private void CloseMedicineOrder(object sender, RoutedEventArgs e)
@@ -29,6 +37,25 @@ namespace Project.Views.Director
             this.Close();
         }
 
-       
+        private void SaveMedicineOrder(object sender, RoutedEventArgs e)
+        {
+            string str = NewMedicineQuantity.Text;
+            if (Int32.TryParse(str, out int Quantity))
+            {
+                //MedicalConsumable.Quantity += Quantity;
+                MedicineDTO newMedicine = new MedicineDTO();
+                newMedicine.Name = Medicine.Name;
+                newMedicine.Type = Medicine.Type;
+                newMedicine.Id = Medicine.Id;
+                newMedicine.Description = Medicine.Description;
+                newMedicine.Quantity = Medicine.Quantity + Quantity;
+                Home.Medicine.Add(newMedicine);
+                Home.Medicine.Remove(Medicine);
+
+            }
+            this.Close();
+        }
+
+
     }
 }

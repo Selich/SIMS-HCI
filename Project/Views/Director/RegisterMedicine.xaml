@@ -7,21 +7,19 @@
         mc:Ignorable="d"
         Title="Registracija leka" Height="500" Width="350">
     <Grid>
-        <Button Content="Potvrdi zahtev" HorizontalAlignment="Left" Margin="26,400,0,0" VerticalAlignment="Top" Width="135" RenderTransformOrigin="0.033,0.634" Click="CloseMedicineRegistration"/>
+        <Button Content="Potvrdi zahtev" HorizontalAlignment="Left" Margin="26,400,0,0" VerticalAlignment="Top" Width="135" RenderTransformOrigin="0.033,0.634" Click="SaveMedicineRegistration"/>
         <Button Content="Odustani" HorizontalAlignment="Left" Margin="184,400,0,0" VerticalAlignment="Top" Width="135" Click="CloseMedicineRegistration"/>
         <Label Content="Naziv:" HorizontalAlignment="Left" Margin="67,62,0,0" VerticalAlignment="Top"/>
         <Label Content="Tip:" HorizontalAlignment="Left" Margin="67,130,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="154,63,0,0" TextWrapping="Wrap" Text="Morfijum" VerticalAlignment="Top" Width="120"/>
-        <ComboBox HorizontalAlignment="Left" Margin="154,130,0,0" VerticalAlignment="Top" Width="120">
+        <TextBox Name="NewMedicineName" HorizontalAlignment="Left" Height="23" Margin="154,63,0,0" TextWrapping="Wrap" Text="Morfijum" VerticalAlignment="Top" Width="120"/>
+        <ComboBox Name="NewMedicineType" SelectedValuePath="Content" HorizontalAlignment="Left" Margin="154,130,0,0" VerticalAlignment="Top" Width="120">
             <ComboBoxItem IsSelected="True">Anestetik</ComboBoxItem>
             <ComboBoxItem>Steroid</ComboBoxItem>
             <ComboBoxItem>Antibiotik</ComboBoxItem>
         </ComboBox>
         <Label Content="Opis:" HorizontalAlignment="Left" Margin="67,189,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.574,2.411"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="143" Margin="67,223,0,0" VerticalAlignment="Top" Width="207">
-            <TextBox TextWrapping="Wrap">
-                Dorime Interimo Adapare Dorime, Ameno Ameno LAtire, LATIRE MO
-            </TextBox>
+            <TextBox Name="NewMedicineDescription" TextWrapping="Wrap"/>
         </Border>
 
     </Grid>

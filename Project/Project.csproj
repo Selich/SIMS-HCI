@@ -154,6 +154,7 @@
     <Compile Include="Views\Converters\PatientConverter.cs" />
     <Compile Include="Views\Converters\QuestionConverter.cs" />
     <Compile Include="Views\Converters\RoomConverter.cs" />
+    <Compile Include="Views\Director\AdressToStringConverter.cs" />
     <Compile Include="Views\Model\AddressDTO.cs" />
     <Compile Include="Views\Model\AnamnesisDTO.cs" />
     <Compile Include="Views\Model\AppointmentDTO.cs" />
@@ -163,6 +164,7 @@
     <Compile Include="Views\Model\DoctorDTO.cs" />
     <Compile Include="Views\Model\EmployeeDTO.cs" />
     <Compile Include="Views\Model\EquipmentDTO.cs" />
+    <Compile Include="Views\Model\FeedbackDTO.cs" />
     <Compile Include="Views\Model\GuestDTO.cs" />
     <Compile Include="Views\Model\MedicalAppointmentDTO.cs" />
     <Compile Include="Views\Model\MedicalConsumableDTO.cs" />

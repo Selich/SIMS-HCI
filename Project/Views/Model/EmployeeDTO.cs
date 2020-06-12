@@ -17,7 +17,7 @@ namespace Project.Views.Model
         public string Hospital { get; set; }
         public EmployeeDTO() { }
 
-        public EmployeeDTO(long id, AddressDTO address, string firstName, string lastName, string jmbg, string telephoneNumber, string gender, DateTime dateOfBirth, double salary, TimeInterval annualLeave, TimeInterval workingHours, string email, string password) :
+        public EmployeeDTO(long id, AddressDTO address, string firstName, string lastName, string jmbg, string telephoneNumber, string gender, DateTime dateOfBirth, double salary, TimeInterval annualLeave, TimeInterval workingHours, string email, string password,string hospital) :
               base(id, address, firstName, lastName, jmbg, telephoneNumber, gender, dateOfBirth)
         {
             Salary = salary;
@@ -25,8 +25,9 @@ namespace Project.Views.Model
             WorkingHours = workingHours;
             Email = email;
             Password = password;
+            Hospital = hospital;
         }
-        public EmployeeDTO(AddressDTO address, string firstName, string lastName, string jmbg, string telephoneNumber, string gender, DateTime dateOfBirth, double salary, TimeInterval annualLeave, TimeInterval workingHours, string email, string password) :
+        public EmployeeDTO(AddressDTO address, string firstName, string lastName, string jmbg, string telephoneNumber, string gender, DateTime dateOfBirth, double salary, TimeInterval annualLeave, TimeInterval workingHours, string email, string password,string hospital) :
               base(address, firstName, lastName, jmbg, telephoneNumber, gender, dateOfBirth)
         {
             Salary = salary;
@@ -34,6 +35,7 @@ namespace Project.Views.Model
             WorkingHours = workingHours;
             Email = email;
             Password = password;
+            Hospital = hospital;
         }
 
     }

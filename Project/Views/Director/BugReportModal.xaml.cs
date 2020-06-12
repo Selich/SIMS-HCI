@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project.Views.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,14 +19,22 @@ namespace Project.Views.Director
     /// Interaction logic for BugReportModal.xaml
     /// </summary>
     public partial class BugReportModal : Window
-    {
+    {   
+        public List<FeedbackDTO> Feedbacks { get; set; }
         public BugReportModal()
         {
             InitializeComponent();
+            Feedbacks = new List<FeedbackDTO>();
+            
         }
 
         private void ConfirmBugReport(object sender, RoutedEventArgs e)
         {
+            String type = typeOfFeedback.SelectedValue.ToString();
+            String desc = feedbackDescription.Text.ToString();
+
+            FeedbackDTO newFeedback = new FeedbackDTO(type, desc);
+            Feedbacks.Add(newFeedback);
             this.Close();
         }
 

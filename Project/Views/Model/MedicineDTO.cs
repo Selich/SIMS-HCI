@@ -8,7 +8,6 @@ namespace Project.Views.Model
 {
     public class MedicineDTO:ConsumabelsDTO
     {
-        
         public string Purpose { get; set; }
         public string Administration { get; set; }
         public bool Approved { get; set; }
@@ -22,7 +21,6 @@ namespace Project.Views.Model
         public MedicineDTO(int id, string name, string type, string description, int quantitiy,string purpose,string administration, bool approved)
             : base(id,name, type, description, quantitiy)
         {
-     
             this.Purpose = purpose;
             this.Administration = administration;
             this.Approved = approved;

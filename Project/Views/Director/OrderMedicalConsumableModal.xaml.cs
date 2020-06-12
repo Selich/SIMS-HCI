@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project.Views.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,13 +20,37 @@ namespace Project.Views.Director
     /// </summary>
     public partial class OrderMedicalConsumableModal : Window
     {
-        public OrderMedicalConsumableModal()
+        public HomeWindow Home { get; set; }
+
+        public MedicalConsumableDTO MedicalConsumable { get; set; }
+        public OrderMedicalConsumableModal(HomeWindow home,MedicalConsumableDTO medicalConsumable)
         {
             InitializeComponent();
+            this.DataContext = this;
+            this.Home = home;
+            this.MedicalConsumable = medicalConsumable;
         }
 
         private void CloseMedicalConsumableOrder(object sender, RoutedEventArgs e)
         {
+            this.Close();
+        }
+        private void SaveMedicalConsumableOrder(object sender, RoutedEventArgs e)
+        {
+            string str = NewMedicalConsumableQuantity.Text;
+            if (Int32.TryParse(str, out int Quantity))
+            {
+                //MedicalConsumable.Quantity += Quantity;
+                 MedicalConsumableDTO newMedicalConsumable = new MedicalConsumableDTO();
+                 newMedicalConsumable.Name = MedicalConsumable.Name;
+                 newMedicalConsumable.Type = MedicalConsumable.Type;
+                 newMedicalConsumable.Id = MedicalConsumable.Id;
+                 newMedicalConsumable.Description = MedicalConsumable.Description;
+                 newMedicalConsumable.Quantity = MedicalConsumable.Quantity+Quantity;
+                 Home.MedicalConsumables.Add(newMedicalConsumable);
+                 Home.MedicalConsumables.Remove(MedicalConsumable);
+                
+            }
             this.Close();
         }
     }

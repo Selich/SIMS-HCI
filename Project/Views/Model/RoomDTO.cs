@@ -5,27 +5,74 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using Project.Model;
 
 namespace Project.Views.Model
 {
-    public class RoomDTO
+    public class RoomDTO : INotifyPropertyChanged
     {
-        public long Id { get; set; }
-        public RoomType Type { get; set; }
-        public string Ward { get; set; }
+        private long id;
+        public long Id
+        {
+            get
+            {
+                return id;
+            }
+            set
+            {
+                if (value != id)
+                {
+                    id = value;
+                    OnPropertyChanged("Id");
+                }
+            }
+        }
+        private RoomType type;
+        public RoomType Type
+        {
+            get
+            {
+                return type;
+            }
+            set
+            {
+                if (value != type)
+                {
+                    type = value;
+                    OnPropertyChanged("Type");
+                }
+            }
+        }
+        private string ward;
+        public string Ward
+        {
+            get
+            {
+                return ward;
+            }
+            set
+            {
+                if (value != ward)
+                {
+                    ward = value;
+                    OnPropertyChanged("Ward");
+                }
+            }
+        }
         public string Floor { get; set; }
 
         public List<EquipmentDTO> Equipment { get; set; }
         public List<AppointmentDTO> Appointments { get; set; }
 
-        public RoomDTO() { }
+        public RoomDTO() { Appointments = new List<AppointmentDTO>(); }
         public RoomDTO(long id, RoomType type, string ward, string floor)
         {
             Id = id;
             Type = type;
             Ward = ward;
             Floor = floor;
+            Appointments = new List<AppointmentDTO>();
 
         }
         public RoomDTO(RoomType type, string ward, string floor)
@@ -33,8 +80,20 @@ namespace Project.Views.Model
             Type = type;
             Ward = ward;
             Floor = floor;
-
+            Appointments = new List<AppointmentDTO>();
         }
+
+
+        protected virtual void OnPropertyChanged(string name)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(name));
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
 
     }
 }
