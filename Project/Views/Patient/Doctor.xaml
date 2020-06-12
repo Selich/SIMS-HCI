@@ -43,10 +43,10 @@
         <Label Content="Ratings" Margin="5" Grid.Row="3" VerticalAlignment="Bottom"/>
         <Canvas  Margin="5,5,5,5" Grid.Row="4" Grid.ColumnSpan="2"/>
         <Label Content="Scheduled Appoitments" Margin="5" Grid.Row="5" VerticalAlignment="Bottom"/>
-        <DataGrid ItemsSource="{Binding SelectedDoctor.Appointments}" AutoGenerateColumns="False"  Grid.Row="6" Grid.ColumnSpan="2">
+        <DataGrid ItemsSource="{Binding SelectedDoctor.Appointments}" AutoGenerateColumns="False"  Grid.Row="6" Grid.ColumnSpan="2" CanUserAddRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Time" Binding="{Binding Beginning, StringFormat=f}" IsReadOnly="True"/>
-                <DataGridCheckBoxColumn Header="Scheduled" IsReadOnly="False"/>
+                <DataGridCheckBoxColumn Header="Scheduled" Binding="{Binding IsScheduled}" IsReadOnly="False"/>
             </DataGrid.Columns>
         </DataGrid>
         <Button Content="Save Changes" Height="27" Margin="5,5,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Row="7" Width="119"/>
@@ -55,10 +55,10 @@
             <Calendar SelectionMode="SingleRange"/>
         </Viewbox>
         <Button Content="View Available Appointments"  Grid.Row="2" Grid.Column ="3" Grid.ColumnSpan="2" VerticalAlignment="Bottom" Margin="5,0,5,5" />
-        <DataGrid  Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="2" Grid.RowSpan="4" ItemsSource="{Binding AvailableAppoitments}" AutoGenerateColumns="False">
+        <DataGrid  Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="2" Grid.RowSpan="4" ItemsSource="{Binding AvailableAppoitments}" AutoGenerateColumns="False" CanUserAddRows="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Time" Binding="{Binding Beginning, StringFormat=f}"/>
-                <DataGridCheckBoxColumn Header="Select"/>
+                <DataGridTextColumn Header="Time" Binding="{Binding Beginning, StringFormat=f}" IsReadOnly="True"/>
+                <DataGridCheckBoxColumn Header="Select" Binding="{Binding IsScheduled}" IsReadOnly="False"/>
             </DataGrid.Columns>
         </DataGrid>
         <Button Content="Confirm"  Height="27" Margin="5,5,0,0" Grid.Row="7" Grid.Column="3" VerticalAlignment="Top" HorizontalAlignment="Left" Width="83" />

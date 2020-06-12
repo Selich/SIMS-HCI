@@ -55,7 +55,7 @@ namespace Project.Views
         private void Login_Click(object sender, RoutedEventArgs e)
         {
             
-            var s = new Secretary.SecretaryHomeWindow();
+            var s = new Patient.HomeWindow();
             s.Show();
 
         }

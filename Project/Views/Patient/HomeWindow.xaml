@@ -13,31 +13,34 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="56*"/>
                     <RowDefinition Height="44*"/>
-                    <RowDefinition Height="425*"/>
-                    <RowDefinition Height="55*"/>
+                    <RowDefinition Height="370*"/>
+                    <RowDefinition Height="60*"/>
+                    <RowDefinition Height="50*"/>
                     <RowDefinition Height="81*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="40*"/>
-                    <ColumnDefinition Width="363*"/>
-                    <ColumnDefinition Width="22*"/>
-                    <ColumnDefinition Width="325*"/>
-                    <ColumnDefinition Width="166*"/>
-                    <ColumnDefinition Width="179*"/>
-                    <ColumnDefinition Width="179*"/>
+                    <ColumnDefinition Width="39*"/>
+                    <ColumnDefinition Width="425*"/>
+                    <ColumnDefinition Width="27*"/>
+                    <ColumnDefinition Width="254*"/>
+                    <ColumnDefinition Width="207*"/>
+                    <ColumnDefinition Width="157*"/>
+                    <ColumnDefinition Width="157*"/>
 
                 </Grid.ColumnDefinitions>
-                <Label Content="Appoitments:"  Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom"/>
+                <Label Content="Appoitments:"  Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom" Height="24"/>
                 <DataGrid x:Name="dataGridAppoitment" ItemsSource="{Binding Appoitments}" IsReadOnly="True"
                           SelectionMode="Single" AutoGenerateColumns="False" Grid.Column="1" Grid.Row="2" Grid.RowSpan="2">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Type" Binding="{Binding Type}"/>
                         <DataGridTextColumn Header="Time" Binding="{Binding Beginning, StringFormat=f}"/>
+                        <DataGridCheckBoxColumn Header="Scheduled" Binding="{Binding IsScheduled}" IsReadOnly="False"/>
                     </DataGrid.Columns>
                 </DataGrid>
-                <Label Content="History:" Grid.Column="3" Grid.Row="1" VerticalAlignment="Bottom"/>
+                <Button Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="141">Confirm Changes</Button>
+                <Label Content="History:" Grid.Column="3" Grid.Row="1" VerticalAlignment="Bottom" Height="24"/>
                 <DataGrid  x:Name="dataGridPastAppoitment" ItemsSource="{Binding PastAppoitments}" IsReadOnly="True"
-                          SelectionMode="Extended" AutoGenerateColumns="False" Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="2">
+                          SelectionMode="Extended" AutoGenerateColumns="False" Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="3">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Type" Binding="{Binding Type}"/>
                         <DataGridTextColumn Header="Time" Binding="{Binding Beginning, StringFormat=g}"/>
@@ -51,9 +54,11 @@
                         </DataGridTemplateColumn>
                     </DataGrid.Columns>
                 </DataGrid>
-                <Button Height="35" Margin="10,10,10,0" Content="Feedback" Click="Feedback_Click" Grid.Column="5"  Grid.Row="3" VerticalAlignment="Bottom"/>
-                <Button Height="35" Margin="10,10,10,0" Content="FAQ" Click="FAQ_Click" Grid.Column="6" Grid.Row="3" VerticalAlignment="Bottom"/>
                 <Button Margin="5" Content="Detailed History" Click="History_Click" Height="Auto" Grid.Row="1" Grid.Column="4"/>
+                <Button Height="35" Margin="10,0" Content="Feedback" Click="Feedback_Click" Grid.Column="5"  Grid.Row="4" VerticalAlignment="Bottom"/>
+                <Button Height="35" Margin="10,0" Content="FAQ" Click="FAQ_Click" Grid.Column="6" Grid.Row="4" VerticalAlignment="Bottom"/>
+                <Button Height="35" Margin="10,0" Content="Generate Report" Grid.Column="6" Grid.Row="3" VerticalAlignment="Bottom"/>
+                <Button Height="35" Margin="10,0" Content="Ask Question" Grid.Column="5" Grid.Row="3" VerticalAlignment="Bottom"/>
             </Grid>
         </TabItem>
         <TabItem Header="Profile">
@@ -213,12 +218,12 @@
                         </ComboBox>
                         <Button Grid.Column="1" Margin="5" Height="Auto" Click="Doctor_Click">View Doctor</Button>
                     </Grid>
-                    <Button Margin="5" >View Available Appointments</Button>
+                    <Button Margin="5" Click="ViewAvailable_Click" >View Available Appointments</Button>
                 </StackPanel>
-                <DataGrid Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="2" ItemsSource="{Binding Appoitments}" AutoGenerateColumns="False">
+                <DataGrid Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="2" ItemsSource="{Binding AvailableAppoitments, Mode=TwoWay}" AutoGenerateColumns="False" CanUserAddRows="False">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Time" Binding="{Binding Beginning, StringFormat=f}" IsReadOnly="True"/>
-                        <DataGridCheckBoxColumn Header="Scheduled" IsReadOnly="False"/>
+                        <DataGridCheckBoxColumn Header="Scheduled" Binding="{Binding IsScheduled}"/>
                     </DataGrid.Columns>
                 </DataGrid>
                 <Button Content="Confirm" Margin="10,10,10,0" Grid.Column="3" Grid.Row="2" Height="Auto" VerticalAlignment="Top"/>
