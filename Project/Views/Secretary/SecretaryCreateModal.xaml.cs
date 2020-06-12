@@ -1,10 +1,7 @@
 ﻿using Project.Controllers;
-using Project.Model;
 using Project.Views.Model;
-using Project.Views.Secretary;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,19 +13,18 @@ using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Project.Views.Tabs
+namespace Project.Views.Secretary
 {
     /// <summary>
-    /// Interaction logic for SecretaryCreate.xaml
+    /// Interaction logic for SecretaryCreateModal.xaml
     /// </summary>
-    public partial class SecretaryCreate : System.Windows.Controls.UserControl
+    public partial class SecretaryCreateModal : Window
     {
         private readonly IController<PatientDTO, long> _patientController;
         App app;
-        public SecretaryCreate()
+        public SecretaryCreateModal()
         {
             InitializeComponent();
 
@@ -79,10 +75,10 @@ namespace Project.Views.Tabs
         {
         }
 
-        private void Create_Guest_Button_Click(object sender, RoutedEventArgs e) => new Test().Show();
+        private void Create_Guest_Button_Click(object sender, RoutedEventArgs e) => new RegisterGuest().Show();
         private void Feedback_Click(object sender, RoutedEventArgs e) => new FeedbackModal().Show();
 
-        private void Search_Doctor(object sender, RoutedEventArgs e) => new DoctorSearchModal(this).Show();
+        private void Search_Doctor(object sender, RoutedEventArgs e) => new DoctorSearchModal().Show();
 
         private void Create_Click(object sender, RoutedEventArgs e)
         {

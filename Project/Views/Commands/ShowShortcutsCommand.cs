@@ -11,29 +11,20 @@ using System.Windows.Input;
 
 namespace Project.Views.Commands
 {
-    public class ShowShortcutsCommand : ICommand
+    public class ShortcutsCommand : ICommand
     {
         public void Execute(object parameter)
         {
             string msg;
 
             if (parameter.Equals("Shortcuts"))
-            {
-                Shortcuts s = new Shortcuts();
-                s.Show();
-            }
+                new Shortcuts().Show();
             else if (parameter.Equals("Help"))
-            {
-                Shortcuts s = new Shortcuts();
-                s.Show();
-
-            }
+                new Shortcuts().Show();
             else if (parameter.Equals("CreateAppointment"))
-            {
-                ShortcutsModal s = new ShortcutsModal();
-                s.Show();
-
-            }
+               new SecretaryCreateModal().Show();
+            else if (parameter.Equals("GenerateReport"))
+               new SecretaryGenerateReport().Show();
             else
             {
                 msg = parameter.ToString();
