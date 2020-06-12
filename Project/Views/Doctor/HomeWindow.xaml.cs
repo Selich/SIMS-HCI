@@ -23,6 +23,7 @@ namespace Project.Views.Doctor
     public partial class HomeWindow : Window
     {
         //private bool _isEditMod = true;
+        public bool togg;
 
         public HomeWindow()
         {
@@ -190,5 +191,31 @@ namespace Project.Views.Doctor
             var alert = new Doctor.Alert();
             alert.Show();
         }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Wizard_Click(object sender, RoutedEventArgs e)
+        {
+            var wizard = new WizardWindow();
+            wizard.Show();
+            Close();
+        }
+        /*
+        private void Switch_Click(object sender, RoutedEventArgs e)
+        {
+            if(Switch.IsChecked ==  true)
+            {
+                //buttonEdit.ToolTip="";
+                //buttonEdit.ToolTi ShowOnDisabled = "True";
+                togg = true;
+            }
+            else
+            {
+                togg = false;
+            }
+        }*/
     }
 }
