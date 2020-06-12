@@ -36,8 +36,8 @@ namespace Project.Views.Tabs
             this.DataContext = this;
             app = System.Windows.Application.Current as App;
 
-            StartDateTime.SelectedDate = DateTime.Now;
-            EndDateTime.SelectedDate = DateTime.Now.AddMinutes(30);
+            //StartDateTime.SelectedDate = DateTime.Now;
+            //EndDateTime.SelectedDate = DateTime.Now.AddMinutes(30);
 
             //_patientController = app.PatientController;
             //ListPatients.ItemsSource = _patientController.GetAll();
@@ -61,6 +61,10 @@ namespace Project.Views.Tabs
         private bool JMBGFilter(object item)
           => (String.IsNullOrEmpty(JMBGSearch_TextBox.Text) ||
             (item as PatientDTO).Jmbg.IndexOf(FirstNameSearch_TextBox.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+        private bool TermFilter(object item)
+          => (String.IsNullOrEmpty(JMBGSearch_TextBox.Text) ||
+            (item as PatientDTO).Jmbg.IndexOf(FirstNameSearch_TextBox.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+
         private void FirstNameSearch_TextBox_TextChanged(object sender, TextChangedEventArgs e)
             => CollectionViewSource.GetDefaultView(ListPatients.ItemsSource).Refresh();
 

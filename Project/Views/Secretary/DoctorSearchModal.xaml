@@ -3,6 +3,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project.Views.Secretary"
+        xmlns:rules="clr-namespace:Project.Views.Validators"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         x:Class="Project.Views.Secretary.DoctorSearchModal"
         mc:Ignorable="d"
@@ -79,10 +80,12 @@
                          x:Name="NameSearch_TextBox"
                          Height="23"
                          TextChanged="NameSearch_TextBox_TextChanged"
+                         materialDesign:HintAssist.Hint="Ime"
                          Margin="20,24,0,0"
                          TextWrapping="Wrap"
                          VerticalAlignment="Top"
-                         Width="97" />
+                         Width="110" >
+                </TextBox>
                 <Label Content="Ime i prezime:"
                        HorizontalAlignment="Left"
                        VerticalAlignment="Top" />
@@ -90,6 +93,7 @@
                          x:Name="LastNameSearch_TextBox"
                          Height="23"
                          TextChanged="LastNameSearch_TextBox_TextChanged"
+                         materialDesign:HintAssist.Hint="Prezime"
                          Margin="135,24,0,0"
                          TextWrapping="Wrap"
                          VerticalAlignment="Top"
