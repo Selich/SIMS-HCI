@@ -21,15 +21,20 @@ namespace Project.Views.Secretary
     /// </summary>
     public partial class AppointmentModal : Window
     {
+        public MedicalAppointmentDTO SelectedAppointment;
+        public App app;
 
         public AppointmentModal(MedicalAppointmentDTO dataContext)
         {
-            DataContext = dataContext;
             InitializeComponent();
+            app = Application.Current as App;
+            DataContext = dataContext;
 
             Date.SelectedDate = dataContext.Beginning;
             StartTime.Text = dataContext.Beginning.Hour + ":" + dataContext.Beginning.Minute;
             EndTime.Text = dataContext.End.Hour + ":" + dataContext.End.Minute;
+            DoctorList.ItemsSource = dataContext.Doctors;
+            AllDoctorList.ItemsSource = app.doctors;
             Room.Text = dataContext.Room.ToString();
             
 
@@ -50,7 +55,7 @@ namespace Project.Views.Secretary
         }
         private void searchDoctor_TxtChanged(object sended, RoutedEventArgs e)
         {
-            CollectionViewSource.GetDefaultView(listAllDoctors.ItemsSource).Refresh();
+            CollectionViewSource.GetDefaultView(AllDoctorList.ItemsSource).Refresh();
 
         }
 
@@ -58,8 +63,8 @@ namespace Project.Views.Secretary
         {
             search.Visibility = Visibility.Visible;
             Change_Doctor_Button.Visibility = Visibility.Hidden;
-            listDoctors.Visibility = Visibility.Hidden;
-            listAllDoctors.Visibility = Visibility.Visible;
+            DoctorList.Visibility = Visibility.Hidden;
+            AllDoctorList.Visibility = Visibility.Visible;
             Cancel_Change_Doctor_Button.Visibility = Visibility.Visible;
 
 
@@ -68,8 +73,8 @@ namespace Project.Views.Secretary
         {
             search.Visibility = Visibility.Hidden;
             Change_Doctor_Button.Visibility = Visibility.Visible;
-            listAllDoctors.Visibility = Visibility.Hidden;
-            listDoctors.Visibility = Visibility.Visible;
+            AllDoctorList.Visibility = Visibility.Hidden;
+            DoctorList.Visibility = Visibility.Visible;
             Cancel_Change_Doctor_Button.Visibility = Visibility.Hidden;
 
         }
@@ -81,8 +86,8 @@ namespace Project.Views.Secretary
         {
             DoctorDTO item = (DoctorDTO)(sender as System.Windows.Controls.Button).DataContext;
             MessageBox.Show("Da li ste sigurni da zelite da dodate Dr." + item.FirstName + " " + item.LastName + " u termin?", "Potvrda", MessageBoxButton.OKCancel);
-            listAllDoctors.Visibility = Visibility.Hidden;
-            listDoctors.Visibility = Visibility.Visible;
+            AllDoctorList.Visibility = Visibility.Hidden;
+            DoctorList.Visibility = Visibility.Visible;
             Change_Doctor_Button.Visibility = Visibility.Visible;
             Cancel_Change_Doctor_Button.Visibility = Visibility.Hidden;
 
@@ -111,6 +116,29 @@ namespace Project.Views.Secretary
             Date.IsEnabled = state;
             IzmeniCancel.Visibility = Visibility.Hidden;
             Izmeni.Visibility = Visibility.Visible;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DeleteDoctor_Click(object sender, RoutedEventArgs e)
+        {
+            DoctorDTO doctor = (DoctorDTO)DoctorList.SelectedItem;
+            ((DataContext as MedicalAppointmentDTO).Doctors as List<DoctorDTO>).Remove(doctor);
+            CollectionViewSource.GetDefaultView(DoctorList.ItemsSource).Refresh();
+
+
+        }
+
+        private void AddDoctor_Click(object sender, RoutedEventArgs e)
+        {
+            DoctorDTO doctor = (DoctorDTO)AllDoctorList.SelectedItem;
+            ((DataContext as MedicalAppointmentDTO).Doctors as List<DoctorDTO>).Add(doctor);
+            CollectionViewSource.GetDefaultView(DoctorList.ItemsSource).Refresh();
+            CollectionViewSource.GetDefaultView(AllDoctorList.Items).Refresh();
+
         }
     }
 }

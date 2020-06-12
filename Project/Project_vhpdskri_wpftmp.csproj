@@ -54,65 +54,8 @@
     <LangVersion>7.1</LangVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="itextsharp, Version=5.5.13.1, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
-      <HintPath>packages\iTextSharp.5.5.13.1\lib\itextsharp.dll</HintPath>
-    </Reference>
-    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
-      <HintPath>packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
-    </Reference>
-    <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
-      <HintPath>packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
-    </Reference>
-    <Reference Include="MaterialDesignColors, Version=1.2.4.1361, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\MaterialDesignColors.1.2.4\lib\net45\MaterialDesignColors.dll</HintPath>
-    </Reference>
-    <Reference Include="MaterialDesignExtensions, Version=3.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\MaterialDesignExtensions.3.1.0\lib\net45\MaterialDesignExtensions.dll</HintPath>
-    </Reference>
-    <Reference Include="MaterialDesignThemes.Wpf, Version=3.1.1.1361, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\MaterialDesignThemes.3.1.1\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
-    </Reference>
-    <Reference Include="SciChart.Wpf.UI.Transitionz, Version=3.1.251.0, Culture=neutral, PublicKeyToken=8eea68d53aa73a83, processorArchitecture=MSIL">
-      <HintPath>packages\SciChart.Wpf.UI.Transitionz.3.1.251\lib\net452\SciChart.Wpf.UI.Transitionz.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Configuration" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xaml">
-      <RequiredTargetFramework>4.0</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="WindowsBase" />
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
-    <Reference Include="Xceed.Wpf.AvalonDock, Version=3.8.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
-      <HintPath>packages\Extended.Wpf.Toolkit.3.8.1\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
-    </Reference>
-    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero, Version=3.8.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
-      <HintPath>packages\Extended.Wpf.Toolkit.3.8.1\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
-    </Reference>
-    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro, Version=3.8.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
-      <HintPath>packages\Extended.Wpf.Toolkit.3.8.1\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
-    </Reference>
-    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010, Version=3.8.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
-      <HintPath>packages\Extended.Wpf.Toolkit.3.8.1\lib\net40\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
-    </Reference>
-    <Reference Include="Xceed.Wpf.Toolkit, Version=3.8.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
-      <HintPath>packages\Extended.Wpf.Toolkit.3.8.1\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </ApplicationDefinition>
     <Compile Include="Controllers\AppoitmentController.cs" />
     <Compile Include="Controllers\AuthenticationController.cs" />
     <Compile Include="Controllers\DocumentController.cs" />
@@ -384,210 +327,6 @@
     <Compile Include="Views\Utils\Validation\PostCodeValidate.cs" />
     <Compile Include="Views\Validators\EmailValidationRule.cs" />
     <Compile Include="Views\Validators\NotEmptyValidationRule.cs" />
-    <Page Include="Resources\Styles\Buttons.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Resources\Styles\Colors.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Resources\Styles\Tabs.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Resources\Styles\TextInput.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Director\BugReportModal.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Director\EmployeeDataModal.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Director\HomeWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Director\InventoryManagmentModal.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Director\OrderEquipmentModal.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Director\OrderMedicalConsumableModal.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Director\OrderMedicineModal.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Director\RegisterMedicine.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Director\RenovationModal.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Director\SettingsModal.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Doctor\Alert.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\Doctor\HistoryPatient.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\Doctor\HomeWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\FeedbackModal.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\LoginWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Patient\Doctor.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\Patient\FAQ.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\Patient\Feedback.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\Patient\History.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\Patient\HomeWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>XamlIntelliSenseFileGenerator</Generator>
-    </Page>
-    <Page Include="Views\Patient\RegisterPatient.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Secretary\AppointmentModal.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Secretary\CreatePatientModal.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Secretary\DoctorSearchModal.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Secretary\ProfileModal.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Secretary\RegisterGuest.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\Secretary\RegisterPatient.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\Secretary\SecretaryCreateModal.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Secretary\SecretaryGenerateReport.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Secretary\SecretaryHomeWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Secretary\Shortcuts.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Secretary\ShortcutsModal.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Secretary\Test.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Tabs\AppointmentTabs\AppointmentsDay.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Tabs\AppointmentTabs\AppointmentsList.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Tabs\AppointmentTabs\AppointmentsWeek.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Tabs\SecretaryAppointments.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Tabs\SecretaryCreate.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Tabs\SecretaryPatients.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Tabs\SecretaryQuestions.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Tabs\SecretarySettings.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Templates\Appointment.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Templates\Details.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Templates\Patient.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Templates\Question.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Templates\Room.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Templates\Term.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -612,13 +351,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Resource Include="Resources\Images\Faces\face1" />
-    <Resource Include="Resources\Images\Faces\face2" />
-    <Resource Include="Resources\Images\Faces\face3" />
-    <Resource Include="Resources\Images\Faces\face4" />
-    <Resource Include="Resources\Images\Faces\face5" />
-    <Resource Include="Resources\Images\Faces\face6" />
-    <Resource Include="Resources\Images\Faces\face7" />
     <None Include="Resources\Data\address.csv" />
     <None Include="Resources\Data\doctorMedicalAppointment.csv" />
     <None Include="Resources\Data\doctors.csv" />
@@ -643,14 +375,7 @@
     <Folder Include="Views\Patient\.vs\Patient\v15\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Icons\graph.png" />
     <Content Include="Resources\Icons\8370799161557749690.svg" />
-    <Resource Include="Resources\Images\Faces\down.png" />
-    <Resource Include="Resources\Images\Faces\pat.jpg" />
-    <Resource Include="Resources\Images\Faces\up.png" />
-    <Resource Include="Resources\Images\Faces\doc.jpg" />
-    <Resource Include="Resources\Icons\healthcare-and-medical.png" />
-    <Resource Include="Resources\Icons\hospital.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
@@ -672,4 +397,82 @@
     </PropertyGroup>
     <Error Condition="!Exists('packages\MaterialDesignThemes.3.1.1\build\MaterialDesignThemes.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\MaterialDesignThemes.3.1.1\build\MaterialDesignThemes.targets'))" />
   </Target>
+  <ItemGroup>
+    <ReferencePath Include="C:\Users\Selic\Desktop\sims\Project\packages\iTextSharp.5.5.13.1\lib\itextsharp.dll" />
+    <ReferencePath Include="C:\Users\Selic\Desktop\sims\Project\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll" />
+    <ReferencePath Include="C:\Users\Selic\Desktop\sims\Project\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll" />
+    <ReferencePath Include="C:\Users\Selic\Desktop\sims\Project\packages\MaterialDesignColors.1.2.4\lib\net45\MaterialDesignColors.dll" />
+    <ReferencePath Include="C:\Users\Selic\Desktop\sims\Project\packages\MaterialDesignExtensions.3.1.0\lib\net45\MaterialDesignExtensions.dll" />
+    <ReferencePath Include="C:\Users\Selic\Desktop\sims\Project\packages\MaterialDesignThemes.3.1.1\lib\net45\MaterialDesignThemes.Wpf.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Microsoft.CSharp.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\mscorlib.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\PresentationCore.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\PresentationFramework.dll" />
+    <ReferencePath Include="C:\Users\Selic\Desktop\sims\Project\packages\SciChart.Wpf.UI.Transitionz.3.1.251\lib\net452\SciChart.Wpf.UI.Transitionz.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Configuration.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Core.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Data.DataSetExtensions.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Data.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Net.Http.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Web.Extensions.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Windows.Forms.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Xaml.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Xml.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Xml.Linq.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\WindowsBase.dll" />
+    <ReferencePath Include="C:\Users\Selic\Desktop\sims\Project\packages\Extended.Wpf.Toolkit.3.8.1\lib\net40\Xceed.Wpf.AvalonDock.dll" />
+    <ReferencePath Include="C:\Users\Selic\Desktop\sims\Project\packages\Extended.Wpf.Toolkit.3.8.1\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll" />
+    <ReferencePath Include="C:\Users\Selic\Desktop\sims\Project\packages\Extended.Wpf.Toolkit.3.8.1\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll" />
+    <ReferencePath Include="C:\Users\Selic\Desktop\sims\Project\packages\Extended.Wpf.Toolkit.3.8.1\lib\net40\Xceed.Wpf.AvalonDock.Themes.VS2010.dll" />
+    <ReferencePath Include="C:\Users\Selic\Desktop\sims\Project\packages\Extended.Wpf.Toolkit.3.8.1\lib\net40\Xceed.Wpf.Toolkit.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="C:\Users\Selic\Desktop\sims\Project\obj\Debug\Views\Director\BugReportModal.g.cs" />
+    <Compile Include="C:\Users\Selic\Desktop\sims\Project\obj\Debug\Views\Director\EmployeeDataModal.g.cs" />
+    <Compile Include="C:\Users\Selic\Desktop\sims\Project\obj\Debug\Views\Director\HomeWindow.g.cs" />
+    <Compile Include="C:\Users\Selic\Desktop\sims\Project\obj\Debug\Views\Director\InventoryManagmentModal.g.cs" />
+    <Compile Include="C:\Users\Selic\Desktop\sims\Project\obj\Debug\Views\Director\OrderEquipmentModal.g.cs" />
+    <Compile Include="C:\Users\Selic\Desktop\sims\Project\obj\Debug\Views\Director\OrderMedicalConsumableModal.g.cs" />
+    <Compile Include="C:\Users\Selic\Desktop\sims\Project\obj\Debug\Views\Director\OrderMedicineModal.g.cs" />
+    <Compile Include="C:\Users\Selic\Desktop\sims\Project\obj\Debug\Views\Director\RegisterMedicine.g.cs" />
+    <Compile Include="C:\Users\Selic\Desktop\sims\Project\obj\Debug\Views\Director\RenovationModal.g.cs" />
+    <Compile Include="C:\Users\Selic\Desktop\sims\Project\obj\Debug\Views\Director\SettingsModal.g.cs" />
+    <Compile Include="C:\Users\Selic\Desktop\sims\Project\obj\Debug\Views\Doctor\Alert.g.cs" />
+    <Compile Include="C:\Users\Selic\Desktop\sims\Project\obj\Debug\Views\Doctor\HistoryPatient.g.cs" />
+    <Compile Include="C:\Users\Selic\Desktop\sims\Project\obj\Debug\Views\Doctor\HomeWindow.g.cs" />
+    <Compile Include="C:\Users\Selic\Desktop\sims\Project\obj\Debug\Views\FeedbackModal.g.cs" />
+    <Compile Include="C:\Users\Selic\Desktop\sims\Project\obj\Debug\Views\LoginWindow.g.cs" />
+    <Compile Include="C:\Users\Selic\Desktop\sims\Project\obj\Debug\Views\Patient\Doctor.g.cs" />
+    <Compile Include="C:\Users\Selic\Desktop\sims\Project\obj\Debug\Views\Patient\FAQ.g.cs" />
+    <Compile Include="C:\Users\Selic\Desktop\sims\Project\obj\Debug\Views\Patient\Feedback.g.cs" />
+    <Compile Include="C:\Users\Selic\Desktop\sims\Project\obj\Debug\Views\Patient\History.g.cs" />
+    <Compile Include="C:\Users\Selic\Desktop\sims\Project\obj\Debug\Views\Patient\HomeWindow.g.cs" />
+    <Compile Include="C:\Users\Selic\Desktop\sims\Project\obj\Debug\Views\Patient\RegisterPatient.g.cs" />
+    <Compile Include="C:\Users\Selic\Desktop\sims\Project\obj\Debug\Views\Secretary\AppointmentModal.g.cs" />
+    <Compile Include="C:\Users\Selic\Desktop\sims\Project\obj\Debug\Views\Secretary\CreatePatientModal.g.cs" />
+    <Compile Include="C:\Users\Selic\Desktop\sims\Project\obj\Debug\Views\Secretary\DoctorSearchModal.g.cs" />
+    <Compile Include="C:\Users\Selic\Desktop\sims\Project\obj\Debug\Views\Secretary\ProfileModal.g.cs" />
+    <Compile Include="C:\Users\Selic\Desktop\sims\Project\obj\Debug\Views\Secretary\RegisterGuest.g.cs" />
+    <Compile Include="C:\Users\Selic\Desktop\sims\Project\obj\Debug\Views\Secretary\RegisterPatient.g.cs" />
+    <Compile Include="C:\Users\Selic\Desktop\sims\Project\obj\Debug\Views\Secretary\SecretaryCreateModal.g.cs" />
+    <Compile Include="C:\Users\Selic\Desktop\sims\Project\obj\Debug\Views\Secretary\SecretaryGenerateReport.g.cs" />
+    <Compile Include="C:\Users\Selic\Desktop\sims\Project\obj\Debug\Views\Secretary\SecretaryHomeWindow.g.cs" />
+    <Compile Include="C:\Users\Selic\Desktop\sims\Project\obj\Debug\Views\Secretary\Shortcuts.g.cs" />
+    <Compile Include="C:\Users\Selic\Desktop\sims\Project\obj\Debug\Views\Secretary\ShortcutsModal.g.cs" />
+    <Compile Include="C:\Users\Selic\Desktop\sims\Project\obj\Debug\Views\Secretary\Test.g.cs" />
+    <Compile Include="C:\Users\Selic\Desktop\sims\Project\obj\Debug\Views\Tabs\AppointmentTabs\AppointmentsDay.g.cs" />
+    <Compile Include="C:\Users\Selic\Desktop\sims\Project\obj\Debug\Views\Tabs\AppointmentTabs\AppointmentsList.g.cs" />
+    <Compile Include="C:\Users\Selic\Desktop\sims\Project\obj\Debug\Views\Tabs\AppointmentTabs\AppointmentsWeek.g.cs" />
+    <Compile Include="C:\Users\Selic\Desktop\sims\Project\obj\Debug\Views\Tabs\SecretaryAppointments.g.cs" />
+    <Compile Include="C:\Users\Selic\Desktop\sims\Project\obj\Debug\Views\Tabs\SecretaryCreate.g.cs" />
+    <Compile Include="C:\Users\Selic\Desktop\sims\Project\obj\Debug\Views\Tabs\SecretaryPatients.g.cs" />
+    <Compile Include="C:\Users\Selic\Desktop\sims\Project\obj\Debug\Views\Tabs\SecretaryQuestions.g.cs" />
+    <Compile Include="C:\Users\Selic\Desktop\sims\Project\obj\Debug\Views\Tabs\SecretarySettings.g.cs" />
+    <Compile Include="C:\Users\Selic\Desktop\sims\Project\obj\Debug\Views\Templates\Appointment.g.cs" />
+    <Compile Include="C:\Users\Selic\Desktop\sims\Project\obj\Debug\Views\Templates\Details.g.cs" />
+    <Compile Include="C:\Users\Selic\Desktop\sims\Project\obj\Debug\App.g.cs" />
+    <Compile Include="C:\Users\Selic\Desktop\sims\Project\obj\Debug\Project_Content.g.cs" />
+    <Compile Include="C:\Users\Selic\Desktop\sims\Project\obj\Debug\GeneratedInternalTypeHelper.g.cs" />
+  </ItemGroup>
 </Project>

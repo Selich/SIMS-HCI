@@ -78,6 +78,19 @@ namespace Project
                 }
             }
         }
+        private MedicalAppointmentDTO selectedAppointment;
+        public MedicalAppointmentDTO SelectedAppointment
+        {
+            get { return selectedAppointment; }
+            set
+            {
+                if (value != selectedAppointment)
+                {
+                    selectedAppointment = value;
+                    OnPropertyChanged("SelectedAppointment");
+                }
+            }
+        }
         public SecretaryDTO currentSecretary { get; set; }
         public List<string> medicalRoles { get; set; }
         public List<string> roomTypes { get; set; }
