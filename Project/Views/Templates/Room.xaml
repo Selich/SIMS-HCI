@@ -5,7 +5,6 @@
             <Grid  Background="White" Height="25" Width="341" >
                 <TextBlock FontSize="14" Text="{Binding Id}" VerticalAlignment="Center" Margin="30,0,0,0"/>
                 <TextBlock FontSize="14" Text="{Binding Ward}" VerticalAlignment="Center" Margin="80,0,0,0"/>
-                <CheckBox Background="White" HorizontalContentAlignment="Center" VerticalAlignment="Center" />
             </Grid>
         </DataTemplate>
     

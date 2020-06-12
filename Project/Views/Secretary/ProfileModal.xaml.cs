@@ -23,55 +23,16 @@ namespace Project.Views.Secretary
     /// </summary>
     public partial class ProfileModal : Window
     {
-        public Project.Model.Patient selectedPatient;
-        private GuestDTO item;
 
-        public ProfileModal(double id)
+        public ProfileModal(MedicalAppointmentDTO dataContext)
         {
-            //WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
-            //Generators g = new Generators();
-            //PatientRepository pr = new PatientRepository();
-            //MedicalAppointmentRepository mr = new MedicalAppointmentRepository();
-            //selectedPatient = g.GeneratePatient();
-
-            //InitializeComponent();
-            //appointmentHistory.ItemsSource = mr.ReadCSV("../../Data/medicalAppointments.csv");
-            //listAppointments.ItemsSource = mr.ReadCSV("../../Data/medicalAppointments.csv");
-
-            //CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listAppointments.ItemsSource);
-            //view.SortDescriptions.Add(new SortDescription("Beginning", ListSortDirection.Ascending));
-            //view.SortDescriptions.Add(new SortDescription("End", ListSortDirection.Ascending));
-
-            //CollectionView viewHistory = (CollectionView)CollectionViewSource.GetDefaultView(appointmentHistory.ItemsSource);
-            //viewHistory.SortDescriptions.Add(new SortDescription("Beginning", ListSortDirection.Ascending));
-            //viewHistory.SortDescriptions.Add(new SortDescription("End", ListSortDirection.Ascending));
-            //this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
-        }
-        public ProfileModal(Project.Model.Guest patient)
-        {
-            //Generators g = new Generators();
-            //PatientRepository pr = new PatientRepository();
-            //MedicalAppointmentRepository mr = new MedicalAppointmentRepository();
-            //selectedPatient = patient;
-
+            DataContext = dataContext;
             InitializeComponent();
-            //appointmentHistory.ItemsSource = mr.ReadCSV("../../Data/medicalAppointments.csv");
-            //listAppointments.ItemsSource = mr.ReadCSV("../../Data/medicalAppointments.csv");
-
-            //CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listAppointments.ItemsSource);
-            //view.SortDescriptions.Add(new SortDescription("Beginning", ListSortDirection.Ascending));
-            //view.SortDescriptions.Add(new SortDescription("End", ListSortDirection.Ascending));
-
-            //CollectionView viewHistory = (CollectionView)CollectionViewSource.GetDefaultView(appointmentHistory.ItemsSource);
-            //viewHistory.SortDescriptions.Add(new SortDescription("Beginning", ListSortDirection.Ascending));
-            //viewHistory.SortDescriptions.Add(new SortDescription("End", ListSortDirection.Ascending));
-            //this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
-
         }
-
-        public ProfileModal(GuestDTO item)
+        public ProfileModal(PatientDTO dataContext)
         {
-            this.item = item;
+            DataContext = dataContext;
+            InitializeComponent();
         }
 
         private void HandleEsc(object sender, KeyEventArgs e)

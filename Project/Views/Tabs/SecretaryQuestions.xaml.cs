@@ -19,12 +19,9 @@ using System.Windows.Shapes;
 
 namespace Project.Views.Tabs
 {
-    /// <summary>
-    /// Interaction logic for SecretaryQuestions.xaml
-    /// </summary>
     public partial class SecretaryQuestions : UserControl
     {
-        public QuestionDTO CurrentQuestion { get; set; }
+        public QuestionDTO CurrentQuestion;
 
         public SecretaryQuestions()
         {
@@ -32,38 +29,30 @@ namespace Project.Views.Tabs
             InitializeComponent();
 
             QuestionsList.ItemsSource = app.QuestionController.GetAll();
-            CurrentQuestion = null;
             SelectedQuestion.Visibility = Visibility.Hidden;
 
         }
-        private void QuestionsList_KeyDown(object sender, KeyboardEventArgs e)
-        {
-        }
-        private void txtFilter_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
-        {
-            //CollectionViewSource.GetDefaultView(listPatients.ItemsSource).Refresh();
-        }
         private void Feedback_Click(object sender, RoutedEventArgs e)
-        {
-            var s = new FeedbackModal();
-            s.Show();
-
-        }
+            => new FeedbackModal().Show();
 
         private void Profile_Click(object sender, RoutedEventArgs e)
-        {
-            var s = new FeedbackModal();
-            s.Show();
-
-        }
+            => new FeedbackModal().Show();
 
         private void QuestionsList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             CurrentQuestion = (QuestionDTO)QuestionsList.SelectedItem;
             SelectedQuestion.Visibility = Visibility.Visible;
+            Question.Text = CurrentQuestion.QuestionText;
+            Answer.Text = CurrentQuestion.AnswerText;
+            
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void Question_TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }

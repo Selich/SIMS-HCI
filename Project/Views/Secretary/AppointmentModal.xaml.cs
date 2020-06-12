@@ -1,6 +1,4 @@
-﻿using Controller;
-using Project.Model;
-using Project.Repositories;
+﻿using Project.Model;
 using Project.Views.Model;
 using System;
 using System.Collections.Generic;
@@ -23,18 +21,17 @@ namespace Project.Views.Secretary
     /// </summary>
     public partial class AppointmentModal : Window
     {
-        public AppointmentModal(MedicalAppointment app)
-        {
-            //Generators gen = new Generators();
-            //WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
-            //InitializeComponent();
 
-            //selectedAppointment.Content = app;
-            //listDoctors.ItemsSource = app.doctors;
-            //listAllDoctors.ItemsSource = gen.GenerateDoctors(10);
-            //CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listAllDoctors.ItemsSource);
-            //view.Filter = DoctorFilter;
-            //this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
+        public AppointmentModal(MedicalAppointmentDTO dataContext)
+        {
+            DataContext = dataContext;
+            InitializeComponent();
+
+            Date.SelectedDate = dataContext.Beginning;
+            StartTime.Text = dataContext.Beginning.Hour + ":" + dataContext.Beginning.Minute;
+            EndTime.Text = dataContext.End.Hour + ":" + dataContext.End.Minute;
+            Room.Text = dataContext.Room.ToString();
+            
 
         }
 
@@ -78,13 +75,8 @@ namespace Project.Views.Secretary
         }
 
         private void Profile_Click(object sender, RoutedEventArgs e)
-        {
-            MedicalAppointment item = (MedicalAppointment)(sender as System.Windows.Controls.Button).DataContext;
-            var id = item.Patient.Id;
-            var s = new ProfileModal(id);
-            s.Show();
+            => new ProfileModal((MedicalAppointmentDTO)(sender as Button).DataContext).Show();
 
-        }
         private void Add_Doctor_Click(object sender, RoutedEventArgs e)
         {
             DoctorDTO item = (DoctorDTO)(sender as System.Windows.Controls.Button).DataContext;
@@ -102,12 +94,10 @@ namespace Project.Views.Secretary
         }
         private void Izmeni_Click(object sender, RoutedEventArgs e)
         {
-            room.IsEnabled = true;
-            timeFrom.IsEnabled = true;
-            timeTo.IsEnabled = true;
-            datePicker.IsEnabled = true;
-            description.IsEnabled = true;
-            appointmentType.IsEnabled = true;
+            Room.IsEnabled = true;
+            StartTime.IsEnabled = true;
+            EndTime.IsEnabled = true;
+            Date.IsEnabled = true;
             IzmeniCancel.Visibility = Visibility.Visible;
             Izmeni.Visibility = Visibility.Hidden;
 
@@ -115,12 +105,10 @@ namespace Project.Views.Secretary
         private void Izmeni_Cancel_Click(object sender, RoutedEventArgs e)
         {
             bool state = false;
-            room.IsEnabled = state;
-            timeFrom.IsEnabled = state;
-            timeTo.IsEnabled = state;
-            datePicker.IsEnabled = state;
-            description.IsEnabled = state;
-            appointmentType.IsEnabled = state;
+            Room.IsEnabled = state;
+            StartTime.IsEnabled = state;
+            EndTime.IsEnabled = state;
+            Date.IsEnabled = state;
             IzmeniCancel.Visibility = Visibility.Hidden;
             Izmeni.Visibility = Visibility.Visible;
         }
