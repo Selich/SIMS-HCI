@@ -1,4 +1,5 @@
-﻿using Project.Model;
+﻿using iTextSharp.xmp.impl;
+using Project.Model;
 using Project.Views.Model;
 using System;
 using System.Collections.Generic;
@@ -24,37 +25,86 @@ namespace Project.Views.Director
     {
         Point startPoint = new Point();
 
-        public ObservableCollection<EquipmentDTO> Equipment
+        public HomeWindow Home { get; set; }
+
+
+        public ObservableCollection<EquipmentDTO> RoomEquipment
         {
             get;
             set;
         }
 
-        public ObservableCollection<EquipmentDTO> Equipment2
+        public ObservableCollection<EquipmentDTO> Inventory
         {
             get;
             set;
         }
 
-        public InventoryManagmentModal()
+        public List<EquipmentDTO> Moved { get; set; }
+
+        public InventoryManagmentDTO InventoryManagment { get; set; }
+
+        public List<AppointmentDTO> AppointmentList { get; set; }
+
+        public InventoryManagmentModal(HomeWindow home,List<AppointmentDTO> list,List<EquipmentDTO> roomEquipment)
         {
             
             InitializeComponent();
             this.DataContext = this;
-            ObservableCollection<EquipmentDTO> l1 = new ObservableCollection<EquipmentDTO>();
-            l1.Add(new EquipmentDTO() { Name = "Sto", Type = "namestaj" });
-            l1.Add(new EquipmentDTO() { Name = "Stolica", Type = "namestaj" });
-            l1.Add(new EquipmentDTO() { Name="Cekic", Type = "alat/oruzje"});
+            this.Home = home;
+            this.AppointmentList = list;
+            DateTime date;
+            if (list == null || list.Count == 0)
+            {
+                date = DateTime.Now;
+            }
+            else
+            {
+                date = list.First().End;
+                foreach (AppointmentDTO appointment in list)
+                    if (DateTime.Compare(appointment.End, date) > 0)
+                        date = appointment.End;
+                date = date.AddDays(3);
+            }
+            DateTime endDate = date;
+            endDate = endDate.AddDays(1);
+            ManBegin.SelectedDate = date;
+            ManEnd.SelectedDate = endDate;
+            InventoryManagment = new InventoryManagmentDTO();
+            /* ObservableCollection<EquipmentDTO> l1 = new ObservableCollection<EquipmentDTO>();
+             l1.Add(new EquipmentDTO() { Name = "Sto", Type = "namestaj" });
+             l1.Add(new EquipmentDTO() { Name = "Stolica", Type = "namestaj" });
+             l1.Add(new EquipmentDTO() { Name="Cekic", Type = "alat/oruzje"});
 
-            ObservableCollection<EquipmentDTO> l2 = new ObservableCollection<EquipmentDTO>();
-            l2.Add(new EquipmentDTO() { Name = "Makaze", Type = "alat" });
-            l2.Add(new EquipmentDTO() { Name = "Cekic", Type = "alat" });
-            l2.Add(new EquipmentDTO() { Name = "Cekic", Type = "alat/oruzje" });
+             ObservableCollection<EquipmentDTO> l2 = new ObservableCollection<EquipmentDTO>();
+             l2.Add(new EquipmentDTO() { Name = "Makaze", Type = "alat" });
+             l2.Add(new EquipmentDTO() { Name = "Cekic", Type = "alat" });
+             l2.Add(new EquipmentDTO() { Name = "Cekic", Type = "alat/oruzje" });*/
 
-            Equipment = new ObservableCollection<EquipmentDTO>(l1);
-            Equipment2 = new ObservableCollection<EquipmentDTO>(l2);
 
-     
+            //if(roomEquipment==null) 
+              //  RoomEquipment=new ObservableCollection<EquipmentDTO>(); 
+            //else
+            RoomEquipment = new ObservableCollection<EquipmentDTO>(roomEquipment); 
+            Inventory = new ObservableCollection<EquipmentDTO>(Home.Magacin.Equipment);   //
+            Moved = new List<EquipmentDTO>();
+            
+
+        }
+
+        private void CloseInventoryManagment(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void SaveInventoryManagment(object sender, RoutedEventArgs e)
+        {
+            InventoryManagment.Beginning = ManBegin.SelectedDate.Value.Date;
+            InventoryManagment.End = ManEnd.SelectedDate.Value.Date;
+            InventoryManagment.Equipment =Moved;
+            InventoryManagment.Room = Home.SelectedRoom;
+            AppointmentList.Add(InventoryManagment);
+            this.Close();
         }
 
         private void ListView_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -88,6 +138,25 @@ namespace Project.Views.Director
             }
         }
 
+        private void ListView_DragOver(object sender, DragEventArgs e)
+        {
+            if (!e.Data.GetDataPresent("myFormat") || e.Source == sender)
+            {
+                e.Effects = DragDropEffects.None;
+            }
+        }
+
+        private void ListView_Drop(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent("myFormat"))
+            {
+                EquipmentDTO equip = e.Data.GetData("myFormat") as EquipmentDTO;
+                Inventory.Remove(equip);
+                RoomEquipment.Add(equip);
+                Moved.Add(equip);
+            }
+        }
+
         private static T FindAncestor<T>(DependencyObject current) where T : DependencyObject
         {
             do
@@ -102,27 +171,5 @@ namespace Project.Views.Director
             return null;
         }
 
-        private void ListView_DragOver(object sender, DragEventArgs e)
-        {
-            if (!e.Data.GetDataPresent("myFormat") || e.Source == sender)
-            {
-                e.Effects = DragDropEffects.None;
-            }
-        }
-
-        private void ListView_Drop(object sender, DragEventArgs e)
-        {
-            if (e.Data.GetDataPresent("myFormat"))
-            {
-                EquipmentDTO equip = e.Data.GetData("myFormat") as EquipmentDTO;
-                Equipment.Remove(equip);
-                Equipment2.Add(equip);
-            }
-        }
-
-        private void CloseInventoryManagment(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
     }
 }

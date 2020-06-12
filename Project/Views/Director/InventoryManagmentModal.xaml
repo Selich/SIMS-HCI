@@ -7,18 +7,18 @@
         mc:Ignorable="d"
         Title="Zakazivanje opremanja" Height="550" Width="800">
     <Grid>
-        <Button Content="Potvrdi" HorizontalAlignment="Left" Margin="131,456,0,0" VerticalAlignment="Top" Width="116" Click="CloseInventoryManagment"/>
+        <Button Content="Potvrdi" HorizontalAlignment="Left" Margin="131,456,0,0" VerticalAlignment="Top" Width="116" Click="SaveInventoryManagment"/>
         <Button Content="Odustani" HorizontalAlignment="Left" Margin="485,456,0,0" VerticalAlignment="Top" Width="113" RenderTransformOrigin="-0.14,0" Click="CloseInventoryManagment"/>
-        <Label Content="Soba 205:" HorizontalAlignment="Left" Margin="39,127,0,0" VerticalAlignment="Top" FontSize="15" FontWeight="Bold"/>
-        <Label Content="Magacin:" HorizontalAlignment="Left" Margin="411,127,0,0" VerticalAlignment="Top" FontSize="15" FontWeight="Bold"/>
-        <DataGrid Name="DataGridLeft" ItemsSource="{Binding Equipment}" PreviewMouseLeftButtonDown="ListView_PreviewMouseLeftButtonDown" MouseMove="ListView_MouseMove" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="227" Margin="39,192,0,0" VerticalAlignment="Top" Width="281" BorderThickness="1" RowDetailsVisibilityMode="Visible">
+        <Label Content="Magacin:" HorizontalAlignment="Left" Margin="39,147,0,0" VerticalAlignment="Top" FontSize="15" FontWeight="Bold"/>
+        <Label Content="Soba:" HorizontalAlignment="Left" Margin="411,147,0,0" VerticalAlignment="Top" FontSize="15" FontWeight="Bold"/>
+        <DataGrid Name="DataGridLeft" ItemsSource="{Binding Inventory}" PreviewMouseLeftButtonDown="ListView_PreviewMouseLeftButtonDown" MouseMove="ListView_MouseMove" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="227" Margin="39,192,0,0" VerticalAlignment="Top" Width="281" BorderThickness="1" RowDetailsVisibilityMode="Visible">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
                 <DataGridTextColumn Header="Type" Binding="{Binding Type}" />
             </DataGrid.Columns>
 
         </DataGrid>
-        <DataGrid  ItemsSource="{Binding Equipment2}" Name="DataGridRight" AllowDrop="True" DragOver="ListView_DragOver" Drop="ListView_Drop"   AutoGenerateColumns="False" HorizontalAlignment="Left" Height="227" Margin="411,192,0,0" VerticalAlignment="Top" Width="281" BorderThickness="1">
+        <DataGrid ItemsSource="{Binding RoomEquipment}" Name="DataGridRight" AllowDrop="True" DragOver="ListView_DragOver" Drop="ListView_Drop"   AutoGenerateColumns="False" HorizontalAlignment="Left" Height="227" Margin="411,192,0,0" VerticalAlignment="Top" Width="281" BorderThickness="1">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
                 <DataGridTextColumn Header="Type" Binding="{Binding Type}" />
@@ -27,8 +27,8 @@
         </DataGrid>
         <Label Content="Pocetak:" HorizontalAlignment="Left" Margin="39,40,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Label Content="Kraj:" HorizontalAlignment="Left" Margin="39,80,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <DatePicker HorizontalAlignment="Left" Margin="108,40,0,0" VerticalAlignment="Top" Width="91"/>
-        <DatePicker HorizontalAlignment="Left" Margin="108,80,0,0" VerticalAlignment="Top" Width="91"/>
+        <DatePicker Name="ManBegin" IsEnabled="False" HorizontalAlignment="Left" Margin="108,40,0,0" VerticalAlignment="Top" Width="91"/>
+        <DatePicker Name="ManEnd" IsEnabled="False" HorizontalAlignment="Left" Margin="108,80,0,0" VerticalAlignment="Top" Width="91"/>
 
     </Grid>
 </Window>

@@ -89,6 +89,7 @@ namespace Project.Views.Model
             Ward = ward;
             Floor = floor;
             Appointments = new List<AppointmentDTO>();
+            Equipment = new List<EquipmentDTO>();
 
         }
         public RoomDTO(RoomType type, string ward, string floor)
@@ -97,6 +98,7 @@ namespace Project.Views.Model
             Ward = ward;
             Floor = floor;
             Appointments = new List<AppointmentDTO>();
+            Equipment = new List<EquipmentDTO>();
         }
 
 
