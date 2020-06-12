@@ -26,7 +26,6 @@ namespace Project.Views.Secretary
     {
         App app;
         public List<String> MedicalRoles;
-        private SecretaryCreate secretaryCreate;
 
         public DoctorSearchModal()
         {
@@ -83,7 +82,7 @@ namespace Project.Views.Secretary
         {
             if (e.Key == Key.Return)
             {
-                app.selectedDoctor = (DoctorList.SelectedItem as DoctorDTO);
+                app.SelectedDoctor = (DoctorList.SelectedItem as DoctorDTO);
                 //CollectionViewSource.GetDefaultView(createP).Refresh();
 
                 this.Close();

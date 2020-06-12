@@ -15,13 +15,14 @@ using System.Collections.Generic;
 using Project.Views.Secretary;
 using System.Xml.Schema;
 using System;
+using System.ComponentModel;
 
 namespace Project
 {
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
-    public partial class App : Application
+    public partial class App : Application, INotifyPropertyChanged
     {
 
 
@@ -29,9 +30,54 @@ namespace Project
         public List<DoctorDTO> doctors { get; set; }
         public List<PatientDTO> patients { get; set; }
         public List<RoomDTO> rooms { get; set; }
-        public DoctorDTO selectedDoctor { get; set; }
-        public PatientDTO selectedPatient { get; set; }
-        public List<MedicalAppointmentDTO> medicalAppointments { get; set; }
+        private DoctorDTO selectedDoctor;
+        public DoctorDTO SelectedDoctor
+        {
+            get
+            {
+                return selectedDoctor;
+            }
+            set
+            {
+                if (value != selectedDoctor)
+                {
+                    selectedDoctor = value;
+                    OnPropertyChanged("SelectedDoctor");
+                }
+            }
+        }
+        private PatientDTO selectedPatient;
+        public PatientDTO SelectedPatient
+        {
+            get
+            {
+                return selectedPatient;
+            }
+            set
+            {
+                if (value != selectedPatient)
+                {
+                    selectedPatient = value;
+                    OnPropertyChanged("SelectedPatient");
+                }
+            }
+        }
+        private List<MedicalAppointmentDTO> medicalAppointments;
+        public List<MedicalAppointmentDTO> MedicalAppointments
+        {
+            get
+            {
+                return medicalAppointments;
+            }
+            set
+            {
+                if (value != medicalAppointments)
+                {
+                    medicalAppointments = value;
+                    OnPropertyChanged("MedicalAppointments");
+                }
+            }
+        }
         public SecretaryDTO currentSecretary { get; set; }
         public List<string> medicalRoles { get; set; }
         public List<string> roomTypes { get; set; }
@@ -45,12 +91,21 @@ namespace Project
 
         private static string REPORT_ROOM_PATH = ConfigurationManager.AppSettings["ReportRoomPath"].ToString();
 
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected virtual void OnPropertyChanged(string name)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(name));
+            }
+        }
+
         public App()
         {
 
             // HCI
 
-            medicalRoles = new List<string> { "Svi", "Opšte Prakse", "Hirurg", "Dermatolog", "Očni lekar"};
+            medicalRoles = new List<string> { "Svi", "Opšte Prakse", "Hirurg", "Dermatolog", "Očni lekar" };
             roomTypes = new List<string> { "Bolnička Soba", "Operaciona Sala", "Soba za preglede" };
             medicalAppointmentTypes = new List<string> { "Pregled", "Operacija", "Ležanje" };
 
@@ -83,7 +138,7 @@ namespace Project
                 "Marija", "Sazdanović", "123241129993", "+381604223222", "female", new DateTime(),
                 "08763646483684", "Diplomirani Istoričar", "0-", 168, 62, "marijasazdanovic@gmail.com", "pass")
             };
-            rooms = new List<RoomDTO>() { 
+            rooms = new List<RoomDTO>() {
                 new RoomDTO(1, RoomType.hospitalRoom, "One", "Check"),
                 new RoomDTO(2, RoomType.hospitalRoom, "One", "Check"),
                 new RoomDTO(3, RoomType.hospitalRoom, "One", "Check"),
@@ -91,11 +146,11 @@ namespace Project
             };
             medicalAppointments = new List<MedicalAppointmentDTO>{
                 new MedicalAppointmentDTO(
-                    0, new DateTime(2020, 5, 10, 15, 0, 0),  new DateTime(2020, 5, 10, 15, 30, 0), 
+                    0, new DateTime(2020, 5, 10, 15, 0, 0),  new DateTime(2020, 5, 10, 15, 30, 0),
                     rooms[0], MedicalAppointmentType.examination ,
                     patients[0], new List<DoctorDTO>{ doctors[0], doctors[1] }),
                 new MedicalAppointmentDTO(
-                    1, new DateTime(2020, 5, 10, 15, 0, 0),  new DateTime(2020, 5, 10, 15, 30, 0), 
+                    1, new DateTime(2020, 5, 10, 15, 0, 0),  new DateTime(2020, 5, 10, 15, 30, 0),
                     rooms[0], MedicalAppointmentType.examination ,
                     patients[0], new List<DoctorDTO>{ doctors[0], doctors[1] }),
             };
@@ -120,8 +175,10 @@ namespace Project
 
 
 
+
         public IController<PatientDTO, long> PatientController { get; private set; }
         public ReportController ReportController { get; private set; }
         public IController<QuestionDTO, long> QuestionController { get; private set; }
+
     }
 }

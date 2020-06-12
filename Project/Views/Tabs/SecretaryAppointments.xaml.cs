@@ -31,13 +31,13 @@ namespace Project.Views.Tabs
             InitializeComponent();
             DataContext = this;
             app = System.Windows.Application.Current as App;
-            CurrentDoctor.Content = app.selectedDoctor;
-            nextAppointment.Content = app.medicalAppointments[0];
+            CurrentDoctor.Content = app.SelectedDoctor;
+            nextAppointment.Content = app.MedicalAppointments[0];
 
 
         }
         private void Search_Doctor(object sender, RoutedEventArgs e) => new DoctorSearchModal().Show();
         private void Feedback_Click(object sender, RoutedEventArgs e) => new FeedbackModal().Show();
-        private void Button_Click(object sender, RoutedEventArgs e) => new SecretaryGenerateReport().Show();
+        private void Button_Click(object sender, RoutedEventArgs e) => new SecretaryCreateModal().Show();
     }
 }

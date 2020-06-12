@@ -41,5 +41,7 @@ namespace Project.Views.Secretary
 
         private void ShowShortcuts(object sender, RoutedEventArgs e) 
             => new ShortcutsModal().Show();
+        private void CreateAppointment(object sender, RoutedEventArgs e) 
+            => new SecretaryCreateModal().Show();
     }
 }
