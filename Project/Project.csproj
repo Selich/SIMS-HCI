@@ -173,6 +173,7 @@
     <Compile Include="Views\Model\PrescriptionDTO.cs" />
     <Compile Include="Views\Model\PropositionDTO.cs" />
     <Compile Include="Views\Model\QuestionDTO.cs" />
+    <Compile Include="Views\Model\RenovationDTO.cs" />
     <Compile Include="Views\Model\ReviewDTO.cs" />
     <Compile Include="Views\Model\RoomDTO.cs" />
     <Compile Include="Views\Model\SecretaryDTO.cs" />

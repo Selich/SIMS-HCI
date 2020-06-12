@@ -50,7 +50,7 @@ namespace Project.Views.Director
         public AddressDTO DirectorAddress { get; set; }
         public DirectorDTO Director { get; set; }
 
-
+        
         public ObservableCollection<PropositionDTO> Propositions {get; set;}
 
         public ObservableCollection<EmployeeDTO> Employees { get; set; }
@@ -282,7 +282,7 @@ namespace Project.Views.Director
 
         private void OpenRenovationAppointment(object sender, RoutedEventArgs e)
         {
-            RenovationModal modal = new RenovationModal();
+            RenovationModal modal = new RenovationModal(this,SelectedRoom.Appointments);
             modal.Show();
         }
 
