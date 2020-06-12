@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Project.Views.Model;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,10 +21,37 @@ namespace Project.Views.Director
     /// </summary>
     public partial class RenovationModal : Window
     {
+        public HomeWindow Home { get; set; }
+
+        public RenovationDTO Renovation { get; set; }
+
+
+        public List<AppointmentDTO> AppointmentList { get; set; }
            
-        public RenovationModal()
+        public RenovationModal(HomeWindow home, List<AppointmentDTO> list)
         {
             InitializeComponent();
+            this.DataContext = this;
+            this.Home = home;
+            this.AppointmentList = list;
+            DateTime date;
+            if (list == null || list.Count==0)
+            {
+                date = DateTime.Now;
+            }
+            else
+            {
+                date = list.First().End;
+                foreach (AppointmentDTO appointment in list)
+                    if (DateTime.Compare(appointment.End, date) > 0)
+                        date = appointment.End;
+                date = date.AddDays(3);
+            }
+            DateTime endDate = date;
+            endDate=endDate.AddDays(1);
+            RenBegin.SelectedDate = date;
+            RenEnd.SelectedDate = endDate;
+            Renovation = new RenovationDTO();
         }
 
         private void AdjustRenovationModal(object sender, SelectionChangedEventArgs e)
@@ -59,5 +88,17 @@ namespace Project.Views.Director
         {
             this.Close();
         }
+
+        private void SaveRenovationAppointment(object sender, RoutedEventArgs e)
+        {
+            Renovation.Beginning = RenBegin.SelectedDate.Value.Date;
+            Renovation.End = RenEnd.SelectedDate.Value.Date;
+            Renovation.Type = RenType.SelectedValue.ToString();
+            Renovation.Room = Home.SelectedRoom;
+            AppointmentList.Add(Renovation);
+
+            this.Close();
+        }
+        
     }
 }

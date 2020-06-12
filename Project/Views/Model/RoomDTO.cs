@@ -63,7 +63,23 @@ namespace Project.Views.Model
         public string Floor { get; set; }
 
         public List<EquipmentDTO> Equipment { get; set; }
-        public List<AppointmentDTO> Appointments { get; set; }
+
+        private List<AppointmentDTO> appointments;
+        public List<AppointmentDTO> Appointments
+        {
+            get
+            {
+                return appointments;
+            }
+            set
+            {
+                if (value != appointments)
+                {
+                    appointments = value;
+                    OnPropertyChanged("Appointments");
+                }
+            }
+        }
 
         public RoomDTO() { Appointments = new List<AppointmentDTO>(); }
         public RoomDTO(long id, RoomType type, string ward, string floor)
