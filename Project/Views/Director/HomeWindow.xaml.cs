@@ -66,16 +66,48 @@ namespace Project.Views.Director
         public RoomDTO Magacin { get; set; }
 
 
-       // public EmployeeDTO SelectedEmployee { get; set; }
+        // public EmployeeDTO SelectedEmployee { get; set; }
+        private RoomDTO selectedRoom;
+        public RoomDTO SelectedRoom
+        {
+            get
+            {
+                return selectedRoom;
+            }
+            set
+            {
+                if (value != selectedRoom)
+                {
+                    selectedRoom = value;
+                    OnPropertyChanged("SelectedRoom");
+                }
+            }
+        }
 
-        public RoomDTO SelectedRoom { get; set; }
+        private ObservableCollection<AppointmentDTO> selectedRoomAppointments;
 
-    public HomeWindow()
+        public ObservableCollection<AppointmentDTO> SelectedRoomAppointments
+            {
+                get
+                {
+                    return selectedRoomAppointments;
+                }
+                set
+                {
+                    if (value != selectedRoomAppointments)
+                    {
+                        selectedRoomAppointments = value;
+                        OnPropertyChanged("SelectedRoomAppointments");
+                    }
+                }
+            }
+        
+
+        public HomeWindow()
         {
            
             InitializeComponent();
             this.DataContext = this;
-            this.SelectedRoom = null;
             var app = Application.Current as App;
 
             _reportController = new ReportController();
@@ -122,7 +154,10 @@ namespace Project.Views.Director
 
 
             RoomList = new ObservableCollection<RoomDTO>();
-            RoomList.Add(new RoomDTO(12,RoomType.hospitalRoom,"Intenzivna nega","4"));
+            RoomDTO tester = new RoomDTO(12, RoomType.hospitalRoom, "Intenzivna nega", "4");
+            AppointmentDTO testapp = new AppointmentDTO(1,new DateTime(2020,6,12,7,45,0), new DateTime(2020, 6, 12, 8, 20, 0),tester);
+            tester.Appointments.Add(testapp);
+            RoomList.Add(tester);
             RoomList.Add(new RoomDTO(24, RoomType.operationHall, "Kardiovaskularna", "2"));
             RoomList.Add(new RoomDTO(17, RoomType.medicalRoom, "Pregledi", "1"));
             RoomList.Add(new RoomDTO(5, RoomType.hospitalRoom, "Intenzivna nega", "3"));
@@ -209,7 +244,8 @@ namespace Project.Views.Director
         private void OpenRoomDetails(object sender, RoutedEventArgs e)
         {
             var btn = sender as Button;
-            RoomsList.SelectedItem = btn.DataContext;
+            //RoomsList.SelectedItem = btn.DataContext;
+            SelectedRoomAppointments = null;
             SelectedRoom = btn.DataContext as RoomDTO;
             Rooms.Visibility = Visibility.Collapsed;
             RoomDetails.Visibility = Visibility.Visible;
@@ -300,5 +336,24 @@ namespace Project.Views.Director
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+        private void GenerateAppointmentsForDate(object sender, SelectionChangedEventArgs e)
+        {
+            if (RoomCalendar.SelectedDate.HasValue && SelectedRoom!=null)
+            {
+                DateTime date = (DateTime)RoomCalendar.SelectedDate;
+              
+                SelectedRoomAppointments= new ObservableCollection<AppointmentDTO>();
+                List<AppointmentDTO> list = SelectedRoom.Appointments;
+                if (list!=null) {
+                    foreach (AppointmentDTO app in list)
+                        if (app.Beginning.Date.Day == date.Date.Day && app.Beginning.Date.Month == date.Date.Month && app.Beginning.Year == date.Date.Year) //verovatno moze samo .Date=.Date
+                        {
+                            SelectedRoomAppointments.Add(app);
+                        } 
+                }
+            }
+
+        }
     }
 }
