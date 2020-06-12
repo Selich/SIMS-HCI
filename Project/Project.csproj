@@ -314,6 +314,9 @@
     <Compile Include="Views\Secretary\ProfileModal.xaml.cs">
       <DependentUpon>ProfileModal.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Secretary\RegisterGuest.xaml.cs">
+      <DependentUpon>RegisterGuest.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Secretary\RegisterPatient.xaml.cs">
       <DependentUpon>RegisterPatient.xaml</DependentUpon>
     </Compile>
@@ -499,6 +502,10 @@
     <Page Include="Views\Secretary\ProfileModal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Secretary\RegisterGuest.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Secretary\RegisterPatient.xaml">
       <Generator>MSBuild:Compile</Generator>
