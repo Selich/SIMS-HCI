@@ -124,7 +124,7 @@ namespace Project.Views.Director
 
 
             Employees = new ObservableCollection<EmployeeDTO>();
-            Employees.Add(new EmployeeDTO(address, "Sima", "Paroski", "0412631232567", "022/353452", "Male", new DateTime(1969, 6, 24), 24000, null, null, "simo@gmail.com", "sifria1","Klinicko Centar Vojvodina"));
+            Employees.Add(new EmployeeDTO(address, "Sima", "Paroski", "0412631232567", "022/353452", "Male", new DateTime(1969, 6, 24), 24000, new TimeInterval(new DateTime(2020,12,5),new DateTime(2020, 12, 27)), new TimeInterval(new DateTime(2020, 12, 5), new DateTime(2020, 12, 27)), "simo@gmail.com", "sifria1","Klinicko Centar Vojvodina"));
             Employees.Add(new EmployeeDTO(address, "Humus", "Dumus", "05553331232567", "028/352352", "Female", new DateTime(1969, 6, 24), 23000, null, null, "simo@gmail.com", "sifria1","Klinicko Centar Vojvodina"));
             Employees.Add(new EmployeeDTO(address, "Petar", "Gringovic", "0412631232567", "022/353652", "Male", new DateTime(1969, 6, 24), 28000, null, null, "simo@gmail.com", "sifria1", "Klinicko Centar Vojvodina"));
             Employees.Add(new EmployeeDTO(address, "Slavica", "Bubregovic", "0412631232567", "022/253452", "Female", new DateTime(1980, 6, 24), 2200, null, null, "simo@gmail.com", "sifria1","Klinicko Centar Vojvodina"));
@@ -132,11 +132,21 @@ namespace Project.Views.Director
 
             Equipment = new ObservableCollection<EquipmentDTO>();
             Magacin = new RoomDTO(0,RoomType.hospitalRoom,"magacin","");
-            Equipment.Add(new EquipmentDTO(1,"Sto", "Namestaj", "Ovo je sto ima cetiri noge i na njega se stavljaju stvari", Magacin));
-            Equipment.Add(new EquipmentDTO(2,"Stolica", "Namestaj", "Ovo je stolica, ima cetiri noge i na njoj se sedi", Magacin));
-            Equipment.Add(new EquipmentDTO(3,"Operacioni sto", "Oprema", "Model XYZ,...", Magacin));
-            Equipment.Add(new EquipmentDTO(4,"Vrata", "Infrastuktura", "Open Sesame", Magacin));
-            Equipment.Add(new EquipmentDTO(5,"Respirator", "Donacija", "Mehanicko disanje???", Magacin));
+            EquipmentDTO novi= new EquipmentDTO(1, "Sto", "Namestaj", "Ovo je sto ima cetiri noge i na njega se stavljaju stvari", Magacin);
+            Magacin.Equipment.Add(novi);
+            Equipment.Add(novi);
+            novi = new EquipmentDTO(2, "Stolica", "Namestaj", "Ovo je stolica, ima cetiri noge i na njoj se sedi", Magacin);
+            Magacin.Equipment.Add(novi);
+            Equipment.Add(novi);
+            novi=new EquipmentDTO(3,"Operacioni sto", "Oprema", "Model XYZ,...", Magacin);
+            Magacin.Equipment.Add(novi);
+            Equipment.Add(novi);
+            novi= new EquipmentDTO(4,"Vrata", "Infrastuktura", "Open Sesame", Magacin);
+            Magacin.Equipment.Add(novi);
+            Equipment.Add(novi);
+            novi= new EquipmentDTO(5,"Respirator", "Donacija", "Mehanicko disanje???", Magacin);
+            Magacin.Equipment.Add(novi);
+            Equipment.Add(novi);
 
 
             MedicalConsumables = new ObservableCollection<MedicalConsumableDTO>();
@@ -293,14 +303,14 @@ namespace Project.Views.Director
 
         private void OpenInventoryManagment(object sender, RoutedEventArgs e)
         {
-            InventoryManagmentModal modal = new InventoryManagmentModal();
+            InventoryManagmentModal modal = new InventoryManagmentModal(this,SelectedRoom.Appointments,SelectedRoom.Equipment);
             modal.Show();
         }
 
         private void ChangeEmployeeProfile(object sender, RoutedEventArgs e)
         {
             foreach (TextBox textBox in employeeData.Children)
-                textBox.IsEnabled = true;
+            textBox.IsEnabled = true;
             Save_employee.Visibility = Visibility.Visible;
             Cancel_employee.Visibility = Visibility.Visible;
             Change_employee.Visibility = Visibility.Collapsed;
@@ -354,6 +364,20 @@ namespace Project.Views.Director
                 }
             }
 
+        }
+
+        private void UpdateEmployeeWorkingHours(object sender, RoutedEventArgs e)
+        {
+            int startHour = Int32.Parse(WHStartHour.Text);
+            int startMinute = Int32.Parse(WHStartMinute.Text);
+            int endHour = Int32.Parse(WHEndHour.Text);
+            int endMinute = Int32.Parse(WHEndMinute.Text);
+
+            DateTime begin = new DateTime(2000, 1, 1, startHour, startMinute, 0);
+            DateTime end = new DateTime(2000, 1, 1, endHour, endMinute, 0);
+            TimeInterval interval = new TimeInterval(begin, end);
+            EmployeeDTO selected = EmployeeDetailsGrid.DataContext as EmployeeDTO;
+            selected.WorkingHours = interval;
         }
     }
 }
