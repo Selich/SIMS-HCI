@@ -10,10 +10,10 @@
         Title="Porucivanje opreme" Height="500" Width="350">
     <materialDesign:Card>
     <Grid>
-        <Label Content="Tip opreme:" HorizontalAlignment="Left" Margin="60,130,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.278,-0.208"/>
-        <Label Content="Naziv opreme:" HorizontalAlignment="Left" Margin="60,77,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.278,-0.208"/>
-        <Label Content="Kolicina:" HorizontalAlignment="Left" Margin="60,187,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.278,-0.208"/>
-        <Label Content="Opis:" HorizontalAlignment="Left" Margin="60,247,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.278,-0.208"/>
+        <Label Content="{DynamicResource type}" HorizontalAlignment="Left" Margin="60,130,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.278,-0.208"/>
+        <Label Content="{DynamicResource name}" HorizontalAlignment="Left" Margin="60,77,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.278,-0.208"/>
+        <Label Content="{DynamicResource quantity}" HorizontalAlignment="Left" Margin="60,187,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.278,-0.208"/>
+        <Label Content="{DynamicResource description}" HorizontalAlignment="Left" Margin="60,247,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.278,-0.208"/>
         <TextBox IsReadOnly="True" Text="{Binding Equipment.Name,Mode=OneWay}" Name="NewEquipmentName" HorizontalAlignment="Left" Height="23" Margin="176,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
         <TextBox Name="NewEquipmentType" Text="{Binding Equipment.Type,Mode=OneWay}" HorizontalAlignment="Left" Height="23" Margin="176,130,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
         <TextBox Name="NewEquipmentQuanitity" HorizontalAlignment="Left" Height="23" Margin="176,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120">
@@ -25,8 +25,8 @@
                 </Binding>
             </TextBox.Text>
         </TextBox>
-        <Button Content="Potvrdi" HorizontalAlignment="Left" Margin="60,380,0,0" VerticalAlignment="Top" Width="105" Click="SaveEquipmentOrder"/>
-        <Button Content="Odustani" HorizontalAlignment="Left" Margin="191,380,0,0" VerticalAlignment="Top" Width="105" RenderTransformOrigin="1.827,0.562" Click="CloseEquipmentOrder"/>
+        <Button Content="{DynamicResource confirm}" HorizontalAlignment="Left" Margin="60,380,0,0" VerticalAlignment="Top" Width="105" Click="SaveEquipmentOrder"/>
+        <Button Content="{DynamicResource cancel}" HorizontalAlignment="Left" Margin="191,380,0,0" VerticalAlignment="Top" Width="105" RenderTransformOrigin="1.827,0.562" Click="CloseEquipmentOrder"/>
         <TextBox Name="NewEquipmentDescription" Text="{Binding Equipment.Description,Mode=OneWay}" HorizontalAlignment="Left" Height="23" Margin="176,248,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
 
     </Grid>

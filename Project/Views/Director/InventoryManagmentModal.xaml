@@ -9,10 +9,10 @@
         Title="Zakazivanje opremanja" Height="550" Width="800">
     <materialDesign:Card>
         <Grid>
-            <Button Content="Potvrdi" HorizontalAlignment="Left" Margin="131,456,0,0" VerticalAlignment="Top" Width="116" Click="SaveInventoryManagment"/>
-            <Button Content="Odustani" HorizontalAlignment="Left" Margin="485,456,0,0" VerticalAlignment="Top" Width="113" RenderTransformOrigin="-0.14,0" Click="CloseInventoryManagment"/>
-            <Label Content="Magacin:" HorizontalAlignment="Left" Margin="39,147,0,0" VerticalAlignment="Top" FontSize="15" FontWeight="Bold"/>
-            <Label Content="Soba:" HorizontalAlignment="Left" Margin="411,147,0,0" VerticalAlignment="Top" FontSize="15" FontWeight="Bold"/>
+            <Button Content="{DynamicResource confirm}" HorizontalAlignment="Left" Margin="131,456,0,0" VerticalAlignment="Top" Width="116" Click="SaveInventoryManagment"/>
+            <Button Content="{DynamicResource cancel}" HorizontalAlignment="Left" Margin="485,456,0,0" VerticalAlignment="Top" Width="113" RenderTransformOrigin="-0.14,0" Click="CloseInventoryManagment"/>
+            <Label Content="{DynamicResource storage}" HorizontalAlignment="Left" Margin="39,147,0,0" VerticalAlignment="Top" FontSize="15" FontWeight="Bold"/>
+            <Label Content="{DynamicResource room}" HorizontalAlignment="Left" Margin="411,147,0,0" VerticalAlignment="Top" FontSize="15" FontWeight="Bold"/>
             <DataGrid Name="DataGridLeft" ItemsSource="{Binding Inventory}" PreviewMouseLeftButtonDown="ListView_PreviewMouseLeftButtonDown" MouseMove="ListView_MouseMove" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="227" Margin="39,192,0,0" VerticalAlignment="Top" Width="281" BorderThickness="1" RowDetailsVisibilityMode="Visible">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
@@ -27,8 +27,8 @@
                 </DataGrid.Columns>
 
             </DataGrid>
-            <Label Content="Pocetak:" HorizontalAlignment="Left" Margin="39,40,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-            <Label Content="Kraj:" HorizontalAlignment="Left" Margin="39,80,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Label Content="{DynamicResource beginning}" HorizontalAlignment="Left" Margin="39,40,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Label Content="{DynamicResource end}" HorizontalAlignment="Left" Margin="39,80,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
             <DatePicker Name="ManBegin" IsEnabled="False" HorizontalAlignment="Left" Margin="108,40,0,0" VerticalAlignment="Top" Width="91"/>
             <DatePicker Name="ManEnd" IsEnabled="False" HorizontalAlignment="Left" Margin="108,80,0,0" VerticalAlignment="Top" Width="91"/>
 

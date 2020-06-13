@@ -31,6 +31,17 @@ namespace Project
             get { return Resources.MergedDictionaries[0]; }
         }
 
+        public ResourceDictionary LanguageDictionary
+        {
+            get { return Resources.MergedDictionaries[1]; }
+        }
+
+        public void ChangeLanguage(Uri uri)
+        {
+            LanguageDictionary.MergedDictionaries.Clear();
+            LanguageDictionary.MergedDictionaries.Add(new ResourceDictionary() { Source = uri });
+        }
+
         public void ChangeTheme(Uri uri)
         {
             ThemeDictionary.MergedDictionaries.Clear();

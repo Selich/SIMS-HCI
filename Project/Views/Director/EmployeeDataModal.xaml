@@ -10,15 +10,15 @@
         Title="EmployeeDataModal" Height="600" Width="350">
     <materialDesign:Card>
         <Grid>
-            <Label  Content="Tip zaposlenog:" HorizontalAlignment="Left" Margin="55,62,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
-            <Label  Content="Specijalizacija:" HorizontalAlignment="Left" Margin="55,105,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
+            <Label  Content="{DynamicResource empolyeetype}" HorizontalAlignment="Left" Margin="55,62,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
+            <Label  Content="{DynamicResource specialisation}" HorizontalAlignment="Left" Margin="55,105,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
             <Label  Content="Email:" HorizontalAlignment="Left" Margin="55,144,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
-            <Label  Content="Adresa:" HorizontalAlignment="Left" Margin="55,182,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
-            <Label  Content="Ime:" HorizontalAlignment="Left" Margin="55,225,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
-            <Label  Content="Prezime:" HorizontalAlignment="Left" Margin="55,265,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
-            <Label Content="Datum rodjenja:" HorizontalAlignment="Left" Margin="55,303,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
+            <Label  Content="{DynamicResource address}" HorizontalAlignment="Left" Margin="55,182,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
+            <Label  Content="{DynamicResource firstName}" HorizontalAlignment="Left" Margin="55,225,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
+            <Label  Content="{DynamicResource lastName}" HorizontalAlignment="Left" Margin="55,265,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
+            <Label Content="{DynamicResource datOfBirth}" HorizontalAlignment="Left" Margin="55,303,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
             <Label Content="JMBG:" HorizontalAlignment="Left" Margin="55,338,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
-            <Label Content="Bolnica:" HorizontalAlignment="Left" Margin="55,381,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
+            <Label Content="{DynamicResource hospital}" HorizontalAlignment="Left" Margin="55,381,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
             <ComboBox Name="NewEmployeeType" SelectedValuePath="Content" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="160,60,0,0">
                 <ComboBoxItem IsSelected="True">Lekar</ComboBoxItem>
                 <ComboBoxItem>Sekretar</ComboBoxItem>
@@ -90,8 +90,8 @@
                     </Binding>
                 </TextBox.Text>
             </TextBox>
-            <Button Content="Sacuvaj" HorizontalAlignment="Left" Margin="55,471,0,0" VerticalAlignment="Top" Width="106" Click="SaveEmployeeDataChanges"/>
-            <Button Content="Odustani" HorizontalAlignment="Left" Margin="178,471,0,0" VerticalAlignment="Top" Width="102" Click="CancelEmployeeDataChanges"/>
+            <Button Content="{DynamicResource confirm}" HorizontalAlignment="Left" Margin="55,471,0,0" VerticalAlignment="Top" Width="106" Click="SaveEmployeeDataChanges"/>
+            <Button Content="{DynamicResource cancel}" HorizontalAlignment="Left" Margin="178,471,0,0" VerticalAlignment="Top" Width="102" Click="CancelEmployeeDataChanges"/>
 
         </Grid>
     </materialDesign:Card>
