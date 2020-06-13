@@ -53,5 +53,11 @@
     <system:String x:Key="floor">Sprat:</system:String>
     <system:String x:Key="ward">Departman:</system:String>
     <system:String x:Key="use"> Namena:</system:String>
+    <system:String x:Key="back">Nazad</system:String>
+    <system:String x:Key="annualLeave">Godisnji odmor:</system:String>
+    <system:String x:Key="workingHouts">Radno vreme:</system:String>
+    <system:String x:Key="appointments">Termini: </system:String>
+    <system:String x:Key="scheduleRenovation">Zakazi renoviranje</system:String>
+    <system:String x:Key="scheduleInventoryManagment">Zakazi opremanje</system:String>
 
 </ResourceDictionary>

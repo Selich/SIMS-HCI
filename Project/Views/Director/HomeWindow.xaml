@@ -128,16 +128,16 @@
             <Grid>
                 <materialDesign:Card>
                     <Grid Name="EmployeeDetailsGrid" Margin="0,0,0,0" Visibility="Collapsed" DataContext="{Binding ElementName=EmployeeList, Path=SelectedItem}">
-                        <Button Content="Nazad" HorizontalAlignment="Left" Margin="36,26,0,0" VerticalAlignment="Top" Width="74" Click="OpenEmplyees"/>
+                        <Button Content="{DynamicResource back}" HorizontalAlignment="Left" Margin="36,26,0,0" VerticalAlignment="Top" Width="74" Click="OpenEmplyees"/>
                         <Image Source="/Project;component/Resources/Icons/hospital.png"  HorizontalAlignment="Left" Height="170" Margin="36,90,0,0" VerticalAlignment="Top" Width="170" OpacityMask="#FFF12511"/>
-                        <Label Content="Email:" HorizontalAlignment="Left" Margin="219,177,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
-                        <Label Content="Adresa:" HorizontalAlignment="Left" Margin="219,215,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
-                        <Label Content="Ime:" HorizontalAlignment="Left" Margin="219,258,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
-                        <Label Content="Prezime:" HorizontalAlignment="Left" Margin="219,298,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
-                        <Label Content="Datum rodjenja:" HorizontalAlignment="Left" Margin="219,336,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
-                        <Label Content="JMBG:" HorizontalAlignment="Left" Margin="219,371,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
-                        <Label Content="Bolnica:" HorizontalAlignment="Left" Margin="219,414,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
-                        <Grid Name="employeeData" Margin="312,140,726,170">
+                        <Label Content="Email:" HorizontalAlignment="Left" Margin="219,125,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
+                        <Label Content="{DynamicResource address}" HorizontalAlignment="Left" Margin="219,163,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
+                        <Label Content="{DynamicResource firstName}" HorizontalAlignment="Left" Margin="219,206,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
+                        <Label Content="{DynamicResource lastName}" HorizontalAlignment="Left" Margin="219,246,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
+                        <Label Content="{DynamicResource datOfBirth}" HorizontalAlignment="Left" Margin="219,284,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
+                        <Label Content="JMBG:" HorizontalAlignment="Left" Margin="219,319,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
+                        <Label Content="{DynamicResource hospital}" HorizontalAlignment="Left" Margin="219,362,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
+                        <Grid Name="employeeData" Margin="317,90,721,220">
                             <TextBox  IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="0,37,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="178">
                                 <TextBox.Text>
                                     <Binding Path="Email" UpdateSourceTrigger="PropertyChanged">
@@ -186,20 +186,20 @@
                                 </TextBox.Text>
                             </TextBox>
                         </Grid>
-                        <Button Name="Change_employee" Content="Izmeni" HorizontalAlignment="Left" Margin="219,522,0,0" VerticalAlignment="Top" Width="225" RenderTransformOrigin="0.68,3.484" Click="ChangeEmployeeProfile"/>
-                        <GroupBox Header="Godisnji odmor:" HorizontalAlignment="Left" Height="276" Margin="559,162,0,0" VerticalAlignment="Top" Width="292">
+                        <Button Name="Change_employee" Content="{DynamicResource change}" HorizontalAlignment="Left" Margin="219,522,0,0" VerticalAlignment="Top" Width="271" RenderTransformOrigin="0.68,3.484" Click="ChangeEmployeeProfile"/>
+                        <GroupBox Header="{DynamicResource annualLeave}" HorizontalAlignment="Left" Height="276" Margin="559,162,0,0" VerticalAlignment="Top" Width="292">
                             <StackPanel>
-                                <TextBlock>Pocetak:</TextBlock>
+                                <TextBlock Text="{DynamicResource beginning}"/>
                                 <DatePicker SelectedDate="{Binding AnnualLeave.Start, Mode=TwoWay}"/>
 
-                                <TextBlock>Kraj:</TextBlock>
+                                <TextBlock Text="{DynamicResource end}"/>
                                 <DatePicker SelectedDate="{Binding AnnualLeave.End, Mode=TwoWay}"/>
-                                <Button Margin="0,80" Content="Sacuvaj izmene"/>
+                                <Button Margin="0,80" Content="{DynamicResource confirm}"/>
                             </StackPanel>
                         </GroupBox>
-                        <GroupBox Header="Radno vreme:" HorizontalAlignment="Left" Height="276" Margin="890,162,0,0" VerticalAlignment="Top" Width="292">
+                        <GroupBox Header="{DynamicResource workingHouts}" HorizontalAlignment="Left" Height="276" Margin="890,162,0,0" VerticalAlignment="Top" Width="292">
                             <StackPanel>
-                                <TextBlock><Run Text="Pocetak:"/></TextBlock>
+                                <TextBlock Text="{DynamicResource beginning}"/>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBox Name="WHStartHour" Width="30" >
                                         <TextBox.Text>
@@ -225,7 +225,7 @@
                                 </StackPanel>
 
 
-                                <TextBlock><Run Text="Kraj:"/></TextBlock>
+                                <TextBlock Text="{DynamicResource end}"/>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBox Name="WHEndHour" Width="30" >
                                         <TextBox.Text>
@@ -249,10 +249,10 @@
                                     <TextBox IsReadOnly="True" Text=" " Width="210" />
                                 </StackPanel>
 
-                                <Button Margin="0,80" Content="Sacuvaj izmene" Click="UpdateEmployeeWorkingHours"  />
+                                <Button Margin="0,80" Content="{DynamicResource confirm}" Click="UpdateEmployeeWorkingHours"  />
                             </StackPanel>
                         </GroupBox>
-                        <Button Content="Prijavi gresku" HorizontalAlignment="Left" Margin="1156,595,0,0" VerticalAlignment="Top" Width="75" Click="OpenBugReportModal"/>
+                        <Button Content="{DynamicResource reportBug}" HorizontalAlignment="Left" Margin="1072,595,0,0" VerticalAlignment="Top" Width="159" Click="OpenBugReportModal"/>
                         <!--<Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="256" Margin="550,315,0,0" VerticalAlignment="Top" Width="648">
                         <Grid>
                             <Label Content="Nedavni termini:" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514" Margin="32,24,0,0" FontSize="15" FontWeight="Bold"/>
@@ -271,9 +271,7 @@
                             <TextBox HorizontalAlignment="Left" Height="146" Margin="290,77,0,0" TextWrapping="Wrap" Text="Prisutni: {Lekari, Sekretari, Pacijenti}&#xA;Uloga: {Konsultovao,Pregledao,Administracija}&#xA;Ocena: 3.4/5&#xD;&#xA;Komentar:&#xD;&#xA;&#x9;Dorime,Interimo adapare dorime,&#xD;&#xA;&#x9;Ameno,ameno,latire,&#xD;&#xA;&#x9;Latire Mo" VerticalAlignment="Top" Width="318"/>
                         </Grid>
                     </Border>-->
-                        <Button x:Name="Save_employee" Content="Sacuvaj" Visibility="Collapsed" HorizontalAlignment="Left" Margin="219,468,0,0" VerticalAlignment="Top" Width="107" Click="CloseEmpoyeeProfileChanges"/>
-                        <Button Name="Cancel_employee" Content="Odustani" Visibility="Collapsed" HorizontalAlignment="Left" Margin="349,468,0,0" VerticalAlignment="Top" Width="95" Click="CloseEmpoyeeProfileChanges"/>
-                        <Label Content="Dr. Petar Petrovic" HorizontalAlignment="Left" Margin="219,112,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514" FontWeight="Bold" FontSize="15"/>
+                        <Button x:Name="Save_employee" Content="{DynamicResource finalize}" Visibility="Collapsed" HorizontalAlignment="Left" Margin="219,468,0,0" VerticalAlignment="Top" Width="271" Click="CloseEmpoyeeProfileChanges"/>
                     </Grid>
                 </materialDesign:Card>
 
@@ -720,10 +718,10 @@
 
 
                     <Grid x:Name="RoomDetails" Margin="0,0,0,0" Visibility="Collapsed" >
-                        <Label Content="Soba br." HorizontalAlignment="Left" Margin="25,88,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Width="89"/>
-                        <Button Content="Nazad" HorizontalAlignment="Left" Margin="25,31,0,0" VerticalAlignment="Top" Width="74" Click="OpenRooms"/>
-                        <Button Content="Prijavi gresku" HorizontalAlignment="Left" Margin="1142,588,0,0" VerticalAlignment="Top" Width="74" Click="OpenBugReportModal"/>
-                        <GroupBox Header="Pregled tetmina" HorizontalAlignment="Left" Height="366" Margin="25,254,0,0" VerticalAlignment="Top" Width="702" FontWeight="Bold">
+                        <Label Content="{DynamicResource room}" HorizontalAlignment="Left" Margin="25,88,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Width="89"/>
+                        <Button Content="{DynamicResource back}" HorizontalAlignment="Left" Margin="25,31,0,0" VerticalAlignment="Top" Width="74" Click="OpenRooms"/>
+                        <Button Content="{DynamicResource reportBug}" HorizontalAlignment="Left" Margin="1061,588,0,0" VerticalAlignment="Top" Width="155" Click="OpenBugReportModal"/>
+                        <GroupBox Header="{DynamicResource appointments}" HorizontalAlignment="Left" Height="366" Margin="25,254,0,0" VerticalAlignment="Top" Width="702" FontWeight="Bold">
                             <StackPanel Orientation="Horizontal">
                                 <Viewbox Margin="10,10,10,10">
                                     <Calendar Name="RoomCalendar" SelectedDatesChanged="GenerateAppointmentsForDate" ></Calendar>
@@ -747,14 +745,14 @@
 
                             </StackPanel>
                         </GroupBox>
-                        <Button Content="Zakazi opremanje" HorizontalAlignment="Left" Margin="1022,254,0,0" VerticalAlignment="Top" Width="194" Click="OpenInventoryManagment" Height="86"/>
-                        <Button Content="Zakazi renoviranje" Height="Auto" Margin="772,254,266,316" Click="OpenRenovationAppointment"/>
-                        <Label Content="Sprat:" HorizontalAlignment="Left" Margin="25,146,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.306,-0.208"/>
+                        <Button Content="{DynamicResource scheduleInventoryManagment}" HorizontalAlignment="Left" Margin="1022,254,0,0" VerticalAlignment="Top" Width="194" Click="OpenInventoryManagment" Height="86"/>
+                        <Button Content="{DynamicResource scheduleRenovation}" Height="Auto" Margin="772,254,266,316" Click="OpenRenovationAppointment"/>
+                        <Label Content="{DynamicResource floor}" HorizontalAlignment="Left" Margin="25,146,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.306,-0.208"/>
                         <TextBlock Text="{Binding Path=SelectedRoom.Id,Mode=OneWay}" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" Margin="114,92,0,0" TextWrapping="Wrap" Width="70" VerticalAlignment="Top"/>
-                        <Label Content="Departman:" HorizontalAlignment="Left" Margin="25,175,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.306,-0.208"/>
+                        <Label Content="{DynamicResource ward}" HorizontalAlignment="Left" Margin="25,175,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.306,-0.208"/>
                         <TextBlock Text="{Binding Path=SelectedRoom.Floor,Mode=OneWay}" HorizontalAlignment="Left" Margin="68,150,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="141"/>
                         <TextBlock Text="{Binding Path=SelectedRoom.Ward,Mode=OneWay}" HorizontalAlignment="Left" Margin="95,179,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="114"/>
-                        <Label Content="Tip:" HorizontalAlignment="Left" Margin="29,204,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.306,-0.208"/>
+                        <Label Content="{DynamicResource type}" HorizontalAlignment="Left" Margin="29,204,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.306,-0.208"/>
                         <TextBlock Text="{Binding Path=SelectedRoom.Type,Mode=OneWay}" HorizontalAlignment="Left" Margin="61,208,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="148"/>
 
 

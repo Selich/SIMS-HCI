@@ -342,7 +342,7 @@ namespace Project.Views.Director
             foreach (TextBox textBox in employeeData.Children)
             textBox.IsEnabled = true;
             Save_employee.Visibility = Visibility.Visible;
-            Cancel_employee.Visibility = Visibility.Visible;
+        //   Cancel_employee.Visibility = Visibility.Visible;
             Change_employee.Visibility = Visibility.Collapsed;
         }
 
@@ -351,7 +351,7 @@ namespace Project.Views.Director
             foreach (TextBox textBox in employeeData.Children)
                 textBox.IsEnabled = false;
             Save_employee.Visibility = Visibility.Collapsed;
-            Cancel_employee.Visibility = Visibility.Collapsed;
+        //    Cancel_employee.Visibility = Visibility.Collapsed;
             Change_employee.Visibility = Visibility.Visible;
         }
 

@@ -25,7 +25,7 @@
     <system:String x:Key="name">Name:</system:String>
     <system:String x:Key="type">Type:</system:String>
     <system:String x:Key="quantity">Quantity:</system:String>
-    <system:String x:Key="finalize">Finalize:</system:String>
+    <system:String x:Key="finalize">Finalize</system:String>
     <system:String x:Key="change">Change</system:String>
     <system:String x:Key="settings">Settings</system:String>
     <system:String x:Key="reportBug">Report bug</system:String>
@@ -53,4 +53,10 @@
     <system:String x:Key="floor">Floor:</system:String>
     <system:String x:Key="ward">Ward:</system:String>
     <system:String x:Key="use"> Use:</system:String>
+    <system:String x:Key="back">Back</system:String>
+    <system:String x:Key="annualLeave">Annual leave:</system:String>
+    <system:String x:Key="workingHouts">Working hours:</system:String>
+    <system:String x:Key="appointments">Appointments:</system:String>
+    <system:String x:Key="scheduleRenovation">Schedule renovation</system:String>
+    <system:String x:Key="scheduleInventoryManagment">Schedule inventory managment</system:String>
 </ResourceDictionary>
