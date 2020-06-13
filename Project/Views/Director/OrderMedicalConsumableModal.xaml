@@ -6,30 +6,33 @@
         xmlns:local="clr-namespace:Project.Views.Director"
         xmlns:util="clr-namespace:Project.Views.Utils.Validation"
         mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Title="Porucivanje potrosnih materijala" Height="391.626" Width="350">
-    <Grid>
-        <Label Content="Tip  opreme:" HorizontalAlignment="Left" Margin="60,130,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.278,-0.208"/>
-        <Label Content="Naziv :" HorizontalAlignment="Left" Margin="60,77,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.278,-0.208"/>
-        <Label Content="Kolicina:" HorizontalAlignment="Left" Margin="60,187,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.278,-0.208"/>
-       <!-- <Label Content="Staviti u:" HorizontalAlignment="Left" Margin="60,247,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.278,-0.208"/> -->
-        <TextBox Text="{Binding MedicalConsumable.Name,Mode=OneWay}" HorizontalAlignment="Left" Height="23" Margin="176,77,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
-        <TextBox Text="{Binding MedicalConsumable.Type,Mode=OneWay}" HorizontalAlignment="Left" Height="23" Margin="176,130,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" IsReadOnly="True" />
-        <TextBox Name="NewMedicalConsumableQuantity" HorizontalAlignment="Left" Height="23" Margin="176,188,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120">
-            <TextBox.Text>
-                <Binding Path="Quantity" UpdateSourceTrigger="PropertyChanged">
-                    <Binding.ValidationRules>
-                        <util:NumberValidate ValidationStep="RawProposedValue" Min="0" Max="100"/>
-                    </Binding.ValidationRules>
-                </Binding>
-            </TextBox.Text>
-        </TextBox>
-        <!--<ComboBox HorizontalAlignment="Left" Margin="176,244,0,0" VerticalAlignment="Top" Width="120">
+    <materialDesign:Card>
+        <Grid>
+            <Label Content="Tip  opreme:" HorizontalAlignment="Left" Margin="60,130,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.278,-0.208"/>
+            <Label Content="Naziv :" HorizontalAlignment="Left" Margin="60,77,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.278,-0.208"/>
+            <Label Content="Kolicina:" HorizontalAlignment="Left" Margin="60,187,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.278,-0.208"/>
+            <!-- <Label Content="Staviti u:" HorizontalAlignment="Left" Margin="60,247,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.278,-0.208"/> -->
+            <TextBox Text="{Binding MedicalConsumable.Name,Mode=OneWay}" HorizontalAlignment="Left" Height="23" Margin="176,77,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+            <TextBox Text="{Binding MedicalConsumable.Type,Mode=OneWay}" HorizontalAlignment="Left" Height="23" Margin="176,130,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" IsReadOnly="True" />
+            <TextBox Name="NewMedicalConsumableQuantity" HorizontalAlignment="Left" Height="23" Margin="176,188,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120">
+                <TextBox.Text>
+                    <Binding Path="Quantity" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <util:NumberValidate ValidationStep="RawProposedValue" Min="0" Max="100"/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+            <!--<ComboBox HorizontalAlignment="Left" Margin="176,244,0,0" VerticalAlignment="Top" Width="120">
             <ComboBoxItem IsSelected="True" Content="Magacin"/>
             <ComboBoxItem Content="Bolnica"/>
 
         </ComboBox>-->
-        <Button Content="Odustani" HorizontalAlignment="Left" Margin="206,301,0,0" VerticalAlignment="Top" Width="90" RenderTransformOrigin="1.827,0.562" Click="CloseMedicalConsumableOrder"/>
-        <Button Content="Potvrdi" HorizontalAlignment="Left" Margin="60,301,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="1.827,0.562" Click="SaveMedicalConsumableOrder"/>
+            <Button Content="Odustani" HorizontalAlignment="Left" Margin="206,301,0,0" VerticalAlignment="Top" Width="90" RenderTransformOrigin="1.827,0.562" Click="CloseMedicalConsumableOrder"/>
+            <Button Content="Potvrdi" HorizontalAlignment="Left" Margin="60,301,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="1.827,0.562" Click="SaveMedicalConsumableOrder"/>
 
-    </Grid>
+        </Grid>
+    </materialDesign:Card>
 </Window>

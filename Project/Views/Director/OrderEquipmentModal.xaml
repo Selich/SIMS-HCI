@@ -6,7 +6,9 @@
         xmlns:local="clr-namespace:Project.Views.Director"
         xmlns:util="clr-namespace:Project.Views.Utils.Validation"
         mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Title="Porucivanje opreme" Height="500" Width="350">
+    <materialDesign:Card>
     <Grid>
         <Label Content="Tip opreme:" HorizontalAlignment="Left" Margin="60,130,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.278,-0.208"/>
         <Label Content="Naziv opreme:" HorizontalAlignment="Left" Margin="60,77,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.278,-0.208"/>
@@ -28,4 +30,5 @@
         <TextBox Name="NewEquipmentDescription" Text="{Binding Equipment.Description,Mode=OneWay}" HorizontalAlignment="Left" Height="23" Margin="176,248,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
 
     </Grid>
+        </materialDesign:Card>
 </Window>

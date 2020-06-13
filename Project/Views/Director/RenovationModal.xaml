@@ -5,32 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project.Views.Director"
         mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Title="Zakazivanje reonovacije" Height="500" Width="450">
-    <Grid>
-        <Label Content="Tip Renovacije" HorizontalAlignment="Left" Margin="79,50,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="15"/>
-        <ComboBox Name="RenType" SelectedValuePath="Content" HorizontalAlignment="Left" Margin="220,50,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="AdjustRenovationModal">
-            <ComboBoxItem IsSelected="True" Content="Promena funkcije"></ComboBoxItem>
-            <ComboBoxItem Content="Rusenje"></ComboBoxItem>
-            <ComboBoxItem Content="Pregradjivanje"></ComboBoxItem>
-        </ComboBox>
-        <Label Content="Pocetak:" HorizontalAlignment="Left" Margin="79,96,0,0" VerticalAlignment="Top" FontSize="15"/>
-        <Label Content="Kraj:" HorizontalAlignment="Left" Margin="79,147,0,0" VerticalAlignment="Top" FontSize="15"/>
-        <DatePicker Name="RenBegin" IsEnabled="False" HorizontalAlignment="Left" Margin="220,99,0,0" VerticalAlignment="Top" Width="120" DisplayDate="2020-05-17"/>
-        <DatePicker Name="RenEnd" IsEnabled="False" HorizontalAlignment="Left" Margin="220,147,0,0" VerticalAlignment="Top" Width="120" DisplayDate="2020-05-20"/>
-        <Button Content="Potvrdi renovaciju" HorizontalAlignment="Left" Margin="39,387,0,0" VerticalAlignment="Top" Width="150" Click="SaveRenovationAppointment"/>
-        <Button Content="Odustani" HorizontalAlignment="Left" Margin="256,387,0,0" VerticalAlignment="Top" Width="150" Click="CloseRenovationAppointment"/>
-        <ComboBox Name="RoomType" HorizontalAlignment="Left" Margin="220,202,0,0" VerticalAlignment="Top" Width="120">
-            <ComboBoxItem>Operaciona sala</ComboBoxItem>
-            <ComboBoxItem>Soba za preglede</ComboBoxItem>
-            <ComboBoxItem>Intenzivna nega</ComboBoxItem>
-        </ComboBox>
-        <Label Content="Tip sobe:" HorizontalAlignment="Left" Margin="79,200,0,0" VerticalAlignment="Top" FontSize="15"/>
-        <Label Content="Tip nove sobe:" HorizontalAlignment="Left" Margin="79,255,0,0" VerticalAlignment="Top" FontSize="15"/>
-        <ComboBox Name="NewRoomType" HorizontalAlignment="Left" Margin="220,255,0,0" VerticalAlignment="Top" Width="120">
-            <ComboBoxItem>Operaciona sala</ComboBoxItem>
-            <ComboBoxItem>Soba za preglede</ComboBoxItem>
-            <ComboBoxItem>Intenzivna nega</ComboBoxItem>
-        </ComboBox>
+        <materialDesign:Card>
+        <Grid>
+            <Label Content="Tip Renovacije" HorizontalAlignment="Left" Margin="79,50,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="15"/>
+            <ComboBox Name="RenType" SelectedValuePath="Content" HorizontalAlignment="Left" Margin="220,50,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="AdjustRenovationModal">
+                <ComboBoxItem IsSelected="True" Content="Promena funkcije"></ComboBoxItem>
+                <ComboBoxItem Content="Rusenje"></ComboBoxItem>
+                <ComboBoxItem Content="Pregradjivanje"></ComboBoxItem>
+            </ComboBox>
+            <Label Content="Pocetak:" HorizontalAlignment="Left" Margin="79,96,0,0" VerticalAlignment="Top" FontSize="15"/>
+            <Label Content="Kraj:" HorizontalAlignment="Left" Margin="79,147,0,0" VerticalAlignment="Top" FontSize="15"/>
+            <DatePicker Name="RenBegin" IsEnabled="False" HorizontalAlignment="Left" Margin="220,99,0,0" VerticalAlignment="Top" Width="120" DisplayDate="2020-05-17"/>
+            <DatePicker Name="RenEnd" IsEnabled="False" HorizontalAlignment="Left" Margin="220,147,0,0" VerticalAlignment="Top" Width="120" DisplayDate="2020-05-20"/>
+            <Button Content="Potvrdi renovaciju" HorizontalAlignment="Left" Margin="39,387,0,0" VerticalAlignment="Top" Width="150" Click="SaveRenovationAppointment"/>
+            <Button Content="Odustani" HorizontalAlignment="Left" Margin="256,387,0,0" VerticalAlignment="Top" Width="150" Click="CloseRenovationAppointment"/>
+            <ComboBox Name="RoomType" HorizontalAlignment="Left" Margin="220,202,0,0" VerticalAlignment="Top" Width="120">
+                <ComboBoxItem>Operaciona sala</ComboBoxItem>
+                <ComboBoxItem>Soba za preglede</ComboBoxItem>
+                <ComboBoxItem>Intenzivna nega</ComboBoxItem>
+            </ComboBox>
+            <Label Content="Tip sobe:" HorizontalAlignment="Left" Margin="79,200,0,0" VerticalAlignment="Top" FontSize="15"/>
+            <Label Content="Tip nove sobe:" HorizontalAlignment="Left" Margin="79,255,0,0" VerticalAlignment="Top" FontSize="15"/>
+            <ComboBox Name="NewRoomType" HorizontalAlignment="Left" Margin="220,255,0,0" VerticalAlignment="Top" Width="120">
+                <ComboBoxItem>Operaciona sala</ComboBoxItem>
+                <ComboBoxItem>Soba za preglede</ComboBoxItem>
+                <ComboBoxItem>Intenzivna nega</ComboBoxItem>
+            </ComboBox>
 
-    </Grid>
+        </Grid>
+    </materialDesign:Card>
 </Window>

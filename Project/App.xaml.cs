@@ -27,6 +27,23 @@ namespace Project
 
 
         // HCI
+        public ResourceDictionary ThemeDictionary
+        {
+            get { return Resources.MergedDictionaries[0]; }
+        }
+
+        public void ChangeTheme(Uri uri)
+        {
+            ThemeDictionary.MergedDictionaries.Clear();
+            ThemeDictionary.MergedDictionaries.Add(new ResourceDictionary() { Source = uri });
+        }
+
+        public void AddTheme(Uri uri)
+        {
+            ThemeDictionary.MergedDictionaries.Add(new ResourceDictionary() { Source = uri });
+        }
+
+
         public List<DoctorDTO> doctors { get; set; }
         public List<PatientDTO> patients { get; set; }
         public List<RoomDTO> rooms { get; set; }
