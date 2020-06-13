@@ -3,18 +3,20 @@
                     xmlns:local="clr-namespace:Project.Views.Templates">
 
     <DataTemplate x:Key="questionsTemplate">
-        <StackPanel Margin="3"
+        <Grid Margin="3"
                     Background="{x:Null}">
-            <DockPanel>
+            <DockPanel >
                 <TextBlock Text="{Binding QuestionText}"
-                           Foreground="Black"
+                           FontSize="9"
                            FontWeight="Bold" />
                 <TextBlock Text="{Binding CreationDate}"
                            HorizontalAlignment="Right"
                            TextAlignment="Right"
-                           FontSize="8"
-                           Foreground="#FF8B8B8B" />
+                           FontSize="7"
+                           Foreground="#FF8B8B8B" 
+                           Margin="240,10,0,0"
+                           />
             </DockPanel>
-        </StackPanel>
+        </Grid>
     </DataTemplate>
 </ResourceDictionary>

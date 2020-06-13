@@ -35,11 +35,6 @@ namespace Project.Views.Tabs
 
             app = System.Windows.Application.Current as App;
 
-            //StartDateTime.SelectedDate = DateTime.Now;
-            //EndDateTime.SelectedDate = DateTime.Now.AddMinutes(30);
-
-            //_patientController = app.PatientController;
-            //ListPatients.ItemsSource = _patientController.GetAll();
 
             // HCI
             ListPatients.ItemsSource = app.patients;

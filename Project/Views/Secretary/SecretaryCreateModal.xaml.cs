@@ -46,6 +46,7 @@ namespace Project.Views.Secretary
             ListPatients.ItemsSource = app.patients;
             ListTerms.ItemsSource = app.MedicalAppointments;
             ListRooms.ItemsSource = app.rooms;
+            CurrentDoctor.Content = "Dr. " + app.SelectedDoctor.FirstName + " " + app.SelectedDoctor.LastName;
             AppointmentType.ItemsSource = app.medicalAppointmentTypes;
 
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(ListPatients.ItemsSource);
@@ -215,7 +216,7 @@ namespace Project.Views.Secretary
             await Task.Delay(200);
 
             await Task.Delay(200);
-            RoomNumber_TextBox.Text = "135";
+            RoomSearch_TextBox.Text = "135";
             await Task.Delay(200);
 
             await Task.Delay(200);
