@@ -200,9 +200,6 @@ namespace Project.Views.Doctor
 
         private void Wizard_Click(object sender, RoutedEventArgs e)
         {
-            var wizard = new WizardWindow();
-            wizard.Show();
-            Close();
         }
         
 
