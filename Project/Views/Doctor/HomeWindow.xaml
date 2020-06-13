@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:Project.Views.Doctor"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="Doctor's advanced system" Height="719.8" Width="1280">
 
@@ -24,8 +25,8 @@
                         <ColumnDefinition Width="1000*"/>
                     </Grid.ColumnDefinitions>
                     <Rectangle Fill="White" HorizontalAlignment="Left" Height="582" Margin="1.2,25.24,0,0" Stroke="Black" VerticalAlignment="Top" Width="876.9" Grid.ColumnSpan="4" StrokeThickness="0" Grid.Column="1"/>
-                    <Border BorderThickness="1" Background="Black" BorderBrush="#FF000000" VerticalAlignment="Top" Margin="32.4,132.94,844,0" Height="316.4" Grid.ColumnSpan="4" Grid.Column="1">
-                        <Image HorizontalAlignment="Left"  Stretch="Fill" Height="307" Margin="3,3,4,4" VerticalAlignment="Top" Source="../../Resources/Images/Faces/doc_har.jpg" OpacityMask="#FF090909"/>
+                    <Border BorderThickness="1" Background="Black" BorderBrush="#FF000000" VerticalAlignment="Top" Margin="32.4,132.94,844,0" Height="316.4" Grid.ColumnSpan="4" Grid.Column="1" ToolTip="Vaša slika">
+                        <Image HorizontalAlignment="Left"  Stretch="Fill" Height="307" Margin="3,3,4,4" VerticalAlignment="Top" Source="../../Resources/Images/Faces/doc_har2.jpg" OpacityMask="#FF090909"/>
                     </Border>
 
                     <Viewbox Margin="701.781,-18,52.8,246" RenderTransformOrigin="0.5,0.5" Grid.Column="4">
@@ -37,10 +38,10 @@
                                 <TranslateTransform Y="0.522"/>
                             </TransformGroup>
                         </Viewbox.RenderTransform>
-                        <Calendar  DisplayDate="05.15.2020" Width="284" Height="357"/>
+                        <Calendar  DisplayDate="05.15.2020" Width="284" Height="357" ToolTip="Radni kalendar"/>
                     </Viewbox>
 
-                    <Button Width="150" Content="Odjava" Margin="32.4,548.02,39.587,72.62" Click="Button_Click" Grid.ColumnSpan="3" Height="Auto" Grid.Column="1" />
+                    <Button Width="150" Content="Odjava" Margin="32.4,548.02,39.587,72.62" Click="Button_Click" Grid.ColumnSpan="3" Height="Auto" Grid.Column="1" ToolTip="Odjava sa vaše trenutne uloge"/>
                     <Button ToolTip="Izmeniti sopstvene podatke" Width="150" Content="Izmena" Margin="6.551,548.02,843.848,72.62" Click="ChangeMode_Click" Name="buttonEdit" Grid.Column="4" Height="Auto" />
                     <TextBlock HorizontalAlignment="Left" Height="54" Margin="209.981,61.24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="414.4" FontSize="36" Text="Doktor Predrag Kon" Grid.Column="4"/>
                     <TextBlock HorizontalAlignment="Left" Height="36" Margin="209.981,137.94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188.7" FontSize="24" Grid.Column="4"><Run Text="Ime"/><InlineUIContainer>
@@ -70,16 +71,29 @@
                     <Button Content="Sacuvaj" Grid.Column="4" HorizontalAlignment="Left" Margin="418.081,548.02,0,0" VerticalAlignment="Top" Name="cancleEdit" Click="SaveEdit_Click"  Width="149.679" Height="41.6"/>
                     <TextBox Grid.Column="4" HorizontalAlignment="Left" Height="36" Margin="418.081,132.94,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Name="textbox1" Width="217.721"/>
                     <TextBox Grid.Column="4" HorizontalAlignment="Left" Height="36" Margin="418.081,173.94,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Name="textbox2" Width="217.721"/>
-                    <TextBox Grid.Column="4" HorizontalAlignment="Left" Height="36" Margin="418.081,214.94,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Name="textbox3" Width="217.721"/>
+                    <TextBox Grid.Column="4" HorizontalAlignment="Left" Height="36" Margin="418.081,214.94,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Name="textbox3" Width="217.721" PreviewTextInput="NumberValidationTextBox" MaxLength="13" />
                     <TextBox Grid.Column="4" HorizontalAlignment="Left" Height="36" Margin="417.86,255.94,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Name="textbox4" Width="217.721"/>
                     <TextBox Grid.Column="4" HorizontalAlignment="Left" Height="36" Margin="417.86,301.94,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Name="textbox5" Width="217.721"/>
                     <TextBox Grid.Column="4" HorizontalAlignment="Left" Height="36" Margin="418.081,337.94,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Name="textbox6" Width="217.721"/>
                     <TextBox Grid.Column="4" HorizontalAlignment="Left" Height="36" Margin="417.86,378.94,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Name="textbox7" Width="217.721"/>
-                    <TextBox Grid.Column="4" HorizontalAlignment="Left" Height="36" Margin="418.081,419.94,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Name="textbox8" Width="217.721"/>
+                    <TextBox Grid.Column="4" HorizontalAlignment="Left" Height="36" Margin="418.081,419.94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="textbox8" Width="217.721">
+                        <TextBox.Text>
+                            <Binding Path="DateFromat" UpdateSourceTrigger="PropertyChanged">
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
                     <TextBox Grid.Column="4" HorizontalAlignment="Left" Height="36" Margin="418.081,460.94,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Name="textbox9" Width="217.721"/>
                     <Button Content="Wizard" Grid.Column="4" HorizontalAlignment="Left" Margin="696.481,393.343,0,0" VerticalAlignment="Top" x:Name="cancleEdit_Copy" Click="Wizard_Click"  Width="248.079" Height="41.6" ToolTip="Pokrenuti kratak tutorijal o aplikaciji" />
                     <!--<Content="&#xD;&#xA;" Grid.Column="4" HorizontalAlignment="Left" Height="36" Margin="846.16,460.94,0,0" VerticalAlignment="Top" Width="98.4"  IsChecked="False" Name="Switch" Click="Switch_Click"/>-->
-                    <TextBlock HorizontalAlignment="Left" Height="31.316" Margin="696.481,465.624,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="144.679" FontSize="24" Grid.Column="4" Text="ToolTips"/>
+                    <TextBox Grid.Column="4" HorizontalAlignment="Left" Height="36" Margin="418.081,132.94,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Name="textbox1p" Width="217.721" PreviewMouseDown="Textbox1p_PreviewMouseDown" Foreground="Gray"/>
+                    <TextBox Grid.Column="4" HorizontalAlignment="Left" Height="36" Margin="418.081,173.94,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Name="textbox2p" Width="217.721" PreviewMouseDown="Textbox2p_PreviewMouseDown" Foreground="Gray"/>
+                    <TextBox Grid.Column="4" HorizontalAlignment="Left" Height="36" Margin="418.081,214.94,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Name="textbox3p" Width="217.721" PreviewMouseDown="Textbox3p_PreviewMouseDown" Foreground="Gray"/>
+                    <TextBox Grid.Column="4" HorizontalAlignment="Left" Height="36" Margin="417.86,255.94,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Name="textbox4p" Width="217.721" PreviewMouseDown="Textbox4p_PreviewMouseDown" Foreground="Gray"/>
+                    <TextBox Grid.Column="4" HorizontalAlignment="Left" Height="36" Margin="417.86,301.94,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Name="textbox5p" Width="217.721" PreviewMouseDown="Textbox5p_PreviewMouseDown" Foreground="Gray"/>
+                    <TextBox Grid.Column="4" HorizontalAlignment="Left" Height="36" Margin="418.081,337.94,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Name="textbox6p" Width="217.721" PreviewMouseDown="Textbox6p_PreviewMouseDown" Foreground="Gray"/>
+                    <TextBox Grid.Column="4" HorizontalAlignment="Left" Height="36" Margin="417.86,378.94,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Name="textbox7p" Width="217.721" PreviewMouseDown="Textbox7p_PreviewMouseDown" Foreground="Gray"/>
+                    <TextBox Grid.Column="4" HorizontalAlignment="Left" Height="36" Margin="418.081,419.94,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Name="textbox8p" Width="217.721" PreviewMouseDown="Textbox8p_PreviewMouseDown" Foreground="Gray"/>
+                    <TextBox Grid.Column="4" HorizontalAlignment="Left" Height="36" Margin="418.081,460.94,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Name="textbox9p" Width="217.721" PreviewMouseDown="Textbox9p_PreviewMouseDown" Foreground="Gray"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Termini">
@@ -94,37 +108,41 @@
                         <TabItem Header="Profil pacijenta" Margin="0,0,-4,0" Height="21.96" VerticalAlignment="Bottom">
 
                             <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="125*"/>
+                                    <ColumnDefinition Width="684*"/>
+                                </Grid.ColumnDefinitions>
 
-                                <Label Content="11:00 - 11:45 " FontSize="36"  Margin="302,72.9,673.8,0" VerticalAlignment="Top" Height="58" Grid.Column="1"/>
-                                <Label Content="    Pregled" FontSize="36"  Margin="302,130.9,673.8,0" VerticalAlignment="Top" Height="58" Grid.Column="1"/>
+                                <Label Content="11:00 - 11:45 " FontSize="36"  Margin="176.872,72.9,507.181,0" VerticalAlignment="Top" Height="58" Grid.Column="1"/>
+                                <Label Content="    Pregled" FontSize="36"  Margin="176.872,130.9,507.181,0" VerticalAlignment="Top" Height="58" Grid.Column="1"/>
 
-                                <Label HorizontalAlignment="Left" Margin="227.997,23.54,0,0" VerticalAlignment="Top" Width="338.227" Height="44.36"/>
-                                <Border BorderThickness="1" Background="Black" BorderBrush="#FF000000" VerticalAlignment="Top" Margin="528,179.34,65.6,0" Height="220.4">
-                                    <Image HorizontalAlignment="Left"  Stretch="Fill" Height="209.4" Margin="4,4,4,4" VerticalAlignment="Top" Source="../../Resources/Images/Faces/pat.jpg" OpacityMask="#FF090909" Width="201"/>
+                                <Label HorizontalAlignment="Left" Margin="102.869,23.54,0,0" VerticalAlignment="Top" Width="338.227" Height="44.36" Grid.Column="1"/>
+                                <Border BorderThickness="1" Background="Black" BorderBrush="#FF000000" VerticalAlignment="Top" Margin="402.872,179.34,65.6,0" Height="220.4" Grid.Column="1">
+                                    <Image HorizontalAlignment="Left"  Stretch="Fill" Height="209.4" Margin="4,4,4,4" VerticalAlignment="Top" Source="../../Resources/Images/Faces/pat.jpg" OpacityMask="#FF090909" Width="201" ToolTip="Slika pacijenta"/>
 
 
                                 </Border>
-                                <Button ToolTip="Pogledati detaljnije o pacijetovim nalazima" Content="Medicinska istorija" Margin="528,437.62,65.6,82.26" Click="History_Click" Height="Auto" />
-                                <TextBlock HorizontalAlignment="Left" Height="54" Margin="280.921,18.9,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="229.6" FontSize="36" Text="[11:00 - 11:45]"/>
-                                <TextBlock HorizontalAlignment="Left" Height="36" Margin="32.521,189.04,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188.7" FontSize="24"><Run Text="Ime"/><InlineUIContainer>
+                                <Button ToolTip="Pogledati detaljnije o pacijetovim nalazima" Content="Medicinska istorija" Margin="402.872,437.62,65.6,82.26" Click="History_Click" Height="Auto" Grid.Column="1" />
+                                <TextBlock HorizontalAlignment="Left" Height="54" Margin="155.793,18.9,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="229.6" FontSize="36" Text="[11:00 - 11:45]" Grid.Column="1"/>
+                                <TextBlock HorizontalAlignment="Left" Height="36" Margin="32.521,189.04,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188.7" FontSize="24" Grid.ColumnSpan="2"><Run Text="Ime"/><InlineUIContainer>
                             <Label Content="Termin 15.05. 2020&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Width="338.227" Height="44.36"/>
                         </InlineUIContainer></TextBlock>
-                                <TextBlock HorizontalAlignment="Left" Height="36" Margin="32.521,225.04,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188.7" FontSize="24" Text="Prezime"/>
-                                <TextBlock HorizontalAlignment="Left" Height="36" Margin="32.521,307.04,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188.7" FontSize="24" Text="Boraviste"/>
-                                <TextBlock HorizontalAlignment="Left" Height="36" Margin="32.521,266.04,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="203.1" FontSize="24" Text="Pol"/>
-                                <TextBlock HorizontalAlignment="Left" Height="36" Margin="32.521,348.04,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188.7" FontSize="24" Text="Godina rodjenja"/>
-                                <TextBlock HorizontalAlignment="Left" Height="36" Margin="227.997,189.04,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188.7" Text="Ana"  FontSize="24"/>
-                                <TextBlock HorizontalAlignment="Left" Height="36" Margin="227.997,225.04,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188.7" FontSize="24" Text="Anic"/>
-                                <TextBlock HorizontalAlignment="Left" Height="36" Margin="227.997,266.04,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188.7" FontSize="24" Text="Novi Sad"/>
-                                <TextBlock HorizontalAlignment="Left" Height="36" Margin="227.997,307.04,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="203.1" FontSize="24" Text="Zenski"/>
-                                <TextBlock HorizontalAlignment="Left" Height="36" Margin="227.997,348.04,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188.7" FontSize="24"><Run Text="0"/><Run Text="9."/><Run Text="0"/><Run Text="1.1991"/></TextBlock>
-                                <TextBlock HorizontalAlignment="Left" Height="54" Margin="330.121,67.9,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="135.776" FontSize="36" Text="Pregled"/>
-                                <TextBlock HorizontalAlignment="Left" Height="36" Margin="32.521,389.04,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188.7" FontSize="24" Text="Visina"/>
-                                <TextBlock HorizontalAlignment="Left" Height="36" Margin="227.997,389.04,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188.7" FontSize="24" Text="160 cm"/>
-                                <TextBlock HorizontalAlignment="Left" Height="36" Margin="227.997,430.04,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188.7" FontSize="24" Text="57 kg"/>
-                                <TextBlock HorizontalAlignment="Left" Height="36" Margin="32.521,430.04,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188.7" FontSize="24" Text="Tezina"/>
-                                <TextBlock HorizontalAlignment="Left" Height="36" Margin="227.997,471.04,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="203.1" FontSize="24"><Run Text="I"/><Run Text="ntezi"/><Run Text="vna nega"/></TextBlock>
-                                <TextBlock HorizontalAlignment="Left" Height="36" Margin="32.521,471.04,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="174.3" FontSize="24" Text="Stanje"/>
+                                <TextBlock HorizontalAlignment="Left" Height="36" Margin="32.521,225.04,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188.7" FontSize="24" Text="Prezime" Grid.ColumnSpan="2"/>
+                                <TextBlock HorizontalAlignment="Left" Height="36" Margin="32.521,307.04,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188.7" FontSize="24" Text="Boraviste" Grid.ColumnSpan="2"/>
+                                <TextBlock HorizontalAlignment="Left" Height="36" Margin="32.521,266.04,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="203.1" FontSize="24" Text="Pol" Grid.ColumnSpan="2"/>
+                                <TextBlock HorizontalAlignment="Left" Height="36" Margin="32.521,348.04,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188.7" FontSize="24" Text="Godina rodjenja" Grid.ColumnSpan="2"/>
+                                <TextBlock HorizontalAlignment="Left" Height="36" Margin="102.869,189.04,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188.7" Text="Ana"  FontSize="24" Grid.Column="1"/>
+                                <TextBlock HorizontalAlignment="Left" Height="36" Margin="102.869,225.04,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188.7" FontSize="24" Text="Anic" Grid.Column="1"/>
+                                <TextBlock HorizontalAlignment="Left" Height="36" Margin="102.869,266.04,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188.7" FontSize="24" Text="Novi Sad" Grid.Column="1"/>
+                                <TextBlock HorizontalAlignment="Left" Height="36" Margin="102.869,307.04,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="203.1" FontSize="24" Text="Zenski" Grid.Column="1"/>
+                                <TextBlock HorizontalAlignment="Left" Height="36" Margin="102.869,348.04,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188.7" FontSize="24" Grid.Column="1"><Run Text="0"/><Run Text="9."/><Run Text="0"/><Run Text="1.1991"/></TextBlock>
+                                <TextBlock HorizontalAlignment="Left" Height="54" Margin="204.993,67.9,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="135.776" FontSize="36" Text="Pregled" Grid.Column="1"/>
+                                <TextBlock HorizontalAlignment="Left" Height="36" Margin="32.521,389.04,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188.7" FontSize="24" Text="Visina" Grid.ColumnSpan="2"/>
+                                <TextBlock HorizontalAlignment="Left" Height="36" Margin="102.869,389.04,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188.7" FontSize="24" Text="160 cm" Grid.Column="1"/>
+                                <TextBlock HorizontalAlignment="Left" Height="36" Margin="102.869,430.04,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188.7" FontSize="24" Text="57 kg" Grid.Column="1"/>
+                                <TextBlock HorizontalAlignment="Left" Height="36" Margin="32.521,430.04,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188.7" FontSize="24" Text="Tezina" Grid.ColumnSpan="2"/>
+                                <TextBlock HorizontalAlignment="Left" Height="36" Margin="102.869,471.04,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="203.1" FontSize="24" Grid.Column="1"><Run Text="I"/><Run Text="ntezi"/><Run Text="vna nega"/></TextBlock>
+                                <TextBlock HorizontalAlignment="Left" Height="36" Margin="32.521,471.04,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="174.3" FontSize="24" Text="Stanje" Grid.ColumnSpan="2"/>
 
                             </Grid>
                         </TabItem>
@@ -134,7 +152,7 @@
                                     <ColumnDefinition Width="66*"/>
                                     <ColumnDefinition Width="743*"/>
                                 </Grid.ColumnDefinitions>
-                                <ComboBox HorizontalAlignment="Left" Height="30" Margin="48.028,95.03,0,0" VerticalAlignment="Top" Width="206.4" Grid.ColumnSpan="2">
+                                <ComboBox HorizontalAlignment="Left" Height="39.16" Margin="279.8,95.03,0,0" VerticalAlignment="Top" Width="194.8"  Grid.Column="1" ToolTip="Tipovi lekova kojim se ažurira lista prilikom odabira leka" materialDesign:HintAssist.Hint="Izbor tipa leka" materialDesign:HintAssist.HintOpacity=".26" IsEditable="True">
                                     <ComboBoxItem Content="Bol"/>
                                     <ComboBoxItem Content="Infekcija"/>
                                     <ComboBoxItem Content="Alergija"/>
@@ -144,40 +162,7 @@
                                     <ComboBoxItem Content="Koza"/>
                                     <ComboBoxItem Content="Virus"/>
                                 </ComboBox>
-                                <Grid>
-                                    <ComboBox Margin="49.6,214.3,-188.785,0" Name="ComboBox12" HorizontalAlignment="Left" VerticalAlignment="Top" Width="205.2" Height="30"
-                materialDesign:HintAssist.Hint="Izbor leka"
-                          materialDesign:HintAssist.HintOpacity=".26"
-                          IsEditable="True">
-                                        <ComboBoxItem>
-                                            Aspirin
-                                        </ComboBoxItem>
-                                        <ComboBoxItem>
-                                            Bromazepan
-                                        </ComboBoxItem>
-                                        <ComboBoxItem>
-                                            Brufen
-                                        </ComboBoxItem>
-                                        <ComboBoxItem>
-                                            Metronidazol
-                                        </ComboBoxItem>
-                                        <ComboBoxItem>
-                                            Esomeprazol
-                                        </ComboBoxItem>
-                                        <ComboBoxItem>
-                                            Nifuroksazid
-                                        </ComboBoxItem>
-                                        <ComboBoxItem>
-                                            Pankreatin
-                                        </ComboBoxItem>
-                                        <ComboBoxItem>
-                                            Humani insulin
-                                        </ComboBoxItem>
-                                        <ComboBoxItem>
-                                            Varfarin
-                                        </ComboBoxItem>
-                                    </ComboBox>
-                                </Grid>
+                                <Grid/>
                                 <!-- <Rectangle Fill="#FFF1ECEC" HorizontalAlignment="Left" Height="188.96" Margin="297.628,153.68,0,0" Stroke="Black" VerticalAlignment="Top" Width="290.4"/>
 
                                 <Grid Margin="1">
@@ -190,32 +175,39 @@
                                     <StackPanel Orientation="Vertical" Grid.Column="2" VerticalAlignment="Center" Margin="0,279.14" Height="0"/>
                                 </Grid>-->
 
-                                <TextBox ToolTip="Dodati količinu izabranog leka"  x:Name="NumberTextBox" PreviewTextInput="NumberValidationTextBox"  Margin="286.8,194.457,373.111,0"  Height="39.16" VerticalAlignment="Top" Grid.Column="1" RenderTransformOrigin="1.07,1.341"/>
-                                <ListBox BorderBrush="Gray" BorderThickness="2"  HorizontalAlignment="Left" Height="236.4" Margin="501.609,142.257,0,0" VerticalAlignment="Top" Width="196.8" Grid.Column="1">
+                                <TextBox ToolTip="Dodati količinu izabranog leka"  x:Name="NumberTextBox" PreviewTextInput="NumberValidationTextBox"  Margin="279.8,339.497,387.585,0"  Height="39.16" VerticalAlignment="Top" Grid.Column="1" RenderTransformOrigin="1.07,1.341"/>
+                                <ListBox BorderBrush="Gray" BorderThickness="2"  HorizontalAlignment="Left" Height="283.627" Margin="528.4,95.03,0,0" VerticalAlignment="Top" Width="154.8" Grid.Column="1" ToolTip="Prepisani recepti pacijenta">
                                     <ListBoxItem FontSize="18" Content="Aspirin 3x3"/>
                                     <ListBoxItem FontSize="18" Content="Bromazepan 1x2 "/>
                                     <ListBoxItem FontSize="18" Content="Brufen 2x2 "/>
                                 </ListBox>
-                                <Button Click="Alert_Click"  Content="Prepisi" Grid.Column="1" HorizontalAlignment="Left" Height="54.3" Margin="501.609,493.98,0,0" VerticalAlignment="Top" Width="196.8"/>
-                                <TextBox ToolTip="Odabrati prepisanu dozu po danu"  x:Name="NumberTextBox_Copy" PreviewTextInput="NumberValidationTextBox"  Margin="286.8,312.057,373.111,0"  Height="39.16" VerticalAlignment="Top" Grid.Column="1"/>
-                                <Label Content="Količina" HorizontalAlignment="Left" Margin="286.8,145.257,0,0" VerticalAlignment="Top" Grid.Column="1" Width="83.255" FontSize="14"/>
-                                <Label Content="Količina po danu" HorizontalAlignment="Left" Margin="286.8,269.897,0,0" VerticalAlignment="Top" Grid.Column="1" Width="102.98" RenderTransformOrigin="0.844,2.387" FontSize="14"/>
-                                <Label Content="Bromazepan" HorizontalAlignment="Left" Margin="286.8,95.03,0,0" VerticalAlignment="Top" Grid.Column="1" Height="33.56" Width="102.98" FontSize="16" RenderTransformOrigin="0.83,1.211"/>
-                                <Button ToolTip="Dodati lek u recepat" Content="Dodati lek" HorizontalAlignment="Left" Height="54.3" Margin="244.8,426.957,0,0" VerticalAlignment="Top" Width="196.8" Grid.Column="1"/>
-                                <Label Content=" Prepisani lekovi" HorizontalAlignment="Left" Margin="501.609,68.333,0,0" VerticalAlignment="Top" Grid.Column="1" Height="33.56" Width="196.8" FontSize="16"/>
-                                <Label Content="Tipovi lekova" HorizontalAlignment="Left" Margin="48.028,47.066,0,0" VerticalAlignment="Top" Height="33.56" Width="108.58" FontSize="16" Grid.ColumnSpan="2"/>
-                                <Button ToolTip="Izbaciti lek iz recepta"  Content="Izbaci lek" HorizontalAlignment="Left" Height="54.3" Margin="501.609,426.957,0,0" VerticalAlignment="Top" Width="196.8" Grid.Column="1"/>
-                                <Button ToolTip="Ištampati PDF file u kome će pisati prepisani lekova sa njihovom upotrebom"  Click="Alert_Click"  Content="Izštampati lek" Grid.Column="1" HorizontalAlignment="Left" Height="54.3" Margin="244.8,493.98,0,0" VerticalAlignment="Top" Width="196.8"/>
-                                <Label Content="Odabir leka za recept" HorizontalAlignment="Left" Margin="48.028,173.19,0,0" VerticalAlignment="Top" Height="33.56" Width="162.98" FontSize="16" RenderTransformOrigin="0.83,1.211" Grid.ColumnSpan="2"/>
-                            </Grid>
-                        </TabItem>
-                        <TabItem Header="Anamneza" >
-                            <Grid Background="#FFE5E5E5"  Height="370.06" Width="712.686">
-                                <Label Content="Dijanoza&#xA;&#xA;&#xA;&#xA;24&#xA;" HorizontalAlignment="Left" Height="54" Margin="297.928,-79.16,0,0" VerticalAlignment="Top" Width="133.2" FontSize="32"/>
-                                <Button ToolTip="Obriši trenutni sadžaj dijagnoze"  Content="Obrisi" HorizontalAlignment="Left" Height="39.9"  Width="196.8" Margin="297.928,399.727,0,-69.567"/>
-                                <Button Click="Alert_Click" Content="Sacuvaj" HorizontalAlignment="Left" Height="39.9"  Width="196.8" Margin="515.886,399.727,0,-69.567"/>
-
-                                <TextBox BorderBrush="Gray" BorderThickness="2"  HorizontalAlignment="Left" Height="370.06" TextWrapping="Wrap" Text="Zamaranje pri hodu (po ravnom, uzbrdo) ili naporu, bolovi i tegobe iznad grudne kosti (karakter bola, prostiranje i trajanje), napadi gušenja i lupanja srca, otok nogu i trbuha, grčevi u listovima prilokom hodanja i posle koliko metara, vrednosti prethodno kontrolisanog krvnog pritiska." VerticalAlignment="Top" Width="712.686" FontSize="24"/>
+                                <Button Click="Alert_Click"  Content="Prepisi" Grid.Column="1" HorizontalAlignment="Left" Height="39.9" Margin="528.4,482.633,0,0" VerticalAlignment="Top" Width="154.8"/>
+                                <TextBox ToolTip="Odabrati prepisanu dozu po danu"  x:Name="NumberTextBox_Copy" PreviewTextInput="NumberValidationTextBox"  Margin="398.82,339.497,268.566,0"  Height="39.16" VerticalAlignment="Top" Grid.Column="1" RenderTransformOrigin="1.999,0.664"/>
+                                <Label Content="Učestalost" HorizontalAlignment="Left" Margin="398.82,307.877,0,0" VerticalAlignment="Top" Grid.Column="1" Width="75.78" FontSize="14"/>
+                                <Label Content="Količina" HorizontalAlignment="Left" Margin="277.8,307.877,0,0" VerticalAlignment="Top" Grid.Column="1" Width="75.78" RenderTransformOrigin="0.844,2.387" FontSize="14" Height="33.56"/>
+                                <Label Content="Bromazepan" HorizontalAlignment="Left" Margin="322.2,269.317,0,0" VerticalAlignment="Top" Grid.Column="1" Height="33.56" Width="102.98" FontSize="16" RenderTransformOrigin="0.83,1.211"/>
+                                <Button ToolTip="Dodati lek u recepat" Content="Dodati lek" HorizontalAlignment="Left" Height="36.7" Margin="297.22,420.41,0,0" VerticalAlignment="Top" Width="154.8" Grid.Column="1"/>
+                                <Label Content=" Prepisani lekovi" HorizontalAlignment="Left" Margin="528.4,47.066,0,0" VerticalAlignment="Top" Grid.Column="1" Height="33.56" Width="154.8" FontSize="16"/>
+                                <Label Content="Tipovi lekova" HorizontalAlignment="Left" Margin="316.6,47.066,0,0" VerticalAlignment="Top" Height="33.56" Width="108.58" FontSize="16" Grid.Column="1"/>
+                                <Button ToolTip="Izbaciti lek iz recepta"  Content="Izbaci lek" HorizontalAlignment="Left" Height="36.7" Margin="528.4,420.41,0,0" VerticalAlignment="Top" Width="154.8" Grid.Column="1"/>
+                                <Button ToolTip="Ištampati PDF file u kome će pisati prepisani lekova sa njihovom upotrebom"  Click="Alert_Click"  Content="Izštampati lek" Grid.Column="1" HorizontalAlignment="Left" Height="39.9" Margin="297.22,482.633,0,0" VerticalAlignment="Top" Width="154.8"/>
+                                <Label Content="Odabir leka za recept" HorizontalAlignment="Left" Margin="297.22,153.19,0,0" VerticalAlignment="Top" Height="33.56" Width="162.98" FontSize="16" RenderTransformOrigin="0.83,1.211" Grid.Column="1"/>
+                                <ComboBox Margin="277.8,191.75,0,0" x:Name="ComboBox12" HorizontalAlignment="Left" VerticalAlignment="Top" Width="196.8" Height="39.16"
+                materialDesign:HintAssist.Hint="Izbor leka"
+                          materialDesign:HintAssist.HintOpacity=".26"
+                          IsEditable="True" Grid.Column="1">
+                                    <ComboBoxItem Content="Aspirin"/>
+                                    <ComboBoxItem Content="Bromazepan"/>
+                                    <ComboBoxItem Content="Brufen"/>
+                                    <ComboBoxItem Content="Metronidazol"/>
+                                    <ComboBoxItem Content="Esomeprazol"/>
+                                    <ComboBoxItem Content="Nifuroksazid"/>
+                                    <ComboBoxItem Content="Pankreatin"/>
+                                    <ComboBoxItem Content="Humani insulin"/>
+                                    <ComboBoxItem Content="Varfarin"/>
+                                </ComboBox>
+                                <TextBox Padding="4" BorderBrush="Gray" BorderThickness="2"  HorizontalAlignment="Left" TextWrapping="Wrap" Text="Zamaranje pri hodu po ravnom, uzbrdo ili naponu, bolovi i tegobe iznad grudne kosti (karakter bola, prostiranje i trajanje), napadi gušenja i lupanja srca, otok nogu i trbuha, grčevi u listovima prilokom hodanja i posle koliko metara, vrednosti prethodno kontrolisanog krvnog pritiska." Width="247.066" FontSize="16" Margin="52.498,95.03,0,35.747" Grid.ColumnSpan="2" ToolTip="Anamneza za tadi pregled"/>
+                                <Label Content=" Prepisani lekovi" HorizontalAlignment="Left" Margin="32.8,47.066,0,0" VerticalAlignment="Top" Grid.Column="1" Height="33.56" Width="154.8" FontSize="16"/>
                             </Grid>
                         </TabItem>
                         <TabItem Header="Davanje uputa" >
@@ -225,7 +217,7 @@
                                     <ColumnDefinition Width="281*"/>
                                 </Grid.ColumnDefinitions>
                                 <DatePicker Height="30" Margin="40.486,85.88,349.346,442.4" Grid.Column="1" ToolTip="Odabrati dan termina uputa" />
-                                <Button Click="Alert_Click" Content="Refer" HorizontalAlignment="Left" Height="39.9"  Width="196.8" Margin="312.886,484.18,0,34.2" Grid.Column="1" ToolTip="Ukoliko su sve informacije popunjene, moguće je uputiti pacijenta" />
+                                <Button Click="Alert_Click" Content="Refer" HorizontalAlignment="Left" Height="39.9"  Width="171.6" Margin="303.286,479.38,0,39" Grid.Column="1" ToolTip="Ukoliko su sve informacije popunjene, moguće je uputiti pacijenta" />
                                 <TextBlock HorizontalAlignment="Left" Height="33.6" Margin="50.628,47.28,0,0" TextWrapping="Wrap" Text="Tip doktora" VerticalAlignment="Top" Width="171.6" FontSize="18"/>
                                 <TextBlock HorizontalAlignment="Left" Height="33.6" Margin="50.628,160.577,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="171.6" FontSize="18"><Run Text="D"/><Run Text="oktor"/></TextBlock>
                                 <TextBlock HorizontalAlignment="Left" Height="33.6" Margin="303.286,160.577,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="171.6" FontSize="18" Grid.Column="1"><Run Text="Tip t"/><Run Text="ermin"/></TextBlock>
@@ -351,11 +343,12 @@
                                 <TranslateTransform Y="0.522"/>
                             </TransformGroup>
                         </Viewbox.RenderTransform>
-                        <Calendar ToolTip="Selektijte dan za željene termine" DisplayDate="05.15.2020" Width="276.459" Height="396.441"/>
+                        <Calendar ToolTip="Selektijte dan za željene termine" DisplayDate="05.15.2020" Width="276.459" Height="396.441"  SelectedDate="{x:Static sys:DateTime.Today}" Name="CalendarChoose"/>
                     </Viewbox>
 
-                    <Label Content="Termini 15.05.2020" FontSize="24"  Margin="0,333.6,901.928,0" VerticalAlignment="Top" Height="42" Grid.Column="2" Grid.ColumnSpan="2"/>
-                    <ListBox Margin="0,380.6,901.928,28.4" Grid.Column="2" Grid.ColumnSpan="2">
+                    <!--<Label Content="Termini 15.05.2020" FontSize="24"  Margin="0,333.6,901.928,0" VerticalAlignment="Top" Height="42" Grid.Column="2" Grid.ColumnSpan="2"/>-->
+                    <Label Content="{Binding ElementName=CalendarChoose, Path=SelectedDate}" FontSize="24"  Margin="89,333.6,901.928,0" VerticalAlignment="Top" Height="42" Grid.Column="2" Grid.ColumnSpan="2"/>
+                    <ListBox Margin="0,380.6,901.928,28.4" Grid.Column="2" Grid.ColumnSpan="2" Name="Termini">
                         <ListBoxItem FontSize="18" Content="09:00 - 09:45 Pregled"/>
                         <ListBoxItem FontSize="18" Content="10:00 - 10:45 Kontrola"/>
                         <ListBoxItem FontSize="18" Content="11:00 - 11:45 Pregled"/>
@@ -363,6 +356,7 @@
                         <ListBoxItem FontSize="18" Content="14:00 - 14:45 Operacija"/>
                         <ListBoxItem FontSize="18" Content="15:00 - 15:45 Pregled"/>
                     </ListBox>
+                    <Label Content="Termin: " FontSize="24"  Margin="0,333.6,93.056,0" VerticalAlignment="Top" Height="42" Grid.Column="2"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Sevis">
@@ -466,7 +460,6 @@
                                 <Button Click="Alert_Click" Content="Sacuvaj" HorizontalAlignment="Left" Height="39.9"  Width="196.8" Margin="765.086,494.837,0,25.543" Grid.Column="4"/>
                                 <TextBox  HorizontalAlignment="Left" Height="370.06" TextWrapping="Wrap" Text="Zamaranje pri hodu (po ravnom, uzbrdo) ili naporu, bolovi i tegobe iznad grudne kosti (karakter bola, prostiranje i trajanje), napadi gušenja i lupanja srca, otok nogu i trbuha, grčevi u listovima prilokom hodanja i posle koliko metara, vrednosti prethodno kontrolisanog krvnog pritiska." VerticalAlignment="Top" Width="1047.6" FontSize="24" Margin="7.231,85,0,0" Grid.ColumnSpan="3" Grid.Column="2" Background="#FFEDEDED" BorderBrush="Gray" BorderThickness="2" />
                                 <Label Content="Feedback&#xA;" Margin="329.2,27.32,511.198,480.28" FontSize="24" Grid.Column="4"/>
-
                             </Grid>
                         </TabItem>
                     </TabControl>

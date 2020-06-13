@@ -25,8 +25,15 @@
                         <ResourceDictionary Source="pack://application:,,,/MaterialDesignExtensions;component/Themes/Generic.xaml" />
                     </ResourceDictionary.MergedDictionaries>
                 </ResourceDictionary>
-            
-            <!-- material design styles -->
+
+                <ResourceDictionary x:Name="LanguageDictionary">
+                    <ResourceDictionary.MergedDictionaries>
+                        <!--Referencira se u Change Language-->
+                        <ResourceDictionary Source="Resources/Dictionaries/StringsSRB.xaml" />
+                    </ResourceDictionary.MergedDictionaries>
+                </ResourceDictionary>
+
+                <!-- material design styles -->
              
                 
                 <!--<ResourceDictionary Source="pack://application:,,,/MaterialDesignExtensions;component/Themes/MaterialDesignDarkTheme.xaml" />-->

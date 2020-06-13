@@ -46,7 +46,7 @@ namespace Project.Views.Director
                 app.AddTheme(new Uri(@"pack://application:,,,/MaterialDesignExtensions;component/Themes/Generic.xaml", UriKind.RelativeOrAbsolute));
             }
             else
-                if (theme.Equals("Dark"))
+            if (theme.Equals("Dark"))
             {
                 app.ChangeTheme(new Uri(@"pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Dark.xaml", UriKind.RelativeOrAbsolute));
                 app.AddTheme(new Uri(@"pack://application:,,,/MaterialDesignExtensions;component/Themes/MaterialDesignDarkTheme.xaml", UriKind.RelativeOrAbsolute));
@@ -56,8 +56,20 @@ namespace Project.Views.Director
                 app.AddTheme(new Uri(@"pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml", UriKind.RelativeOrAbsolute));
                 app.AddTheme(new Uri(@"pack://application:,,,/MaterialDesignExtensions;component/Themes/Generic.xaml", UriKind.RelativeOrAbsolute));
             }
+
+            if (language.Equals("Srpski"))
+            {
+                app.ChangeLanguage(new Uri(@"Resources/Dictionaries/StringsSRB.xaml", UriKind.RelativeOrAbsolute));
+            }
             else
-                MessageBox.Show(theme);
+                if (language.Equals("English"))
+            {
+                app.ChangeLanguage(new Uri(@"Resources/Dictionaries/StringsENG.xaml", UriKind.RelativeOrAbsolute));
+            }
+            else
+                MessageBox.Show(language);
+            
+            
             this.Close();
         }
     }

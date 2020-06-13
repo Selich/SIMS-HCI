@@ -218,7 +218,7 @@ namespace Project.Views.Director
         private void ChangeProfile(object sender, RoutedEventArgs e)
         {
             Save_btn.Visibility = Visibility.Visible; ;
-            Cancel_btn.Visibility = Visibility.Visible; ;
+           // Cancel_btn.Visibility = Visibility.Visible; -Dugme vise ne postoji
             Change_btn.Visibility = Visibility.Hidden;
             email.IsEnabled = true;
             adress.IsEnabled = true;
@@ -230,7 +230,7 @@ namespace Project.Views.Director
         private void CancelProfileChanges(object sender, RoutedEventArgs e)
         {
             Save_btn.Visibility = Visibility.Hidden; ;
-            Cancel_btn.Visibility = Visibility.Hidden; ;
+           // Cancel_btn.Visibility = Visibility.Hidden; 
             Change_btn.Visibility = Visibility.Visible;
             email.IsEnabled = false;
             adress.IsEnabled = false;
@@ -242,7 +242,7 @@ namespace Project.Views.Director
         private void ConfirmProfileChanges(object sender, RoutedEventArgs e)
         {
             Save_btn.Visibility = Visibility.Hidden; ;
-            Cancel_btn.Visibility = Visibility.Hidden; ;
+        //  Cancel_btn.Visibility = Visibility.Hidden; ;
             Change_btn.Visibility = Visibility.Visible;
             email.IsEnabled = false;
             adress.IsEnabled = false;
@@ -342,7 +342,7 @@ namespace Project.Views.Director
             foreach (TextBox textBox in employeeData.Children)
             textBox.IsEnabled = true;
             Save_employee.Visibility = Visibility.Visible;
-            Cancel_employee.Visibility = Visibility.Visible;
+        //   Cancel_employee.Visibility = Visibility.Visible;
             Change_employee.Visibility = Visibility.Collapsed;
         }
 
@@ -351,7 +351,7 @@ namespace Project.Views.Director
             foreach (TextBox textBox in employeeData.Children)
                 textBox.IsEnabled = false;
             Save_employee.Visibility = Visibility.Collapsed;
-            Cancel_employee.Visibility = Visibility.Collapsed;
+        //    Cancel_employee.Visibility = Visibility.Collapsed;
             Change_employee.Visibility = Visibility.Visible;
         }
 

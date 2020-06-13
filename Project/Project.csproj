@@ -399,6 +399,14 @@
     <Compile Include="Views\Utils\Validation\ReviewValidate.cs" />
     <Compile Include="Views\Validators\EmailValidationRule.cs" />
     <Compile Include="Views\Validators\NotEmptyValidationRule.cs" />
+    <Page Include="Resources\Dictionaries\StringsENG.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Dictionaries\StringsSRB.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Resources\Styles\Buttons.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
