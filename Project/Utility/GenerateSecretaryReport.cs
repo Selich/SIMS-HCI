@@ -7,11 +7,7 @@ using System.Threading.Tasks;
 
 namespace Project.Utility
 {
-    class GenerateSecretaryReport : IPDFReport
+    class GenerateSecretaryReport 
     {
-        public Report GenerateReport()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
