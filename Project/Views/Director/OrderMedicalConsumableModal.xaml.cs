@@ -22,6 +22,8 @@ namespace Project.Views.Director
     {
         public HomeWindow Home { get; set; }
 
+        public int Quantity { get; set; }
+
         public MedicalConsumableDTO MedicalConsumable { get; set; }
         public OrderMedicalConsumableModal(HomeWindow home,MedicalConsumableDTO medicalConsumable)
         {

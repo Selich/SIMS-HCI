@@ -24,6 +24,8 @@ namespace Project.Views.Director
 
         public MedicineDTO Medicine{ get; set; }
 
+        public int Quantity { get; set; }
+
         public OrderMedicineModal(HomeWindow home,MedicineDTO medicine)
         {
             InitializeComponent();

@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project.Views.Director"
+        xmlns:util="clr-namespace:Project.Views.Utils.Validation"
         mc:Ignorable="d"
         Title="Registracija leka" Height="500" Width="350">
     <Grid>
@@ -11,7 +12,15 @@
         <Button Content="Odustani" HorizontalAlignment="Left" Margin="184,400,0,0" VerticalAlignment="Top" Width="135" Click="CloseMedicineRegistration"/>
         <Label Content="Naziv:" HorizontalAlignment="Left" Margin="67,62,0,0" VerticalAlignment="Top"/>
         <Label Content="Tip:" HorizontalAlignment="Left" Margin="67,130,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="NewMedicineName" HorizontalAlignment="Left" Height="23" Margin="154,63,0,0" TextWrapping="Wrap" Text="Morfijum" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="NewMedicineName" HorizontalAlignment="Left" Height="23" Margin="154,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120">
+            <TextBox.Text>
+                <Binding Path="MedicineName" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <util:MultiWordValidate ValidationStep="RawProposedValue"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
         <ComboBox Name="NewMedicineType" SelectedValuePath="Content" HorizontalAlignment="Left" Margin="154,130,0,0" VerticalAlignment="Top" Width="120">
             <ComboBoxItem IsSelected="True">Anestetik</ComboBoxItem>
             <ComboBoxItem>Steroid</ComboBoxItem>

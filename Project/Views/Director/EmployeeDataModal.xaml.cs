@@ -20,7 +20,19 @@ namespace Project.Views.Director
     /// </summary>
     public partial class EmployeeDataModal : Window
     {
+        public string Email { get; set; }
 
+        public string Address { get; set; }
+
+        public string FirstName { get; set; }
+
+        public string LastName { get; set; }
+
+        public string Jmbg { get; set; }
+
+        public string Hospital { get; set; }
+
+        public string DateOfBirth { get; set; }
         //public static long newEmployeeID=100; ?????
         public HomeWindow Home { get; set; }
         public EmployeeDataModal(HomeWindow home)
