@@ -215,7 +215,7 @@ namespace Project.Views.Secretary
             await Task.Delay(200);
 
             await Task.Delay(200);
-            RoomNumber_TextBox.Text = "135";
+            //RoomNumber_TextBox.Text = "135";
             await Task.Delay(200);
 
             await Task.Delay(200);

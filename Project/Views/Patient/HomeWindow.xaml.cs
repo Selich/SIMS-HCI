@@ -1,4 +1,6 @@
-﻿using Project.Model;
+﻿using LiveCharts;
+using LiveCharts.Wpf;
+using Project.Model;
 using Project.Views.Model;
 using System;
 using System.Collections.Generic;
@@ -28,8 +30,12 @@ namespace Project.Views.Patient
         public ObservableCollection<MedicalAppointmentDTO> Appoitments { get; set; }
         public ObservableCollection<MedicalAppointmentDTO> PastAppoitments { get; set; }
         public ObservableCollection<MedicalAppointmentDTO> AvailableAppoitments { get; set; }
-
         public PatientDTO LoggedInPatient { get; set; }
+
+        //Chart
+        public SeriesCollection SeriesCollection { get; }
+        public string[] Labels { get; }
+        public Func<double, string> Formatter { get; set; }
 
         public HomeWindow()
         {
@@ -65,6 +71,19 @@ namespace Project.Views.Patient
             LoggedInPatient = new PatientDTO() { FirstName = "Uros", LastName = "Milovanovic", DateOfBirth = new DateTime(1998, 8, 25), Email = "urke123@gmail.com", Gender = "Male", InsurenceNumber = "1234567", Jmbg = "1234567890", TelephoneNumber= "06551232123", Address = tempAddress };
 
             AvailableAppoitments = new ObservableCollection<Model.MedicalAppointmentDTO>();
+
+            //Chart
+            SeriesCollection = new SeriesCollection
+            {
+                new RowSeries
+                {
+                    Title = "Number of patients currently at hospital",
+                    Values = new ChartValues<int> { 10, 50, 39, 50, 67, 35, 10, 55, 65}
+                }
+            };
+            
+            Labels = new[] { "7:00", "8:30", "10:00", "11:30", "13:00", "14:30", "16:00", "17:30", "19:00" };
+            Formatter = value => value.ToString("N");
 
         }
 
