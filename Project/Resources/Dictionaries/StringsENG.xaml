@@ -25,5 +25,32 @@
     <system:String x:Key="name">Name:</system:String>
     <system:String x:Key="type">Type:</system:String>
     <system:String x:Key="quantity">Quantity:</system:String>
-    
+    <system:String x:Key="finalize">Finalize:</system:String>
+    <system:String x:Key="change">Change</system:String>
+    <system:String x:Key="settings">Settings</system:String>
+    <system:String x:Key="reportBug">Report bug</system:String>
+    <system:String x:Key="notifications">Notifications:</system:String>
+    <system:String x:Key="inDetail">In detail:</system:String>
+    <system:String x:Key="state">State:</system:String>
+    <system:String x:Key="positiveAnswer">Number of posititve reviews:</system:String>
+    <system:String x:Key="negativeAnswer">Number of negative reviews:</system:String>
+    <system:String x:Key="profile">Profile</system:String>
+    <system:String x:Key="employees">Employees</system:String>
+    <system:String x:Key="equipment">Equipment</system:String>
+    <system:String x:Key="consumables">Consumables</system:String>
+    <system:String x:Key="medicine">Medicine</system:String>
+    <system:String x:Key="rooms">Rooms</system:String>
+    <system:String x:Key="searchResults">Search results</system:String>
+    <system:String x:Key="sortBy">Sort by:</system:String>
+    <system:String x:Key="search">Search</system:String>
+    <system:String x:Key="report">Report</system:String>
+    <system:String x:Key="generateReport">Generate report</system:String>
+    <system:String x:Key="addEmployee">Add employee</system:String>
+    <system:String x:Key="details">Details</system:String>
+    <system:String x:Key="order">+Order</system:String>
+    <system:String x:Key="registerMedicine">+Register medicine</system:String>
+    <system:String x:Key="roomNumer">Room number:</system:String>
+    <system:String x:Key="floor">Floor:</system:String>
+    <system:String x:Key="ward">Ward:</system:String>
+    <system:String x:Key="use"> Use:</system:String>
 </ResourceDictionary>
