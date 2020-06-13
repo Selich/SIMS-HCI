@@ -6,11 +6,14 @@
              xmlns:controls="clr-namespace:MaterialDesignExtensions.Controls;assembly=MaterialDesignExtensions"
              StartupUri="/Views/LoginWindow.xaml">
     <Application.Resources>
+
+
         <ResourceDictionary>
             <BitmapImage x:Key="HospitalImage" UriSource="Resources/Icons/hospital.png"/>
             
             <ResourceDictionary.MergedDictionaries>
-                
+
+
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Teal.xaml" />
