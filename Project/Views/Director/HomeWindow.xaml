@@ -6,6 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project.Views.Director"
         mc:Ignorable="d"
+        xmlns:util="clr-namespace:Project.Views.Utils.Validation"
         Title="HomeWindow" Height="720" Width="1280">
     <TabControl HorizontalAlignment="Left"  VerticalAlignment="Top" Height="684" Width="1270">
         <TabItem Header="Profil">
@@ -34,11 +35,46 @@
                     <TextBlock Text="{Binding Path=Director.LastName}" HorizontalAlignment="Left"  TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Width="94"  Height="33"/>
                 </StackPanel>
                 <Grid Margin="143,77,68,59" Grid.Column="1" DataContext="{Binding Path=Director}">
-                    <TextBox x:Name="email"  IsEnabled="False" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="{Binding Path=Email}" VerticalAlignment="Top" Width="254"/>
+                    <!--
+                    <TextBox x:Name="email" Margin="5" IsEnabled="False">
+                            <Binding Path="LoggedInPatient.Email" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <util:EmailValidate ValidationStep="RawProposedValue"/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox>
+                    -->
+                    <TextBox x:Name="email"  IsEnabled="False" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="254">
+                        <TextBox.Text>
+                            <Binding Path="Email" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <util:EmailValidate ValidationStep="RawProposedValue"/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
                     <TextBox x:Name="adress" IsReadOnly="True" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="0,29,0,0" TextWrapping="Wrap" Text="{Binding Path=Address,Mode=OneWay, Converter={local:AdressToStringConverter}}"  VerticalAlignment="Top" Width="254"/>
-                    <TextBox x:Name="dateofbirth" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="0,59,0,0" TextWrapping="Wrap" Text="{Binding Path=DateOfBirth}" VerticalAlignment="Top" Width="254"/>
-                    <TextBox x:Name="jmbg" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="0,87,0,0" TextWrapping="Wrap" Text="{Binding Path=Jmbg}" VerticalAlignment="Top" Width="254"/>
-                    <TextBox x:Name="hospital" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="0,116,0,0" TextWrapping="Wrap" Text="{Binding Path=Hospital}" VerticalAlignment="Top" Width="254"/>
+                    <TextBox x:Name="dateofbirth" IsEnabled="False" IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="0,59,0,0" TextWrapping="Wrap" Text="{Binding Path=DateOfBirth}" VerticalAlignment="Top" Width="254"/>
+                    <TextBox x:Name="jmbg" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="0,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="254">
+                        <TextBox.Text>
+                            <Binding Path="Jmbg" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <util:JmbgValidate ValidationStep="RawProposedValue"/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                        
+                    </TextBox>
+                    <TextBox x:Name="hospital" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="0,116,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="254">
+                        <TextBox.Text>
+                            <Binding Path="Hospital" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <util:MultiWordValidate ValidationStep="RawProposedValue"/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                        
+                    </TextBox>
                 </Grid>
 
                 <Separator Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" Height="30" Margin="0" VerticalAlignment="Top" Width="1270" Grid.ColumnSpan="3"/>
@@ -88,7 +124,7 @@
         </TabItem>
         <TabItem Header="Zaposleni">
             <Grid>
-                <Grid Name="EmployeeDetailsGrid" Margin="0,0,0,0" Visibility="Visible" DataContext="{Binding ElementName=EmployeeList, Path=SelectedItem}">
+                <Grid Name="EmployeeDetailsGrid" Margin="0,0,0,0" Visibility="Collapsed" DataContext="{Binding ElementName=EmployeeList, Path=SelectedItem}">
                     <Button Content="Nazad" HorizontalAlignment="Left" Margin="36,26,0,0" VerticalAlignment="Top" Width="74" Click="OpenEmplyees"/>
                     <Image Source="/Project;component/Resources/Icons/hospital.png"  HorizontalAlignment="Left" Height="170" Margin="36,90,0,0" VerticalAlignment="Top" Width="170" OpacityMask="#FFF12511"/>
                     <Label Content="Email:" HorizontalAlignment="Left" Margin="219,177,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
@@ -99,13 +135,53 @@
                     <Label Content="JMBG:" HorizontalAlignment="Left" Margin="219,371,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
                     <Label Content="Bolnica:" HorizontalAlignment="Left" Margin="219,414,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
                     <Grid Name="employeeData" Margin="312,140,726,170">
-                        <TextBox Text="{Binding Path=Email}" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="0,37,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="178"/>
+                        <TextBox  IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="0,37,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="178">
+                            <TextBox.Text>
+                                <Binding Path="Email" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <util:EmailValidate ValidationStep="RawProposedValue"/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
                         <TextBox IsReadOnly="True" Text="{Binding Path=Address,Converter={local:AdressToStringConverter}}" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="0,74,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178"/>
-                        <TextBox Text="{Binding Path=FirstName}" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="0,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178"/>
-                        <TextBox Text="{Binding Path=LastName}" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="0,158,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178"/>
-                        <TextBox Text="{Binding Path=DateOfBirth}" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="0,194,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178"/>
-                        <TextBox Text="{Binding Path=Jmbg}" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="0,233,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="178"/>
-                        <TextBox Text="{Binding Path=Hospital}" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="0,274,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178"/>
+                        <TextBox  IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="0,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178">
+                            <TextBox.Text>
+                                <Binding Path="FirstName" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <util:NameValidate ValidationStep="RawProposedValue"/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                        <TextBox IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="0,158,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178">
+                            <TextBox.Text>
+                                <Binding Path="LastName" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <util:NameValidate ValidationStep="RawProposedValue"/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                        <TextBox IsReadOnly="True" Text="{Binding Path=DateOfBirth}" IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="0,194,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178"/>
+                        <TextBox IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="0,233,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="178">
+                            <TextBox.Text>
+                                <Binding Path="Jmbg" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <util:JmbgValidate ValidationStep="RawProposedValue"/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                        <TextBox IsEnabled="False" HorizontalAlignment="Left" Height="23" Margin="0,274,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178">
+                            <TextBox.Text>
+                                <Binding Path="Hospital" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <util:MultiWordValidate ValidationStep="RawProposedValue"/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
                     </Grid>
                     <Button Name="Change_employee" Content="Izmeni" HorizontalAlignment="Left" Margin="219,522,0,0" VerticalAlignment="Top" Width="225" RenderTransformOrigin="0.68,3.484" Click="ChangeEmployeeProfile"/>
                     <GroupBox Header="Godisnji odmor:" HorizontalAlignment="Left" Height="276" Margin="559,162,0,0" VerticalAlignment="Top" Width="292">
@@ -122,18 +198,51 @@
                         <StackPanel>
                             <TextBlock><Run Text="Pocetak:"/></TextBlock>
                             <StackPanel Orientation="Horizontal">
-                                <TextBox Name="WHStartHour" Text="{Binding WorkingHours.Start.Hour, Mode=OneWay}" Width="30" />
+                                <TextBox Name="WHStartHour" Width="30" >
+                                    <TextBox.Text>
+                                        <Binding Path="WorkingHours.Start.Hour" Mode="OneWay" UpdateSourceTrigger="PropertyChanged">
+                                            <Binding.ValidationRules>
+                                                <util:NumberValidate ValidationStep="RawProposedValue" Min="0" Max="23"/>
+                                            </Binding.ValidationRules>
+                                        </Binding>
+                                    </TextBox.Text>
+                                </TextBox>
                                 <TextBox IsReadOnly="True" Text=":" />
-                                <TextBox Name="WHStartMinute" Text="{Binding WorkingHours.Start.Minute, Mode=OneWay}" Width="30" />
+                                <TextBox Name="WHStartMinute"  Width="30" >
+                                    <TextBox.Text>
+                                        <Binding Path="WorkingHours.Start.Minute" Mode="OneWay" UpdateSourceTrigger="PropertyChanged">
+                                            <Binding.ValidationRules>
+                                                <util:NumberValidate ValidationStep="RawProposedValue" Min="0" Max="59"/>
+                                            </Binding.ValidationRules>
+                                        </Binding>
+                                    </TextBox.Text>
+                                    
+                                </TextBox>
                                 <TextBox IsReadOnly="True" Text=" " Width="210" />
                             </StackPanel>
 
 
                                     <TextBlock><Run Text="Kraj:"/></TextBlock>
                             <StackPanel Orientation="Horizontal">
-                                <TextBox Name="WHEndHour" Text="{Binding WorkingHours.End.Hour, Mode=OneWay}" Width="30" />
+                                <TextBox Name="WHEndHour" Width="30" >
+                                    <TextBox.Text>
+                                        <Binding Path="WorkingHours.End.Hour" Mode="OneWay" UpdateSourceTrigger="PropertyChanged">
+                                            <Binding.ValidationRules>
+                                                <util:NumberValidate ValidationStep="RawProposedValue" Min="0" Max="23"/>
+                                            </Binding.ValidationRules>
+                                        </Binding>
+                                    </TextBox.Text>
+                                </TextBox>
                                 <TextBox IsReadOnly="True" Text=":" />
-                                <TextBox Name="WHEndMinute" Text="{Binding WorkingHours.End.Minute, Mode=OneWay}" Width="30" />
+                                <TextBox Name="WHEndMinute" Width="30" >
+                                    <TextBox.Text>
+                                        <Binding Path="WorkingHours.End.Minute" Mode="OneWay" UpdateSourceTrigger="PropertyChanged">
+                                            <Binding.ValidationRules>
+                                                <util:NumberValidate ValidationStep="RawProposedValue" Min="0" Max="59"/>
+                                            </Binding.ValidationRules>
+                                        </Binding>
+                                    </TextBox.Text>
+                                </TextBox>
                                 <TextBox IsReadOnly="True" Text=" " Width="210" />
                             </StackPanel>
                             
@@ -169,7 +278,7 @@
 
 
                 </Grid>
-                <Grid Name="EmployeesGrid" Margin="0,0,0,0" Visibility="Collapsed">
+                <Grid Name="EmployeesGrid" Margin="0,0,0,0" Visibility="Visible">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="847*"/>
                         <ColumnDefinition Width="405*"/>
@@ -189,9 +298,33 @@
                         <Label Content="Prezime:" HorizontalAlignment="Left" Margin="377,40,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.472,0.75"/>
                         <Label Content="Specijalizacija:" HorizontalAlignment="Left" Margin="584,40,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.472,0.75"/>
                         <Label Content="Sortirati po:" HorizontalAlignment="Left" Margin="839,42,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.472,0.75"/>
-                        <TextBox HorizontalAlignment="Left" Height="22" Margin="429,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                        <TextBox HorizontalAlignment="Left" Height="22" Margin="224,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0,0.432"/>
-                        <TextBox HorizontalAlignment="Left" Height="22" Margin="678,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                        <TextBox HorizontalAlignment="Left" Height="22" Margin="429,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120">
+                            <TextBox.Text>
+                                <Binding Path="EmployeeListLastName" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <util:NameValidate ValidationStep="RawProposedValue"/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                        <TextBox HorizontalAlignment="Left" Height="22" Margin="224,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0,0.432">
+                            <TextBox.Text>
+                                <Binding Path="EmployeeListFirstName" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <util:NameValidate ValidationStep="RawProposedValue"/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                        <TextBox HorizontalAlignment="Left" Height="22" Margin="678,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120">
+                            <TextBox.Text>
+                                <Binding Path="EmployeeListSpecialisation" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <util:NameValidate ValidationStep="RawProposedValue"/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
                         <ComboBox HorizontalAlignment="Left" Margin="915,40,0,0" VerticalAlignment="Top" Width="120">
                             <ComboBoxItem IsSelected="True">Ime(A-Z)</ComboBoxItem>
                             <ComboBoxItem>Prezime(A-Z)</ComboBoxItem>
@@ -219,8 +352,6 @@
                                         <Image Source="../../Resources/Images/Faces/face1" HorizontalAlignment="Left" Height="65" Margin="26,11,0,0" VerticalAlignment="Top" Width="66" Stretch="Fill"/>
                                         <TextBlock FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" Margin="120,15,0,0" TextWrapping="Wrap" Text="{Binding FirstName}" VerticalAlignment="Top"/>
                                         <TextBlock HorizontalAlignment="Left" Margin="120,56,0,0" TextWrapping="Wrap" Text="Telefon: +38163432444" VerticalAlignment="Top"/>
-                                        <TextBlock HorizontalAlignment="Left" Margin="514,23,0,0" TextWrapping="Wrap" Text="10:00 - 12:00" VerticalAlignment="Top"/>
-                                        <TextBlock HorizontalAlignment="Left" Margin="538,46,0,0" TextWrapping="Wrap" Text="Sala 101" VerticalAlignment="Top"/>
                                         <Button Content="Detaljnije" HorizontalAlignment="Right" Margin="0,10,30,0" VerticalAlignment="Top" Width="100" Height="65" Click="OpenEmployeeDetails"/>
                                         <TextBlock HorizontalAlignment="Left" Margin="120,38,0,0" TextWrapping="Wrap" Text="{Binding Address.City}" VerticalAlignment="Top"/>
                                     </Grid>
@@ -257,9 +388,33 @@
                     <Label Content="Tip:" HorizontalAlignment="Left" Margin="256,46,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.472,0.75"/>
                     <Label Content="Naziv:" HorizontalAlignment="Left" Margin="480,45,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.472,0.75" Width="49"/>
                     <Label Content="Sotirati po:" HorizontalAlignment="Left" Margin="718,48,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.472,0.75"/>
-                    <TextBox HorizontalAlignment="Left" Height="22" Margin="308,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                    <TextBox HorizontalAlignment="Left" Height="22" Margin="104,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0,0.432"/>
-                    <TextBox HorizontalAlignment="Left" Height="22" Margin="534,48,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <TextBox HorizontalAlignment="Left" Height="22" Margin="308,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120">
+                        <TextBox.Text>
+                            <Binding Path="EquipmentListType" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <util:NameValidate ValidationStep="RawProposedValue"/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                    <TextBox HorizontalAlignment="Left" Height="22" Margin="104,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0,0.432">
+                        <TextBox.Text>
+                            <Binding Path="EquipmentListID" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <util:NumberValidate ValidationStep="RawProposedValue" Min="0" Max="500"/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                    <TextBox HorizontalAlignment="Left" Height="22" Margin="534,48,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120">
+                        <TextBox.Text>
+                            <Binding Path="EquipmentListName" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <util:NameValidate ValidationStep="RawProposedValue"/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
                     <ComboBox HorizontalAlignment="Left" Margin="794,46,0,0" VerticalAlignment="Top" Width="120">
                         <ComboBoxItem IsSelected="True">Naziv(A-Z)</ComboBoxItem>
                         <ComboBoxItem>Tip(A-Z)</ComboBoxItem>
@@ -311,9 +466,33 @@
                     <Label Content="Tip:" HorizontalAlignment="Left" Margin="229,36,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.472,0.75"/>
                     <Label Content="Naziv:" HorizontalAlignment="Left" Margin="433,38,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.472,0.75" Width="47"/>
                     <Label Content="Sotirati po:" HorizontalAlignment="Left" Margin="660,36,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.472,0.75"/>
-                    <TextBox HorizontalAlignment="Left" Height="22" Margin="263,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                    <TextBox HorizontalAlignment="Left" Height="22" Margin="75,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0,0.432"/>
-                    <TextBox HorizontalAlignment="Left" Height="22" Margin="485,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <TextBox HorizontalAlignment="Left" Height="22" Margin="263,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120">
+                        <TextBox.Text>
+                            <Binding Path="ConsumableListType" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <util:NameValidate ValidationStep="RawProposedValue"/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                    <TextBox HorizontalAlignment="Left" Height="22" Margin="75,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120">
+                        <TextBox.Text>
+                            <Binding Path="ConsumableListID" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <util:NumberValidate ValidationStep="RawProposedValue" Min="0" Max="500"/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                    <TextBox HorizontalAlignment="Left" Height="22" Margin="485,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120">
+                        <TextBox.Text>
+                            <Binding Path="ConsumableListName" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <util:NameValidate ValidationStep="RawProposedValue"/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
                     <ComboBox HorizontalAlignment="Left" Margin="747,34,0,0" VerticalAlignment="Top" Width="120">
                         <ComboBoxItem IsSelected="True">Naziv(A-Z)</ComboBoxItem>
                         <ComboBoxItem>Tip(A-Z)</ComboBoxItem>
@@ -363,9 +542,33 @@
                     <Label Content="Naziv:" HorizontalAlignment="Left" Margin="214,36,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.472,0.75"/>
                     <Label Content="Tip:" HorizontalAlignment="Left" Margin="420,36,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.472,0.75"/>
                     <Label Content="Sotirati po:" HorizontalAlignment="Left" Margin="676,38,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.472,0.75"/>
-                    <TextBox HorizontalAlignment="Left" Height="22" Margin="266,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                    <TextBox HorizontalAlignment="Left" Height="22" Margin="60,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0,0.432"/>
-                    <TextBox HorizontalAlignment="Left" Height="22" Margin="466,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <TextBox HorizontalAlignment="Left" Height="22" Margin="266,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120">
+                        <TextBox.Text>
+                            <Binding Path="MedicineListName" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <util:MultiWordValidate ValidationStep="RawProposedValue"/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                    <TextBox HorizontalAlignment="Left" Height="22" Margin="60,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120">
+                        <TextBox.Text>
+                            <Binding Path="MedicineListID" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <util:NumberValidate ValidationStep="RawProposedValue" Min="0" Max="500"/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                    <TextBox HorizontalAlignment="Left" Height="22" Margin="466,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120">
+                        <TextBox.Text>
+                            <Binding Path="ConsumableListType" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <util:NameValidate ValidationStep="RawProposedValue"/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
                     <ComboBox HorizontalAlignment="Left" Margin="752,36,0,0" VerticalAlignment="Top" Width="120">
                         <ComboBoxItem IsSelected="True">Naziv(A-Z)</ComboBoxItem>
                         <ComboBoxItem>Tip(A-Z)</ComboBoxItem>
@@ -425,9 +628,34 @@
                         <Label Content="Sprat:" HorizontalAlignment="Left" Margin="377,40,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.472,0.75"/>
                         <Label Content="Departman:" HorizontalAlignment="Left" Margin="584,40,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.472,0.75"/>
                         <Label Content="Sortirati po:" HorizontalAlignment="Left" Margin="839,42,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.472,0.75"/>
-                        <TextBox HorizontalAlignment="Left" Height="22" Margin="429,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                        <TextBox HorizontalAlignment="Left" Height="22" Margin="234,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0,0.432"/>
-                        <TextBox HorizontalAlignment="Left" Height="22" Margin="668,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                        <TextBox HorizontalAlignment="Left" Height="22" Margin="429,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120">
+                            <TextBox.Text>
+                                <Binding Path="RoomListFloor" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <util:NumberValidate ValidationStep="RawProposedValue" Min="0" Max="500"/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                        <TextBox HorizontalAlignment="Left" Height="22" Margin="234,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" >
+                            <TextBox.Text>
+                                <Binding Path="RoomListID" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <util:NumberValidate ValidationStep="RawProposedValue" Min="0" Max="500"/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                        <TextBox HorizontalAlignment="Left" Height="22" Margin="668,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120">
+                            <TextBox.Text>
+                                <Binding Path="RoomListDepartman" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <util:MultiWordValidate ValidationStep="RawProposedValue"/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+
+                        </TextBox>
                         <ComboBox HorizontalAlignment="Left" Margin="915,40,0,0" VerticalAlignment="Top" Width="120">
                             <ComboBoxItem IsSelected="True">Broj sobe(rastuce)</ComboBoxItem>
                             <ComboBoxItem>Departman(A-Z)</ComboBoxItem>

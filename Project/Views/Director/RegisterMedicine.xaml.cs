@@ -23,6 +23,9 @@ namespace Project.Views.Director
     {
         //public static long newMedicineID=100; ?????
         public HomeWindow Home { get; set; }
+
+        public string MedicineName { get; set; }
+        
         public RegisterMedicine(HomeWindow home)
         {
             InitializeComponent();

@@ -24,6 +24,8 @@ namespace Project.Views.Director
         public EquipmentDTO Equipment { get; set; }
         //public static long NewEquipmentID=100
         public HomeWindow Home { get; set; }
+
+        public int Quantity { get; set; }
         public OrderEquipmentModal(HomeWindow home,EquipmentDTO equipment)
         {
             InitializeComponent();

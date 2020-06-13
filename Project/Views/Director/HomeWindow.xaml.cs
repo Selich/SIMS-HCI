@@ -102,6 +102,36 @@ namespace Project.Views.Director
                 }
             }
         
+        public int EquipmentListID { get; set; }
+
+        public string EquipmentListType { get; set; }
+
+        public string EquipmentListName  {get; set; }
+
+        public string EmployeeListFirstName { get; set; }
+
+        public string EmployeeListLastName { get; set; }
+
+        public string EmployeeListSpecialisation { get; set; }
+
+        public int ConsumableListID { get; set; }
+
+        public string ConsumableListType {get; set; }
+
+        public string ConsumableListName { get; set; }
+
+        public int MedicineListID { get; set; }
+
+        public string MedicineListType { get; set; }
+
+        public string MedicineListName { get; set; }
+
+        public int RoomListID { get; set; }
+
+        public string RoomListDepartman { get; set; }
+
+        public int RoomListFloor { get; set; }
+
 
         public HomeWindow()
         {
