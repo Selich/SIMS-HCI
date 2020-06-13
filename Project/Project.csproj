@@ -298,6 +298,9 @@
     <Compile Include="Views\Patient\HomeWindow.xaml.cs">
       <DependentUpon>HomeWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Patient\RateAppointment.xaml.cs">
+      <DependentUpon>RateAppointment.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Patient\RegisterPatient.xaml.cs">
       <DependentUpon>RegisterPatient.xaml</DependentUpon>
     </Compile>
@@ -372,6 +375,7 @@
     <Compile Include="Views\Utils\Validation\JmbgValidate.cs" />
     <Compile Include="Views\Utils\Validation\NameValidate.cs" />
     <Compile Include="Views\Utils\Validation\PostCodeValidate.cs" />
+    <Compile Include="Views\Utils\Validation\ReviewValidate.cs" />
     <Compile Include="Views\Validators\EmailValidationRule.cs" />
     <Compile Include="Views\Validators\NotEmptyValidationRule.cs" />
     <Page Include="Resources\Styles\Buttons.xaml">
@@ -469,6 +473,10 @@
     <Page Include="Views\Patient\HomeWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="Views\Patient\RateAppointment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Patient\RegisterPatient.xaml">
       <SubType>Designer</SubType>
