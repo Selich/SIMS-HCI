@@ -5,6 +5,7 @@
         xmlns:local="clr-namespace:Project.Views.Secretary"
         xmlns:rules="clr-namespace:Project.Views.Validators"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:util="clr-namespace:Project.Views.Utils.Validation"
         x:Class="Project.Views.Secretary.DoctorSearchModal"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
@@ -15,33 +16,40 @@
         <DataTemplate x:Key="doctorsTemplate">
             <Grid Margin="0,0,0,0"
                   HorizontalAlignment="Center"
-                  Width="780"
-                  Height="55">
+                  Width="620"
+                  Height="85">
                 <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth4">
                     <Grid>
+                        <Image Source="../../Resources/Images/Faces/face1"
+                               HorizontalAlignment="Left"
+                               Height="65"
+                               Margin="26,11,0,0"
+                               VerticalAlignment="Top"
+                               Width="66"
+                               Stretch="Fill" />
                         <TextBlock FontWeight="Bold"
-                                   FontSize="16"
+                                   FontSize="17"
                                    HorizontalAlignment="Left"
-                                   Margin="120,15,0,0"
+                                   Margin="110,10,0,0"
                                    TextWrapping="Wrap"
                                    VerticalAlignment="Top">
                                     <Run Text="{Binding FirstName}" />
-                                    <Run Text=" " />
                                     <Run Text="{Binding LastName}" />
-                                    <Run Text=" " />
                         </TextBlock>
                         <TextBlock HorizontalAlignment="Left"
-                                   Margin="120,50,0,0"
+                                   Margin="110,55,0,0"
+                                   FontSize="13"
+                                   TextWrapping="Wrap"
+                                   FontWeight="Bold"
+                                   Text="{Binding MedicalRole}"
+                                   VerticalAlignment="Top" />
+                        <TextBlock HorizontalAlignment="Right"
+                                   Margin="0,40,20,0"
                                    TextWrapping="Wrap"
                                    Text="{Binding TelephoneNumber}"
                                    VerticalAlignment="Top" />
-                        <TextBlock HorizontalAlignment="Left"
-                                   Margin="120,80,0,0"
-                                   TextWrapping="Wrap"
-                                   Text="{Binding MedicalRole}"
-                                   VerticalAlignment="Top" />
-                        <TextBlock HorizontalAlignment="Left"
-                                   Margin="120,62,0,0"
+                        <TextBlock HorizontalAlignment="Right"
+                                   Margin="0,60,20,0"
                                    TextWrapping="Wrap"
                                    Text="{Binding Email}"
                                    VerticalAlignment="Top" />
@@ -51,21 +59,20 @@
         </DataTemplate>
     </Window.Resources>
     <Grid Margin="0,0,-8,0">
-        <Rectangle 
-                   HorizontalAlignment="Left"
+        <Rectangle HorizontalAlignment="Left"
                    Height="123"
                    Stroke="Black"
                    VerticalAlignment="Top"
-                   Width="678" >
+                   Width="678">
 
             <Rectangle.Fill>
-            <LinearGradientBrush EndPoint="0.5,1"
-                                 StartPoint="0.5,0">
-                <GradientStop Color="Black"
-                              Offset="0" />
-                <GradientStop Color="#FF009688"
-                              Offset="0.263" />
-            </LinearGradientBrush>
+                <LinearGradientBrush EndPoint="0.5,1"
+                                     StartPoint="0.5,0">
+                    <GradientStop Color="Black"
+                                  Offset="0" />
+                    <GradientStop Color="#FF009688"
+                                  Offset="0.263" />
+                </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
         <materialDesign:Card HorizontalAlignment="Left"
@@ -77,6 +84,7 @@
             <Label Content="Rezultati Pretrage:"
                    HorizontalAlignment="Left"
                    VerticalAlignment="Top"
+                   FontWeight="DemiBold"
                    FontSize="16"
                    Height="31"
                    Width="139" />
@@ -86,8 +94,8 @@
                      BorderThickness="1"
                      Background="White"
                      HorizontalAlignment="Center"
-                     Height="303"
-                     Margin="0,89,0,10"
+                     Height="356"
+                     Margin="0,36,0,10"
                      VerticalAlignment="Center"
                      Width="646"
                      ItemTemplate="{StaticResource doctorsTemplate}" />
@@ -105,7 +113,14 @@
                          Margin="15,24,0,0"
                          TextWrapping="Wrap"
                          VerticalAlignment="Top"
-                         Width="110" />
+                         Width="110" >
+                            <Binding Path="SearchedDoctor.FirstName"
+                                     UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <util:NameValidate ValidationStep="RawProposedValue" />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox>
                 <Label Content="Ime i prezime:"
                        HorizontalAlignment="Left"
                        VerticalAlignment="Top" />
@@ -117,7 +132,14 @@
                          Margin="138,24,0,0"
                          TextWrapping="Wrap"
                          VerticalAlignment="Top"
-                         Width="117" />
+                         Width="117" >
+                            <Binding Path="SearchedDoctor.LastName"
+                                     UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <util:NameValidate ValidationStep="RawProposedValue" />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox>
             </Grid>
             <Grid Margin="293,10,0,-15"
                   Height="81"

@@ -25,6 +25,8 @@ namespace Project.Views.Commands
                new SecretaryCreateModal().Show();
             else if (parameter.Equals("GenerateReport"))
                new SecretaryGenerateReport().Show();
+            else if (parameter.Equals("SelectDoctor"))
+               new DoctorSearchModal().Show();
             else
             {
                 msg = parameter.ToString();

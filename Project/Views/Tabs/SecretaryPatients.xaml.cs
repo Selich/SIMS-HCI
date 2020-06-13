@@ -1,4 +1,5 @@
-﻿using Project.Views.Secretary;
+﻿using Project.Views.Model;
+using Project.Views.Secretary;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,25 +22,51 @@ namespace Project.Views.Tabs
     /// </summary>
     public partial class SecretaryPatients : UserControl
     {
+        App app;
         public SecretaryPatients()
         {
 
-            var app = Application.Current as App;
             InitializeComponent();
+            app = Application.Current as App;
+
+            PatientList.ItemsSource = app.patients;
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(PatientList.ItemsSource);
+            view.Filter = CombinedFilter;
+        }
+        private bool CombinedFilter(object item)
+            => FirstNameFilter(item) && JMBGFilter(item) && GradFilter(item) && GuestFilter(item);
+
+        private bool FirstNameFilter(object item)
+          => (String.IsNullOrEmpty(PatientSearch_TextBox.Text) ||
+            (item as PatientDTO).FirstName.IndexOf(PatientSearch_TextBox.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+
+        private bool JMBGFilter(object item)
+          => (String.IsNullOrEmpty(JMBGSearch_TextBox.Text) ||
+            (item as PatientDTO).Jmbg.IndexOf(JMBGSearch_TextBox.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+        private bool AddressFilter(object item)
+          => (String.IsNullOrEmpty(AddressSearch_TextBox.Text) ||
+            (item as PatientDTO).Jmbg.IndexOf(AddressSearch_TextBox.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+        private bool GradFilter(object item)
+          => (String.IsNullOrEmpty(AddressSearch_TextBox.Text) ||
+            (item as PatientDTO).Jmbg.IndexOf(AddressSearch_TextBox.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+        private bool GuestFilter(object item)
+          => (GuestFilter_CheckBox.IsChecked == false) ||
+            (item as PatientDTO).Email.Equals("");
+
+        private void JMBGSearch_TextBox_TextChanged(object sender, TextChangedEventArgs e)
+            => CollectionViewSource.GetDefaultView(PatientList.ItemsSource).Refresh();
 
 
-            PatientList.ItemsSource = app.PatientController.GetAll();
-        }
-        private void Feedback_Click(object sender, RoutedEventArgs e)
-        {
-            var s = new FeedbackModal();
-            s.Show();
+        private void AddressSearch_TextBox_TextChanged(object sender, TextChangedEventArgs e)
+            => CollectionViewSource.GetDefaultView(PatientList.ItemsSource).Refresh();
 
-        }
-        private void txtFilter_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
-        {
-            //CollectionViewSource.GetDefaultView(listPatients.ItemsSource).Refresh();
-        }
+        private void GuestFilter_CheckBox_Click(object sender, RoutedEventArgs e)
+            => CollectionViewSource.GetDefaultView(PatientList.ItemsSource).Refresh();
+
+        private void PatientSearch_TextBox_TextChanged(object sender, TextChangedEventArgs e)
+            => CollectionViewSource.GetDefaultView(PatientList.ItemsSource).Refresh();
+
+        private void Feedback_Click(object sender, RoutedEventArgs e) => new FeedbackModal().Show();
 
         private void CreatePatient_Click(object sender, RoutedEventArgs e) => new RegisterPatient().Show();
 
