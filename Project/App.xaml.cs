@@ -201,6 +201,7 @@ namespace Project
 
             // Generators
             GenerateSecretaryReport = new GenerateSecretaryReport(REPORT_APPOINTMENT_PATH);
+            GeneratePatientReport = new GeneratePatientReport(REPORT_APPOINTMENT_PATH);
 
             // Controllers
             PatientController = new PatientController(patientService, patientConverter);
@@ -211,6 +212,7 @@ namespace Project
 
 
         public IPDFReport<TimeInterval> GenerateSecretaryReport { get; private set; }
+        public IPDFReport<TimeInterval> GeneratePatientReport { get; private set; }
 
         public IController<PatientDTO, long> PatientController { get; private set; }
         public ReportController ReportController { get; private set; }
