@@ -16,6 +16,7 @@ using Project.Views.Secretary;
 using System.Xml.Schema;
 using System;
 using System.ComponentModel;
+using Project.Utility;
 
 namespace Project
 {
@@ -120,6 +121,7 @@ namespace Project
         private static string DATETIME_FORMAT = ConfigurationManager.AppSettings["DateTimeFormat"].ToString();
 
         private static string REPORT_ROOM_PATH = ConfigurationManager.AppSettings["ReportRoomPath"].ToString();
+        private static string REPORT_APPOINTMENT_PATH = ConfigurationManager.AppSettings["ReportAppointmentPath"].ToString();
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged(string name)
@@ -197,6 +199,9 @@ namespace Project
             var questionService = new QuestionService(questionRepository);
             var reportService = new ReportService();
 
+            // Generators
+            GenerateSecretaryReport = new GenerateSecretaryReport(REPORT_APPOINTMENT_PATH);
+
             // Controllers
             PatientController = new PatientController(patientService, patientConverter);
             QuestionController = new QuestionController(questionService, questionConverter, patientConverter);
@@ -205,6 +210,7 @@ namespace Project
 
 
 
+        public IPDFReport<TimeInterval> GenerateSecretaryReport { get; private set; }
 
         public IController<PatientDTO, long> PatientController { get; private set; }
         public ReportController ReportController { get; private set; }

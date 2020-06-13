@@ -1,9 +1,11 @@
 ﻿using Project.Controllers;
+using Project.Model;
 using Project.Views.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -23,6 +25,9 @@ namespace Project.Views.Secretary
     public partial class SecretaryCreateModal : Window
     {
         private readonly IController<PatientDTO, long> _patientController;
+        public int _someVal = 0;
+        private readonly CancellationTokenSource cts = new CancellationTokenSource();
+
         App app;
         public SecretaryCreateModal()
         {
@@ -130,6 +135,100 @@ namespace Project.Views.Secretary
             if (e.Key == Key.Return)
                 app.SelectedPatient = (ListPatients.SelectedItem as PatientDTO);
                 
+        }
+        private void Window_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == Key.Space) _someVal--;
+        }
+        private async void DemoButton_Click(object sender, RoutedEventArgs e)
+        {
+            _someVal++;
+            while (_someVal == 1)
+            {
+
+            Brush colour = Guest_Button.Background;
+            await Task.Delay(1000);
+            FirstNameSearch_TextBox.Text = "Petar";
+            await Task.Delay(1000);
+            FirstNameSearch_TextBox.Text = "";
+            JMBGSearch_TextBox.Text = "1603995212533";
+            await Task.Delay(2000);
+            JMBGSearch_TextBox.Text = "";
+            await Task.Delay(200);
+            Guest_Button.Background =  Brushes.Transparent;
+            await Task.Delay(200);
+            Guest_Button.Background =  Brushes.White;
+            await Task.Delay(200);
+            Guest_Button.Background =  colour;
+            await Task.Delay(200);
+            Guest_Button.Background =  Brushes.Transparent;
+            await Task.Delay(200);
+            Guest_Button.Background =  Brushes.White;
+            await Task.Delay(200);
+            Guest_Button.Background =  colour;
+            await Task.Delay(200);
+            var s = new RegisterGuest();
+            s.Show();
+            await Task.Delay(2000);
+            s.Close();
+            await Task.Delay(200);
+            AppointmentType.Background = Brushes.Transparent;
+            await Task.Delay(200);
+            AppointmentType.Background = Brushes.White;
+            await Task.Delay(200);
+            AppointmentType.Background = Brushes.Transparent;
+            await Task.Delay(200);
+            AppointmentType.Background = Brushes.White;
+
+            await Task.Delay(200);
+            ListTerms.Background = Brushes.Transparent;
+            await Task.Delay(200);
+            ListTerms.Background = Brushes.White;
+            await Task.Delay(200);
+            ListTerms.Background = Brushes.Transparent;
+            await Task.Delay(200);
+            ListTerms.Background = Brushes.White;
+
+            await Task.Delay(200);
+            SelectedDate.Background = Brushes.Transparent;
+            await Task.Delay(200);
+            SelectedDate.Background = Brushes.White;
+            await Task.Delay(200);
+            SelectedDate.Background = Brushes.Transparent;
+            await Task.Delay(200);
+            SelectedDate.Background = Brushes.White;
+            await Task.Delay(200);
+
+            await Task.Delay(200);
+            RoomNumber_TextBox.Text = "135";
+            await Task.Delay(200);
+
+            await Task.Delay(200);
+            ListRooms.Background = Brushes.Transparent;
+            await Task.Delay(200);
+            ListRooms.Background = Brushes.White;
+            await Task.Delay(200);
+            ListRooms.Background = Brushes.Transparent;
+            await Task.Delay(200);
+            ListRooms.Background = Brushes.White;
+            await Task.Delay(200);
+
+            await Task.Delay(200);
+            CreateButton.Background = Brushes.Transparent;
+            await Task.Delay(200);
+            CreateButton.Background = Brushes.White;
+            await Task.Delay(200);
+            CreateButton.Background =  colour;
+            await Task.Delay(200);
+            CreateButton.Background = Brushes.Transparent;
+            await Task.Delay(200);
+            CreateButton.Background = Brushes.White;
+            await Task.Delay(200);
+            CreateButton.Background =  colour;
+            }
+            
+
+
         }
     }
 }

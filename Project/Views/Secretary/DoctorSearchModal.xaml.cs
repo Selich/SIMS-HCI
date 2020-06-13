@@ -91,5 +91,10 @@ namespace Project.Views.Secretary
                 
 
         }
+
+        private void DemoButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

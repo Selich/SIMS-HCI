@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -134,6 +135,26 @@ namespace Project.Views.Tabs
             if (e.Key == Key.Return)
                 app.SelectedPatient = (ListPatients.SelectedItem as PatientDTO);
                 
+        }
+
+        private void DemoButton_Click(object sender, RoutedEventArgs e)
+        {
+            FirstNameSearch_TextBox.Text = "Petar";
+            Thread.Sleep(1000);
+            FirstNameSearch_TextBox.Text = "";
+            JMBGSearch_TextBox.Text = "1603995212533";
+            Thread.Sleep(1000);
+            JMBGSearch_TextBox.Text = "";
+            Guest_Button.Background =  Brushes.Transparent;
+            Thread.Sleep(200);
+            Guest_Button.Background =  Brushes.Transparent;
+            Thread.Sleep(200);
+            Guest_Button.Background =  Brushes.Transparent;
+            Thread.Sleep(200);
+            Guest_Button.Background =  Brushes.Transparent;
+            Thread.Sleep(200);
+            
+
         }
     }
 }

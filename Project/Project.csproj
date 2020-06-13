@@ -155,7 +155,11 @@
     <Compile Include="Services\MedicalAppointmentService.cs" />
     <Compile Include="Services\QuestionService.cs" />
     <Compile Include="Services\ReportService.cs" />
-    <Compile Include="Utility\PDFReportFactory.cs" />
+    <Compile Include="Utility\GenerateDirectorReport.cs" />
+    <Compile Include="Utility\GenerateDoctorReport.cs" />
+    <Compile Include="Utility\GeneratePatientReport.cs" />
+    <Compile Include="Utility\GenerateSecretaryReport.cs" />
+    <Compile Include="Utility\IPDFReport.cs" />
     <Compile Include="Views\Commands\DataContext.cs" />
     <Compile Include="Views\Commands\MessageCommand.cs" />
     <Compile Include="Views\Commands\ShowShortcutsCommand.cs" />
@@ -651,6 +655,7 @@
     <Folder Include="Model\Util\" />
     <Folder Include="Resources\Demo\Patient\" />
     <Folder Include="Resources\Demo\Secretary\" />
+    <Folder Include="Resources\Reports\AppointmentReports\" />
     <Folder Include="Resources\Reports\RoomReports\" />
     <Folder Include="Views\Patient\.vs\Patient\v15\" />
   </ItemGroup>

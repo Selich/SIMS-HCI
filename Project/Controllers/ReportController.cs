@@ -16,23 +16,6 @@ namespace Project.Controllers
 
         }
 
-        public void Generate(string type, string fileType, TimeInterval time) {
-            Report report = null;
-            switch (fileType)
-            {
-                case "pdf":
-                    report = PDFReportFactory.Generate(type);
-                    break;
-                default:
-                    report = PDFReportFactory.Generate(type);
-                    break;
-
-            }
-
-
-
-        }
-
 
     }
 }

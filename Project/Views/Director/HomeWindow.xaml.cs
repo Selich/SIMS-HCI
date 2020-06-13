@@ -362,7 +362,6 @@ namespace Project.Views.Director
             DateTime beginning = new DateTime();
             DateTime end = new DateTime();
 
-            _reportController.Generate(type, fileType, new TimeInterval(beginning, end));
 
 
         }
