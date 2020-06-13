@@ -24,13 +24,40 @@ namespace Project.Views.Director
             InitializeComponent();
         }
 
-        private void ConfirmSettingsChange(object sender, RoutedEventArgs e)
+
+        private void CancelSettingsChange(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
-        private void CancelSettingsChange(object sender, RoutedEventArgs e)
+        private void SaveSettingsChange(object sender, RoutedEventArgs e)
         {
+            var app = (App)Application.Current;
+            string language = LanguageBox.SelectedValue.ToString();
+            string theme = ThemeBox.SelectedValue.ToString();
+            if (theme.Equals("Light(standard)"))
+            {
+                app.ChangeTheme(new Uri(@"pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml", UriKind.RelativeOrAbsolute));
+                app.AddTheme(new Uri(@"pack://application:,,,/MaterialDesignExtensions;component/Themes/MaterialDesignLightTheme.xaml", UriKind.RelativeOrAbsolute));
+                app.AddTheme(new Uri(@"pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Teal.xaml", UriKind.RelativeOrAbsolute));
+                app.AddTheme(new Uri(@"pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml", UriKind.RelativeOrAbsolute));
+                app.AddTheme(new Uri(@"pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/Generic.xaml", UriKind.RelativeOrAbsolute));
+                app.AddTheme(new Uri(@"pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml", UriKind.RelativeOrAbsolute));
+                app.AddTheme(new Uri(@"pack://application:,,,/MaterialDesignExtensions;component/Themes/Generic.xaml", UriKind.RelativeOrAbsolute));
+            }
+            else
+                if (theme.Equals("Dark"))
+            {
+                app.ChangeTheme(new Uri(@"pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Dark.xaml", UriKind.RelativeOrAbsolute));
+                app.AddTheme(new Uri(@"pack://application:,,,/MaterialDesignExtensions;component/Themes/MaterialDesignDarkTheme.xaml", UriKind.RelativeOrAbsolute));
+                app.AddTheme(new Uri(@"pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Teal.xaml", UriKind.RelativeOrAbsolute));
+                app.AddTheme(new Uri(@"pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml", UriKind.RelativeOrAbsolute));
+                app.AddTheme(new Uri(@"pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/Generic.xaml", UriKind.RelativeOrAbsolute));
+                app.AddTheme(new Uri(@"pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml", UriKind.RelativeOrAbsolute));
+                app.AddTheme(new Uri(@"pack://application:,,,/MaterialDesignExtensions;component/Themes/Generic.xaml", UriKind.RelativeOrAbsolute));
+            }
+            else
+                MessageBox.Show(theme);
             this.Close();
         }
     }

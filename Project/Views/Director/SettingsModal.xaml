@@ -4,23 +4,25 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project.Views.Director"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="SettingsModal" Height="450" Width="350">
-    <Grid>
+    <materialDesign:Card>
+        <Grid>
         <Label Content="Jezik:" HorizontalAlignment="Left" Margin="83,110,0,0" VerticalAlignment="Top"/>
-        <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="154,108,0,0">
+        <ComboBox   Name="LanguageBox"  SelectedValuePath="Content" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="154,108,0,0">
             <ComboBoxItem IsSelected="True">Srpski</ComboBoxItem>
             <ComboBoxItem>English</ComboBoxItem>
             <ComboBoxItem>Swahili</ComboBoxItem>
         </ComboBox>
         <Label Content="Tema:" HorizontalAlignment="Left" Margin="83,180,0,0" VerticalAlignment="Top"/>
-        <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="154,179,0,0">
-            <ComboBoxItem IsSelected="True">Standard(green)</ComboBoxItem>
-            <ComboBoxItem>Dracula</ComboBoxItem>
-            <ComboBoxItem>Pascal</ComboBoxItem>
+        <ComboBox  Name="ThemeBox" SelectedValuePath="Content"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="154,179,0,0">
+            <ComboBoxItem IsSelected="True">Light(standard)</ComboBoxItem>
+            <ComboBoxItem>Dark</ComboBoxItem>
         </ComboBox>
-        <Button Content="Potvrdi" HorizontalAlignment="Left" Margin="55,355,0,0" VerticalAlignment="Top" Width="106" Click="ConfirmSettingsChange"/>
+        <Button Content="Potvrdi" HorizontalAlignment="Left" Margin="55,355,0,0" VerticalAlignment="Top" Width="106" Click="SaveSettingsChange"/>
         <Button Content="Odustani" HorizontalAlignment="Left" Margin="185,355,0,0" VerticalAlignment="Top" Width="99" Click="CancelSettingsChange"/>
 
     </Grid>
+    </materialDesign:Card>
 </Window>
