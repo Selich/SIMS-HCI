@@ -16,7 +16,7 @@ namespace Project.Views.Model
         public string Password { get; set; }
         public string Hospital { get; set; }
         public EmployeeDTO() { }
-
+        
         public EmployeeDTO(long id, AddressDTO address, string firstName, string lastName, string jmbg, string telephoneNumber, string gender, DateTime dateOfBirth, double salary, TimeInterval annualLeave, TimeInterval workingHours, string email, string password,string hospital) :
               base(id, address, firstName, lastName, jmbg, telephoneNumber, gender, dateOfBirth)
         {

@@ -19,9 +19,9 @@ namespace Project.Views.Tabs
     /// <summary>
     /// Interaction logic for SecretaryPatients.xaml
     /// </summary>
-    public partial class SecretaryPatients : UserControl
+    public partial class SecretaryDoctors : UserControl
     {
-        public SecretaryPatients()
+        public SecretaryDoctors()
         {
 
             var app = Application.Current as App;
@@ -40,8 +40,17 @@ namespace Project.Views.Tabs
         {
             //CollectionViewSource.GetDefaultView(listPatients.ItemsSource).Refresh();
         }
+        private void Clear_Click(object sender, RoutedEventArgs e)
+        {
+            //drLabel2.Content = null;
 
-        private void CreatePatient_Click(object sender, RoutedEventArgs e) => new RegisterPatient().Show();
+        }
 
+        private void CreatePatient_Click(object sender, RoutedEventArgs e)
+        {
+            var s = new CreatePatientModal();
+            s.Show();
+
+        }
     }
 }

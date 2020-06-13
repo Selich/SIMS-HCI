@@ -9,13 +9,13 @@ namespace Project.Model
 {
    public class TimeInterval
    {
-      private DateTime start;
-      private DateTime end;
+      public DateTime Start { get; set; }
+      public DateTime End { get; set; }
 
       public TimeInterval() {}
       public TimeInterval(DateTime start, DateTime end){
-         this.start = start;
-         this.end = end;
+         this.Start = start;
+         this.End = end;
       }
    
    }

@@ -10,13 +10,13 @@ namespace Project.Views.Commands
     public class DataContext
     {
         ICommand _messageCommand = new MessageCommand();
-        ICommand _shortcutCommand = new ShowShortcutsCommand();
+        ICommand _shortcutCommand = new ShortcutsCommand();
 
         public ICommand MessageCommand
         {
             get { return _messageCommand; }
         }
-        public ICommand ShowShortcutsCommand
+        public ICommand ShortcutsCommand
         {
             get { return _shortcutCommand; }
         }

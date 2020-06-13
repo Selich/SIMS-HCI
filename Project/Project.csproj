@@ -181,6 +181,7 @@
     <Compile Include="Views\Model\EquipmentDTO.cs" />
     <Compile Include="Views\Model\FeedbackDTO.cs" />
     <Compile Include="Views\Model\GuestDTO.cs" />
+    <Compile Include="Views\Model\InventoryManagmentDTO.cs" />
     <Compile Include="Views\Model\MedicalAppointmentDTO.cs" />
     <Compile Include="Views\Model\MedicalConsumableDTO.cs" />
     <Compile Include="Views\Model\MedicineDTO.cs" />
@@ -316,6 +317,15 @@
     <Compile Include="Views\Secretary\ProfileModal.xaml.cs">
       <DependentUpon>ProfileModal.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Secretary\RegisterGuest.xaml.cs">
+      <DependentUpon>RegisterGuest.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Secretary\RegisterPatient.xaml.cs">
+      <DependentUpon>RegisterPatient.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Secretary\SecretaryCreateModal.xaml.cs">
+      <DependentUpon>SecretaryCreateModal.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Secretary\SecretaryGenerateReport.xaml.cs">
       <DependentUpon>SecretaryGenerateReport.xaml</DependentUpon>
     </Compile>
@@ -345,6 +355,9 @@
     </Compile>
     <Compile Include="Views\Tabs\SecretaryCreate.xaml.cs">
       <DependentUpon>SecretaryCreate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tabs\SecretaryDoctors.xaml.cs">
+      <DependentUpon>SecretaryDoctors.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Tabs\SecretaryPatients.xaml.cs">
       <DependentUpon>SecretaryPatients.xaml</DependentUpon>
@@ -498,6 +511,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Secretary\RegisterGuest.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Secretary\RegisterPatient.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Secretary\SecretaryCreateModal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Secretary\SecretaryGenerateReport.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -537,6 +562,10 @@
     <Page Include="Views\Tabs\SecretaryCreate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Tabs\SecretaryDoctors.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Tabs\SecretaryPatients.xaml">
       <SubType>Designer</SubType>
