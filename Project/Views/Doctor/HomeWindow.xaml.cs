@@ -30,7 +30,15 @@ namespace Project.Views.Doctor
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             InitializeComponent();
 
+            HideTextBoxes();
+            HidePlaceHolders();
 
+            saveEdit.Visibility = Visibility.Collapsed;
+            cancleEdit.Visibility = Visibility.Collapsed;
+        }
+
+        private void HideTextBoxes()
+        {
             textbox1.Visibility = Visibility.Collapsed;
             textbox2.Visibility = Visibility.Collapsed;
             textbox3.Visibility = Visibility.Collapsed;
@@ -40,14 +48,20 @@ namespace Project.Views.Doctor
             textbox7.Visibility = Visibility.Collapsed;
             textbox8.Visibility = Visibility.Collapsed;
             textbox9.Visibility = Visibility.Collapsed;
-            saveEdit.Visibility = Visibility.Collapsed;
-            cancleEdit.Visibility = Visibility.Collapsed;
         }
-        /*
-        public bool EditModBool
+
+        private void HidePlaceHolders()
         {
-            get { return _isEditMod; }
-        }*/
+            textbox1p.Visibility = Visibility.Collapsed;
+            textbox2p.Visibility = Visibility.Collapsed;
+            textbox3p.Visibility = Visibility.Collapsed;
+            textbox4p.Visibility = Visibility.Collapsed;
+            textbox5p.Visibility = Visibility.Collapsed;
+            textbox6p.Visibility = Visibility.Collapsed;
+            textbox7p.Visibility = Visibility.Collapsed;
+            textbox8p.Visibility = Visibility.Collapsed;
+            textbox9p.Visibility = Visibility.Collapsed;
+        }
         
         private void ChangeMode_Click(object sender, RoutedEventArgs e)
         {
@@ -61,26 +75,10 @@ namespace Project.Views.Doctor
             label7.Visibility = Visibility.Collapsed;
             label8.Visibility = Visibility.Collapsed;
 
-            textbox1.Visibility = Visibility.Visible;
-            textbox2.Visibility = Visibility.Visible;
-            textbox3.Visibility = Visibility.Visible;
-            textbox4.Visibility = Visibility.Visible;
-            textbox5.Visibility = Visibility.Visible;
-            textbox6.Visibility = Visibility.Visible;
-            textbox7.Visibility = Visibility.Visible;
-            textbox8.Visibility = Visibility.Visible;
-            textbox9.Visibility = Visibility.Visible;
+            ShowPlaceHolders();
 
-            textbox1.Text = label0.Text;
-            textbox2.Text = label1.Text;
-            textbox3.Text = label2.Text;
-            textbox4.Text = label6.Text;
-            textbox5.Text = label7.Text;
-            textbox6.Text = label8.Text;
-            textbox7.Text = label3.Text;
-            textbox8.Text = label4.Text;
-            textbox9.Text = label5.Text;
-            
+            SetPlaceHoldersAsLabels();
+
             saveEdit.Visibility = Visibility.Visible;
 
             cancleEdit.Visibility = Visibility.Visible;
@@ -88,9 +86,34 @@ namespace Project.Views.Doctor
             //_isEditMod = false;
         }
 
+        private void SetPlaceHoldersAsLabels()
+        {
+            textbox1p.Text = label0.Text;
+            textbox2p.Text = label1.Text;
+            textbox3p.Text = label2.Text;
+            textbox4p.Text = label6.Text;
+            textbox5p.Text = label7.Text;
+            textbox6p.Text = label8.Text;
+            textbox7p.Text = label3.Text;
+            textbox8p.Text = label4.Text;
+            textbox9p.Text = label5.Text;
+        }
+
+        private void ShowPlaceHolders()
+        {
+            textbox1p.Visibility = Visibility.Visible;
+            textbox2p.Visibility = Visibility.Visible;
+            textbox3p.Visibility = Visibility.Visible;
+            textbox4p.Visibility = Visibility.Visible;
+            textbox5p.Visibility = Visibility.Visible;
+            textbox6p.Visibility = Visibility.Visible;
+            textbox7p.Visibility = Visibility.Visible;
+            textbox8p.Visibility = Visibility.Visible;
+            textbox9p.Visibility = Visibility.Visible;
+        }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-             //
             Close();
         }
 
@@ -107,6 +130,7 @@ namespace Project.Views.Doctor
             label6.Visibility = Visibility.Visible;
             label7.Visibility = Visibility.Visible;
             label8.Visibility = Visibility.Visible;
+            /*
             textbox1.Visibility = Visibility.Collapsed;
             textbox2.Visibility = Visibility.Collapsed;
             textbox3.Visibility = Visibility.Collapsed;
@@ -115,7 +139,12 @@ namespace Project.Views.Doctor
             textbox6.Visibility = Visibility.Collapsed;
             textbox7.Visibility = Visibility.Collapsed;
             textbox8.Visibility = Visibility.Collapsed;
-            textbox9.Visibility = Visibility.Collapsed;
+            textbox9.Visibility = Visibility.Collapsed;*/
+
+
+            HidePlaceHolders();
+            HideTextBoxes();
+
             saveEdit.Visibility = Visibility.Collapsed;
             cancleEdit.Visibility = Visibility.Collapsed;
             buttonEdit.Visibility = Visibility.Visible;
@@ -132,15 +161,8 @@ namespace Project.Views.Doctor
             label6.Visibility = Visibility.Visible;
             label7.Visibility = Visibility.Visible;
             label8.Visibility = Visibility.Visible;
-            textbox1.Visibility = Visibility.Collapsed;
-            textbox2.Visibility = Visibility.Collapsed;
-            textbox3.Visibility = Visibility.Collapsed;
-            textbox4.Visibility = Visibility.Collapsed;
-            textbox5.Visibility = Visibility.Collapsed;
-            textbox6.Visibility = Visibility.Collapsed;
-            textbox7.Visibility = Visibility.Collapsed;
-            textbox8.Visibility = Visibility.Collapsed;
-            textbox9.Visibility = Visibility.Collapsed;
+            HideTextBoxes();
+            HidePlaceHolders();
             saveEdit.Visibility = Visibility.Collapsed;
             cancleEdit.Visibility = Visibility.Collapsed;
             buttonEdit.Visibility = Visibility.Visible;
@@ -151,40 +173,24 @@ namespace Project.Views.Doctor
             var s = new Doctor.HistoryPatient();
             s.Show();
         }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
-
+        
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
         }
 
-
-
-
-
-
-        // TODO delete
-        private void NumberTextBox_PreviewKeyUp(object sender, KeyEventArgs e)
+        private void JMBGValidationTextBox(object sender, TextCompositionEventArgs e)
         {
-            if (!NumberTextBox.Text.Equals(""))
-            {
-                NumberTextBox.Text = (Int32.Parse(NumberTextBox.Text) + 1).ToString();
-            }
+            Regex regex = new Regex("[^0-9]{8}");
+            e.Handled = regex.IsMatch(e.Text);
         }
-
-        // TODO delete
-        private void NumberTextBox_PreviewKeyDown(object sender, KeyEventArgs e)
+        /*
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {
-            if (!NumberTextBox.Text.Equals(""))
-            {
-                NumberTextBox.Text = (Int32.Parse(NumberTextBox.Text) - 1).ToString();
-            }
-        }
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }*/
 
         private void Alert_Click(object sender, RoutedEventArgs e)
         {
@@ -192,30 +198,77 @@ namespace Project.Views.Doctor
             alert.Show();
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void Wizard_Click(object sender, RoutedEventArgs e)
         {
-            //var wizard = new WizardWindow();
-            //wizard.Show();
-            //Close();
+            var wizard = new WizardWindow();
+            wizard.Show();
+            Close();
         }
-        /*
-        private void Switch_Click(object sender, RoutedEventArgs e)
+        
+
+        private void Textbox1p_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            if(Switch.IsChecked ==  true)
-            {
-                //buttonEdit.ToolTip="";
-                //buttonEdit.ToolTi ShowOnDisabled = "True";
-                togg = true;
-            }
-            else
-            {
-                togg = false;
-            }
-        }*/
+            textbox1.Text = "";
+            textbox1.Visibility = Visibility.Visible;
+            textbox1p.Visibility = Visibility.Collapsed;
+            Keyboard.Focus(textbox1);
+        }
+        private void Textbox2p_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            textbox2.Text = "";
+            textbox2.Visibility = Visibility.Visible;
+            textbox2p.Visibility = Visibility.Collapsed;
+            Keyboard.Focus(textbox2);
+        }
+        private void Textbox3p_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            textbox3.Text = "";
+            textbox3.Visibility = Visibility.Visible;
+            textbox3p.Visibility = Visibility.Collapsed;
+            Keyboard.Focus(textbox3);
+        }
+        private void Textbox4p_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            textbox4.Text = "";
+            textbox4.Visibility = Visibility.Visible;
+            textbox4p.Visibility = Visibility.Collapsed;
+            Keyboard.Focus(textbox4);
+        }
+        private void Textbox5p_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            textbox5.Text = "";
+            textbox5.Visibility = Visibility.Visible;
+            textbox5p.Visibility = Visibility.Collapsed;
+            Keyboard.Focus(textbox5);
+        }
+        private void Textbox6p_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            textbox6.Text = "";
+            textbox6.Visibility = Visibility.Visible;
+            textbox6p.Visibility = Visibility.Collapsed;
+            Keyboard.Focus(textbox6);
+        }
+        private void Textbox7p_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            textbox7.Text = "";
+            textbox7.Visibility = Visibility.Visible;
+            textbox7p.Visibility = Visibility.Collapsed;
+            Keyboard.Focus(textbox7);
+
+        }
+        private void Textbox8p_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            textbox8.Text = "";
+            textbox8.Visibility = Visibility.Visible;
+            textbox8p.Visibility = Visibility.Collapsed;
+            Keyboard.Focus(textbox8);
+        }
+        private void Textbox9p_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            textbox9.Text = "";
+            textbox9.Visibility = Visibility.Visible;
+            textbox9p.Visibility = Visibility.Collapsed;
+            Keyboard.Focus(textbox9);
+        }
     }
 }
