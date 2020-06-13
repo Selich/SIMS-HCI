@@ -9,16 +9,16 @@
         Title="Prijavljivanje greske" Height="450" Width="350">
     <materialDesign:Card>
         <Grid>
-            <Button Content="Potvrdi" HorizontalAlignment="Left" Margin="55,355,0,0" VerticalAlignment="Top" Width="105" Click="ConfirmBugReport"/>
-            <Button Content="Odustani" HorizontalAlignment="Left" Margin="179,355,0,0" VerticalAlignment="Top" Width="105" Click="CancelBugReport"/>
-            <Label Content="Tip greske:" HorizontalAlignment="Left" Margin="55,70,0,0" VerticalAlignment="Top"/>
+            <Button Content="{DynamicResource confirm}" HorizontalAlignment="Left" Margin="55,355,0,0" VerticalAlignment="Top" Width="105" Click="ConfirmBugReport"/>
+            <Button Content="{DynamicResource cancel}" HorizontalAlignment="Left" Margin="179,355,0,0" VerticalAlignment="Top" Width="105" Click="CancelBugReport"/>
+            <Label Content="{DynamicResource errortype}" HorizontalAlignment="Left" Margin="55,70,0,0" VerticalAlignment="Top"/>
             <ComboBox Name="typeOfFeedback" SelectedValuePath="Content"  HorizontalAlignment="Left" Margin="164,72,0,0" VerticalAlignment="Top" Width="120">
                 <ComboBoxItem>Non responsive element</ComboBoxItem>
                 <ComboBoxItem IsSelected="True">Missing values</ComboBoxItem>
                 <ComboBoxItem>Page Crash</ComboBoxItem>
                 <ComboBoxItem>Page Other</ComboBoxItem>
             </ComboBox>
-            <Label Content="Opis:" HorizontalAlignment="Left" Margin="55,141,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.486,0.75"/>
+            <Label Content="{DynamicResource description}" HorizontalAlignment="Left" Margin="55,141,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.486,0.75"/>
             <TextBox Name="feedbackDescription" HorizontalAlignment="Left" Height="108" Margin="55,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="229" />
 
         </Grid>

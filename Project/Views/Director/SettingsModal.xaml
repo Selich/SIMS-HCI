@@ -9,19 +9,18 @@
         Title="SettingsModal" Height="450" Width="350">
     <materialDesign:Card>
         <Grid>
-        <Label Content="Jezik:" HorizontalAlignment="Left" Margin="83,110,0,0" VerticalAlignment="Top"/>
+        <Label Content="{DynamicResource language}" HorizontalAlignment="Left" Margin="83,110,0,0" VerticalAlignment="Top"/>
         <ComboBox   Name="LanguageBox"  SelectedValuePath="Content" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="154,108,0,0">
             <ComboBoxItem IsSelected="True">Srpski</ComboBoxItem>
             <ComboBoxItem>English</ComboBoxItem>
-            <ComboBoxItem>Swahili</ComboBoxItem>
-        </ComboBox>
-        <Label Content="Tema:" HorizontalAlignment="Left" Margin="83,180,0,0" VerticalAlignment="Top"/>
+            </ComboBox>
+        <Label Content="{DynamicResource theme}" HorizontalAlignment="Left" Margin="83,180,0,0" VerticalAlignment="Top"/>
         <ComboBox  Name="ThemeBox" SelectedValuePath="Content"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="154,179,0,0">
             <ComboBoxItem IsSelected="True">Light(standard)</ComboBoxItem>
             <ComboBoxItem>Dark</ComboBoxItem>
         </ComboBox>
-        <Button Content="Potvrdi" HorizontalAlignment="Left" Margin="55,355,0,0" VerticalAlignment="Top" Width="106" Click="SaveSettingsChange"/>
-        <Button Content="Odustani" HorizontalAlignment="Left" Margin="185,355,0,0" VerticalAlignment="Top" Width="99" Click="CancelSettingsChange"/>
+        <Button Content="{DynamicResource confirm}" HorizontalAlignment="Left" Margin="55,355,0,0" VerticalAlignment="Top" Width="106" Click="SaveSettingsChange"/>
+        <Button Content="{DynamicResource cancel}" HorizontalAlignment="Left" Margin="185,355,0,0" VerticalAlignment="Top" Width="99" Click="CancelSettingsChange"/>
 
     </Grid>
     </materialDesign:Card>
