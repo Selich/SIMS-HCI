@@ -57,7 +57,7 @@
                 <Button Margin="5" Content="Detailed History" Click="History_Click" Height="Auto" Grid.Row="1" Grid.Column="4" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
                 <Button Height="Auto" Margin="10,10,10,0" Content="Feedback" Click="Feedback_Click" Grid.Column="5"  Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
                 <Button Height="Auto" Margin="10,10,10,0" Content="FAQ" Click="FAQ_Click" Grid.Column="6" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
-                <Button Height="Auto" Margin="10,10,10,0" Content="Generate Report" Grid.Column="6" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+                <Button Height="Auto" Margin="10,10,10,0" Content="Generate Report" Grid.Column="6" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="Gen_Click"/>
                 <Button Height="Auto" Margin="10,10,10,0" Content="Ask Question" Grid.Column="5" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
             </Grid>
         </TabItem>

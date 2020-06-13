@@ -187,5 +187,11 @@ namespace Project.Views.Patient
             var s = new Patient.RateAppointment(PastAppoitments[i]);
             s.Show();
         }
+
+        private void Gen_Click(object sender, RoutedEventArgs e)
+        {
+            var s = new Patient.GenReport();
+            s.Show();
+        }
     }
 }
