@@ -55,7 +55,7 @@ namespace Project.Utility
 
             doc.Open();
             doc.AddTitle("Patient Appoitment Repport");
-            Paragraph par = new Paragraph($"Pateint Appoitments from {interval.Start.ToShortDateString()} to {interval.End.ToShortDateString()}");
+            Paragraph par = new Paragraph($"Patient Appoitments from {interval.Start.ToShortDateString()} to {interval.End.ToShortDateString()}");
             par.Alignment = Element.ALIGN_CENTER;
             par.SetLeading(5, 5);
             par.SpacingAfter = 20;
