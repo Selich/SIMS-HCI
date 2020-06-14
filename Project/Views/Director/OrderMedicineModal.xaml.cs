@@ -44,15 +44,15 @@ namespace Project.Views.Director
             string str = NewMedicineQuantity.Text;
             if (Int32.TryParse(str, out int Quantity))
             {
-                //MedicalConsumable.Quantity += Quantity;
-                MedicineDTO newMedicine = new MedicineDTO();
+                Medicine.Quantity += Quantity;
+               /* MedicineDTO newMedicine = new MedicineDTO();
                 newMedicine.Name = Medicine.Name;
                 newMedicine.Type = Medicine.Type;
                 newMedicine.Id = Medicine.Id;
                 newMedicine.Description = Medicine.Description;
                 newMedicine.Quantity = Medicine.Quantity + Quantity;
                 Home.Medicine.Add(newMedicine);
-                Home.Medicine.Remove(Medicine);
+                Home.Medicine.Remove(Medicine);*/
 
             }
             this.Close();

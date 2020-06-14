@@ -71,6 +71,7 @@ namespace Project.Views.Director
                 doctor.Jmbg = Jmbg;
                 doctor.Hospital = Hospital;
                 Home.Employees.Add(doctor);
+                Home.VisibleEmployees.Add(doctor);
             }
             else
             {
@@ -83,6 +84,7 @@ namespace Project.Views.Director
                 secretary.Jmbg = Jmbg;
                 secretary.Hospital = Hospital;
                 Home.Employees.Add(secretary);
+                Home.VisibleEmployees.Add(secretary);
             }
 
             this.Close();

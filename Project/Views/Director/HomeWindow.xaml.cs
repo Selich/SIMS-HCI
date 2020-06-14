@@ -18,6 +18,7 @@ using System.Windows.Shapes;
 using Project.Views.Model;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Windows.Forms;
 
 namespace Project.Views.Director
 {
@@ -26,24 +27,6 @@ namespace Project.Views.Director
     /// </summary>
     /// 
 
-    /*
-     private string test1; --Binding je na Test1
-     public string Test1
-        {
-            get
-            {
-                return test1;
-            }
-            set
-            {
-                if (value != test1)
-                {
-                    test1 = value;
-                    OnPropertyChanged("Test1");
-                }
-            }
-        }
-     */
     public partial class HomeWindow : Window, INotifyPropertyChanged
     {
         private ReportController _reportController;
@@ -53,18 +36,104 @@ namespace Project.Views.Director
         
         public ObservableCollection<PropositionDTO> Propositions {get; set;}
 
+        private ObservableCollection<EmployeeDTO> visibleEmployees;
+
+        public ObservableCollection<EmployeeDTO> VisibleEmployees
+        {
+            get
+            {
+                return visibleEmployees;
+            }
+            set
+            {
+                if (value != visibleEmployees)
+                {
+                    visibleEmployees = value;
+                    OnPropertyChanged("VisibleEmployees");
+                }
+            }
+        }
         public ObservableCollection<EmployeeDTO> Employees { get; set; }
+
+        private ObservableCollection<EquipmentDTO> visibleEquipment;
+        public ObservableCollection<EquipmentDTO> VisibleEquipment
+        {
+            get
+            {
+                return visibleEquipment;
+            }
+            set
+            {
+                if (value != visibleEquipment)
+                {
+                    visibleEquipment = value;
+                    OnPropertyChanged("VisibleEquipment");
+                }
+            }
+        }
 
         public ObservableCollection<EquipmentDTO> Equipment { get; set; }
 
+        private ObservableCollection<MedicalConsumableDTO> visibleMedicalConsumables;
+
+        public ObservableCollection<MedicalConsumableDTO> VisibleMedicalConsumables
+        {
+            get
+            {
+                return visibleMedicalConsumables;
+            }
+            set
+            {
+                if (value != visibleMedicalConsumables)
+                {
+                    visibleMedicalConsumables = value;
+                    OnPropertyChanged("VisibleMedicalConsumables");
+                }
+            }
+        }
         public ObservableCollection<MedicalConsumableDTO> MedicalConsumables { get; set; }
 
+        private ObservableCollection<MedicineDTO> visibleMedicine;
+
+        public ObservableCollection<MedicineDTO> VisibleMedicine
+        {
+            get
+            {
+                return visibleMedicine;
+            }
+            set
+            {
+                if (value != visibleMedicine)
+                {
+                    visibleMedicine = value;
+                    OnPropertyChanged("VisibleMedicine");
+                }
+            }
+        }
+
+
         public ObservableCollection<MedicineDTO> Medicine { get; set; }
+
+        private ObservableCollection<RoomDTO> visibleRoomList;
+        public ObservableCollection<RoomDTO> VisibleRoomList
+        {
+            get
+            {
+                return visibleRoomList;
+            }
+            set
+            {
+                if (value != visibleRoomList)
+                {
+                    visibleRoomList = value;
+                    OnPropertyChanged("VisibleRoomList");
+                }
+            }
+        }
 
         public ObservableCollection<RoomDTO> RoomList { get; set; }
 
         public RoomDTO Magacin { get; set; }
-
 
         // public EmployeeDTO SelectedEmployee { get; set; }
         private RoomDTO selectedRoom;
@@ -138,7 +207,7 @@ namespace Project.Views.Director
            
             InitializeComponent();
             this.DataContext = this;
-            var app = Application.Current as App;
+            var app = System.Windows.Application.Current as App;
 
             _reportController = new ReportController();
             AddressDTO address = new AddressDTO("15", "Bulevar Cara Lazara", "Skoplje", "Severna Makedonija", "17954");
@@ -158,6 +227,8 @@ namespace Project.Views.Director
             Employees.Add(new EmployeeDTO(address, "Humus", "Dumus", "05553331232567", "028/352352", "Female", new DateTime(1969, 6, 24), 23000, null, null, "simo@gmail.com", "sifria1","Klinicko Centar Vojvodina"));
             Employees.Add(new EmployeeDTO(address, "Petar", "Gringovic", "0412631232567", "022/353652", "Male", new DateTime(1969, 6, 24), 28000, null, null, "simo@gmail.com", "sifria1", "Klinicko Centar Vojvodina"));
             Employees.Add(new EmployeeDTO(address, "Slavica", "Bubregovic", "0412631232567", "022/253452", "Female", new DateTime(1980, 6, 24), 2200, null, null, "simo@gmail.com", "sifria1","Klinicko Centar Vojvodina"));
+            VisibleEmployees = new ObservableCollection<EmployeeDTO>(Employees);
+
 
 
             Equipment = new ObservableCollection<EquipmentDTO>();
@@ -177,6 +248,7 @@ namespace Project.Views.Director
             novi= new EquipmentDTO(5,"Respirator", "Donacija", "Mehanicko disanje???", Magacin);
             Magacin.Equipment.Add(novi);
             Equipment.Add(novi);
+            VisibleEquipment = new ObservableCollection<EquipmentDTO>(Equipment);
 
 
             MedicalConsumables = new ObservableCollection<MedicalConsumableDTO>();
@@ -184,13 +256,14 @@ namespace Project.Views.Director
             MedicalConsumables.Add(new MedicalConsumableDTO(2, "Hanzaplast", "zavoj", "zavoj je izmislio Vasko Popa...", 16));
             MedicalConsumables.Add(new MedicalConsumableDTO(3, "Hidrogen", "rastvor", "zavoj je izmislio Vasko Popa...", 18));
             MedicalConsumables.Add(new MedicalConsumableDTO(4, "Fizioloski rastvor", "rastvor", "zavoj je izmislio Vasko Popa...", 5));
-
+            VisibleMedicalConsumables = new ObservableCollection<MedicalConsumableDTO>(MedicalConsumables);
 
             Medicine = new ObservableCollection<MedicineDTO>();
             Medicine.Add(new MedicineDTO(5, "Berodual", "kortikosteroid", "zavoj je izmislio Vasko Popa...", 23,"","intravenozno",false));
             Medicine.Add(new MedicineDTO(6, "Probiotik Ivancic&sons", "probiotik", "zavoj je izmislio Vasko Popa...", 16, "", "oralno", false));
             Medicine.Add(new MedicineDTO(7, "Fervex", "prasak", "zavoj je izmislio Vasko Popa...", 18, "", "", true));
             Medicine.Add(new MedicineDTO(8, "Zufiofilum", "antibiotik", "zavoj je izmislio Vasko Popa...", 5, "", "", true));
+            VisibleMedicine = new ObservableCollection<MedicineDTO>(Medicine);
 
 
             RoomList = new ObservableCollection<RoomDTO>();
@@ -201,6 +274,7 @@ namespace Project.Views.Director
             RoomList.Add(new RoomDTO(24, RoomType.operationHall, "Kardiovaskularna", "2"));
             RoomList.Add(new RoomDTO(17, RoomType.medicalRoom, "Pregledi", "1"));
             RoomList.Add(new RoomDTO(5, RoomType.hospitalRoom, "Intenzivna nega", "3"));
+            VisibleRoomList = new ObservableCollection<RoomDTO>(RoomList);
         }
 
         private void OpenSettingsModal(object sender, RoutedEventArgs e)
@@ -261,7 +335,7 @@ namespace Project.Views.Director
         private void OpenEmployeeDetails(object sender, RoutedEventArgs e)
         {
             // SelectedEmployee = (EmployeeDTO)EmployeeList.SelectedItem;
-            var btn = sender as Button;
+            var btn = sender as System.Windows.Controls.Button;
             EmployeeList.SelectedItem = btn.DataContext;
             EmployeesGrid.Visibility = Visibility.Collapsed;
             EmployeeDetailsGrid.Visibility = Visibility.Visible;
@@ -283,7 +357,7 @@ namespace Project.Views.Director
 
         private void OpenRoomDetails(object sender, RoutedEventArgs e)
         {
-            var btn = sender as Button;
+            var btn = sender as System.Windows.Controls.Button;
             //RoomsList.SelectedItem = btn.DataContext;
             SelectedRoomAppointments = null;
             SelectedRoom = btn.DataContext as RoomDTO;
@@ -293,7 +367,7 @@ namespace Project.Views.Director
 
         private void OpenEquipmentOrder(object sender, RoutedEventArgs e)
         {
-            var btn = sender as Button;
+            var btn = sender as System.Windows.Controls.Button;
             //EquipmentList.SelectedItem = btn.DataContext;
             OrderEquipmentModal modal = new OrderEquipmentModal(this,(EquipmentDTO)btn.DataContext);
             modal.Show();
@@ -301,7 +375,7 @@ namespace Project.Views.Director
 
         private void OpenMedicineOrder(object sender, RoutedEventArgs e)
         {
-            var btn = sender as Button;
+            var btn = sender as System.Windows.Controls.Button;
             OrderMedicineModal modal = new OrderMedicineModal(this, (MedicineDTO)btn.DataContext);
             modal.Show();
         }
@@ -315,7 +389,7 @@ namespace Project.Views.Director
 
         private void OpenMedicalConsumableOrder(object sender, RoutedEventArgs e)
         {
-            var btn = sender as Button;     
+            var btn = sender as System.Windows.Controls.Button;     
             OrderMedicalConsumableModal modal = new OrderMedicalConsumableModal(this, (MedicalConsumableDTO)btn.DataContext);
             modal.Show();
         }
@@ -339,7 +413,7 @@ namespace Project.Views.Director
 
         private void ChangeEmployeeProfile(object sender, RoutedEventArgs e)
         {
-            foreach (TextBox textBox in employeeData.Children)
+            foreach (System.Windows.Controls.TextBox textBox in employeeData.Children)
             textBox.IsEnabled = true;
             Save_employee.Visibility = Visibility.Visible;
         //   Cancel_employee.Visibility = Visibility.Visible;
@@ -348,7 +422,7 @@ namespace Project.Views.Director
 
         private void CloseEmpoyeeProfileChanges(object sender, RoutedEventArgs e)
         {
-            foreach (TextBox textBox in employeeData.Children)
+            foreach (System.Windows.Controls.TextBox textBox in employeeData.Children)
                 textBox.IsEnabled = false;
             Save_employee.Visibility = Visibility.Collapsed;
         //    Cancel_employee.Visibility = Visibility.Collapsed;
@@ -408,5 +482,367 @@ namespace Project.Views.Director
             EmployeeDTO selected = EmployeeDetailsGrid.DataContext as EmployeeDTO;
             selected.WorkingHours = interval;
         }
+
+        private void EmpoyeeFilter(object sender, RoutedEventArgs e)
+        {
+            string firstName = EmployeeListFirstName;
+            string lastName = EmployeeListLastName;
+        
+            ObservableCollection<EmployeeDTO> helper = new ObservableCollection<EmployeeDTO>(Employees);
+            ObservableCollection<EmployeeDTO> helper2 = new ObservableCollection<EmployeeDTO>();
+            if (firstName!=null && !firstName.Equals(""))
+            {
+                foreach (EmployeeDTO emp in helper)
+                    if (emp.FirstName.Equals(firstName))
+                        helper2.Add(emp);
+                helper = helper2;
+                helper2 = new ObservableCollection<EmployeeDTO>();
+            }
+            
+            if (lastName != null && !lastName.Equals(""))
+            {
+                foreach (EmployeeDTO emp in helper)
+                    if (emp.FirstName.Equals(firstName))
+                        helper2.Add(emp);
+                helper = helper2;
+                helper2 = new ObservableCollection<EmployeeDTO>();
+            }
+
+            VisibleEmployees = helper;
+
+        }
+
+        private void EmployeeSort(object sender, RoutedEventArgs e)
+        {
+            EmployeeDTO helper;
+            string sort = EmployeeListSort.SelectedValue.ToString();
+            if (sort.Equals("Ime(A-Z)"))
+            {
+                for(int i=0;i<VisibleEmployees.Count;i++)
+                    for(int j=i+1;j<VisibleEmployees.Count;j++)
+                        if (string.Compare(VisibleEmployees[i].FirstName, VisibleEmployees[j].FirstName) > 0)
+                        {
+                            helper = VisibleEmployees[i];
+                            VisibleEmployees[i] = VisibleEmployees[j];
+                            VisibleEmployees[j] = helper;
+                        }
+
+            }
+            else if (sort.Equals("Prezime(A-Z)"))
+            {
+                for (int i = 0; i < VisibleEmployees.Count; i++)
+                    for (int j = i + 1; j < VisibleEmployees.Count; j++)
+                        if (string.Compare(VisibleEmployees[i].LastName, VisibleEmployees[j].LastName) > 0)
+                        {
+                            helper = VisibleEmployees[i];
+                            VisibleEmployees[i] = VisibleEmployees[j];
+                            VisibleEmployees[j] = helper;
+                        }
+            }
+            else return;     
+
+        }
+        private void FilterEquipment(object sender, RoutedEventArgs e)
+        {
+            string Name = EquipmentListName;
+            string Type = EquipmentListType;
+
+            ObservableCollection<EquipmentDTO> helper = new ObservableCollection<EquipmentDTO>(Equipment);
+            ObservableCollection<EquipmentDTO> helper2 = new ObservableCollection<EquipmentDTO>();
+            if (Name != null && !Name.Equals(""))
+            {
+                foreach (EquipmentDTO equ in helper)
+                    if (equ.Name.Equals(Name))
+                        helper2.Add(equ);
+                helper = helper2;
+                helper2 = new ObservableCollection<EquipmentDTO>();
+            }
+
+            if (Type != null && !Type.Equals(""))
+            {
+                foreach (EquipmentDTO equ in helper)
+                    if (equ.Type.Equals(Type))
+                        helper2.Add(equ);
+                helper = helper2;
+                helper2 = new ObservableCollection<EquipmentDTO>();
+            }
+
+            VisibleEquipment = helper;
+        }
+
+        private void EquipmentSort(object sender, RoutedEventArgs e)
+        {
+            EquipmentDTO helper;
+            string sort = EquipmentListSort.SelectedValue.ToString();
+            if (sort.Equals("Naziv(A-Z)"))
+            {
+                for (int i = 0; i < VisibleEquipment.Count; i++)
+                    for (int j = i + 1; j < VisibleEquipment.Count; j++)
+                        if (string.Compare(VisibleEquipment[i].Name, VisibleEquipment[j].Name) > 0)
+                        {
+                            helper = VisibleEquipment[i];
+                            VisibleEquipment[i] = VisibleEquipment[j];
+                            VisibleEquipment[j] = helper;
+                        }
+
+            }
+            else if (sort.Equals("Tip(A-Z)"))
+            {
+                for (int i = 0; i < VisibleEquipment.Count; i++)
+                    for (int j = i + 1; j < VisibleEquipment.Count; j++)
+                        if (string.Compare(VisibleEquipment[i].Type, VisibleEquipment[j].Type) > 0)
+                        {
+                            helper = VisibleEquipment[i];
+                            VisibleEquipment[i] = VisibleEquipment[j];
+                            VisibleEquipment[j] = helper;
+                        }
+            }
+            else return;
+        }
+
+        private void FilterMedicalConsumables(object sender, RoutedEventArgs e)
+        {
+            string Name = ConsumableListName;
+            string Type = ConsumableListType;
+
+            ObservableCollection<MedicalConsumableDTO> helper = new ObservableCollection<MedicalConsumableDTO>(MedicalConsumables);
+            ObservableCollection<MedicalConsumableDTO> helper2 = new ObservableCollection<MedicalConsumableDTO>();
+            if (Name != null && !Name.Equals(""))
+            {
+                foreach (MedicalConsumableDTO med in helper)
+                    if (med.Name.Equals(Name))
+                        helper2.Add(med);
+                helper = helper2;
+                helper2 = new ObservableCollection<MedicalConsumableDTO>();
+            }
+
+            if (Type != null && !Type.Equals(""))
+            {
+                foreach (MedicalConsumableDTO med in helper)
+                    if (med.Type.Equals(Type))
+                        helper2.Add(med);
+                helper = helper2;
+                helper2 = new ObservableCollection<MedicalConsumableDTO>();
+            }
+
+            VisibleMedicalConsumables = helper;
+        }
+
+        private void MedicalConsumablesSort(object sender, RoutedEventArgs e)
+        {
+            MedicalConsumableDTO helper;
+            string sort = ConsumableListSort.SelectedValue.ToString();
+            if (sort.Equals("Naziv(A-Z)"))
+            {
+                for (int i = 0; i < VisibleMedicalConsumables.Count; i++)
+                    for (int j = i + 1; j < VisibleMedicalConsumables.Count; j++)
+                        if (string.Compare(VisibleMedicalConsumables[i].Name, VisibleMedicalConsumables[j].Name) > 0)
+                        {
+                            helper = VisibleMedicalConsumables[i];
+                            VisibleMedicalConsumables[i] = VisibleMedicalConsumables[j];
+                            VisibleMedicalConsumables[j] = helper;
+                        }
+
+            }
+            else if (sort.Equals("Tip(A-Z)"))
+            {
+                for (int i = 0; i < VisibleMedicalConsumables.Count; i++)
+                    for (int j = i + 1; j < VisibleMedicalConsumables.Count; j++)
+                        if (string.Compare(VisibleMedicalConsumables[i].Type, VisibleMedicalConsumables[j].Type) > 0)
+                        {
+                            helper = VisibleMedicalConsumables[i];
+                            VisibleMedicalConsumables[i] = VisibleMedicalConsumables[j];
+                            VisibleMedicalConsumables[j] = helper;
+                        }
+            }
+            else return;
+        }
+
+        private void FilterMedicine(object sender, RoutedEventArgs e)
+        {
+            string Name = MedicineListName;
+            string Type = MedicineListType;
+
+            ObservableCollection<MedicineDTO> helper = new ObservableCollection<MedicineDTO>(Medicine);
+            ObservableCollection<MedicineDTO> helper2 = new ObservableCollection<MedicineDTO>();
+            if (Name != null && !Name.Equals(""))
+            {
+                foreach (MedicineDTO med in helper)
+                    if (med.Name.Equals(Name))
+                        helper2.Add(med);
+                helper = helper2;
+                helper2 = new ObservableCollection<MedicineDTO>();
+            }
+
+            if (Type != null && !Type.Equals(""))
+            {
+                foreach (MedicineDTO med in helper)
+                    if (med.Type.Equals(Type))
+                        helper2.Add(med);
+                helper = helper2;
+                helper2 = new ObservableCollection<MedicineDTO>();
+            }
+
+            VisibleMedicine = helper;
+        }
+
+        private void MedicineSort(object sender, RoutedEventArgs e)
+        {
+            MedicineDTO helper;
+            string sort = MedicineListSort.SelectedValue.ToString();
+            if (sort.Equals("Naziv(A-Z)"))
+            {
+                for (int i = 0; i < VisibleMedicine.Count; i++)
+                    for (int j = i + 1; j < VisibleMedicine.Count; j++)
+                        if (string.Compare(VisibleMedicine[i].Name, VisibleMedicine[j].Name) > 0)
+                        {
+                            helper = VisibleMedicine[i];
+                            VisibleMedicine[i] = VisibleMedicine[j];
+                            VisibleMedicine[j] = helper;
+                        }
+
+            }
+            else if (sort.Equals("Tip(A-Z)"))
+            {
+                for (int i = 0; i < VisibleMedicine.Count; i++)
+                    for (int j = i + 1; j < VisibleMedicine.Count; j++)
+                        if (string.Compare(VisibleMedicine[i].Type, VisibleMedicine[j].Type) > 0)
+                        {
+                            helper = VisibleMedicine[i];
+                            VisibleMedicine[i] = VisibleMedicine[j];
+                            VisibleMedicine[j] = helper;
+                        }
+            }
+            else return;
+        }
+
+        private void FilterRooms(object sender, RoutedEventArgs e)
+        {
+            string Ward = RoomListDepartman;
+            int Floor = RoomListFloor;
+            int Id = RoomListID;
+
+            ObservableCollection<RoomDTO> helper = new ObservableCollection<RoomDTO>(RoomList);
+            ObservableCollection<RoomDTO> helper2 = new ObservableCollection<RoomDTO>();
+            if (Ward != null && !Ward.Equals(""))
+            {
+                foreach (RoomDTO room in helper)
+                    if (room.Ward.Equals(Ward))
+                        helper2.Add(room);
+                helper = helper2;
+                helper2 = new ObservableCollection<RoomDTO>();
+            }
+
+            if (Floor!=0)
+            {
+                foreach (RoomDTO room in helper)
+                    if (Int32.Parse(room.Floor)==Floor)
+                        helper2.Add(room);
+                helper = helper2;
+                helper2 = new ObservableCollection<RoomDTO>();
+            }
+
+            if (Id != 0)
+            {
+                foreach (RoomDTO room in helper)
+                    if (room.Id == Id)
+                        helper2.Add(room);
+                helper = helper2;
+                helper2 = new ObservableCollection<RoomDTO>();
+            }
+
+            VisibleRoomList = helper;
+        }
+
+
+        private void FilterRoomByType(object sender, RoutedEventArgs e)
+        {
+            string type = RoomListType.SelectedValue.ToString();
+            RoomType roomType;
+            ObservableCollection<RoomDTO> helper = new ObservableCollection<RoomDTO>();
+            if (type.Equals("Operaciona sala"))
+            {
+                roomType = RoomType.operationHall;
+            }
+            else if (type.Equals("Intenzivna nega"))
+            {
+                roomType = RoomType.hospitalRoom;
+            }
+            else if (type.Equals("Soba za preglede"))
+            {
+                roomType = RoomType.medicalRoom;
+            }
+            else if (type.Equals("Sve prostorije"))
+            {
+                VisibleRoomList = new ObservableCollection<RoomDTO>(RoomList);
+                return;
+            }
+            else 
+                return;
+
+                foreach (RoomDTO room in RoomList)
+                if (room.Type == roomType)
+                    helper.Add(room);
+
+            VisibleRoomList = helper;
+        }
+
+        private void RoomSort(object sender, RoutedEventArgs e)
+        {
+            RoomDTO helper;
+            string sort = RoomListSort.SelectedValue.ToString();
+            if (sort.Equals("Broj sobe(rastuce)"))
+            {
+                for (int i = 0; i < VisibleRoomList.Count; i++)
+                    for (int j = i + 1; j < VisibleRoomList.Count; j++)
+                        if (VisibleRoomList[i].Id > VisibleRoomList[j].Id)
+                        {
+                            helper = VisibleRoomList[i];
+                            VisibleRoomList[i] = VisibleRoomList[j];
+                            VisibleRoomList[j] = helper;
+                        }
+
+            }
+            else if (sort.Equals("Departman(A-Z)"))
+            {
+                for (int i = 0; i < VisibleRoomList.Count; i++)
+                    for (int j = i + 1; j < VisibleRoomList.Count; j++)
+                        if (string.Compare(VisibleRoomList[i].Ward, VisibleRoomList[j].Ward) > 0)
+                        {
+                            helper = VisibleRoomList[i];
+                            VisibleRoomList[i] = VisibleRoomList[j];
+                            VisibleRoomList[j] = helper;
+                        }
+            }
+            else return;
+        }
+
+
+        private void ResetEmployeeList(object sender, RoutedEventArgs e)
+        {
+            VisibleEmployees = new ObservableCollection<EmployeeDTO>(Employees);
+        }
+
+        private void ResetRoomList(object sender, RoutedEventArgs e)
+        {
+            VisibleRoomList = new ObservableCollection<RoomDTO>(RoomList);
+        }
+
+        private void ResetEquipmentList(object sender, RoutedEventArgs e)
+        {
+            VisibleEquipment = new ObservableCollection<EquipmentDTO>(Equipment);
+        }
+
+        private void ResetMedicalConsumablesList(object sender, RoutedEventArgs e)
+        {
+            VisibleMedicalConsumables = new ObservableCollection<MedicalConsumableDTO>(MedicalConsumables);
+        }
+
+        private void ResetMedicineList(object sender, RoutedEventArgs e)
+        {
+            VisibleMedicine = new ObservableCollection<MedicineDTO>(Medicine);
+        }
+
+        
     }
 }

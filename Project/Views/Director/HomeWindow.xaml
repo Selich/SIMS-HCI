@@ -295,8 +295,7 @@
                         </ComboBox>
                         <Label Content="{DynamicResource firstName}" HorizontalAlignment="Left" Margin="188,40,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.472,0.75"/>
                         <Label Content="{DynamicResource lastName}" HorizontalAlignment="Left" Margin="377,40,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.472,0.75"/>
-                        <Label Content="{DynamicResource specialisation}" HorizontalAlignment="Left" Margin="584,40,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.472,0.75"/>
-                        <Label Content="{DynamicResource sortBy}" HorizontalAlignment="Left" Margin="839,42,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.472,0.75"/>
+                        <Label Content="{DynamicResource sortBy}" HorizontalAlignment="Left" Margin="586,41,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.472,0.75"/>
                         <TextBox HorizontalAlignment="Left" Height="22" Margin="429,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120">
                             <TextBox.Text>
                                 <Binding Path="EmployeeListLastName" UpdateSourceTrigger="PropertyChanged">
@@ -315,24 +314,15 @@
                                 </Binding>
                             </TextBox.Text>
                         </TextBox>
-                        <TextBox HorizontalAlignment="Left" Height="22" Margin="678,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120">
-                            <TextBox.Text>
-                                <Binding Path="EmployeeListSpecialisation" UpdateSourceTrigger="PropertyChanged">
-                                    <Binding.ValidationRules>
-                                        <util:NameValidate ValidationStep="RawProposedValue"/>
-                                    </Binding.ValidationRules>
-                                </Binding>
-                            </TextBox.Text>
-                        </TextBox>
-                        <ComboBox HorizontalAlignment="Left" Margin="915,40,0,0" VerticalAlignment="Top" Width="120">
-                            <ComboBoxItem IsSelected="True">Ime(A-Z)</ComboBoxItem>
+                        <ComboBox  Name="EmployeeListSort" SelectedValuePath="Content" HorizontalAlignment="Left" Margin="673,38,0,0" VerticalAlignment="Top" Width="120" LostFocus="EmployeeSort">
+                            <ComboBoxItem>Ime(A-Z)</ComboBoxItem>
                             <ComboBoxItem>Prezime(A-Z)</ComboBoxItem>
-                            <ComboBoxItem>...</ComboBoxItem>
+                            <ComboBoxItem IsSelected="True">...</ComboBoxItem>
                         </ComboBox>
-                        <Button Height="50" Margin="1073,26,10,26" Content="{DynamicResource search}"/>
+                        <Button Height="50" Margin="1073,26,10,26" Content="{DynamicResource search}" Click="EmpoyeeFilter"/>
 
                     </Grid>
-                    <ListBox Name="EmployeeList"  ItemsSource="{Binding Employees}" ScrollViewer.VerticalScrollBarVisibility="Visible" BorderThickness="2" Background="NavajoWhite" HorizontalAlignment="Left" Height="424" Margin="40,120,0,0" VerticalAlignment="Top" Width="802" Grid.Row="1">
+                    <ListBox Name="EmployeeList"  ItemsSource="{Binding VisibleEmployees}" ScrollViewer.VerticalScrollBarVisibility="Visible" BorderThickness="2" Background="NavajoWhite" HorizontalAlignment="Left" Height="424" Margin="40,120,0,0" VerticalAlignment="Top" Width="802" Grid.Row="1">
                         <!--    <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth4" Width="726" Height="90">
                             <Grid>
                                 <Image Source="../../Resources/Images/Faces/face1" HorizontalAlignment="Left" Height="65" Margin="26,11,0,0" VerticalAlignment="Top" Width="66" Stretch="Fill"/>
@@ -376,6 +366,7 @@
                             <Button Margin="0,20" Content="{DynamicResource generateReport}"/>
                         </StackPanel>
                     </GroupBox>
+                    <Button Content="Reset" HorizontalAlignment="Left" Margin="752,41,0,0" VerticalAlignment="Top" Width="74" Click="ResetEmployeeList"/>
                 </Grid>
             </Grid>
         </TabItem>
@@ -415,16 +406,16 @@
                                 </Binding>
                             </TextBox.Text>
                         </TextBox>
-                        <ComboBox HorizontalAlignment="Left" Margin="794,46,0,0" VerticalAlignment="Top" Width="120">
-                            <ComboBoxItem IsSelected="True">Naziv(A-Z)</ComboBoxItem>
+                        <ComboBox Name="EquipmentListSort" SelectedValuePath="Content" HorizontalAlignment="Left" Margin="794,46,0,0" VerticalAlignment="Top" Width="120" LostFocus="EquipmentSort">
+                            <ComboBoxItem >Naziv(A-Z)</ComboBoxItem>
                             <ComboBoxItem>Tip(A-Z)</ComboBoxItem>
-                            <ComboBoxItem>...</ComboBoxItem>
+                            <ComboBoxItem IsSelected="True">...</ComboBoxItem>
                         </ComboBox>
-                        <Button Height="50" Margin="986,17,96,15" Content="{DynamicResource search}"/>
+                        <Button Height="50" Margin="942,17,140,15" Content="{DynamicResource search}" Click="FilterEquipment" RenderTransformOrigin="0.088,0.68"/>
 
                     </Grid>
 
-                    <ListBox Name="EquipmentList" ItemsSource="{Binding Equipment}" ScrollViewer.VerticalScrollBarVisibility="Visible" BorderThickness="2" Background="NavajoWhite" HorizontalAlignment="Left" Height="450" Margin="40,188,0,-8" VerticalAlignment="Top" Width="1043">
+                    <ListBox Name="EquipmentList" ItemsSource="{Binding VisibleEquipment}" ScrollViewer.VerticalScrollBarVisibility="Visible" BorderThickness="2" Background="NavajoWhite" HorizontalAlignment="Left" Height="450" Margin="40,188,0,-8" VerticalAlignment="Top" Width="1043">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth4" Width="1067" Height="90">
@@ -453,6 +444,7 @@
 
                     </ListBox>
                     <Button Content="{DynamicResource reportBug}" HorizontalAlignment="Left" Margin="1110,588,0,0" VerticalAlignment="Top" Width="144" Click="OpenBugReportModal"/>
+                    <Button Content="Reset" HorizontalAlignment="Left" Margin="982,40,0,0" VerticalAlignment="Top" Width="75" Click="ResetEquipmentList"/>
 
                 </Grid>
             </materialDesign:Card>
@@ -495,16 +487,16 @@
                                 </Binding>
                             </TextBox.Text>
                         </TextBox>
-                        <ComboBox HorizontalAlignment="Left" Margin="747,34,0,0" VerticalAlignment="Top" Width="120">
-                            <ComboBoxItem IsSelected="True">Naziv(A-Z)</ComboBoxItem>
+                        <ComboBox Name="ConsumableListSort" SelectedValuePath="Content" HorizontalAlignment="Left" Margin="747,34,0,0" VerticalAlignment="Top" Width="120" LostFocus="MedicalConsumablesSort">
+                            <ComboBoxItem>Naziv(A-Z)</ComboBoxItem>
                             <ComboBoxItem>Tip(A-Z)</ComboBoxItem>
-                            <ComboBoxItem>...</ComboBoxItem>
+                            <ComboBoxItem IsSelected="True">...</ComboBoxItem>
                         </ComboBox>
-                        <Button Height="50" Margin="994,22,90,10" Content="{DynamicResource search}" />
+                        <Button Height="50" Margin="994,22,90,10" Content="{DynamicResource search}" Click="FilterMedicalConsumables" />
 
                     </Grid>
 
-                    <ListBox ItemsSource="{Binding MedicalConsumables, NotifyOnSourceUpdated=True}" ScrollViewer.VerticalScrollBarVisibility="Visible" BorderThickness="2" Background="NavajoWhite" HorizontalAlignment="Left" Height="450" Margin="40,188,0,0" VerticalAlignment="Top" Width="1031">
+                    <ListBox ItemsSource="{Binding VisibleMedicalConsumables, NotifyOnSourceUpdated=True}" ScrollViewer.VerticalScrollBarVisibility="Visible" BorderThickness="2" Background="NavajoWhite" HorizontalAlignment="Left" Height="450" Margin="40,188,0,0" VerticalAlignment="Top" Width="1031">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth4" Width="1067" Height="108">
@@ -533,6 +525,7 @@
                         </ListBox.ItemTemplate>
                     </ListBox>
                     <Button Content="{DynamicResource reportBug}" HorizontalAlignment="Left" Margin="1092,602,0,0" VerticalAlignment="Top" Width="142" Click="OpenBugReportModal"/>
+                    <Button Content="Reset" HorizontalAlignment="Left" Margin="836,36,0,0" VerticalAlignment="Top" Width="76" Click="ResetMedicalConsumablesList"/>
 
                 </Grid>
             </materialDesign:Card>
@@ -573,16 +566,16 @@
                                 </Binding>
                             </TextBox.Text>
                         </TextBox>
-                        <ComboBox HorizontalAlignment="Left" Margin="752,36,0,0" VerticalAlignment="Top" Width="120">
-                            <ComboBoxItem IsSelected="True">Naziv(A-Z)</ComboBoxItem>
+                        <ComboBox Name="MedicineListSort" SelectedValuePath="Content" HorizontalAlignment="Left" Margin="752,36,0,0" VerticalAlignment="Top" Width="120" LostFocus="MedicineSort">
+                            <ComboBoxItem>Naziv(A-Z)</ComboBoxItem>
                             <ComboBoxItem>Tip(A-Z)</ComboBoxItem>
-                            <ComboBoxItem>ID(rastuce)</ComboBoxItem>
+                            <ComboBoxItem IsSelected="True">...</ComboBoxItem>
                         </ComboBox>
-                        <Button Height="50" Margin="1012,12,72,20" Content="{DynamicResource search}" RenderTransformOrigin="-0.041,0.48"/>
+                        <Button Height="50" Margin="1012,12,72,20" Content="{DynamicResource search}" RenderTransformOrigin="-0.041,0.48" Click="FilterMedicine"/>
 
                     </Grid>
 
-                    <ListBox ItemsSource="{Binding Medicine}" ScrollViewer.VerticalScrollBarVisibility="Visible" BorderThickness="2" Background="NavajoWhite" HorizontalAlignment="Left" Height="450" Margin="40,188,0,0" VerticalAlignment="Top" Width="1016">
+                    <ListBox ItemsSource="{Binding VisibleMedicine}" ScrollViewer.VerticalScrollBarVisibility="Visible" BorderThickness="2" Background="NavajoWhite" HorizontalAlignment="Left" Height="450" Margin="40,188,0,0" VerticalAlignment="Top" Width="1016">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth4" Width="1067" Height="130">
@@ -613,6 +606,7 @@
                     </ListBox>
                     <Button Content="{DynamicResource reportBug}" HorizontalAlignment="Left" Margin="1079,602,0,0" VerticalAlignment="Top" Width="147" Click="OpenBugReportModal"/>
                     <Button Content="{DynamicResource registerMedicine}" HorizontalAlignment="Left" Margin="1048,36,0,0" VerticalAlignment="Top" Width="178" Height="35" RenderTransformOrigin="0.36,0.514" Click="OpenMedicineRegistration"/>
+                    <Button Content="Reset" HorizontalAlignment="Left" Margin="841,36,0,0" VerticalAlignment="Top" Width="74" RenderTransformOrigin="-0.068,0.344" Click="ResetMedicineList"/>
 
                 </Grid>
             </materialDesign:Card>
@@ -624,10 +618,11 @@
                     <Grid Name="Rooms" Visibility="Visible" Margin="0,0,0,0">
                         <Label Content="{DynamicResource searchResults}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,36,0,0" FontSize="20" Grid.ColumnSpan="2"/>
                         <Grid Margin="40,97,40,457">
-                            <ComboBox HorizontalAlignment="Left" Margin="24,36,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="-0.029,0.607">
+                            <ComboBox Name="RoomListType" SelectedValuePath="Content" HorizontalAlignment="Left" Margin="24,36,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="-0.029,0.607" LostFocus="FilterRoomByType">
                                 <ComboBoxItem IsSelected="True">Sve prostorije</ComboBoxItem>
                                 <ComboBoxItem>Operaciona sala</ComboBoxItem>
                                 <ComboBoxItem>Intenzivna nega</ComboBoxItem>
+                                <ComboBoxItem>Soba za preglede</ComboBoxItem>
                             </ComboBox>
                             <Label Content="{DynamicResource roomNumer}" HorizontalAlignment="Left" Margin="161,40,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.472,0.75"/>
                             <Label Content="{DynamicResource floor}" HorizontalAlignment="Left" Margin="394,40,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.472,0.75"/>
@@ -661,15 +656,15 @@
                                 </TextBox.Text>
 
                             </TextBox>
-                            <ComboBox HorizontalAlignment="Left" Margin="915,40,0,0" VerticalAlignment="Top" Width="120">
-                                <ComboBoxItem IsSelected="True">Broj sobe(rastuce)</ComboBoxItem>
+                            <ComboBox Name="RoomListSort" SelectedValuePath="Content" HorizontalAlignment="Left" Margin="915,40,0,0" VerticalAlignment="Top" Width="120" LostFocus="RoomSort">
+                                <ComboBoxItem >Broj sobe(rastuce)</ComboBoxItem>
                                 <ComboBoxItem>Departman(A-Z)</ComboBoxItem>
-                                <ComboBoxItem>...</ComboBoxItem>
+                                <ComboBoxItem IsSelected="True">...</ComboBoxItem>
                             </ComboBox>
-                            <Button Height="50" Margin="1063,24,20,16" Content="{DynamicResource search}"/>
+                            <Button Height="50" Margin="1063,24,20,16" Content="{DynamicResource search}" Click="FilterRooms"/>
 
                         </Grid>
-                        <ListBox Name="RoomsList" ItemsSource="{Binding RoomList}" SelectedItem="{Binding SelectedRoom,Mode=TwoWay}" ScrollViewer.VerticalScrollBarVisibility="Visible" BorderThickness="2" Background="NavajoWhite" HorizontalAlignment="Left" Height="424" Margin="40,210,0,0" VerticalAlignment="Top" Width="802">
+                        <ListBox Name="RoomsList" ItemsSource="{Binding VisibleRoomList}" SelectedItem="{Binding SelectedRoom,Mode=TwoWay}" ScrollViewer.VerticalScrollBarVisibility="Visible" BorderThickness="2" Background="NavajoWhite" HorizontalAlignment="Left" Height="424" Margin="40,210,0,0" VerticalAlignment="Top" Width="802">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth4" Width="742" Height="110">
@@ -712,6 +707,7 @@
                                 <Button Margin="0,20" Content="{DynamicResource generateReport}" Click="Generate_Room_Report"/>
                             </StackPanel>
                         </GroupBox>
+                        <Button Content="Reset" HorizontalAlignment="Left" Margin="767,36,0,0" VerticalAlignment="Top" Width="75" Click="ResetRoomList"/>
                     </Grid>
 
 
