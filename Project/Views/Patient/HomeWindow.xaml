@@ -230,7 +230,7 @@
                         </ComboBox>
                         <Button Grid.Column="1" Margin="5" Height="Auto" Click="Doctor_Click">View Doctor</Button>
                     </Grid>
-                    <Button Margin="5" Click="ViewAvailable_Click" >View Available Appointments</Button>
+                    <Button x:Name="ViewAvailableButton" Margin="5" Click="ViewAvailable_Click" >View Available Appointments</Button>
                 </StackPanel>
                 <DataGrid Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="2" ItemsSource="{Binding AvailableAppoitments, Mode=TwoWay }" AutoGenerateColumns="False" CanUserAddRows="False">
                     <DataGrid.Columns>
@@ -238,8 +238,8 @@
                         <DataGridCheckBoxColumn Header="Scheduled" Binding="{Binding IsScheduled}"/>
                     </DataGrid.Columns>
                 </DataGrid>
-                <Button Content="Confirm" Margin="10,10,0,0" Grid.Column="3" Grid.Row="2" Height="Auto" HorizontalAlignment="Left" VerticalAlignment="Top" Click="ConfirmAvailable_Click"/>
-                <Button Content="Cancel" Margin="10,10,0,0" Grid.Column="4" Grid.Row="2" Height="Auto" HorizontalAlignment="Left" VerticalAlignment="Top" Click="CancelAvailable_Click"/>
+                <Button x:Name="ConfirmButton" Content="Confirm" Margin="10,10,0,0" Grid.Column="3" Grid.Row="2" Height="Auto" HorizontalAlignment="Left" VerticalAlignment="Top" Click="ConfirmAvailable_Click" IsEnabled="False"/>
+                <Button x:Name="CancelButton" Content="Cancel" Margin="10,10,0,0" Grid.Column="4" Grid.Row="2" Height="Auto" HorizontalAlignment="Left" VerticalAlignment="Top" Click="CancelAvailable_Click" IsEnabled="False"/>
             </Grid>
         </TabItem>
     </TabControl>
