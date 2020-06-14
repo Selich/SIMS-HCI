@@ -158,17 +158,17 @@ namespace Project
                 1, new AddressDTO(1, "7A", "Bulevar despota Stefana", "Novi Sad", "Srbija", "21000"),
                 "Filip", "Zdelar", "123241129993", "+381604223222", "male", new DateTime(), 67000.00,
                 new TimeInterval(new DateTime(), new DateTime()), new TimeInterval(new DateTime(), new DateTime()),
-                "filip.zdelar@gmail.com", "pass123", medicalRoles[1]),
+                "filip.zdelar@gmail.com", "pass123","Klinicki Centar Vojvodina", medicalRoles[1]),
                 new DoctorDTO(
                 2, new AddressDTO(1, "7A", "Bulevar despota Stefana", "Novi Sad", "Srbija", "21000"),
                 "Nikola", "Selić", "123241129993", "+381604223222", "male", new DateTime(), 67000.00,
                 new TimeInterval(new DateTime(), new DateTime()), new TimeInterval(new DateTime(), new DateTime()),
-                "filip.zdelar@gmail.com", "pass123",  medicalRoles[2]),
+                "filip.zdelar@gmail.com", "pass123","Klinicki Centar Vojvodina",  medicalRoles[2]),
                 new DoctorDTO(
                 3, new AddressDTO(1, "7A", "Bulevar despota Stefana", "Novi Sad", "Srbija", "21000"),
                 "Ivana", "Blagojević", "123241129993", "+381604223222", "female", new DateTime(), 67000.00,
                 new TimeInterval(new DateTime(), new DateTime()), new TimeInterval(new DateTime(), new DateTime()),
-                "filip.zdelar@gmail.com", "pass123", medicalRoles[3])
+                "filip.zdelar@gmail.com", "pass123", "Klinicki Centar Vojvodina",medicalRoles[3])
             };
             patients = new List<PatientDTO>
             {
