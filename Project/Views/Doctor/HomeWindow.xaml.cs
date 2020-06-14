@@ -11,9 +11,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
 using System.Text.RegularExpressions;
-
+using Project.Views.Model;
+using System.Collections.ObjectModel;
+using Project.Model;
 
 namespace Project.Views.Doctor
 {
@@ -22,19 +23,66 @@ namespace Project.Views.Doctor
     /// </summary>
     public partial class HomeWindow : Window
     {
-        //private bool _isEditMod = true;
-        public bool togg;
+        public ObservableCollection<MedicalAppointmentDTO> Appoitments { get; set; }
+        public ObservableCollection<MedicalAppointmentDTO> PastAppoitments { get; set; }
+        public ObservableCollection<MedicalAppointmentDTO> AvailableAppoitments { get; set; }
+
+        public DoctorDTO LoggedInDoctor { get; set; }
+        public PatientDTO LoggedInPatient { get; set; }
+
+        public String TartgetRosource { get; set; }
+        public List<String> ListOfRosourceses { get; set; }
 
         public HomeWindow()
         {
+
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             InitializeComponent();
 
+            this.DataContext = this;
             HideTextBoxes();
             HidePlaceHolders();
+            HideResource();
 
             saveEdit.Visibility = Visibility.Collapsed;
             cancleEdit.Visibility = Visibility.Collapsed;
+
+            // Doctor
+            AddressDTO tempAddress = new AddressDTO() { City = "Novi Sad", Country = "Serbia", Number = "25", PostCode = "21000", Street = "Laze Kostica 14" };
+            LoggedInDoctor = new DoctorDTO() { FirstName = "Predrag", LastName = "Kon", DateOfBirth = new DateTime(1998, 8, 25), Email = "pred12@gmail.com", Gender = "Muski", Jmbg = "0234567890111", TelephoneNumber = "06551232123", Address = tempAddress, MedicalRole= "Specijalista" };
+
+            LoggedInPatient = new PatientDTO() { FirstName = "Uros", LastName = "Milovanovic", DateOfBirth = new DateTime(1998, 8, 25), Email = "urke123@gmail.com", Gender = "Muški", InsurenceNumber = "1234567", Jmbg = "1234567890", TelephoneNumber = "06551232123", Address = tempAddress};
+
+
+            //Current Appoitments
+            RoomDTO tempRoom = new RoomDTO() { Floor = "One", Id = 4, Ward = "Check" };
+            Appoitments = new ObservableCollection<Model.MedicalAppointmentDTO>();
+            Appoitments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 10, 15, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 10, 15, 30, 0), IsScheduled = true });
+            Appoitments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 11, 18, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 11, 18, 30, 0), IsScheduled = true });
+            Appoitments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 12, 15, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 12, 15, 30, 0), IsScheduled = true });
+            Appoitments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 13, 15, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 13, 15, 30, 0), IsScheduled = true });
+            Appoitments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 14, 11, 0, 0), Type = MedicalAppointmentType.operation, End = new DateTime(2020, 5, 14, 11, 30, 0), IsScheduled = true });
+            Appoitments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 15, 14, 0, 0), Type = MedicalAppointmentType.operation, End = new DateTime(2020, 5, 15, 14, 30, 0), IsScheduled = true });
+
+
+            //History
+            DoctorDTO tempDoctor = new DoctorDTO() { FirstName = "Filip Zdelar" };
+            ReviewDTO tempReview = new ReviewDTO(5, "yes");
+            List<DoctorDTO> tempDoctors = new List<DoctorDTO>();
+            tempDoctors.Add(tempDoctor);
+            PastAppoitments = new ObservableCollection<Model.MedicalAppointmentDTO>();
+            PastAppoitments.Add(new MedicalAppointmentDTO() { Id = 0, Room = tempRoom, Beginning = new DateTime(2020, 5, 10, 15, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 10, 15, 30, 0), Doctors = tempDoctors, Review = tempReview });
+            PastAppoitments.Add(new MedicalAppointmentDTO() { Id = 1, Room = tempRoom, Beginning = new DateTime(2020, 5, 11, 18, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 11, 18, 30, 0), Doctors = tempDoctors, Review = tempReview });
+            PastAppoitments.Add(new MedicalAppointmentDTO() { Id = 2, Room = tempRoom, Beginning = new DateTime(2020, 5, 12, 15, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 12, 15, 30, 0), Doctors = tempDoctors, Review = tempReview });
+            PastAppoitments.Add(new MedicalAppointmentDTO() { Id = 3, Room = tempRoom, Beginning = new DateTime(2020, 5, 13, 15, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 13, 15, 30, 0), Doctors = tempDoctors, Review = tempReview });
+            PastAppoitments.Add(new MedicalAppointmentDTO() { Id = 4, Room = tempRoom, Beginning = new DateTime(2020, 5, 14, 11, 0, 0), Type = MedicalAppointmentType.operation, End = new DateTime(2020, 5, 14, 11, 30, 0), Doctors = tempDoctors, Review = tempReview });
+            PastAppoitments.Add(new MedicalAppointmentDTO() { Id = 5, Room = tempRoom, Beginning = new DateTime(2020, 5, 15, 14, 0, 0), Type = MedicalAppointmentType.operation, End = new DateTime(2020, 5, 15, 14, 30, 0), Doctors = tempDoctors, Review = tempReview });
+
+
+            AvailableAppoitments = new ObservableCollection<Model.MedicalAppointmentDTO>();
+
+            ListOfRosourceses = new List<string>();
+            TartgetRosource = "";
         }
 
         private void HideTextBoxes()
@@ -77,7 +125,7 @@ namespace Project.Views.Doctor
 
             ShowPlaceHolders();
 
-            SetPlaceHoldersAsLabels();
+            //SetPlaceHoldersAsLabels();
 
             saveEdit.Visibility = Visibility.Visible;
 
@@ -90,7 +138,7 @@ namespace Project.Views.Doctor
         {
             textbox1p.Text = label0.Text;
             textbox2p.Text = label1.Text;
-            textbox3p.Text = label2.Text;
+            //textbox3p.Text = label2.Text;
             textbox4p.Text = label6.Text;
             textbox5p.Text = label7.Text;
             textbox6p.Text = label8.Text;
@@ -180,11 +228,6 @@ namespace Project.Views.Doctor
             e.Handled = regex.IsMatch(e.Text);
         }
 
-        private void JMBGValidationTextBox(object sender, TextCompositionEventArgs e)
-        {
-            Regex regex = new Regex("[^0-9]{8}");
-            e.Handled = regex.IsMatch(e.Text);
-        }
         /*
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {
@@ -205,49 +248,49 @@ namespace Project.Views.Doctor
 
         private void Textbox1p_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            textbox1.Text = "";
+            textbox1.Text = textbox1p.Text;
             textbox1.Visibility = Visibility.Visible;
             textbox1p.Visibility = Visibility.Collapsed;
             Keyboard.Focus(textbox1);
         }
         private void Textbox2p_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            textbox2.Text = "";
+            textbox2.Text = textbox2p.Text;
             textbox2.Visibility = Visibility.Visible;
             textbox2p.Visibility = Visibility.Collapsed;
             Keyboard.Focus(textbox2);
         }
         private void Textbox3p_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            textbox3.Text = "";
+            textbox3.Text = textbox3p.Text;
             textbox3.Visibility = Visibility.Visible;
             textbox3p.Visibility = Visibility.Collapsed;
             Keyboard.Focus(textbox3);
         }
         private void Textbox4p_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            textbox4.Text = "";
+            textbox4.Text = textbox4p.Text;
             textbox4.Visibility = Visibility.Visible;
             textbox4p.Visibility = Visibility.Collapsed;
             Keyboard.Focus(textbox4);
         }
         private void Textbox5p_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            textbox5.Text = "";
+            textbox5.Text = textbox5p.Text;
             textbox5.Visibility = Visibility.Visible;
             textbox5p.Visibility = Visibility.Collapsed;
             Keyboard.Focus(textbox5);
         }
         private void Textbox6p_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            textbox6.Text = "";
+            textbox6.Text = textbox6p.Text;
             textbox6.Visibility = Visibility.Visible;
             textbox6p.Visibility = Visibility.Collapsed;
             Keyboard.Focus(textbox6);
         }
         private void Textbox7p_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            textbox7.Text = "";
+            textbox7.Text = textbox7p.Text;
             textbox7.Visibility = Visibility.Visible;
             textbox7p.Visibility = Visibility.Collapsed;
             Keyboard.Focus(textbox7);
@@ -255,17 +298,60 @@ namespace Project.Views.Doctor
         }
         private void Textbox8p_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            textbox8.Text = "";
+            textbox8.Text = textbox8p.Text;
             textbox8.Visibility = Visibility.Visible;
             textbox8p.Visibility = Visibility.Collapsed;
             Keyboard.Focus(textbox8);
         }
         private void Textbox9p_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            textbox9.Text = "";
+            textbox9.Text = textbox9p.Text;
             textbox9.Visibility = Visibility.Visible;
             textbox9p.Visibility = Visibility.Collapsed;
             Keyboard.Focus(textbox9);
+        }
+
+        private void DeleteElementList(object sender, RoutedEventArgs e)
+        {
+            //((ListBoxItem)((StackPanel)(((Button)sender).Parent)).Parent).Visibility = Visibility.Collapsed;
+            //((ListBoxItem)((DataTemplate)((StackPanel)(((Button)sender).Parent)).Parent).Parent).Visibility = Visibility.Collapsed;
+        }
+
+        private void ComboBoxItem_ContextMenuClosing(object sender, ContextMenuEventArgs e)
+        {
+            TartgetRosource = ComboBox12_Copy4.SelectedValue.ToString();
+        }
+
+        private void ComboBox12_Copy4_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            TartgetRosource = ComboBox12_Copy4.SelectedValue.ToString().Remove(0, 38);
+            ResorurceText.Text = TartgetRosource;
+
+            NumberTextBox_Copy1.Visibility = Visibility.Visible;
+            NumberTextBox_Copy3.Visibility = Visibility.Visible;
+            AmountO.Visibility = Visibility.Visible;
+            PerdaysO.Visibility = Visibility.Visible;
+            ResorurceText.Visibility = Visibility.Visible;
+            AddResource.Visibility = Visibility.Visible;
+        }
+
+        private void AddResource_Click(object sender, RoutedEventArgs e)
+        {
+            HideResource();
+            //ListOfRosourceses
+            ListOfRosourcesesListOfResources.Items.Add(TartgetRosource);
+            ListOfRosourceses.Add(TartgetRosource);
+            //ListOfResources.ItemTemplate Items.Add(TartgetRosource);
+        }
+
+        private void HideResource()
+        {
+            NumberTextBox_Copy1.Visibility = Visibility.Collapsed;
+            NumberTextBox_Copy3.Visibility = Visibility.Collapsed;
+            AmountO.Visibility = Visibility.Collapsed;
+            PerdaysO.Visibility = Visibility.Collapsed;
+            ResorurceText.Visibility = Visibility.Collapsed;
+            AddResource.Visibility = Visibility.Collapsed;
         }
     }
 }

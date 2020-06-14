@@ -7,29 +7,35 @@
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:util="clr-namespace:Project.Views.Utils.Validation"
         mc:Ignorable="d"
         Title="Doctor's advanced system" Height="719.8" Width="1280">
 
     <Grid Margin="2,2,-2,-2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="211*"/>
+            <RowDefinition Height="479*"/>
+        </Grid.RowDefinitions>
 
-        <TabControl Grid.ColumnSpan="2" Margin="0,0,9.6,0.4" >
+        <TabControl Margin="0,0,9.6,0.4" Grid.RowSpan="2" >
 
             <TabItem Header="Lične informacije">
 
                 <Grid Background="#FFE5E5E5" Margin="0,0,-2.4,-0.4">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="38*"/>
-                        <ColumnDefinition Width="127*"/>
+                        <ColumnDefinition Width="88*"/>
+                        <ColumnDefinition Width="39*"/>
                         <ColumnDefinition Width="24*"/>
                         <ColumnDefinition Width="71*"/>
                         <ColumnDefinition Width="1000*"/>
                     </Grid.ColumnDefinitions>
-                    <Rectangle Fill="White" HorizontalAlignment="Left" Height="582" Margin="1.2,25.24,0,0" Stroke="Black" VerticalAlignment="Top" Width="876.9" Grid.ColumnSpan="4" StrokeThickness="0" Grid.Column="1"/>
-                    <Border BorderThickness="1" Background="Black" BorderBrush="#FF000000" VerticalAlignment="Top" Margin="32.4,132.94,844,0" Height="316.4" Grid.ColumnSpan="4" Grid.Column="1" ToolTip="Vaša slika">
-                        <Image HorizontalAlignment="Left"  Stretch="Fill" Height="307" Margin="3,3,4,4" VerticalAlignment="Top" Source="../../Resources/Images/Faces/doc_har2.jpg" OpacityMask="#FF090909"/>
+                    <Rectangle Fill="White" HorizontalAlignment="Left" Height="582" Margin="1.2,25.24,0,0" Stroke="Black" VerticalAlignment="Top" Width="876.9" Grid.ColumnSpan="5" StrokeThickness="0" Grid.Column="1"/>
+                    <Border BorderThickness="1" Background="Black" BorderBrush="#FF000000" VerticalAlignment="Top" Margin="25,69.387,851.4,0" Height="316.4" Grid.ColumnSpan="5" Grid.Column="1" ToolTip="Vaša slika">
+                        <Image HorizontalAlignment="Left"  Stretch="Fill" Height="307" Margin="3,3,4,4" VerticalAlignment="Top" Source="..\..\Resources\Images\Faces\doc_har.jpg" OpacityMask="#FF090909"/>
                     </Border>
 
-                    <Viewbox Margin="701.781,-18,52.8,246" RenderTransformOrigin="0.5,0.5" Grid.Column="4">
+                    <Viewbox Margin="701.782,-18,52.8,246" RenderTransformOrigin="0.5,0.5" Grid.Column="5">
                         <Viewbox.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform/>
@@ -41,59 +47,162 @@
                         <Calendar  DisplayDate="05.15.2020" Width="284" Height="357" ToolTip="Radni kalendar"/>
                     </Viewbox>
 
-                    <Button Width="150" Content="Odjava" Margin="32.4,548.02,39.587,72.62" Click="Button_Click" Grid.ColumnSpan="3" Height="Auto" Grid.Column="1" ToolTip="Odjava sa vaše trenutne uloge"/>
-                    <Button ToolTip="Izmeniti sopstvene podatke" Width="150" Content="Izmena" Margin="6.551,548.02,843.848,72.62" Click="ChangeMode_Click" Name="buttonEdit" Grid.Column="4" Height="Auto" />
-                    <TextBlock HorizontalAlignment="Left" Height="54" Margin="209.981,61.24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="414.4" FontSize="36" Text="Doktor Predrag Kon" Grid.Column="4"/>
-                    <TextBlock HorizontalAlignment="Left" Height="36" Margin="209.981,137.94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188.7" FontSize="24" Grid.Column="4"><Run Text="Ime"/><InlineUIContainer>
-                            <Label Content="Termin 15.05. 2020&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Width="338.227" Height="44.36"/>
-                        </InlineUIContainer></TextBlock>
-                    <TextBlock HorizontalAlignment="Left" Height="36" Margin="209.981,173.94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188.7" FontSize="24" Text="Prezime" Grid.Column="4"/>
-                    <TextBlock HorizontalAlignment="Left" Height="36" Margin="209.981,214.94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188.7" FontSize="24" Text="JMBG" Grid.Column="4"/>
-                    <TextBlock HorizontalAlignment="Left" Height="36" Margin="209.981,255.94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188.7" FontSize="24" Text="Boraviste" Grid.Column="4"/>
-                    <TextBlock HorizontalAlignment="Left" Height="36" Margin="209.981,296.94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188.7" FontSize="24" Text="Adresa" Grid.Column="4"/>
-                    <TextBlock HorizontalAlignment="Left" Height="36" Margin="209.981,378.94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188.7" FontSize="24" Text="Specijalizacija" Grid.Column="4"/>
-                    <TextBlock HorizontalAlignment="Left" Height="36" Margin="209.981,337.94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="203.1" FontSize="24" Text="Pol" Grid.Column="4"/>
-                    <TextBlock HorizontalAlignment="Left" Height="36" Margin="209.981,419.94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188.7" FontSize="24" Text="Godina rodjenja" Grid.Column="4"/>
-                    <TextBlock HorizontalAlignment="Left" Height="36" Margin="209.981,460.94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188.7" FontSize="24" Grid.Column="4"><Run Text="Korisni"/><Run Text="č"/><Run Text="ko ime"/></TextBlock>
-                    <TextBlock HorizontalAlignment="Left" Height="36" Margin="418.081,132.94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188.7" Text="Predarag" Name="label0" FontSize="24" Grid.Column="4"/>
-                    <TextBlock HorizontalAlignment="Left" Height="36" Margin="418.081,173.94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188.7" FontSize="24" Text="Kon"  Name="label1" Grid.Column="4"/>
-                    <TextBlock HorizontalAlignment="Left" Height="36" Margin="418.081,214.94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188.7" FontSize="24" Text="0512981717776" Name="label6"  Grid.Column="4"/>
-                    <TextBlock HorizontalAlignment="Left" Height="36" Margin="418.081,255.94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188.7" FontSize="24" Text="Novi Sad" Name="label2" Grid.Column="4"/>
-                    <TextBlock HorizontalAlignment="Left" Height="36" Margin="418.081,296.94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188.7" FontSize="24" Grid.Column="4" Name="label7" Text="Laze Kostica 14"/>
-                    <TextBlock HorizontalAlignment="Left" Height="36" Margin="418.081,378.94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188.7" FontSize="24" Grid.Column="4" Name="label8" Text="Opšta hirurgija" />
-                    <TextBlock HorizontalAlignment="Left" Height="36" Margin="418.081,337.94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="203.1" FontSize="24" Text="Muški" Name="label3" Grid.Column="4"/>
-                    <TextBlock HorizontalAlignment="Left" Height="36" Margin="418.081,419.94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188.7" FontSize="24" x:Name="label4" Grid.Column="4" Text="09.01.1991"/>
-                    <TextBlock HorizontalAlignment="Left" Height="36" Margin="418.081,460.94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188.7" FontSize="24" Text="doktorkon1234" Name="label5" Grid.Column="4"/>
+                    <Button Width="150" Content="Odjava" Margin="32.441,548.02,39.628,72.62" Click="Button_Click" Grid.ColumnSpan="4" Height="Auto" Grid.Column="1" ToolTip="Odjava sa vaše trenutne uloge"/>
+                    <Button ToolTip="Izmeniti sopstvene podatke" Width="150" Content="Izmena" Margin="6.551,548.02,843.766,72.62" Click="ChangeMode_Click" Name="buttonEdit" Grid.Column="5" Height="Auto" />
+                    <TextBlock HorizontalAlignment="Left" Height="44.474" Margin="61.542,400.413,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="283.23" FontSize="32" Text="Doktor Predrag Kon" Grid.Column="1" Grid.ColumnSpan="5"/>
+                    <TextBlock HorizontalAlignment="Left" Height="36" Margin="186.282,69.387,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="171.9" FontSize="24" Grid.Column="5"><Run Text="Ime"/></TextBlock>
+                    <TextBlock HorizontalAlignment="Left" Height="36" Margin="186.282,117.887,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="171.9" FontSize="24" Text="Prezime" Grid.Column="5"/>
+                    <TextBlock HorizontalAlignment="Left" Height="36" Margin="186.282,166.387,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="171.9" FontSize="24" Text="JMBG" Grid.Column="5"/>
+                    <TextBlock HorizontalAlignment="Left" Height="36" Margin="186.282,214.887,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="171.9" FontSize="24" Text="Boraviste" Grid.Column="5"/>
+                    <TextBlock HorizontalAlignment="Left" Height="36" Margin="186.282,263.387,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="171.9" FontSize="24" Text="Adresa" Grid.Column="5"/>
+                    <TextBlock HorizontalAlignment="Left" Height="36" Margin="186.282,360.387,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="171.9" FontSize="24" Text="Specijalizacija" Grid.Column="5"/>
+                    <TextBlock HorizontalAlignment="Left" Height="36" Margin="186.282,311.887,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="171.9" FontSize="24" Text="Pol" Grid.Column="5"/>
+                    <TextBlock HorizontalAlignment="Left" Height="36" Margin="186.282,408.887,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="171.9" FontSize="24" Text="Godina rodjenja" Grid.Column="5"/>
+                    <TextBlock HorizontalAlignment="Left" Height="36" Margin="186.282,457.387,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="171.9" FontSize="24" Grid.Column="5"><Run Text="Email"/></TextBlock>
+                    <TextBlock HorizontalAlignment="Left" Height="36" Margin="369.982,69.387,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="265.6" Text="{Binding LoggedInDoctor.FirstName}" Name="label0" FontSize="24" Grid.Column="5"/>
+                    <TextBlock HorizontalAlignment="Left" Height="36" Margin="369.982,117.887,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="265.6" FontSize="24" Text="{Binding LoggedInDoctor.LastName}"  Name="label1" Grid.Column="5"/>
+                    <TextBlock HorizontalAlignment="Left" Height="36" Margin="369.761,166.387,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="265.821" FontSize="24" Text="{Binding LoggedInDoctor.Jmbg}" Name="label6"  Grid.Column="5"/>
+                    <TextBlock HorizontalAlignment="Left" Height="36" Margin="369.982,214.887,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="265.6" FontSize="24" Text="{Binding LoggedInDoctor.Address.City}" Name="label2" Grid.Column="5"/>
+                    <TextBlock HorizontalAlignment="Left" Height="36" Margin="370.203,263.387,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="265.379" FontSize="24" Grid.Column="5" Name="label7" Text="{Binding LoggedInDoctor.Address.Street}"/>
+                    <TextBlock HorizontalAlignment="Left" Height="36" Margin="370.203,360.387,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="265.379" FontSize="24" Grid.Column="5" Name="label8" Text="{Binding LoggedInDoctor.MedicalRole}" />
+                    <TextBlock HorizontalAlignment="Left" Height="36" Margin="370.203,311.887,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="265.379" FontSize="24" Text="{Binding LoggedInDoctor.Gender}"  Name="label3" Grid.Column="5"/>
+                    <TextBlock HorizontalAlignment="Left" Height="36" Margin="370.203,408.887,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="141.779" FontSize="24" x:Name="label4" Grid.Column="5" Text="{Binding LoggedInDoctor.DateOfBirth}"/>
+                    <TextBlock HorizontalAlignment="Left" Height="36" Margin="370.203,457.387,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="265.379" FontSize="24" Text="{Binding LoggedInDoctor.Email}" Name="label5" Grid.Column="5"/>
 
 
-                    <TextBox Grid.Column="4" HorizontalAlignment="Left" Height="30.1" Margin="417.86,343.84,0,0" TextWrapping="Wrap" Text="safjkds" VerticalAlignment="Top" Name="label51" Visibility="Hidden"  Width="188.921"/>
-                    <Button ToolTip="Otkazivanjem gube se postojeće izmene" Content="Otkazi" HorizontalAlignment="Left" Margin="209.981,548.02,0,0" VerticalAlignment="Top" Width="150" Name="saveEdit" Click="CancleInfo_Click" Grid.Column="4" Height="41.6"/>
-                    <Button Content="Sacuvaj" Grid.Column="4" HorizontalAlignment="Left" Margin="418.081,548.02,0,0" VerticalAlignment="Top" Name="cancleEdit" Click="SaveEdit_Click"  Width="149.679" Height="41.6"/>
-                    <TextBox Grid.Column="4" HorizontalAlignment="Left" Height="36" Margin="418.081,132.94,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Name="textbox1" Width="217.721"/>
-                    <TextBox Grid.Column="4" HorizontalAlignment="Left" Height="36" Margin="418.081,173.94,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Name="textbox2" Width="217.721"/>
-                    <TextBox Grid.Column="4" HorizontalAlignment="Left" Height="36" Margin="418.081,214.94,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Name="textbox3" Width="217.721" PreviewTextInput="NumberValidationTextBox" MaxLength="13" />
-                    <TextBox Grid.Column="4" HorizontalAlignment="Left" Height="36" Margin="417.86,255.94,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Name="textbox4" Width="217.721"/>
-                    <TextBox Grid.Column="4" HorizontalAlignment="Left" Height="36" Margin="417.86,301.94,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Name="textbox5" Width="217.721"/>
-                    <TextBox Grid.Column="4" HorizontalAlignment="Left" Height="36" Margin="418.081,337.94,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Name="textbox6" Width="217.721"/>
-                    <TextBox Grid.Column="4" HorizontalAlignment="Left" Height="36" Margin="417.86,378.94,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Name="textbox7" Width="217.721"/>
-                    <TextBox Grid.Column="4" HorizontalAlignment="Left" Height="36" Margin="418.081,419.94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="textbox8" Width="217.721">
-                        <TextBox.Text>
-                            <Binding Path="DateFromat" UpdateSourceTrigger="PropertyChanged">
-                            </Binding>
-                        </TextBox.Text>
+                    <TextBox Grid.Column="5" HorizontalAlignment="Left" Height="30.1" Margin="417.861,343.84,0,0" TextWrapping="Wrap" Text="safjkds" VerticalAlignment="Top" Name="label51" Visibility="Hidden"  Width="188.921"/>
+                    <Button ToolTip="Otkazivanjem gube se postojeće izmene" Content="Otkazi" HorizontalAlignment="Left" Margin="209.982,548.02,0,0" VerticalAlignment="Top" Width="150" Name="saveEdit" Click="CancleInfo_Click" Grid.Column="5" Height="41.6"/>
+                    <Button Content="Sacuvaj" Grid.Column="5" HorizontalAlignment="Left" Margin="418.082,548.02,0,0" VerticalAlignment="Top" Name="cancleEdit" Click="SaveEdit_Click"  Width="149.679" Height="41.6"/>
+
+                    <TextBox Grid.Column="5" HorizontalAlignment="Left" Height="36" Margin="369.982,69.387,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="textbox1" Width="265.821">
+                        <Binding Path="LoggedInDoctor.FirstName" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <util:NameValidate ValidationStep="RawProposedValue"/>
+                            </Binding.ValidationRules>
+                        </Binding>
                     </TextBox>
-                    <TextBox Grid.Column="4" HorizontalAlignment="Left" Height="36" Margin="418.081,460.94,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Name="textbox9" Width="217.721"/>
-                    <Button Content="Wizard" Grid.Column="4" HorizontalAlignment="Left" Margin="696.481,393.343,0,0" VerticalAlignment="Top" x:Name="cancleEdit_Copy" Click="Wizard_Click"  Width="248.079" Height="41.6" ToolTip="Pokrenuti kratak tutorijal o aplikaciji" />
+                    <TextBox Grid.Column="5" HorizontalAlignment="Left" Height="36" Margin="369.982,117.887,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="textbox2" Width="265.6">
+                        <Binding Path="LoggedInDoctor.LastName" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <util:NameValidate ValidationStep="RawProposedValue"/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox>
+                    <TextBox Grid.Column="5" HorizontalAlignment="Left" Height="36" Margin="370.203,166.387,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" x:Name="textbox3" Width="265.6" MaxLength="13">
+                        <Binding Path="LoggedInDoctor.Jmbg" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <util:JmbgValidate ValidationStep="RawProposedValue"/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox>
+                    <TextBox Grid.Column="5" HorizontalAlignment="Left" Height="36" Margin="370.203,214.887,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Name="textbox4" Width="265.6">
+                        <Binding Path="LoggedInDoctor.City" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <util:JmbgValidate ValidationStep="RawProposedValue"/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox>
+                    <TextBox Grid.Column="5" HorizontalAlignment="Left" Height="36" Margin="370.203,263.387,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Name="textbox5" Width="265.379">
+                        <Binding Path="LoggedInDoctor.Street" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <util:MultiWordValidate ValidationStep="RawProposedValue"/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox>
+                    <TextBox Grid.Column="5" HorizontalAlignment="Left" Height="36" Margin="370.203,311.887,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Name="textbox6" Width="265.379">
+                        <Binding Path="LoggedInDoctor.Gender" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <util:NameValidate ValidationStep="RawProposedValue"/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox>
+                    <TextBox Grid.Column="5" HorizontalAlignment="Left" Height="36" Margin="369.761,360.387,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Name="textbox7" Width="265.821">
+                        <Binding Path="LoggedInDoctor.MedicalRole" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <util:NameValidate ValidationStep="RawProposedValue"/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox>
+                    <TextBox Grid.Column="5" HorizontalAlignment="Left" Height="36" Margin="369.761,408.887,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="textbox8" Width="266.263" MaxLength="11">
+                        <Binding Path="LoggedInDoctor.DateOfBirth" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <util:DateOfBirthValidate ValidationStep="RawProposedValue"/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox>
+                    <TextBox Grid.Column="5" HorizontalAlignment="Left" Height="36" Margin="370.203,457.387,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Name="textbox9" Width="265.821">
+                        <Binding Path="LoggedInDoctor.Email" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <util:EmailValidate ValidationStep="RawProposedValue"/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox>
+
+                    <Button Content="Wizard" Grid.Column="5" HorizontalAlignment="Left" Margin="696.482,393.343,0,0" VerticalAlignment="Top" x:Name="cancleEdit_Copy" Click="Wizard_Click"  Width="248.079" Height="41.6" ToolTip="Pokrenuti kratak tutorijal o aplikaciji" />
                     <!--<Content="&#xD;&#xA;" Grid.Column="4" HorizontalAlignment="Left" Height="36" Margin="846.16,460.94,0,0" VerticalAlignment="Top" Width="98.4"  IsChecked="False" Name="Switch" Click="Switch_Click"/>-->
-                    <TextBox Grid.Column="4" HorizontalAlignment="Left" Height="36" Margin="418.081,132.94,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Name="textbox1p" Width="217.721" PreviewMouseDown="Textbox1p_PreviewMouseDown" Foreground="Gray"/>
-                    <TextBox Grid.Column="4" HorizontalAlignment="Left" Height="36" Margin="418.081,173.94,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Name="textbox2p" Width="217.721" PreviewMouseDown="Textbox2p_PreviewMouseDown" Foreground="Gray"/>
-                    <TextBox Grid.Column="4" HorizontalAlignment="Left" Height="36" Margin="418.081,214.94,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Name="textbox3p" Width="217.721" PreviewMouseDown="Textbox3p_PreviewMouseDown" Foreground="Gray"/>
-                    <TextBox Grid.Column="4" HorizontalAlignment="Left" Height="36" Margin="417.86,255.94,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Name="textbox4p" Width="217.721" PreviewMouseDown="Textbox4p_PreviewMouseDown" Foreground="Gray"/>
-                    <TextBox Grid.Column="4" HorizontalAlignment="Left" Height="36" Margin="417.86,301.94,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Name="textbox5p" Width="217.721" PreviewMouseDown="Textbox5p_PreviewMouseDown" Foreground="Gray"/>
-                    <TextBox Grid.Column="4" HorizontalAlignment="Left" Height="36" Margin="418.081,337.94,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Name="textbox6p" Width="217.721" PreviewMouseDown="Textbox6p_PreviewMouseDown" Foreground="Gray"/>
-                    <TextBox Grid.Column="4" HorizontalAlignment="Left" Height="36" Margin="417.86,378.94,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Name="textbox7p" Width="217.721" PreviewMouseDown="Textbox7p_PreviewMouseDown" Foreground="Gray"/>
-                    <TextBox Grid.Column="4" HorizontalAlignment="Left" Height="36" Margin="418.081,419.94,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Name="textbox8p" Width="217.721" PreviewMouseDown="Textbox8p_PreviewMouseDown" Foreground="Gray"/>
-                    <TextBox Grid.Column="4" HorizontalAlignment="Left" Height="36" Margin="418.081,460.94,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Name="textbox9p" Width="217.721" PreviewMouseDown="Textbox9p_PreviewMouseDown" Foreground="Gray"/>
+                    <TextBox Grid.Column="5" HorizontalAlignment="Left" Height="36" Margin="369.982,69.387,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="textbox1p" Width="265.821" PreviewMouseDown="Textbox1p_PreviewMouseDown" Foreground="Gray">
+                        <Binding Path="LoggedInDoctor.FirstName" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <util:NameValidate ValidationStep="RawProposedValue"/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox>
+                    <TextBox Grid.Column="5" HorizontalAlignment="Left" Height="36" Margin="369.982,117.887,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Name="textbox2p" Width="265.6" PreviewMouseDown="Textbox2p_PreviewMouseDown" Foreground="Gray">
+                        <Binding Path="LoggedInDoctor.LastName" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <util:NameValidate ValidationStep="RawProposedValue"/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox>
+                    <TextBox Grid.Column="5" HorizontalAlignment="Left" Height="36" Margin="370.203,166.387,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="265.6" PreviewMouseDown="Textbox3p_PreviewMouseDown" Foreground="Gray" Name="textbox3p">
+                        <Binding Path="LoggedInDoctor.Jmbg" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <util:JmbgValidate ValidationStep="RawProposedValue"/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox>
+                    <TextBox Grid.Column="5" HorizontalAlignment="Left" Height="36" Margin="369.982,214.887,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Name="textbox4p" Width="265.6" PreviewMouseDown="Textbox4p_PreviewMouseDown" Foreground="Gray" RenderTransformOrigin="0.404,1.282">
+                        <Binding Path="LoggedInDoctor.Address.City" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <util:NameValidate ValidationStep="RawProposedValue"/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox>
+                    <TextBox Grid.Column="5" HorizontalAlignment="Left" Height="36" Margin="369.761,263.387,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Name="textbox5p" Width="265.821" PreviewMouseDown="Textbox5p_PreviewMouseDown" Foreground="Gray">
+                        <Binding Path="LoggedInDoctor.Address.Street" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <util:MultiWordValidate ValidationStep="RawProposedValue"/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox>
+                    <TextBox Grid.Column="5" HorizontalAlignment="Left" Height="36" Margin="370.203,311.887,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="textbox6p" Width="265.379" PreviewMouseDown="Textbox6p_PreviewMouseDown" Foreground="Gray">
+                        <Binding Path="LoggedInDoctor.Gender" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <util:NameValidate ValidationStep="RawProposedValue"/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox>
+                    <TextBox Grid.Column="5" HorizontalAlignment="Left" Height="36" Margin="369.761,360.387,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Name="textbox7p" Width="265.821" PreviewMouseDown="Textbox7p_PreviewMouseDown" Foreground="Gray">
+                        <Binding Path="LoggedInDoctor.MedicalRole" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <util:NameValidate ValidationStep="RawProposedValue"/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox>
+                    <TextBox Grid.Column="5" HorizontalAlignment="Left" Height="36" Margin="369.761,408.887,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="textbox8p" Width="266.263" PreviewMouseDown="Textbox8p_PreviewMouseDown" Foreground="Gray" MaxLength="11">
+                        <Binding Path="LoggedInDoctor.DateOfBirth" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <util:DateOfBirthValidate ValidationStep="RawProposedValue"/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox>
+                    <TextBox Grid.Column="5" HorizontalAlignment="Left" Height="36" Margin="370.424,457.387,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="textbox9p" Width="265.6" PreviewMouseDown="Textbox9p_PreviewMouseDown" Foreground="Gray">
+                        <Binding Path="LoggedInDoctor.Email" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <util:EmailValidate ValidationStep="RawProposedValue"/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox>
                 </Grid>
             </TabItem>
             <TabItem Header="Termini">
@@ -223,7 +332,7 @@
                                 <TextBlock HorizontalAlignment="Left" Height="33.6" Margin="303.286,160.577,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="171.6" FontSize="18" Grid.Column="1"><Run Text="Tip t"/><Run Text="ermin"/></TextBlock>
                                 <TextBlock HorizontalAlignment="Left" Height="33.6" Margin="303.286,47.28,0,0" TextWrapping="Wrap" Text="Soba" VerticalAlignment="Top" Width="171.6" FontSize="18" Grid.Column="1"/>
                                 <TextBlock HorizontalAlignment="Left" Height="33.6" Margin="40.486,47.28,0,0" TextWrapping="Wrap" Text="Dan termina" VerticalAlignment="Top" Width="171.6" FontSize="18" Grid.Column="1"/>
-                                <ListBox BorderBrush="Gray" BorderThickness="2"  Margin="303.286,216.617,86.546,217.446" Grid.Column="1" Background="{x:Null}" OpacityMask="#FF524747">
+                                <ListBox BorderBrush="Gray" BorderThickness="2"  Margin="303.286,216.617,86.546,209.446" Grid.Column="1" Background="{x:Null}" OpacityMask="#FF524747">
                                     <ListBoxItem FontSize="18" Content="Pregled"/>
                                     <ListBoxItem FontSize="18" Content="Operacija"/>
                                     <ListBoxItem FontSize="18" Content="Kontrola"/>
@@ -283,8 +392,9 @@
                         <TabItem Header="Izveštaj o operaciji">
                             <Grid>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="124*"/>
-                                    <ColumnDefinition Width="281*"/>
+                                    <ColumnDefinition Width="194*"/>
+                                    <ColumnDefinition Width="54*"/>
+                                    <ColumnDefinition Width="561*"/>
                                 </Grid.ColumnDefinitions>
                                 <!-- <Rectangle Fill="#FFF1ECEC" HorizontalAlignment="Left" Height="188.96" Margin="297.628,153.68,0,0" Stroke="Black" VerticalAlignment="Top" Width="290.4"/>
 
@@ -298,38 +408,58 @@
                                     <StackPanel Orientation="Vertical" Grid.Column="2" VerticalAlignment="Center" Margin="0,279.14" Height="0"/>
                                 </Grid>-->
 
-                                <TextBox x:Name="NumberTextBox2" PreviewTextInput="NumberValidationTextBox"  Margin="244.8,145.257,326.8,0"  Height="39.16" VerticalAlignment="Top" Grid.Column="1"/>
-                                <ListBox HorizontalAlignment="Left" Height="149.71" Margin="286.809,294.707,0,0" VerticalAlignment="Top" Width="219.492" Grid.Column="1" BorderBrush="Gray" BorderThickness="2">
-                                    <ListBoxItem FontSize="14" Content="Anestezaija 2"/>
-                                    <ListBoxItem FontSize="14" Content="Zavoja 15"/>
+                                <TextBox x:Name="NumberTextBox2" PreviewTextInput="NumberValidationTextBox"  Margin="244.8,145.257,316.632,0"  Height="39.16" VerticalAlignment="Top" Grid.Column="2"/>
+                                <ListBox Name="ListOfRosourcesesListOfResources" HorizontalAlignment="Left" Height="149.71" Margin="286.809,294.707,0,0" VerticalAlignment="Top" Width="219.492" Grid.Column="2" BorderBrush="Gray" BorderThickness="2"
+                                    ItemsSource="{Binding Path=ListOfResources, UpdateSourceTrigger=PropertyChanged}">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal" >
+                                                <!--"{Binding Path=Name}"-->
+                                                <TextBlock Text="{Binding}" HorizontalAlignment="Left" Width="158.657"/>
+                                                <Button Content="X" HorizontalAlignment="Right" Click="DeleteElementList"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                    <!--<ListBoxItem>
+                                        <StackPanel Orientation="Horizontal" >
+                                            <TextBlock Text="Anestezaija 2" HorizontalAlignment="Left" Width="158.657"/>
+                                            <Button Content="X" HorizontalAlignment="Right" Click="DeleteElementList"/>
+                                        </StackPanel>
+                                    </ListBoxItem>
+                                    <ListBoxItem FontSize="14" Name="Resorce2">
+                                        <StackPanel Orientation="Horizontal" >
+                                            <TextBlock Text="Zavoja 15" HorizontalAlignment="Left" Width="158.657"/>
+                                            <Button Content="X" HorizontalAlignment="Right" Click="DeleteElementList"/>
+                                        </StackPanel>
+                                    </ListBoxItem>-->
                                 </ListBox>
-                                <Button Click="Alert_Click" Content="Poslati izveštaj" Grid.Column="1" HorizontalAlignment="Left" Height="38.303" Margin="286.809,500.934,0,0" VerticalAlignment="Top" Width="157.092"/>
-                                <TextBox x:Name="NumberTextBox_Copy2" PreviewTextInput="NumberValidationTextBox"  Margin="244.8,243.657,326.8,0"  Height="39.16" VerticalAlignment="Top" Grid.Column="1"/>
-                                <Label Content="Amout" HorizontalAlignment="Left" Margin="68.8,305.863,0,0" VerticalAlignment="Top" Grid.Column="1" Width="52.086"/>
-                                <Label Content="Per days" HorizontalAlignment="Left" Margin="68.8,381.297,0,0" VerticalAlignment="Top" Grid.Column="1" RenderTransformOrigin="1.44,0.342"/>
-                                <Label Content="Gaza" HorizontalAlignment="Left" Margin="68.8,255.193,0,0" VerticalAlignment="Top" Grid.Column="1" Width="134.674" FontSize="14"/>
-                                <Label Content="Dijanoza&#xA;&#xA;&#xA;&#xA;24&#xA;" HorizontalAlignment="Left" Height="54" Margin="297.928,-79.16,0,0" VerticalAlignment="Top" Width="133.2" FontSize="32"/>
+                                <Button Click="Alert_Click" Content="Poslati izveštaj" Grid.Column="2" HorizontalAlignment="Left" Height="38.303" Margin="286.809,500.934,0,0" VerticalAlignment="Top" Width="157.092"/>
+                                <TextBox x:Name="NumberTextBox_Copy2" PreviewTextInput="NumberValidationTextBox"  Margin="244.8,243.657,316.632,0"  Height="39.16" VerticalAlignment="Top" Grid.Column="2"/>
+                                <Label Name="AmountO" Content="Amout" HorizontalAlignment="Left" Margin="68.8,305.863,0,0" VerticalAlignment="Top" Grid.Column="2" Width="52.086"/>
+                                <Label Name="PerdaysO" Content="Per days" HorizontalAlignment="Left" Margin="68.8,381.297,0,0" VerticalAlignment="Top" Grid.Column="2" RenderTransformOrigin="1.44,0.342"/>
+                                <TextBlock Name="ResorurceText"  HorizontalAlignment="Left" Margin="68.8,250.877,0,0" VerticalAlignment="Top" Width="143.4" FontSize="14" Height="31.94" Text="{Binding Path=TartgetRosource, UpdateSourceTrigger=Default}" Grid.Column="2"/>
 
-                                <TextBox Background="#FFE4E4E4" BorderBrush="Gray" BorderThickness="2" HorizontalAlignment="Left" Height="154.997" TextWrapping="Wrap" Text="Zamaranje pri hodu (po ravnom, uzbrdo) ili naporu, bolovi i tegobe iznad grudne kosti (karakter bola, prostiranje i trajanje), napadi gušenja i lupanja srca, otok nogu i trbuha, grčevi u listovima prilokom hodanja i posle koliko metara, vrednosti prethodno kontrolisanog krvnog pritiska." VerticalAlignment="Top" Width="712.686" FontSize="20" Grid.ColumnSpan="2" Margin="41.364,69,0,0"/>
-                                <Label Content="Opis operacije&#xA;" HorizontalAlignment="Left" Height="54" Margin="50.164,10,0,0" VerticalAlignment="Top" Width="221.036" FontSize="32" Grid.Column="1"/>
+                                <Label Content="Dijanoza&#xA;&#xA;&#xA;&#xA;24&#xA;" HorizontalAlignment="Left" Height="54" Margin="50.179,-79.16,0,0" VerticalAlignment="Top" Width="133.2" FontSize="32" Grid.Column="2"/>
+
+                                <TextBox Background="#FFE4E4E4" BorderBrush="Gray" BorderThickness="2" HorizontalAlignment="Left" Height="154.997" TextWrapping="Wrap" Text="Zamaranje pri hodu (po ravnom, uzbrdo) ili naporu, bolovi i tegobe iznad grudne kosti (karakter bola, prostiranje i trajanje), napadi gušenja i lupanja srca, otok nogu i trbuha, grčevi u listovima prilokom hodanja i posle koliko metara, vrednosti prethodno kontrolisanog krvnog pritiska." VerticalAlignment="Top" Width="712.686" FontSize="20" Grid.ColumnSpan="3" Margin="41.364,69,0,0"/>
+                                <Label Content="Opis operacije&#xA;" HorizontalAlignment="Left" Height="54" Margin="50.164,10,0,0" VerticalAlignment="Top" Width="221.036" FontSize="32" Grid.Column="2"/>
                                 <Label Content="Sva sredstva" HorizontalAlignment="Left" Margin="41.364,250.877,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.744,0.392" Width="143.247" FontSize="18"/>
-                                <Label Content="Potrošena sredstava" HorizontalAlignment="Left" Margin="286.809,250.877,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.744,0.392" Width="169.647" FontSize="18" Grid.Column="1"/>
-                                <TextBox x:Name="NumberTextBox_Copy1" PreviewTextInput="NumberValidationTextBox"  Margin="68.8,334.823,384.266,0"  Height="39.16" VerticalAlignment="Top" Grid.Column="1"/>
-                                <TextBox x:Name="NumberTextBox_Copy3" PreviewTextInput="NumberValidationTextBox"  Margin="68.8,410.257,384.266,0"  Height="39.16" VerticalAlignment="Top" Grid.Column="1"/>
-                                <Button ToolTip="Izbacititi trenutno selektovano sredstvo iz liste potrošenog"  Content="Izbaciti" Grid.Column="1" HorizontalAlignment="Left" Height="35.803" Margin="286.809,455.417,0,0" VerticalAlignment="Top" Width="157.092"/>
-                                <Button ToolTip="Dodati dato sredstvo u listu potrošenog"  Content="Dodati" Grid.Column="1" HorizontalAlignment="Left" Height="38.303" Margin="68.8,500.934,0,0" VerticalAlignment="Top" Width="114.579"/>
+                                <Label Content="Potrošena sredstava" HorizontalAlignment="Left" Margin="286.809,250.877,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.744,0.392" Width="169.647" FontSize="18" Grid.Column="2"/>
+                                <TextBox x:Name="NumberTextBox_Copy1" PreviewTextInput="NumberValidationTextBox"  Margin="68.8,334.823,384.266,0"  Height="39.16" VerticalAlignment="Top" Grid.Column="2"/>
+                                <TextBox x:Name="NumberTextBox_Copy3" PreviewTextInput="NumberValidationTextBox"  Margin="68.8,410.257,384.266,0"  Height="39.16" VerticalAlignment="Top" Grid.Column="2"/>
+                                <Button ToolTip="Izbacititi trenutno selektovano sredstvo iz liste potrošenog"  Content="Izbaciti" Grid.Column="2" HorizontalAlignment="Left" Height="35.803" Margin="286.809,455.417,0,0" VerticalAlignment="Top" Width="157.092"/>
+                                <Button  Name="AddResource" ToolTip="Dodati dato sredstvo u listu potrošenog"  Content="Dodati" Grid.Column="2" HorizontalAlignment="Left" Height="38.303" Margin="68.8,500.934,0,0" VerticalAlignment="Top" Width="114.579" Click="AddResource_Click"/>
                                 <ComboBox Margin="41.364,303.863,0,0" x:Name="ComboBox12_Copy4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="196.385" Height="30"
                                     materialDesign:HintAssist.Hint="Izbor potrosnog sredstva"
                                     materialDesign:HintAssist.HintOpacity=".26"
-                                    IsEditable="True">
-                                    <ComboBoxItem Content="Gaza"/>
+                                    IsEditable="True" SelectionChanged="ComboBox12_Copy4_SelectionChanged" ContextMenuClosing="ComboBoxItem_ContextMenuClosing" Grid.ColumnSpan="2" >
+                                    <ComboBoxItem Content="Gaza" />
                                     <ComboBoxItem Content="Zavoj"/>
-                                    <ComboBoxItem Content="Amnestezija"/>
-                                    <ComboBoxItem Content="Picete"/>
+                                    <ComboBoxItem Content="Anestezija"/>
+                                    <ComboBoxItem Content="Pincete"/>
                                     <ComboBoxItem Content="Kese"/>
                                     <ComboBoxItem Content="Maske"/>
                                 </ComboBox>
-
                             </Grid>
                         </TabItem>
 
@@ -347,7 +477,7 @@
                     </Viewbox>
 
                     <!--<Label Content="Termini 15.05.2020" FontSize="24"  Margin="0,333.6,901.928,0" VerticalAlignment="Top" Height="42" Grid.Column="2" Grid.ColumnSpan="2"/>-->
-                    <Label Content="{Binding ElementName=CalendarChoose, Path=SelectedDate}" FontSize="24"  Margin="89,333.6,901.928,0" VerticalAlignment="Top" Height="42" Grid.Column="2" Grid.ColumnSpan="2"/>
+                    <!--<Label Content="{Binding ElementName=CalendarChoose, Path=SelectedDate}" FontSize="24"  Margin="89,333.6,901.928,0" VerticalAlignment="Top" Height="42" Grid.Column="2" Grid.ColumnSpan="2"/>-->
                     <ListBox Margin="0,380.6,901.928,28.4" Grid.Column="2" Grid.ColumnSpan="2" Name="Termini">
                         <ListBoxItem FontSize="18" Content="09:00 - 09:45 Pregled"/>
                         <ListBoxItem FontSize="18" Content="10:00 - 10:45 Kontrola"/>

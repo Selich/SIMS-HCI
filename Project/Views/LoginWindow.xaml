@@ -119,6 +119,15 @@
                     RenderTransformOrigin="-0.048,0.55"
                     Height="23"
                     Click="Doctor_Click" />
+            <Button FontSize="11"
+                Content="Patient"
+                HorizontalAlignment="Left"
+                Margin="107,316,0,-34.2"
+                VerticalAlignment="Top"
+                Width="80"
+                RenderTransformOrigin="-0.048,0.55"
+                Height="23"
+                Click="Patient_Click" />
 
         </Grid>
     </Grid>

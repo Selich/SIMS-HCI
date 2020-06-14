@@ -177,6 +177,9 @@
     <Compile Include="Views\Converters\QuestionConverter.cs" />
     <Compile Include="Views\Converters\RoomConverter.cs" />
     <Compile Include="Views\Director\AdressToStringConverter.cs" />
+    <Compile Include="Views\Doctor\WizardWindow.xaml.cs">
+      <DependentUpon>WizardWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Model\AddressDTO.cs" />
     <Compile Include="Views\Model\AnamnesisDTO.cs" />
     <Compile Include="Views\Model\AppointmentDTO.cs" />
@@ -478,6 +481,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Doctor\WizardWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\FeedbackModal.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -520,51 +527,51 @@
     </Page>
     <Page Include="Views\Secretary\AppointmentModal.xaml">
       <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
     <Page Include="Views\Secretary\CreatePatientModal.xaml">
       <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
     <Page Include="Views\Secretary\DoctorSearchModal.xaml">
       <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
     <Page Include="Views\Secretary\ProfileModal.xaml">
       <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
     <Page Include="Views\Secretary\RegisterGuest.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
     <Page Include="Views\Secretary\RegisterPatient.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
     <Page Include="Views\Secretary\SecretaryCreateModal.xaml">
       <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
     <Page Include="Views\Secretary\SecretaryGenerateReport.xaml">
       <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
     <Page Include="Views\Secretary\SecretaryHomeWindow.xaml">
       <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
     <Page Include="Views\Secretary\Shortcuts.xaml">
       <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
     <Page Include="Views\Secretary\ShortcutsModal.xaml">
       <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
     <Page Include="Views\Secretary\Test.xaml">
       <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
     <Page Include="Views\Tabs\AppointmentTabs\AppointmentsDay.xaml">
       <SubType>Designer</SubType>
@@ -678,6 +685,17 @@
     <Folder Include="Views\Patient\.vs\Patient\v15\" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\Images\Faces\face_doc1.jpg" />
+    <Resource Include="Resources\Images\Faces\doc_old.jpg" />
+    <Resource Include="Resources\Images\Faces\doc_har.jpg" />
+    <Resource Include="Resources\Images\Faces\har.jpg" />
+    <Resource Include="Resources\Images\Wizard\Capture_1.PNG" />
+    <Resource Include="Resources\Images\Wizard\Capture_2.PNG" />
+    <Resource Include="Resources\Images\Wizard\Capture_3.PNG" />
+    <Resource Include="Resources\Images\Wizard\Capture_4.PNG" />
+    <Resource Include="Resources\Images\Wizard\Capture_5.PNG" />
+    <Resource Include="Resources\Images\Wizard\Capture_6.PNG" />
+    <Resource Include="Resources\Images\Wizard\Capture_7.PNG" />
     <Resource Include="Resources\Icons\graph.png" />
     <Content Include="Resources\Icons\8370799161557749690.svg" />
     <Resource Include="Resources\Images\Faces\down.png" />
