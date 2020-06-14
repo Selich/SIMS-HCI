@@ -47,7 +47,7 @@ namespace Project.Utility
         public Report GenerateReport(TimeInterval interval)
         {
             Report report = new Report(_path, new DateTime(), "Appointment");
-            report.Path = _path + $@"\AppointmentReport{report.Id}";
+            report.Path = _path + $@"\AppointmentReport{report.Id}.pdf";
 
             Document doc = new Document(PageSize.A4, 10, 10, 40, 35);
 

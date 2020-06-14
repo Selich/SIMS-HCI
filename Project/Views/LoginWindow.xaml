@@ -70,7 +70,7 @@
                    RenderTransformOrigin="0.552,1.998" />
             <PasswordBox  HorizontalAlignment="Left"
                           Height="23"
-                     x:Name="PasswordTextBox"
+                          x:Name="PasswordTextBox"
                           Margin="45,182,0,0"
                           VerticalAlignment="Top"
                           Width="219"
@@ -122,15 +122,24 @@
                     Height="23"
                     Click="Doctor_Click" />
             <Button FontSize="11"
-                Content="Patient"
+                    Content="Patient"
+                    HorizontalAlignment="Left"
+                    Margin="155,316,0,-34"
+                    VerticalAlignment="Top"
+                    Width="80"
+                    RenderTransformOrigin="-0.048,0.55"
+                    Height="23"
+                    Click="Patient_Click" />
+
+        </Grid>
+        <Button FontSize="11"
+                Content="Secretarty"
                 HorizontalAlignment="Left"
-                Margin="107,316,0,-34.2"
+                Margin="108,380,0,0"
                 VerticalAlignment="Top"
                 Width="80"
                 RenderTransformOrigin="-0.048,0.55"
                 Height="23"
-                Click="Patient_Click" />
-
-        </Grid>
+                Click="Secretary_Click" />
     </Grid>
 </Window>
