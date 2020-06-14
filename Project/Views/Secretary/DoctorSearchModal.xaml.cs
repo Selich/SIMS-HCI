@@ -26,10 +26,22 @@ namespace Project.Views.Secretary
     {
         App app;
         public List<String> MedicalRoles;
+        public Object rootWindow;
 
         public DoctorSearchModal()
         {
-            this.DataContext = this;
+            app = System.Windows.Application.Current as App;
+            InitializeComponent();
+            DoctorList.ItemsSource = app.doctors;
+            MedicalRole_ComboBox.ItemsSource = app.medicalRoles;
+
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(DoctorList.ItemsSource);
+            view.Filter = CombinedFilter;
+
+        }
+        public DoctorSearchModal(SecretaryAppointments dataContext)
+        {
+            this.DataContext = dataContext;
             app = System.Windows.Application.Current as App;
             InitializeComponent();
             DoctorList.ItemsSource = app.doctors;
@@ -40,9 +52,9 @@ namespace Project.Views.Secretary
 
         }
 
-        public DoctorSearchModal(SecretaryCreate secretaryCreate)
+        public DoctorSearchModal(SecretaryCreate dataContext)
         {
-            this.DataContext = this;
+            this.DataContext = dataContext;
             app = System.Windows.Application.Current as App;
             InitializeComponent();
             DoctorList.ItemsSource = app.doctors;
@@ -83,7 +95,8 @@ namespace Project.Views.Secretary
             if (e.Key == Key.Return)
             {
                 app.SelectedDoctor = (DoctorList.SelectedItem as DoctorDTO);
-                //CollectionViewSource.GetDefaultView(createP).Refresh();
+
+                (DataContext as SecretaryAppointments).CurrentDoctor.Content = "Dr. " + app.SelectedDoctor.FirstName + " " + app.SelectedDoctor.LastName;
 
                 this.Close();
 

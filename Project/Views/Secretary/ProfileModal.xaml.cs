@@ -24,15 +24,31 @@ namespace Project.Views.Secretary
     public partial class ProfileModal : Window
     {
 
+        App app;
+        public string FirstAndLastName;
         public ProfileModal(MedicalAppointmentDTO dataContext)
         {
             DataContext = dataContext;
             InitializeComponent();
+            app = Application.Current as App;
+            Profile_FirstName.Text = dataContext.Patient.FirstName;
+            Profile_LastName.Text = dataContext.Patient.LastName;
+            Profile_DateOfBirth.SelectedDate = dataContext.Patient.DateOfBirth;
+            Profile_FirstName.Text = dataContext.Patient.FirstName;
+            Profile_FirstName.Text = dataContext.Patient.FirstName;
+            ListAppointments.ItemsSource = app.MedicalAppointments.FindAll(item => item.Patient.Id == dataContext.Patient.Id && dataContext.Beginning.CompareTo(new DateTime()) >= 0);
+            ListHistory.ItemsSource = app.MedicalAppointments.FindAll(item => item.Patient.Id == dataContext.Patient.Id && dataContext.Beginning.CompareTo(new DateTime()) < 0);
         }
         public ProfileModal(PatientDTO dataContext)
         {
             DataContext = dataContext;
             InitializeComponent();
+            Profile_FirstName.Text = dataContext.FirstName;
+            Profile_LastName.Text = dataContext.LastName;
+            Profile_Email.Text = dataContext.Email;
+            Profile_DateOfBirth.SelectedDate = dataContext.DateOfBirth;
+            Profile_FirstName.Text = dataContext.FirstName;
+            Profile_FirstName.Text = dataContext.FirstName;
         }
 
         private void HandleEsc(object sender, KeyEventArgs e)
@@ -47,6 +63,7 @@ namespace Project.Views.Secretary
             Profile_Email.IsEnabled = true;
             Profile_Address.IsEnabled = true;
             Profile_TelephoneNumber.IsEnabled = true;
+            Profile_DateOfBirth.IsEnabled = true;
             Obustavi.Visibility = Visibility.Visible;
             Izmeni.Visibility = Visibility.Hidden;
         }
@@ -56,6 +73,7 @@ namespace Project.Views.Secretary
             Profile_LastName.IsEnabled = false;
             Profile_Email.IsEnabled = false;
             Profile_Address.IsEnabled = false;
+            Profile_DateOfBirth.IsEnabled = false;
             Profile_TelephoneNumber.IsEnabled = false;
             Obustavi.Visibility = Visibility.Hidden;
             Izmeni.Visibility = Visibility.Visible;

@@ -81,7 +81,7 @@
                     Width="80"
                     RenderTransformOrigin="-0.048,0.55"
                     Height="23"
-                    Click="Login_Click" />
+                    Click="Secretary_Click" />
             <Button  FontSize="11"
                      Content="Register"
                      HorizontalAlignment="Left"

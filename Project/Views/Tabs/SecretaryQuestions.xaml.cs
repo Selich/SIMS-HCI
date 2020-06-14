@@ -31,12 +31,28 @@ namespace Project.Views.Tabs
             QuestionsList.ItemsSource = app.QuestionController.GetAll();
             SelectedQuestion.Visibility = Visibility.Hidden;
 
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(QuestionsList.ItemsSource);
+            view.Filter = CombinedFilter;
+
         }
+        private bool CombinedFilter(object item)
+            => QuestionFilter(item) && AnsweredFilter( item);
+        private bool QuestionFilter(object item)
+          => (String.IsNullOrEmpty(Question_TextBox.Text) ||
+            (item as QuestionDTO).QuestionText.IndexOf(Question_TextBox.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+        private bool AnsweredFilter(object item)
+          => (Answered_CheckBox.IsChecked.Value) ||
+            (item as QuestionDTO).AnswerText.Equals("");
+        private void Question_TextBox_TextChanged(object sender, TextChangedEventArgs e)
+            => CollectionViewSource.GetDefaultView(QuestionsList.ItemsSource).Refresh();
+        private void Answered_CheckBox_Click(object sender, RoutedEventArgs e)
+            => CollectionViewSource.GetDefaultView(QuestionsList.ItemsSource).Refresh();
+
         private void Feedback_Click(object sender, RoutedEventArgs e)
             => new FeedbackModal().Show();
 
         private void Profile_Click(object sender, RoutedEventArgs e)
-            => new FeedbackModal().Show();
+            => new ProfileModal(CurrentQuestion.Patient).Show();
 
         private void QuestionsList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -47,14 +63,6 @@ namespace Project.Views.Tabs
             
         }
 
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
 
-        }
-
-        private void Question_TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
     }
 }

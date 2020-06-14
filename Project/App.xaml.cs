@@ -174,12 +174,16 @@ namespace Project
             {
                 new PatientDTO(
                 4, new AddressDTO(1, "7A", "Bulevar despota Stefana", "Novi Sad", "Srbija", "21000"),
-                "Darko", "Majstorović", "123241129993", "+381604223222", "male", new DateTime(),
+                "Darko", "Majstorović", "123241129993", "+381604223222", "male", new DateTime().AddYears(2000).AddDays(20),
                 "08763646483684", "Diplomirani Istoričar", "0-", 185, 92, "darkomajstorovic@gmail.com", "pass"),
                 new PatientDTO(
                 5, new AddressDTO(1, "7A", "Bulevar despota Stefana", "Novi Sad", "Srbija", "21000"),
-                "Marija", "Sazdanović", "123241129993", "+381604223222", "female", new DateTime(),
-                "08763646483684", "Diplomirani Istoričar", "0-", 168, 62, "marijasazdanovic@gmail.com", "pass")
+                "Marija", "Sazdanović", "123241129993", "+381604223222", "female", new DateTime().AddYears(1994).AddDays(280),
+                "08763646483684", "Diplomirani Istoričar", "0-", 168, 62, "marijasazdanovic@gmail.com", "pass"),
+                new PatientDTO(
+                6, new AddressDTO(1, "7A", "Bulevar despota Stefana", "Novi Sad", "Srbija", "21000"),
+                "Zeljko", "Majstorović", "123241129993", "+381604223222", "male", new DateTime().AddYears(1997).AddDays(200),
+                "08763646483684", "Diplomirani Istoričar", "0-", 185, 92, "bicatrofrtaljka@gmail.com", "pass"),
             };
             rooms = new List<RoomDTO>() {
                 new RoomDTO(1, RoomType.hospitalRoom, "One", "Check"),
@@ -195,7 +199,7 @@ namespace Project
                 new MedicalAppointmentDTO(
                     1, new DateTime(2020, 5, 10, 15, 0, 0),  new DateTime(2020, 5, 10, 15, 30, 0),
                     rooms[0], MedicalAppointmentType.examination ,
-                    patients[0], new List<DoctorDTO>{ doctors[0], doctors[1] }),
+                    patients[0], new List<DoctorDTO>{ doctors[0], doctors[1] })
             };
             // Converters
             var patientConverter = new PatientConverter();
