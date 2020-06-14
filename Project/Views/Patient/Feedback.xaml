@@ -24,7 +24,7 @@
             </ComboBox>
         </StackPanel>
         <TextBox TextWrapping="Wrap" Grid.Row="1" Grid.ColumnSpan="2" Margin="5"/>
-        <Button Content="Send" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5" />
-        <Button Content="Cancel" Margin="5" Click="Cancel_Click" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Button IsDefault="True" Content="Send" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5" />
+        <Button IsCancel="True" Content="Cancel" Margin="5" Click="Cancel_Click" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"/>
     </Grid>
 </Window>

@@ -8,8 +8,10 @@
         xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         mc:Ignorable="d"
         Title="HomeWindow" Height="720" Width="1280">
+    <Window.InputBindings>
+    </Window.InputBindings>
     <TabControl>
-        <TabItem Header="Home">
+        <TabItem Header="Home" >
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="56*"/>
@@ -191,7 +193,29 @@
                                 <ColumnDefinition Width="41*" MaxWidth="130"/>
                             </Grid.ColumnDefinitions>
                             <Button x:Name="buttonEdit" Content="Edit" Grid.Column="0" Click="Edit_Click" />
-                            <Button x:Name="buttonSaveChanges" Content="Save changes" IsEnabled="False" Grid.Column="2" Height="Auto" Click="SaveChanges_Click"/>
+                            <Button x:Name="buttonSaveChanges" Content="Save changes" Grid.Column="2" Height="Auto" Click="SaveChanges_Click">
+                                <Button.Style>
+                                    <Style TargetType="{x:Type Button}">
+                                        <Setter Property="IsEnabled" Value="false" />
+                                        <Style.Triggers>
+                                            <MultiDataTrigger>
+                                                <MultiDataTrigger.Conditions>
+                                                    <Condition Binding="{Binding ElementName=firstName, Path=(Validation.HasError)}" Value="false" />
+                                                    <Condition Binding="{Binding ElementName=lastName, Path=(Validation.HasError)}" Value="false" />
+                                                    <Condition Binding="{Binding ElementName=JMBG, Path=(Validation.HasError)}" Value="false" />
+                                                    <Condition Binding="{Binding ElementName=insuranceNumber, Path=(Validation.HasError)}" Value="false" />
+                                                    <Condition Binding="{Binding ElementName=country, Path=(Validation.HasError)}" Value="false" />
+                                                    <Condition Binding="{Binding ElementName=city, Path=(Validation.HasError)}" Value="false" />
+                                                    <Condition Binding="{Binding ElementName=street, Path=(Validation.HasError)}" Value="false" />
+                                                    <Condition Binding="{Binding ElementName=number, Path=(Validation.HasError)}" Value="false" />
+                                                    <Condition Binding="{Binding ElementName=email, Path=(Validation.HasError)}" Value="false" />
+                                                </MultiDataTrigger.Conditions>
+                                                <Setter Property="IsEnabled" Value="true" />
+                                            </MultiDataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                            </Button>
                         </Grid>
                     </StackPanel>
                 </Grid>

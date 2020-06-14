@@ -120,11 +120,34 @@
                     <PasswordBox  x:Name="password" Margin="5"/>
                     <Grid Margin="10" Height="32">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="26*" MaxWidth="80"/>
-                            <ColumnDefinition Width="32*"/>
-                            <ColumnDefinition Width="41*" MaxWidth="130"/>
+                            <ColumnDefinition Width="10*" />
+                            <ColumnDefinition Width="10*"/>
+                            <ColumnDefinition Width="7*"/>
                         </Grid.ColumnDefinitions>
-                        <Button x:Name="buttonSubmit" Content="Submit" Grid.Column="0" Click="Submit_Click" />
+                        <Button IsDefault="True" x:Name="buttonSubmit" Content="Submit" Grid.Column="0" Click="Submit_Click" Margin="5,5,5,0" Height="Auto">
+                            <Button.Style>
+                                <Style TargetType="{x:Type Button}">
+                                    <Setter Property="IsEnabled" Value="false" />
+                                    <Style.Triggers>
+                                        <MultiDataTrigger>
+                                            <MultiDataTrigger.Conditions>
+                                                <Condition Binding="{Binding ElementName=firstName, Path=(Validation.HasError)}" Value="false" />
+                                                <Condition Binding="{Binding ElementName=lastName, Path=(Validation.HasError)}" Value="false" />
+                                                <Condition Binding="{Binding ElementName=JMBG, Path=(Validation.HasError)}" Value="false" />
+                                                <Condition Binding="{Binding ElementName=insuranceNumber, Path=(Validation.HasError)}" Value="false" />
+                                                <Condition Binding="{Binding ElementName=country, Path=(Validation.HasError)}" Value="false" />
+                                                <Condition Binding="{Binding ElementName=city, Path=(Validation.HasError)}" Value="false" />
+                                                <Condition Binding="{Binding ElementName=street, Path=(Validation.HasError)}" Value="false" />
+                                                <Condition Binding="{Binding ElementName=number, Path=(Validation.HasError)}" Value="false" />
+                                                <Condition Binding="{Binding ElementName=email, Path=(Validation.HasError)}" Value="false" />
+                                            </MultiDataTrigger.Conditions>
+                                            <Setter Property="IsEnabled" Value="true" />
+                                        </MultiDataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+                        <Button IsCancel="True" x:Name="buttonCancel" Content="Cancel" Grid.Column="1" Click="Submit_Click"  Margin="5,5,5,0" Height="Auto"/>
                     </Grid>
                 </StackPanel>
             </Grid>

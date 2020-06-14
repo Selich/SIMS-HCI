@@ -2,6 +2,7 @@
 using LiveCharts.Wpf;
 using Project.Model;
 using Project.Views.Model;
+using Project.Views.Commands;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -85,6 +86,7 @@ namespace Project.Views.Patient
             Labels = new[] { "7:00", "8:30", "10:00", "11:30", "13:00", "14:30", "16:00", "17:30", "19:00" };
             Formatter = value => value.ToString("N");
 
+
         }
 
         private void Feedback_Click(object sender, RoutedEventArgs e)
@@ -126,7 +128,6 @@ namespace Project.Views.Patient
             number.IsEnabled = true;
             email.IsEnabled = true;
             password.IsEnabled = true;
-            buttonSaveChanges.IsEnabled = true;
             buttonEdit.IsEnabled = false;
         }
 
@@ -148,7 +149,6 @@ namespace Project.Views.Patient
             number.IsEnabled = false;
             email.IsEnabled = false;
             password.IsEnabled = false;
-            buttonSaveChanges.IsEnabled = false;
             buttonEdit.IsEnabled = true;
         }
 

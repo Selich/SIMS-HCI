@@ -40,8 +40,8 @@
                 </Binding>
             </TextBox>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Height="Auto" Margin="5" >
-                <Button Content="Submit" Margin="5" Click="Submit_Click"/>
-                <Button Content="Cancel" Margin="20,5,5,5" HorizontalAlignment="Right" Click="Cancel_Click"/>
+                <Button IsDefault="True" Content="Submit" Margin="5" Click="Submit_Click"/>
+                <Button IsCancel="True" Content="Cancel" Margin="20,5,5,5" HorizontalAlignment="Right" Click="Cancel_Click"/>
             </StackPanel>
         </StackPanel>
     </Grid>
