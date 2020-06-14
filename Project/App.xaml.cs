@@ -58,6 +58,7 @@ namespace Project
 
         public List<DoctorDTO> doctors { get; set; }
         public List<PatientDTO> patients { get; set; }
+        public List<EmployeeDTO> employees { get; set; }
         public List<RoomDTO> rooms { get; set; }
         private DoctorDTO selectedDoctor;
         public DoctorDTO SelectedDoctor
@@ -170,6 +171,18 @@ namespace Project
                 new TimeInterval(new DateTime(), new DateTime()), new TimeInterval(new DateTime(), new DateTime()),
                 "filip.zdelar@gmail.com", "pass123", medicalRoles[3])
             };
+            employees = new List<EmployeeDTO>
+            {
+                new SecretaryDTO(
+                1, new AddressDTO(1, "7A", "Bulevar despota Stefana", "Novi Sad", "Srbija", "21000"),
+                "Filip", "Zdelar", "123241129993", "+381604223222", "male", new DateTime(), 67000.00,
+                new TimeInterval(new DateTime(), new DateTime()), new TimeInterval(new DateTime(), new DateTime()),
+                "selic.work@gmail.com", "pass"),
+                doctors[0],doctors[1],doctors[2]
+            };
+
+
+            
             patients = new List<PatientDTO>
             {
                 new PatientDTO(
@@ -184,6 +197,10 @@ namespace Project
                 6, new AddressDTO(1, "7A", "Bulevar despota Stefana", "Novi Sad", "Srbija", "21000"),
                 "Zeljko", "Majstorović", "123241129993", "+381604223222", "male", new DateTime().AddYears(1997).AddDays(200),
                 "08763646483684", "Diplomirani Istoričar", "0-", 185, 92, "bicatrofrtaljka@gmail.com", "pass"),
+                new PatientDTO(
+                7, new AddressDTO(1, "7A", "Bulevar despota Stefana", "Novi Sad", "Srbija", "21000"),
+                "Uros", "Milovanovic", "123241129993", "+381604223222", "male", new DateTime().AddYears(2000).AddDays(20),
+                "08763646483684", "Diplomirani Kompjuteras", "0-", 185, 92, "darkomajstorovic@gmail.com", "pass"),
             };
             rooms = new List<RoomDTO>() {
                 new RoomDTO(1, RoomType.hospitalRoom, "One", "Check"),
@@ -221,6 +238,7 @@ namespace Project
             // Controllers
             PatientController = new PatientController(patientService, patientConverter);
             QuestionController = new QuestionController(questionService, questionConverter, patientConverter);
+            AuthenticationController = new AuthenticationController();
             ReportController = new ReportController();
         }
 
@@ -229,6 +247,7 @@ namespace Project
         public IPDFReport<TimeInterval> GenerateSecretaryReport { get; private set; }
         public IPDFReport<TimeInterval> GeneratePatientReport { get; private set; }
 
+        public AuthenticationController AuthenticationController { get; private set; }
         public IController<PatientDTO, long> PatientController { get; private set; }
         public ReportController ReportController { get; private set; }
         public IController<QuestionDTO, long> QuestionController { get; private set; }

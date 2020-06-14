@@ -20,7 +20,7 @@ namespace Project.Views
     /// </summary>
     public partial class LoginWindow : Window
     {
-        private Application app;
+        App app;
         public LoginWindow()
         {
             app = Application.Current as App;
@@ -54,9 +54,8 @@ namespace Project.Views
 
         private void Login_Click(object sender, RoutedEventArgs e)
         {
+            var user = app.AuthenticationController.Login(LoginTextBox.Text, PasswordTextBox.Password);
             
-            var s = new Patient.HomeWindow();
-            s.Show();
 
         }
 
