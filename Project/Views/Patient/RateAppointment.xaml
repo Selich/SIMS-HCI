@@ -31,7 +31,7 @@
                 <Label Content="Type:"/>
                 <Label Content="{Binding ReviewAppointment.Type}"/>
             </StackPanel>
-            <Label Content="Rating:" Margin="5"/>
+            <Label Content="Rating 1 to 5:" Margin="5"/>
             <TextBox x:Name="Rating" Margin="5">
                 <Binding Path="ReviewAppointment.Review.Rating" UpdateSourceTrigger="PropertyChanged">
                     <Binding.ValidationRules>

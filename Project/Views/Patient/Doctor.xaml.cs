@@ -98,11 +98,15 @@ namespace Project.Views.Patient
                     i--;
                 }
             }
+            ConfirmButton.IsEnabled = false;
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
             AvailableAppoitments.Clear();
+            ConfirmButton.IsEnabled = false;
+            CancelButton.IsEnabled = false;
+            ViewAvailableButton.IsEnabled = true;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -114,6 +118,9 @@ namespace Project.Views.Patient
             AvailableAppoitments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 12, 15, 0, 0), Type = Project.Model.MedicalAppointmentType.examination, End = new DateTime(2020, 5, 12, 15, 30, 0), IsScheduled = false });
             AvailableAppoitments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 13, 15, 0, 0), Type = Project.Model.MedicalAppointmentType.examination, End = new DateTime(2020, 5, 13, 15, 30, 0), IsScheduled = false });
             AvailableAppoitments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 14, 15, 0, 0), Type = Project.Model.MedicalAppointmentType.examination, End = new DateTime(2020, 5, 14, 15, 30, 0), IsScheduled = false });
+            ConfirmButton.IsEnabled = true;
+            CancelButton.IsEnabled = true;
+            ViewAvailableButton.IsEnabled = false;
         }
     }
 
