@@ -910,7 +910,7 @@ namespace Project.Views.Director
                 return;
             }
             DateTime CurrentTime = DateTime.Now;
-            List<EmployeeDTO> DoctorList = new List<DoctorDTO>;
+            List<EmployeeDTO> DoctorList = new List<EmployeeDTO>();
 
             foreach (EmployeeDTO employee in Employees)
                 if (employee is DoctorDTO)
