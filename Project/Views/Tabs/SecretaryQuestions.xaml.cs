@@ -22,10 +22,11 @@ namespace Project.Views.Tabs
     public partial class SecretaryQuestions : UserControl
     {
         public QuestionDTO CurrentQuestion;
+        App app;
 
         public SecretaryQuestions()
         {
-            var app = Application.Current as App;
+            app = Application.Current as App;
             InitializeComponent();
 
             QuestionsList.ItemsSource = app.QuestionController.GetAll();
@@ -48,12 +49,46 @@ namespace Project.Views.Tabs
         private void Answered_CheckBox_Click(object sender, RoutedEventArgs e)
             => CollectionViewSource.GetDefaultView(QuestionsList.ItemsSource).Refresh();
 
-        private void Feedback_Click(object sender, RoutedEventArgs e)
-            => new FeedbackModal().Show();
-        private void Settings_Click(object sender, RoutedEventArgs e)
-            => new FeedbackModal().Show();
-        private void Demo_Click(object sender, RoutedEventArgs e)
-            => new FeedbackModal().Show();
+        private void Feedback_Click(object sender, RoutedEventArgs e) => new FeedbackModal().Show();
+        private void Settings_Click(object sender, RoutedEventArgs e) => new SettingsModal().Show();
+        private async void Demo_Click(object sender, RoutedEventArgs e)
+        {
+
+            Brush colour = Submit_Button.Background;
+            await Task.Delay(1000);
+            Question_TextBox.Text = "Pitanje";
+            await Task.Delay(1000);
+            Answered_CheckBox.IsChecked = true;
+            CollectionViewSource.GetDefaultView(QuestionsList.ItemsSource).Refresh();
+            await Task.Delay(1000);
+            Answered_CheckBox.IsChecked = false;
+            CollectionViewSource.GetDefaultView(QuestionsList.ItemsSource).Refresh();
+            await Task.Delay(1000);
+            CurrentQuestion = app.QuestionController.GetAll().First();
+            Question.Text = CurrentQuestion.QuestionText;
+            SelectedQuestion.Visibility = Visibility.Visible;
+            await Task.Delay(1000);
+            Answer.Text = "Nekakav odgovor na odabrano pitanje";
+
+            await Task.Delay(200);
+            Submit_Button.Background = Brushes.White;
+            await Task.Delay(200);
+            Submit_Button.Background = Brushes.Transparent;
+            await Task.Delay(200);
+            Submit_Button.Background = colour;
+            await Task.Delay(1000);
+            
+
+            await Task.Delay(200);
+            Submit_Button.Background = Brushes.White;
+            await Task.Delay(200);
+            Submit_Button.Background = Brushes.Transparent;
+            await Task.Delay(200);
+            Submit_Button.Background = colour;
+            await Task.Delay(1000);
+            SelectedQuestion.Visibility = Visibility.Hidden;
+
+        }
 
         private void Profile_Click(object sender, RoutedEventArgs e)
             => new ProfileModal(CurrentQuestion.Patient).Show();
@@ -67,6 +102,11 @@ namespace Project.Views.Tabs
             
         }
 
-
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            QuestionDTO q = app.QuestionController.GetById(CurrentQuestion.Id);
+            q.AnswerText = Answer.Text;
+            app.QuestionController.Save(q);
+        }
     }
 }

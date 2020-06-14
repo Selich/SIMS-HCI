@@ -348,6 +348,9 @@
     <Compile Include="Views\Secretary\SecretaryHomeWindow.xaml.cs">
       <DependentUpon>SecretaryHomeWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Secretary\SettingsModal.xaml.cs">
+      <DependentUpon>SettingsModal.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Secretary\Shortcuts.xaml.cs">
       <DependentUpon>Shortcuts.xaml</DependentUpon>
     </Compile>
@@ -564,6 +567,10 @@
     <Page Include="Views\Secretary\SecretaryHomeWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="Views\Secretary\SettingsModal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Secretary\Shortcuts.xaml">
       <SubType>Designer</SubType>

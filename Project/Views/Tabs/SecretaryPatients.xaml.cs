@@ -67,7 +67,7 @@ namespace Project.Views.Tabs
             => CollectionViewSource.GetDefaultView(PatientList.ItemsSource).Refresh();
 
         private void Feedback_Click(object sender, RoutedEventArgs e) => new FeedbackModal().Show();
-        private void Settings_Click(object sender, RoutedEventArgs e) => new FeedbackModal().Show();
+        private void Settings_Click(object sender, RoutedEventArgs e) => new SettingsModal().Show();
 
         private void CreatePatient_Click(object sender, RoutedEventArgs e) => new RegisterPatient().Show();
 

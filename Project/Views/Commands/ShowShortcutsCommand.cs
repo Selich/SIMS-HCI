@@ -23,6 +23,8 @@ namespace Project.Views.Commands
                 new Shortcuts().Show();
             else if (parameter.Equals("Feedback"))
                 new FeedbackModal().Show();
+            else if (parameter.Equals("Settings"))
+                new SettingsModal().Show();
             else if (parameter.Equals("CreateAppointment"))
                new SecretaryCreateModal().Show();
             else if (parameter.Equals("GenerateReport"))
