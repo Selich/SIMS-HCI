@@ -71,7 +71,7 @@ namespace Project.Views.Secretary
           => (String.IsNullOrEmpty(LastNameSearch_TextBox.Text) ||
             (item as DoctorDTO).LastName.IndexOf(LastNameSearch_TextBox.Text, StringComparison.OrdinalIgnoreCase) >= 0);
         private bool MedicalRoleFilter(object item)
-          => (MedicalRole_ComboBox.SelectedItem.ToString().Contains("Sve")) ||
+          => (MedicalRole_ComboBox.SelectedItem.ToString().Equals(app.medicalRoles[0])) ||
             (item as DoctorDTO).MedicalRole.IndexOf(MedicalRole_ComboBox.SelectedItem.ToString(), StringComparison.OrdinalIgnoreCase) >= 0;
 
         private bool CombinedFilter(object item)
@@ -105,9 +105,39 @@ namespace Project.Views.Secretary
 
         }
 
-        private void DemoButton_Click(object sender, RoutedEventArgs e)
+        private async void DemoButton_Click(object sender, RoutedEventArgs e)
         {
+            NameSearch_TextBox.Text = "Nikola";
+            await Task.Delay(1000);
+            NameSearch_TextBox.Text = "";
+            await Task.Delay(1000);
 
+            await Task.Delay(1000);
+            LastNameSearch_TextBox.Text = "Selic";
+            await Task.Delay(1000);
+            LastNameSearch_TextBox.Text = "";
+            await Task.Delay(1000);
+
+            await Task.Delay(1000);
+            MedicalRole_ComboBox.SelectedIndex = 1;
+            await Task.Delay(1000);
+            MedicalRole_ComboBox.SelectedIndex = 0;
+            await Task.Delay(1000);
+
+            await Task.Delay(1000);
+            MedicalRole_ComboBox.SelectedIndex = 1;
+            await Task.Delay(1000);
+
+            await Task.Delay(1000);
+            DoctorList.Background = Brushes.Transparent;
+            await Task.Delay(1000);
+            DoctorList.Background = Brushes.White;
+            await Task.Delay(1000);
+
+            await Task.Delay(1000);
+            DoctorList.SelectedItem = DoctorList.Items[0];
+            await Task.Delay(1000);
         }
+
     }
 }

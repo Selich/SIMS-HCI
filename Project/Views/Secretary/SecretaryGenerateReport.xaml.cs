@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,15 +20,23 @@ namespace Project.Views.Secretary
     /// </summary>
     public partial class SecretaryGenerateReport : Window
     {
+        App app;
         public SecretaryGenerateReport()
         {
             InitializeComponent();
+            app = Application.Current as App;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void GenerateReport_Button_Click(object sender, RoutedEventArgs e)
         {
-
-
+            string start = Beginning.Text as string;
+            string end = End.Text as string;
+            DateTime from = Convert.ToDateTime(start);
+            DateTime to = Convert.ToDateTime(end);
+            app.GenerateSecretaryReport.GenerateReport(new TimeInterval(from,to));
         }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+            => this.Close();
     }
 }
