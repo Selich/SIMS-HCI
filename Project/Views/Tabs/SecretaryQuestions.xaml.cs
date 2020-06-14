@@ -50,6 +50,10 @@ namespace Project.Views.Tabs
 
         private void Feedback_Click(object sender, RoutedEventArgs e)
             => new FeedbackModal().Show();
+        private void Settings_Click(object sender, RoutedEventArgs e)
+            => new FeedbackModal().Show();
+        private void Demo_Click(object sender, RoutedEventArgs e)
+            => new FeedbackModal().Show();
 
         private void Profile_Click(object sender, RoutedEventArgs e)
             => new ProfileModal(CurrentQuestion.Patient).Show();
