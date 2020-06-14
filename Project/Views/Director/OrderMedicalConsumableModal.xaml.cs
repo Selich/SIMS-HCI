@@ -1,6 +1,7 @@
 ﻿using Project.Views.Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,15 +43,18 @@ namespace Project.Views.Director
             string str = NewMedicalConsumableQuantity.Text;
             if (Int32.TryParse(str, out int Quantity))
             {
-                //MedicalConsumable.Quantity += Quantity;
-                 MedicalConsumableDTO newMedicalConsumable = new MedicalConsumableDTO();
+                MedicalConsumable.Quantity += Quantity;
+               // ObservableCollection<MedicalConsumableDTO> newList = new ObservableCollection<MedicalConsumableDTO>(Home.VisibleMedicalConsumables);
+                //                                                                              Korisceno pre INotifyPropertyChanged
+             //   Home.VisibleMedicalConsumables
+             /*    MedicalConsumableDTO newMedicalConsumable = new MedicalConsumableDTO();
                  newMedicalConsumable.Name = MedicalConsumable.Name;
                  newMedicalConsumable.Type = MedicalConsumable.Type;
                  newMedicalConsumable.Id = MedicalConsumable.Id;
                  newMedicalConsumable.Description = MedicalConsumable.Description;
                  newMedicalConsumable.Quantity = MedicalConsumable.Quantity+Quantity;
                  Home.MedicalConsumables.Add(newMedicalConsumable);
-                 Home.MedicalConsumables.Remove(MedicalConsumable);
+                 Home.MedicalConsumables.Remove(MedicalConsumable);*/
                 
             }
             this.Close();

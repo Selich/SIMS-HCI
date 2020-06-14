@@ -51,6 +51,7 @@ namespace Project.Views.Director
                     newEquipment.Type = Type;
                     newEquipment.Room = Home.Magacin;
                     Home.Equipment.Add(newEquipment);
+                    Home.VisibleEquipment.Add(newEquipment);
                     Home.Magacin.Equipment.Add(newEquipment);
                 }
             }
