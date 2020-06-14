@@ -132,6 +132,9 @@ namespace Project.Views.Patient
 
         private void SaveChanges_Click(object sender, RoutedEventArgs e)
         {
+            LoggedInPatient.Password = password.Password;
+
+
             firstName.IsEnabled = false;
             lastName.IsEnabled = false;
             birthDate.IsEnabled = false;
@@ -217,6 +220,12 @@ namespace Project.Views.Patient
         private void Gen_Click(object sender, RoutedEventArgs e)
         {
             var s = new Patient.GenReport();
+            s.Show();
+        }
+
+        private void Question_Click(object sender, RoutedEventArgs e)
+        {
+            var s = new Patient.AskQuestion();
             s.Show();
         }
     }

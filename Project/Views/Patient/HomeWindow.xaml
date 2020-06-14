@@ -70,7 +70,7 @@
                 <Button Height="Auto" Margin="10,10,10,0" Content="Feedback" Click="Feedback_Click" Grid.Column="5"  Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
                 <Button Height="Auto" Margin="10,10,10,0" Content="FAQ" Click="FAQ_Click" Grid.Column="6" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
                 <Button Height="Auto" Margin="10,10,10,0" Content="Generate Report" Grid.Column="6" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="Gen_Click"/>
-                <Button Height="Auto" Margin="10,10,10,0" Content="Ask Question" Grid.Column="5" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+                <Button Height="Auto" Margin="10,10,10,0" Content="Ask Question" Grid.Column="5" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="Question_Click"/>
             </Grid>
         </TabItem>
         <TabItem Header="Profile">
@@ -183,7 +183,7 @@
                             </Binding>
                         </TextBox>
                         <Label Content="Password:"/>
-                        <TextBox x:Name="password" Margin="5" Text="{Binding LoggedInPatient.Password}" IsEnabled="False"/>
+                        <PasswordBox x:Name="password" Margin="5" IsEnabled="False"/>
                         <Grid Margin="10" Height="32">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="26*" MaxWidth="80"/>
