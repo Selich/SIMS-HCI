@@ -98,6 +98,7 @@
                     Width="80"
                     RenderTransformOrigin="-0.048,0.55"
                     Height="23"
+                    IsDefault="True"
                     Click="Login_Click" />
             <Button  FontSize="11"
                      Content="Register"
