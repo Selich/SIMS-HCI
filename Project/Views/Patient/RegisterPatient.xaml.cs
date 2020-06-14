@@ -29,16 +29,19 @@ namespace Project.Views.Patient
             InitializeComponent();
             this.DataContext = this;
 
+            RegisteringPatient = new Model.PatientDTO() { DateOfBirth = new DateTime(2020, 1, 1) };
+
             //Profile
-            RegisteringPatient = new Model.PatientDTO() { FirstName = "Uros", LastName = "Milovanovic",
-                DateOfBirth = new DateTime(1998, 8, 25), Email = "urke123@gmail.com", Gender = "Male",
-                InsurenceNumber = "1234567", Jmbg = "1234567890", TelephoneNumber = "06551232123",
-                Address = new Model.AddressDTO(){ City = "Novi Sad", Country = "Serbia", Number = "25", PostCode = "21000", Street = "Petra Petrovica" } };
+            //RegisteringPatient = new Model.PatientDTO() { FirstName = "Uros", LastName = "Milovanovic",
+            //    DateOfBirth = new DateTime(1998, 8, 25), Email = "urke123@gmail.com", Gender = "Male",
+            //    InsurenceNumber = "1234567", Jmbg = "1234567890", TelephoneNumber = "06551232123",
+            //    Address = new Model.AddressDTO(){ City = "Novi Sad", Country = "Serbia", Number = "25", PostCode = "21000", Street = "Petra Petrovica" } };
 
         }
 
         private void Submit_Click(object sender, RoutedEventArgs e)
         {
+            RegisteringPatient.Password = password.Password;
             Close();
         }
     }

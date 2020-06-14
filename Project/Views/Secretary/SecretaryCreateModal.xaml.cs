@@ -46,7 +46,6 @@ namespace Project.Views.Secretary
             ListPatients.ItemsSource = app.patients;
             ListTerms.ItemsSource = app.MedicalAppointments;
             ListRooms.ItemsSource = app.rooms;
-            //CurrentDoctor.Content = "Dr. " + app.SelectedDoctor.FirstName + " " + app.SelectedDoctor.LastName;
             AppointmentType.ItemsSource = app.medicalAppointmentTypes;
 
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(ListPatients.ItemsSource);
@@ -82,7 +81,22 @@ namespace Project.Views.Secretary
             => CollectionViewSource.GetDefaultView(ListPatients.ItemsSource).Refresh();
 
         private void TermSearch_TextBox_TextChanged(object sender, TextChangedEventArgs e)
-            => CollectionViewSource.GetDefaultView(ListPatients.ItemsSource).Refresh();
+        {
+            List<TimeInterval> availableTerms = new List<TimeInterval>();
+            for (int i = 0; i < 8; i++)
+            {
+                availableTerms.Add(new TimeInterval(
+                    DateTime.Now.AddHours(i),
+                    DateTime.Now.AddHours(i).AddMinutes(30)
+               ));
+            }
+
+
+
+            ListTerms.ItemsSource = availableTerms;
+
+            CollectionViewSource.GetDefaultView(ListTerms.ItemsSource).Refresh();
+        }
         private void RoomSearch_TextBox_TextChanged(object sender, TextChangedEventArgs e)
             => CollectionViewSource.GetDefaultView(ListRooms.ItemsSource).Refresh();
         private void SelectedDate_SelectedDatesChanged(object sender, SelectionChangedEventArgs e) { }

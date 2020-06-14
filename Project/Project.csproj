@@ -294,6 +294,9 @@
     <Compile Include="Views\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Patient\AskQuestion.xaml.cs">
+      <DependentUpon>AskQuestion.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Patient\Doctor.xaml.cs">
       <DependentUpon>Doctor.xaml</DependentUpon>
     </Compile>
@@ -374,9 +377,6 @@
     </Compile>
     <Compile Include="Views\Tabs\SecretaryQuestions.xaml.cs">
       <DependentUpon>SecretaryQuestions.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Tabs\SecretarySettings.xaml.cs">
-      <DependentUpon>SecretarySettings.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Templates\Appointment.xaml.cs">
       <DependentUpon>Appointment.xaml</DependentUpon>
@@ -493,6 +493,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Patient\AskQuestion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Patient\Doctor.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -598,10 +602,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Tabs\SecretaryQuestions.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Tabs\SecretarySettings.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

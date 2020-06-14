@@ -1,5 +1,4 @@
-﻿using Project.Views.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,32 +12,26 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Project.Views.Secretary
+namespace Project.Views.Patient
 {
     /// <summary>
-    /// Interaction logic for RegisterPatient.xaml
+    /// Interaction logic for AskQuestion.xaml
     /// </summary>
-    public partial class RegisterPatient : Window
+    public partial class AskQuestion : Window
     {
-        App app;
-        public PatientDTO RegisteringPatient
-        {
-            get;
-            set;
-        }
-        public RegisterPatient()
+        public AskQuestion()
         {
             InitializeComponent();
-            app = Application.Current as App;
-
-            this.DataContext = this;
-
-
         }
 
         private void Submit_Click(object sender, RoutedEventArgs e)
         {
-            app.patients.Add(RegisteringPatient);
+            Close();
+        }
+
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

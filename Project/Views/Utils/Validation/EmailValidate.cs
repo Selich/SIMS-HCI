@@ -17,7 +17,7 @@ namespace Project.Views.Utils.Validation
             try
             {
                 var s = value as string;
-                if (Regex.IsMatch(s, @"^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]+$"))
+                if (Regex.IsMatch(s, @"^[a-zA-Z0-9\.]+@[a-zA-Z0-9\.]+\.[a-zA-Z]+$"))
                 {
                     return new ValidationResult(true, null);
                 }else

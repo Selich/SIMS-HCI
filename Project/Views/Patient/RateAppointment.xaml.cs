@@ -28,5 +28,15 @@ namespace Project.Views.Patient
             this.DataContext = this;
             ReviewAppointment = appointment;
         }
+
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void Submit_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }

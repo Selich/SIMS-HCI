@@ -117,7 +117,7 @@
                         </Binding>
                     </TextBox>
                     <Label Content="Password:"/>
-                    <TextBox x:Name="password" Margin="5" Text="{Binding RegisteringPatient.Password}"/>
+                    <PasswordBox  x:Name="password" Margin="5"/>
                     <Grid Margin="10" Height="32">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="26*" MaxWidth="80"/>
