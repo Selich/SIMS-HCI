@@ -9,6 +9,8 @@ namespace Project.Model
 {
    public class Doctor : Employee
    {
+        
+      public string Password { get; set; }
       public string MedicalRole { get; set; }
       
       public System.Collections.Generic.List<Approval> approval;
