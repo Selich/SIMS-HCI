@@ -15,15 +15,14 @@ namespace Project.Controllers
 
 
         }
-        public UserDTO Login(string email, string pass)
+        public string Login(string email, string pass)
         {
-            UserDTO returnUser = null;
-            returnUser = app.patients.Find(patient => patient.Email == email && patient.Password == pass);
-            if(returnUser == null)
-                returnUser = app.patients.Find(patient => patient.Email == email && patient.Password == pass);
+            if(app.patients.Find(user => user.Email == email && user.Password == pass) != null) return "Patient";
+            if(app.secretaries.Find(user => user.Email == email && user.Password == pass) != null) return "Secretary";
+            if(app.directors.Find(user => user.Email == email && user.Password == pass) != null) return "Director";
+            if(app.doctors.Find(user => user.Email == email && user.Password == pass) != null) return "Doctor";
 
-
-            return returnUser;
+            return "None";
         }
     }
 }

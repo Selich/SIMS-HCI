@@ -38,7 +38,14 @@ namespace Project.Views.Tabs
         }
         private void Search_Doctor(object sender, RoutedEventArgs e) => new DoctorSearchModal(this).Show();
         private void Feedback_Click(object sender, RoutedEventArgs e) => new FeedbackModal().Show();
+        private void Settings_Click(object sender, RoutedEventArgs e) => new FeedbackModal().Show();
+        private void Demo_Click(object sender, RoutedEventArgs e) 
+        {
+                
+        } 
         private void Button_Click(object sender, RoutedEventArgs e) => new SecretaryCreateModal().Show();
         private void GenerateReportButton_Click(object sender, RoutedEventArgs e) => new SecretaryGenerateReport().Show();
+
+
     }
 }

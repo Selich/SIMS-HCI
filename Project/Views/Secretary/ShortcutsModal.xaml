@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:Project.Views.Secretary"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         Title="ShortcutsModal"
         Height="450"
         Width="800">

@@ -58,6 +58,8 @@ namespace Project
 
         public List<DoctorDTO> doctors { get; set; }
         public List<PatientDTO> patients { get; set; }
+        public List<DirectorDTO> directors { get; set; }
+        public List<SecretaryDTO> secretaries { get; set; }
         public List<EmployeeDTO> employees { get; set; }
         public List<RoomDTO> rooms { get; set; }
         private DoctorDTO selectedDoctor;
@@ -159,28 +161,34 @@ namespace Project
                 1, new AddressDTO(1, "7A", "Bulevar despota Stefana", "Novi Sad", "Srbija", "21000"),
                 "Filip", "Zdelar", "123241129993", "+381604223222", "male", new DateTime(), 67000.00,
                 new TimeInterval(new DateTime(), new DateTime()), new TimeInterval(new DateTime(), new DateTime()),
-                "filip.zdelar@gmail.com", "pass123", medicalRoles[1]),
+                "a22@gmail.com", "pass123", medicalRoles[1]),
                 new DoctorDTO(
                 2, new AddressDTO(1, "7A", "Bulevar despota Stefana", "Novi Sad", "Srbija", "21000"),
                 "Nikola", "Selić", "123241129993", "+381604223222", "male", new DateTime(), 67000.00,
                 new TimeInterval(new DateTime(), new DateTime()), new TimeInterval(new DateTime(), new DateTime()),
-                "filip.zdelar@gmail.com", "pass123",  medicalRoles[2]),
+                "asdf@gmail.com", "pass123",  medicalRoles[2]),
                 new DoctorDTO(
                 3, new AddressDTO(1, "7A", "Bulevar despota Stefana", "Novi Sad", "Srbija", "21000"),
                 "Ivana", "Blagojević", "123241129993", "+381604223222", "female", new DateTime(), 67000.00,
                 new TimeInterval(new DateTime(), new DateTime()), new TimeInterval(new DateTime(), new DateTime()),
                 "filip.zdelar@gmail.com", "pass123", medicalRoles[3])
             };
-            employees = new List<EmployeeDTO>
+            secretaries = new List<SecretaryDTO>
             {
                 new SecretaryDTO(
                 1, new AddressDTO(1, "7A", "Bulevar despota Stefana", "Novi Sad", "Srbija", "21000"),
                 "Filip", "Zdelar", "123241129993", "+381604223222", "male", new DateTime(), 67000.00,
                 new TimeInterval(new DateTime(), new DateTime()), new TimeInterval(new DateTime(), new DateTime()),
                 "selic.work@gmail.com", "pass"),
-                doctors[0],doctors[1],doctors[2]
             };
-
+            directors = new List<DirectorDTO>
+            {
+                new DirectorDTO(
+                1, new AddressDTO(1, "7A", "Bulevar despota Stefana", "Novi Sad", "Srbija", "21000"),
+                "Filip", "Zdelar", "123241129993", "+381604223222", "male", new DateTime(), 67000.00,
+                new TimeInterval(new DateTime(), new DateTime()), new TimeInterval(new DateTime(), new DateTime()),
+                "dusan998@gmail.com", "pass"),
+            };
 
             
             patients = new List<PatientDTO>
@@ -210,11 +218,11 @@ namespace Project
             };
             medicalAppointments = new List<MedicalAppointmentDTO>{
                 new MedicalAppointmentDTO(
-                    0, new DateTime(2020, 5, 10, 15, 0, 0),  new DateTime(2020, 5, 10, 15, 30, 0),
+                    0, new DateTime(),  new DateTime(),
                     rooms[0], MedicalAppointmentType.examination ,
                     patients[0], new List<DoctorDTO>{ doctors[0], doctors[1] }),
                 new MedicalAppointmentDTO(
-                    1, new DateTime(2020, 5, 10, 15, 0, 0),  new DateTime(2020, 5, 10, 15, 30, 0),
+                    1, new DateTime(),  new DateTime(),
                     rooms[0], MedicalAppointmentType.examination ,
                     patients[0], new List<DoctorDTO>{ doctors[0], doctors[1] })
             };

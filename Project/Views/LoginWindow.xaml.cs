@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -24,7 +25,7 @@ namespace Project.Views
         App app;
         public LoginWindow()
         {
-            app = Application.Current as App;
+            app = System.Windows.Application.Current as App;
             InitializeComponent();
 
 
@@ -56,11 +57,14 @@ namespace Project.Views
 
         private void Login_Click(object sender, RoutedEventArgs e)
         {
-            var user = app.AuthenticationController.Login(Email, PasswordTextBox.Password);
-            if (user != null)
+            var role = app.AuthenticationController.Login(Email, PasswordTextBox.Password);
+            switch (role)
             {
-                var s = new Patient.HomeWindow();
-                s.Show();
+                case "Director": new Director.HomeWindow().Show(); break;
+                case "Secretary": new Secretary.SecretaryHomeWindow().Show(); break;
+                case "Doctor": new Doctor.HomeWindow().Show(); break;
+                case "Patient": new Patient.HomeWindow().Show(); break;
+                default: System.Windows.Forms.MessageBox.Show("Err", "err", MessageBoxButtons.OK); break;
             }
         }
 

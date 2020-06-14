@@ -21,7 +21,7 @@
                           Margin="0,5,0,0">
                         <Label Content="First Name:"
                                Margin="0,25,220,4" />
-                        <TextBox x:Name="lastName1"
+                        <TextBox x:Name="firstName"
                                  Margin="144,16,84,7"
                                  RenderTransformOrigin="0.5,0.5">
                             <Binding Path="RegisteringPatient.LastName"

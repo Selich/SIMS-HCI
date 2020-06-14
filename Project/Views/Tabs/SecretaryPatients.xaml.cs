@@ -51,7 +51,7 @@ namespace Project.Views.Tabs
             (item as PatientDTO).Jmbg.IndexOf(AddressSearch_TextBox.Text, StringComparison.OrdinalIgnoreCase) >= 0);
         private bool GuestFilter(object item)
           => (GuestFilter_CheckBox.IsChecked == false) ||
-            (item as PatientDTO).Email.Equals("");
+            ((item as PatientDTO).Email.Equals("") == false);
 
         private void JMBGSearch_TextBox_TextChanged(object sender, TextChangedEventArgs e)
             => CollectionViewSource.GetDefaultView(PatientList.ItemsSource).Refresh();

@@ -20,6 +20,7 @@ namespace Project.Views.Secretary
     /// </summary>
     public partial class RegisterPatient : Window
     {
+        App app;
         public PatientDTO RegisteringPatient
         {
             get;
@@ -28,19 +29,16 @@ namespace Project.Views.Secretary
         public RegisterPatient()
         {
             InitializeComponent();
+            app = Application.Current as App;
+
             this.DataContext = this;
 
-            //Profile
-            RegisteringPatient = new PatientDTO() { FirstName = "Uros", LastName = "Milovanovic",
-                DateOfBirth = new DateTime(1998, 8, 25), Email = "urke123@gmail.com", Gender = "Male",
-                InsurenceNumber = "1234567", Jmbg = "1234567890", TelephoneNumber = "06551232123",
-                Address = new Model.AddressDTO(){ City = "Novi Sad", Country = "Serbia", Number = "25", PostCode = "21000", Street = "Petra Petrovica" } };
 
         }
 
         private void Submit_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            app.patients.Add(RegisteringPatient);
         }
     }
 }
