@@ -19,6 +19,9 @@ using Project.Views.Model;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Forms;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System.IO;
 
 namespace Project.Views.Director
 {
@@ -222,32 +225,80 @@ namespace Project.Views.Director
             Propositions.Add(new PropositionDTO(5, "ZdravkoHerbiko", "Sirup za grlo", "Odbijen", 1, 8));
 
 
+            DoctorDTO newDoctor;
+            RoomDTO newRoom;
+      
             Employees = new ObservableCollection<EmployeeDTO>();
-            Employees.Add(new EmployeeDTO(address, "Sima", "Paroski", "0412631232567", "022/353452", "Male", new DateTime(1969, 6, 24), 24000, new TimeInterval(new DateTime(2020,12,5),new DateTime(2020, 12, 27)), new TimeInterval(new DateTime(2020, 12, 5), new DateTime(2020, 12, 27)), "simo@gmail.com", "sifria1","Klinicko Centar Vojvodina"));
-            Employees.Add(new EmployeeDTO(address, "Humus", "Dumus", "05553331232567", "028/352352", "Female", new DateTime(1969, 6, 24), 23000, null, null, "simo@gmail.com", "sifria1","Klinicko Centar Vojvodina"));
-            Employees.Add(new EmployeeDTO(address, "Petar", "Gringovic", "0412631232567", "022/353652", "Male", new DateTime(1969, 6, 24), 28000, null, null, "simo@gmail.com", "sifria1", "Klinicko Centar Vojvodina"));
-            Employees.Add(new EmployeeDTO(address, "Slavica", "Bubregovic", "0412631232567", "022/253452", "Female", new DateTime(1980, 6, 24), 2200, null, null, "simo@gmail.com", "sifria1","Klinicko Centar Vojvodina"));
+            Employees.Add(new SecretaryDTO(address, "Sikola", "Nelic", "0412994232567", "022/353452", "Male", new DateTime(1994, 6, 24), 50000, new TimeInterval(new DateTime(2020, 12, 5), new DateTime(2020, 12, 27)), new TimeInterval(new DateTime(2020, 12, 5, 7, 0, 0), new DateTime(2020, 12, 27, 15, 0, 0)), "simo@gmail.com", "sifria1", "Klinicko Centar Vojvodina"));
+
+            newRoom = new RoomDTO(70, RoomType.hospitalRoom, "Kardio", "3");
+            newDoctor = new DoctorDTO(address, "Sima", "Paroski", "0412631232567", "022/353452", "Male", new DateTime(1969, 6, 24), 24000, new TimeInterval(new DateTime(2020,12,5),new DateTime(2020, 12, 27)), new TimeInterval(new DateTime(2020, 12, 5,7,0,0), new DateTime(2020, 12, 27,15,0,0)), "simo@gmail.com", "sifria1","Klinicko Centar Vojvodina","Hirurg");
+            newDoctor.Appointments.Add(new MedicalAppointmentDTO(new DateTime(2020, 6, 15, 12, 40, 0), new DateTime(2020, 6, 15, 13, 50, 0), newRoom, MedicalAppointmentType.examination, null, null));
+            newDoctor.Appointments.Add(new MedicalAppointmentDTO(new DateTime(2020, 6, 15, 14, 00, 0), new DateTime(2020, 6, 15, 17, 20, 0), newRoom, MedicalAppointmentType.operation, null, null));
+            newDoctor.Appointments.Add(new MedicalAppointmentDTO(new DateTime(2020, 6, 15, 17, 35, 0), new DateTime(2020, 6, 15, 18, 25, 0), newRoom, MedicalAppointmentType.examination, null, null));
+            newDoctor.Appointments.Add(new MedicalAppointmentDTO(new DateTime(2020, 6, 16, 12, 38, 0), new DateTime(2020, 6, 16, 14, 59, 0), newRoom, MedicalAppointmentType.operation, null, null));
+            Employees.Add(newDoctor);
+
+            newRoom = new RoomDTO(120, RoomType.hospitalRoom, "Kardio", "2");
+            newDoctor =new DoctorDTO(address, "Humus", "Dumus", "05553331232567", "028/352352", "Female", new DateTime(1969, 6, 24), 23000, null, null, "simo@gmail.com", "sifria1","Klinicko Centar Vojvodina", "Opsta praksa");
+            newDoctor.Appointments.Add(new MedicalAppointmentDTO(new DateTime(2020, 6, 17, 12, 40, 0), new DateTime(2020, 6, 17, 13, 59, 0), newRoom, MedicalAppointmentType.examination, null, null));
+            newDoctor.Appointments.Add(new MedicalAppointmentDTO(new DateTime(2020, 6, 17, 14, 00, 0), new DateTime(2020, 6, 17, 16, 37, 0), newRoom, MedicalAppointmentType.examination, null, null));
+            newDoctor.Appointments.Add(new MedicalAppointmentDTO(new DateTime(2020, 6, 18, 17, 35, 0), new DateTime(2020, 6, 18, 18, 40, 0), newRoom, MedicalAppointmentType.examination, null, null));
+            newDoctor.Appointments.Add(new MedicalAppointmentDTO(new DateTime(2020, 6, 18, 18, 50, 0), new DateTime(2020, 6, 18, 19, 35, 0), newRoom, MedicalAppointmentType.operation, null, null));
+            Employees.Add(newDoctor);
+
+            newRoom = new RoomDTO(120, RoomType.hospitalRoom, "Kardio", "4");
+            newDoctor = new DoctorDTO(address, "Petar", "Gringovic", "0412631232567", "022/353652", "Male", new DateTime(1969, 6, 24), 28000, null, null, "simo@gmail.com", "sifria1", "Klinicko Centar Vojvodina", "Egzekutor");
+            newDoctor.Appointments.Add(new MedicalAppointmentDTO(new DateTime(2020, 6, 13, 12, 40, 0), new DateTime(2020, 6, 13, 13, 50, 0), newRoom, MedicalAppointmentType.operation, null, null));
+            newDoctor.Appointments.Add(new MedicalAppointmentDTO(new DateTime(2020, 6, 13, 14, 00, 0), new DateTime(2020, 6, 13, 14, 50, 0), newRoom, MedicalAppointmentType.operation, null, null));
+            newDoctor.Appointments.Add(new MedicalAppointmentDTO(new DateTime(2020, 6, 20, 17, 35, 0), new DateTime(2020, 6, 20, 18, 40, 0), newRoom, MedicalAppointmentType.examination, null, null));
+            newDoctor.Appointments.Add(new MedicalAppointmentDTO(new DateTime(2020, 6, 20, 19, 0, 0), new DateTime(2020, 6, 20, 22, 25, 0), newRoom, MedicalAppointmentType.operation, null, null));
+            Employees.Add(newDoctor);
+
+            newRoom = new RoomDTO(115, RoomType.hospitalRoom, "Kardio", "1");
+            newDoctor = new DoctorDTO(address, "Slavica", "Bubregovic", "0412631232567", "022/253452", "Female", new DateTime(1980, 6, 24), 2200, null, null, "simo@gmail.com", "sifria1","Klinicko Centar Vojvodina", "Hirurg");
+            newDoctor.Appointments.Add(new MedicalAppointmentDTO(new DateTime(2020, 6, 1, 8, 40, 0), new DateTime(2020, 6, 1, 9, 50, 0), newRoom, MedicalAppointmentType.examination, null, null));
+            newDoctor.Appointments.Add(new MedicalAppointmentDTO(new DateTime(2020, 6, 1, 14, 15, 0), new DateTime(2020, 6, 1, 15, 20, 0), newRoom, MedicalAppointmentType.operation, null, null));
+            newDoctor.Appointments.Add(new MedicalAppointmentDTO(new DateTime(2020, 6, 24, 17, 00, 0), new DateTime(2020, 6, 24, 18, 40, 0), newRoom, MedicalAppointmentType.examination, null, null));
+            newDoctor.Appointments.Add(new MedicalAppointmentDTO(new DateTime(2020, 6, 24, 19, 15, 0), new DateTime(2020, 6, 24, 19, 16, 0), newRoom, MedicalAppointmentType.examination, null, null));
+            Employees.Add(newDoctor);
+
+            newRoom = new RoomDTO(313, RoomType.hospitalRoom, "Kardio", "5");
+            newDoctor =new DoctorDTO(address, "Dusan", "Urosevic", "0405999999999", "021/321785", "Male", new DateTime(1998, 5, 4), 100000, new TimeInterval(new DateTime(2020, 5, 10), new DateTime(2020, 7, 29)), new TimeInterval(new DateTime(2020, 12, 5,12,30,0), new DateTime(2020, 12, 27,12,35,0)), "simo@gmail.com", "sifria1", "Klinicko Centar Vojvodina", "Hirurg");
+            newDoctor.Appointments.Add(new MedicalAppointmentDTO(new DateTime(2020, 6, 25, 12, 20, 0), new DateTime(2020, 6, 25, 12, 22, 0), newRoom, MedicalAppointmentType.examination, null, null));
+            newDoctor.Appointments.Add(new MedicalAppointmentDTO(new DateTime(2020, 6, 26, 12, 25, 0), new DateTime(2020, 6, 26, 12, 30, 0), newRoom, MedicalAppointmentType.examination, null, null));
+            newDoctor.Appointments.Add(new MedicalAppointmentDTO(new DateTime(2020, 6, 27, 13, 40, 0), new DateTime(2020, 6, 27, 13, 42, 0), newRoom, MedicalAppointmentType.examination, null, null));
+            Employees.Add(newDoctor);
+
+            newRoom = new RoomDTO(1914, RoomType.hospitalRoom, "Kardio", "3");
+            newDoctor=new DoctorDTO(address, "Zilip", "Felar", "0102999999999", "021/555-333", "Male", new DateTime(1998, 12, 12), 70000, new TimeInterval(new DateTime(2020, 5, 12), new DateTime(2020, 7, 12)), new TimeInterval(new DateTime(2020, 12, 31, 12, 30, 0), new DateTime(2020, 12, 31, 12, 35, 0)), "simo@gmail.com", "sifria1", "Klinicko Centar Vojvodina", "Hirurg");
+            newDoctor.Appointments.Add(new MedicalAppointmentDTO(new DateTime(2020, 6, 15, 8, 40, 0), new DateTime(2020, 6, 15, 15, 50, 0), newRoom, MedicalAppointmentType.operation, null, null));
+            newDoctor.Appointments.Add(new MedicalAppointmentDTO(new DateTime(2020, 6, 15, 15, 25, 0), new DateTime(2020, 6, 15, 15, 35, 0), newRoom, MedicalAppointmentType.examination, null, null));
+            newDoctor.Appointments.Add(new MedicalAppointmentDTO(new DateTime(2020, 6, 17, 15, 40, 0), new DateTime(2020, 6, 17, 18, 11, 0), newRoom, MedicalAppointmentType.examination, null, null));
+            newDoctor.Appointments.Add(new MedicalAppointmentDTO(new DateTime(2020, 6, 17, 18, 15, 0), new DateTime(2020, 6, 17, 19, 14, 0), newRoom, MedicalAppointmentType.examination, null, null));
+            Employees.Add(newDoctor);
+
+
             VisibleEmployees = new ObservableCollection<EmployeeDTO>(Employees);
-
-
+            
 
             Equipment = new ObservableCollection<EquipmentDTO>();
             Magacin = new RoomDTO(0,RoomType.hospitalRoom,"magacin","");
-            EquipmentDTO novi= new EquipmentDTO(1, "Sto", "Namestaj", "Ovo je sto ima cetiri noge i na njega se stavljaju stvari", Magacin);
-            Magacin.Equipment.Add(novi);
-            Equipment.Add(novi);
-            novi = new EquipmentDTO(2, "Stolica", "Namestaj", "Ovo je stolica, ima cetiri noge i na njoj se sedi", Magacin);
-            Magacin.Equipment.Add(novi);
-            Equipment.Add(novi);
-            novi=new EquipmentDTO(3,"Operacioni sto", "Oprema", "Model XYZ,...", Magacin);
-            Magacin.Equipment.Add(novi);
-            Equipment.Add(novi);
-            novi= new EquipmentDTO(4,"Vrata", "Infrastuktura", "Open Sesame", Magacin);
-            Magacin.Equipment.Add(novi);
-            Equipment.Add(novi);
-            novi= new EquipmentDTO(5,"Respirator", "Donacija", "Mehanicko disanje???", Magacin);
-            Magacin.Equipment.Add(novi);
-            Equipment.Add(novi);
+            EquipmentDTO novaOprema= new EquipmentDTO(1, "Sto", "Namestaj", "Ovo je sto ima cetiri noge i na njega se stavljaju stvari", Magacin);
+            Magacin.Equipment.Add(novaOprema);
+            Equipment.Add(novaOprema);
+            novaOprema = new EquipmentDTO(2, "Stolica", "Namestaj", "Ovo je stolica, ima cetiri noge i na njoj se sedi", Magacin);
+            Magacin.Equipment.Add(novaOprema);
+            Equipment.Add(novaOprema);
+            novaOprema = new EquipmentDTO(3,"Operacioni sto", "Oprema", "Model XYZ,...", Magacin);
+            Magacin.Equipment.Add(novaOprema);
+            Equipment.Add(novaOprema);
+            novaOprema = new EquipmentDTO(4,"Vrata", "Infrastuktura", "Open Sesame", Magacin);
+            Magacin.Equipment.Add(novaOprema);
+            Equipment.Add(novaOprema);
+            novaOprema = new EquipmentDTO(5,"Respirator", "Donacija", "Mehanicko disanje???", Magacin);
+            Magacin.Equipment.Add(novaOprema);
+            Equipment.Add(novaOprema);
             VisibleEquipment = new ObservableCollection<EquipmentDTO>(Equipment);
 
 
@@ -843,6 +894,35 @@ namespace Project.Views.Director
             VisibleMedicine = new ObservableCollection<MedicineDTO>(Medicine);
         }
 
-        
+        private void GenerateDoctorReport(object sender, RoutedEventArgs e)
+        {
+            
+            if (EmployeeReportStartDate.SelectedDate == null || EmployeeReportEndDate.SelectedDate == null)
+            {
+                System.Windows.MessageBox.Show("Neki od datuma je null");
+                return;
+            }
+            DateTime Start = EmployeeReportStartDate.SelectedDate.Value.Date;
+            DateTime End = EmployeeReportEndDate.SelectedDate.Value.Date;
+            if (DateTime.Compare(Start,End)>=0)
+            {
+                System.Windows.MessageBox.Show("Datumi moraju biti razliciti i u prirodnom redosledu");
+                return;
+            }
+            DateTime CurrentTime = DateTime.Now;
+            List<EmployeeDTO> DoctorList = new List<DoctorDTO>;
+
+            foreach (EmployeeDTO employee in Employees)
+                if (employee is DoctorDTO)
+                    DoctorList.Add(employee);
+                
+            Document doc = new Document(iTextSharp.text.PageSize.A4, 10, 10, 40, 35);
+            PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream("C:\\Users\\Lenovo_NB\\Desktop\\Izvestaj.pdf",FileMode.Create));
+            doc.Open();
+            Font font = FontFactory.GetFont(FontFactory.HELVETICA, 5);
+            iTextSharp.text.Paragraph paragraph = new iTextSharp.text.Paragraph("This is my first line using iText");
+            doc.Add(paragraph);
+            doc.Close();
+        }
     }
 }

@@ -353,17 +353,17 @@
                     <GroupBox Header="{DynamicResource report}" Margin="15,120,48,98" Padding="10" Grid.Row="1" Grid.Column="1">
                         <StackPanel>
                             <TextBlock Text="{DynamicResource beginning}"/>
-                            <DatePicker/>
+                            <DatePicker Name="EmployeeReportStartDate"/>
 
                             <TextBlock Text="{DynamicResource end}"/>
-                            <DatePicker/>
+                            <DatePicker Name="EmployeeReportEndDate"/>
                             <TextBlock><Run Text="Filter:"/></TextBlock>
                             <ComboBox>
                                 <ComboBoxItem IsSelected="True">Opcija 1</ComboBoxItem>
                                 <ComboBoxItem>Opcija 2</ComboBoxItem>
                                 <ComboBoxItem>Opcija 3</ComboBoxItem>
                             </ComboBox>
-                            <Button Margin="0,20" Content="{DynamicResource generateReport}"/>
+                            <Button Margin="0,20" Content="{DynamicResource generateReport}" Click="GenerateDoctorReport"/>
                         </StackPanel>
                     </GroupBox>
                     <Button Content="Reset" HorizontalAlignment="Left" Margin="752,41,0,0" VerticalAlignment="Top" Width="74" Click="ResetEmployeeList"/>
