@@ -57,16 +57,18 @@
                    Margin="42,104,0,0"
                    VerticalAlignment="Top" />
             <TextBox HorizontalAlignment="Left"
-                     Height="23"
-                     Margin="45,130,0,0"
+                     Height="28"
+                     Margin="45,128,0,0"
                      x:Name="LoginTextBox"
                      TextWrapping="Wrap"
                      VerticalAlignment="Top"
                      Width="219"
-                     RenderTransformOrigin="0.464,0.565" >
-                <Binding Path="Email" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                     RenderTransformOrigin="0.464,0.565">
+                <Binding Path="Email"
+                         UpdateSourceTrigger="PropertyChanged"
+                         Mode="TwoWay">
                     <Binding.ValidationRules>
-                        <util:EmailValidate ValidationStep="RawProposedValue"/>
+                        <util:EmailValidate ValidationStep="RawProposedValue" />
                     </Binding.ValidationRules>
                 </Binding>
             </TextBox>
@@ -76,13 +78,18 @@
                    VerticalAlignment="Top"
                    RenderTransformOrigin="0.552,1.998" />
             <PasswordBox  HorizontalAlignment="Left"
-                          Height="23"
+                          Height="28"
                           x:Name="PasswordTextBox"
-                          Margin="45,182,0,0"
+                          Margin="45,185,0,0"
                           VerticalAlignment="Top"
                           Width="219"
-                          RenderTransformOrigin="0.464,0.565"
-                          />
+                          RenderTransformOrigin="0.464,0.565" />
+            <Image HorizontalAlignment="Left"
+                   Height="73"
+                   Margin="121,33,0,0"
+                   VerticalAlignment="Top"
+                   Width="66"
+                   Source="../Resources/Icons/hospital.png" />
             <Button FontSize="11"
                     Content="Login"
                     HorizontalAlignment="Left"
@@ -100,54 +107,7 @@
                      Width="79"
                      Height="23"
                      Click="Register_Click" />
-            <TextBlock HorizontalAlignment="Left"
-                       Margin="42,206,0,0"
-                       TextWrapping="Wrap"
-                       Text="Forgot Password?"
-                       VerticalAlignment="Top" />
-            <Image HorizontalAlignment="Left"
-                   Height="73"
-                   Margin="121,33,0,0"
-                   VerticalAlignment="Top"
-                   Width="66"
-                   Source="../Resources/Icons/hospital.png" />
-            <Button FontSize="11"
-                    Content="Director"
-                    HorizontalAlignment="Left"
-                    Margin="-32,316,0,-34"
-                    VerticalAlignment="Top"
-                    Width="80"
-                    RenderTransformOrigin="-0.048,0.55"
-                    Height="23"
-                    Click="Director_Click" />
-            <Button FontSize="11"
-                    Content="Doctor"
-                    HorizontalAlignment="Left"
-                    Margin="263,316,-33,-34"
-                    VerticalAlignment="Top"
-                    Width="80"
-                    RenderTransformOrigin="-0.048,0.55"
-                    Height="23"
-                    Click="Doctor_Click" />
-            <Button FontSize="11"
-                    Content="Patient"
-                    HorizontalAlignment="Left"
-                    Margin="155,316,0,-34"
-                    VerticalAlignment="Top"
-                    Width="80"
-                    RenderTransformOrigin="-0.048,0.55"
-                    Height="23"
-                    Click="Patient_Click" />
 
         </Grid>
-        <Button FontSize="11"
-                Content="Secretarty"
-                HorizontalAlignment="Left"
-                Margin="108,380,0,0"
-                VerticalAlignment="Top"
-                Width="80"
-                RenderTransformOrigin="-0.048,0.55"
-                Height="23"
-                Click="Secretary_Click" />
     </Grid>
 </Window>
