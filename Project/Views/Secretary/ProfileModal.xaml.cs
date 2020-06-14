@@ -34,8 +34,6 @@ namespace Project.Views.Secretary
             Profile_FirstName.Text = dataContext.Patient.FirstName;
             Profile_LastName.Text = dataContext.Patient.LastName;
             Profile_DateOfBirth.SelectedDate = dataContext.Patient.DateOfBirth;
-            Profile_FirstName.Text = dataContext.Patient.FirstName;
-            Profile_FirstName.Text = dataContext.Patient.FirstName;
             ListAppointments.ItemsSource = app.MedicalAppointments.FindAll(item => item.Patient.Id == dataContext.Patient.Id && dataContext.Beginning.CompareTo(new DateTime()) >= 0);
             ListHistory.ItemsSource = app.MedicalAppointments.FindAll(item => item.Patient.Id == dataContext.Patient.Id && dataContext.Beginning.CompareTo(new DateTime()) < 0);
         }
@@ -61,7 +59,6 @@ namespace Project.Views.Secretary
             Profile_FirstName.IsEnabled = true;
             Profile_LastName.IsEnabled = true;
             Profile_Email.IsEnabled = true;
-            Profile_Address.IsEnabled = true;
             Profile_TelephoneNumber.IsEnabled = true;
             Profile_DateOfBirth.IsEnabled = true;
             Obustavi.Visibility = Visibility.Visible;
@@ -72,7 +69,6 @@ namespace Project.Views.Secretary
             Profile_FirstName.IsEnabled = false;
             Profile_LastName.IsEnabled = false;
             Profile_Email.IsEnabled = false;
-            Profile_Address.IsEnabled = false;
             Profile_DateOfBirth.IsEnabled = false;
             Profile_TelephoneNumber.IsEnabled = false;
             Obustavi.Visibility = Visibility.Hidden;

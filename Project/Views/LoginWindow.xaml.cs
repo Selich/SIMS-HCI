@@ -64,7 +64,7 @@ namespace Project.Views
                 case "Secretary": new Secretary.SecretaryHomeWindow().Show(); break;
                 case "Doctor": new Doctor.HomeWindow().Show(); break;
                 case "Patient": new Patient.HomeWindow().Show(); break;
-                default: System.Windows.Forms.MessageBox.Show("Err", "err", MessageBoxButtons.OK); break;
+                default: System.Windows.Forms.MessageBox.Show("Neuspešno prijavljivanje", "Neuspešno prijavljivanje", MessageBoxButtons.OK); break;
             }
         }
 
