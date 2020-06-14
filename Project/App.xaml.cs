@@ -134,6 +134,8 @@ namespace Project
 
         private static string REPORT_ROOM_PATH = ConfigurationManager.AppSettings["ReportRoomPath"].ToString();
         private static string REPORT_APPOINTMENT_PATH = ConfigurationManager.AppSettings["ReportAppointmentPath"].ToString();
+        private static string REPORT_RECIPE_PATH = ConfigurationManager.AppSettings["ReportAppointmentPath"].ToString();
+
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged(string name)
@@ -234,6 +236,7 @@ namespace Project
             // Generators
             GenerateSecretaryReport = new GenerateSecretaryReport(REPORT_APPOINTMENT_PATH);
             GeneratePatientReport = new GeneratePatientReport(REPORT_APPOINTMENT_PATH);
+            GenerateDoctorReport = new GenerateDoctorReport(REPORT_RECIPE_PATH);
 
             // Controllers
             PatientController = new PatientController(patientService, patientConverter);
@@ -246,6 +249,7 @@ namespace Project
 
         public IPDFReport<TimeInterval> GenerateSecretaryReport { get; private set; }
         public IPDFReport<TimeInterval> GeneratePatientReport { get; private set; }
+        public IPDFReport<TimeInterval> GenerateDoctorReport { get; private set; }
 
         public AuthenticationController AuthenticationController { get; private set; }
         public IController<PatientDTO, long> PatientController { get; private set; }

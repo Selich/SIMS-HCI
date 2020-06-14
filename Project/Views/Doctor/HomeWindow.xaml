@@ -234,8 +234,8 @@
                                 <Button ToolTip="Pogledati detaljnije o pacijetovim nalazima" Content="Medicinska istorija" Margin="402.872,437.62,65.6,82.26" Click="History_Click" Height="Auto" Grid.Column="1" />
                                 <TextBlock HorizontalAlignment="Left" Height="54" Margin="155.793,18.9,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="229.6" FontSize="36" Text="[11:00 - 11:45]" Grid.Column="1"/>
                                 <TextBlock HorizontalAlignment="Left" Height="36" Margin="32.521,189.04,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188.7" FontSize="24" Grid.ColumnSpan="2"><Run Text="Ime"/><InlineUIContainer>
-                            <Label Content="Termin 15.05. 2020&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Width="338.227" Height="44.36"/>
-                        </InlineUIContainer></TextBlock>
+                                <Label Content="Termin 15.05. 2020&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Width="338.227" Height="44.36"/>
+                                </InlineUIContainer></TextBlock>
                                 <TextBlock HorizontalAlignment="Left" Height="36" Margin="32.521,225.04,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188.7" FontSize="24" Text="Prezime" Grid.ColumnSpan="2"/>
                                 <TextBlock HorizontalAlignment="Left" Height="36" Margin="32.521,307.04,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188.7" FontSize="24" Text="Boraviste" Grid.ColumnSpan="2"/>
                                 <TextBlock HorizontalAlignment="Left" Height="36" Margin="32.521,266.04,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="203.1" FontSize="24" Text="Pol" Grid.ColumnSpan="2"/>
@@ -299,7 +299,7 @@
                                 <Label Content=" Prepisani lekovi" HorizontalAlignment="Left" Margin="528.4,47.066,0,0" VerticalAlignment="Top" Grid.Column="1" Height="33.56" Width="154.8" FontSize="16"/>
                                 <Label Content="Tipovi lekova" HorizontalAlignment="Left" Margin="316.6,47.066,0,0" VerticalAlignment="Top" Height="33.56" Width="108.58" FontSize="16" Grid.Column="1"/>
                                 <Button ToolTip="Izbaciti lek iz recepta"  Content="Izbaci lek" HorizontalAlignment="Left" Height="36.7" Margin="528.4,420.41,0,0" VerticalAlignment="Top" Width="154.8" Grid.Column="1"/>
-                                <Button ToolTip="Ištampati PDF file u kome će pisati prepisani lekova sa njihovom upotrebom"  Click="Alert_Click"  Content="Izštampati lek" Grid.Column="1" HorizontalAlignment="Left" Height="39.9" Margin="297.22,482.633,0,0" VerticalAlignment="Top" Width="154.8"/>
+                                <Button ToolTip="Ištampati PDF file u kome će pisati prepisani lekova sa njihovom upotrebom"  Click="Generate_Report"  Content="Izštampati lek" Grid.Column="1" HorizontalAlignment="Left" Height="39.9" Margin="297.22,482.633,0,0" VerticalAlignment="Top" Width="154.8"/>
                                 <Label Content="Odabir leka za recept" HorizontalAlignment="Left" Margin="297.22,153.19,0,0" VerticalAlignment="Top" Height="33.56" Width="162.98" FontSize="16" RenderTransformOrigin="0.83,1.211" Grid.Column="1"/>
                                 <ComboBox Margin="277.8,191.75,0,0" x:Name="ComboBox12" HorizontalAlignment="Left" VerticalAlignment="Top" Width="196.8" Height="39.16"
                 materialDesign:HintAssist.Hint="Izbor leka"
@@ -410,19 +410,18 @@
 
                                 <TextBox x:Name="NumberTextBox2" PreviewTextInput="NumberValidationTextBox"  Margin="244.8,145.257,316.632,0"  Height="39.16" VerticalAlignment="Top" Grid.Column="2"/>
                                 <ListBox Name="ListOfRosourcesesListOfResources" HorizontalAlignment="Left" Height="149.71" Margin="286.809,294.707,0,0" VerticalAlignment="Top" Width="219.492" Grid.Column="2" BorderBrush="Gray" BorderThickness="2"
-                                    ItemsSource="{Binding Path=ListOfResources, UpdateSourceTrigger=PropertyChanged}">
+                                    ItemsSource="{Binding Path=ListOfResources, UpdateSourceTrigger=PropertyChanged}" >
                                     <ListBox.ItemTemplate>
                                         <DataTemplate>
-                                            <StackPanel Orientation="Horizontal" >
-                                                <!--"{Binding Path=Name}"-->
-                                                <TextBlock Text="{Binding}" HorizontalAlignment="Left" Width="158.657"/>
-                                                <Button Content="X" HorizontalAlignment="Right" Click="DeleteElementList"/>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="{Binding}" HorizontalAlignment="Left" Width="158.657" Padding="10"/>
+                                                <Button Content="X" Tag="{Binding}" HorizontalAlignment="Right" Margin="-20, 0, 0, 0" Click="DeleteElementList"/>
                                             </StackPanel>
                                         </DataTemplate>
                                     </ListBox.ItemTemplate>
                                     <!--<ListBoxItem>
                                         <StackPanel Orientation="Horizontal" >
-                                            <TextBlock Text="Anestezaija 2" HorizontalAlignment="Left" Width="158.657"/>
+                                            <TextBlock Text="{Binding}" HorizontalAlignment="Left" Width="158.657"/>
                                             <Button Content="X" HorizontalAlignment="Right" Click="DeleteElementList"/>
                                         </StackPanel>
                                     </ListBoxItem>
@@ -473,20 +472,30 @@
                                 <TranslateTransform Y="0.522"/>
                             </TransformGroup>
                         </Viewbox.RenderTransform>
-                        <Calendar ToolTip="Selektijte dan za željene termine" DisplayDate="05.15.2020" Width="276.459" Height="396.441"  SelectedDate="{x:Static sys:DateTime.Today}" Name="CalendarChoose"/>
+                        <Calendar ToolTip="Selektijte dan za željene termine" DisplayDate="05.15.2020" Width="276.459" Height="396.441"  SelectedDatesChanged="CalendarChoose_SelectedDatesChanged" SelectedDate="{Binding SelectedDate}" Name="CalendarChoose" />
                     </Viewbox>
 
                     <!--<Label Content="Termini 15.05.2020" FontSize="24"  Margin="0,333.6,901.928,0" VerticalAlignment="Top" Height="42" Grid.Column="2" Grid.ColumnSpan="2"/>-->
                     <!--<Label Content="{Binding ElementName=CalendarChoose, Path=SelectedDate}" FontSize="24"  Margin="89,333.6,901.928,0" VerticalAlignment="Top" Height="42" Grid.Column="2" Grid.ColumnSpan="2"/>-->
-                    <ListBox Margin="0,380.6,901.928,28.4" Grid.Column="2" Grid.ColumnSpan="2" Name="Termini">
-                        <ListBoxItem FontSize="18" Content="09:00 - 09:45 Pregled"/>
+                    <ListBox Margin="0,380.6,989.528,28.4" Grid.Column="2" Name="Termini" ItemsSource="{Binding Appoitments, UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="2" >
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Beginning}" HorizontalAlignment="Left"/>
+                                    <TextBlock Text="   "  />
+                                    <TextBlock Text="{Binding Type}" HorizontalAlignment="Right"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                        <!--<ListBoxItem FontSize="18" Content="09:00 - 09:45 Pregled"/>
                         <ListBoxItem FontSize="18" Content="10:00 - 10:45 Kontrola"/>
                         <ListBoxItem FontSize="18" Content="11:00 - 11:45 Pregled"/>
                         <ListBoxItem FontSize="18" Content="13:00 - 13:45 Pregled"/>
                         <ListBoxItem FontSize="18" Content="14:00 - 14:45 Operacija"/>
-                        <ListBoxItem FontSize="18" Content="15:00 - 15:45 Pregled"/>
+                        <ListBoxItem FontSize="18" Content="15:00 - 15:45 Pregled"/>-->
                     </ListBox>
                     <Label Content="Termin: " FontSize="24"  Margin="0,333.6,93.056,0" VerticalAlignment="Top" Height="42" Grid.Column="2"/>
+                    <Label Content="{Binding Path=SelectedDate, UpdateSourceTrigger=PropertyChanged}" FontSize="24"  Margin="89,333.6,140.228,0" VerticalAlignment="Top" Height="42" Grid.Column="2" Grid.ColumnSpan="2" Name="SelecetedDate2" Background="{x:Null}" />
                 </Grid>
             </TabItem>
             <TabItem Header="Sevis">

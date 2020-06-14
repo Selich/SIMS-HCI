@@ -25,13 +25,23 @@ namespace Project.Views.Doctor
     {
         public ObservableCollection<MedicalAppointmentDTO> Appoitments { get; set; }
         public ObservableCollection<MedicalAppointmentDTO> PastAppoitments { get; set; }
-        public ObservableCollection<MedicalAppointmentDTO> AvailableAppoitments { get; set; }
+        public ObservableCollection<MedicalAppointmentDTO> AvailableAppoitments { get
+            { 
+                return (ObservableCollection<MedicalAppointmentDTO>) AvailableAppoitments.Where(x =>  x.Beginning.CompareTo(SelectedDate)>0 && x.Beginning.CompareTo(SelectedDate.AddDays(1)) < 0);
+            }
+            set
+            {
+            }
+        }
 
         public DoctorDTO LoggedInDoctor { get; set; }
         public PatientDTO LoggedInPatient { get; set; }
 
         public String TartgetRosource { get; set; }
         public List<String> ListOfRosourceses { get; set; }
+        public int obrisnni = 0;
+        public DateTime SelectedDate { get; set; }
+        public App app;
 
         public HomeWindow()
         {
@@ -83,6 +93,9 @@ namespace Project.Views.Doctor
 
             ListOfRosourceses = new List<string>();
             TartgetRosource = "";
+            obrisnni = 0;
+            SelectedDate = new DateTime();
+            app = Application.Current as App;
         }
 
         private void HideTextBoxes()
@@ -315,6 +328,11 @@ namespace Project.Views.Doctor
         {
             //((ListBoxItem)((StackPanel)(((Button)sender).Parent)).Parent).Visibility = Visibility.Collapsed;
             //((ListBoxItem)((DataTemplate)((StackPanel)(((Button)sender).Parent)).Parent).Parent).Visibility = Visibility.Collapsed;
+            //(((ListBox)((DataTemplate)((StackPanel)((Button)sender).Parent).Parent).Parent)).Visibility = Visibility.Collapsed;
+
+            obrisnni++;
+            ((StackPanel)((Button)sender).Parent).Visibility = Visibility.Collapsed;
+
         }
 
         private void ComboBoxItem_ContextMenuClosing(object sender, ContextMenuEventArgs e)
@@ -342,6 +360,7 @@ namespace Project.Views.Doctor
             ListOfRosourcesesListOfResources.Items.Add(TartgetRosource);
             ListOfRosourceses.Add(TartgetRosource);
             //ListOfResources.ItemTemplate Items.Add(TartgetRosource);
+
         }
 
         private void HideResource()
@@ -352,6 +371,22 @@ namespace Project.Views.Doctor
             PerdaysO.Visibility = Visibility.Collapsed;
             ResorurceText.Visibility = Visibility.Collapsed;
             AddResource.Visibility = Visibility.Collapsed;
+        }
+
+        private void CalendarChoose_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
+        {
+            SelecetedDate2.Content = SelectedDate.ToShortDateString();
+            
+            //var date = (SelectedDate) sender;
+            //SelecetedDate2.BorderBrush
+            //SelectedDate = (Datesender;
+        }
+
+        private void Generate_Report(object sender, RoutedEventArgs e)
+        {
+            app.GenerateDoctorReport.GenerateReport(new TimeInterval());
+            var alert = new Doctor.Alert();
+            alert.Show();
         }
     }
 }
