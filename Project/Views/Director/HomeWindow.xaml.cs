@@ -22,6 +22,7 @@ using System.Windows.Forms;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System.IO;
+using Xceed.Wpf.AvalonDock.Controls;
 
 namespace Project.Views.Director
 {
@@ -57,6 +58,8 @@ namespace Project.Views.Director
             }
         }
         public ObservableCollection<EmployeeDTO> Employees { get; set; }
+
+        public ObservableCollection<DoctorDTO> Doctors { get; set; }
 
         private ObservableCollection<EquipmentDTO> visibleEquipment;
         public ObservableCollection<EquipmentDTO> VisibleEquipment
@@ -229,6 +232,7 @@ namespace Project.Views.Director
             RoomDTO newRoom;
       
             Employees = new ObservableCollection<EmployeeDTO>();
+            Doctors = new ObservableCollection<DoctorDTO>();
             Employees.Add(new SecretaryDTO(address, "Sikola", "Nelic", "0412994232567", "022/353452", "Male", new DateTime(1994, 6, 24), 50000, new TimeInterval(new DateTime(2020, 12, 5), new DateTime(2020, 12, 27)), new TimeInterval(new DateTime(2020, 12, 5, 7, 0, 0), new DateTime(2020, 12, 27, 15, 0, 0)), "simo@gmail.com", "sifria1", "Klinicko Centar Vojvodina"));
 
             newRoom = new RoomDTO(70, RoomType.hospitalRoom, "Kardio", "3");
@@ -238,6 +242,7 @@ namespace Project.Views.Director
             newDoctor.Appointments.Add(new MedicalAppointmentDTO(new DateTime(2020, 6, 15, 17, 35, 0), new DateTime(2020, 6, 15, 18, 25, 0), newRoom, MedicalAppointmentType.examination, null, null));
             newDoctor.Appointments.Add(new MedicalAppointmentDTO(new DateTime(2020, 6, 16, 12, 38, 0), new DateTime(2020, 6, 16, 14, 59, 0), newRoom, MedicalAppointmentType.operation, null, null));
             Employees.Add(newDoctor);
+            Doctors.Add(newDoctor);
 
             newRoom = new RoomDTO(120, RoomType.hospitalRoom, "Kardio", "2");
             newDoctor =new DoctorDTO(address, "Humus", "Dumus", "05553331232567", "028/352352", "Female", new DateTime(1969, 6, 24), 23000, null, null, "simo@gmail.com", "sifria1","Klinicko Centar Vojvodina", "Opsta praksa");
@@ -246,6 +251,7 @@ namespace Project.Views.Director
             newDoctor.Appointments.Add(new MedicalAppointmentDTO(new DateTime(2020, 6, 18, 17, 35, 0), new DateTime(2020, 6, 18, 18, 40, 0), newRoom, MedicalAppointmentType.examination, null, null));
             newDoctor.Appointments.Add(new MedicalAppointmentDTO(new DateTime(2020, 6, 18, 18, 50, 0), new DateTime(2020, 6, 18, 19, 35, 0), newRoom, MedicalAppointmentType.operation, null, null));
             Employees.Add(newDoctor);
+            Doctors.Add(newDoctor);
 
             newRoom = new RoomDTO(120, RoomType.hospitalRoom, "Kardio", "4");
             newDoctor = new DoctorDTO(address, "Petar", "Gringovic", "0412631232567", "022/353652", "Male", new DateTime(1969, 6, 24), 28000, null, null, "simo@gmail.com", "sifria1", "Klinicko Centar Vojvodina", "Egzekutor");
@@ -254,6 +260,7 @@ namespace Project.Views.Director
             newDoctor.Appointments.Add(new MedicalAppointmentDTO(new DateTime(2020, 6, 20, 17, 35, 0), new DateTime(2020, 6, 20, 18, 40, 0), newRoom, MedicalAppointmentType.examination, null, null));
             newDoctor.Appointments.Add(new MedicalAppointmentDTO(new DateTime(2020, 6, 20, 19, 0, 0), new DateTime(2020, 6, 20, 22, 25, 0), newRoom, MedicalAppointmentType.operation, null, null));
             Employees.Add(newDoctor);
+            Doctors.Add(newDoctor);
 
             newRoom = new RoomDTO(115, RoomType.hospitalRoom, "Kardio", "1");
             newDoctor = new DoctorDTO(address, "Slavica", "Bubregovic", "0412631232567", "022/253452", "Female", new DateTime(1980, 6, 24), 2200, null, null, "simo@gmail.com", "sifria1","Klinicko Centar Vojvodina", "Hirurg");
@@ -262,6 +269,7 @@ namespace Project.Views.Director
             newDoctor.Appointments.Add(new MedicalAppointmentDTO(new DateTime(2020, 6, 24, 17, 00, 0), new DateTime(2020, 6, 24, 18, 40, 0), newRoom, MedicalAppointmentType.examination, null, null));
             newDoctor.Appointments.Add(new MedicalAppointmentDTO(new DateTime(2020, 6, 24, 19, 15, 0), new DateTime(2020, 6, 24, 19, 16, 0), newRoom, MedicalAppointmentType.examination, null, null));
             Employees.Add(newDoctor);
+            Doctors.Add(newDoctor);
 
             newRoom = new RoomDTO(313, RoomType.hospitalRoom, "Kardio", "5");
             newDoctor =new DoctorDTO(address, "Dusan", "Urosevic", "0405999999999", "021/321785", "Male", new DateTime(1998, 5, 4), 100000, new TimeInterval(new DateTime(2020, 5, 10), new DateTime(2020, 7, 29)), new TimeInterval(new DateTime(2020, 12, 5,12,30,0), new DateTime(2020, 12, 27,12,35,0)), "simo@gmail.com", "sifria1", "Klinicko Centar Vojvodina", "Hirurg");
@@ -269,6 +277,7 @@ namespace Project.Views.Director
             newDoctor.Appointments.Add(new MedicalAppointmentDTO(new DateTime(2020, 6, 26, 12, 25, 0), new DateTime(2020, 6, 26, 12, 30, 0), newRoom, MedicalAppointmentType.examination, null, null));
             newDoctor.Appointments.Add(new MedicalAppointmentDTO(new DateTime(2020, 6, 27, 13, 40, 0), new DateTime(2020, 6, 27, 13, 42, 0), newRoom, MedicalAppointmentType.examination, null, null));
             Employees.Add(newDoctor);
+            Doctors.Add(newDoctor);
 
             newRoom = new RoomDTO(1914, RoomType.hospitalRoom, "Kardio", "3");
             newDoctor=new DoctorDTO(address, "Zilip", "Felar", "0102999999999", "021/555-333", "Male", new DateTime(1998, 12, 12), 70000, new TimeInterval(new DateTime(2020, 5, 12), new DateTime(2020, 7, 12)), new TimeInterval(new DateTime(2020, 12, 31, 12, 30, 0), new DateTime(2020, 12, 31, 12, 35, 0)), "simo@gmail.com", "sifria1", "Klinicko Centar Vojvodina", "Hirurg");
@@ -277,6 +286,7 @@ namespace Project.Views.Director
             newDoctor.Appointments.Add(new MedicalAppointmentDTO(new DateTime(2020, 6, 17, 15, 40, 0), new DateTime(2020, 6, 17, 18, 11, 0), newRoom, MedicalAppointmentType.examination, null, null));
             newDoctor.Appointments.Add(new MedicalAppointmentDTO(new DateTime(2020, 6, 17, 18, 15, 0), new DateTime(2020, 6, 17, 19, 14, 0), newRoom, MedicalAppointmentType.examination, null, null));
             Employees.Add(newDoctor);
+            Doctors.Add(newDoctor);
 
 
             VisibleEmployees = new ObservableCollection<EmployeeDTO>(Employees);
@@ -909,20 +919,148 @@ namespace Project.Views.Director
                 System.Windows.MessageBox.Show("Datumi moraju biti razliciti i u prirodnom redosledu");
                 return;
             }
-            DateTime CurrentTime = DateTime.Now;
-            List<EmployeeDTO> DoctorList = new List<DoctorDTO>;
-
-            foreach (EmployeeDTO employee in Employees)
-                if (employee is DoctorDTO)
-                    DoctorList.Add(employee);
-                
+            DateTime CurrentTime = DateTime.Now;    
+                  
             Document doc = new Document(iTextSharp.text.PageSize.A4, 10, 10, 40, 35);
             PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream("C:\\Users\\Lenovo_NB\\Desktop\\Izvestaj.pdf",FileMode.Create));
             doc.Open();
-            Font font = FontFactory.GetFont(FontFactory.HELVETICA, 5);
-            iTextSharp.text.Paragraph paragraph = new iTextSharp.text.Paragraph("This is my first line using iText");
+
+            doc.Add(new iTextSharp.text.Paragraph($"Bolnica: {Director.Hospital}"));
+            doc.Add(new iTextSharp.text.Paragraph($"Datum: {CurrentTime.Day}/{CurrentTime.Month}/{CurrentTime.Year} "));
+
+            iTextSharp.text.Paragraph paragraph = new iTextSharp.text.Paragraph("IZVESTAJ O ZAUZETOSTI LEKARA \n");
+            paragraph.Alignment = 1;
             doc.Add(paragraph);
-            doc.Close();
+
+            doc.Add(new iTextSharp.text.Paragraph($"Na zahtevu upravnika: {Director.FirstName} {Director.LastName} iz {Director.Address.City} " +
+               $"formiran je sledeci izvestaj o zauzetosti lekara u periodu od {Start.Day}.{Start.Month}.{Start.Year} do {End.Day}.{End.Month}.{End.Year}. \n " +
+               $"Lekari koji su zaposleni u bolnici {Director.Hospital} su sledeci: \n"));
+
+           for(int i=0; i<Doctors.Count;i++)
+                doc.Add(new iTextSharp.text.Paragraph($"Dr.{Doctors[i].FirstName} {Doctors[i].LastName}"));
+
+            doc.Add(new iTextSharp.text.Paragraph($"\n Termini lekara u periodu od {Start.Day}.{Start.Month}.{Start.Year} do {End.Day}.{End.Month}.{End.Year}. su sledeci: \n"));
+            
+            for (int i = 0; i < Doctors.Count; i++)
+            {
+                List<MedicalAppointmentDTO> appointments = Doctors[i].Appointments;
+                if(appointments.Count==0)
+                    doc.Add(new iTextSharp.text.Paragraph($"Dr.{Doctors[i].FirstName} {Doctors[i].LastName} nema termina u ovom periodu."));
+                else
+                {
+                    doc.Add(new iTextSharp.text.Paragraph($"Dr.{Doctors[i].FirstName} {Doctors[i].LastName}: \n"));
+                    PdfPTable table = new PdfPTable(7);
+                    table.WidthPercentage = 90;
+                    table.AddCell(new Phrase("Red. br"));
+                    table.AddCell(new Phrase("Dan"));
+                    table.AddCell(new Phrase("Pocetak"));
+                    table.AddCell(new Phrase("Kraj"));
+                    table.AddCell(new Phrase("Br. Sobe"));
+                    table.AddCell(new Phrase("Sprat"));
+                    table.AddCell(new Phrase("Tip termina"));
+                    int br = 0;
+                    for (int j = 0; j <appointments.Count; j++)
+                    {
+                        if (DateTime.Compare(appointments[j].Beginning,Start)>0 && DateTime.Compare(appointments[j].End,End)<0) {
+                            br++;
+                            DateTime start=appointments[j].Beginning;
+                            DateTime end = appointments[j].End;
+                            table.AddCell(new Phrase($"{br}."));
+                            table.AddCell(new Phrase($"{start.Day}/{start.Month}/{start.Year}"));
+                            table.AddCell(new Phrase($"{start.Hour}:{start.Minute}"));
+                            table.AddCell(new Phrase($"{end.Hour}:{end.Minute}"));
+                            table.AddCell(new Phrase($"{appointments[j].Room.Id}"));
+                            table.AddCell(new Phrase($"{appointments[j].Room.Floor}"));
+                            if (appointments[j].Type == MedicalAppointmentType.examination)
+                                table.AddCell(new Phrase("Pregled"));
+                            else
+                                table.AddCell(new Phrase($"Operacija"));
+                        }
+                    }
+                    doc.Add(table);
+                }
+
+
+            }            
+
+             doc.Close();
         }
     }
 }
+/*
+ public string GeneratePdf(SmallGamePermitDto permit)
+        {
+            
+            var path = $@"C:\Users\aleksandar\Desktop\permits\permit{permit.Id.ToString()}.pdf";
+
+            Document document = new Document(PageSize.A4, 10, 10, 40, 35);
+            PdfWriter writer = PdfWriter.GetInstance(document, new FileStream(path, FileMode.Create));
+            document.Open();
+            Font font = FontFactory.GetFont(FontFactory.HELVETICA, 5);
+
+            var hunter = db.LICENCEs.Where(l => l.ID_LICENCE == permit.IssuedToLicenceId).SingleOrDefault().HUNTER;
+            var licence = db.LICENCEs.Where(l => l.ID_LICENCE == permit.IssuedToLicenceId).SingleOrDefault();
+            var tipKarte = licence.LICENCE_TYPE == "YEARLY" ? "GODISNJA" : "MESECNA";
+            var regBrojeviString = "";
+            for (int i = 0; i < permit.GroupLicences.Count; i++)
+            {
+                var lic = permit.GroupLicences.ElementAt(i);
+                regBrojeviString += lic.RegistrationNumber;
+                if (i != permit.GroupLicences.Count-1)
+                {
+                    regBrojeviString += ", ";
+                }
+            }
+            document.Add(new Paragraph("Naziv lovista: ", font));
+            document.Add(new Paragraph("Korisnik lovista: ", font));
+            document.Add(new Paragraph("DOZVOLA ZA LOV SITNE DIVLJACI"));
+            document.Add(new Paragraph($"Strucnom pratiocu/vodji grupe: {hunter.NAME} {hunter.SURNAME} iz {hunter.CITY} {hunter.STATE};" + 
+                $"Registarski broj lovne karte {licence.REG_NO}; Vrsta lovne karte: {tipKarte}" +
+                $"Broj oruznog lista: ________________; Kalibar lovackog oruzja ____________;" +
+                $"Dozvoljava se da, sa grupom od {permit.GroupLicences.Count} lovaca, sa lovnim kartama ciji su registarski brojevi: " +
+                $"{regBrojeviString} lovi:", font));
+
+            PdfPTable table = new PdfPTable(3);
+            table.WidthPercentage = 60;
+            table.AddCell(new Phrase("Red. br", font));
+            table.AddCell(new Phrase("Vrsta sitne divljaci", font));
+            table.AddCell(new Phrase("Broj jedinki", font));
+
+            for (int i = 0; i < permit.Items.Count; i++)
+            {
+                var item = permit.Items.ElementAt(i);
+                table.AddCell(new Phrase(i + 1));
+                table.AddCell(new Phrase(item.WildGameSpeciesName));
+                table.AddCell(new Phrase(item.ShootCount));
+            }
+            document.Add(table);
+
+            var zaduzeneMarkiceString = "";
+            for (int i = 0; i < permit.Stamps.Count; i++)
+            {
+                var stamp = permit.Stamps.ElementAt(i);
+                zaduzeneMarkiceString += stamp.Number;
+                if (i != permit.Stamps.Count - 1)
+                {
+                    zaduzeneMarkiceString += ", ";
+                }
+            }
+            document.Add(new Paragraph($"Brojevi markica za obelezavanje ostreljene divljaci pre pomeranja sa mesta odstrela koje se zaduzuju: {zaduzeneMarkiceString}", font));
+            document.Add(new Paragraph($"Lov divljaci se vrsi u skladu za odredbama Zakona o divljaci i lovstvu ('Sluzbeni glasnik RS', broj 18/10) i izvrsnih propisa za sprovodjenje Zakona"));
+            //itd
+            document.Add(new Paragraph($"Dozvola za lov sitne divljaci vazi do: {permit.ExpiryDate}", font));
+            document.Add(new Paragraph("``DOBAR POGLED``"));
+            document.Add(new Paragraph($"Datum izdavanja dozvole za lov: {permit.IssuingDate}"));
+
+            document.Add(new Paragraph("M.P."));
+
+            var offical = db.USER_PROFILE.Where(e => e.USER_ID == permit.IssuedByGroundOfficalId).SingleOrDefault().EMPLOYEE;
+            document.Add(new Paragraph($"{offical.NAME} {offical.SURNAME}"));
+            document.Add(new Paragraph($"ovlasceno lice korisnika lovista"));
+
+            document.Close();
+
+            return path;
+            
+        }
+     */
