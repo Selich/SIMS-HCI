@@ -1,34 +1,29 @@
 using Project.Services;
 using Project.Model;
 using System.Collections.Generic;
+using Project.Views.Model;
+using System.Windows;
 
 namespace Project.Controllers
 {
-    public class AuthenticationController : IController<User, long>
+    public class AuthenticationController
     {
-        public User GetById(long id)
+        App app;
+        public AuthenticationController()
         {
-            throw new System.NotImplementedException();
-        }
+            app = Application.Current as App;
 
-        public IEnumerable<User> GetAll()
-        {
-            throw new System.NotImplementedException();
-        }
 
-        public User Remove(User entity)
-        {
-            throw new System.NotImplementedException();
         }
-
-        public User Save(User entity)
+        public UserDTO Login(string email, string pass)
         {
-            throw new System.NotImplementedException();
-        }
+            UserDTO returnUser = null;
+            returnUser = app.patients.Find(patient => patient.Email == email && patient.Password == pass);
+            if(returnUser == null)
+                returnUser = app.patients.Find(patient => patient.Email == email && patient.Password == pass);
 
-        public User Update(User entity)
-        {
-            throw new System.NotImplementedException();
+
+            return returnUser;
         }
     }
 }
