@@ -200,7 +200,7 @@ namespace Project
                 new PatientDTO(
                 7, new AddressDTO(1, "7A", "Bulevar despota Stefana", "Novi Sad", "Srbija", "21000"),
                 "Uros", "Milovanovic", "123241129993", "+381604223222", "male", new DateTime().AddYears(2000).AddDays(20),
-                "08763646483684", "Diplomirani Kompjuteras", "0-", 185, 92, "darkomajstorovic@gmail.com", "pass"),
+                "08763646483684", "Diplomirani Kompjuteras", "0-", 185, 92, "urkem98@gmail.com", "pass"),
             };
             rooms = new List<RoomDTO>() {
                 new RoomDTO(1, RoomType.hospitalRoom, "One", "Check"),

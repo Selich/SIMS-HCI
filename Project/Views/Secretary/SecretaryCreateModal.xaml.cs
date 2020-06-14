@@ -46,7 +46,7 @@ namespace Project.Views.Secretary
             ListPatients.ItemsSource = app.patients;
             ListTerms.ItemsSource = app.MedicalAppointments;
             ListRooms.ItemsSource = app.rooms;
-            CurrentDoctor.Content = "Dr. " + app.SelectedDoctor.FirstName + " " + app.SelectedDoctor.LastName;
+            //CurrentDoctor.Content = "Dr. " + app.SelectedDoctor.FirstName + " " + app.SelectedDoctor.LastName;
             AppointmentType.ItemsSource = app.medicalAppointmentTypes;
 
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(ListPatients.ItemsSource);

@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project.Views"
+        xmlns:util="clr-namespace:Project.Views.Utils.Validation"
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
         Title="LoginWindow"
@@ -62,7 +63,13 @@
                      TextWrapping="Wrap"
                      VerticalAlignment="Top"
                      Width="219"
-                     RenderTransformOrigin="0.464,0.565" />
+                     RenderTransformOrigin="0.464,0.565" >
+                <Binding Path="Email" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                    <Binding.ValidationRules>
+                        <util:EmailValidate ValidationStep="RawProposedValue"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox>
             <Label Content="Password:"
                    HorizontalAlignment="Left"
                    Margin="42,161,0,0"
@@ -70,11 +77,12 @@
                    RenderTransformOrigin="0.552,1.998" />
             <PasswordBox  HorizontalAlignment="Left"
                           Height="23"
-                     x:Name="PasswordTextBox"
+                          x:Name="PasswordTextBox"
                           Margin="45,182,0,0"
                           VerticalAlignment="Top"
                           Width="219"
-                          RenderTransformOrigin="0.464,0.565" />
+                          RenderTransformOrigin="0.464,0.565"
+                          />
             <Button FontSize="11"
                     Content="Login"
                     HorizontalAlignment="Left"
