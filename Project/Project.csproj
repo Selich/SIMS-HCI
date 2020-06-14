@@ -300,6 +300,9 @@
     <Compile Include="Views\Patient\Feedback.xaml.cs">
       <DependentUpon>Feedback.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Patient\GenReport.xaml.cs">
+      <DependentUpon>GenReport.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Patient\History.xaml.cs">
       <DependentUpon>History.xaml</DependentUpon>
     </Compile>
@@ -498,6 +501,10 @@
     <Page Include="Views\Patient\Feedback.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Patient\GenReport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Patient\History.xaml">
       <Generator>MSBuild:Compile</Generator>

@@ -19,10 +19,8 @@
                     <RowDefinition Height="81*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="210*"/>
-                    <ColumnDefinition Width="0*"/>
-                    <ColumnDefinition Width="36*"/>
-                    <ColumnDefinition Width="219*"/>
+                    <ColumnDefinition Width="39*"/>
+                    <ColumnDefinition Width="425*"/>
                     <ColumnDefinition Width="27*"/>
                     <ColumnDefinition Width="254*"/>
                     <ColumnDefinition Width="207*"/>
@@ -30,19 +28,19 @@
                     <ColumnDefinition Width="157*"/>
 
                 </Grid.ColumnDefinitions>
-                <Label Content="Appoitments:"  Grid.Column="2" Grid.Row="1" VerticalAlignment="Bottom" Height="24" Grid.ColumnSpan="2"/>
+                <Label Content="Appoitments:"  Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom" Height="24"/>
                 <DataGrid x:Name="dataGridAppoitment" ItemsSource="{Binding Appoitments, Mode=TwoWay}"
-                          CanUserAddRows="False" AutoGenerateColumns="False" Grid.Column="2" Grid.Row="2" Grid.RowSpan="2" Grid.ColumnSpan="2">
+                          CanUserAddRows="False" AutoGenerateColumns="False" Grid.Column="1" Grid.Row="2" Grid.RowSpan="2">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Type" Binding="{Binding Type}"/>
                         <DataGridTextColumn Header="Time" Binding="{Binding Beginning, StringFormat=f}"/>
                         <DataGridCheckBoxColumn Header="Scheduled" Binding="{Binding IsScheduled}" />
                     </DataGrid.Columns>
                 </DataGrid>
-                <Button Grid.Row="4" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="141" Click="ConfirmAppoitments_Click" Grid.ColumnSpan="2">Confirm Changes</Button>
-                <Label Content="History:" Grid.Column="5" Grid.Row="1" VerticalAlignment="Bottom" Height="24" Margin="0.001,0,-0.001,0"/>
+                <Button Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="141" Click="ConfirmAppoitments_Click">Confirm Changes</Button>
+                <Label Content="History:" Grid.Column="3" Grid.Row="1" VerticalAlignment="Bottom" Height="24"/>
                 <DataGrid  x:Name="dataGridPastAppoitment" ItemsSource="{Binding PastAppoitments}" IsReadOnly="True"
-                          SelectionMode="Extended" AutoGenerateColumns="False" Grid.Column="5" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="3" Margin="0.001,0,0,0">
+                          SelectionMode="Extended" AutoGenerateColumns="False" Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="3">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Type" Binding="{Binding Type}"/>
                         <DataGridTextColumn Header="Time" Binding="{Binding Beginning, StringFormat=g}"/>
@@ -56,11 +54,11 @@
                         </DataGridTemplateColumn>
                     </DataGrid.Columns>
                 </DataGrid>
-                <Button Margin="0,0,4.999,4.999" Content="Detailed History" Click="History_Click" Height="26.62" Grid.Row="1" Grid.Column="6" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="135.066"/>
-                <Button Height="26.62" Margin="10,0,0,0" Content="Feedback" Click="Feedback_Click" Grid.Column="7"  Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="91.854"/>
-                <Button Height="26.62" Margin="10.001,0,0,0" Content="FAQ" Click="FAQ_Click" Grid.Column="8" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="58.176"/>
-                <Button Height="26.62" Margin="10.001,0,0,0" Content="Generate Report" Grid.Column="8" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="136.78"/>
-                <Button Height="26.62" Margin="10,0,0,0" Content="Ask Question" Grid.Column="7" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="116.11"/>
+                <Button Margin="5" Content="Detailed History" Click="History_Click" Height="Auto" Grid.Row="1" Grid.Column="4" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+                <Button Height="Auto" Margin="10,10,10,0" Content="Feedback" Click="Feedback_Click" Grid.Column="5"  Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+                <Button Height="Auto" Margin="10,10,10,0" Content="FAQ" Click="FAQ_Click" Grid.Column="6" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+                <Button Height="Auto" Margin="10,10,10,0" Content="Generate Report" Grid.Column="6" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="Gen_Click"/>
+                <Button Height="Auto" Margin="10,10,10,0" Content="Ask Question" Grid.Column="5" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
             </Grid>
         </TabItem>
         <TabItem Header="Profile">

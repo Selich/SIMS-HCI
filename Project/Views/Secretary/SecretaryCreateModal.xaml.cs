@@ -41,6 +41,7 @@ namespace Project.Views.Secretary
             //_patientController = app.PatientController;
             //ListPatients.ItemsSource = _patientController.GetAll();
 
+            SelectedDate.SelectedDate = DateTime.Now;
             // HCI
             ListPatients.ItemsSource = app.patients;
             ListTerms.ItemsSource = app.MedicalAppointments;
@@ -48,7 +49,11 @@ namespace Project.Views.Secretary
             AppointmentType.ItemsSource = app.medicalAppointmentTypes;
 
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(ListPatients.ItemsSource);
+            CollectionView termView = (CollectionView)CollectionViewSource.GetDefaultView(ListTerms.ItemsSource);
+            CollectionView roomView = (CollectionView)CollectionViewSource.GetDefaultView(ListRooms.ItemsSource);
             view.Filter = CombinedFilter;
+            termView.Filter = TermFilter;
+            roomView.Filter = RoomFilter;
 
 
         }
@@ -61,8 +66,12 @@ namespace Project.Views.Secretary
           => (String.IsNullOrEmpty(JMBGSearch_TextBox.Text) ||
             (item as PatientDTO).Jmbg.IndexOf(FirstNameSearch_TextBox.Text, StringComparison.OrdinalIgnoreCase) >= 0);
         private bool TermFilter(object item)
-          => (String.IsNullOrEmpty(JMBGSearch_TextBox.Text) ||
-            (item as PatientDTO).Jmbg.IndexOf(FirstNameSearch_TextBox.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+          => (String.IsNullOrEmpty(SelectedDate.SelectedDate.ToString()) ||
+            (item as MedicalAppointmentDTO).Beginning.ToString().IndexOf(SelectedDate.SelectedDate.ToString(), StringComparison.OrdinalIgnoreCase) >= 0);
+
+        private bool RoomFilter(object item)
+          => (String.IsNullOrEmpty(RoomSearch_TextBox.Text) ||
+            (item as RoomDTO).Id.ToString().IndexOf(RoomSearch_TextBox.Text, StringComparison.OrdinalIgnoreCase) >= 0);
 
         private void FirstNameSearch_TextBox_TextChanged(object sender, TextChangedEventArgs e)
             => CollectionViewSource.GetDefaultView(ListPatients.ItemsSource).Refresh();
@@ -71,6 +80,12 @@ namespace Project.Views.Secretary
         private void JMBGSearch_TextBox_TextChanged(object sender, TextChangedEventArgs e)
             => CollectionViewSource.GetDefaultView(ListPatients.ItemsSource).Refresh();
 
+        private void TermSearch_TextBox_TextChanged(object sender, TextChangedEventArgs e)
+            => CollectionViewSource.GetDefaultView(ListPatients.ItemsSource).Refresh();
+        private void RoomSearch_TextBox_TextChanged(object sender, TextChangedEventArgs e)
+            => CollectionViewSource.GetDefaultView(ListRooms.ItemsSource).Refresh();
+        private void SelectedDate_SelectedDatesChanged(object sender, SelectionChangedEventArgs e) { }
+            //=> CollectionViewSource.GetDefaultView(ListTerms.ItemsSource).Refresh();
 
         private void AppointmentType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -87,7 +102,7 @@ namespace Project.Views.Secretary
 
         private void Create_Click(object sender, RoutedEventArgs e)
         {
-            if (RoomNumber_TextBox.Text == "")
+            if (RoomSearch_TextBox.Text == "")
             {
                 System.Windows.Forms.MessageBox.Show(
                     "Nije izabrana soba. Da li zelite da Vam sistem sam obezbedi dostupnu sobu?",
@@ -96,7 +111,7 @@ namespace Project.Views.Secretary
                     );
 
             }
-            if (RoomNumber_TextBox.Text == null)
+            if (RoomSearch_TextBox.Text == null)
             {
                 DialogResult result = System.Windows.Forms.MessageBox.Show(
                     "Nije izabran ni jedan lekar. Da li zelite da Vam sistem sam obezbedi dostupnog lekara?",
@@ -230,5 +245,6 @@ namespace Project.Views.Secretary
 
 
         }
+
     }
 }
