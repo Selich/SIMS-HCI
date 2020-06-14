@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Project.Views.Patient"
         xmlns:util="clr-namespace:Project.Views.Utils.Validation"
         mc:Ignorable="d"
-        Title="RateAppointment" Height="284.11" Width="213.665">
+        Title="RateAppointment" Height="284.11" Width="227.509">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="17*"/>
@@ -40,8 +40,8 @@
                 </Binding>
             </TextBox>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Height="Auto" Margin="5" >
-                <Button Content="Submt" Margin="5"/>
-                <Button Content="Cancel" Margin="5" HorizontalAlignment="Right"/>
+                <Button Content="Submit" Margin="5" Click="Submit_Click"/>
+                <Button Content="Cancel" Margin="20,5,5,5" HorizontalAlignment="Right" Click="Cancel_Click"/>
             </StackPanel>
         </StackPanel>
     </Grid>
