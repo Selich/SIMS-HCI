@@ -20,21 +20,25 @@ namespace Project.Views.Secretary
     /// </summary>
     public partial class RegisterGuest : Window
     {
-        public GuestDTO RegisteringPatient { get; set; }
+        App app;
+        public PatientDTO RegisteringPatient { get; set; }
         public RegisterGuest()
         {
             InitializeComponent();
+            app = Application.Current as App;
+            RegisteringPatient = new PatientDTO();
             this.DataContext = this;
 
             //Profile
-            RegisteringPatient = new GuestDTO() { FirstName = "Uros", LastName = "Milovanovic",
-                DateOfBirth = new DateTime(1998, 8, 25), Gender = "Male",
-                InsurenceNumber = "1234567", Jmbg = "1234567890", TelephoneNumber = "06551232123",
-                Address = new Model.AddressDTO(){ City = "Novi Sad", Country = "Serbia", Number = "25", PostCode = "21000", Street = "Petra Petrovica" } };
 
         }
 
         private void Submit_Click(object sender, RoutedEventArgs e)
+        {
+            app.patients.Add(RegisteringPatient);
+            Close();
+        }
+        private void Cancel_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }

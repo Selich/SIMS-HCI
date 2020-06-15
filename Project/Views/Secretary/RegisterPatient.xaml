@@ -8,10 +8,10 @@
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
         Title="Registruj Pacijenta"
-        Height="820"
+        Height="722"
         Width="520">
     <Grid Margin="0,0,0,0"
-          Height="789"
+          Height="775"
           VerticalAlignment="Top">
         <Grid Margin="0,0,0,71">
             <Grid Margin="10,0,0,25">
@@ -49,7 +49,7 @@
                     <Grid Height="61"
                           Margin="0,0,75,0">
                         <Label Content="Date of Birth:"
-                               Margin="-1,14,207,19" />
+                               Margin="-1,14,207,20" />
                         <DatePicker x:Name="birthDate"
                                     Margin="147,13,9,23"
                                     SelectedDate="{Binding RegisteringPatient.DateOfBirth}" />
@@ -57,7 +57,7 @@
                     <Grid Height="48">
                         <Label Content="JMBG:" />
                         <TextBox x:Name="JMBG"
-                                 Margin="146,0,85,30">
+                                 Margin="146,0,85,20">
                             <Binding Path="RegisteringPatient.Jmbg"
                                      UpdateSourceTrigger="PropertyChanged">
                                 <Binding.ValidationRules>
@@ -123,19 +123,7 @@
                             </Binding>
                         </TextBox>
                     </Grid>
-                    <Grid Height="54">
-                        <Label Content="PostCode:" />
-                        <TextBox x:Name="postCode"
-                                 Margin="146,0,85,30">
-                            <Binding Path="RegisteringPatient.Address.PostCode"
-                                     UpdateSourceTrigger="PropertyChanged">
-                                <Binding.ValidationRules>
-                                    <util:PostCodeValidate ValidationStep="RawProposedValue" />
-                                </Binding.ValidationRules>
-                            </Binding>
-                        </TextBox>
-                    </Grid>
-                    <Grid Height="60">
+                                     <Grid Height="60">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="27*" />
                             <RowDefinition Height="35*" />
@@ -197,12 +185,46 @@
                                 Content="Potvrdi"
                                 Grid.Column="0"
                                 Click="Submit_Click"
-                                Margin="2,0,214,0" />
+                                Margin="2,0,214,0" >
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="IsEnabled"
+                                        Value="false" />
+                                <Style.Triggers>
+                                    <MultiDataTrigger>
+                                        <MultiDataTrigger.Conditions>
+                                            <Condition Binding="{Binding ElementName=firstName, Path=(Validation.HasError)}"
+                                                       Value="false" />
+                                            <Condition Binding="{Binding ElementName=lastName, Path=(Validation.HasError)}"
+                                                       Value="false" />
+                                            <Condition Binding="{Binding ElementName=JMBG, Path=(Validation.HasError)}"
+                                                       Value="false" />
+                                            <Condition Binding="{Binding ElementName=insuranceNumber, Path=(Validation.HasError)}"
+                                                       Value="false" />
+                                            <Condition Binding="{Binding ElementName=country, Path=(Validation.HasError)}"
+                                                       Value="false" />
+                                            <Condition Binding="{Binding ElementName=city, Path=(Validation.HasError)}"
+                                                       Value="false" />
+                                            <Condition Binding="{Binding ElementName=street, Path=(Validation.HasError)}"
+                                                       Value="false" />
+                                            <Condition Binding="{Binding ElementName=number, Path=(Validation.HasError)}"
+                                                       Value="false" />
+                                            <Condition Binding="{Binding ElementName=email, Path=(Validation.HasError)}"
+                                                       Value="false" />
+                                        </MultiDataTrigger.Conditions>
+                                        <Setter Property="IsEnabled"
+                                                Value="true" />
+                                    </MultiDataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        </Button>
                         <Button x:Name="Cancel_Button"
+
                                 Background="Maroon"
                                 Content="Obustavi"
                                 Grid.Column="0"
-                                Click="Submit_Click"
+                                Click="Cancel_Click"
                                 Margin="218,0,0,0" />
                     </Grid>
                 </StackPanel>

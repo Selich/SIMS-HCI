@@ -21,24 +21,28 @@ namespace Project.Views.Secretary
     public partial class RegisterPatient : Window
     {
         App app;
-        public PatientDTO RegisteringPatient
-        {
-            get;
-            set;
-        }
+        public PatientDTO RegisteringPatient { get; set; }
         public RegisterPatient()
         {
             InitializeComponent();
             app = Application.Current as App;
+            RegisteringPatient = new PatientDTO();
 
             this.DataContext = this;
+
 
 
         }
 
         private void Submit_Click(object sender, RoutedEventArgs e)
         {
+            
             app.patients.Add(RegisteringPatient);
+            this.Close();
+        }
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

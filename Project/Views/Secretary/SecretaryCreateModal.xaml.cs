@@ -58,10 +58,13 @@ namespace Project.Views.Secretary
 
         }
         private bool CombinedFilter(object item)
-            => FirstNameFilter(item) && JMBGFilter( item);
+            => (FirstNameFilter(item) || LastNameFilter(item)) && JMBGFilter(item);
         private bool FirstNameFilter(object item)
           => (String.IsNullOrEmpty(FirstNameSearch_TextBox.Text) ||
             (item as PatientDTO).FirstName.IndexOf(FirstNameSearch_TextBox.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+        private bool LastNameFilter(object item)
+          => (String.IsNullOrEmpty(FirstNameSearch_TextBox.Text) ||
+            (item as PatientDTO).LastName.IndexOf(FirstNameSearch_TextBox.Text, StringComparison.OrdinalIgnoreCase) >= 0);
         private bool JMBGFilter(object item)
           => (String.IsNullOrEmpty(JMBGSearch_TextBox.Text) ||
             (item as PatientDTO).Jmbg.IndexOf(FirstNameSearch_TextBox.Text, StringComparison.OrdinalIgnoreCase) >= 0);

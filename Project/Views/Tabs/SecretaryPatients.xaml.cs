@@ -34,11 +34,14 @@ namespace Project.Views.Tabs
             view.Filter = CombinedFilter;
         }
         private bool CombinedFilter(object item)
-            => FirstNameFilter(item) && JMBGFilter(item) && GradFilter(item) && GuestFilter(item);
+            => (FirstNameFilter(item) || LastNameFilter(item)) && JMBGFilter(item) && GradFilter(item) && GuestFilter(item);
 
         private bool FirstNameFilter(object item)
           => (String.IsNullOrEmpty(PatientSearch_TextBox.Text) ||
             (item as PatientDTO).FirstName.IndexOf(PatientSearch_TextBox.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+        private bool LastNameFilter(object item)
+          => (String.IsNullOrEmpty(PatientSearch_TextBox.Text) ||
+            (item as PatientDTO).LastName.IndexOf(PatientSearch_TextBox.Text, StringComparison.OrdinalIgnoreCase) >= 0);
 
         private bool JMBGFilter(object item)
           => (String.IsNullOrEmpty(JMBGSearch_TextBox.Text) ||
@@ -72,6 +75,11 @@ namespace Project.Views.Tabs
         private void CreatePatient_Click(object sender, RoutedEventArgs e) => new RegisterPatient().Show();
 
         private void Demo_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Details_Click(object sender, RoutedEventArgs e)
         {
 
         }
