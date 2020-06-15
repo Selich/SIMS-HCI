@@ -288,7 +288,7 @@
                     </Grid.RowDefinitions>
                     <Label Content="{DynamicResource searchResults}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,36,0,0" FontSize="20" Height="35" Width="164"/>
                     <Grid Margin="40,8,40,457" Grid.Row="1" Grid.ColumnSpan="2">
-                        <ComboBox HorizontalAlignment="Left" Margin="24,36,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="-0.029,0.607">
+                        <ComboBox Name="EmployeeListType" SelectedValuePath="Content" HorizontalAlignment="Left" Margin="24,36,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="-0.029,0.607" LostFocus="FilterEmployeesByType">
                             <ComboBoxItem IsSelected="True">Svi zaposleni</ComboBoxItem>
                             <ComboBoxItem>Sekretari</ComboBoxItem>
                             <ComboBoxItem>Lekari</ComboBoxItem>

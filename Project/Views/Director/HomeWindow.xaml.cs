@@ -61,6 +61,8 @@ namespace Project.Views.Director
 
         public ObservableCollection<DoctorDTO> Doctors { get; set; }
 
+        public ObservableCollection<SecretaryDTO> Secretaries { get; set; }
+
         private ObservableCollection<EquipmentDTO> visibleEquipment;
         public ObservableCollection<EquipmentDTO> VisibleEquipment
         {
@@ -227,13 +229,17 @@ namespace Project.Views.Director
             Propositions.Add(new PropositionDTO(5,"Venospas", "Revolucionarno lecenje ozoniranjem krvi", "U razmatranju",1,1));
             Propositions.Add(new PropositionDTO(5, "ZdravkoHerbiko", "Sirup za grlo", "Odbijen", 1, 8));
 
-
+            SecretaryDTO newSecretary;
             DoctorDTO newDoctor;
             RoomDTO newRoom;
       
             Employees = new ObservableCollection<EmployeeDTO>();
             Doctors = new ObservableCollection<DoctorDTO>();
-            Employees.Add(new SecretaryDTO(address, "Sikola", "Nelic", "0412994232567", "022/353452", "Male", new DateTime(1994, 6, 24), 50000, new TimeInterval(new DateTime(2020, 12, 5), new DateTime(2020, 12, 27)), new TimeInterval(new DateTime(2020, 12, 5, 7, 0, 0), new DateTime(2020, 12, 27, 15, 0, 0)), "simo@gmail.com", "sifria1", "Klinicko Centar Vojvodina"));
+            Secretaries = new ObservableCollection<SecretaryDTO>();
+
+            newSecretary= new SecretaryDTO(address, "Sikola", "Nelic", "0412994232567", "022/353452", "Male", new DateTime(1994, 6, 24), 50000, new TimeInterval(new DateTime(2020, 12, 5), new DateTime(2020, 12, 27)), new TimeInterval(new DateTime(2020, 12, 5, 7, 0, 0), new DateTime(2020, 12, 27, 15, 0, 0)), "simo@gmail.com", "sifria1", "Klinicko Centar Vojvodina");
+            Employees.Add(newSecretary);
+            Secretaries.Add(newSecretary);
 
             newRoom = new RoomDTO(70, RoomType.hospitalRoom, "Kardio", "3");
             newDoctor = new DoctorDTO(address, "Sima", "Paroski", "0412631232567", "022/353452", "Male", new DateTime(1969, 6, 24), 24000, new TimeInterval(new DateTime(2020,12,5),new DateTime(2020, 12, 27)), new TimeInterval(new DateTime(2020, 12, 5,7,0,0), new DateTime(2020, 12, 27,15,0,0)), "simo@gmail.com", "sifria1","Klinicko Centar Vojvodina","Hirurg");
@@ -532,10 +538,29 @@ namespace Project.Views.Director
 
         private void UpdateEmployeeWorkingHours(object sender, RoutedEventArgs e)
         {
+            int s;
+            if(!Int32.TryParse(WHStartHour.Text,out s) || !Int32.TryParse(WHStartMinute.Text, out s) || !Int32.TryParse(WHEndHour.Text, out s) || !Int32.TryParse(WHEndMinute.Text, out s))
+            {
+                System.Windows.MessageBox.Show("Samo brojevi u polja za vreme");
+                return;
+            }
+
             int startHour = Int32.Parse(WHStartHour.Text);
             int startMinute = Int32.Parse(WHStartMinute.Text);
             int endHour = Int32.Parse(WHEndHour.Text);
             int endMinute = Int32.Parse(WHEndMinute.Text);
+
+            if(startHour<0 || startHour>23 || endHour<0 || endHour > 23)
+            {
+                System.Windows.MessageBox.Show("Nevalidna vrednost za sat (0-23)");
+                return;
+            }
+
+            if (startMinute < 0 || startMinute > 59 || endMinute < 0 || endMinute > 59)
+            {
+                System.Windows.MessageBox.Show("Nevalidna vrednost za minut (0-59)");
+                return;
+            }
 
             DateTime begin = new DateTime(2000, 1, 1, startHour, startMinute, 0);
             DateTime end = new DateTime(2000, 1, 1, endHour, endMinute, 0);
@@ -848,6 +873,21 @@ namespace Project.Views.Director
             VisibleRoomList = helper;
         }
 
+        private void FilterEmployeesByType(object sender, RoutedEventArgs e)
+        {
+            string type = EmployeeListType.SelectedValue.ToString();
+            if (type.Equals("Sekretari"))
+            {
+                VisibleEmployees = new ObservableCollection<EmployeeDTO>(Secretaries);
+            }
+            else if (type.Equals("Lekari"))
+            {
+                VisibleEmployees = new ObservableCollection<EmployeeDTO>(Doctors);
+            }
+            else
+                VisibleEmployees = new ObservableCollection<EmployeeDTO>(Employees);
+        }
+
         private void RoomSort(object sender, RoutedEventArgs e)
         {
             RoomDTO helper;
@@ -944,7 +984,7 @@ namespace Project.Views.Director
             for (int i = 0; i < Doctors.Count; i++)
             {
                 List<MedicalAppointmentDTO> appointments = Doctors[i].Appointments;
-                if(appointments.Count==0)
+                if(appointments==null)
                     doc.Add(new iTextSharp.text.Paragraph($"Dr.{Doctors[i].FirstName} {Doctors[i].LastName} nema termina u ovom periodu."));
                 else
                 {
@@ -985,82 +1025,8 @@ namespace Project.Views.Director
 
              doc.Close();
         }
+
+        
     }
 }
-/*
- public string GeneratePdf(SmallGamePermitDto permit)
-        {
-            
-            var path = $@"C:\Users\aleksandar\Desktop\permits\permit{permit.Id.ToString()}.pdf";
 
-            Document document = new Document(PageSize.A4, 10, 10, 40, 35);
-            PdfWriter writer = PdfWriter.GetInstance(document, new FileStream(path, FileMode.Create));
-            document.Open();
-            Font font = FontFactory.GetFont(FontFactory.HELVETICA, 5);
-
-            var hunter = db.LICENCEs.Where(l => l.ID_LICENCE == permit.IssuedToLicenceId).SingleOrDefault().HUNTER;
-            var licence = db.LICENCEs.Where(l => l.ID_LICENCE == permit.IssuedToLicenceId).SingleOrDefault();
-            var tipKarte = licence.LICENCE_TYPE == "YEARLY" ? "GODISNJA" : "MESECNA";
-            var regBrojeviString = "";
-            for (int i = 0; i < permit.GroupLicences.Count; i++)
-            {
-                var lic = permit.GroupLicences.ElementAt(i);
-                regBrojeviString += lic.RegistrationNumber;
-                if (i != permit.GroupLicences.Count-1)
-                {
-                    regBrojeviString += ", ";
-                }
-            }
-            document.Add(new Paragraph("Naziv lovista: ", font));
-            document.Add(new Paragraph("Korisnik lovista: ", font));
-            document.Add(new Paragraph("DOZVOLA ZA LOV SITNE DIVLJACI"));
-            document.Add(new Paragraph($"Strucnom pratiocu/vodji grupe: {hunter.NAME} {hunter.SURNAME} iz {hunter.CITY} {hunter.STATE};" + 
-                $"Registarski broj lovne karte {licence.REG_NO}; Vrsta lovne karte: {tipKarte}" +
-                $"Broj oruznog lista: ________________; Kalibar lovackog oruzja ____________;" +
-                $"Dozvoljava se da, sa grupom od {permit.GroupLicences.Count} lovaca, sa lovnim kartama ciji su registarski brojevi: " +
-                $"{regBrojeviString} lovi:", font));
-
-            PdfPTable table = new PdfPTable(3);
-            table.WidthPercentage = 60;
-            table.AddCell(new Phrase("Red. br", font));
-            table.AddCell(new Phrase("Vrsta sitne divljaci", font));
-            table.AddCell(new Phrase("Broj jedinki", font));
-
-            for (int i = 0; i < permit.Items.Count; i++)
-            {
-                var item = permit.Items.ElementAt(i);
-                table.AddCell(new Phrase(i + 1));
-                table.AddCell(new Phrase(item.WildGameSpeciesName));
-                table.AddCell(new Phrase(item.ShootCount));
-            }
-            document.Add(table);
-
-            var zaduzeneMarkiceString = "";
-            for (int i = 0; i < permit.Stamps.Count; i++)
-            {
-                var stamp = permit.Stamps.ElementAt(i);
-                zaduzeneMarkiceString += stamp.Number;
-                if (i != permit.Stamps.Count - 1)
-                {
-                    zaduzeneMarkiceString += ", ";
-                }
-            }
-            document.Add(new Paragraph($"Brojevi markica za obelezavanje ostreljene divljaci pre pomeranja sa mesta odstrela koje se zaduzuju: {zaduzeneMarkiceString}", font));
-            document.Add(new Paragraph($"Lov divljaci se vrsi u skladu za odredbama Zakona o divljaci i lovstvu ('Sluzbeni glasnik RS', broj 18/10) i izvrsnih propisa za sprovodjenje Zakona"));
-            //itd
-            document.Add(new Paragraph($"Dozvola za lov sitne divljaci vazi do: {permit.ExpiryDate}", font));
-            document.Add(new Paragraph("``DOBAR POGLED``"));
-            document.Add(new Paragraph($"Datum izdavanja dozvole za lov: {permit.IssuingDate}"));
-
-            document.Add(new Paragraph("M.P."));
-
-            var offical = db.USER_PROFILE.Where(e => e.USER_ID == permit.IssuedByGroundOfficalId).SingleOrDefault().EMPLOYEE;
-            document.Add(new Paragraph($"{offical.NAME} {offical.SURNAME}"));
-            document.Add(new Paragraph($"ovlasceno lice korisnika lovista"));
-
-            document.Close();
-
-            return path;
-            
-        }
-     */

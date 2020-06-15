@@ -54,9 +54,19 @@ namespace Project.Views.Director
             string Hospital = NewEmployeeHospital.Text;
 
             string[] splitAdress = NewEmployeeAddress.Text.Split(',');
+            if(splitAdress.Length!=3)
+            {
+                MessageBox.Show("Nije dobar format adrese");
+                    return;
+            }    
             AddressDTO EmployeeAddress = new AddressDTO(splitAdress[0], splitAdress[1], splitAdress[2], null, null);
 
             string[] splitDate = NewEmployeeDateOfBirth.Text.Split('/');
+            if (splitDate.Length != 3)
+            {
+                MessageBox.Show("Nije dobar format datuma");
+                return;
+            }
             DateTime EmployeeDate = new DateTime(Int32.Parse(splitDate[2]), Int32.Parse(splitDate[1]),Int32.Parse(splitDate[0]));
 
             if (Type.Equals("Lekar"))
@@ -72,6 +82,7 @@ namespace Project.Views.Director
                 doctor.Hospital = Hospital;
                 Home.Employees.Add(doctor);
                 Home.VisibleEmployees.Add(doctor);
+                Home.Doctors.Add(doctor);
             }
             else
             {
@@ -85,6 +96,8 @@ namespace Project.Views.Director
                 secretary.Hospital = Hospital;
                 Home.Employees.Add(secretary);
                 Home.VisibleEmployees.Add(secretary);
+                Home.Secretaries.Add(secretary);
+
             }
 
             this.Close();

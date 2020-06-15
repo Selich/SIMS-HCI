@@ -27,6 +27,8 @@ namespace Project.Views.Utils.Validation
         try
         {
             var s = value as string;
+
+
             if (Regex.IsMatch(s, @"^[0-9]+$"))
             {
                 int number = Int32.Parse(s);
