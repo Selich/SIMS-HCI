@@ -33,7 +33,7 @@
                         <Run Text="{Binding End, StringFormat=hh:mm}"/>
                         </TextBlock>
                     <TextBlock HorizontalAlignment="Left"
-                               Margin="894,45,0,0"
+                               Margin="870,45,0,0"
                                TextWrapping="Wrap"
                                VerticalAlignment="Top">
                             <Run Text="Soba: " />

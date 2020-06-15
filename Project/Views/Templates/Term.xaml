@@ -3,7 +3,7 @@
                     xmlns:local="clr-namespace:Project.Views.Templates">
         <DataTemplate x:Key="termTemplate">
             <Grid  Background="White" Height="25" Width="341" >
-                <TextBlock FontSize="14" Text="{Binding Beginning, StringFormat=hh:mm}" VerticalAlignment="Center" Margin="30,0,0,0"/>
+                <TextBlock FontSize="14" Text="{Binding Start, StringFormat=hh:mm}" VerticalAlignment="Center" Margin="30,0,0,0"/>
                 <TextBlock FontSize="14" Text="-" VerticalAlignment="Center" Margin="70,0,0,0"/>
                 <TextBlock FontSize="14" Text="{Binding End, StringFormat=hh:mm}" VerticalAlignment="Center" Margin="80,0,0,0"/>
             </Grid>

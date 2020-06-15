@@ -241,10 +241,10 @@ namespace Project
                 new QuestionDTO(4,"Da li je moguć svakodnevni pregled", "", patients[1], secretaries[0], DateTime.Now.AddDays(-8))
             };
             rooms = new List<RoomDTO>() {
-                new RoomDTO(1, RoomType.hospitalRoom, "One", "Check"),
-                new RoomDTO(2, RoomType.hospitalRoom, "One", "Check"),
-                new RoomDTO(3, RoomType.hospitalRoom, "One", "Check"),
-                new RoomDTO(5, RoomType.hospitalRoom, "One", "Check")
+                new RoomDTO(111, RoomType.hospitalRoom, "1. Sprat", "Check"),
+                new RoomDTO(202, RoomType.hospitalRoom, "2. Sprat", "Check"),
+                new RoomDTO(377, RoomType.hospitalRoom, "Prizemlje", "Check"),
+                new RoomDTO(404, RoomType.hospitalRoom, "Prizemlje", "Check")
             };
             medicalAppointments = new List<MedicalAppointmentDTO>{
                 new MedicalAppointmentDTO(
@@ -264,7 +264,7 @@ namespace Project
                     rooms[0], MedicalAppointmentType.operation ,
                     patients[3], new List<DoctorDTO>{ doctors[2], doctors[1] }),
                 new MedicalAppointmentDTO(
-                    3, DateTime.Now.AddHours(-6),  DateTime.Now.AddHours(-3),
+                    3, DateTime.Now.AddHours(-16),  DateTime.Now.AddHours(-13),
                     rooms[0], MedicalAppointmentType.examination ,
                     patients[4], new List<DoctorDTO>{ doctors[1], doctors[1] }),
                 new MedicalAppointmentDTO(
@@ -272,7 +272,7 @@ namespace Project
                     rooms[0], MedicalAppointmentType.examination ,
                     patients[5], new List<DoctorDTO>{ doctors[0], doctors[1] }),
                 new MedicalAppointmentDTO(
-                    5, DateTime.Now.AddHours(-6),  DateTime.Now.AddHours(-3),
+                    5, DateTime.Now.AddHours(-26),  DateTime.Now.AddHours(-23),
                     rooms[0], MedicalAppointmentType.examination ,
                     patients[6], new List<DoctorDTO>{ doctors[2], doctors[1] })
             };

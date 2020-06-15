@@ -104,6 +104,7 @@ namespace Project.Views.Secretary
             EndTime.IsEnabled = true;
             Date.IsEnabled = true;
             IzmeniCancel.Visibility = Visibility.Visible;
+            ConfirmButton.Visibility = Visibility.Visible;
             Izmeni.Visibility = Visibility.Hidden;
 
         }
@@ -115,6 +116,7 @@ namespace Project.Views.Secretary
             EndTime.IsEnabled = state;
             Date.IsEnabled = state;
             IzmeniCancel.Visibility = Visibility.Hidden;
+            ConfirmButton.Visibility = Visibility.Hidden;
             Izmeni.Visibility = Visibility.Visible;
         }
 
@@ -138,6 +140,20 @@ namespace Project.Views.Secretary
             ((DataContext as MedicalAppointmentDTO).Doctors as List<DoctorDTO>).Add(doctor);
             CollectionViewSource.GetDefaultView(DoctorList.ItemsSource).Refresh();
             CollectionViewSource.GetDefaultView(AllDoctorList.Items).Refresh();
+
+        }
+
+
+        private void ConfirmButton_Click(object sender, RoutedEventArgs e)
+        {
+            bool state = false;
+            Room.IsEnabled = state;
+            StartTime.IsEnabled = state;
+            EndTime.IsEnabled = state;
+            Date.IsEnabled = state;
+            IzmeniCancel.Visibility = Visibility.Hidden;
+            ConfirmButton.Visibility = Visibility.Hidden;
+            Izmeni.Visibility = Visibility.Visible;
 
         }
     }

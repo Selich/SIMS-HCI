@@ -44,9 +44,13 @@ namespace Project.Views.Secretary
             //ListPatients.ItemsSource = _patientController.GetAll();
 
             SelectedDate.SelectedDate = DateTime.Now;
+            List<TimeInterval> terms = new List<TimeInterval>();
+            for (int i = 1; i <= 48; i++)
+                terms.Add(new TimeInterval(DateTime.Now.AddMinutes(30*i), DateTime.Now.AddMinutes(60 * i)));
+
             // HCI
             ListPatients.ItemsSource = app.patients;
-            ListTerms.ItemsSource = app.MedicalAppointments;
+            ListTerms.ItemsSource = terms;
             ListRooms.ItemsSource = app.rooms;
             AppointmentType.ItemsSource = app.medicalAppointmentTypes;
 
@@ -71,8 +75,8 @@ namespace Project.Views.Secretary
           => (String.IsNullOrEmpty(JMBGSearch_TextBox.Text) ||
             (item as PatientDTO).Jmbg.IndexOf(FirstNameSearch_TextBox.Text, StringComparison.OrdinalIgnoreCase) >= 0);
         private bool TermFilter(object item)
-          => (String.IsNullOrEmpty(SelectedDate.SelectedDate.ToString()) ||
-            (item as MedicalAppointmentDTO).Beginning.ToString().IndexOf(SelectedDate.SelectedDate.ToString(), StringComparison.OrdinalIgnoreCase) >= 0);
+          => (String.IsNullOrEmpty(SelectedDate.SelectedDate.ToString())) ||
+           (item as TimeInterval).Start.Equals(SelectedDate.SelectedDate) == false;
 
         private bool RoomFilter(object item)
           => (String.IsNullOrEmpty(RoomSearch_TextBox.Text) ||
@@ -101,7 +105,7 @@ namespace Project.Views.Secretary
 
             CollectionViewSource.GetDefaultView(ListTerms.ItemsSource).Refresh();
         }
-        private void RoomSearch_TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void RoomNumber_TextBox_TextChanged(object sender, TextChangedEventArgs e)
             => CollectionViewSource.GetDefaultView(ListRooms.ItemsSource).Refresh();
         private void SelectedDate_SelectedDatesChanged(object sender, SelectionChangedEventArgs e) { }
             //=> CollectionViewSource.GetDefaultView(ListTerms.ItemsSource).Refresh();
@@ -160,10 +164,6 @@ namespace Project.Views.Secretary
 
         }
 
-        private void RoomNumber_TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
 
         private void StartDateTime_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
