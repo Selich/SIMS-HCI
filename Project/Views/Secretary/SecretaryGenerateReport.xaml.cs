@@ -25,6 +25,8 @@ namespace Project.Views.Secretary
         {
             InitializeComponent();
             app = Application.Current as App;
+            Beginning.SelectedDate = DateTime.Now.AddDays(-7);
+            End.SelectedDate = DateTime.Now;
         }
 
         private void GenerateReport_Button_Click(object sender, RoutedEventArgs e)
@@ -34,6 +36,7 @@ namespace Project.Views.Secretary
             DateTime from = Convert.ToDateTime(start);
             DateTime to = Convert.ToDateTime(end);
             app.GenerateSecretaryReport.GenerateReport(new TimeInterval(from,to));
+            this.Close();
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)

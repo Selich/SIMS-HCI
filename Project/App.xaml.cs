@@ -127,6 +127,7 @@ namespace Project
         public List<string> medicalRoles { get; set; }
         public List<string> roomTypes { get; set; }
         public List<string> medicalAppointmentTypes { get; set; }
+        public DateTime SelectedDate { get; set; }
 
         //
         private static string PATIENT_FILEPATH = ConfigurationManager.AppSettings["PatientPath"].ToString();
@@ -156,6 +157,8 @@ namespace Project
             medicalRoles = new List<string> { "Svi", "Opšte Prakse", "Hirurg", "Dermatolog", "Očni lekar" };
             roomTypes = new List<string> { "Bolnička Soba", "Operaciona Sala", "Soba za preglede" };
             medicalAppointmentTypes = new List<string> { "Pregled", "Operacija", "Ležanje" };
+            SelectedDate = DateTime.Now;
+
 
             doctors = new List<DoctorDTO>
             {
@@ -220,13 +223,25 @@ namespace Project
             };
             medicalAppointments = new List<MedicalAppointmentDTO>{
                 new MedicalAppointmentDTO(
-                    0, new DateTime(),  new DateTime(),
+                    0, DateTime.Now.AddHours(-1),  DateTime.Now,
                     rooms[0], MedicalAppointmentType.examination ,
                     patients[0], new List<DoctorDTO>{ doctors[0], doctors[1] }),
                 new MedicalAppointmentDTO(
-                    1, new DateTime(),  new DateTime(),
+                    1, DateTime.Now.AddHours(-2),  DateTime.Now.AddHours(-1),
                     rooms[0], MedicalAppointmentType.examination ,
-                    patients[0], new List<DoctorDTO>{ doctors[0], doctors[1] })
+                    patients[1], new List<DoctorDTO>{ doctors[1], doctors[1] }),
+                new MedicalAppointmentDTO(
+                    2, DateTime.Now.AddHours(-3),  DateTime.Now.AddHours(-2),
+                    rooms[0], MedicalAppointmentType.examination ,
+                    patients[2], new List<DoctorDTO>{ doctors[2], doctors[1] }),
+                new MedicalAppointmentDTO(
+                    2, DateTime.Now.AddHours(-6),  DateTime.Now.AddHours(-3),
+                    rooms[0], MedicalAppointmentType.operation ,
+                    patients[3], new List<DoctorDTO>{ doctors[2], doctors[1] }),
+                new MedicalAppointmentDTO(
+                    3, DateTime.Now.AddHours(-6),  DateTime.Now.AddHours(-3),
+                    rooms[0], MedicalAppointmentType.examination ,
+                    patients[0], new List<DoctorDTO>{ doctors[0], doctors[1] }),
             };
             // Converters
             var patientConverter = new PatientConverter();

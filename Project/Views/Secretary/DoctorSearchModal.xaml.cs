@@ -97,6 +97,8 @@ namespace Project.Views.Secretary
                 app.SelectedDoctor = (DoctorList.SelectedItem as DoctorDTO);
 
                 (DataContext as SecretaryAppointments).CurrentDoctor.Content = "Dr. " + app.SelectedDoctor.FirstName + " " + app.SelectedDoctor.LastName;
+                (DataContext as SecretaryAppointments).DoctorGrid.Visibility = Visibility.Visible;
+                CollectionViewSource.GetDefaultView((DataContext as SecretaryAppointments).AppointmentList.ItemsSource).Refresh();
 
                 this.Close();
 

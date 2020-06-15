@@ -29,7 +29,7 @@
                         <TextBlock HorizontalAlignment="Left" Margin="120,62,0,0" TextWrapping="Wrap" Text="{Binding Patient.Email}" VerticalAlignment="Top"/>
                         <TextBlock HorizontalAlignment="Left" Margin="870,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
                         <Run Text="{Binding Beginning, StringFormat=hh:mm}"/>
-                        <Run Text=" "/>
+                        <Run Text=":"/>
                         <Run Text="{Binding End, StringFormat=hh:mm}"/>
                         </TextBlock>
                         <TextBlock HorizontalAlignment="Left" Margin="894,45,0,0" TextWrapping="Wrap" Text="Sala 101" VerticalAlignment="Top"/>

@@ -40,7 +40,7 @@ namespace Project.Utility
             List<MedicalAppointmentDTO> list = new List<MedicalAppointmentDTO>();
 
             //TEMP data need to fix
-            RoomDTO tempRoom = new RoomDTO() { Floor = "First", Id = 101, Ward = "General Practise" };
+            RoomDTO tempRoom = new RoomDTO() { Floor = "First", Id = 101, Ward = "General Practice" };
             DoctorDTO tempDoctor = new DoctorDTO() { FirstName = "Filip", LastName="Petrovic", MedicalRole="General Practise" };
             List<DoctorDTO> tempDoctors = new List<DoctorDTO>();
             tempDoctors.Add(tempDoctor);
@@ -54,7 +54,7 @@ namespace Project.Utility
 
 
             doc.Open();
-            doc.AddTitle("Patient Appoitment Repport");
+            doc.AddTitle("Patient Appoitment Report");
             Paragraph par = new Paragraph($"Patient Appoitments from {interval.Start.ToShortDateString()} to {interval.End.ToShortDateString()}");
             par.Alignment = Element.ALIGN_CENTER;
             par.SetLeading(5, 5);
