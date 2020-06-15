@@ -35,7 +35,7 @@ namespace Project.Views.Secretary
             EndTime.Text = dataContext.End.Hour + ":" + dataContext.End.Minute;
             DoctorList.ItemsSource = dataContext.Doctors;
             AllDoctorList.ItemsSource = app.doctors;
-            Room.Text = dataContext.Room.ToString();
+            Room.Text = dataContext.Room.Id.ToString();
             
 
         }

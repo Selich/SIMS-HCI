@@ -27,6 +27,8 @@ namespace Project.Views.Secretary
         private readonly IController<PatientDTO, long> _patientController;
         public int _someVal = 0;
         private readonly CancellationTokenSource cts = new CancellationTokenSource();
+        public string Name;
+        public string Jmbg;
 
         App app;
         public SecretaryCreateModal()
@@ -95,7 +97,6 @@ namespace Project.Views.Secretary
             }
 
 
-
             ListTerms.ItemsSource = availableTerms;
 
             CollectionViewSource.GetDefaultView(ListTerms.ItemsSource).Refresh();
@@ -143,6 +144,17 @@ namespace Project.Views.Secretary
 
                 }
             }
+            MedicalAppointmentDTO appl = new MedicalAppointmentDTO();
+            appl.Patient = ListPatients.SelectedItem as PatientDTO;
+            appl.Beginning = (ListTerms.SelectedItem as TimeInterval).Start;
+            appl.End = (ListTerms.SelectedItem as TimeInterval).End;
+            appl.Room = ListRooms.SelectedItem as RoomDTO;
+            appl.Type = (MedicalAppointmentType) AppointmentType.SelectedItem;
+            List<DoctorDTO> list = new List<DoctorDTO>();
+            list.Add(app.SelectedDoctor);
+            appl.Doctors = list;
+
+            app.MedicalAppointments.Add(appl);
 
 
 
@@ -175,9 +187,6 @@ namespace Project.Views.Secretary
         }
         private async void DemoButton_Click(object sender, RoutedEventArgs e)
         {
-            _someVal++;
-            while (_someVal == 1)
-            {
 
             Brush colour = Guest_Button.Background;
             await Task.Delay(1000);
@@ -258,7 +267,6 @@ namespace Project.Views.Secretary
             CreateButton.Background = Brushes.White;
             await Task.Delay(200);
             CreateButton.Background =  colour;
-            }
             
 
 

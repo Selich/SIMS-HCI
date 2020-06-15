@@ -9,13 +9,6 @@
                 <TextBlock Text="{Binding QuestionText}"
                            FontSize="9"
                            FontWeight="Bold" />
-                <TextBlock Text="{Binding CreationDate}"
-                           HorizontalAlignment="Right"
-                           TextAlignment="Right"
-                           FontSize="7"
-                           Foreground="#FF8B8B8B" 
-                           Margin="240,10,0,0"
-                           />
             </DockPanel>
         </Grid>
     </DataTemplate>

@@ -25,11 +25,10 @@ namespace Project.Views.Secretary
         public RegisterGuest()
         {
             InitializeComponent();
+            this.DataContext = this;
             app = Application.Current as App;
             RegisteringPatient = new PatientDTO();
-            this.DataContext = this;
-
-            //Profile
+            RegisteringPatient.DateOfBirth = DateTime.Now;
 
         }
 

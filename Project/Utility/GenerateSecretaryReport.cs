@@ -28,17 +28,9 @@ namespace Project.Utility
             List<MedicalAppointmentDTO> list = app.MedicalAppointments;
             List<MedicalAppointmentDTO> returnList = new List<MedicalAppointmentDTO>();
             foreach (MedicalAppointmentDTO item in list)
-            {
-                if (
-                    item.Beginning.CompareTo(timeInterval.Start) >= 0 &&
-                    item.End.CompareTo(timeInterval.End) <= 0
-                    )
-                {
+                if ( item.Beginning.CompareTo(timeInterval.Start) <= 0 || item.End.CompareTo(timeInterval.End) >= 0 )
                     returnList.Add(item);
 
-                }
-
-            }
             return returnList;
 
         }
@@ -68,21 +60,23 @@ namespace Project.Utility
 
             if (list.Count > 0)
             {
-                PdfPTable table = new PdfPTable(4);
+                PdfPTable table = new PdfPTable(5);
                 table.WidthPercentage = 80;
 
                 table.AddCell(new Phrase("Id", font));
-                table.AddCell(new Phrase("Tip", font));
+                table.AddCell(new Phrase("Datum", font));
                 table.AddCell(new Phrase("Lekar", font));
                 table.AddCell(new Phrase("Pacijent", font));
+                table.AddCell(new Phrase("Tip", font));
 
                 for (int i = 0; i < list.Count; i++)
                 {
                     var item = list.ElementAt(i);
                     table.AddCell(new Phrase(item.Id.ToString()));
-                    table.AddCell(new Phrase(item.Type.ToString()));
+                    table.AddCell(new Phrase(item.Beginning.ToShortTimeString()));
                     table.AddCell(new Phrase(item.Doctors.ElementAt(0).FirstName + " " + item.Doctors.ElementAt(0).LastName));
                     table.AddCell(new Phrase(item.Patient.FirstName + " " + item.Patient.LastName + " " + item.Patient.Jmbg));
+                    table.AddCell(new Phrase(item.Type.ToString()));
                 }
                 doc.Add(table);
             }
