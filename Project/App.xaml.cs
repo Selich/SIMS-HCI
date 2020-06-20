@@ -133,6 +133,7 @@ namespace Project
         //
         private static string PATIENT_FILEPATH = ConfigurationManager.AppSettings["PatientPath"].ToString();
         private static string QUESTION_FILEPATH = ConfigurationManager.AppSettings["QuestionPath"].ToString();
+        private static string MEDICINE_FILEPATH = ConfigurationManager.AppSettings["MedicinePath"].ToString();
         private static string DELIMITER = ConfigurationManager.AppSettings["DelimiterValue"].ToString();
         private static string DATETIME_FORMAT = ConfigurationManager.AppSettings["DateTimeFormat"].ToString();
 
@@ -278,15 +279,18 @@ namespace Project
             };
             // Converters
             var patientConverter = new PatientConverter();
+            var medicineConverter = new MedicineConverter();
             var questionConverter = new QuestionConverter(patientConverter);
 
             // Repositories
             var patientRepository = new PatientRepository(new CSVStream<Patient>(PATIENT_FILEPATH, new PatientCSVConverter(DELIMITER, DATETIME_FORMAT)), new LongSequencer());
             var questionRepository = new QuestionRepository(new CSVStream<Question>(QUESTION_FILEPATH, new QuestionCSVConverter(DELIMITER, DATETIME_FORMAT)), new LongSequencer());
+            var medicineRepository = new MedicineRepository(new CSVStream<Question>(MEDICINE_FILEPATH, new MedicineCSVConverter(DELIMITER)), new LongSequencer());
 
             // Services
             var patientService = new PatientService(patientRepository);
             var questionService = new QuestionService(questionRepository);
+            var medicineService = new MedicineService(medicineRepository);
             var reportService = new ReportService();
 
             // Generators
@@ -296,6 +300,7 @@ namespace Project
 
             // Controllers
             PatientController = new PatientController(patientService, patientConverter);
+            MedicineController = new MedicineController(medicineService, medicineConverter);
             QuestionController = new QuestionController(questionService, questionConverter, patientConverter);
             AuthenticationController = new AuthenticationController();
             ReportController = new ReportController();
@@ -309,6 +314,7 @@ namespace Project
 
         public AuthenticationController AuthenticationController { get; private set; }
         public IController<PatientDTO, long> PatientController { get; private set; }
+        public IController<MedicineDTO, long> MedicineController { get; private set; }
         public ReportController ReportController { get; private set; }
         public IController<QuestionDTO, long> QuestionController { get; private set; }
 

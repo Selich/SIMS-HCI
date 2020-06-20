@@ -7,14 +7,29 @@ using System;
 
 namespace Project.Model
 {
-   public class Consumebles
-   {
-      private int quantity;
-      private string type;
-      private string description;
-      private string name;
-      
-      public MedicalAppointment[] medicalAppointment;
-   
-   }
+    public class Consumebles
+    {
+        public int Quantity
+        { get; set; }
+        public string Type
+        { get; set; }
+        public string Description
+        { get; set; }
+        public string Name
+        { get; set; }
+
+        public MedicalAppointment[] MedicalAppointments;
+
+        public Consumebles(int quantity, string type, string description, string name)
+        {
+            Quantity = quantity;
+            Type = type;
+            Description = description;
+            Name = name;
+        }
+
+        public Consumebles()
+        {
+        }
+    }
 }
