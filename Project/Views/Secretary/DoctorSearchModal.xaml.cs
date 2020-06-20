@@ -41,9 +41,9 @@ namespace Project.Views.Secretary
         }
         public DoctorSearchModal(SecretaryAppointments dataContext)
         {
-            this.DataContext = dataContext;
             app = System.Windows.Application.Current as App;
             InitializeComponent();
+            this.DataContext = dataContext;
             DoctorList.ItemsSource = app.doctors;
             MedicalRole_ComboBox.ItemsSource = app.medicalRoles;
 
@@ -54,9 +54,9 @@ namespace Project.Views.Secretary
 
         public DoctorSearchModal(SecretaryCreate dataContext)
         {
-            this.DataContext = dataContext;
             app = System.Windows.Application.Current as App;
             InitializeComponent();
+            this.DataContext = dataContext;
             DoctorList.ItemsSource = app.doctors;
             MedicalRole_ComboBox.ItemsSource = app.medicalRoles;
 
