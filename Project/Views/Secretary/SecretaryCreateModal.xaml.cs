@@ -27,6 +27,8 @@ namespace Project.Views.Secretary
         private readonly IController<PatientDTO, long> _patientController;
         public int _someVal = 0;
         private readonly CancellationTokenSource cts = new CancellationTokenSource();
+        public string Name;
+        public string Jmbg;
 
         App app;
         public SecretaryCreateModal()
@@ -42,9 +44,13 @@ namespace Project.Views.Secretary
             //ListPatients.ItemsSource = _patientController.GetAll();
 
             SelectedDate.SelectedDate = DateTime.Now;
+            List<TimeInterval> terms = new List<TimeInterval>();
+            for (int i = 1; i <= 48; i++)
+                terms.Add(new TimeInterval(DateTime.Now.AddMinutes(30*i), DateTime.Now.AddMinutes(60 * i)));
+
             // HCI
             ListPatients.ItemsSource = app.patients;
-            ListTerms.ItemsSource = app.MedicalAppointments;
+            ListTerms.ItemsSource = terms;
             ListRooms.ItemsSource = app.rooms;
             AppointmentType.ItemsSource = app.medicalAppointmentTypes;
 
@@ -69,8 +75,8 @@ namespace Project.Views.Secretary
           => (String.IsNullOrEmpty(JMBGSearch_TextBox.Text) ||
             (item as PatientDTO).Jmbg.IndexOf(FirstNameSearch_TextBox.Text, StringComparison.OrdinalIgnoreCase) >= 0);
         private bool TermFilter(object item)
-          => (String.IsNullOrEmpty(SelectedDate.SelectedDate.ToString()) ||
-            (item as MedicalAppointmentDTO).Beginning.ToString().IndexOf(SelectedDate.SelectedDate.ToString(), StringComparison.OrdinalIgnoreCase) >= 0);
+          => (String.IsNullOrEmpty(SelectedDate.SelectedDate.ToString())) ||
+           (item as TimeInterval).Start.Equals(SelectedDate.SelectedDate) == false;
 
         private bool RoomFilter(object item)
           => (String.IsNullOrEmpty(RoomSearch_TextBox.Text) ||
@@ -95,12 +101,11 @@ namespace Project.Views.Secretary
             }
 
 
-
             ListTerms.ItemsSource = availableTerms;
 
             CollectionViewSource.GetDefaultView(ListTerms.ItemsSource).Refresh();
         }
-        private void RoomSearch_TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void RoomNumber_TextBox_TextChanged(object sender, TextChangedEventArgs e)
             => CollectionViewSource.GetDefaultView(ListRooms.ItemsSource).Refresh();
         private void SelectedDate_SelectedDatesChanged(object sender, SelectionChangedEventArgs e) { }
             //=> CollectionViewSource.GetDefaultView(ListTerms.ItemsSource).Refresh();
@@ -143,15 +148,22 @@ namespace Project.Views.Secretary
 
                 }
             }
+            MedicalAppointmentDTO appl = new MedicalAppointmentDTO();
+            appl.Patient = ListPatients.SelectedItem as PatientDTO;
+            appl.Beginning = (ListTerms.SelectedItem as TimeInterval).Start;
+            appl.End = (ListTerms.SelectedItem as TimeInterval).End;
+            appl.Room = ListRooms.SelectedItem as RoomDTO;
+            appl.Type = (MedicalAppointmentType) AppointmentType.SelectedItem;
+            List<DoctorDTO> list = new List<DoctorDTO>();
+            list.Add(app.SelectedDoctor);
+            appl.Doctors = list;
+
+            app.MedicalAppointments.Add(appl);
 
 
 
         }
 
-        private void RoomNumber_TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
 
         private void StartDateTime_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -175,9 +187,6 @@ namespace Project.Views.Secretary
         }
         private async void DemoButton_Click(object sender, RoutedEventArgs e)
         {
-            _someVal++;
-            while (_someVal == 1)
-            {
 
             Brush colour = Guest_Button.Background;
             await Task.Delay(1000);
@@ -258,7 +267,6 @@ namespace Project.Views.Secretary
             CreateButton.Background = Brushes.White;
             await Task.Delay(200);
             CreateButton.Background =  colour;
-            }
             
 
 

@@ -57,6 +57,7 @@ namespace Project
 
 
         public List<DoctorDTO> doctors { get; set; }
+        public List<QuestionDTO> questions { get; set; }
         public List<PatientDTO> patients { get; set; }
         public List<DirectorDTO> directors { get; set; }
         public List<SecretaryDTO> secretaries { get; set; }
@@ -164,17 +165,17 @@ namespace Project
             {
                 new DoctorDTO(
                 1, new AddressDTO(1, "7A", "Bulevar despota Stefana", "Novi Sad", "Srbija", "21000"),
-                "Filip", "Zdelar", "123241129993", "+381604223222", "male", new DateTime(), 67000.00,
+                "Branislav", "Draganic", "123241129993", "+381604223222", "male", new DateTime(), 67000.00,
                 new TimeInterval(new DateTime(), new DateTime()), new TimeInterval(new DateTime(), new DateTime()),
                 "a22@gmail.com", "pass123", medicalRoles[1]),
                 new DoctorDTO(
                 2, new AddressDTO(1, "7A", "Bulevar despota Stefana", "Novi Sad", "Srbija", "21000"),
-                "Nikola", "Selić", "123241129993", "+381604223222", "male", new DateTime(), 67000.00,
+                "Nikola", "Selic", "123241129993", "+381604223222", "male", new DateTime(), 67000.00,
                 new TimeInterval(new DateTime(), new DateTime()), new TimeInterval(new DateTime(), new DateTime()),
                 "asdf@gmail.com", "pass123",  medicalRoles[2]),
                 new DoctorDTO(
                 3, new AddressDTO(1, "7A", "Bulevar despota Stefana", "Novi Sad", "Srbija", "21000"),
-                "Ivana", "Blagojević", "123241129993", "+381604223222", "female", new DateTime(), 67000.00,
+                "Ivana", "Blagojevic", "123241129993", "+381604223222", "female", new DateTime(), 67000.00,
                 new TimeInterval(new DateTime(), new DateTime()), new TimeInterval(new DateTime(), new DateTime()),
                 "filip.zdelar@gmail.com", "pass123", medicalRoles[3])
             };
@@ -195,31 +196,55 @@ namespace Project
                 "dusan998@gmail.com", "pass"),
             };
 
-            
+
             patients = new List<PatientDTO>
             {
                 new PatientDTO(
                 4, new AddressDTO(1, "7A", "Bulevar despota Stefana", "Novi Sad", "Srbija", "21000"),
-                "Darko", "Majstorović", "123241129993", "+381604223222", "male", new DateTime().AddYears(2000).AddDays(20),
+                "Darko", "Majstorovic", "123241129993", "+381604223222", "male", new DateTime().AddYears(2000).AddDays(20),
                 "08763646483684", "Diplomirani Istoričar", "0-", 185, 92, "darkomajstorovic@gmail.com", "pass"),
                 new PatientDTO(
                 5, new AddressDTO(1, "7A", "Bulevar despota Stefana", "Novi Sad", "Srbija", "21000"),
-                "Marija", "Sazdanović", "123241129993", "+381604223222", "female", new DateTime().AddYears(1994).AddDays(280),
+                "Marija", "Sazdanovic", "123241129993", "+381604223222", "female", new DateTime().AddYears(1994).AddDays(280),
                 "08763646483684", "Diplomirani Istoričar", "0-", 168, 62, "marijasazdanovic@gmail.com", "pass"),
                 new PatientDTO(
                 6, new AddressDTO(1, "7A", "Bulevar despota Stefana", "Novi Sad", "Srbija", "21000"),
-                "Zeljko", "Majstorović", "123241129993", "+381604223222", "male", new DateTime().AddYears(1997).AddDays(200),
+                "Zeljko", "Majstorovic", "123241129993", "+381604223222", "male", new DateTime().AddYears(1997).AddDays(200),
                 "08763646483684", "Diplomirani Istoričar", "0-", 185, 92, "bicatrofrtaljka@gmail.com", "pass"),
                 new PatientDTO(
                 7, new AddressDTO(1, "7A", "Bulevar despota Stefana", "Novi Sad", "Srbija", "21000"),
                 "Uros", "Milovanovic", "123241129993", "+381604223222", "male", new DateTime().AddYears(2000).AddDays(20),
                 "08763646483684", "Diplomirani Kompjuteras", "0-", 185, 92, "urkem98@gmail.com", "pass"),
+                new PatientDTO(
+                8, new AddressDTO(1, "7A", "Bulevar despota Stefana", "Novi Sad", "Srbija", "21000"),
+                "Emir", "Dep", "123241129993", "+381604223222", "male", new DateTime().AddYears(2000).AddDays(20),
+                "08763646483684", "Diplomirani Kompjuteras", "0-", 185, 92, "dep@gmail.com", "pass"),
+                new PatientDTO(
+                9, new AddressDTO(1, "7A", "Bulevar despota Stefana", "Novi Sad", "Srbija", "21000"),
+                "Covek", "Jelovac", "123241129993", "+381604223222", "male", new DateTime().AddYears(2000).AddDays(20),
+                "08763646483684", "Diplomirani Kompjuteras", "0-", 185, 92, "urm98@gmail.com", "pass"),
+                new PatientDTO(
+                10, new AddressDTO(1, "7A", "Bulevar despota Stefana", "Novi Sad", "Srbija", "21000"),
+                "Boli", "Glava", "123241129993", "+381604223222", "male", new DateTime().AddYears(2000).AddDays(20),
+                "08763646483684", "Diplomirani Kompjuteras", "0-", 185, 92, "boli@gmail.com", "pass"),
+                new PatientDTO(
+                10, new AddressDTO(1, "7A", "Bulevar despota Stefana", "Novi Sad", "Srbija", "21000"),
+                "Hasan", "Seckati", "123241129993", "+381604223222", "male", new DateTime().AddYears(2000).AddDays(20),
+                "08763646483684", "Diplomirani Kompjuteras", "0-", 185, 92, "bsi@gmail.com", "pass"),
+            };
+            questions = new List<QuestionDTO>
+            {
+                new QuestionDTO(0,"Da li je moguće zakazivanje preko interneta", "Svakako.", patients[0], secretaries[0], DateTime.Now.AddDays(-5)),
+                new QuestionDTO(1,"Da li je moguć pregled kod Slavke", "", patients[1], secretaries[0], DateTime.Now.AddDays(-8)),
+                new QuestionDTO(2,"Da li je moguć pregled kod Birovoja", "", patients[2], secretaries[0], DateTime.Now.AddDays(-2)),
+                new QuestionDTO(3,"Da li je moguć pregled kod Slavke", "", patients[3], secretaries[0], DateTime.Now.AddDays(-1)),
+                new QuestionDTO(4,"Da li je moguć svakodnevni pregled", "", patients[1], secretaries[0], DateTime.Now.AddDays(-8))
             };
             rooms = new List<RoomDTO>() {
-                new RoomDTO(1, RoomType.hospitalRoom, "One", "Check"),
-                new RoomDTO(2, RoomType.hospitalRoom, "One", "Check"),
-                new RoomDTO(3, RoomType.hospitalRoom, "One", "Check"),
-                new RoomDTO(5, RoomType.hospitalRoom, "One", "Check")
+                new RoomDTO(111, RoomType.hospitalRoom, "1. Sprat", "Check"),
+                new RoomDTO(202, RoomType.hospitalRoom, "2. Sprat", "Check"),
+                new RoomDTO(377, RoomType.hospitalRoom, "Prizemlje", "Check"),
+                new RoomDTO(404, RoomType.hospitalRoom, "Prizemlje", "Check")
             };
             medicalAppointments = new List<MedicalAppointmentDTO>{
                 new MedicalAppointmentDTO(
@@ -239,9 +264,17 @@ namespace Project
                     rooms[0], MedicalAppointmentType.operation ,
                     patients[3], new List<DoctorDTO>{ doctors[2], doctors[1] }),
                 new MedicalAppointmentDTO(
-                    3, DateTime.Now.AddHours(-6),  DateTime.Now.AddHours(-3),
+                    3, DateTime.Now.AddHours(-16),  DateTime.Now.AddHours(-13),
                     rooms[0], MedicalAppointmentType.examination ,
-                    patients[0], new List<DoctorDTO>{ doctors[0], doctors[1] }),
+                    patients[4], new List<DoctorDTO>{ doctors[1], doctors[1] }),
+                new MedicalAppointmentDTO(
+                    4, DateTime.Now.AddHours(-6),  DateTime.Now.AddHours(-3),
+                    rooms[0], MedicalAppointmentType.examination ,
+                    patients[5], new List<DoctorDTO>{ doctors[0], doctors[1] }),
+                new MedicalAppointmentDTO(
+                    5, DateTime.Now.AddHours(-26),  DateTime.Now.AddHours(-23),
+                    rooms[0], MedicalAppointmentType.examination ,
+                    patients[6], new List<DoctorDTO>{ doctors[2], doctors[1] })
             };
             // Converters
             var patientConverter = new PatientConverter();

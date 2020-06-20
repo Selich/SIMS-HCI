@@ -23,6 +23,9 @@ namespace Project.Views.Tabs
     public partial class SecretaryPatients : UserControl
     {
         App app;
+        public string JMBG { get; set; }
+        public string InsNumber { get; set; }
+        public string TextInput { get; set; }
         public SecretaryPatients()
         {
 
@@ -51,7 +54,7 @@ namespace Project.Views.Tabs
             (item as PatientDTO).Jmbg.IndexOf(AddressSearch_TextBox.Text, StringComparison.OrdinalIgnoreCase) >= 0);
         private bool GradFilter(object item)
           => (String.IsNullOrEmpty(AddressSearch_TextBox.Text) ||
-            (item as PatientDTO).Jmbg.IndexOf(AddressSearch_TextBox.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+            (item as PatientDTO).InsurenceNumber.IndexOf(AddressSearch_TextBox.Text, StringComparison.OrdinalIgnoreCase) >= 0);
         private bool GuestFilter(object item)
           => (GuestFilter_CheckBox.IsChecked == false) ||
             ((item as PatientDTO).Email.Equals("") == false);
@@ -74,14 +77,54 @@ namespace Project.Views.Tabs
 
         private void CreatePatient_Click(object sender, RoutedEventArgs e) => new RegisterPatient().Show();
 
-        private void Demo_Click(object sender, RoutedEventArgs e)
+        private async void Demo_Click(object sender, RoutedEventArgs e)
         {
 
+            Brush colour = CreatePatientButton.Background;
+            await Task.Delay(1000);
+            PatientSearch_TextBox.Text = "Darko";
+            await Task.Delay(1000);
+            PatientSearch_TextBox.Text = "";
+            await Task.Delay(1000);
+            GuestFilter_CheckBox.IsChecked = true;
+            await Task.Delay(1000);
+            GuestFilter_CheckBox.IsChecked = false;
+
+            await Task.Delay(1000);
+            AddressSearch_TextBox.Text = "23";
+            await Task.Delay(1000);
+            AddressSearch_TextBox.Text = "";
+            await Task.Delay(1000);
+
+            JMBGSearch_TextBox.Text = "23";
+            await Task.Delay(1000);
+            JMBGSearch_TextBox.Text = "";
+            await Task.Delay(1000);
+
+
+            await Task.Delay(200);
+            CreatePatientButton.Background = Brushes.Transparent;
+            await Task.Delay(200);
+            CreatePatientButton.Background = Brushes.White;
+            await Task.Delay(200);
+            CreatePatientButton.Background = colour;
+            await Task.Delay(1000);
+
+
+            await Task.Delay(200);
+            CreatePatientButton.Background = Brushes.Transparent;
+            await Task.Delay(200);
+            CreatePatientButton.Background = Brushes.White;
+            await Task.Delay(200);
+            CreatePatientButton.Background = colour;
         }
 
         private void Details_Click(object sender, RoutedEventArgs e)
         {
-
+            string id = ((Button)sender).Tag.ToString();
+            long i = long.Parse(id);
+            PatientDTO pat = app.patients.Find(patient => patient.Id == i);
+            new ProfileModal(pat).Show();
         }
     }
 }

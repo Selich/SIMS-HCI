@@ -26,6 +26,10 @@ namespace Project.Views.Secretary
 
         App app;
         public string FirstAndLastName;
+        public string Email { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string TelephoneNumber { get; set; }
         public ProfileModal(MedicalAppointmentDTO dataContext)
         {
             DataContext = dataContext;
@@ -45,8 +49,6 @@ namespace Project.Views.Secretary
             Profile_LastName.Text = dataContext.LastName;
             Profile_Email.Text = dataContext.Email;
             Profile_DateOfBirth.SelectedDate = dataContext.DateOfBirth;
-            Profile_FirstName.Text = dataContext.FirstName;
-            Profile_FirstName.Text = dataContext.FirstName;
         }
 
         private void HandleEsc(object sender, KeyEventArgs e)
@@ -59,9 +61,9 @@ namespace Project.Views.Secretary
             Profile_FirstName.IsEnabled = true;
             Profile_LastName.IsEnabled = true;
             Profile_Email.IsEnabled = true;
-            Profile_TelephoneNumber.IsEnabled = true;
             Profile_DateOfBirth.IsEnabled = true;
             Obustavi.Visibility = Visibility.Visible;
+            ConfirmButton.Visibility = Visibility.Visible;
             Izmeni.Visibility = Visibility.Hidden;
         }
         private void Cancel_Click(object sender, RoutedEventArgs e)
@@ -70,15 +72,30 @@ namespace Project.Views.Secretary
             Profile_LastName.IsEnabled = false;
             Profile_Email.IsEnabled = false;
             Profile_DateOfBirth.IsEnabled = false;
-            Profile_TelephoneNumber.IsEnabled = false;
             Obustavi.Visibility = Visibility.Hidden;
+            ConfirmButton.Visibility = Visibility.Hidden;
             Izmeni.Visibility = Visibility.Visible;
+            Profile_FirstName.Text = (DataContext as PatientDTO).FirstName;
+            Profile_LastName.Text = (DataContext as PatientDTO).LastName;
+            Profile_DateOfBirth.SelectedDate = (DataContext as PatientDTO).DateOfBirth;
+            Profile_Email.Text = (DataContext as PatientDTO).Email;
 
         }
 
         private void listAppointments_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void ConfirmButton_Click(object sender, RoutedEventArgs e)
+        {
+            Profile_FirstName.IsEnabled = false;
+            Profile_LastName.IsEnabled = false;
+            Profile_Email.IsEnabled = false;
+            Profile_DateOfBirth.IsEnabled = false;
+            Obustavi.Visibility = Visibility.Hidden;
+            ConfirmButton.Visibility = Visibility.Hidden;
+            Izmeni.Visibility = Visibility.Visible;
         }
     }
 }
