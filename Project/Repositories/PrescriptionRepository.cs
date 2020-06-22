@@ -24,16 +24,16 @@ namespace Project.Repositories
 
 
         public IEnumerable<Prescription> GetAllEager() => GetAll();
+
+        public Prescription GetAllPrescriptionsByPatientsId(long id)
+        {
+            throw new NotImplementedException();
+        }
+
         public Prescription GetEager(long id) => GetById(id);
 
-        public Prescription Remove(Prescription entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Prescription Update(Prescription entity)
-        {
-            throw new NotImplementedException();
-        }
+        private List<Prescription> GetPrescriptionsByPatientId(long id)
+        => GetPrescriptionsByPatientId(id);
+        
     }
 }
