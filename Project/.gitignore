@@ -231,4 +231,3 @@ _Pvt_Extensions
 .fake/
 *.binlog
 /.dotnet
-.metals
