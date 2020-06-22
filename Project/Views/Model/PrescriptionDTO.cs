@@ -9,9 +9,6 @@ namespace Project.Views.Model
 {
     public class PrescriptionDTO
     {
-        private Medicine medicine;
-        private Project.Model.Patient patient;
-
         public long Id { get; set; }
         public int Dosage { get; set; }
         public string Usage { get; set; }
@@ -39,17 +36,6 @@ namespace Project.Views.Model
             Period = period;
             Date = date;
             Patient = patient;
-        }
-
-        public PrescriptionDTO(long id, int dosage, string usage, string period, Medicine medicine, DateTime date, Project.Model.Patient patient)
-        {
-            Id = id;
-            Dosage = dosage;
-            Usage = usage;
-            Period = period;
-            this.medicine = medicine;
-            Date = date;
-            this.patient = patient;
         }
     }
 }

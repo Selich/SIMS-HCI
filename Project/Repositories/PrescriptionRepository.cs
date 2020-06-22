@@ -23,6 +23,16 @@ namespace Project.Repositories
         public new IEnumerable<Prescription> Find(Func<Prescription, bool> predicate) => GetAllEager().Where(predicate);
         
         public IEnumerable<Prescription> GetAllEager() => GetAll();
+
+        public Prescription GetAllPrescriptionsByPatientsId(long id)
+        {
+            throw new NotImplementedException();
+        }
+
         public Prescription GetEager(long id) => GetById(id);
+
+        private List<Prescription> GetPrescriptionsByPatientId(long id)
+        => GetPrescriptionsByPatientId(id);
+        
     }
 }

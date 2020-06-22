@@ -31,5 +31,8 @@ namespace Project.Services
         public Prescription Remove(Prescription prescription)
             => _prescriptionRepository.Remove(prescription);
 
+        public Prescription GetAllPrescriptionsByPatientsId(long id)
+            => _prescriptionRepository.GetAllPrescriptionsByPatientsId(id);
+
     }
 }

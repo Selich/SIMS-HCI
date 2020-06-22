@@ -38,9 +38,7 @@ namespace Project.Repositories
         private bool IsEmailUnique(string email)
          => GetPatientByEmail(email) == null;
 
-        private List<Prescription> GetPrescriptionsByPatientId(long id){
-            _stream.ReadAll().All(item => item.Patient.Id == id);
-        }
+
         private Patient GetPatientByEmail(string email)
     => _stream.ReadAll().SingleOrDefault(patient => patient.Email.Equals(email));
 

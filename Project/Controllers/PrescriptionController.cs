@@ -16,6 +16,7 @@ namespace Project.Controllers
         public PrescriptionController(IService<Prescription, long> service, IConverter<Prescription, PrescriptionDTO> prescriptionConverter)
         {
             _prescriptionConverter = prescriptionConverter;
+            _service = service;
         }
 
         public PrescriptionDTO GetById(long id)
@@ -34,5 +35,8 @@ namespace Project.Controllers
             => _prescriptionConverter.ConvertEntityToDTO(_service.Update(_prescriptionConverter.ConvertDTOToEntity(entity)));
 
 
+        // TODO FIlter
+        public IEnumerable<PrescriptionDTO> GetAllPrescriptionsByPatientID(long id) 
+    => _prescriptionConverter.ConvertListEntityToListDTO((List<Prescription>)_service.GetAll());
     }
 }
