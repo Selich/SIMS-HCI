@@ -39,7 +39,7 @@ namespace Project.Utility
             PatientDTO patientDTO = app.SelectedPatient;
             PrescriptionController prescriptionController;
 
-            List<Prescription> pateintsPresctiption = prescriptionController.GetAllByPatientID(patientDTO.Id);
+            //List<Prescription> pateintsPresctiption = prescriptionController.GetAllByPatientID(patientDTO.Id);
 
 
 
@@ -70,7 +70,7 @@ namespace Project.Utility
             par3.SetLeading(3, 3);
             par3.SpacingAfter = 2;
             doc.Add(par3);
-            doc.Add(new Chunk("\n"));
+            doc.Add(new Chunk("\n"));/*
             Paragraph par4 = new Paragraph(description);
 
             par4.Alignment = Element.ALIGN_CENTER;// ALIGN_LEFT;// ALIGN_MIDDLE;
@@ -123,7 +123,7 @@ namespace Project.Utility
             Paragraph par7 = new Paragraph("Potrebno je da svako od pacijenata kontaktira izabranog lekara koji će mu prepisati elektronski recept za duži vremenski period od 6 meseci.Ne mogu ljudi samo da odu do apoteke, a da prethodno nisu dobili elektronski propisanu terapiju kod izabranog lekara.");
             doc.Add(new Chunk("\n"));
             doc.Add(par7);
-
+            */
             doc.Close();
 
 
