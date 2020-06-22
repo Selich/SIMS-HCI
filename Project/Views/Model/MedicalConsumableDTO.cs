@@ -8,7 +8,7 @@ namespace Project.Views.Model
 {
     public class MedicalConsumableDTO : ConsumablesDTO
     {
-
+        public long Id {get; set;}
         public List<MedicalAppointmentDTO> Appointments { get; set; }
         public MedicalConsumableDTO() { }
 
@@ -16,6 +16,12 @@ namespace Project.Views.Model
             : base(name, type, description, quantitiy)
         {
 
+        }
+
+        public MedicalConsumableDTO(long id,string name, string type, string description, int quantitiy)
+            : base(name, type, description, quantitiy)
+        {
+            Id = id;
         }
     }
 }

@@ -158,9 +158,11 @@
     <Compile Include="Model\Reports\RoomReport.cs" />
     <Compile Include="Model\Anamnesis.cs" />
     <Compile Include="Repositories\Abstract\IMedicalAppointmentRepository.cs" />
+    <Compile Include="Repositories\Abstract\IMedicalConsumableRepository.cs" />
     <Compile Include="Repositories\Abstract\IQuestionRepository.cs" />
     <Compile Include="Repositories\Abstract\IRoomRepository.cs" />
     <Compile Include="Repositories\CSV\Converter\MedicalAppointmentCSVConverter.cs" />
+    <Compile Include="Repositories\CSV\Converter\MedicalConsumableCSVConverter.cs" />
     <Compile Include="Repositories\CSV\Converter\QuestionCSVConverter.cs" />
     <Compile Include="Repositories\CSV\Converter\RoomCSVConverter.cs" />
     <Compile Include="Repositories\ManyToMany\Converter\MedicalAppointmentToDoctorCSVConverter.cs" />
@@ -168,9 +170,11 @@
     <Compile Include="Repositories\ManyToMany\Repositories\Abstract\IMedicalAppointmentToDoctorRepository.cs" />
     <Compile Include="Repositories\ManyToMany\Repositories\MedicalAppointmentToDoctorRepository.cs" />
     <Compile Include="Repositories\MedicalAppointmentRepository.cs" />
+    <Compile Include="Repositories\MedicalConsumableRepository.cs" />
     <Compile Include="Repositories\QuestionRepository.cs" />
     <Compile Include="Repositories\RoomRepository.cs" />
     <Compile Include="Services\MedicalAppointmentService.cs" />
+    <Compile Include="Services\MedicalConsumableService.cs" />
     <Compile Include="Services\QuestionService.cs" />
     <Compile Include="Services\ReportService.cs" />
     <Compile Include="Utility\GenerateDirectorReport.cs" />
@@ -189,6 +193,7 @@
     <Compile Include="Views\Converters\IConverter.cs" />
     <Compile Include="Views\Converters\AddressConverter.cs" />
     <Compile Include="Views\Converters\MedicalAppointmentConverter.cs" />
+    <Compile Include="Views\Converters\MedicalConsumableConverter.cs" />
     <Compile Include="Views\Converters\PatientConverter.cs" />
     <Compile Include="Views\Converters\QuestionConverter.cs" />
     <Compile Include="Views\Converters\RoomConverter.cs" />
