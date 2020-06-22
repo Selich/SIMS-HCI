@@ -25,18 +25,19 @@ namespace Controller
             _service = service;
             _medicineConverter = medicineConverter;
         }
-        public MedicineDTO GetById(long id) 
+        public MedicineDTO GetById(long id)
             => _medicineConverter.ConvertEntityToDTO(_service.GetById(id));
 
-        public IEnumerable<MedicineDTO> GetAll() 
+        public IEnumerable<MedicineDTO> GetAll()
             => _medicineConverter.ConvertListEntityToListDTO((List<Medicine>)_service.GetAll());
 
-        public MedicineDTO Remove(MedicineDTO entity) 
+        public MedicineDTO Remove(MedicineDTO entity)
             => _medicineConverter.ConvertEntityToDTO(_service.Remove(_medicineConverter.ConvertDTOToEntity(entity)));
 
-        public MedicineDTO Save(MedicineDTO entity) 
+        public MedicineDTO Save(MedicineDTO entity)
             => _medicineConverter.ConvertEntityToDTO(_service.Save(_medicineConverter.ConvertDTOToEntity(entity)));
 
-        public MedicineDTO Update(MedicineDTO entity) 
+        public MedicineDTO Update(MedicineDTO entity)
             => _medicineConverter.ConvertEntityToDTO(_service.Update(_medicineConverter.ConvertDTOToEntity(entity)));
+    }
 }
