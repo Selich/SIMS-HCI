@@ -28,7 +28,7 @@ namespace Project.Repositories.CSV.Converter
                 long.Parse(tokens[0]),
                 tokens[1],
                 tokens[2],
-                (long.Parse(tokens[3]) == 1)
+                (long.Parse(tokens[3]) == 1),
                 int.Parse(tokens[4]),
                 tokens[5],
                 tokens[6],
