@@ -14,6 +14,7 @@ namespace Project.Model
         public int Dosage { get; set; }
         public string Usage { get; set; }
         public string Period { get; set; }
+        public Medicine Medicine {get; set;}
         public DateTime Date { get; set; }
         public Patient Patient { get; set; }
         public Prescription(int dosage, string usage, string period, DateTime date, Patient patient)
