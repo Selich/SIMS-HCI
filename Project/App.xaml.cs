@@ -137,6 +137,7 @@ namespace Project
         private static string MEDICINE_FILEPATH = ConfigurationManager.AppSettings["MedicinePath"].ToString();
         private static string DELIMITER = ConfigurationManager.AppSettings["DelimiterValue"].ToString();
         private static string DATETIME_FORMAT = ConfigurationManager.AppSettings["DateTimeFormat"].ToString();
+        private static string PRESCRIPTION_FILEPATH = ConfigurationManager.AppSettings["PrescriptionFormat"].ToString();
         private static string MEDICAL_CONSUMABLE_FILEPATH= ConfigurationManager.AppSettings["MedicalConsumablesPath"].ToString();
 
         private static string REPORT_ROOM_PATH = ConfigurationManager.AppSettings["ReportRoomPath"].ToString();
@@ -284,12 +285,14 @@ namespace Project
             var medicineConverter = new MedicineConverter();
             var addressConverter = new AddressConverter();
             var questionConverter = new QuestionConverter(patientConverter);
+            var prescriptionConverter = new PrescriptionConverter(patientConverter, medicineConverter);
             var medicalConsumableConverter = new MedicalConsumableConverter();
 
             // Repositories
             var patientRepository = new PatientRepository(new CSVStream<Patient>(PATIENT_FILEPATH, new PatientCSVConverter(DELIMITER, DATETIME_FORMAT)), new LongSequencer());
             var questionRepository = new QuestionRepository(new CSVStream<Question>(QUESTION_FILEPATH, new QuestionCSVConverter(DELIMITER, DATETIME_FORMAT)), new LongSequencer());
-            var medicineRepository = new MedicineRepository(new CSVStream<Question>(MEDICINE_FILEPATH, new MedicineCSVConverter(DELIMITER)), new LongSequencer());
+            var medicineRepository = new MedicineRepository(new CSVStream<Medicine>(MEDICINE_FILEPATH, new MedicineCSVConverter(DELIMITER)), new LongSequencer());
+            var prescriptionRepository = new PrescriptionRepository(new CSVStream<Prescription>(PRESCRIPTION_FILEPATH, new PrescriptionCSVConverter(DELIMITER, DATETIME_FORMAT)), new LongSequencer());
 
             var addressRepository = new AddressRepository(new CSVStream<Address>(ADDRESS_FILEPATH, new AddressCSVConverter(DELIMITER)), new LongSequencer());
             // Services
@@ -297,6 +300,7 @@ namespace Project
             var questionService = new QuestionService(questionRepository);
             var addressService = new AddressService(questionRepository);
             var medicineService = new MedicineService(medicineRepository);
+            var prescriptionService = new PrescriptionService(prescriptionRepository);
             var medicalConsumableService = new MedicalConsumableService(medicalConsumableRepository);
             var reportService = new ReportService();
 
@@ -309,6 +313,7 @@ namespace Project
             MedicalConsumableController = new MedicalConsumableController(medicalConsumableService, medicalConsumableConverter);
             AuthenticationController = new AuthenticationController();
             ReportController = new ReportController();
+            PrescriptionController = new PrescriptionController(prescriptionService, prescriptionConverter);
 
             // Generators
             GenerateSecretaryReport = new GenerateSecretaryReport(REPORT_APPOINTMENT_PATH);
@@ -334,6 +339,7 @@ namespace Project
 
 
         public IController<QuestionDTO, long> QuestionController { get; private set; }
+        public IController<PrescriptionDTO, long> PrescriptionController { get; private set; }
 
     }
 }
