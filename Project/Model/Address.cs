@@ -23,7 +23,7 @@ namespace Project.Model
         public Address()
         { }
 
-        public Address(int id, string number, string street, string city, string country, string postCode)
+        public Address(long id, string number, string street, string city, string country, string postCode)
         {
             Id = id;
             Number = number;

@@ -8,7 +8,7 @@ namespace Project.Views.Model
 {
     public class AddressDTO
     {
-        public int Id { get; set; }
+        public long Id { get; set; }
         public string Number { get; set; }
         public string Street { get; set; }
         public string City { get; set; }
@@ -20,7 +20,7 @@ namespace Project.Views.Model
 
         }
 
-        public AddressDTO(int id, string number, string street, string city, string country, string postCode)
+        public AddressDTO(long id, string number, string street, string city, string country, string postCode)
         {
             Id = id;
             Number = number;

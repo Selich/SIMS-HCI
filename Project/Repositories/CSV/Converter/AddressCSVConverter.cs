@@ -22,7 +22,7 @@ namespace Project.Repositories.CSV.Converter
 
         public Address ConvertCSVFormatToEntity(string addressCSVFormat)
         {
-            string[] tokens = acountCSVFormat.Split(_delimiter.ToCharArray());
+            string[] tokens = addressCSVFormat.Split(_delimiter.ToCharArray());
             return new Address(
                 long.Parse(tokens[0]),
                 tokens[1],
