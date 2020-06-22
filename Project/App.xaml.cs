@@ -1,4 +1,4 @@
-using System.Configuration;
+﻿using System.Configuration;
 using Project.Repositories;
 using System.Windows;
 using Project.Repositories.CSV.Converter;
@@ -293,12 +293,13 @@ namespace Project
             var questionRepository = new QuestionRepository(new CSVStream<Question>(QUESTION_FILEPATH, new QuestionCSVConverter(DELIMITER, DATETIME_FORMAT)), new LongSequencer());
             var medicineRepository = new MedicineRepository(new CSVStream<Medicine>(MEDICINE_FILEPATH, new MedicineCSVConverter(DELIMITER)), new LongSequencer());
             var prescriptionRepository = new PrescriptionRepository(new CSVStream<Prescription>(PRESCRIPTION_FILEPATH, new PrescriptionCSVConverter(DELIMITER, DATETIME_FORMAT)), new LongSequencer());
+            var medicalConsumableRepository = new MedicalConsumableRepository(new CSVStream<MedicalConsumables>(MEDICAL_CONSUMABLE_FILEPATH, new MedicalConsumableCSVConverter(DELIMITER)), new LongSequencer());
 
             var addressRepository = new AddressRepository(new CSVStream<Address>(ADDRESS_FILEPATH, new AddressCSVConverter(DELIMITER)), new LongSequencer());
             // Services
             var patientService = new PatientService(patientRepository);
             var questionService = new QuestionService(questionRepository);
-            var addressService = new AddressService(questionRepository);
+            var addressService = new AddressService(addressRepository);
             var medicineService = new MedicineService(medicineRepository);
             var prescriptionService = new PrescriptionService(prescriptionRepository);
             var medicalConsumableService = new MedicalConsumableService(medicalConsumableRepository);
@@ -330,12 +331,11 @@ namespace Project
 
         // Controllers
         public AuthenticationController AuthenticationController { get; private set; }
+        public ReportController ReportController { get; private set; }
         public IController<PatientDTO, long> PatientController { get; private set; }
         public IController<AddressDTO, long> AddressController { get; private set; }
         public IController<MedicineDTO, long> MedicineController { get; private set; }
-
         public IController<MedicalConsumableDTO, long> MedicalConsumableController { get; private set; }
-        public ReportController ReportController { get; private set; }
 
 
         public IController<QuestionDTO, long> QuestionController { get; private set; }

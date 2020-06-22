@@ -133,6 +133,8 @@
     </ApplicationDefinition>
     <Compile Include="Controllers\AppoitmentController.cs" />
     <Compile Include="Controllers\AuthenticationController.cs" />
+    <Compile Include="Controllers\AddressController.cs" />
+    <Compile Include="Controllers\PrescriptionController.cs" />
     <Compile Include="Controllers\DocumentController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\EquipmentController.cs" />
@@ -166,6 +168,7 @@
     <Compile Include="Repositories\CSV\Converter\MedicineCSVConverter.cs" />
     <Compile Include="Repositories\CSV\Converter\PresriptionCSVConverter.cs" />
     <Compile Include="Repositories\CSV\Converter\MedicalConsumableCSVConverter.cs" />
+    <Compile Include="Repositories\CSV\Converter\AddressCSVConverter.cs" />
     <Compile Include="Repositories\CSV\Converter\QuestionCSVConverter.cs" />
     <Compile Include="Repositories\CSV\Converter\RoomCSVConverter.cs" />
     <Compile Include="Repositories\ManyToMany\Converter\MedicalAppointmentToDoctorCSVConverter.cs" />
@@ -174,6 +177,7 @@
     <Compile Include="Repositories\ManyToMany\Repositories\MedicalAppointmentToDoctorRepository.cs" />
     <Compile Include="Repositories\MedicalAppointmentRepository.cs" />
     <Compile Include="Repositories\MedicineRepository.cs" />
+    <Compile Include="Repositories\AddressRepository.cs" />
     <Compile Include="Repositories\PrescriptionRepository.cs" />
     <Compile Include="Repositories\MedicalConsumableRepository.cs" />
     <Compile Include="Repositories\QuestionRepository.cs" />
@@ -183,6 +187,7 @@
     <Compile Include="Services\PrescriptionService.cs" />
     <Compile Include="Services\MedicalConsumableService.cs" />
     <Compile Include="Services\QuestionService.cs" />
+    <Compile Include="Services\AddressService.cs" />
     <Compile Include="Services\ReportService.cs" />
     <Compile Include="Utility\GenerateDirectorReport.cs" />
     <Compile Include="Utility\GenerateDoctorReport.cs" />
@@ -266,6 +271,7 @@
     <Compile Include="Model\User.cs" />
     <Compile Include="Repositories\Abstract\IIdentifiable.cs" />
     <Compile Include="Repositories\Abstract\IPatientRepository.cs" />
+    <Compile Include="Repositories\Abstract\IAddressRepository.cs" />
     <Compile Include="Repositories\Abstract\IRepository.cs" />
     <Compile Include="Repositories\AddressRepository.cs" />
     <Compile Include="Repositories\CSV\Converter\PatientCSVConverter.cs" />
