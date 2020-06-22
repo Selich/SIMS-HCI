@@ -18,6 +18,22 @@ namespace Project.Model
         {
             Id = id;
         }
+        public MedicalConsumables(long id,int quantity, string type, string description, string name)
+        {
+            Id = id;
+            Quantity = quantity;
+            Type = type;
+            Description = description;
+            Name = name;
+        }
+
+        public MedicalConsumables(int quantity, string type, string description, string name)
+        {
+            Quantity = quantity;
+            Type = type;
+            Description = description;
+            Name = name;
+        }
 
         public long GetId() => Id;
 
