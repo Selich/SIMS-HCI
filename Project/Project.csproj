@@ -144,6 +144,7 @@
     <Compile Include="Controllers\MedicineController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\PatientController.cs" />
+    <Compile Include="Controllers\PrescriptionController.cs" />
     <Compile Include="Controllers\PropositionController.cs" />
     <Compile Include="Controllers\QuestionController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
@@ -171,6 +172,7 @@
     <Compile Include="Repositories\QuestionRepository.cs" />
     <Compile Include="Repositories\RoomRepository.cs" />
     <Compile Include="Services\MedicalAppointmentService.cs" />
+    <Compile Include="Services\PrescriptionService.cs" />
     <Compile Include="Services\QuestionService.cs" />
     <Compile Include="Services\ReportService.cs" />
     <Compile Include="Utility\GenerateDirectorReport.cs" />
