@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Project.Views.Model
 {
-    public class MedicineDTO:ConsumabelsDTO
+    public class MedicineDTO : ConsumablesDTO
     {
+        public long Id { get; set; }
         public string Purpose { get; set; }
         public string Administration { get; set; }
         public bool Approved { get; set; }
@@ -18,21 +19,22 @@ namespace Project.Views.Model
 
         public MedicineDTO() { }
 
-        public MedicineDTO(int id, string name, string type, string description, int quantitiy,string purpose,string administration, bool approved)
-            : base(id,name, type, description, quantitiy)
+        public MedicineDTO(long id, string name, string type, string description, int quantity,string purpose,string administration, bool approved)
+            : base(name, type, description, quantity)
         {
-            this.Purpose = purpose;
-            this.Administration = administration;
-            this.Approved = approved;
+            Id = id; 
+            Purpose = purpose;
+            Administration = administration;
+            Approved = approved;
         }
 
-        public MedicineDTO(string name, string type, string description, int quantitiy, string purpose, string administration, bool approved)
-            : base(name, type, description, quantitiy)
+        public MedicineDTO(string name, string type, string description, int quantity, string purpose, string administration, bool approved)
+            : base(name, type, description, quantity)
         {
             
-            this.Purpose = purpose;
-            this.Administration = administration;
-            this.Approved = approved;
+            Purpose = purpose;
+            Administration = administration;
+            Approved = approved;
         }
 
     }

@@ -7,12 +7,13 @@ using System.Threading.Tasks;
 namespace Project.Model
 {
 
-        public class Approval
-        {
-            public string Description;
-            public bool IsApproved;
-            public Doctor Doctor;
+    public class Approval
+    {
+        // TODO: Implement design pattern
+        public string Description {get;set;}
+        public bool IsApproved {get;set;}
+        public Doctor Doctor {get;set;}
 
 
-        }
+    }
 }

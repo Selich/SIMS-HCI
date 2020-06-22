@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 using Project.Model;
 
 namespace Project.Views.Model
@@ -11,8 +12,8 @@ namespace Project.Views.Model
     {
         public string MedicalRole { get; set; }
         public float AverageReviewScore { get; set; }
-        public System.Collections.Generic.List<ApprovalDTO> Approval { get; set; }
-        public System.Collections.Generic.List<MedicalAppointmentDTO> Appointments { get; set; }
+        public List<ApprovalDTO> Approval { get; set; }
+        public List<MedicalAppointmentDTO> Appointments { get; set; }
 
         public DoctorDTO() { }
         public DoctorDTO(long id, AddressDTO address, string firstName, string lastName, string jmbg, string telephoneNumber, string gender, DateTime dateOfBirth, double salary, TimeInterval annualLeave, TimeInterval workingHours, string email, string password,string hospital,string medicalRole):

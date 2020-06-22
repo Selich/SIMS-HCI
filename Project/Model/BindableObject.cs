@@ -4,6 +4,7 @@
 // </copyright>
 //-----------------------------------------------------------------------
 
+// TODO: WTF
 namespace Project.Model
 {
     using System;

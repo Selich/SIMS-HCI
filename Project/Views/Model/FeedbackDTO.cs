@@ -8,15 +8,22 @@ namespace Project.Views.Model
 {
     public class FeedbackDTO
     {
-        public String Type { get; set; }
-        public String Description { get; set; }
+        public long Id {get;set;}
+        public string Type { get; set; }
+        public string Description { get; set; }
 
         public FeedbackDTO() { }
-
-        public FeedbackDTO(String type,String desc)
+        public FeedbackDTO(long id, string type,string desc)
         {
-            this.Type = type;
-            this.Description = desc;
+            Id = id;
+            Type = type;
+            Description = desc;
+        }
+
+        public FeedbackDTO(string type,string desc)
+        {
+            Type = type;
+            Description = desc;
         }
     }
 }

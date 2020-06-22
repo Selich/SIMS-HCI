@@ -4,17 +4,34 @@
 // Purpose: Definition of Class Equipment
 
 using System;
+using Project.Repositories.Abstract;
 
 namespace Project.Model
 {
-   public class Equipment
-   {
-      public int id;
-      public string type { get; set; }
-      public string description;
-      public string name { get; set; }
-      
-      public Order[] orders;
-   
-   }
+    public class Equipment : IIdentifiable<long>
+    {
+        public long Id;
+        public string Type { get; set; }
+        public string Description;
+        public string Name { get; set; }
+        public Equipment() { }
+
+        public Equipment(string type, string description, string name)
+        {
+            Type = type;
+            Description = description;
+            Name = name;
+        }
+        public Equipment(long id, string type, string description, string name)
+        {
+            Id = id;
+            Type = type;
+            Description = description;
+            Name = name;
+        }
+
+        public long GetId() => Id;
+
+        public void SetId(long id) => Id = id;
+    }
 }

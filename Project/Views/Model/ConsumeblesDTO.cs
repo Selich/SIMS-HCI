@@ -10,61 +10,22 @@ using System.Reflection.Emit;
 
 namespace Project.Views.Model
 {
-   public class ConsumabelsDTO:INotifyPropertyChanged
-   {
-      private int quantity { get; set; }
-      public int Quantity 
+    public class ConsumablesDTO
+    {
+        public string Name { get; set; }
+        public int Quantity { get; set; }
+        public string Type { get; set; }
+        public string Description { get; set; }
+
+        public List<MedicalAppointmentDTO> medicalAppointment { get; set; }
+        public ConsumablesDTO() { }
+
+        public ConsumablesDTO(string name, string type, string description, int quantity)
         {
-                get
-            {
-                    return quantity;
-                }
-                set
-            {
-                    if (value != quantity)
-                    {
-                        quantity = value;
-                        OnPropertyChanged("Quantity");
-                    }
-                }
-            }
-
-      public string Type {get;set;}
-      public string Description {get;set;}
-      public string Name {get;set;}
-
-      public int Id { get; set; }
-      
-      public List<MedicalAppointmentDTO> medicalAppointment { get; set; }
-
-      public ConsumabelsDTO() { }
-
-        protected virtual void OnPropertyChanged(string name)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(name));
-            }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        public ConsumabelsDTO(string name,string type, string description,int quantitiy) 
-      {
-            this.Name = name;
-            this.Type = type;
-            this.Description = description;
-            this.Quantity = quantitiy;
-            
-      }
-
-        public ConsumabelsDTO(int id,string name, string type, string description, int quantitiy)
-        {
-            this.Id = id;
-            this.Name = name;
-            this.Type = type;
-            this.Description = description;
-            this.Quantity = quantitiy;
-
+            Name = name;
+            Type = type;
+            Description = description;
+            Quantity = quantity;
         }
 
     }

@@ -184,6 +184,7 @@
     <Compile Include="Views\Converters\AppointmentConverter.cs" />
     <Compile Include="Views\Converters\BoolToVisibilityConverter.cs" />
     <Compile Include="Views\Converters\DoctorConverter.cs" />
+    <Compile Include="Views\Converters\EquipmentConverter.cs" />
     <Compile Include="Views\Converters\GuestConverter.cs" />
     <Compile Include="Views\Converters\IConverter.cs" />
     <Compile Include="Views\Converters\AddressConverter.cs" />

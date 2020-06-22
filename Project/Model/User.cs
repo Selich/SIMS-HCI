@@ -18,10 +18,10 @@ namespace Project.Model
         public string TelephoneNumber { get; set; }
         public string Gender { get; set; }
         public DateTime DateOfBirth { get; set; }
-
-        public Feedback[] Feedbacks;
+        public List<Feedback> Feedbacks;
         public Address Address;
         public List<Report> Reports { get; set; }
+        public User() { }
 
         public User(long id, Address address,string firstName, string lastName, string jmbg, string telephoneNumber, string gender, DateTime dateOfBirth)
         {
@@ -45,9 +45,6 @@ namespace Project.Model
             DateOfBirth = dateOfBirth;
         }
 
-        public User()
-        {
-        }
 
         public long GetId() => Id;
 

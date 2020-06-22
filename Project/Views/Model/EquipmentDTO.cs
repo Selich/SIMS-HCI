@@ -8,7 +8,7 @@ namespace Project.Views.Model
 {
     public class EquipmentDTO
     {
-        public int Id { get; set; }
+        public long Id { get; set; }
         public string Type { get; set; }
         public string Description { get; set; }
         public string Name { get; set; }
@@ -17,21 +17,21 @@ namespace Project.Views.Model
 
         public EquipmentDTO() { }
 
-        public EquipmentDTO(int id, string name,string type, string description,RoomDTO room)  
+        public EquipmentDTO(long id, string name,string type, string description,RoomDTO room)  
         {
-            this.Id = id;
-            this.Type = type;
-            this.Description = description;
-            this.Name = name;
-            this.Room = room;
+            Id = id;
+            Type = type;
+            Description = description;
+            Name = name;
+            Room = room;
         }
 
         public EquipmentDTO(string name, string type, string description,RoomDTO room)
         {
-            this.Type = type;
-            this.Description = description;
-            this.Name = name; 
-            this.Room = room;
+            Type = type;
+            Description = description;
+            Name = name; 
+            Room = room;
         }
 
     }

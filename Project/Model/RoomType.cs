@@ -7,6 +7,7 @@ using System;
 
 namespace Project.Model
 {
+   // TODO: Add types to csv/app.config
    public enum RoomType
    {
       medicalRoom,

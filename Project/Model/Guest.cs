@@ -16,12 +16,12 @@ namespace Project.Model
         public float Height { get; set; }
         public float Weight { get; set; }
 
-        public List<MedicalAppointment> appointments;
+        public List<MedicalAppointment> Appointments { get; set; }
 
         public Guest() { }
 
-        public Guest(long id, Address address,string firstName, string lastName, string jmbg, string telephoneNumber, string gender, DateTime dateOfBirth,string insurenceNumber, string profession, string bloodType, float height, float weight) 
-         : base(id, address, firstName,  lastName,  jmbg,  telephoneNumber,  gender,  dateOfBirth)
+        public Guest(long id, Address address, string firstName, string lastName, string jmbg, string telephoneNumber, string gender, DateTime dateOfBirth, string insurenceNumber, string profession, string bloodType, float height, float weight)
+         : base(id, address, firstName, lastName, jmbg, telephoneNumber, gender, dateOfBirth)
         {
             InsurenceNumber = insurenceNumber;
             Profession = profession;
@@ -29,8 +29,8 @@ namespace Project.Model
             Height = height;
             Weight = weight;
         }
-        public Guest(Address address,string firstName, string lastName, string jmbg, string telephoneNumber, string gender, DateTime dateOfBirth,string insurenceNumber, string profession, string bloodType, float height, float weight) 
-         : base(address, firstName,  lastName,  jmbg,  telephoneNumber,  gender,  dateOfBirth)
+        public Guest(Address address, string firstName, string lastName, string jmbg, string telephoneNumber, string gender, DateTime dateOfBirth, string insurenceNumber, string profession, string bloodType, float height, float weight)
+         : base(address, firstName, lastName, jmbg, telephoneNumber, gender, dateOfBirth)
         {
             InsurenceNumber = insurenceNumber;
             Profession = profession;
