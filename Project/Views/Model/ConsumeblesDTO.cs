@@ -10,49 +10,23 @@ using System.Reflection.Emit;
 
 namespace Project.Views.Model
 {
-    public class ConsumabelsDTO : INotifyPropertyChanged
+    public class ConsumablesDTO
     {
-        private int quantity { get; set; }
-        public int Quantity
-        {
-            get
-            {
-                return quantity;
-            }
-            set
-            {
-                if (value != quantity)
-                {
-                    quantity = value;
-                    OnPropertyChanged("Quantity");
-                }
-            }
-        }
-
+        public string Name { get; set; }
+        public int Quantity { get; set; }
         public string Type { get; set; }
         public string Description { get; set; }
-        public string Name { get; set; }
 
         public List<MedicalAppointmentDTO> medicalAppointment { get; set; }
-        public ConsumabelsDTO() { }
+        public ConsumablesDTO() { }
 
-        public ConsumabelsDTO(string name, string type, string description, int quantitiy)
+        public ConsumablesDTO(string name, string type, string description, int quantity)
         {
             Name = name;
             Type = type;
             Description = description;
-            Quantity = quantitiy;
+            Quantity = quantity;
         }
-
-        protected virtual void OnPropertyChanged(string name)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(name));
-            }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
 
     }
 }

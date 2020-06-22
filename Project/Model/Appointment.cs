@@ -11,10 +11,8 @@ namespace Project.Model
    public class Appointment : IIdentifiable<long>
    { 
       public long Id { get; set; }
-      public DateTime Beginning
-      {get;set;}
-      public DateTime End
-      {get;set;}
+      public DateTime Beginning {get;set;}
+      public DateTime End {get;set;}
       
       public Room Room;
       public Appointment() {}

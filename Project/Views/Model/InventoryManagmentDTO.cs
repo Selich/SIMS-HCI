@@ -9,22 +9,23 @@ namespace Project.Views.Model
 {
     public class InventoryManagmentDTO:AppointmentDTO,INotifyPropertyChanged
     {
-        private List<EquipmentDTO> equipment;
-        public List<EquipmentDTO> Equipment
-        {
-            get
-            {
-                return equipment;
-            }
-            set
-            {
-                if (value != equipment)
-                {
-                    equipment = value;
-                    OnPropertyChanged("Equipment");
-                }
-            }
-        }
+        // private List<EquipmentDTO> equipment;
+        // {
+        //     get
+        //     {
+        //         return equipment;
+        //     }
+        //     set
+        //     {
+        //         if (value != equipment)
+        //         {
+        //             equipment = value;
+        //             OnPropertyChanged("Equipment");
+        //         }
+        //     }
+        // }
+        // TODO: Prebaciti u App.xaml.cs
+        public List<EquipmentDTO> Equipment {get;set;}
 
         public InventoryManagmentDTO() { }
 
@@ -44,18 +45,6 @@ namespace Project.Views.Model
             Room = room;
             Equipment = new List<EquipmentDTO>();
         }
-
-
-
-        protected virtual void OnPropertyChanged(string name)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(name));
-            }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
 
 
     }

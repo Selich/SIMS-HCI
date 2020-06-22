@@ -9,16 +9,10 @@ namespace Project.Model
 {
     public class Consumebles
     {
-        public int Quantity
-        { get; set; }
-        public string Type
-        { get; set; }
-        public string Description
-        { get; set; }
-        public string Name
-        { get; set; }
-
-        public MedicalAppointment[] MedicalAppointments;
+        public string Name { get; set; }
+        public int Quantity { get; set; }
+        public string Type { get; set; }
+        public string Description { get; set; }
 
         public Consumebles(int quantity, string type, string description, string name)
         {

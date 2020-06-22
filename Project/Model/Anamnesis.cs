@@ -4,20 +4,34 @@
 // Purpose: Definition of Class Anamneza
 
 using System;
+using Project.Repositories.Abstract;
 
 namespace Project.Model
 {
-   public class Anamnesis
-   {
-      public string Name {get;set;}
-      public string Type {get;set;}
-      public string Description {get;set;}
+    public class Anamnesis : IIdentifiable<long>
+    {
+        public long Id { get; set; }
+        public string Name { get; set; }
+        public string Type { get; set; }
+        public string Description { get; set; }
 
-      public Anamnesis(string name, string type, string description)
-      {
-         Name = name;
-         Type = type;
-         Description = description;
-      }
+        public Anamnesis(long id, string name, string type, string description)
+        {
+            Id = id;
+            Name = name;
+            Type = type;
+            Description = description;
+        }
+        public Anamnesis(string name, string type, string description)
+        {
+            Name = name;
+            Type = type;
+            Description = description;
+        }
+
+        public long GetId() => Id;
+
+        public void SetId(long id) => Id = id;
+
     }
 }
