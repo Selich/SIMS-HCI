@@ -135,7 +135,6 @@
     <Compile Include="Controllers\AuthenticationController.cs" />
     <Compile Include="Controllers\DocumentController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
-    <Compile Include="Controllers\Equipment.cs" />
     <Compile Include="Controllers\EquipmentController.cs" />
     <Compile Include="Controllers\FeedbackController.cs" />
     <Compile Include="Controllers\IController.cs" />
@@ -159,10 +158,13 @@
     <Compile Include="Model\Reports\RoomReport.cs" />
     <Compile Include="Model\Anamnesis.cs" />
     <Compile Include="Repositories\Abstract\IMedicalAppointmentRepository.cs" />
+    <Compile Include="Repositories\Abstract\IMedicineRepository.cs" />
     <Compile Include="Repositories\Abstract\IPrescriptionRepository.cs" />
     <Compile Include="Repositories\Abstract\IQuestionRepository.cs" />
     <Compile Include="Repositories\Abstract\IRoomRepository.cs" />
     <Compile Include="Repositories\CSV\Converter\MedicalAppointmentCSVConverter.cs" />
+    <Compile Include="Repositories\CSV\Converter\MedicineCSVConverter.cs" />
+    <Compile Include="Repositories\CSV\Converter\PresriptionCSVConverter.cs" />
     <Compile Include="Repositories\CSV\Converter\QuestionCSVConverter.cs" />
     <Compile Include="Repositories\CSV\Converter\RoomCSVConverter.cs" />
     <Compile Include="Repositories\ManyToMany\Converter\MedicalAppointmentToDoctorCSVConverter.cs" />
@@ -170,10 +172,12 @@
     <Compile Include="Repositories\ManyToMany\Repositories\Abstract\IMedicalAppointmentToDoctorRepository.cs" />
     <Compile Include="Repositories\ManyToMany\Repositories\MedicalAppointmentToDoctorRepository.cs" />
     <Compile Include="Repositories\MedicalAppointmentRepository.cs" />
+    <Compile Include="Repositories\MedicineRepository.cs" />
     <Compile Include="Repositories\PrescriptionRepository.cs" />
     <Compile Include="Repositories\QuestionRepository.cs" />
     <Compile Include="Repositories\RoomRepository.cs" />
     <Compile Include="Services\MedicalAppointmentService.cs" />
+    <Compile Include="Services\MedicineService.cs" />
     <Compile Include="Services\PrescriptionService.cs" />
     <Compile Include="Services\QuestionService.cs" />
     <Compile Include="Services\ReportService.cs" />
@@ -193,7 +197,9 @@
     <Compile Include="Views\Converters\IConverter.cs" />
     <Compile Include="Views\Converters\AddressConverter.cs" />
     <Compile Include="Views\Converters\MedicalAppointmentConverter.cs" />
+    <Compile Include="Views\Converters\MedicineConverter.cs" />
     <Compile Include="Views\Converters\PatientConverter.cs" />
+    <Compile Include="Views\Converters\PrescriptionConverter.cs" />
     <Compile Include="Views\Converters\QuestionConverter.cs" />
     <Compile Include="Views\Converters\RoomConverter.cs" />
     <Compile Include="Views\Director\AdressToStringConverter.cs" />

@@ -3,6 +3,7 @@
 // Created: Thursday, March 19, 2020 8:05:24 PM
 // Purpose: Definition of Class Order
 
+using Project.Repositories.Abstract;
 using System;
 using System.Collections.Generic;
 

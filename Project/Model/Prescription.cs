@@ -26,7 +26,7 @@ namespace Project.Model
             Patient = patient;
         }
 
-        public Prescription(long id, int dosage, string usage, string period, DateTime date, Patient patient)
+        public Prescription(long id, int dosage, string usage, string period, Medicine medicine, DateTime date, Patient patient)
         {
             Id = id;
             Dosage = dosage;

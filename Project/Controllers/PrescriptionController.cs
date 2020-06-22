@@ -8,7 +8,7 @@ using Project.Views.Model;
 
 namespace Project.Controllers
 {
-    class PrescriptionController : IController<QuestionDTO, long>
+    class PrescriptionController : IController<PrescriptionDTO, long>
     {
         private IService<Prescription, long> _service;
         private IConverter<Prescription, PrescriptionDTO> _prescriptionConverter;
@@ -19,10 +19,10 @@ namespace Project.Controllers
         }
 
         public PrescriptionDTO GetById(long id)
-           => _questionConverter.ConvertEntityToDTO(_service.GetById(id));
+           => _prescriptionConverter.ConvertEntityToDTO(_service.GetById(id));
 
         public IEnumerable<PrescriptionDTO> GetAll()
-            => _questionConverter.ConvertListEntityToListDTO((List<Prescription>)_service.GetAll());
+            => _prescriptionConverter.ConvertListEntityToListDTO((List<Prescription>)_service.GetAll());
 
         public PrescriptionDTO Remove(PrescriptionDTO entity)
             => _prescriptionConverter.ConvertEntityToDTO(_service.Remove(_prescriptionConverter.ConvertDTOToEntity(entity)));

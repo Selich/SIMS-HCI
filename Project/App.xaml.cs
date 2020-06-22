@@ -136,6 +136,8 @@ namespace Project
         private static string MEDICINE_FILEPATH = ConfigurationManager.AppSettings["MedicinePath"].ToString();
         private static string DELIMITER = ConfigurationManager.AppSettings["DelimiterValue"].ToString();
         private static string DATETIME_FORMAT = ConfigurationManager.AppSettings["DateTimeFormat"].ToString();
+        private static string PRESCRIPTION_FILEPATH = ConfigurationManager.AppSettings["PrescriptionFormat"].ToString();
+        
 
         private static string REPORT_ROOM_PATH = ConfigurationManager.AppSettings["ReportRoomPath"].ToString();
         private static string REPORT_APPOINTMENT_PATH = ConfigurationManager.AppSettings["ReportAppointmentPath"].ToString();
@@ -281,16 +283,19 @@ namespace Project
             var patientConverter = new PatientConverter();
             var medicineConverter = new MedicineConverter();
             var questionConverter = new QuestionConverter(patientConverter);
+            var prescriptionConverter = new PrescriptionConverter(patientConverter, medicineConverter);
 
             // Repositories
             var patientRepository = new PatientRepository(new CSVStream<Patient>(PATIENT_FILEPATH, new PatientCSVConverter(DELIMITER, DATETIME_FORMAT)), new LongSequencer());
             var questionRepository = new QuestionRepository(new CSVStream<Question>(QUESTION_FILEPATH, new QuestionCSVConverter(DELIMITER, DATETIME_FORMAT)), new LongSequencer());
-            var medicineRepository = new MedicineRepository(new CSVStream<Question>(MEDICINE_FILEPATH, new MedicineCSVConverter(DELIMITER)), new LongSequencer());
+            var medicineRepository = new MedicineRepository(new CSVStream<Medicine>(MEDICINE_FILEPATH, new MedicineCSVConverter(DELIMITER)), new LongSequencer());
+            var prescriptionRepository = new PrescriptionRepository(new CSVStream<Prescription>(PRESCRIPTION_FILEPATH, new PrescriptionCSVConverter(DELIMITER, DATETIME_FORMAT)), new LongSequencer());
 
             // Services
             var patientService = new PatientService(patientRepository);
             var questionService = new QuestionService(questionRepository);
             var medicineService = new MedicineService(medicineRepository);
+            var prescriptionService = new PrescriptionService(prescriptionRepository);
             var reportService = new ReportService();
 
             // Generators
@@ -304,6 +309,7 @@ namespace Project
             QuestionController = new QuestionController(questionService, questionConverter, patientConverter);
             AuthenticationController = new AuthenticationController();
             ReportController = new ReportController();
+            PrescriptionController = new PrescriptionController(prescriptionService, prescriptionConverter);
         }
 
 
@@ -317,6 +323,7 @@ namespace Project
         public IController<MedicineDTO, long> MedicineController { get; private set; }
         public ReportController ReportController { get; private set; }
         public IController<QuestionDTO, long> QuestionController { get; private set; }
+        public IController<PrescriptionDTO, long> PrescriptionController { get; private set; }
 
     }
 }
