@@ -708,8 +708,10 @@
     <None Include="Resources\Data\equipmentInventory.csv" />
     <None Include="Resources\Data\equipmentOrder.csv" />
     <None Include="Resources\Data\medicalAppointments.csv" />
+    <None Include="Resources\Data\medicines.csv" />
     <None Include="Resources\Data\patientPrescription.csv" />
     <None Include="Resources\Data\patients.csv" />
+    <None Include="Resources\Data\prescriptions.csv" />
     <None Include="Resources\Data\questions.csv" />
     <None Include="Resources\Data\reports.csv" />
     <None Include="Views\Patient\.vs\slnx.sqlite" />

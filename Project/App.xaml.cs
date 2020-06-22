@@ -130,19 +130,23 @@ namespace Project
         public List<string> medicalAppointmentTypes { get; set; }
         public DateTime SelectedDate { get; set; }
 
-        //
+        // Paths
         private static string PATIENT_FILEPATH = ConfigurationManager.AppSettings["PatientPath"].ToString();
         private static string ADDRESS_FILEPATH = ConfigurationManager.AppSettings["AddressPath"].ToString();
         private static string QUESTION_FILEPATH = ConfigurationManager.AppSettings["QuestionPath"].ToString();
         private static string MEDICINE_FILEPATH = ConfigurationManager.AppSettings["MedicinePath"].ToString();
-        private static string DELIMITER = ConfigurationManager.AppSettings["DelimiterValue"].ToString();
-        private static string DATETIME_FORMAT = ConfigurationManager.AppSettings["DateTimeFormat"].ToString();
-        private static string PRESCRIPTION_FILEPATH = ConfigurationManager.AppSettings["PrescriptionFormat"].ToString();
+        private static string PRESCRIPTION_FILEPATH = ConfigurationManager.AppSettings["PrescriptionPath"].ToString();
         private static string MEDICAL_CONSUMABLE_FILEPATH= ConfigurationManager.AppSettings["MedicalConsumablesPath"].ToString();
 
+        // Report paths
         private static string REPORT_ROOM_PATH = ConfigurationManager.AppSettings["ReportRoomPath"].ToString();
         private static string REPORT_APPOINTMENT_PATH = ConfigurationManager.AppSettings["ReportAppointmentPath"].ToString();
         private static string REPORT_RECIPE_PATH = ConfigurationManager.AppSettings["ReportAppointmentPath"].ToString();
+
+        // Constants
+        private static string DELIMITER = ConfigurationManager.AppSettings["DelimiterValue"].ToString();
+        private static string DATETIME_FORMAT = ConfigurationManager.AppSettings["DateTimeFormat"].ToString();
+
 
 
         public event PropertyChangedEventHandler PropertyChanged;
