@@ -1,4 +1,4 @@
-﻿using System.Configuration;
+using System.Configuration;
 using Project.Repositories;
 using System.Windows;
 using Project.Repositories.CSV.Converter;
@@ -282,6 +282,7 @@ namespace Project
             // Converters
             var patientConverter = new PatientConverter();
             var medicineConverter = new MedicineConverter();
+            var addressConverter = new AddressConverter();
             var questionConverter = new QuestionConverter(patientConverter);
             var medicalConsumableConverter = new MedicalConsumableConverter();
 
@@ -289,26 +290,30 @@ namespace Project
             var patientRepository = new PatientRepository(new CSVStream<Patient>(PATIENT_FILEPATH, new PatientCSVConverter(DELIMITER, DATETIME_FORMAT)), new LongSequencer());
             var questionRepository = new QuestionRepository(new CSVStream<Question>(QUESTION_FILEPATH, new QuestionCSVConverter(DELIMITER, DATETIME_FORMAT)), new LongSequencer());
             var medicineRepository = new MedicineRepository(new CSVStream<Question>(MEDICINE_FILEPATH, new MedicineCSVConverter(DELIMITER)), new LongSequencer());
-            var medicalConsumableRepository = new MedicalConsumableRepository(new CSVStream<MedicalConsumables>(MEDICAL_CONSUMABLE_FILEPATH, new MedicalConsumableCSVConverter(DELIMITER)), new LongSequencer());
+
+            var addressRepository = new AddressRepository(new CSVStream<Address>(ADDRESS_FILEPATH, new AddressCSVConverter(DELIMITER)), new LongSequencer());
             // Services
             var patientService = new PatientService(patientRepository);
             var questionService = new QuestionService(questionRepository);
+            var addressService = new AddressService(questionRepository);
             var medicineService = new MedicineService(medicineRepository);
             var medicalConsumableService = new MedicalConsumableService(medicalConsumableRepository);
             var reportService = new ReportService();
 
-            // Generators
-            GenerateSecretaryReport = new GenerateSecretaryReport(REPORT_APPOINTMENT_PATH);
-            GeneratePatientReport = new GeneratePatientReport(REPORT_APPOINTMENT_PATH);
-            GenerateDoctorReport = new GenerateDoctorReport(REPORT_RECIPE_PATH);
 
             // Controllers
             PatientController = new PatientController(patientService, patientConverter);
+            AddressController = new AddressController(addressService, addressConverter);
             MedicineController = new MedicineController(medicineService, medicineConverter);
             QuestionController = new QuestionController(questionService, questionConverter, patientConverter);
             MedicalConsumableController = new MedicalConsumableController(medicalConsumableService, medicalConsumableConverter);
             AuthenticationController = new AuthenticationController();
             ReportController = new ReportController();
+
+            // Generators
+            GenerateSecretaryReport = new GenerateSecretaryReport(REPORT_APPOINTMENT_PATH);
+            GeneratePatientReport = new GeneratePatientReport(REPORT_APPOINTMENT_PATH);
+            GenerateDoctorReport = new GenerateDoctorReport(REPORT_RECIPE_PATH);
         }
 
 
@@ -318,8 +323,10 @@ namespace Project
         public IPDFReport<TimeInterval> GeneratePatientReport { get; private set; }
         public IPDFReport<TimeInterval> GenerateDoctorReport { get; private set; }
 
+        // Controllers
         public AuthenticationController AuthenticationController { get; private set; }
         public IController<PatientDTO, long> PatientController { get; private set; }
+        public IController<AddressDTO, long> AddressController { get; private set; }
         public IController<MedicineDTO, long> MedicineController { get; private set; }
 
         public IController<MedicalConsumableDTO, long> MedicalConsumableController { get; private set; }
