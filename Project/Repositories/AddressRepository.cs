@@ -3,40 +3,33 @@ using Project.Repositories.Abstract;
 using Project.Repositories.CSV;
 using Project.Repositories.CSV.Stream;
 using Project.Repositories.Sequencer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Project.Repositories
 {
-    public class AddressRepository 
-    //CSVRepository<Address, long>
-        //IAddressRepository,
-        //IEagerCSVRepository<Address, long>
+    public class AddressRepository :
+        CSVRepository<Address, long>,
+        IAddressRepository,
+        IEagerCSVRepository<Address, long>
     {
         private const string ENTITY_NAME = "Address";
 
+        public AddressRepository(ICSVStream<Address> stream, ISequencer<long> sequencer)
+           : base(ENTITY_NAME, stream, sequencer) { }
 
-        //public AddressRepository(ICSVStream<Address> stream, ISequencer<long> sequencer)
-        //    : base(ENTITY_NAME, stream, sequencer)
-        //{
-        //}
+        public new IEnumerable<Address> Find(Func<Address, bool> predicate)
+            => GetAllEager().Where(predicate);
+        public new Address Save(Address address)
+            => (IsAddressUnique(address))
+                ? base.Save(address)
+                : Find(item => item.Equals(address)).SingleOrDefault();
 
-        //public new Address Create(Address Address)
-        //{
-        //    if (IsAddressNumberUnique(Address.Number))
-        //        return base.Create(Address);
-        //    else
-        //        throw new Exception();
-        //}
+        private bool IsAddressUnique(Address address)
+            => Find(item => item.Equals(address)) == null;
 
-        //private bool IsAddressNumberUnique(AddressNumber AddressNumber)
-        //   => GetAddressByAddressName(AddressNumber) == null;
-
-        //private Address GetAddressByAddressName(AddressNumber AddressNumber)
-        //    => _stream.ReadAll().SingleOrDefault(Address => Address.Number.Equals(AddressNumber));
-
-        //public Address GetEager(long id) => Get(id);
-
-        //public IEnumerable<Address> GetAllEager() => GetAll();
+        public Address GetEager(long id) => GetById(id);
+        public IEnumerable<Address> GetAllEager() => GetAll();
     }
 }

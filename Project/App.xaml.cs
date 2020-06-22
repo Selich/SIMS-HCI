@@ -132,6 +132,7 @@ namespace Project
 
         //
         private static string PATIENT_FILEPATH = ConfigurationManager.AppSettings["PatientPath"].ToString();
+        private static string ADDRESS_FILEPATH = ConfigurationManager.AppSettings["AddressPath"].ToString();
         private static string QUESTION_FILEPATH = ConfigurationManager.AppSettings["QuestionPath"].ToString();
         private static string MEDICINE_FILEPATH = ConfigurationManager.AppSettings["MedicinePath"].ToString();
         private static string DELIMITER = ConfigurationManager.AppSettings["DelimiterValue"].ToString();
@@ -308,6 +309,7 @@ namespace Project
 
 
 
+        // Generators
         public IPDFReport<TimeInterval> GenerateSecretaryReport { get; private set; }
         public IPDFReport<TimeInterval> GeneratePatientReport { get; private set; }
         public IPDFReport<TimeInterval> GenerateDoctorReport { get; private set; }

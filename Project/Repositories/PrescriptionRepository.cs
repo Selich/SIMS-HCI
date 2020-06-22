@@ -21,8 +21,19 @@ namespace Project.Repositories
         }
 
         public new IEnumerable<Prescription> Find(Func<Prescription, bool> predicate) => GetAllEager().Where(predicate);
-        
+
+
         public IEnumerable<Prescription> GetAllEager() => GetAll();
         public Prescription GetEager(long id) => GetById(id);
+
+        public Prescription Remove(Prescription entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Prescription Update(Prescription entity)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

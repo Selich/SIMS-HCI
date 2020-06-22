@@ -12,6 +12,7 @@ namespace Project.Services
     public class PatientService : IService<Patient, long>
     {
         private readonly IPatientRepository _patientRepository;
+        private readonly AddressService _addressService;
 
         public PatientService(IPatientRepository patientRepository)
         {
@@ -22,9 +23,15 @@ namespace Project.Services
 
         public Patient GetById(long id) => _patientRepository.GetById(id);
 
-        public Patient Save(Patient patient) => _patientRepository.Save(patient);
+        public Patient Save(Patient patient) {
+            patient.Address = _addressService.Save(patient.Address);
+            return _patientRepository.Save(patient);
+        }
 
-        public Patient Update(Patient patient) => _patientRepository.Update(patient);
+        public Patient Update(Patient patient) {
+            patient.Address = _addressService.Save(patient.Address);
+            return _patientRepository.Update(patient);
+        }
 
         public Patient Remove(Patient client) => _patientRepository.Remove(client);
 

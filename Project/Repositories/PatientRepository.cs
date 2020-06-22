@@ -39,7 +39,7 @@ namespace Project.Repositories
          => GetPatientByEmail(email) == null;
 
         private Patient GetPatientByEmail(string email)
-    => _stream.ReadAll().SingleOrDefault(patient => patient.Email.Equals(email));
+         => _stream.ReadAll().SingleOrDefault(patient => patient.Email.Equals(email));
 
     }
 }
