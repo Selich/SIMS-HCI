@@ -12,12 +12,12 @@ using System.IO;
 
 namespace Project.Utility
 {
-    class GenerateSecretaryReport : IPDFReport<TimeInterval>
+    class SecretaryAppointmentReportGenerator : IPDFReport<TimeInterval>
     {
         public App app;
         private string _path;
 
-        public GenerateSecretaryReport(string path)
+        public SecretaryAppointmentReportGenerator(string path)
         {
             app = Application.Current as App;
             _path = path;

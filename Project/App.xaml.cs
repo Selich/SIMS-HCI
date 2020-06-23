@@ -328,7 +328,7 @@ namespace Project
             EquipmentController = new EquipmentController(equipmentService, equipmentConverter);
             RoomController = new RoomController(roomService, roomConverter);
             // Generators
-            GenerateSecretaryReport = new GenerateSecretaryReport(REPORT_APPOINTMENT_PATH);
+            SecretaryAppointmentReportGenerator = new SecretaryAppointmentReportGenerator(REPORT_APPOINTMENT_PATH);
             GeneratePatientReport = new GeneratePatientReport(REPORT_APPOINTMENT_PATH);
             GenerateDoctorReport = new GenerateDoctorReport(REPORT_RECIPE_PATH);
         }
@@ -336,7 +336,7 @@ namespace Project
 
 
         // Generators
-        public IPDFReport<TimeInterval> GenerateSecretaryReport { get; private set; }
+        public IPDFReport<TimeInterval> SecretaryAppointmentReportGenerator { get; private set; }
         public IPDFReport<TimeInterval> GeneratePatientReport { get; private set; }
         public IPDFReport<TimeInterval> GenerateDoctorReport { get; private set; }
 
