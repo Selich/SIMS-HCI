@@ -194,7 +194,7 @@
     <Compile Include="Utility\GenerateDirectorReport.cs" />
     <Compile Include="Utility\GenerateDoctorReport.cs" />
     <Compile Include="Utility\GeneratePatientReport.cs" />
-    <Compile Include="Utility\GenerateSecretaryReport.cs" />
+    <Compile Include="Utility\SecretaryAppointmentReportGenerator.cs" />
     <Compile Include="Utility\IPDFReport.cs" />
     <Compile Include="Views\Commands\DataContext.cs" />
     <Compile Include="Views\Commands\MessageCommand.cs" />
