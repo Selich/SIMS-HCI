@@ -250,10 +250,6 @@ namespace Project
             var renovationRepository = new RenovationRepository(new CSVStream<Renovation>(RENOVATION_PATH, new RenovationCSVConverter(DELIMITER, DATETIME_FORMAT)), new LongSequencer());
             var feedbackRepository = new FeedbackRepository(new CSVStream<Feedback>(FEEDBACK_FILEPATH, new FeedbackCSVConverter(DELIMITER)), new LongSequencer());
 
-            var renovationRepository = new RenovationRepository( new CSVStream<Renovation>(RENOVATION_PATH, new RenovationCSVConverter(DELIMITER, DATETIME_FORMAT)), new LongSequencer()
-                );
-
-
             // Many to Many
             var medicalAppointmentToDoctorRepository = new MedicalAppointmentToDoctorRepository(
                 new CSVStream<MedicalAppointmentToDoctor>(
