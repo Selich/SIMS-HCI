@@ -1,4 +1,5 @@
 ﻿using Project.Model;
+using Project.Repositories.ManyToMany.Model;
 using Project.Repositories.Abstract;
 using Project.Repositories.CSV.Converter;
 using System;
@@ -12,14 +13,11 @@ namespace Project.Repositories.ManyToMany.Converter
     class MedicalAppointmentToDoctorCSVConverter : ICSVConverter<MedicalAppointmentToDoctor>
     {
         private readonly string _delimiter;
-        private IRepository<Doctor, long> _doctorRepository;
         public MedicalAppointmentToDoctorCSVConverter(
-            string delimiter,
-            IRepository<Doctor, long> doctorRepository
+            string delimiter
             )
         {
             _delimiter = delimiter;
-            _doctorRepository = doctorRepository;
         }
 
         public MedicalAppointmentToDoctor ConvertCSVFormatToEntity(string entityCSVFormat)
@@ -27,14 +25,12 @@ namespace Project.Repositories.ManyToMany.Converter
             string[] tokens = entityCSVFormat.Split(_delimiter.ToCharArray());
             return new MedicalAppointmentToDoctor(
                 long.Parse(tokens[0]),
-                long.Parse(tokens[1]),
-                long.Parse(tokens[2])
+                long.Parse(tokens[1])
             );
         }
 
         public string ConvertEntityToCSVFormat(MedicalAppointmentToDoctor entity)
            => string.Join(_delimiter,
-               entity.Id,
                entity.MedicalAppointmentId,
                entity.DoctorId
                );

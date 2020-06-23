@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project.Repositories.ManyToMany
+namespace Project.Repositories.ManyToMany.Model
 {
     public class MedicalAppointmentToDoctor : IIdentifiable<long>
     {

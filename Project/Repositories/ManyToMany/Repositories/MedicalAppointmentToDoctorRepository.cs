@@ -1,6 +1,7 @@
 ﻿using Project.Repositories.Abstract;
 using Project.Repositories.CSV;
 using Project.Repositories.CSV.Stream;
+using Project.Repositories.ManyToMany.Model;
 using Project.Repositories.ManyToMany.Repositories.Abstract;
 using Project.Repositories.Sequencer;
 using System;

@@ -17,6 +17,9 @@ using System.Xml.Schema;
 using System;
 using System.ComponentModel;
 using Project.Services.Generators;
+using Project.Repositories.ManyToMany.Repositories;
+using Project.Repositories.ManyToMany.Model;
+using Project.Repositories.ManyToMany.Converter;
 
 namespace Project
 {
@@ -141,6 +144,9 @@ namespace Project
         private static string MEDICAL_APPOINTMENT_FILEPATH = ConfigurationManager.AppSettings["MedicalAppointmentPath"].ToString();
         private static string ROOM_PATH = ConfigurationManager.AppSettings["RoomPath"].ToString();
         private static string RENOVATION_PATH = ConfigurationManager.AppSettings["RenovationPath"].ToString();
+
+        // Many to many
+        private static string MEDICAL_APPOINTMENT_TO_DOCTOR_FILEPATH = ConfigurationManager.AppSettings["MedicalAppointmentToDoctorPath"].ToString();
         
         // Report paths
         private static string REPORT_ROOM_PATH = ConfigurationManager.AppSettings["ReportRoomPath"].ToString();
@@ -239,7 +245,17 @@ namespace Project
             var medicalAppoitmentRepository = new MedicalAppointmentRepository(new CSVStream<MedicalAppointment>(MEDICAL_APPOINTMENT_FILEPATH, new MedicalAppointmentCSVConverter(DELIMITER)), new LongSequencer());
             var roomRepository = new RoomRepository(new CSVStream<Room>(ROOM_PATH, new RoomCSVConverter(DELIMITER)),new LongSequencer());
             var addressRepository = new AddressRepository(new CSVStream<Address>(ADDRESS_FILEPATH, new AddressCSVConverter(DELIMITER)), new LongSequencer());
-            var renovationRepository = new RenovationRepository(new CSVStream<Renovation>(RENOVATION_PATH, new RenovationCSVConverter(DELIMITER, DATETIME_FORMAT)), new LongSequencer());
+            var renovationRepository = new RenovationRepository( new CSVStream<Renovation>(RENOVATION_PATH, new RenovationCSVConverter(DELIMITER, DATETIME_FORMAT)), new LongSequencer()
+                );
+
+
+            // Many to Many
+            var medicalAppointmentToDoctorRepository = new MedicalAppointmentToDoctorRepository(
+                new CSVStream<MedicalAppointmentToDoctor>(
+                    MEDICAL_APPOINTMENT_TO_DOCTOR_FILEPATH, 
+                    new MedicalAppointmentToDoctorCSVConverter(DELIMITER)),
+                new LongSequencer()
+            );
             // Services
             var patientService = new PatientService(patientRepository);
             var questionService = new QuestionService(questionRepository);
@@ -249,7 +265,7 @@ namespace Project
             var prescriptionService = new PrescriptionService(prescriptionRepository, medicineService, patientService);
             var reportService = new ReportService();
             var equipmentService = new EquipmentService(equipmentRepository);
-            var medicalAppoitmentService = new MedicalAppointmentService(medicalAppoitmentRepository);
+            var medicalAppoitmentService = new MedicalAppointmentService(medicalAppoitmentRepository, medicalAppointmentToDoctorRepository);
             var roomService = new RoomService(roomRepository);
             var renovationService = new RenovationService(renovationRepository);
             // Controllers

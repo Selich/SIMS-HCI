@@ -23,13 +23,6 @@ namespace Project.Repositories
         }
         // TODO: Implement N to N 
         public new MedicalAppointment Save(MedicalAppointment medicalAppointment){
-            var list = medicalAppointment.Doctors;
-            foreach(var doc in list){
-                
-
-            }
-
-
             return base.Save(medicalAppointment);
         }
 
