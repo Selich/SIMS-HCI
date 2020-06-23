@@ -57,6 +57,11 @@ namespace Project.Views.Doctor
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             InitializeComponent();
 
+            app = Application.Current as App;
+            InitializeComponent();
+
+            PecepiesList.ItemsSource = app.PrescriptionController.GetAll();
+
             this.DataContext = this;
             HideTextBoxes();
             HidePlaceHolders();
@@ -452,7 +457,7 @@ namespace Project.Views.Doctor
 
         private void AddLek(object sender, RoutedEventArgs e)
         {
-            
+            /*
             //ComboBox12.Items.Add(TartgetRosource);
             String oneRecepie = "";
             oneRecepie += TartgetRosource;
@@ -474,13 +479,13 @@ namespace Project.Views.Doctor
             NumberTextBox_Copy.Visibility = Visibility.Hidden;
             Kol_med.Visibility = Visibility.Hidden;
             Uc_med.Visibility = Visibility.Hidden;
-            AddMediciniToList.Visibility = Visibility.Hidden;
+            AddMediciniToList.Visibility = Visibility.Hidden;*/
         }
 
         private void RemoveLek(object sender, RoutedEventArgs e)
-        {
+        {/*
             var sellek = PecepiesList.SelectedItem;
-            PecepiesList.Items.Remove(sellek);
+            PecepiesList.Items.Remove(sellek);*/
         }
 
 

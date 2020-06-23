@@ -42,14 +42,14 @@ namespace Project.Repositories.CSV.Converter
                 tokens[2],
                 tokens[3],
                 new Medicine(),
-                DateTime.Parse(tokens[4]),
+                DateTime.Parse(tokens[5]),
                 new Patient()
             );
         }
-
+        /*
         Prescription ICSVConverter<Prescription>.ConvertCSVFormatToEntity(string entityCSVFormat)
         {
             throw new NotImplementedException();
-        }
+        }*/
     }
 }
