@@ -13,7 +13,7 @@ using System.Windows;
 
 namespace Project.Utility
 {
-    class PrescriptionReportGenerator : IPDFReport<TimeInterval>
+    class PrescriptionReportGenerator : IReportGenerator<TimeInterval>
     {
         public App app;
         private string rEPORT_RECIPE_PATH;
@@ -24,7 +24,7 @@ namespace Project.Utility
             this.rEPORT_RECIPE_PATH = rEPORT_RECIPE_PATH;
         }
 
-        public Report GenerateReport(TimeInterval interval)
+        public Report Generate(TimeInterval interval)
         {
             Report report = new Report(rEPORT_RECIPE_PATH, new DateTime(), "DoctorAppointment");
             report.Path = rEPORT_RECIPE_PATH + $@"\DoctorReport{report.Id}.pdf";

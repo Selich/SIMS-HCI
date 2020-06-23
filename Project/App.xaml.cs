@@ -333,9 +333,9 @@ namespace Project
 
 
         // Generators
-        public IPDFReport<TimeInterval> SecretaryAppointmentReportGenerator { get; private set; }
-        public IPDFReport<TimeInterval> PatientAppointmentReportGenerator { get; private set; }
-        public IPDFReport<TimeInterval> PrescriptionReportGenerator { get; private set; }
+        public IReportGenerator<TimeInterval> SecretaryAppointmentReportGenerator { get; private set; }
+        public IReportGenerator<TimeInterval> PatientAppointmentReportGenerator { get; private set; }
+        public IReportGenerator<TimeInterval> PrescriptionReportGenerator { get; private set; }
 
         // Controllers
         public AuthenticationController AuthenticationController { get; private set; }

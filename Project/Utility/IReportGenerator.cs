@@ -8,9 +8,11 @@ using System.Threading.Tasks;
 
 namespace Project.Utility
 {
-    public interface IPDFReport<E> where E : class
+    public interface IReportGenerator<E> where E : class
     {
-        Report GenerateReport(E entity);
+        //IPDFReport
+        Report Generate(E entity);
+        // GenerateReport
 
     }
 }

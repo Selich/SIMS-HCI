@@ -37,7 +37,7 @@ namespace Project.Views.Patient
             string end = DateTo.Text as string;
             DateTime from = Convert.ToDateTime(start);
             DateTime to = Convert.ToDateTime(end);
-            app.PatientAppointmentReportGenerator.GenerateReport(new Project.Model.TimeInterval(from,to));
+            app.PatientAppointmentReportGenerator.Generate(new Project.Model.TimeInterval(from,to));
         }
     }
 }

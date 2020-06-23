@@ -195,7 +195,7 @@
     <Compile Include="Utility\PrescriptionReportGenerator.cs" />
     <Compile Include="Utility\PatientAppointmentReportGenerator.cs" />
     <Compile Include="Utility\SecretaryAppointmentReportGenerator.cs" />
-    <Compile Include="Utility\IPDFReport.cs" />
+    <Compile Include="Utility\IReportGenerator.cs" />
     <Compile Include="Views\Commands\DataContext.cs" />
     <Compile Include="Views\Commands\MessageCommand.cs" />
     <Compile Include="Views\Commands\ShowShortcutsCommand.cs" />

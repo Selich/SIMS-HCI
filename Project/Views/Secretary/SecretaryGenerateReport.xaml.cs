@@ -35,7 +35,7 @@ namespace Project.Views.Secretary
             string end = End.Text as string;
             DateTime from = Convert.ToDateTime(start);
             DateTime to = Convert.ToDateTime(end);
-            app.SecretaryAppointmentReportGenerator.GenerateReport(new TimeInterval(from,to));
+            app.SecretaryAppointmentReportGenerator.Generate(new TimeInterval(from,to));
             this.Close();
         }
 
