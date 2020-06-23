@@ -38,7 +38,6 @@ namespace Project.Controllers
         public PrescriptionDTO Update(PrescriptionDTO entity)
             => _prescriptionConverter.ConvertEntityToDTO(_service.Update(_prescriptionConverter.ConvertDTOToEntity(entity)));
 
-
         // TODO FIlter
         public IEnumerable<PrescriptionDTO> GetAllPrescriptionsByPatientID(long id) 
     => _prescriptionConverter.ConvertListEntityToListDTO((List<Prescription>)_service.GetAll());

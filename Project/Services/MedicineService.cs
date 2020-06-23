@@ -30,6 +30,9 @@ namespace Project.Services
         public Medicine Remove(Medicine medicine)
             => _medicineRepository.Remove(medicine);
 
+        public  Medicine GetByName(string name)
+            => _medicineRepository.GetByName(name);
+
 
     }
 }

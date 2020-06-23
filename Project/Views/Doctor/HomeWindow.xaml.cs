@@ -74,7 +74,7 @@ namespace Project.Views.Doctor
             AddressDTO tempAddress = new AddressDTO() { City = "Novi Sad", Country = "Serbia", Number = "25", PostCode = "21000", Street = "Laze Kostica" };
             LoggedInDoctor = new DoctorDTO() { FirstName = "Predrag", LastName = "Kon", DateOfBirth = new DateTime(1998, 8, 25), Email = "pred12@gmail.com", Gender = "Muski", Jmbg = "0234567890111", TelephoneNumber = "06551232123", Address = tempAddress, MedicalRole= "Specijalista" };
 
-            LoggedInPatient = new PatientDTO() { FirstName = "Uros", LastName = "Milovanovic", DateOfBirth = new DateTime(1998, 8, 25), Email = "urke123@gmail.com", Gender = "Muski", InsurenceNumber = "1234567", Jmbg = "1234567890", TelephoneNumber = "06551232123", Address = tempAddress};
+            LoggedInPatient = new PatientDTO() { Id = 1, FirstName = "Uros", LastName = "Milovanovic", DateOfBirth = new DateTime(1998, 8, 25), Email = "urke123@gmail.com", Gender = "Muski", InsurenceNumber = "1234567", Jmbg = "1234567890", TelephoneNumber = "06551232123", Address = tempAddress};
 
 
             //Current Appoitments
@@ -472,14 +472,23 @@ namespace Project.Views.Doctor
                 oneRecepie += Freq.ToString();
             }
             Recepies.Add(oneRecepie);
-            PecepiesList.Items.Add(oneRecepie);
+            PecepiesList.Items.Add(oneRecepie);*/
+
+            //Medicine medicinePrescribe = app.MedicineController.GetByName(TartgetRosource);
+            //PrescriptionDTO prescriptionDTO = new PrescriptionDTO(Amount, Freq.ToString(), "opis", medicinePrescribe, DateTime.Now, LoggedInPatient);
+
+            //Medicine medicinePrescribe = app.PrescriptionController.GetByName(TartgetRosource);
+            PrescriptionDTO prescriptionDTO = new PrescriptionDTO(Amount, Freq.ToString(), "opis", new MedicineDTO(ComboBox12.SelectedIndex+1, TartgetRosource, "", "", 1, "", "", true), DateTime.Now, LoggedInPatient);
+            
+            app.PrescriptionController.Save(prescriptionDTO);
+            PecepiesList.ItemsSource = app.PrescriptionController.GetAll();
 
             Medicine_toAdd.Visibility = Visibility.Hidden;
             NumberTextBox.Visibility = Visibility.Hidden;
             NumberTextBox_Copy.Visibility = Visibility.Hidden;
             Kol_med.Visibility = Visibility.Hidden;
             Uc_med.Visibility = Visibility.Hidden;
-            AddMediciniToList.Visibility = Visibility.Hidden;*/
+            AddMediciniToList.Visibility = Visibility.Hidden;
         }
 
         private void RemoveLek(object sender, RoutedEventArgs e)

@@ -26,6 +26,7 @@ namespace Project.Repositories
         public new IEnumerable<Medicine> Find(Func<Medicine, bool> predicate) => GetAllEager().Where(predicate);
         public IEnumerable<Medicine> GetAllEager() => GetAll();
         public Medicine GetEager(long id) => GetById(id);
+        public Medicine GetByName(string name) => GetByName(name);
 
     }
 }

@@ -10,6 +10,7 @@ using Project.Controllers;
 using Project.Services;
 using Project.Views.Converters;
 using Project.Views.Model;
+using Project;
 
 namespace Controller
 {
@@ -24,6 +25,7 @@ namespace Controller
         {
             _service = service;
             _medicineConverter = medicineConverter;
+            
         }
         public MedicineDTO GetById(long id)
             => _medicineConverter.ConvertEntityToDTO(_service.GetById(id));
@@ -39,5 +41,9 @@ namespace Controller
 
         public MedicineDTO Update(MedicineDTO entity)
             => _medicineConverter.ConvertEntityToDTO(_service.Update(_medicineConverter.ConvertDTOToEntity(entity)));
+
+        /*
+        public  MedicineDTO GetByName(string name)
+            => _medicineConverter.ConvertEntityToDTO(_service.GetByName(name));*/
     }
 }
