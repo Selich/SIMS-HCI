@@ -52,11 +52,11 @@
             <Image HorizontalAlignment="Left"  Stretch="Fill" Height="75" Margin="163.4,253.8,0,0" VerticalAlignment="Top" Source="../../Resources/Images/Wizard/Capture_6.PNG" OpacityMask="#FF090909" Width="377"/>
 
         </Grid>
-        <Image HorizontalAlignment="Left" Height="237.8" Margin="40,151.4,0,0" VerticalAlignment="Top" Width="239.8" Source="../../Resources/hospital.png"/>
-        <Button Name="Sledeca" Click="Sledeca_Click" Content="Sledeća" HorizontalAlignment="Left" Height="48" Margin="745.6,454.6,0,0" VerticalAlignment="Top" Width="138.4" BorderBrush="Aqua"/>
-        <Button Name="Prethodna" Click="Prethodna_New" Content="Prethodna" HorizontalAlignment="Left" Height="48" Margin="576,454.6,0,0" VerticalAlignment="Top" Width="138.4"/>
-        <Button Content="Završi" HorizontalAlignment="Left" Height="48" Margin="965.6,451,0,0" VerticalAlignment="Top" Width="138.4" Click="Button_Click"/>
-        <ProgressBar Minimum="0" Maximum="100"  Name="Progres" HorizontalAlignment="Left" Height="48" Margin="40,454.6,0,0" VerticalAlignment="Top" Width="239.8" />
-        <Label Content="Wizard" HorizontalAlignment="Left" Height="72" Margin="81.6,50.4,0,0" VerticalAlignment="Top" Width="168" FontSize="48"/>
+        <Image HorizontalAlignment="Left" Height="237.8" Margin="40,151.4,0,0" VerticalAlignment="Top" Width="239.8" Source="../../Resources/hospital.png" ToolTip="logo firme"/>
+        <Button Name="Sledeca" Click="Sledeca_Click" Content="Sledeća" HorizontalAlignment="Left" Height="48" Margin="745.6,454.6,0,0" VerticalAlignment="Top" Width="138.4" BorderBrush="Aqua" ToolTip="Pomeriti se na sledecu straincu tutorijala"/>
+        <Button Name="Prethodna" Click="Prethodna_New" Content="Prethodna" HorizontalAlignment="Left" Height="48" Margin="576,454.6,0,0" VerticalAlignment="Top" Width="138.4" ToolTip="Vratiti se na prethodnu stranicu"/>
+        <Button Content="Završi" HorizontalAlignment="Left" Height="48" Margin="965.6,451,0,0" VerticalAlignment="Top" Width="138.4" Click="Button_Click" ToolTip="Zavrsiti sa tutorijalnom"/>
+        <ProgressBar Minimum="0" Maximum="100"  Name="Progres" HorizontalAlignment="Left" Height="48" Margin="40,454.6,0,0" VerticalAlignment="Top" Width="239.8" ToolTip="Log bar o duzini tutorijala" />
+        <Label Content="Wizard" HorizontalAlignment="Left" Height="72" Margin="81.6,50.4,0,0" VerticalAlignment="Top" Width="168" FontSize="48" ToolTip="Kratak tutorijal o aplikaciji"/>
     </Grid>
 </Window>
