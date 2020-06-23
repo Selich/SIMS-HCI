@@ -142,7 +142,7 @@ namespace Project
         // Report paths
         private static string REPORT_ROOM_PATH = ConfigurationManager.AppSettings["ReportRoomPath"].ToString();
         private static string REPORT_APPOINTMENT_PATH = ConfigurationManager.AppSettings["ReportAppointmentPath"].ToString();
-        private static string REPORT_RECIPE_PATH = ConfigurationManager.AppSettings["ReportAppointmentPath"].ToString();
+        private static string REPORT_PRESCREIPTION_PATH = ConfigurationManager.AppSettings["PrescriptionAppointmentPath"].ToString();
 
         // Constants
         private static string DELIMITER = ConfigurationManager.AppSettings["DelimiterValue"].ToString();
@@ -327,7 +327,7 @@ namespace Project
             // Generators
             SecretaryAppointmentReportGenerator = new SecretaryAppointmentReportGenerator(REPORT_APPOINTMENT_PATH);
             PatientAppointmentReportGenerator = new PatientAppointmentReportGenerator(REPORT_APPOINTMENT_PATH);
-            PrescriptionReportGenerator = new PrescriptionReportGenerator(REPORT_RECIPE_PATH);
+            PrescriptionReportGenerator = new PrescriptionReportGenerator(REPORT_PRESCREIPTION_PATH);
         }
 
 

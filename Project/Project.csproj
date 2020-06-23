@@ -730,6 +730,8 @@
     <Folder Include="Resources\Demo\Patient\" />
     <Folder Include="Resources\Demo\Secretary\" />
     <Folder Include="Resources\Reports\AppointmentReports\" />
+    <Folder Include="Resources\Reports\DoctorReports\" />
+    <Folder Include="Resources\Reports\PrescriptionReports\" />
     <Folder Include="Resources\Reports\RoomReports\" />
     <Folder Include="Views\Patient\.vs\Patient\v15\" />
   </ItemGroup>
