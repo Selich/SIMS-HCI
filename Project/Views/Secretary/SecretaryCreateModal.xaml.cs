@@ -25,7 +25,6 @@ namespace Project.Views.Secretary
     public partial class SecretaryCreateModal : Window
     {
         private readonly IController<PatientDTO, long> _patientController;
-        public int _someVal = 0;
         private readonly CancellationTokenSource cts = new CancellationTokenSource();
         public string Name;
         public string Jmbg;
@@ -37,26 +36,21 @@ namespace Project.Views.Secretary
 
             app = System.Windows.Application.Current as App;
 
-            //StartDateTime.SelectedDate = DateTime.Now;
-            //EndDateTime.SelectedDate = DateTime.Now.AddMinutes(30);
-
-            //_patientController = app.PatientController;
-            //ListPatients.ItemsSource = _patientController.GetAll();
-
             SelectedDate.SelectedDate = DateTime.Now;
-            List<TimeInterval> terms = new List<TimeInterval>();
-            for (int i = 1; i <= 48; i++)
-                terms.Add(new TimeInterval(DateTime.Now.AddMinutes(30*i), DateTime.Now.AddMinutes(60 * i)));
 
-            // HCI
-            ListPatients.ItemsSource = app.patients;
-            ListTerms.ItemsSource = terms;
-            ListRooms.ItemsSource = app.rooms;
+            // List<TimeInterval> terms = new List<TimeInterval>();
+            // for (int i = 1; i <= 48; i++)
+            //     terms.Add(new TimeInterval(DateTime.Now.AddMinutes(30*i), DateTime.Now.AddMinutes(60 * i)));
+
+            ListPatients.ItemsSource = app.PatientController.GetAll();
+            // ListTerms.ItemsSource = terms;
+            ListRooms.ItemsSource = app.RoomController.GetAll();
             AppointmentType.ItemsSource = app.medicalAppointmentTypes;
 
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(ListPatients.ItemsSource);
             CollectionView termView = (CollectionView)CollectionViewSource.GetDefaultView(ListTerms.ItemsSource);
             CollectionView roomView = (CollectionView)CollectionViewSource.GetDefaultView(ListRooms.ItemsSource);
+
             view.Filter = CombinedFilter;
             termView.Filter = TermFilter;
             roomView.Filter = RoomFilter;
@@ -176,15 +170,7 @@ namespace Project.Views.Secretary
         }
 
         private void ListPatients_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
-        {
-            if (e.Key == Key.Return)
-                app.SelectedPatient = (ListPatients.SelectedItem as PatientDTO);
-                
-        }
-        private void Window_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
-        {
-            if (e.Key == Key.Space) _someVal--;
-        }
+            => app.SelectedPatient = (e.Key == Key.Return) ? (ListPatients.SelectedItem as PatientDTO) : null;
         private async void DemoButton_Click(object sender, RoutedEventArgs e)
         {
 

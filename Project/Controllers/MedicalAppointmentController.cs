@@ -15,10 +15,10 @@ namespace Controller
 {
     public class MedicalAppointmentController : IController<MedicalAppointmentDTO, long>
     {
-        private IMedicalAppointmentService<MedicalAppointment, long> _service;
+        private IMedicalAppointmentService _service;
         private IConverter<MedicalAppointment, MedicalAppointmentDTO> _medicalAppointmentConverter;
         public MedicalAppointmentController(
-            IMedicalAppointmentService<MedicalAppointment, long> service ,
+            IMedicalAppointmentService service,
             IConverter<MedicalAppointment, MedicalAppointmentDTO> medicalAppointmentConverter
             )
         {

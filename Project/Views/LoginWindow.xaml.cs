@@ -34,27 +34,6 @@ namespace Project.Views
 
         }
 
-        private void Secretary_Click(object sender, RoutedEventArgs e)
-        {
-            var s = new Secretary.SecretaryHomeWindow();
-            s.Show();
-        }
-        private void Doctor_Click(object sender, RoutedEventArgs e)
-        {
-            var s = new Doctor.HomeWindow();
-            s.Show();
-        }
-        private void Director_Click(object sender, RoutedEventArgs e)
-        {
-            var s = new Director.HomeWindow();
-            s.Show();
-        }
-        private void Patient_Click(object sender, RoutedEventArgs e)
-        {
-            var s = new Patient.HomeWindow();
-            s.Show();
-        }
-
         private void Login_Click(object sender, RoutedEventArgs e)
         {
             var role = app.AuthenticationController.Login(Email, PasswordTextBox.Password);

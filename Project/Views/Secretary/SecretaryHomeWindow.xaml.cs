@@ -30,15 +30,11 @@ namespace Project.Views.Secretary
         {
 
             InitializeComponent();
-
             DataContext = new DataContext();
         }
 
-        public void ViewHelp()
-        {
-
-        }
-
+        private void ViewHelp()
+            => new ShortcutsModal().Show();
         private void ShowShortcuts(object sender, RoutedEventArgs e) 
             => new ShortcutsModal().Show();
         private void CreateAppointment(object sender, RoutedEventArgs e) 
