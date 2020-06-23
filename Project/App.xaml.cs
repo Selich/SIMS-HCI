@@ -139,6 +139,7 @@ namespace Project
         private static string MEDICAL_CONSUMABLE_FILEPATH= ConfigurationManager.AppSettings["MedicalConsumablesPath"].ToString();
         private static string EQUIPMENT_FILEPATH = ConfigurationManager.AppSettings["EquipmentPath"].ToString();
         private static string ROOM_PATH = ConfigurationManager.AppSettings["RoomPath"].ToString();
+        private static string RENOVATION_PATH = ConfigurationManager.AppSettings["RenovationPath"].ToString();
         
         // Report paths
         private static string REPORT_ROOM_PATH = ConfigurationManager.AppSettings["ReportRoomPath"].ToString();
@@ -222,6 +223,7 @@ namespace Project
             var medicalConsumableConverter = new MedicalConsumableConverter();
             var roomConverter = new RoomConverter();
             var equipmentConverter = new EquipmentConverter(roomConverter);
+            var renovationConverter = new RenovationConverter(roomConverter);
 
             // Repositories
             var patientRepository = new PatientRepository(new CSVStream<Patient>(PATIENT_FILEPATH, new PatientCSVConverter(DELIMITER, DATETIME_FORMAT)), new LongSequencer());
@@ -232,6 +234,7 @@ namespace Project
             var equipmentRepository = new EquipmentRepository(new CSVStream<Equipment>(EQUIPMENT_FILEPATH, new EquipmentCSVConverter(DELIMITER)), new LongSequencer());
             var roomRepository = new RoomRepository(new CSVStream<Room>(ROOM_PATH, new RoomCSVConverter(DELIMITER)),new LongSequencer());
             var addressRepository = new AddressRepository(new CSVStream<Address>(ADDRESS_FILEPATH, new AddressCSVConverter(DELIMITER)), new LongSequencer());
+            var renovationRepository = new RenovationRepository(new CSVStream<Renovation>(RENOVATION_PATH, new RenovationCSVConverter(DELIMITER, DATETIME_FORMAT)), new LongSequencer());
             // Services
             var patientService = new PatientService(patientRepository);
             var questionService = new QuestionService(questionRepository);
@@ -242,7 +245,7 @@ namespace Project
             var reportService = new ReportService();
             var equipmentService = new EquipmentService(equipmentRepository);
             var roomService = new RoomService(roomRepository);
-
+            var renovationService = new RenovationService(renovationRepository);
             // Controllers
             PatientController = new PatientController(patientService, patientConverter);
             AddressController = new AddressController(addressService, addressConverter);
@@ -254,6 +257,7 @@ namespace Project
             PrescriptionController = new PrescriptionController(prescriptionService, prescriptionConverter);
             EquipmentController = new EquipmentController(equipmentService, equipmentConverter);
             RoomController = new RoomController(roomService, roomConverter);
+            RenovationController = new RenovationController(renovationService, renovationConverter);
             // Generators
             SecretaryAppointmentReportGenerator = new SecretaryAppointmentReportGenerator(REPORT_APPOINTMENT_PATH);
             PatientAppointmentReportGenerator = new PatientAppointmentReportGenerator(REPORT_APPOINTMENT_PATH);
@@ -277,6 +281,7 @@ namespace Project
 
         public IController<EquipmentDTO, long> EquipmentController { get; private set; }
         public IController<RoomDTO, long> RoomController { get; private set; }
+        public IController<RenovationDTO, long> RenovationController { get; private set; }
 
         public IController<QuestionDTO, long> QuestionController { get; private set; }
         public IController<PrescriptionDTO, long> PrescriptionController { get; private set; }
