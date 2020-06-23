@@ -37,9 +37,7 @@ namespace Project.Services
         }
 
         public MedicalAppointment Save(MedicalAppointment entity)
-        {
-            throw new NotImplementedException();
-        }
+            => _medicalAppointmentRepository.Save(entity);
 
         public MedicalAppointment Update(MedicalAppointment entity)
         {

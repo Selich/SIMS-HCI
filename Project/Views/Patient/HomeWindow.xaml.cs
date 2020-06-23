@@ -32,6 +32,7 @@ namespace Project.Views.Patient
         public ObservableCollection<MedicalAppointmentDTO> PastAppoitments { get; set; }
         public ObservableCollection<MedicalAppointmentDTO> AvailableAppoitments { get; set; }
         public PatientDTO LoggedInPatient { get; set; }
+        private App app
 
         //Chart
         public SeriesCollection SeriesCollection { get; }
@@ -42,6 +43,7 @@ namespace Project.Views.Patient
         {
             InitializeComponent();
             this.DataContext = this;
+            app = Application.Current as App;
 
             //Current Appoitments
             RoomDTO tempRoom = new RoomDTO() { Floor = "One", Id = 4, Ward="Check" };
@@ -176,6 +178,7 @@ namespace Project.Views.Patient
                     i--;
                 }
             }
+            
 
             //TEMP FOR CONTROLLER TO DO
             for (int i = 1; i < AvailableAppoitments.Count(); i++)
