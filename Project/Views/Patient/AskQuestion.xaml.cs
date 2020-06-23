@@ -32,6 +32,8 @@ namespace Project.Views.Patient
 
         private void Submit_Click(object sender, RoutedEventArgs e)
         {
+            DateTime sad = DateTime.Now;
+            
             app.QuestionController.Save(new QuestionDTO(Question.Text, null, CurrentPatient, null, DateTime.Now ));
             Close();
         }
