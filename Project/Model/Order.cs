@@ -15,22 +15,28 @@ namespace Project.Model
         public DateTime Date { get; set; }
         public string Supplier { get; set; }
         public List<Equipment> Equipments { get; set; }
-        public List<Consumebles> Consumebles { get; set; }
-        public Order(long id, DateTime date, string supplier, List<Equipment> equipments, List<Consumebles> consumebles)
+        public List<MedicalConsumables> Consumebles { get; set; }
+
+        public List<Medicine> Medicine { get; set; }
+
+        public Order() { }
+        public Order(long id, DateTime date, string supplier, List<Equipment> equipments, List<MedicalConsumables> consumebles, List<Medicine> medicine)
         {
             Id = id;
             Date = date;
             Supplier = supplier;
             Equipments = equipments;
             Consumebles = consumebles;
+            Medicine = medicine;
         }
 
-        public Order(DateTime date, string supplier, List<Equipment> equipments, List<Consumebles> consumebles)
+        public Order(DateTime date, string supplier, List<Equipment> equipments, List<MedicalConsumables> consumebles, List<Medicine> medicine)
         {
             Date = date;
             Supplier = supplier;
             Equipments = equipments;
             Consumebles = consumebles;
+            Medicine = medicine;
         }
 
         public long GetId() => Id;

@@ -21,8 +21,8 @@ namespace Project.Repositories.CSV.Converter
         public string ConvertEntityToCSVFormat(Renovation renovation)
            => string.Join(_delimiter,
                renovation.Id,
-               renovation.Beginning,
-               renovation.End,
+               renovation.Beginning.ToString(_datetimeFormat),
+               renovation.End.ToString(_datetimeFormat),
                renovation.Room.Id,
                renovation.Type,
                renovation.NewType
