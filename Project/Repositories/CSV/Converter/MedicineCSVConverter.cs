@@ -17,7 +17,11 @@ namespace Project.Repositories.CSV.Converter
                medicine.Id,
                medicine.Purpose,
                medicine.Administration,
-               (medicine.Approved) ? 1 : 0
+               (medicine.Approved) ? 1 : 0,
+               medicine.Quantity,
+               medicine.Type,
+               medicine.Description,
+               medicine.Name
                );
 
         public Medicine ConvertCSVFormatToEntity(string medicineCSVFormat)
