@@ -176,7 +176,7 @@ namespace Project
                 1, new AddressDTO(1, "7A", "Bulevar despota Stefana", "Novi Sad", "Srbija", "21000"),
                 "Branislav", "Draganic", "123241129993", "+381604223222", "male", new DateTime(), 67000.00,
                 new TimeInterval(new DateTime(), new DateTime()), new TimeInterval(new DateTime(), new DateTime()),
-                "a22@gmail.com", "pass123", medicalRoles[1]),
+                "a@g.c", "p", medicalRoles[1]),
                 new DoctorDTO(
                 2, new AddressDTO(1, "7A", "Bulevar despota Stefana", "Novi Sad", "Srbija", "21000"),
                 "Nikola", "Selic", "123241129993", "+381604223222", "male", new DateTime(), 67000.00,
