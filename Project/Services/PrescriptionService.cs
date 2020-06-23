@@ -26,8 +26,14 @@ namespace Project.Services
         }
         public IEnumerable<Prescription> GetAll() {
             IEnumerable<Prescription> list = _prescriptionRepository.GetAll();
-            list.Select(item => item.Patient = _patientService.GetById(item.Patient.Id));
-            list.Select(item => item.Medicine = _medicineService.GetById(item.Medicine.Id));
+            foreach (Prescription prescription in list)
+            { 
+                prescription.Medicine = _medicineService.GetById(prescription.Medicine.Id);
+            }
+            foreach (Prescription prescription in list)
+            {
+                prescription.Patient = _patientService.GetById(prescription.Patient.Id);
+            }
             return list;
         }
 

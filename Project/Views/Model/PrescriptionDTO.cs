@@ -36,6 +36,7 @@ namespace Project.Views.Model
             Period = period;
             Date = date;
             Patient = patient;
+            Medicine = medicine;
         }
     }
 }
