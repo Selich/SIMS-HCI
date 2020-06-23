@@ -36,6 +36,16 @@ namespace Project.Repositories.CSV.Converter
         public Prescription ConvertCSVFormatToEntity(string prescriptionCSVFormat)
         {
             string[] tokens = prescriptionCSVFormat.Split(_delimiter.ToCharArray());
+            /*Prescription prescription = new Prescription(
+                long.Parse(tokens[0]),
+                int.Parse(tokens[1]),
+                tokens[2],
+                tokens[3],
+                new Medicine("1","1",true,1,"n","d","d"),
+                DateTime.Parse(tokens[5]),
+                new Patient()
+            );
+            return prescription;*/
             return new Prescription(
                 long.Parse(tokens[0]),
                 int.Parse(tokens[1]),

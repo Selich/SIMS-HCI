@@ -32,6 +32,7 @@ namespace Project.Model
             Dosage = dosage;
             Usage = usage;
             Period = period;
+            Medicine = medicine;
             Date = date;
             Patient = patient;
         }
