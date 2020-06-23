@@ -11,7 +11,8 @@ namespace Project.Views.Converters
     {
         public Project.Model.Doctor ConvertDTOToEntity(DoctorDTO dto)
         {
-            throw new NotImplementedException();
+            => new Project.Model.Doctor(
+            )
         }
 
         public DoctorDTO ConvertEntityToDTO(Project.Model.Doctor entity)
