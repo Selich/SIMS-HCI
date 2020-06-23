@@ -142,7 +142,7 @@ namespace Project
         // Report paths
         private static string REPORT_ROOM_PATH = ConfigurationManager.AppSettings["ReportRoomPath"].ToString();
         private static string REPORT_APPOINTMENT_PATH = ConfigurationManager.AppSettings["ReportAppointmentPath"].ToString();
-        private static string REPORT_PRESCREIPTION_PATH = ConfigurationManager.AppSettings["PrescriptionAppointmentPath"].ToString();
+        private static string REPORT_PRESCREIPTION_PATH = ConfigurationManager.AppSettings["ReportPrescreiptionPath"].ToString();
 
         // Constants
         private static string DELIMITER = ConfigurationManager.AppSettings["DelimiterValue"].ToString();
