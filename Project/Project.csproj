@@ -191,9 +191,9 @@
     <Compile Include="Services\QuestionService.cs" />
     <Compile Include="Services\AddressService.cs" />
     <Compile Include="Services\ReportService.cs" />
-    <Compile Include="Utility\GenerateDirectorReport.cs" />
-    <Compile Include="Utility\GenerateDoctorReport.cs" />
-    <Compile Include="Utility\GeneratePatientReport.cs" />
+    <Compile Include="Utility\DoctorReportGenrator.cs" />
+    <Compile Include="Utility\PrescriptionReportGenerator.cs" />
+    <Compile Include="Utility\PatientAppointmentReportGenerator.cs" />
     <Compile Include="Utility\SecretaryAppointmentReportGenerator.cs" />
     <Compile Include="Utility\IPDFReport.cs" />
     <Compile Include="Views\Commands\DataContext.cs" />

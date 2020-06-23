@@ -437,7 +437,7 @@ namespace Project.Views.Doctor
 
         private void Generate_Report(object sender, RoutedEventArgs e)
         {
-            app.GenerateDoctorReport.GenerateReport(null);
+            app.PrescriptionReportGenerator.GenerateReport(null);
             var alert = new Doctor.Alert();
             alert.Show();
         }
