@@ -7,11 +7,6 @@ namespace Project.Views.Converters
 {
     public class MedicineConverter : IConverter<Medicine, MedicineDTO>
     {
-
-        public MedicineConverter()
-        {
-
-        }
         public Medicine ConvertDTOToEntity(MedicineDTO dto)
             => new Medicine(
                 dto.Id,

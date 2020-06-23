@@ -18,6 +18,10 @@ namespace Project.Model
 
         public List<Prescription> Prescriptions { get; set; }
         public Patient() { }
+        public Patient(long id) 
+        { 
+            Id = id; 
+        }
 
         public Patient(long id, Address address, string firstName, string lastName, string jmbg, string telephoneNumber, string gender, DateTime dateOfBirth, string insurenceNumber, string profession, string bloodType, float height, float weight, string email, string password)
             : base(id, address, firstName, lastName, jmbg, telephoneNumber, gender, dateOfBirth, insurenceNumber, profession, bloodType, height, weight)

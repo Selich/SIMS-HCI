@@ -18,6 +18,10 @@ namespace Project.Model
         public List<Medicine> Alternatives { get; set; }
         public Medicine() : base() { }
 
+        public Medicine(long id)
+        {
+            Id = id;
+        }
         public Medicine(long id, string purpose, string administration, bool approved, int quantity, string type, string description, string name)
         : base(quantity, type, description, name)
         {
