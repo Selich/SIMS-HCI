@@ -1,4 +1,5 @@
-﻿using Project.Views.Model;
+﻿using Project.Model;
+using Project.Views.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,24 +11,16 @@ namespace Project.Views.Converters
     public class DoctorConverter : IConverter<Project.Model.Doctor, DoctorDTO>
     {
         public Project.Model.Doctor ConvertDTOToEntity(DoctorDTO dto)
-        {
-            => new Project.Model.Doctor(
-            )
-        }
+            => new Project.Model.Doctor(dto.Id, new Address(), dto.FirstName, dto.LastName, dto.Jmbg, dto.TelephoneNumber, dto.Gender, dto.DateOfBirth, dto.Salary, dto.AnnualLeave, dto.WorkingHours, dto.Email, dto.Password,  dto.MedicalRole, dto.Hospital);
+
 
         public DoctorDTO ConvertEntityToDTO(Project.Model.Doctor entity)
-        {
-            throw new NotImplementedException();
-        }
+            => new DoctorDTO(entity.Id, new AddressDTO(), entity.FirstName, entity.LastName, entity.Jmbg, entity.TelephoneNumber, entity.Gender, entity.DateOfBirth, entity.Salary, entity.AnnualLeave, entity.WorkingHours, entity.Email, entity.Password, entity.Hospital.Name, entity.MedicalRole);
 
         public List<Project.Model.Doctor> ConvertListDTOToListEntity(IEnumerable<DoctorDTO> dtos)
-        {
-            throw new NotImplementedException();
-        }
+            => dtos.Select(dto => ConvertDTOToEntity(dto)).ToList();
 
         public IEnumerable<DoctorDTO> ConvertListEntityToListDTO(List<Project.Model.Doctor> entities)
-        {
-            throw new NotImplementedException();
-        }
+            => entities.Select(entity => ConvertEntityToDTO(entity)).ToList();
     }
 }
