@@ -12,12 +12,12 @@ using System.Windows;
 
 namespace Project.Utility
 {
-    class GeneratePatientReport : IPDFReport<TimeInterval>
-    {
+    class PatientAppointmentReportGenerator : IPDFReport<TimeInterval>
+    {     
         public App app;
         private string _path;
 
-        public GeneratePatientReport(string path)
+        public PatientAppointmentReportGenerator(string path)
         {
             app = Application.Current as App;
             _path = path;

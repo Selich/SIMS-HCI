@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace Project.Utility
 {
-    class GenerateDirectorReport
+    class DoctorReportGenrator
     {
+       
     }
 }

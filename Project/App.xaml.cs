@@ -326,16 +326,16 @@ namespace Project
             EquipmentController = new EquipmentController(equipmentService, equipmentConverter);
             // Generators
             SecretaryAppointmentReportGenerator = new SecretaryAppointmentReportGenerator(REPORT_APPOINTMENT_PATH);
-            GeneratePatientReport = new GeneratePatientReport(REPORT_APPOINTMENT_PATH);
-            GenerateDoctorReport = new GenerateDoctorReport(REPORT_RECIPE_PATH);
+            PatientAppointmentReportGenerator = new PatientAppointmentReportGenerator(REPORT_APPOINTMENT_PATH);
+            PrescriptionReportGenerator = new PrescriptionReportGenerator(REPORT_RECIPE_PATH);
         }
 
 
 
         // Generators
         public IPDFReport<TimeInterval> SecretaryAppointmentReportGenerator { get; private set; }
-        public IPDFReport<TimeInterval> GeneratePatientReport { get; private set; }
-        public IPDFReport<TimeInterval> GenerateDoctorReport { get; private set; }
+        public IPDFReport<TimeInterval> PatientAppointmentReportGenerator { get; private set; }
+        public IPDFReport<TimeInterval> PrescriptionReportGenerator { get; private set; }
 
         // Controllers
         public AuthenticationController AuthenticationController { get; private set; }

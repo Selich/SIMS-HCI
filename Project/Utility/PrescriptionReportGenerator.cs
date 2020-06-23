@@ -13,12 +13,12 @@ using System.Windows;
 
 namespace Project.Utility
 {
-    class GenerateDoctorReport : IPDFReport<TimeInterval>
+    class PrescriptionReportGenerator : IPDFReport<TimeInterval>
     {
         public App app;
         private string rEPORT_RECIPE_PATH;
 
-        public GenerateDoctorReport(string rEPORT_RECIPE_PATH)
+        public PrescriptionReportGenerator(string rEPORT_RECIPE_PATH)
         {
             app = Application.Current as App;
             this.rEPORT_RECIPE_PATH = rEPORT_RECIPE_PATH;
