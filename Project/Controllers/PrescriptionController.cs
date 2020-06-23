@@ -23,8 +23,12 @@ namespace Project.Controllers
            => _prescriptionConverter.ConvertEntityToDTO(_service.GetById(id));
 
         public IEnumerable<PrescriptionDTO> GetAll()
-            => _prescriptionConverter.ConvertListEntityToListDTO((List<Prescription>)_service.GetAll());
+        {
+            List<PrescriptionDTO> v =  (List<PrescriptionDTO>) _prescriptionConverter.ConvertListEntityToListDTO((List<Prescription>)_service.GetAll());
 
+            return v;
+            //=> _prescriptionConverter.ConvertListEntityToListDTO((List<Prescription>)_service.GetAll());
+        }
         public PrescriptionDTO Remove(PrescriptionDTO entity)
             => _prescriptionConverter.ConvertEntityToDTO(_service.Remove(_prescriptionConverter.ConvertDTOToEntity(entity)));
 

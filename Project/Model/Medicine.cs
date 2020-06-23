@@ -15,7 +15,7 @@ namespace Project.Model
         public string Purpose { get; set; }
         public string Administration { get; set; }
         public bool Approved { get; set; }
-        public List<Medicine> Alternatives { get; set; }
+        //public List<Medicine> Alternatives { get; set; }
         public Medicine() : base() { }
 
         public Medicine(long id)
