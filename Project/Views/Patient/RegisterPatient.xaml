@@ -19,7 +19,7 @@
 
                     <Label Content="First name:"/>
                     <TextBox x:Name="firstName"  Margin="5">
-                        <Binding Path="RegisteringPatient.FirstName" UpdateSourceTrigger="PropertyChanged">
+                        <Binding Path="RegisteringPatient.FirstName" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                             <Binding.ValidationRules>
                                 <util:NameValidate ValidationStep="RawProposedValue"/>
                             </Binding.ValidationRules>
@@ -27,17 +27,17 @@
                     </TextBox>
                     <Label Content="Last name:"/>
                     <TextBox x:Name="lastName" Margin="5">
-                        <Binding Path="RegisteringPatient.LastName" UpdateSourceTrigger="PropertyChanged">
+                        <Binding Path="RegisteringPatient.LastName" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                             <Binding.ValidationRules>
                                 <util:NameValidate ValidationStep="RawProposedValue"/>
                             </Binding.ValidationRules>
                         </Binding>
                     </TextBox>
                     <Label Content="Birth Date:"/>
-                    <DatePicker x:Name="birthDate" Margin="5" SelectedDate="{Binding RegisteringPatient.DateOfBirth}"/>
+                    <DatePicker x:Name="birthDate" Margin="5" SelectedDate="{Binding RegisteringPatient.DateOfBirth, Mode=TwoWay}"/>
                     <Label Content="JMBG:"/>
                     <TextBox x:Name="JMBG" Margin="5">
-                        <Binding Path="RegisteringPatient.Jmbg" UpdateSourceTrigger="PropertyChanged">
+                        <Binding Path="RegisteringPatient.Jmbg" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                             <Binding.ValidationRules>
                                 <util:JmbgValidate ValidationStep="RawProposedValue"/>
                             </Binding.ValidationRules>
@@ -45,7 +45,7 @@
                     </TextBox>
                     <Label Content="Insurance number:"/>
                     <TextBox x:Name="insuranceNumber" Margin="5">
-                        <Binding Path="RegisteringPatient.InsurenceNumber" UpdateSourceTrigger="PropertyChanged">
+                        <Binding Path="RegisteringPatient.InsurenceNumber" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                             <Binding.ValidationRules>
                                 <util:InsuranceNumberValidate ValidationStep="RawProposedValue"/>
                             </Binding.ValidationRules>
@@ -58,7 +58,7 @@
                     </ComboBox>
                     <Label Content="Country:"/>
                     <TextBox x:Name="country" Margin="5">
-                        <Binding Path="RegisteringPatient.Address.Country" UpdateSourceTrigger="PropertyChanged">
+                        <Binding Path="RegisteringPatient.Address.Country" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                             <Binding.ValidationRules>
                                 <util:AddressValidate ValidationStep="RawProposedValue"/>
                             </Binding.ValidationRules>
@@ -66,7 +66,7 @@
                     </TextBox>
                     <Label Content="City:"/>
                     <TextBox x:Name="city" Margin="5">
-                        <Binding Path="RegisteringPatient.Address.City" UpdateSourceTrigger="PropertyChanged">
+                        <Binding Path="RegisteringPatient.Address.City" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                             <Binding.ValidationRules>
                                 <util:AddressValidate ValidationStep="RawProposedValue"/>
                             </Binding.ValidationRules>
@@ -74,7 +74,7 @@
                     </TextBox>
                     <Label Content="PostCode:"/>
                     <TextBox x:Name="postCode" Margin="5">
-                        <Binding Path="RegisteringPatient.Address.PostCode" UpdateSourceTrigger="PropertyChanged">
+                        <Binding Path="RegisteringPatient.Address.PostCode" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                             <Binding.ValidationRules>
                                 <util:PostCodeValidate ValidationStep="RawProposedValue"/>
                             </Binding.ValidationRules>
@@ -93,7 +93,7 @@
 
                         <Label Content="Street:" Grid.Column="0" Grid.Row="0"/>
                         <TextBox x:Name="street" Margin="5" Grid.ColumnSpan="2" Grid.Row="1">
-                            <Binding Path="RegisteringPatient.Address.Street" UpdateSourceTrigger="PropertyChanged">
+                            <Binding Path="RegisteringPatient.Address.Street" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                                 <Binding.ValidationRules>
                                     <util:AddressValidate ValidationStep="RawProposedValue"/>
                                 </Binding.ValidationRules>
@@ -101,7 +101,7 @@
                         </TextBox>
                         <Label Content="Number:" Grid.Column="2" Grid.Row="0"/>
                         <TextBox x:Name="number" Margin="5" Grid.Column="2" Grid.Row="1">
-                            <Binding Path="RegisteringPatient.Address.Number" UpdateSourceTrigger="PropertyChanged">
+                            <Binding Path="RegisteringPatient.Address.Number" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                                 <Binding.ValidationRules>
                                     <util:AddressNumberValidate ValidationStep="RawProposedValue"/>
                                 </Binding.ValidationRules>
@@ -110,7 +110,7 @@
                     </Grid>
                     <Label Content="Email:"/>
                     <TextBox x:Name="email" Margin="5" >
-                        <Binding Path="RegisteringPatient.Email" UpdateSourceTrigger="PropertyChanged">
+                        <Binding Path="RegisteringPatient.Email" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                             <Binding.ValidationRules>
                                 <util:EmailValidate ValidationStep="RawProposedValue"/>
                             </Binding.ValidationRules>

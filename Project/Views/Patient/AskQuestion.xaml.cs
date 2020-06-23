@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Project.Views.Model;
 
 namespace Project.Views.Patient
 {
@@ -19,13 +20,19 @@ namespace Project.Views.Patient
     /// </summary>
     public partial class AskQuestion : Window
     {
-        public AskQuestion()
+        private App app;
+        public PatientDTO CurrentPatient;
+
+        public AskQuestion(PatientDTO patient)
         {
             InitializeComponent();
+            app = Application.Current as App;
+            CurrentPatient = patient;
         }
 
         private void Submit_Click(object sender, RoutedEventArgs e)
         {
+            app.QuestionController.Save(new QuestionDTO(Question.Text, null, CurrentPatient, null, DateTime.Now ));
             Close();
         }
 

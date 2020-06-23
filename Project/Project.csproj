@@ -183,6 +183,7 @@
     <Compile Include="Repositories\MedicalConsumableRepository.cs" />
     <Compile Include="Repositories\QuestionRepository.cs" />
     <Compile Include="Repositories\RoomRepository.cs" />
+    <Compile Include="Services\Abstract\IMedicalAppoitmentService.cs" />
     <Compile Include="Services\EquipmentService.cs" />
     <Compile Include="Services\MedicalAppointmentService.cs" />
     <Compile Include="Services\MedicineService.cs" />
@@ -705,7 +706,7 @@
     <Resource Include="Resources\Images\Faces\face5" />
     <Resource Include="Resources\Images\Faces\face6" />
     <Resource Include="Resources\Images\Faces\face7" />
-    <None Include="Resources\Data\addresses.csv" />
+    <None Include="Resources\Data\address.csv" />
     <None Include="Resources\Data\doctorMedicalAppointment.csv" />
     <None Include="Resources\Data\doctors.csv" />
     <None Include="Resources\Data\equipment.csv" />

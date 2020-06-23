@@ -225,7 +225,7 @@ namespace Project.Views.Patient
 
         private void Question_Click(object sender, RoutedEventArgs e)
         {
-            var s = new Patient.AskQuestion();
+            var s = new Patient.AskQuestion(LoggedInPatient);
             s.Show();
         }
     }

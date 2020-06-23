@@ -24,13 +24,14 @@ namespace Project.Views.Patient
             get;
             set;
         }
+        private App app;
         public RegisterPatient()
         {
             InitializeComponent();
             this.DataContext = this;
 
-            RegisteringPatient = new Model.PatientDTO() { DateOfBirth = new DateTime(2020, 1, 1) };
-
+            RegisteringPatient = new Model.PatientDTO() { DateOfBirth = DateTime.Now };
+            app = Application.Current as App;
             //Profile
             //RegisteringPatient = new Model.PatientDTO() { FirstName = "Uros", LastName = "Milovanovic",
             //    DateOfBirth = new DateTime(1998, 8, 25), Email = "urke123@gmail.com", Gender = "Male",
@@ -42,6 +43,7 @@ namespace Project.Views.Patient
         private void Submit_Click(object sender, RoutedEventArgs e)
         {
             RegisteringPatient.Password = password.Password;
+            app.PatientController.Save(RegisteringPatient);
             Close();
         }
     }
