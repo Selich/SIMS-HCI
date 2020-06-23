@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Project.Services
 {
-    class MedicalAppointmentService : IService<MedicalAppointment, long>
+    class MedicalAppointmentService : IMedicalAppointmentService<MedicalAppointment, long>
     {
         private readonly IMedicalAppointmentRepository _medicalAppointmentRepository;
 
@@ -17,6 +17,11 @@ namespace Project.Services
             _medicalAppointmentRepository = medicalAppointmentRepository;
         }
         public IEnumerable<MedicalAppointment> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<MedicalAppointment> GetAllByPatientId(long id)
         {
             throw new NotImplementedException();
         }

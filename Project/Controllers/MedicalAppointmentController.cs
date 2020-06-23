@@ -15,10 +15,10 @@ namespace Controller
 {
     public class MedicalAppointmentController : IController<MedicalAppointmentDTO, long>
     {
-        private IService<MedicalAppointment, long> _service;
+        private IMedicalAppointmentService<MedicalAppointment, long> _service;
         private IConverter<MedicalAppointment, MedicalAppointmentDTO> _medicalAppointmentConverter;
-        public MedicalAppointmentController( 
-            IService<MedicalAppointment, long> service ,
+        public MedicalAppointmentController(
+            IMedicalAppointmentService<MedicalAppointment, long> service ,
             IConverter<MedicalAppointment, MedicalAppointmentDTO> medicalAppointmentConverter
             )
         {
@@ -27,6 +27,9 @@ namespace Controller
         }
         public IEnumerable<MedicalAppointmentDTO> GetAll()
             => _medicalAppointmentConverter.ConvertListEntityToListDTO((List<MedicalAppointment>)_service.GetAll());
+
+        public IEnumerable<MedicalAppointmentDTO> GetAllByPatientID(long id)
+            => _medicalAppointmentConverter.ConvertListEntityToListDTO((List<MedicalAppointment>)_service.GetAllByPatientId(id));
 
         public MedicalAppointmentDTO GetById(long id)
             => _medicalAppointmentConverter.ConvertEntityToDTO(_service.GetById(id));
