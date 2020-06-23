@@ -23,27 +23,19 @@ namespace Project.Controllers
             _converter = converter;
         }
 
+        public DoctorDTO GetById(long id) 
+            => _converter.ConvertEntityToDTO(_service.GetById(id));
 
-        public DoctorDTO GetById(long id) => _converter.ConvertEntityToDTO(_service.GetById(id));
-
-        public IEnumerable<DoctorDTO> GetAll() => _converter.ConvertListEntityToListDTO((List<Doctor>)_service.GetAll());
+        public IEnumerable<DoctorDTO> GetAll() 
+            => _converter.ConvertListEntityToListDTO((List<Doctor>)_service.GetAll());
 
         public DoctorDTO Remove(DoctorDTO entity)
-        {
-            Doctor doctor = _service.Remove(_converter.ConvertDTOToEntity(entity));
-            return _converter.ConvertEntityToDTO(doctor);
-        }
+            => _converter.ConvertEntityToDTO(_service.Remove(_converter.ConvertDTOToEntity(entity)));
 
         public DoctorDTO Save(DoctorDTO entity)
-        {
-            Doctor doctor = _service.Save(_converter.ConvertDTOToEntity(entity));
-            return _converter.ConvertEntityToDTO(doctor);
-        }
+            => _converter.ConvertEntityToDTO(_service.Save(_converter.ConvertDTOToEntity(entity)));
 
         public DoctorDTO Update(DoctorDTO entity)
-        {
-            Doctor doctor = _service.Update(_converter.ConvertDTOToEntity(entity));
-            return _converter.ConvertEntityToDTO(doctor);
-        }
+            => _converter.ConvertEntityToDTO(_service.Update(_converter.ConvertDTOToEntity(entity)));
     }
 }

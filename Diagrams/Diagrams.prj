@@ -508,7 +508,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:GradientFillMode>65</a:GradientFillMode>
 <a:CustomPictureType>4</a:CustomPictureType>
 <a:CustomTextMode>1</a:CustomTextMode>
-<a:CustomPictureID>7F5B9475-2867-419F-B5DF-7386F6F06E5B</a:CustomPictureID>
+<a:CustomPictureID>CFEDAF3D-3886-4986-BDCE-929142BCB52D</a:CustomPictureID>
 <a:GradientEndColor>16777215</a:GradientEndColor>
 <a:KeepAspect>1</a:KeepAspect>
 <c:Object>
@@ -530,7 +530,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:GradientFillMode>65</a:GradientFillMode>
 <a:CustomPictureType>4</a:CustomPictureType>
 <a:CustomTextMode>1</a:CustomTextMode>
-<a:CustomPictureID>7F5B9475-2867-419F-B5DF-7386F6F06E5B</a:CustomPictureID>
+<a:CustomPictureID>CFEDAF3D-3886-4986-BDCE-929142BCB52D</a:CustomPictureID>
 <a:GradientEndColor>16777215</a:GradientEndColor>
 <a:KeepAspect>1</a:KeepAspect>
 <c:Object>
@@ -552,7 +552,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:GradientFillMode>65</a:GradientFillMode>
 <a:CustomPictureType>4</a:CustomPictureType>
 <a:CustomTextMode>1</a:CustomTextMode>
-<a:CustomPictureID>7F5B9475-2867-419F-B5DF-7386F6F06E5B</a:CustomPictureID>
+<a:CustomPictureID>CFEDAF3D-3886-4986-BDCE-929142BCB52D</a:CustomPictureID>
 <a:GradientEndColor>16777215</a:GradientEndColor>
 <a:KeepAspect>1</a:KeepAspect>
 <c:Object>
@@ -574,7 +574,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:GradientFillMode>65</a:GradientFillMode>
 <a:CustomPictureType>4</a:CustomPictureType>
 <a:CustomTextMode>1</a:CustomTextMode>
-<a:CustomPictureID>7F5B9475-2867-419F-B5DF-7386F6F06E5B</a:CustomPictureID>
+<a:CustomPictureID>CFEDAF3D-3886-4986-BDCE-929142BCB52D</a:CustomPictureID>
 <a:GradientEndColor>16777215</a:GradientEndColor>
 <a:KeepAspect>1</a:KeepAspect>
 <c:Object>
@@ -596,7 +596,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:GradientFillMode>65</a:GradientFillMode>
 <a:CustomPictureType>4</a:CustomPictureType>
 <a:CustomTextMode>1</a:CustomTextMode>
-<a:CustomPictureID>7F5B9475-2867-419F-B5DF-7386F6F06E5B</a:CustomPictureID>
+<a:CustomPictureID>CFEDAF3D-3886-4986-BDCE-929142BCB52D</a:CustomPictureID>
 <a:GradientEndColor>16777215</a:GradientEndColor>
 <a:KeepAspect>1</a:KeepAspect>
 <c:Object>
@@ -618,7 +618,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:GradientFillMode>65</a:GradientFillMode>
 <a:CustomPictureType>4</a:CustomPictureType>
 <a:CustomTextMode>1</a:CustomTextMode>
-<a:CustomPictureID>7F5B9475-2867-419F-B5DF-7386F6F06E5B</a:CustomPictureID>
+<a:CustomPictureID>CFEDAF3D-3886-4986-BDCE-929142BCB52D</a:CustomPictureID>
 <a:GradientEndColor>16777215</a:GradientEndColor>
 <a:KeepAspect>1</a:KeepAspect>
 <c:Object>
@@ -670,7 +670,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>Sequence_Secretary</a:Code>
 <a:CreationDate>1588348715</a:CreationDate>
 <a:Creator>Selic</a:Creator>
-<a:ModificationDate>1590078091</a:ModificationDate>
+<a:ModificationDate>1591449937</a:ModificationDate>
 <a:Modifier>Selic</a:Modifier>
 <a:Location>file:///%[PRJ_ROOT_DIR]%/Sequence Diagrams/Sequence Secretary.oom</a:Location>
 <a:Extension>oom</a:Extension>

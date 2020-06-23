@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Project.Services
 {
-    class MedicalAppointmentService : IMedicalAppointmentService<MedicalAppointment, long>
+    class MedicalAppointmentService : IMedicalAppointmentService
     {
         private readonly IMedicalAppointmentRepository _medicalAppointmentRepository;
         private readonly IMedicalAppointmentToDoctorRepository _medicalAppointmentToDoctorRepository;
@@ -24,37 +24,46 @@ namespace Project.Services
             _medicalAppointmentToDoctorRepository = medicalAppointmentToDoctorRepository;
         }
         public IEnumerable<MedicalAppointment> GetAll()
-        {
-            throw new NotImplementedException();
-        }
+            => _medicalAppointmentRepository.GetAll();
 
         public IEnumerable<MedicalAppointment> GetAllByPatientId(long id)
-        {
-            throw new NotImplementedException();
-        }
+            => _medicalAppointmentRepository.GetAllByPatientId(id);
 
+        public bool IsAvailableAtTimeInterval(MedicalAppointment medicalAppointment, TimeInterval timeInterval)
+            => medicalAppointment.Beginning >= timeInterval.Start && medicalAppointment.End <= timeInterval.End;
+
+
+        // TODO: Needs Doctor Repository getById call
         public MedicalAppointment GetById(long id)
         {
-            throw new NotImplementedException();
+            MedicalAppointment medicalAppointment =_medicalAppointmentRepository.GetById(id);
+            return medicalAppointment;
+            // medicalAppointment.Doctors = _medicalAppointmentToDoctorRepository.GetAllByMedicalAppointmentId(medicalAppointment.Id).Select(item => item.DoctorId)
         }
 
         public MedicalAppointment Remove(MedicalAppointment entity)
         {
-            throw new NotImplementedException();
+            foreach (Doctor item in entity.Doctors)
+                _medicalAppointmentToDoctorRepository.Remove(new MedicalAppointmentToDoctor(item.Id, entity.Id));
+
+            return _medicalAppointmentRepository.Remove(entity);
+
         }
 
-        public MedicalAppointment Save(MedicalAppointment entity){
-            var list = entity.Doctors;
-            foreach (var item in list)
-                _medicalAppointmentToDoctorRepository.Save(
-                    new MedicalAppointmentToDoctor(item.Id, entity.Id));
+        public MedicalAppointment Save(MedicalAppointment entity)
+        {
+            foreach (Doctor item in entity.Doctors)
+                _medicalAppointmentToDoctorRepository.Save(new MedicalAppointmentToDoctor(item.Id, entity.Id));
 
             return _medicalAppointmentRepository.Save(entity);
         }
 
         public MedicalAppointment Update(MedicalAppointment entity)
         {
-            throw new NotImplementedException();
+            foreach (Doctor item in entity.Doctors)
+                _medicalAppointmentToDoctorRepository.Update(new MedicalAppointmentToDoctor(item.Id, entity.Id));
+
+            return _medicalAppointmentRepository.Update(entity);
         }
     }
 }

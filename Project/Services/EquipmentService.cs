@@ -17,18 +17,18 @@ namespace Project.Services
             _equipmentRepository = equipmentRepository;
         }
         public IEnumerable<Equipment> GetAll()
-        => _equipmentRepository.GetAll();
+            => _equipmentRepository.GetAll();
 
         public Equipment GetById(long id)
-        => _equipmentRepository.GetById(id);
+            => _equipmentRepository.GetById(id);
 
         public Equipment Remove(Equipment entity)
-        => _equipmentRepository.Remove(entity);
+            => _equipmentRepository.Remove(entity);
 
         public Equipment Save(Equipment entity)
-        => _equipmentRepository.Save(entity);
+            => _equipmentRepository.Save(entity);
 
         public Equipment Update(Equipment entity)
-        => _equipmentRepository.Update(entity);
+            => _equipmentRepository.Update(entity);
     }
 }

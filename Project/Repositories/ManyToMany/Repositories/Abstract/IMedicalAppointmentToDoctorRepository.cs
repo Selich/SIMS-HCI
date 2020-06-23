@@ -10,5 +10,7 @@ namespace Project.Repositories.ManyToMany.Repositories.Abstract
 {
     public interface IMedicalAppointmentToDoctorRepository : IRepository<MedicalAppointmentToDoctor, long>
     {
+         List<MedicalAppointmentToDoctor> GetAllByDoctorId(long id);
+         List<MedicalAppointmentToDoctor> GetAllByMedicalAppointmentId(long id);
     }
 }

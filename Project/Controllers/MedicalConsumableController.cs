@@ -28,19 +28,19 @@ namespace Controller
         }
 
         public IEnumerable<MedicalConsumableDTO> GetAll()
-         => _medicalConsumableConverter.ConvertListEntityToListDTO((List<MedicalConsumables>)_service.GetAll());
+            => _medicalConsumableConverter.ConvertListEntityToListDTO((List<MedicalConsumables>)_service.GetAll());
 
         public MedicalConsumableDTO GetById(long id)
             => _medicalConsumableConverter.ConvertEntityToDTO(_service.GetById(id));
 
 
         public MedicalConsumableDTO Remove(MedicalConsumableDTO entity)
-           => _medicalConsumableConverter.ConvertEntityToDTO(_service.Remove(_medicalConsumableConverter.ConvertDTOToEntity(entity)));
+            => _medicalConsumableConverter.ConvertEntityToDTO(_service.Remove(_medicalConsumableConverter.ConvertDTOToEntity(entity)));
 
         public MedicalConsumableDTO Save(MedicalConsumableDTO entity)
-         => _medicalConsumableConverter.ConvertEntityToDTO(_service.Save(_medicalConsumableConverter.ConvertDTOToEntity(entity)));
+            => _medicalConsumableConverter.ConvertEntityToDTO(_service.Save(_medicalConsumableConverter.ConvertDTOToEntity(entity)));
 
         public MedicalConsumableDTO Update(MedicalConsumableDTO entity)
-         => _medicalConsumableConverter.ConvertEntityToDTO(_service.Update(_medicalConsumableConverter.ConvertDTOToEntity(entity)));
+            => _medicalConsumableConverter.ConvertEntityToDTO(_service.Update(_medicalConsumableConverter.ConvertDTOToEntity(entity)));
     }
 }

@@ -25,7 +25,13 @@ namespace Project.Repositories
         public new MedicalAppointment Save(MedicalAppointment medicalAppointment){
             return base.Save(medicalAppointment);
         }
-
+        public IEnumerable<MedicalAppointment> GetAllByPatientId(long id)
+            => GetAll().Where(item => item.Patient.Id == id).ToList();
+        // TODO : Test method
+        public IEnumerable<MedicalAppointment> GetAllByDoctorId(long id)
+            => GetAll().Where(item => item.Doctors.Select(doctor => doctor.Id == id).Any()).ToList();
+        public IEnumerable<MedicalAppointment> GetAllByRoomId(long id)
+            => GetAll().Where(item => item.Room.Id == id).ToList();
 
         IEnumerable<MedicalAppointment> IEagerCSVRepository<MedicalAppointment, long>.GetAllEager()
         {

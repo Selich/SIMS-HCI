@@ -22,7 +22,14 @@ namespace Project.Controllers
             _service = service;
             _renovationConverter = renovationConverter;
         }
-
+        // TODO: Maybe in RoomController?
+        // TODO: Add method
+        public RenovationDTO MergeRooms(long id)
+           => _renovationConverter.ConvertEntityToDTO(_service.GetById(id));
+        // TODO: Maybe in RoomController?
+        // TODO: Add method
+        public RenovationDTO SplitRooms(long id)
+           => _renovationConverter.ConvertEntityToDTO(_service.GetById(id));
         public RenovationDTO GetById(long id)
            => _renovationConverter.ConvertEntityToDTO(_service.GetById(id));
 
@@ -37,8 +44,6 @@ namespace Project.Controllers
 
         public RenovationDTO Update(RenovationDTO entity)
             => _renovationConverter.ConvertEntityToDTO(_service.Update(_renovationConverter.ConvertDTOToEntity(entity)));
-
-
 
 
 

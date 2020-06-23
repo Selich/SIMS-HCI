@@ -19,21 +19,26 @@ namespace Project.Services
             _patientRepository = patientRepository;
         }
 
-        public IEnumerable<Patient> GetAll() => _patientRepository.GetAll();
+        public IEnumerable<Patient> GetAll() 
+            => _patientRepository.GetAll();
 
-        public Patient GetById(long id) => _patientRepository.GetById(id);
+        public Patient GetById(long id) 
+            => _patientRepository.GetById(id);
 
-        public Patient Save(Patient patient) {
+        public Patient Save(Patient patient) 
+        {
             patient.Address = _addressService.Save(patient.Address);
             return _patientRepository.Save(patient);
         }
 
-        public Patient Update(Patient patient) {
+        public Patient Update(Patient patient) 
+        {
             patient.Address = _addressService.Save(patient.Address);
             return _patientRepository.Update(patient);
         }
 
-        public Patient Remove(Patient client) => _patientRepository.Remove(client);
+        public Patient Remove(Patient client) 
+            => _patientRepository.Remove(client);
 
     }
 }

@@ -29,18 +29,18 @@ namespace Controller
 
 
         public IEnumerable<RoomDTO> GetAll()
-        => _roomConverter.ConvertListEntityToListDTO((List<Room>)_service.GetAll());
+            => _roomConverter.ConvertListEntityToListDTO((List<Room>)_service.GetAll());
 
         public RoomDTO GetById(long id)
-         => _roomConverter.ConvertEntityToDTO(_service.GetById(id));
+            => _roomConverter.ConvertEntityToDTO(_service.GetById(id));
 
         public RoomDTO Remove(RoomDTO entity)
-        => _roomConverter.ConvertEntityToDTO(_service.Remove(_roomConverter.ConvertDTOToEntity(entity)));
+            => _roomConverter.ConvertEntityToDTO(_service.Remove(_roomConverter.ConvertDTOToEntity(entity)));
 
         public RoomDTO Save(RoomDTO entity)
-         => _roomConverter.ConvertEntityToDTO(_service.Save(_roomConverter.ConvertDTOToEntity(entity)));
+            => _roomConverter.ConvertEntityToDTO(_service.Save(_roomConverter.ConvertDTOToEntity(entity)));
 
         public RoomDTO Update(RoomDTO entity)
-         => _roomConverter.ConvertEntityToDTO(_service.Update(_roomConverter.ConvertDTOToEntity(entity)));
+            => _roomConverter.ConvertEntityToDTO(_service.Update(_roomConverter.ConvertDTOToEntity(entity)));
     }
 }

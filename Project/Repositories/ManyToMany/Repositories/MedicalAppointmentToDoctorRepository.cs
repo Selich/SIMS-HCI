@@ -29,6 +29,10 @@ namespace Project.Repositories.ManyToMany.Repositories
 
         public IEnumerable<MedicalAppointmentToDoctor> GetAllEager() => GetAll();
         public MedicalAppointmentToDoctor GetEager(long id) => GetById(id);
+        public List<MedicalAppointmentToDoctor> GetAllByDoctorId(long id)
+            => GetAll().Where(item => item.DoctorId == id).ToList();
+        public List<MedicalAppointmentToDoctor> GetAllByMedicalAppointmentId(long id) 
+            => GetAll().Where(item => item.MedicalAppointmentId == id).ToList();
         public new MedicalAppointmentToDoctor Save(MedicalAppointmentToDoctor entity)
         {
                 return base.Save(entity);

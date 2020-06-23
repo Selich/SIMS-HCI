@@ -19,14 +19,20 @@ namespace Project.Services
             _addressRepository = addressRepository;
         }
 
-        public IEnumerable<Address> GetAll() => _addressRepository.GetAll();
+        public IEnumerable<Address> GetAll() 
+            => _addressRepository.GetAll();
 
-        public Address GetById(long id) => _addressRepository.GetById(id);
+        public Address GetById(long id) 
+            => _addressRepository.GetById(id);
 
-        public Address Save(Address address) => _addressRepository.Save(address); 
-        public Address Update(Address address) => _addressRepository.Update(address);
+        public Address Save(Address address) 
+            => _addressRepository.Save(address); 
 
-        public Address Remove(Address address) => _addressRepository.Remove(address);
+        public Address Update(Address address) 
+            => _addressRepository.Update(address);
+
+        public Address Remove(Address address) 
+            => _addressRepository.Remove(address);
 
     }
 }

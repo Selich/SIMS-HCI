@@ -24,6 +24,7 @@ namespace Project.Services
             _medicineService = medicineService;
             _patientService = patientService;
         }
+        // TODO: Refactor this
         public IEnumerable<Prescription> GetAll() {
             IEnumerable<Prescription> list = _prescriptionRepository.GetAll();
             foreach (Prescription prescription in list)
@@ -39,10 +40,10 @@ namespace Project.Services
 
 
         public Prescription GetById(long id){
-            Prescription p = _prescriptionRepository.GetById(id);
-            p.Medicine =_medicineService.GetById(p.Medicine.Id);
-            p.Patient =_patientService.GetById(p.Patient.Id);
-            return p;
+            Prescription prescription = _prescriptionRepository.GetById(id);
+            prescription.Medicine =_medicineService.GetById(prescription.Medicine.Id);
+            prescription.Patient =_patientService.GetById(prescription.Patient.Id);
+            return prescription;
         }
 
         public Prescription Save(Prescription prescription)
