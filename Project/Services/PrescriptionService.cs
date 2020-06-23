@@ -14,9 +14,15 @@ namespace Project.Services
         private readonly IService<Medicine, long> _medicineService;
         private readonly IService<Patient, long> _patientService;
 
-        public PrescriptionService(IPrescriptionRepository prescriptionRepository)
+        public PrescriptionService(
+            IPrescriptionRepository prescriptionRepository,
+            IService<Medicine, long> medicineService,
+            IService<Patient, long> patientService
+            )
         {
             _prescriptionRepository = prescriptionRepository;
+            _medicineService = medicineService;
+            _patientService = patientService;
         }
         public IEnumerable<Prescription> GetAll() {
             IEnumerable<Prescription> list = _prescriptionRepository.GetAll();

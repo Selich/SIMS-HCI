@@ -309,8 +309,8 @@ namespace Project
             var questionService = new QuestionService(questionRepository);
             var addressService = new AddressService(addressRepository);
             var medicineService = new MedicineService(medicineRepository);
-            var prescriptionService = new PrescriptionService(prescriptionRepository);
             var medicalConsumableService = new MedicalConsumableService(medicalConsumableRepository);
+            var prescriptionService = new PrescriptionService(prescriptionRepository, medicineService, patientService);
             var reportService = new ReportService();
             var equipmentService = new EquipmentService(equipmentRepository);
 
