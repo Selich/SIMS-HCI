@@ -302,7 +302,10 @@
                                     <ListBox.ItemTemplate>
                                         <DataTemplate>
                                             <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="{Binding Path=Medicine.name}" />
                                                 <TextBlock Text="{Binding Path=Dosage}" />
+                                                <TextBlock Text=" x "/>
+                                                <TextBlock Text="{Binding Path=Usage}" />
                                             </StackPanel>
                                         </DataTemplate>
                                     </ListBox.ItemTemplate>
