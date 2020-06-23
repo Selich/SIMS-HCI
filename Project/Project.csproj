@@ -176,7 +176,6 @@
     <Compile Include="Repositories\ManyToMany\Repositories\MedicalAppointmentToDoctorRepository.cs" />
     <Compile Include="Repositories\MedicalAppointmentRepository.cs" />
     <Compile Include="Repositories\MedicineRepository.cs" />
-    <Compile Include="Repositories\AddressRepository.cs" />
     <Compile Include="Repositories\PrescriptionRepository.cs" />
     <Compile Include="Repositories\MedicalConsumableRepository.cs" />
     <Compile Include="Repositories\QuestionRepository.cs" />
@@ -708,6 +707,7 @@
     <None Include="Resources\Data\equipmentInventory.csv" />
     <None Include="Resources\Data\equipmentOrder.csv" />
     <None Include="Resources\Data\medicalAppointments.csv" />
+    <None Include="Resources\Data\medicalConsumables.csv" />
     <None Include="Resources\Data\medicines.csv" />
     <None Include="Resources\Data\patientPrescription.csv" />
     <None Include="Resources\Data\patients.csv" />
