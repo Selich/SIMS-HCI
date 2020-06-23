@@ -30,7 +30,7 @@ namespace Project.Repositories.CSV.Converter
                question.AnswerText,
                question.Patient.Id,
                question.Secretary.Id,
-               question.CreationDate
+               question.CreationDate.ToString(_datetimeFormat)
                );
 
         public Question ConvertCSVFormatToEntity(string questionCSVFormat)
