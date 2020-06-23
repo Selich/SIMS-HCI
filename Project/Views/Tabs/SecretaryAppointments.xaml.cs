@@ -33,11 +33,10 @@ namespace Project.Views.Tabs
             InitializeComponent();
             app = System.Windows.Application.Current as App;
             CurrentDoctor.Content = app.SelectedDoctor;
-            nextAppointment.Content = app.MedicalAppointments[0];
+            //nextAppointment.Content = app.MedicalAppointments[0];
 
             list = app.MedicalAppointments;
-            AppointmentList.ItemsSource = app.MedicalAppointments;
-
+            AppointmentList.ItemsSource = new List<MedicalAppointment>();
 
 
 
