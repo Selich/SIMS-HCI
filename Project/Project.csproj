@@ -192,6 +192,7 @@
     <Compile Include="Services\QuestionService.cs" />
     <Compile Include="Services\AddressService.cs" />
     <Compile Include="Services\ReportService.cs" />
+    <Compile Include="Services\RoomService.cs" />
     <Compile Include="Utility\GenerateDirectorReport.cs" />
     <Compile Include="Utility\GenerateDoctorReport.cs" />
     <Compile Include="Utility\GeneratePatientReport.cs" />
@@ -720,6 +721,7 @@
     <None Include="Resources\Data\prescriptions.csv" />
     <None Include="Resources\Data\questions.csv" />
     <None Include="Resources\Data\reports.csv" />
+    <None Include="Resources\Data\rooms.csv" />
     <None Include="Views\Patient\.vs\slnx.sqlite" />
     <None Include="Views\Patient\.vs\VSWorkspaceState.json" />
   </ItemGroup>
