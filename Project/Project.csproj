@@ -198,6 +198,8 @@
     <Compile Include="Services\Generators\SecretaryAppointmentReportGenerator.cs" />
     <Compile Include="Services\Generators\IReportGenerator.cs" />
     <Compile Include="Services\RoomService.cs" />
+    <Compile Include="Util\Environment.cs" />
+    <Compile Include="Util\HelperFunctions.cs" />
     <Compile Include="Views\Commands\DataContext.cs" />
     <Compile Include="Views\Commands\MessageCommand.cs" />
     <Compile Include="Views\Commands\ShowShortcutsCommand.cs" />
@@ -707,7 +709,7 @@
     <Resource Include="Resources\Images\Faces\face5" />
     <Resource Include="Resources\Images\Faces\face6" />
     <Resource Include="Resources\Images\Faces\face7" />
-    <None Include="Resources\Data\address.csv" />
+    <None Include="Resources\Data\addresses.csv" />
     <None Include="Resources\Data\doctorMedicalAppointment.csv" />
     <None Include="Resources\Data\doctors.csv" />
     <None Include="Resources\Data\equipment.csv" />
