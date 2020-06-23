@@ -161,6 +161,7 @@
     <Compile Include="Repositories\Abstract\IMedicineRepository.cs" />
     <Compile Include="Repositories\Abstract\IPrescriptionRepository.cs" />
     <Compile Include="Repositories\Abstract\IMedicalConsumableRepository.cs" />
+    <Compile Include="Repositories\Abstract\IFeedbackRepository.cs" />
     <Compile Include="Repositories\Abstract\IQuestionRepository.cs" />
     <Compile Include="Repositories\Abstract\IRenovationRepository.cs" />
     <Compile Include="Repositories\Abstract\IRoomRepository.cs" />
@@ -172,6 +173,7 @@
     <Compile Include="Repositories\CSV\Converter\AddressCSVConverter.cs" />
     <Compile Include="Repositories\CSV\Converter\QuestionCSVConverter.cs" />
     <Compile Include="Repositories\CSV\Converter\RenovationCSVConverter.cs" />
+    <Compile Include="Repositories\CSV\Converter\FeedbackCSVConverter.cs" />
     <Compile Include="Repositories\CSV\Converter\RoomCSVConverter.cs" />
     <Compile Include="Repositories\EquipmentRepository.cs" />
     <Compile Include="Repositories\ManyToMany\Converter\MedicalAppointmentToDoctorCSVConverter.cs" />
@@ -182,6 +184,7 @@
     <Compile Include="Repositories\MedicineRepository.cs" />
     <Compile Include="Repositories\PrescriptionRepository.cs" />
     <Compile Include="Repositories\MedicalConsumableRepository.cs" />
+    <Compile Include="Repositories\FeedbackRepository.cs" />
     <Compile Include="Repositories\QuestionRepository.cs" />
     <Compile Include="Repositories\RenovationRepository.cs" />
     <Compile Include="Repositories\RoomRepository.cs" />
@@ -191,6 +194,7 @@
     <Compile Include="Services\MedicineService.cs" />
     <Compile Include="Services\PrescriptionService.cs" />
     <Compile Include="Services\MedicalConsumableService.cs" />
+    <Compile Include="Services\FeedbackService.cs" />
     <Compile Include="Services\QuestionService.cs" />
     <Compile Include="Services\AddressService.cs" />
     <Compile Include="Services\RenovationService.cs" />
@@ -218,6 +222,7 @@
     <Compile Include="Views\Converters\MedicalConsumableConverter.cs" />
     <Compile Include="Views\Converters\PatientConverter.cs" />
     <Compile Include="Views\Converters\PrescriptionConverter.cs" />
+    <Compile Include="Views\Converters\FeedbackConverter.cs" />
     <Compile Include="Views\Converters\QuestionConverter.cs" />
     <Compile Include="Views\Converters\RenovationConverter.cs" />
     <Compile Include="Views\Converters\RoomConverter.cs" />
@@ -715,6 +720,7 @@
     <Resource Include="Resources\Images\Faces\face7" />
     <None Include="Resources\Data\addresses.csv" />
     <None Include="Resources\Data\doctorMedicalAppointment.csv" />
+    <None Include="Resources\Data\feedback.csv" />
     <None Include="Resources\Data\doctors.csv" />
     <None Include="Resources\Data\equipment.csv" />
     <None Include="Resources\Data\equipmentInventory.csv" />
