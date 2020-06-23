@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.IO;
 
-namespace Project.Utility
+namespace Project.Services.Generators
 {
-    class SecretaryAppointmentReportGenerator : IPDFReport<TimeInterval>
+    class SecretaryAppointmentReportGenerator : IReportGenerator<TimeInterval>
     {
         public App app;
         private string _path;
@@ -36,7 +36,7 @@ namespace Project.Utility
         }
 
 
-        public Report GenerateReport(TimeInterval interval)
+        public Report Generate(TimeInterval interval)
         {
             Report report = new Report(_path, new DateTime(), "Appointment");
             report.Path = _path + $@"\AppointmentReport{report.Id}.pdf";

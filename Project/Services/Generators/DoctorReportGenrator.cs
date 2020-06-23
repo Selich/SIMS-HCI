@@ -1,16 +1,14 @@
 ﻿using Project.Model;
-using Project.Model.Reports;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project.Utility
+namespace Project.Services.Generators
 {
-    public interface IPDFReport<E> where E : class
+    class DoctorReportGenrator
     {
-        Report GenerateReport(E entity);
-
+       
     }
 }

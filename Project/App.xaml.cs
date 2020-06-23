@@ -16,7 +16,7 @@ using Project.Views.Secretary;
 using System.Xml.Schema;
 using System;
 using System.ComponentModel;
-using Project.Utility;
+using Project.Services.Generators;
 
 namespace Project
 {
@@ -143,7 +143,7 @@ namespace Project
         // Report paths
         private static string REPORT_ROOM_PATH = ConfigurationManager.AppSettings["ReportRoomPath"].ToString();
         private static string REPORT_APPOINTMENT_PATH = ConfigurationManager.AppSettings["ReportAppointmentPath"].ToString();
-        private static string REPORT_RECIPE_PATH = ConfigurationManager.AppSettings["ReportAppointmentPath"].ToString();
+        private static string REPORT_PRESCREIPTION_PATH = ConfigurationManager.AppSettings["PrescriptionAppointmentPath"].ToString();
 
         // Constants
         private static string DELIMITER = ConfigurationManager.AppSettings["DelimiterValue"].ToString();
@@ -329,16 +329,16 @@ namespace Project
             RoomController = new RoomController(roomService, roomConverter);
             // Generators
             SecretaryAppointmentReportGenerator = new SecretaryAppointmentReportGenerator(REPORT_APPOINTMENT_PATH);
-            GeneratePatientReport = new GeneratePatientReport(REPORT_APPOINTMENT_PATH);
-            GenerateDoctorReport = new GenerateDoctorReport(REPORT_RECIPE_PATH);
+            PatientAppointmentReportGenerator = new PatientAppointmentReportGenerator(REPORT_APPOINTMENT_PATH);
+            PrescriptionReportGenerator = new PrescriptionReportGenerator(REPORT_PRESCREIPTION_PATH);
         }
 
 
 
         // Generators
-        public IPDFReport<TimeInterval> SecretaryAppointmentReportGenerator { get; private set; }
-        public IPDFReport<TimeInterval> GeneratePatientReport { get; private set; }
-        public IPDFReport<TimeInterval> GenerateDoctorReport { get; private set; }
+        public IReportGenerator<TimeInterval> SecretaryAppointmentReportGenerator { get; private set; }
+        public IReportGenerator<TimeInterval> PatientAppointmentReportGenerator { get; private set; }
+        public IReportGenerator<TimeInterval> PrescriptionReportGenerator { get; private set; }
 
         // Controllers
         public AuthenticationController AuthenticationController { get; private set; }

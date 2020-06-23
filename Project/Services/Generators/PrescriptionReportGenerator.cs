@@ -11,20 +11,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Project.Utility
+namespace Project.Services.Generators
 {
-    class GenerateDoctorReport : IPDFReport<TimeInterval>
+    class PrescriptionReportGenerator : IReportGenerator<TimeInterval>
     {
         public App app;
         private string rEPORT_RECIPE_PATH;
 
-        public GenerateDoctorReport(string rEPORT_RECIPE_PATH)
+        public PrescriptionReportGenerator(string rEPORT_RECIPE_PATH)
         {
             app = Application.Current as App;
             this.rEPORT_RECIPE_PATH = rEPORT_RECIPE_PATH;
         }
 
-        public Report GenerateReport(TimeInterval interval)
+        public Report Generate(TimeInterval interval)
         {
             Report report = new Report(rEPORT_RECIPE_PATH, new DateTime(), "DoctorAppointment");
             report.Path = rEPORT_RECIPE_PATH + $@"\DoctorReport{report.Id}.pdf";
