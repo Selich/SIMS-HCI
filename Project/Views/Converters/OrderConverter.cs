@@ -18,52 +18,27 @@ namespace Project.Views.Converters
         public OrderConverter(MedicalConsumableConverter medicalConsumableConverter,
          MedicineConverter medicineConverter,
          EquipmentConverter equipmentConverter)
-            {
+        {
             _medicalConsumableConverter = medicalConsumableConverter;
             _medicineConverter = medicineConverter;
             _equipmentConverter = equipmentConverter;
-            }
+        }
 
         public Order ConvertDTOToEntity(OrderDTO dto)
         {
-            List<MedicineDTO> medicineDTO = dto.Medicine;
-            List<MedicalConsumableDTO> consumablesDTO = dto.Consumables;
-            List<EquipmentDTO> equipmentDTO = dto.Equipment;
+            List<Medicine> medicine = dto.Medicine.Select(med => _medicineConverter.ConvertDTOToEntity(med)).ToList();
+            List<MedicalConsumables> consumables = dto.Consumables.Select(con => _medicalConsumableConverter.ConvertDTOToEntity(con)).ToList();
+            List<Equipment> equipment = dto.Equipment.Select(eq => _equipmentConverter.ConvertDTOToEntity(eq)).ToList();
 
-            List<Medicine> medicine = new List<Medicine>();
-            List<MedicalConsumables> consumables = new List<MedicalConsumables>();
-            List<Equipment> equipment = new List<Equipment>();
-
-            foreach (MedicineDTO med in medicineDTO)
-                medicine.Add(_medicineConverter.ConvertDTOToEntity(med));
-
-            foreach (MedicalConsumableDTO medCons in consumablesDTO)
-                consumables.Add(_medicalConsumableConverter.ConvertDTOToEntity(medCons));
-
-            foreach (EquipmentDTO eq in equipmentDTO)
-                equipment.Add(_equipmentConverter.ConvertDTOToEntity(eq));
-
-            return new Order(dto.Id,dto.Date,dto.Supplier,equipment,consumables,medicine);       
+            return new Order(dto.Id, dto.Date, dto.Supplier, equipment, consumables, medicine);
         }
 
         public OrderDTO ConvertEntityToDTO(Order entity)
         {
-            List<Medicine> medicine = entity.Medicine;
-            List<MedicalConsumables> consumables = entity.Consumebles;
-            List<Equipment> equipment = entity.Equipments;
 
-            List<MedicineDTO> medicineDTO = new List<MedicineDTO>();
-            List<MedicalConsumableDTO> consumablesDTO = new List<MedicalConsumableDTO>();
-            List<EquipmentDTO> equipmentDTO = new List<EquipmentDTO>();
-
-            foreach (Medicine med in medicine)
-                medicineDTO.Add(_medicineConverter.ConvertEntityToDTO(med));
-
-            foreach (MedicalConsumables medCons in consumables)
-                consumablesDTO.Add(_medicalConsumableConverter.ConvertEntityToDTO(medCons));
-
-            foreach (Equipment eq in equipment)
-                equipmentDTO.Add(_equipmentConverter.ConvertEntityToDTO(eq));
+            List<MedicineDTO> medicineDTO = entity.Medicine.Select(med => _medicineConverter.ConvertEntityToDTO(med)).ToList();
+            List<MedicalConsumableDTO> consumablesDTO = entity.Consumebles.Select(con => _medicalConsumableConverter.ConvertEntityToDTO(con)).ToList();
+            List<EquipmentDTO> equipmentDTO = entity.Equipments.Select(eq => _equipmentConverter.ConvertEntityToDTO(eq)).ToList();
 
             return new OrderDTO(entity.Id, entity.Date, entity.Supplier, equipmentDTO, consumablesDTO, medicineDTO);
         }
