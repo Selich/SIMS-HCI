@@ -22,8 +22,9 @@ namespace Project.Repositories
         {
         }
         // TODO: Implement N to N 
-        public new MedicalAppointment Save(MedicalAppointment medicalAppointment)
-                => base.Save(medicalAppointment);
+        public new MedicalAppointment Save(MedicalAppointment medicalAppointment){
+            return base.Save(medicalAppointment);
+        }
 
 
         IEnumerable<MedicalAppointment> IEagerCSVRepository<MedicalAppointment, long>.GetAllEager()

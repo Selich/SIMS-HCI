@@ -1,4 +1,5 @@
 ﻿using Project.Repositories.Abstract;
+using Project.Repositories.ManyToMany.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
