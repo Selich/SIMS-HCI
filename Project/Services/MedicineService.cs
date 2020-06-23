@@ -21,14 +21,14 @@ namespace Project.Services
         public Medicine GetById(long id)
             => _medicineRepository.GetById(id);
 
-        public Medicine Save(Medicine question)
-            => _medicineRepository.Save(question);
+        public Medicine Save(Medicine medicine)
+            => _medicineRepository.Save(medicine);
 
-        public Medicine Update(Medicine question)
-            => _medicineRepository.Update(question);
+        public Medicine Update(Medicine medicine)
+            => _medicineRepository.Update(medicine);
 
-        public Medicine Remove(Medicine question)
-            => _medicineRepository.Remove(question);
+        public Medicine Remove(Medicine medicine)
+            => _medicineRepository.Remove(medicine);
 
 
     }
