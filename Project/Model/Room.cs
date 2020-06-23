@@ -19,6 +19,11 @@ namespace Project.Model
         public List<Equipment> Equipment { get; set; }
         public List<Appointment> Appointments { get; set; }
         public Room() { }
+
+        public Room(long id) 
+        {
+            Id = id;        
+        }
         public Room(long id, RoomType type, string ward, string floor)
         {
             Id = id;
