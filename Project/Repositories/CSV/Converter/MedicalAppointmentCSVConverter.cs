@@ -35,13 +35,12 @@ namespace Project.Repositories.CSV.Converter
                medicalAppointment.Room.Id,
                medicalAppointment.Type,
                medicalAppointment.Patient.Id,
-               ""// doctors
+               " "// doctors
                );
 
-        public MedicalAppointment ConvertCSVFormatToEntity(string questionCSVFormat)
+        public MedicalAppointment ConvertCSVFormatToEntity(string medicalAppointmentCSVFormat)
         {
-            string[] tokens = questionCSVFormat.Split(_delimiter.ToCharArray());
-            int typ = int.Parse(tokens[3]);
+            string[] tokens = medicalAppointmentCSVFormat.Split(_delimiter.ToCharArray());
             return new MedicalAppointment(
                 long.Parse(tokens[0]),
                 DateTime.Parse(tokens[1]),

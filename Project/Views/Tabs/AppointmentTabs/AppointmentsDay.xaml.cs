@@ -34,11 +34,11 @@ namespace Project.Views.Tabs.AppointmentTabs
 
         private void Calendar_AddAppointment(object sender, RoutedEventArgs e)
         {
-            MedicalAppointment appointment = new MedicalAppointment
-            {
-                Beginning = new DateTime(2008, 10, 22, 16, 00, 00),
-                End = new DateTime(2008, 10, 22, 17, 00, 00)
-            };
+            //MedicalAppointment appointment = new MedicalAppointment
+            //{
+            //    Beginning = new DateTime(2008, 10, 22, 16, 00, 00),
+            //    End = new DateTime(2008, 10, 22, 17, 00, 00)
+            //};
 
 
         }
