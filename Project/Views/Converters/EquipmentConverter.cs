@@ -10,24 +10,34 @@ namespace Project.Views.Converters
 {
     public class EquipmentConverter : IConverter<Equipment, EquipmentDTO>
     {
-        public Equipment ConvertDTOToEntity(EquipmentDTO dto)
+        private RoomConverter _roomConverter;
+
+        public EquipmentConverter(RoomConverter roomConverter)
         {
-            throw new NotImplementedException();
+            _roomConverter = roomConverter;
         }
+        public Equipment ConvertDTOToEntity(EquipmentDTO dto)
+        => new Equipment(
+                dto.Id,
+                dto.Type,
+                dto.Description,
+                dto.Name,
+                _roomConverter.ConvertDTOToEntity(dto.Room)
+            );
 
         public EquipmentDTO ConvertEntityToDTO(Equipment entity)
-        {
-            throw new NotImplementedException();
-        }
+         => new EquipmentDTO(
+                    entity.Id,
+                    entity.Name,
+                    entity.Type,
+                    entity.Description,
+                    _roomConverter.ConvertEntityToDTO(entity.Room)
+                    );
 
         public List<Equipment> ConvertListDTOToListEntity(IEnumerable<EquipmentDTO> dtos)
-        {
-            throw new NotImplementedException();
-        }
+                => dtos.Select(dto => ConvertDTOToEntity(dto)).ToList();
 
         public IEnumerable<EquipmentDTO> ConvertListEntityToListDTO(List<Equipment> entities)
-        {
-            throw new NotImplementedException();
-        }
+                => entities.Select(entity => ConvertEntityToDTO(entity)).ToList();
     }
 }

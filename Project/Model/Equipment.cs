@@ -14,6 +14,8 @@ namespace Project.Model
         public string Type { get; set; }
         public string Description;
         public string Name { get; set; }
+
+        public Room Room { get; set; }
         public Equipment() { }
 
         public Equipment(string type, string description, string name)
@@ -22,12 +24,28 @@ namespace Project.Model
             Description = description;
             Name = name;
         }
+
+        public Equipment(string type, string description, string name,Room room)
+        {
+            Type = type;
+            Description = description;
+            Name = name;
+            Room = room;
+        }
         public Equipment(long id, string type, string description, string name)
         {
             Id = id;
             Type = type;
             Description = description;
             Name = name;
+        }
+        public Equipment(long id, string type, string description, string name,Room room)
+        {
+            Id = id;
+            Type = type;
+            Description = description;
+            Name = name;
+            Room = room;
         }
 
         public long GetId() => Id;
