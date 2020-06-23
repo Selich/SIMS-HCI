@@ -16,13 +16,14 @@ namespace Project.Views.Converters
         private EquipmentConverter _equipmentConverter;
 
         public OrderConverter(MedicalConsumableConverter medicalConsumableConverter,
-         MedicineConverter medicineConverter,
-         EquipmentConverter equipmentConverter)
-            {
+            MedicineConverter medicineConverter,
+            EquipmentConverter equipmentConverter
+        )
+        {
             _medicalConsumableConverter = medicalConsumableConverter;
             _medicineConverter = medicineConverter;
             _equipmentConverter = equipmentConverter;
-            }
+        }
 
         public Order ConvertDTOToEntity(OrderDTO dto)
         {

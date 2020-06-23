@@ -15,10 +15,10 @@ namespace Project.Services
         private readonly IService<Equipment, long> _equipmentService;
         private readonly IService<MedicalConsumables, long> _consumablesService;
 
-        public OrderService(IOrderRepository orderRepository
-            , IService<Medicine, long> medicineService
-            , IService<Equipment, long> equipmentService
-            , IService<MedicalConsumables, long> consumablesService
+        public OrderService(IOrderRepository orderRepository,
+         IService<Medicine, long> medicineService,
+         IService<Equipment, long> equipmentService,
+         IService<MedicalConsumables, long> consumablesService
         )
         {
             _orderRepository = orderRepository;
@@ -28,28 +28,28 @@ namespace Project.Services
         }
 
         public IEnumerable<Order> GetAll()
-         => _orderRepository.GetAll();
+            => _orderRepository.GetAll();
 
         public Order GetById(long id)
-        => _orderRepository.GetById(id);
+            => _orderRepository.GetById(id);
 
         public Order Remove(Order entity)
-         => _orderRepository.Remove(entity);
+            => _orderRepository.Remove(entity);
 
-        public Order Save(Order entity)     //DORADITI SAVE TAKO DA MENJA I SADRZAJ,LEKOVI,OPREMA...
+        public Order Save(Order entity) 
         {
             foreach (MedicalConsumables cons in entity.Consumebles)
-                _consumablesService.Update(cons); //NA FRONTU POVECATI KOLICINU
+                _consumablesService.Update(cons); 
 
             foreach (Medicine med in entity.Medicine)
-                _medicineService.Update(med);   //NA FRONTU POVECATI KOLICINU
+                _medicineService.Update(med);   
 
             foreach (Equipment eq in entity.Equipments)
-                _equipmentService.Save(eq);    //PAZITI DA JE NULL ID kad stigne
+                _equipmentService.Save(eq);
 
             return _orderRepository.Save(entity);
         }
         public Order Update(Order entity)
-        => _orderRepository.Update(entity);
+            => _orderRepository.Update(entity);
     }
 }

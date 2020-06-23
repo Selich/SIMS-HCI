@@ -37,6 +37,6 @@ namespace Project.Controllers
 
         // TODO FIlter
         public IEnumerable<PrescriptionDTO> GetAllPrescriptionsByPatientID(long id) 
-    => _prescriptionConverter.ConvertListEntityToListDTO((List<Prescription>)_service.GetAll());
+            => _prescriptionConverter.ConvertListEntityToListDTO((List<Prescription>)_service.GetAll());
     }
 }

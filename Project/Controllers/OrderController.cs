@@ -28,18 +28,18 @@ namespace Controller
         }
 
         public IEnumerable<OrderDTO> GetAll()
-         => _orderConverter.ConvertListEntityToListDTO((List<Order>)_service.GetAll());
+            => _orderConverter.ConvertListEntityToListDTO((List<Order>)_service.GetAll());
 
         public OrderDTO GetById(long id)
-         => _orderConverter.ConvertEntityToDTO(_service.GetById(id));
+            => _orderConverter.ConvertEntityToDTO(_service.GetById(id));
 
         public OrderDTO Remove(OrderDTO entity)
-         => _orderConverter.ConvertEntityToDTO(_service.Remove(_orderConverter.ConvertDTOToEntity(entity)));
+            => _orderConverter.ConvertEntityToDTO(_service.Remove(_orderConverter.ConvertDTOToEntity(entity)));
 
         public OrderDTO Save(OrderDTO entity)
-        => _orderConverter.ConvertEntityToDTO(_service.Save(_orderConverter.ConvertDTOToEntity(entity)));
+            => _orderConverter.ConvertEntityToDTO(_service.Save(_orderConverter.ConvertDTOToEntity(entity)));
 
         public OrderDTO Update(OrderDTO entity)
-         => _orderConverter.ConvertEntityToDTO(_service.Update(_orderConverter.ConvertDTOToEntity(entity)));
+            => _orderConverter.ConvertEntityToDTO(_service.Update(_orderConverter.ConvertDTOToEntity(entity)));
     }
 }
