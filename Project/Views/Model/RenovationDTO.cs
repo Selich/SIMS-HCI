@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,18 +11,21 @@ namespace Project.Views.Model
     {
         public string Type { get; set; }
 
+        public RoomType NewType { get; set; }
         public RenovationDTO() { }
 
-        public RenovationDTO(long id, DateTime beginning, DateTime end, RoomDTO room,string type):
+        public RenovationDTO(long id, DateTime beginning, DateTime end, RoomDTO room,string type,RoomType newType):
            base(id, beginning, end, room)
         {
-            this.Type = type;
+            Type = type;
+            NewType = newType;
         }
 
-        public RenovationDTO(DateTime beginning, DateTime end, RoomDTO room, string type) :
+        public RenovationDTO(DateTime beginning, DateTime end, RoomDTO room, string type, RoomType newType) :
            base(beginning, end, room)
         {
-            this.Type = type;
+            Type = type;
+            NewType = newType;
         }
     }
 }
