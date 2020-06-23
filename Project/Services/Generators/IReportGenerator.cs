@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project.Utility
+namespace Project.Services.Generators
 {
     public interface IReportGenerator<E> where E : class
     {

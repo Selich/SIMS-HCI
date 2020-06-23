@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project.Utility
+namespace Project.Services.Generators
 {
     class DoctorReportGenrator
     {

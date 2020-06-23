@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Project.Utility
+namespace Project.Services.Generators
 {
     class PrescriptionReportGenerator : IReportGenerator<TimeInterval>
     {

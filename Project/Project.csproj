@@ -191,11 +191,11 @@
     <Compile Include="Services\QuestionService.cs" />
     <Compile Include="Services\AddressService.cs" />
     <Compile Include="Services\ReportService.cs" />
-    <Compile Include="Utility\DoctorReportGenrator.cs" />
-    <Compile Include="Utility\PrescriptionReportGenerator.cs" />
-    <Compile Include="Utility\PatientAppointmentReportGenerator.cs" />
-    <Compile Include="Utility\SecretaryAppointmentReportGenerator.cs" />
-    <Compile Include="Utility\IReportGenerator.cs" />
+    <Compile Include="Services\Generators\DoctorReportGenrator.cs" />
+    <Compile Include="Services\Generators\PrescriptionReportGenerator.cs" />
+    <Compile Include="Services\Generators\PatientAppointmentReportGenerator.cs" />
+    <Compile Include="Services\Generators\SecretaryAppointmentReportGenerator.cs" />
+    <Compile Include="Services\Generators\IReportGenerator.cs" />
     <Compile Include="Views\Commands\DataContext.cs" />
     <Compile Include="Views\Commands\MessageCommand.cs" />
     <Compile Include="Views\Commands\ShowShortcutsCommand.cs" />
