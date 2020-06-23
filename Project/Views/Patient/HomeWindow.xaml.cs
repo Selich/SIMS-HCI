@@ -32,6 +32,7 @@ namespace Project.Views.Patient
         public ObservableCollection<MedicalAppointmentDTO> PastAppoitments { get; set; }
         public ObservableCollection<MedicalAppointmentDTO> AvailableAppoitments { get; set; }
         public PatientDTO LoggedInPatient { get; set; }
+        private App app;
 
         //Chart
         public SeriesCollection SeriesCollection { get; }
@@ -42,6 +43,7 @@ namespace Project.Views.Patient
         {
             InitializeComponent();
             this.DataContext = this;
+            app = Application.Current as App;
 
             //Current Appoitments
             RoomDTO tempRoom = new RoomDTO() { Floor = "One", Id = 4, Ward="Check" };
@@ -154,13 +156,15 @@ namespace Project.Views.Patient
 
         private void ViewAvailable_Click(object sender, RoutedEventArgs e)
         {
+            RoomDTO tempRoom = new RoomDTO() { Floor = "One", Id = 4, Ward = "Check" };
+
             AvailableAppoitments.Clear();
-            AvailableAppoitments.Add(new MedicalAppointmentDTO() {Beginning = new DateTime(2020, 5, 10, 15, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 10, 15, 30, 0), IsScheduled = false });
-            AvailableAppoitments.Add(new MedicalAppointmentDTO() {Beginning = new DateTime(2020, 5, 11, 18, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 11, 18, 30, 0), IsScheduled = false });
-            AvailableAppoitments.Add(new MedicalAppointmentDTO() {Beginning = new DateTime(2020, 5, 12, 15, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 12, 15, 30, 0), IsScheduled = false });
-            AvailableAppoitments.Add(new MedicalAppointmentDTO() {Beginning = new DateTime(2020, 5, 13, 15, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 13, 15, 30, 0), IsScheduled = false });
-            AvailableAppoitments.Add(new MedicalAppointmentDTO() {Beginning = new DateTime(2020, 5, 14, 11, 0, 0), Type = MedicalAppointmentType.operation, End = new DateTime(2020, 5, 14, 11, 30, 0), IsScheduled = false });
-            AvailableAppoitments.Add(new MedicalAppointmentDTO() {Beginning = new DateTime(2020, 5, 15, 14, 0, 0), Type = MedicalAppointmentType.operation, End = new DateTime(2020, 5, 15, 14, 30, 0), IsScheduled = false });
+            AvailableAppoitments.Add(new MedicalAppointmentDTO() {Beginning = new DateTime(2020, 5, 10, 15, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 10, 15, 30, 0), IsScheduled = false, Room = tempRoom });
+            AvailableAppoitments.Add(new MedicalAppointmentDTO() {Beginning = new DateTime(2020, 5, 11, 18, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 11, 18, 30, 0), IsScheduled = false, Room = tempRoom });
+            AvailableAppoitments.Add(new MedicalAppointmentDTO() {Beginning = new DateTime(2020, 5, 12, 15, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 12, 15, 30, 0), IsScheduled = false, Room = tempRoom });
+            AvailableAppoitments.Add(new MedicalAppointmentDTO() {Beginning = new DateTime(2020, 5, 13, 15, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 13, 15, 30, 0), IsScheduled = false, Room = tempRoom });
+            AvailableAppoitments.Add(new MedicalAppointmentDTO() {Beginning = new DateTime(2020, 5, 14, 11, 0, 0), Type = MedicalAppointmentType.operation, End = new DateTime(2020, 5, 14, 11, 30, 0), IsScheduled = false, Room = tempRoom });
+            AvailableAppoitments.Add(new MedicalAppointmentDTO() {Beginning = new DateTime(2020, 5, 15, 14, 0, 0), Type = MedicalAppointmentType.operation, End = new DateTime(2020, 5, 15, 14, 30, 0), IsScheduled = false, Room = tempRoom });
             ConfirmButton.IsEnabled = true;
             CancelButton.IsEnabled = true;
             ViewAvailableButton.IsEnabled = false;
@@ -186,6 +190,7 @@ namespace Project.Views.Patient
                     i--;
                 }
             }
+            app.MedicalAppointmentController.Save(AvailableAppoitments[0]);
             ConfirmButton.IsEnabled = false;
         }
 

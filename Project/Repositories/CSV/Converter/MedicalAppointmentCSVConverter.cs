@@ -18,16 +18,13 @@ namespace Project.Repositories.CSV.Converter
         private IRepository<MedicalAppointmentToDoctor, long> _medicalAppointmentToDoctorRepository;
 
         public MedicalAppointmentCSVConverter(
-            string delimiter,
-            IRepository<Room, long> roomRepository,
-            IRepository<Guest, long> guestRepository,
-            IRepository<MedicalAppointmentToDoctor, long> medicalAppointmentToDoctorRepository
+            string delimiter
             )
         {
             _delimiter = delimiter;
-            _roomRepository = roomRepository;
-            _guestRepository = guestRepository;
-            _medicalAppointmentToDoctorRepository = medicalAppointmentToDoctorRepository;
+            //_roomRepository = roomRepository;
+            //_guestRepository = guestRepository;
+            //_medicalAppointmentToDoctorRepository = medicalAppointmentToDoctorRepository;
         }
 
         public string ConvertEntityToCSVFormat(MedicalAppointment medicalAppointment)
@@ -38,13 +35,21 @@ namespace Project.Repositories.CSV.Converter
                medicalAppointment.Room.Id,
                medicalAppointment.Type,
                medicalAppointment.Patient.Id,
-               ""
+               " "// doctors
                );
 
-        public MedicalAppointment ConvertCSVFormatToEntity(string questionCSVFormat)
+        public MedicalAppointment ConvertCSVFormatToEntity(string medicalAppointmentCSVFormat)
         {
-            string[] tokens = questionCSVFormat.Split(_delimiter.ToCharArray());
-            return null;
+            string[] tokens = medicalAppointmentCSVFormat.Split(_delimiter.ToCharArray());
+            return new MedicalAppointment(
+                long.Parse(tokens[0]),
+                DateTime.Parse(tokens[1]),
+                DateTime.Parse(tokens[2]),
+                new Room(long.Parse(tokens[3])),
+                (MedicalAppointmentType)int.Parse(tokens[4]),
+                new Patient(long.Parse(tokens[5])),
+                null //doctors
+                );
         }
     }
 }
