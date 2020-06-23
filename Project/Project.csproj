@@ -155,8 +155,6 @@
     <Compile Include="Model\ApprovalStates\StateInReview.cs" />
     <Compile Include="Model\ApprovalStates\StateRejected.cs" />
     <Compile Include="Model\BindableObject.cs" />
-    <Compile Include="Model\Reports\MedicineReport.cs" />
-    <Compile Include="Model\Reports\RoomReport.cs" />
     <Compile Include="Model\Anamnesis.cs" />
     <Compile Include="Repositories\Abstract\IEquipmentRepository.cs" />
     <Compile Include="Repositories\Abstract\IMedicalAppointmentRepository.cs" />
