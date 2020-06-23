@@ -138,6 +138,7 @@ namespace Project
         private static string PRESCRIPTION_FILEPATH = ConfigurationManager.AppSettings["PrescriptionPath"].ToString();
         private static string MEDICAL_CONSUMABLE_FILEPATH= ConfigurationManager.AppSettings["MedicalConsumablesPath"].ToString();
         private static string EQUIPMENT_FILEPATH = ConfigurationManager.AppSettings["EquipmentPath"].ToString();
+        private static string ROOM_PATH = ConfigurationManager.AppSettings["RoomPath"].ToString();
         
         // Report paths
         private static string REPORT_ROOM_PATH = ConfigurationManager.AppSettings["ReportRoomPath"].ToString();
@@ -302,7 +303,7 @@ namespace Project
             var prescriptionRepository = new PrescriptionRepository(new CSVStream<Prescription>(PRESCRIPTION_FILEPATH, new PrescriptionCSVConverter(DELIMITER, DATETIME_FORMAT)), new LongSequencer());
             var medicalConsumableRepository = new MedicalConsumableRepository(new CSVStream<MedicalConsumables>(MEDICAL_CONSUMABLE_FILEPATH, new MedicalConsumableCSVConverter(DELIMITER)), new LongSequencer());
             var equipmentRepository = new EquipmentRepository(new CSVStream<Equipment>(EQUIPMENT_FILEPATH, new EquipmentCSVConverter(DELIMITER)), new LongSequencer());
-
+            var roomRepository = new RoomRepository(new CSVStream<Room>(ROOM_PATH, new RoomCSVConverter(DELIMITER)),new LongSequencer());
             var addressRepository = new AddressRepository(new CSVStream<Address>(ADDRESS_FILEPATH, new AddressCSVConverter(DELIMITER)), new LongSequencer());
             // Services
             var patientService = new PatientService(patientRepository);
@@ -313,6 +314,7 @@ namespace Project
             var medicalConsumableService = new MedicalConsumableService(medicalConsumableRepository);
             var reportService = new ReportService();
             var equipmentService = new EquipmentService(equipmentRepository);
+            var roomService = new RoomService(roomRepository);
 
             // Controllers
             PatientController = new PatientController(patientService, patientConverter);
@@ -324,6 +326,7 @@ namespace Project
             ReportController = new ReportController();
             PrescriptionController = new PrescriptionController(prescriptionService, prescriptionConverter);
             EquipmentController = new EquipmentController(equipmentService, equipmentConverter);
+            RoomController = new RoomController(roomService, roomConverter);
             // Generators
             GenerateSecretaryReport = new GenerateSecretaryReport(REPORT_APPOINTMENT_PATH);
             GeneratePatientReport = new GeneratePatientReport(REPORT_APPOINTMENT_PATH);
@@ -346,6 +349,7 @@ namespace Project
         public IController<MedicalConsumableDTO, long> MedicalConsumableController { get; private set; }
 
         public IController<EquipmentDTO, long> EquipmentController { get; private set; }
+        public IController<RoomDTO, long> RoomController { get; private set; }
 
         public IController<QuestionDTO, long> QuestionController { get; private set; }
         public IController<PrescriptionDTO, long> PrescriptionController { get; private set; }

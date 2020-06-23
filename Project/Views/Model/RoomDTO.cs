@@ -81,7 +81,10 @@ namespace Project.Views.Model
             }
         }
 
-        public RoomDTO() { Appointments = new List<AppointmentDTO>(); }
+        public RoomDTO() 
+        {
+            Appointments = new List<AppointmentDTO>(); 
+        }
         public RoomDTO(long id, RoomType type, string ward, string floor)
         {
             Id = id;
