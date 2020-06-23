@@ -18,13 +18,13 @@
         </Grid.RowDefinitions>
         <StackPanel VerticalAlignment="Bottom">
         <Label Content="Issue type:" Margin="5"/>
-            <ComboBox Height="Auto" VerticalAlignment="Bottom" Margin="5" >
+            <ComboBox x:Name="Issue" Height="Auto" VerticalAlignment="Bottom" Margin="5" >
                 <ComboBoxItem>Issue 1</ComboBoxItem>
                 <ComboBoxItem>Issue 2</ComboBoxItem>
             </ComboBox>
         </StackPanel>
-        <TextBox TextWrapping="Wrap" Grid.Row="1" Grid.ColumnSpan="2" Margin="5"/>
-        <Button IsDefault="True" Content="Send" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5" />
+        <TextBox x:Name="Desc" TextWrapping="Wrap" Grid.Row="1" Grid.ColumnSpan="2" Margin="5"/>
+        <Button IsDefault="True" Content="Send" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5" Click="Submit_Click" />
         <Button IsCancel="True" Content="Cancel" Margin="5" Click="Cancel_Click" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"/>
     </Grid>
 </Window>

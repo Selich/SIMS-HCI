@@ -21,6 +21,12 @@ namespace Project.Model
             Issue = issue;
             Description = description;
         }
+        public Feedback(long id,string issue, string description)
+        {
+            Id = id;
+            Issue = issue;
+            Description = description;
+        }
 
         public long GetId() => Id;
 

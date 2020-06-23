@@ -19,14 +19,23 @@ namespace Project.Views.Patient
     /// </summary>
     public partial class Feedback : Window
     {
+        private App app;
         public Feedback()
         {
             InitializeComponent();
+            app = Application.Current as App;
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void Submit_Click(object sender, RoutedEventArgs e)
+        {
+            app.FeedbackController.Save(new Model.FeedbackDTO(Issue.Text, Desc.Text));
+            Close();
+
         }
     }
 }

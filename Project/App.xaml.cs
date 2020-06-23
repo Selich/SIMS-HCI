@@ -144,6 +144,7 @@ namespace Project
         private static string MEDICAL_APPOINTMENT_FILEPATH = ConfigurationManager.AppSettings["MedicalAppointmentPath"].ToString();
         private static string ROOM_PATH = ConfigurationManager.AppSettings["RoomPath"].ToString();
         private static string RENOVATION_PATH = ConfigurationManager.AppSettings["RenovationPath"].ToString();
+        private static string FEEDBACK_FILEPATH = ConfigurationManager.AppSettings["FeedbackPath"].ToString();
 
         // Many to many
         private static string MEDICAL_APPOINTMENT_TO_DOCTOR_FILEPATH = ConfigurationManager.AppSettings["MedicalAppointmentToDoctorPath"].ToString();
@@ -234,6 +235,7 @@ namespace Project
             var doctorConverter = new DoctorConverter();
             var medicalAppoitmentConverter = new MedicalAppointmentConverter(roomConverter, guestConverter, doctorConverter);
             var renovationConverter = new RenovationConverter(roomConverter);
+            var feedbackConverter = new FeedbackConverter();
 
             // Repositories
             var patientRepository = new PatientRepository(new CSVStream<Patient>(PATIENT_FILEPATH, new PatientCSVConverter(DELIMITER, DATETIME_FORMAT)), new LongSequencer());
@@ -245,6 +247,9 @@ namespace Project
             var medicalAppoitmentRepository = new MedicalAppointmentRepository(new CSVStream<MedicalAppointment>(MEDICAL_APPOINTMENT_FILEPATH, new MedicalAppointmentCSVConverter(DELIMITER)), new LongSequencer());
             var roomRepository = new RoomRepository(new CSVStream<Room>(ROOM_PATH, new RoomCSVConverter(DELIMITER)),new LongSequencer());
             var addressRepository = new AddressRepository(new CSVStream<Address>(ADDRESS_FILEPATH, new AddressCSVConverter(DELIMITER)), new LongSequencer());
+            var renovationRepository = new RenovationRepository(new CSVStream<Renovation>(RENOVATION_PATH, new RenovationCSVConverter(DELIMITER, DATETIME_FORMAT)), new LongSequencer());
+            var feedbackRepository = new FeedbackRepository(new CSVStream<Feedback>(FEEDBACK_FILEPATH, new FeedbackCSVConverter(DELIMITER)), new LongSequencer());
+
             var renovationRepository = new RenovationRepository( new CSVStream<Renovation>(RENOVATION_PATH, new RenovationCSVConverter(DELIMITER, DATETIME_FORMAT)), new LongSequencer()
                 );
 
@@ -268,6 +273,8 @@ namespace Project
             var medicalAppoitmentService = new MedicalAppointmentService(medicalAppoitmentRepository, medicalAppointmentToDoctorRepository);
             var roomService = new RoomService(roomRepository);
             var renovationService = new RenovationService(renovationRepository);
+            var feedbackService = new FeedbackService(feedbackRepository);
+
             // Controllers
             PatientController = new PatientController(patientService, patientConverter);
             AddressController = new AddressController(addressService, addressConverter);
@@ -281,6 +288,8 @@ namespace Project
             MedicalAppointmentController = new MedicalAppointmentController(medicalAppoitmentService, medicalAppoitmentConverter);
             RoomController = new RoomController(roomService, roomConverter);
             RenovationController = new RenovationController(renovationService, renovationConverter);
+            FeedbackController = new FeedbackController(feedbackService, feedbackConverter);
+
             // Generators
             SecretaryAppointmentReportGenerator = new SecretaryAppointmentReportGenerator(REPORT_APPOINTMENT_PATH);
             PatientAppointmentReportGenerator = new PatientAppointmentReportGenerator(REPORT_APPOINTMENT_PATH);
@@ -309,6 +318,7 @@ namespace Project
         public IController<MedicalAppointmentDTO, long> MedicalAppointmentController { get; private set; }
 
         public IController<QuestionDTO, long> QuestionController { get; private set; }
+        public IController<FeedbackDTO, long> FeedbackController { get; private set; }
         public IController<PrescriptionDTO, long> PrescriptionController { get; private set; }
 
     }
