@@ -8,15 +8,11 @@ using Project.Repositories.Abstract;
 
 namespace Project.Model
 {
-    public class Equipment : IIdentifiable<long>
+    public class Equipment : Item, IIdentifiable<long>
     {
-        public long Id;
-        public string Type { get; set; }
-        public string Description;
-        public string Name { get; set; }
-
         public Room Room { get; set; }
         public Equipment() { }
+        public Equipment(long id) : base(id) {}
 
         public Equipment(string type, string description, string name)
         {
@@ -47,9 +43,5 @@ namespace Project.Model
             Name = name;
             Room = room;
         }
-
-        public long GetId() => Id;
-
-        public void SetId(long id) => Id = id;
     }
 }

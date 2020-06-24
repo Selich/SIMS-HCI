@@ -8,16 +8,12 @@ using Project.Repositories.Abstract;
 
 namespace Project.Model
 {
-    public class MedicalConsumables : Consumebles, IIdentifiable<long>
+    public class MedicalConsumables : Item
     {
-        public long Id { get; set; }
         public MedicalConsumables()
         { }
 
-        public MedicalConsumables(long id)
-        {
-            Id = id;
-        }
+        public MedicalConsumables(long id) :base (id) {}
         public MedicalConsumables(long id,int quantity, string type, string description, string name)
         {
             Id = id;
@@ -35,9 +31,6 @@ namespace Project.Model
             Name = name;
         }
 
-        public long GetId() => Id;
-
-        public void SetId(long id) => Id = id;
 
     }
 }

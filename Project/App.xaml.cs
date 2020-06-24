@@ -142,6 +142,7 @@ namespace Project
         private static string MEDICAL_CONSUMABLE_FILEPATH= ConfigurationManager.AppSettings["MedicalConsumablesPath"].ToString();
         private static string EQUIPMENT_FILEPATH = ConfigurationManager.AppSettings["EquipmentPath"].ToString();
         private static string ORDER_FILEPATH = ConfigurationManager.AppSettings["OrderPath"].ToString();
+        private static string ORDER_DETAILS_FILEPATH = ConfigurationManager.AppSettings["OrderDetailsPath"].ToString();
         private static string MEDICAL_APPOINTMENT_FILEPATH = ConfigurationManager.AppSettings["MedicalAppointmentPath"].ToString();
         private static string ROOM_PATH = ConfigurationManager.AppSettings["RoomPath"].ToString();
         private static string RENOVATION_PATH = ConfigurationManager.AppSettings["RenovationPath"].ToString();
@@ -249,6 +250,7 @@ namespace Project
                     new MedicalAppointmentToDoctorCSVConverter(DELIMITER)),
                 new LongSequencer()
             );
+            var orderDetailsRepository = new OrderDetailsRepository( new CSVStream<OrderDetails>( ORDER_DETAILS_FILEPATH ,new OrderDetailsCSVConverter(DELIMITER)), new LongSequencer());
             var addressRepository = new AddressRepository(new CSVStream<Address>(ADDRESS_FILEPATH, new AddressCSVConverter(DELIMITER)), new LongSequencer());
             var patientRepository = new PatientRepository(new CSVStream<Patient>(PATIENT_FILEPATH, new PatientCSVConverter(DELIMITER, DATETIME_FORMAT)), addressRepository , new LongSequencer());
             var questionRepository = new QuestionRepository(new CSVStream<Question>(QUESTION_FILEPATH, new QuestionCSVConverter(DELIMITER, DATETIME_FORMAT)), new LongSequencer());
@@ -259,7 +261,7 @@ namespace Project
             var medicalAppoitmentRepository = new MedicalAppointmentRepository(new CSVStream<MedicalAppointment>(MEDICAL_APPOINTMENT_FILEPATH, new MedicalAppointmentCSVConverter(DELIMITER)), medicalAppointmentToDoctorRepository, new LongSequencer());
             var roomRepository = new RoomRepository(new CSVStream<Room>(ROOM_PATH, new RoomCSVConverter(DELIMITER)),new LongSequencer());
 
-            var orderRepository = new OrderRepository( new CSVStream<Order>(ORDER_FILEPATH, new OrderCSVConverter(DELIMITER, DATETIME_FORMAT)), medicineRepository, equipmentRepository, medicalConsumableRepository, new LongSequencer());
+            var orderRepository = new OrderRepository( new CSVStream<Order>(ORDER_FILEPATH, new OrderCSVConverter(DELIMITER, DATETIME_FORMAT)), medicineRepository, equipmentRepository, medicalConsumableRepository, orderDetailsRepository, new LongSequencer());
 
             var renovationRepository = new RenovationRepository(new CSVStream<Renovation>(RENOVATION_PATH, new RenovationCSVConverter(DELIMITER, DATETIME_FORMAT)), new LongSequencer());
             var feedbackRepository = new FeedbackRepository(new CSVStream<Feedback>(FEEDBACK_FILEPATH, new FeedbackCSVConverter(DELIMITER)), new LongSequencer());

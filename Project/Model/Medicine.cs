@@ -9,19 +9,16 @@ using Project.Repositories.Abstract;
 
 namespace Project.Model
 {
-    public class Medicine : Consumebles, IIdentifiable<long>
+    public class Medicine : Item
     {
-        public long Id { get; set; }
         public string Purpose { get; set; }
         public string Administration { get; set; }
         public bool Approved { get; set; }
         public List<Medicine> Alternatives { get; set; }
         public Medicine() : base() { }
 
-        public Medicine(long id)
-        {
-            Id = id;
-        }
+        public Medicine(long id) : base(id) { }
+
         public Medicine(long id, string purpose, string administration, bool approved, int quantity, string type, string description, string name)
         : base(quantity, type, description, name)
         {
@@ -37,11 +34,6 @@ namespace Project.Model
             Administration = administration;
             Approved = approved;
         }
-
-
-        public long GetId() => Id;
-
-        public void SetId(long id) => Id = id;
 
     }
 }
