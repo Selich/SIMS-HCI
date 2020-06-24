@@ -131,6 +131,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controllers\AnamnesisController.cs" />
     <Compile Include="Controllers\AuthenticationController.cs" />
     <Compile Include="Controllers\AddressController.cs" />
     <Compile Include="Controllers\InventoryManagmentController.cs" />
@@ -163,6 +164,7 @@
     <Compile Include="Model\Referrals\AdmitionReferral.cs" />
     <Compile Include="Model\Referrals\ExamReferral.cs" />
     <Compile Include="Model\Referrals\OperationReferral.cs" />
+    <Compile Include="Repositories\Abstract\IAnamnesisRepository.cs" />
     <Compile Include="Repositories\Abstract\IDoctorRepository.cs" />
     <Compile Include="Repositories\Abstract\IEquipmentRepository.cs" />
     <Compile Include="Repositories\Abstract\IInventoryManagmentRepository.cs" />
@@ -176,6 +178,7 @@
     <Compile Include="Repositories\Abstract\IRenovationRepository.cs" />
     <Compile Include="Repositories\Abstract\IReviewRepository.cs" />
     <Compile Include="Repositories\Abstract\IRoomRepository.cs" />
+    <Compile Include="Repositories\AnamnesisRepository.cs" />
     <Compile Include="Repositories\Abstract\ISecretaryRepository.cs" />
     <Compile Include="Repositories\CSV\Converter\EquipmentCSVConverter.cs" />
     <Compile Include="Repositories\CSV\Converter\InventoryManagmentCSVConverter.cs" />
@@ -212,6 +215,7 @@
     <Compile Include="Services\Abstract\IMedicalAppoitmentService.cs" />
     <Compile Include="Services\DoctorService.cs" />
     <Compile Include="Services\Abstract\IMedicineService.cs" />
+    <Compile Include="Services\AnamnesisService.cs" />
     <Compile Include="Services\EquipmentService.cs" />
     <Compile Include="Services\InventoryManagmentService.cs" />
     <Compile Include="Services\Factory\AdmitionReferralFactory.cs" />
