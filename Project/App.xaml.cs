@@ -162,6 +162,7 @@ namespace Project
         // Constants
         private static string DELIMITER = ConfigurationManager.AppSettings["DelimiterValue"].ToString();
         private static string DATETIME_FORMAT = ConfigurationManager.AppSettings["DateTimeFormat"].ToString();
+        private static string DATETIME_DETAIL_FORMAT = ConfigurationManager.AppSettings["DateTimeDetailFormat"].ToString();
 
 
 
@@ -262,7 +263,7 @@ namespace Project
             var prescriptionRepository = new PrescriptionRepository(new CSVStream<Prescription>( PRESCRIPTION_FILEPATH, new PrescriptionCSVConverter(DELIMITER, DATETIME_FORMAT)), medicineRepository, patientRepository, new LongSequencer());
             var medicalConsumableRepository = new MedicalConsumableRepository(new CSVStream<MedicalConsumables>(MEDICAL_CONSUMABLE_FILEPATH, new MedicalConsumableCSVConverter(DELIMITER)), new LongSequencer());
             var equipmentRepository = new EquipmentRepository(new CSVStream<Equipment>(EQUIPMENT_FILEPATH, new EquipmentCSVConverter(DELIMITER)), new LongSequencer());
-            var medicalAppoitmentRepository = new MedicalAppointmentRepository(new CSVStream<MedicalAppointment>(MEDICAL_APPOINTMENT_FILEPATH, new MedicalAppointmentCSVConverter(DELIMITER)), medicalAppointmentToDoctorRepository, new LongSequencer());
+            var medicalAppoitmentRepository = new MedicalAppointmentRepository(new CSVStream<MedicalAppointment>(MEDICAL_APPOINTMENT_FILEPATH, new MedicalAppointmentCSVConverter(DELIMITER, DATETIME_DETAIL_FORMAT)), medicalAppointmentToDoctorRepository, new LongSequencer());
             var roomRepository = new RoomRepository(new CSVStream<Room>(ROOM_PATH, new RoomCSVConverter(DELIMITER)),new LongSequencer());
 
             var orderRepository = new OrderRepository( new CSVStream<Order>(ORDER_FILEPATH, new OrderCSVConverter(DELIMITER, DATETIME_FORMAT)), medicineRepository, equipmentRepository, medicalConsumableRepository, orderDetailsRepository, new LongSequencer());

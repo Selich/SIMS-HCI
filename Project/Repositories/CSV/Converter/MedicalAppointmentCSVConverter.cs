@@ -19,10 +19,12 @@ namespace Project.Repositories.CSV.Converter
         private IRepository<MedicalAppointmentToDoctor, long> _medicalAppointmentToDoctorRepository;
 
         public MedicalAppointmentCSVConverter(
-            string delimiter
+            string delimiter,
+            string datetimeFormat
             )
         {
             _delimiter = delimiter;
+            _datetimeFormat = datetimeFormat;
             //_roomRepository = roomRepository;
             //_guestRepository = guestRepository;
             //_medicalAppointmentToDoctorRepository = medicalAppointmentToDoctorRepository;
