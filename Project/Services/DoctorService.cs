@@ -36,5 +36,16 @@ namespace Project.Services
 
         public Doctor Remove(Doctor client) => _doctorRepository.Remove(client);
 
+        public bool IsDoctorAvailable(int doctorID) => throw new NotImplementedException();
+
+        public List<Doctor> GetAailableDoctors(Array doctorsID) => throw new NotImplementedException();
+
+        public List<Doctor> GetAailableDoctors(TimeInterval timeInterval) => throw new NotImplementedException();
+
+        public List<Doctor> GetAvailableDoctorsTimeInterval(MedicalAppointment medicalAppointment) => throw new NotImplementedException();
+
+        public Doctor GetByEmail(string email) => throw new NotImplementedException();
+
+        public List<Doctor> GetAllDoctorsBySpecialization() => throw new NotImplementedException();
     }
 }
