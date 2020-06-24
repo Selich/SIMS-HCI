@@ -19,5 +19,20 @@ namespace Project.Model
         public List<Room> Rooms { get; set; }
         public List<MedicalConsumables> Consumables { get; set; }
 
+        public Hospital()
+        {
+
+        }
+
+        public Hospital(string name, Address address, List<Medicine> medicines, List<Employee> employees, List<Room> rooms, List<MedicalConsumables> consumebles)
+        {
+            Name = name;
+            Address = address;
+            Medicines = medicines;
+            Employees = employees;
+            Rooms = rooms;
+            Consumables = consumebles;
+        }
+
     }
 }

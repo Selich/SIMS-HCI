@@ -10,12 +10,19 @@ namespace Project.Views.Converters
 {
     public class DoctorConverter : IConverter<Project.Model.Doctor, DoctorDTO>
     {
+        private HospitalConverter _hospitalCnverter;
+
+        public DoctorConverter(HospitalConverter hospitalCnverter)
+        {
+            _hospitalCnverter = hospitalCnverter;
+        }
+
         public Project.Model.Doctor ConvertDTOToEntity(DoctorDTO dto)
-            => new Project.Model.Doctor(dto.Id, new Address(), dto.FirstName, dto.LastName, dto.Jmbg, dto.TelephoneNumber, dto.Gender, dto.DateOfBirth, dto.Salary, dto.AnnualLeave, dto.WorkingHours, dto.Email, dto.Password,  dto.MedicalRole, dto.Hospital);
+            => new Project.Model.Doctor(dto.Id, new Address(), dto.FirstName, dto.LastName, dto.Jmbg, dto.TelephoneNumber, dto.Gender, dto.DateOfBirth, dto.Salary, dto.AnnualLeave, dto.WorkingHours, dto.Email, dto.Password,  dto.MedicalRole);
 
 
         public DoctorDTO ConvertEntityToDTO(Project.Model.Doctor entity)
-            => new DoctorDTO(entity.Id, new AddressDTO(), entity.FirstName, entity.LastName, entity.Jmbg, entity.TelephoneNumber, entity.Gender, entity.DateOfBirth, entity.Salary, entity.AnnualLeave, entity.WorkingHours, entity.Email, entity.Password, entity.Hospital.Name, entity.MedicalRole);
+            => new DoctorDTO(entity.Id, new AddressDTO(), entity.FirstName, entity.LastName, entity.Jmbg, entity.TelephoneNumber, entity.Gender, entity.DateOfBirth, entity.Salary, entity.AnnualLeave, entity.WorkingHours, entity.Email, entity.Password, entity.MedicalRole);
 
         public List<Project.Model.Doctor> ConvertListDTOToListEntity(IEnumerable<DoctorDTO> dtos)
             => dtos.Select(dto => ConvertDTOToEntity(dto)).ToList();

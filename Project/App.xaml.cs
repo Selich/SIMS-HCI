@@ -238,8 +238,9 @@ namespace Project
             var medicalConsumableConverter = new MedicalConsumableConverter();
             var roomConverter = new RoomConverter();
             var equipmentConverter = new EquipmentConverter(roomConverter);
-            var guestConverter = new GuestConverter(addressConverter);
-            var doctorConverter = new DoctorConverter();
+            var guestConverter = new GuestConverter();
+            var hospitalConverter = new HospitalConverter();
+            var doctorConverter = new DoctorConverter(hospitalConverter);
             var medicalAppoitmentConverter = new MedicalAppointmentConverter(roomConverter, guestConverter, doctorConverter);
             var renovationConverter = new RenovationConverter(roomConverter);
             var feedbackConverter = new FeedbackConverter();
