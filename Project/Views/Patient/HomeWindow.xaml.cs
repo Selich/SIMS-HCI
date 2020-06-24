@@ -62,12 +62,12 @@ namespace Project.Views.Patient
             List<DoctorDTO> tempDoctors = new List<DoctorDTO>();
             tempDoctors.Add(tempDoctor);
             PastAppoitments = new ObservableCollection<Model.MedicalAppointmentDTO>();
-            PastAppoitments.Add(new MedicalAppointmentDTO() { Id = 0, Room = tempRoom, Beginning = new DateTime(2020, 5, 10, 15, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 10, 15, 30, 0), Doctors = tempDoctors, Review = tempReview });
-            PastAppoitments.Add(new MedicalAppointmentDTO() { Id = 1, Room = tempRoom, Beginning = new DateTime(2020, 5, 11, 18, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 11, 18, 30, 0), Doctors = tempDoctors, Review = tempReview });
-            PastAppoitments.Add(new MedicalAppointmentDTO() { Id = 2, Room = tempRoom, Beginning = new DateTime(2020, 5, 12, 15, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 12, 15, 30, 0), Doctors = tempDoctors, Review = tempReview });
-            PastAppoitments.Add(new MedicalAppointmentDTO() { Id = 3, Room = tempRoom, Beginning = new DateTime(2020, 5, 13, 15, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 13, 15, 30, 0), Doctors = tempDoctors, Review = tempReview });
-            PastAppoitments.Add(new MedicalAppointmentDTO() { Id = 4, Room = tempRoom, Beginning = new DateTime(2020, 5, 14, 11, 0, 0), Type = MedicalAppointmentType.operation, End = new DateTime(2020, 5, 14, 11, 30, 0), Doctors = tempDoctors, Review = tempReview });
-            PastAppoitments.Add(new MedicalAppointmentDTO() { Id = 5, Room = tempRoom, Beginning = new DateTime(2020, 5, 15, 14, 0, 0), Type = MedicalAppointmentType.operation, End = new DateTime(2020, 5, 15, 14, 30, 0), Doctors = tempDoctors, Review = tempReview });
+            PastAppoitments.Add(new MedicalAppointmentDTO() { Id = 0, Room = tempRoom, Beginning = new DateTime(2020, 5, 10, 15, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 10, 15, 30, 0), Doctors = tempDoctors, Review = tempReview, Patient = LoggedInPatient });
+            PastAppoitments.Add(new MedicalAppointmentDTO() { Id = 1, Room = tempRoom, Beginning = new DateTime(2020, 5, 11, 18, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 11, 18, 30, 0), Doctors = tempDoctors, Review = tempReview, Patient = LoggedInPatient });
+            PastAppoitments.Add(new MedicalAppointmentDTO() { Id = 2, Room = tempRoom, Beginning = new DateTime(2020, 5, 12, 15, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 12, 15, 30, 0), Doctors = tempDoctors, Review = tempReview, Patient = LoggedInPatient });
+            PastAppoitments.Add(new MedicalAppointmentDTO() { Id = 3, Room = tempRoom, Beginning = new DateTime(2020, 5, 13, 15, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 13, 15, 30, 0), Doctors = tempDoctors, Review = tempReview, Patient = LoggedInPatient });
+            PastAppoitments.Add(new MedicalAppointmentDTO() { Id = 4, Room = tempRoom, Beginning = new DateTime(2020, 5, 14, 11, 0, 0), Type = MedicalAppointmentType.operation, End = new DateTime(2020, 5, 14, 11, 30, 0), Doctors = tempDoctors, Review = tempReview, Patient = LoggedInPatient });
+            PastAppoitments.Add(new MedicalAppointmentDTO() { Id = 5, Room = tempRoom, Beginning = new DateTime(2020, 5, 15, 14, 0, 0), Type = MedicalAppointmentType.operation, End = new DateTime(2020, 5, 15, 14, 30, 0), Doctors = tempDoctors, Review = tempReview, Patient = LoggedInPatient });
             
             //Profile
             AddressDTO tempAddress = new AddressDTO() { City = "Novi Sad", Country = "Serbia", Number = "25", PostCode = "21000", Street = "Petra Petrovica" };
@@ -157,14 +157,18 @@ namespace Project.Views.Patient
         private void ViewAvailable_Click(object sender, RoutedEventArgs e)
         {
             RoomDTO tempRoom = new RoomDTO() { Floor = "One", Id = 4, Ward = "Check" };
+            DoctorDTO tempDoctor = new DoctorDTO() { FirstName = "Filip Zdelar" };
+            ReviewDTO tempReview = new ReviewDTO(5, "yes");
+            List<DoctorDTO> tempDoctors = new List<DoctorDTO>();
+            tempDoctors.Add(tempDoctor);
 
             AvailableAppoitments.Clear();
-            AvailableAppoitments.Add(new MedicalAppointmentDTO() {Beginning = new DateTime(2020, 5, 10, 15, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 10, 15, 30, 0), IsScheduled = false, Room = tempRoom });
-            AvailableAppoitments.Add(new MedicalAppointmentDTO() {Beginning = new DateTime(2020, 5, 11, 18, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 11, 18, 30, 0), IsScheduled = false, Room = tempRoom });
-            AvailableAppoitments.Add(new MedicalAppointmentDTO() {Beginning = new DateTime(2020, 5, 12, 15, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 12, 15, 30, 0), IsScheduled = false, Room = tempRoom });
-            AvailableAppoitments.Add(new MedicalAppointmentDTO() {Beginning = new DateTime(2020, 5, 13, 15, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 13, 15, 30, 0), IsScheduled = false, Room = tempRoom });
-            AvailableAppoitments.Add(new MedicalAppointmentDTO() {Beginning = new DateTime(2020, 5, 14, 11, 0, 0), Type = MedicalAppointmentType.operation, End = new DateTime(2020, 5, 14, 11, 30, 0), IsScheduled = false, Room = tempRoom });
-            AvailableAppoitments.Add(new MedicalAppointmentDTO() {Beginning = new DateTime(2020, 5, 15, 14, 0, 0), Type = MedicalAppointmentType.operation, End = new DateTime(2020, 5, 15, 14, 30, 0), IsScheduled = false, Room = tempRoom });
+            AvailableAppoitments.Add(new MedicalAppointmentDTO() {Beginning = new DateTime(2020, 5, 10, 15, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 10, 15, 30, 0), IsScheduled = false, Room = tempRoom, Patient=LoggedInPatient, Doctors=tempDoctors});
+            AvailableAppoitments.Add(new MedicalAppointmentDTO() {Beginning = new DateTime(2020, 5, 11, 18, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 11, 18, 30, 0), IsScheduled = false, Room = tempRoom, Patient = LoggedInPatient, Doctors = tempDoctors });
+            AvailableAppoitments.Add(new MedicalAppointmentDTO() {Beginning = new DateTime(2020, 5, 12, 15, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 12, 15, 30, 0), IsScheduled = false, Room = tempRoom, Patient = LoggedInPatient, Doctors = tempDoctors });
+            AvailableAppoitments.Add(new MedicalAppointmentDTO() {Beginning = new DateTime(2020, 5, 13, 15, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 13, 15, 30, 0), IsScheduled = false, Room = tempRoom, Patient = LoggedInPatient, Doctors = tempDoctors });
+            AvailableAppoitments.Add(new MedicalAppointmentDTO() {Beginning = new DateTime(2020, 5, 14, 11, 0, 0), Type = MedicalAppointmentType.operation, End = new DateTime(2020, 5, 14, 11, 30, 0), IsScheduled = false, Room = tempRoom, Patient = LoggedInPatient, Doctors = tempDoctors });
+            AvailableAppoitments.Add(new MedicalAppointmentDTO() {Beginning = new DateTime(2020, 5, 15, 14, 0, 0), Type = MedicalAppointmentType.operation, End = new DateTime(2020, 5, 15, 14, 30, 0), IsScheduled = false, Room = tempRoom, Patient = LoggedInPatient, Doctors = tempDoctors });
             ConfirmButton.IsEnabled = true;
             CancelButton.IsEnabled = true;
             ViewAvailableButton.IsEnabled = false;

@@ -10,8 +10,16 @@ namespace Project.Views.Converters
 {
     public class GuestConverter : IConverter<Guest, GuestDTO>
     {
+        private AddressConverter _addressConverter;
+
+        public GuestConverter(AddressConverter addressConverter)
+        {
+            _addressConverter = addressConverter;
+        }
+
         public Guest ConvertDTOToEntity(GuestDTO dto)
-            => new Guest(null,
+            => new Guest(
+                _addressConverter.ConvertDTOToEntity(dto.Address),
                 dto.FirstName,
                 dto.LastName,
                 dto.Jmbg, 
@@ -25,9 +33,19 @@ namespace Project.Views.Converters
                 dto.Weight);
 
         public GuestDTO ConvertEntityToDTO(Guest entity)
-        {
-            throw new NotImplementedException();
-        }
+        => new GuestDTO(
+            _addressConverter.ConvertEntityToDTO(entity.Address),
+            entity.FirstName,
+            entity.LastName,
+            entity.Jmbg,
+            entity.TelephoneNumber,
+            entity.Gender,
+            entity.DateOfBirth,
+            entity.InsurenceNumber,
+            entity.Profession,
+            entity.BloodType,
+            entity.Height,
+            entity.Weight);
 
         public List<Guest> ConvertListDTOToListEntity(IEnumerable<GuestDTO> dtos)
         {
