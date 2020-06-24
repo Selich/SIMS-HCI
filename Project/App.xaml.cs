@@ -150,6 +150,7 @@ namespace Project
         private static string REVIEW_PATH = ConfigurationManager.AppSettings["ReviewPath"].ToString();
         private static string SECRETARY_PATH = ConfigurationManager.AppSettings["SecretaryPath"].ToString();
         private static string INVENTORY_PATH = ConfigurationManager.AppSettings["InventoryPath"].ToString();
+        private static string INVENTORY_EQUIPMENT_PATH = ConfigurationManager.AppSettings["InventoryEquipmentPath"].ToString();
 
         // Many to many
         private static string MEDICAL_APPOINTMENT_TO_DOCTOR_FILEPATH = ConfigurationManager.AppSettings["MedicalAppointmentToDoctorPath"].ToString();
@@ -244,7 +245,7 @@ namespace Project
             var feedbackConverter = new FeedbackConverter();
             var reviewConverter = new ReviewConverter(doctorConverter);
             var secretaryConverter = new SecretaryConverter(questionConverter, addressConverter);
-            var inventoryConverter = new InventoryManagmentConverter(equipmentConverter, roomConverter);
+            var inventoryManagementConverter = new InventoryManagementConverter(equipmentConverter, roomConverter);
             var orderConverter = new OrderConverter(medicalConsumableConverter,medicineConverter,equipmentConverter);
 
             // Repositories
@@ -253,6 +254,12 @@ namespace Project
                 new CSVStream<MedicalAppointmentToDoctor>(
                     MEDICAL_APPOINTMENT_TO_DOCTOR_FILEPATH, 
                     new MedicalAppointmentToDoctorCSVConverter(DELIMITER)),
+                new LongSequencer()
+            );
+            var inventoryManagementToEquipmentRepository = new InventoryManagementToEquipmentRepository(
+                new CSVStream<InventoryManagementToEquipment>(
+                    INVENTORY_EQUIPMENT_PATH,
+                    new InventoryManagementToEquipmentCSVConverter(DELIMITER)),
                 new LongSequencer()
             );
             var orderDetailsRepository = new OrderDetailsRepository( new CSVStream<OrderDetails>( ORDER_DETAILS_FILEPATH ,new OrderDetailsCSVConverter(DELIMITER)), new LongSequencer());
@@ -272,8 +279,7 @@ namespace Project
             var feedbackRepository = new FeedbackRepository(new CSVStream<Feedback>(FEEDBACK_FILEPATH, new FeedbackCSVConverter(DELIMITER)), new LongSequencer());
             var reviewRepository=new ReviewRepository(new CSVStream<Review>(REVIEW_PATH, new ReviewCSVConverter(DELIMITER)), new LongSequencer());
             var secretaryRepository=new SecretaryRepository(new CSVStream<Secretary>(SECRETARY_PATH, new SecretaryCSVConverter(DELIMITER,DATETIME_FORMAT)), new LongSequencer());
-            var inventoryRepository = new InventoryManagmentRepository(new CSVStream<InventoryManagment>(INVENTORY_PATH, new InventoryManagmentCSVConverter(DELIMITER,DATETIME_FORMAT)), new LongSequencer());
-
+            var inventoryManagementRepository = new InventoryManagementRepository(new CSVStream<InventoryManagement>(INVENTORY_PATH, new InventoryManagementCSVConverter(DELIMITER,DATETIME_FORMAT)), inventoryManagementToEquipmentRepository, new LongSequencer());
 
 
             // Services
@@ -291,7 +297,7 @@ namespace Project
             var feedbackService = new FeedbackService(feedbackRepository);
             var reviewService = new ReviewService(reviewRepository);
             var secretaryService = new SecretaryService(secretaryRepository);
-            var inventoryService = new InventoryManagmentService(inventoryRepository);
+            var inventoryManagementService = new InventoryManagementService(inventoryManagementRepository);
             var orderService = new OrderService(orderRepository);
             // Controllers
             PatientController = new PatientController(patientService, patientConverter);
@@ -309,7 +315,7 @@ namespace Project
             FeedbackController = new FeedbackController(feedbackService, feedbackConverter);
             ReviewController = new ReviewController(reviewService, reviewConverter);
             SecretaryController = new SecretaryController(secretaryService, secretaryConverter);
-            InventoryController = new InventoryManagmentController(inventoryService, inventoryConverter);
+            InventoryManagementController = new InventoryManagementController(inventoryManagementService, inventoryManagementConverter);
             OrderController = new OrderController(orderService, orderConverter);
             // Generators
             SecretaryAppointmentReportGenerator = new SecretaryAppointmentReportGenerator(REPORT_APPOINTMENT_PATH);
@@ -336,7 +342,7 @@ namespace Project
         public IController<EquipmentDTO, long> EquipmentController { get; private set; }
         public IController<RoomDTO, long> RoomController { get; private set; }
         public IController<RenovationDTO, long> RenovationController { get; private set; }
-        public IController<InventoryManagmentDTO, long> InventoryController { get; private set; }
+        public IController<InventoryManagementDTO, long> InventoryManagementController { get; private set; }
         public IController<OrderDTO, long> OrderController { get; private set; }
 
         public IController<MedicalAppointmentDTO, long> MedicalAppointmentController { get; private set; }

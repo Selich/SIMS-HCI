@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Project.Repositories.Abstract
 {
-    public interface IInventoryManagmentRepository:IRepository<InventoryManagment,long>
+    public interface IInventoryManagementRepository:IRepository<InventoryManagement,long>
     {
     }
 }

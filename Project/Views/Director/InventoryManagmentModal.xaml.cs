@@ -42,7 +42,7 @@ namespace Project.Views.Director
 
         public List<EquipmentDTO> Moved { get; set; }
 
-        public InventoryManagmentDTO InventoryManagment { get; set; }
+        public InventoryManagementDTO InventoryManagment { get; set; }
 
         public List<AppointmentDTO> AppointmentList { get; set; }
 
@@ -70,7 +70,7 @@ namespace Project.Views.Director
             endDate = endDate.AddDays(1);
             ManBegin.SelectedDate = date;
             ManEnd.SelectedDate = endDate;
-            InventoryManagment = new InventoryManagmentDTO();
+            InventoryManagment = new InventoryManagementDTO();
             /* ObservableCollection<EquipmentDTO> l1 = new ObservableCollection<EquipmentDTO>();
              l1.Add(new EquipmentDTO() { Name = "Sto", Type = "namestaj" });
              l1.Add(new EquipmentDTO() { Name = "Stolica", Type = "namestaj" });

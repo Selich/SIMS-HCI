@@ -7,42 +7,37 @@ using System.Threading.Tasks;
 
 namespace Project.Repositories.CSV.Converter
 {
-    class InventoryManagmentCSVConverter : ICSVConverter<InventoryManagment>
+    class InventoryManagementCSVConverter : ICSVConverter<InventoryManagement>
     {
         private readonly string _delimiter;
         private readonly string _datetimeFormat;
 
-        public InventoryManagmentCSVConverter(string delimiter, string datetimeFormat)
+        public InventoryManagementCSVConverter(string delimiter, string datetimeFormat)
         {
             _delimiter = delimiter;
             _datetimeFormat = datetimeFormat;
         }
 
-        public InventoryManagment ConvertCSVFormatToEntity(string inventoryCSVFormat)
+        public InventoryManagement ConvertCSVFormatToEntity(string inventoryCSVFormat)
         {
             string[] tokens = inventoryCSVFormat.Split(_delimiter.ToCharArray());
-            return new InventoryManagment(
+            return new InventoryManagement(
                 long.Parse(tokens[0]),
                 DateTime.Parse(tokens[1]),
                 DateTime.Parse(tokens[2]),
                 new Room(long.Parse(tokens[3])),
-                new List<Equipment>()
+                new Room(long.Parse(tokens[4]))
             );
         }
 
-        public string ConvertEntityToCSVFormat(InventoryManagment inventory)
+        public string ConvertEntityToCSVFormat(InventoryManagement inventory)
         {
-            string EquipmentIDs ="";
-
-            foreach (Equipment eq in inventory.Equipment)
-                EquipmentIDs += eq.Id +_delimiter;
-
             return string.Join(_delimiter,
                 inventory.Id,
                 inventory.Beginning.ToString(_datetimeFormat),
                 inventory.End.ToString(_datetimeFormat),
                 inventory.Room.Id,
-                EquipmentIDs
+                inventory.RoomTo.Id
                 );
         }
     }

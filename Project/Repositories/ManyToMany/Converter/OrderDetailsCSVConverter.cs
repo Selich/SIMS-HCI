@@ -19,6 +19,7 @@ namespace Project.Repositories.CSV.Converter
         public string ConvertEntityToCSVFormat(OrderDetails order)
         {
             return string.Join(_delimiter,
+                order.Id,
                 order.OrderId,
                 order.ItemId,
                 order.Quantity
@@ -29,8 +30,9 @@ namespace Project.Repositories.CSV.Converter
             string[] tokens = orderCSVFormat.Split(_delimiter.ToCharArray());
             return new OrderDetails(
                 long.Parse(tokens[0]),
-                long.Parse(tokens[1]),
-                long.Parse(tokens[2])
+                long.Parse(tokens[2]),
+                long.Parse(tokens[3]),
+                long.Parse(tokens[4])
             );
         }
     }

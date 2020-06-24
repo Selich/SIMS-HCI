@@ -26,7 +26,7 @@ namespace Project.Repositories
         {
         }
 
-        public IEnumerable<Anamnesis> Find(Func<Anamnesis, bool> predicate)
+        public new IEnumerable<Anamnesis> Find(Func<Anamnesis, bool> predicate)
             => GetAllEager().Where(predicate);
 
         public IEnumerable<Anamnesis> GetAllEager()
