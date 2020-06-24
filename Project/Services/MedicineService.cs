@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Project.Services
 {
-    public class MedicineService : IService<Medicine, long>
+    public class MedicineService : IMedicineService
     {
         private readonly IMedicineRepository _medicineRepository;
         public MedicineService(IMedicineRepository medicineRepository)
@@ -33,7 +33,7 @@ namespace Project.Services
         public  Medicine GetByName(string name)
             => _medicineRepository.GetByName(name);
 
-        public Medicine RegisterMedicine(string name, string purpose, string administration, string type, string description)
+        public Medicine RegisternMedicine(string name, string type, string administration, string purpose, string description)
             => _medicineRepository.RegisterMedicine(name, purpose, administration, type, description);
 
     }

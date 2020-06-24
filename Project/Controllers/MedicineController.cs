@@ -17,12 +17,12 @@ namespace Controller
 {
     public class MedicineController : IController<MedicineDTO, long>
     {
-        private IService<Medicine,long> _medicineService;
+        private IMedicineService _medicineService;
         private IConverter<Medicine, MedicineDTO> _medicineConverter;
 
 
         public MedicineController(
-            IService<Medicine, long> medicineService,
+            IMedicineService medicineService,
             IConverter<Medicine, MedicineDTO> medicineConverter
             )
         {
