@@ -27,7 +27,7 @@ namespace Project.Repositories
         public new IEnumerable<Room> Find(Func<Room, bool> predicate) => GetAllEager().Where(predicate);
         public new Room Save(Room room)
         {
-            if (!IsRoomUnique(room.Id))
+            if (IsRoomUnique(room.Id))
                 return base.Save(room);
             else
                 throw new Exception();
