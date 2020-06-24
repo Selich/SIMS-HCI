@@ -31,7 +31,13 @@ namespace Project.Repositories
         public new IEnumerable<Doctor> Find(Func<Doctor, bool> predicate) => GetAllEager().Where(predicate);
 
         public IEnumerable<Doctor> GetAllEager() => GetAll();
-        public Doctor GetEager(long id) => GetById(id);
+
+        public Doctor GetEager(long id)
+        {
+            Doctor doctor = GetById(id);
+            doctor.Address = _addressRepository.GetById(doctor.Address.Id);
+            return doctor;
+        }
 
         public new Doctor Save(Doctor doctor)
         {

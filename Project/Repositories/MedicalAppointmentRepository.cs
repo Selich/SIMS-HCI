@@ -18,21 +18,47 @@ namespace Project.Repositories
         private const string ENTITY_NAME = "MedicalAppointment";
         private readonly IMedicalAppointmentToDoctorRepository _medicalAppointmentToDoctorRepository;
         private readonly IRepository<Patient, long> _patientRepository;
+        private readonly IRepository<Doctor, long> _doctorRepository;
 
         public MedicalAppointmentRepository(
             ICSVStream<MedicalAppointment> stream,
             IMedicalAppointmentToDoctorRepository  medicalAppointmentToDoctorRepository,
             IRepository<Patient, long> patientRepository,
+            IRepository<Doctor, long> doctorRepository,
             ISequencer<long> sequencer
             ) : base(ENTITY_NAME, stream, sequencer)
         {
             _medicalAppointmentToDoctorRepository = medicalAppointmentToDoctorRepository;
             _patientRepository = patientRepository;
+            _doctorRepository = doctorRepository;
         }
+
         public MedicalAppointment GetEager(long id)
-            => GetById(id);
+        {
+            var medicalAppointment = GetById(id);
+            medicalAppointment.Patient = _patientRepository.GetById(medicalAppointment.Patient.Id);
+            var doctorAndMedicalAppList = _medicalAppointmentToDoctorRepository.GetAllByMedicalAppointmentId(medicalAppointment.Id);
+            foreach (MedicalAppointmentToDoctor pair in doctorAndMedicalAppList)
+            {
+                medicalAppointment.Doctors.Add(_doctorRepository.GetById(pair.DoctorId));
+            }
+            return medicalAppointment;
+        }
+
         public IEnumerable<MedicalAppointment> GetAllEager()
-            => GetAll();
+        {
+            var list = GetAll();
+            foreach (MedicalAppointment medicalAppointment in list)
+            {
+                medicalAppointment.Patient = _patientRepository.GetById(medicalAppointment.Patient.Id); ;
+                var doctorAndMedicalAppList = _medicalAppointmentToDoctorRepository.GetAllByMedicalAppointmentId(medicalAppointment.Id);
+                foreach (MedicalAppointmentToDoctor pair in doctorAndMedicalAppList)
+                {
+                    medicalAppointment.Doctors.Add(_doctorRepository.GetById(pair.DoctorId));
+                }
+            }
+            return list;
+        }
 
         public IEnumerable<MedicalAppointment> GetAllByPatientId(long id)
         {
@@ -41,13 +67,19 @@ namespace Project.Repositories
             foreach (MedicalAppointment medicalAppointment in list)
             {
                 medicalAppointment.Patient = patient;
+                var doctorAndMedicalAppList = _medicalAppointmentToDoctorRepository.GetAllByMedicalAppointmentId(medicalAppointment.Id);
+                foreach (MedicalAppointmentToDoctor pair in doctorAndMedicalAppList)
+                {
+                    medicalAppointment.Doctors.Add(_doctorRepository.GetById(pair.DoctorId));
+                }
             }
-
             return list;
         }
 
+        //TODO
         public IEnumerable<MedicalAppointment> GetAllByDoctorId(long id)
             => GetAll().Where(item => item.Doctors.Select(doctor => doctor.Id == id).Any()).ToList();
+        //TODO
         public IEnumerable<MedicalAppointment> GetAllByRoomId(long id)
             => GetAll().Where(item => item.Room.Id == id).ToList();
 
