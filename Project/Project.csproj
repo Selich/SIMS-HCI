@@ -172,6 +172,7 @@
     <Compile Include="Repositories\Abstract\IFeedbackRepository.cs" />
     <Compile Include="Repositories\Abstract\IQuestionRepository.cs" />
     <Compile Include="Repositories\Abstract\IRenovationRepository.cs" />
+    <Compile Include="Repositories\Abstract\IReviewRepository.cs" />
     <Compile Include="Repositories\Abstract\IRoomRepository.cs" />
     <Compile Include="Repositories\CSV\Converter\EquipmentCSVConverter.cs" />
     <Compile Include="Repositories\CSV\Converter\InventoryManagmentCSVConverter.cs" />
@@ -184,6 +185,7 @@
     <Compile Include="Repositories\CSV\Converter\QuestionCSVConverter.cs" />
     <Compile Include="Repositories\CSV\Converter\RenovationCSVConverter.cs" />
     <Compile Include="Repositories\CSV\Converter\FeedbackCSVConverter.cs" />
+    <Compile Include="Repositories\CSV\Converter\ReviewCSVConverter.cs" />
     <Compile Include="Repositories\CSV\Converter\RoomCSVConverter.cs" />
     <Compile Include="Repositories\EquipmentRepository.cs" />
     <Compile Include="Repositories\InventoryManagmentRepository.cs" />
@@ -199,6 +201,7 @@
     <Compile Include="Repositories\FeedbackRepository.cs" />
     <Compile Include="Repositories\QuestionRepository.cs" />
     <Compile Include="Repositories\RenovationRepository.cs" />
+    <Compile Include="Repositories\ReviewRepository.cs" />
     <Compile Include="Repositories\RoomRepository.cs" />
     <Compile Include="Services\Abstract\IMedicalAppoitmentService.cs" />
     <Compile Include="Services\EquipmentService.cs" />
@@ -222,6 +225,7 @@
     <Compile Include="Services\Generators\PatientAppointmentReportGenerator.cs" />
     <Compile Include="Services\Generators\SecretaryAppointmentReportGenerator.cs" />
     <Compile Include="Services\Generators\IReportGenerator.cs" />
+    <Compile Include="Services\ReviewService.cs" />
     <Compile Include="Services\RoomService.cs" />
     <Compile Include="Util\Environment.cs" />
     <Compile Include="Util\HelperFunctions.cs" />
@@ -245,6 +249,7 @@
     <Compile Include="Views\Converters\FeedbackConverter.cs" />
     <Compile Include="Views\Converters\QuestionConverter.cs" />
     <Compile Include="Views\Converters\RenovationConverter.cs" />
+    <Compile Include="Views\Converters\ReviewConverter.cs" />
     <Compile Include="Views\Converters\RoomConverter.cs" />
     <Compile Include="Views\Director\AdressToStringConverter.cs" />
     <Compile Include="Views\Doctor\WizardWindow.xaml.cs">
@@ -755,6 +760,7 @@
     <None Include="Resources\Data\questions.csv" />
     <None Include="Resources\Data\renovations.csv" />
     <None Include="Resources\Data\reports.csv" />
+    <None Include="Resources\Data\reviews.csv" />
     <None Include="Resources\Data\rooms.csv" />
     <None Include="Views\Patient\.vs\slnx.sqlite" />
     <None Include="Views\Patient\.vs\VSWorkspaceState.json" />
