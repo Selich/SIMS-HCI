@@ -180,6 +180,7 @@
     <Compile Include="Repositories\Abstract\IRoomRepository.cs" />
     <Compile Include="Repositories\Abstract\ISecretaryRepository.cs" />
     <Compile Include="Repositories\AnamnesisRepository.cs" />
+    <Compile Include="Repositories\CSV\Converter\AnamnesisCSVConverter.cs" />
     <Compile Include="Repositories\CSV\Converter\EquipmentCSVConverter.cs" />
     <Compile Include="Repositories\CSV\Converter\InventoryManagmentCSVConverter.cs" />
     <Compile Include="Repositories\CSV\Converter\MedicalAppointmentCSVConverter.cs" />
@@ -248,6 +249,7 @@
     <Compile Include="Views\Commands\DataContext.cs" />
     <Compile Include="Views\Commands\MessageCommand.cs" />
     <Compile Include="Views\Commands\ShowShortcutsCommand.cs" />
+    <Compile Include="Views\Converters\AnamnesisConvertor.cs" />
     <Compile Include="Views\Converters\AppointmentConverter.cs" />
     <Compile Include="Views\Converters\BoolToVisibilityConverter.cs" />
     <Compile Include="Views\Converters\DoctorConverter.cs" />
