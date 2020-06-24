@@ -163,6 +163,7 @@
     <Compile Include="Model\Referrals\AdmitionReferral.cs" />
     <Compile Include="Model\Referrals\ExamReferral.cs" />
     <Compile Include="Model\Referrals\OperationReferral.cs" />
+    <Compile Include="Repositories\Abstract\IAnamnesisRepository.cs" />
     <Compile Include="Repositories\Abstract\IEquipmentRepository.cs" />
     <Compile Include="Repositories\Abstract\IInventoryManagmentRepository.cs" />
     <Compile Include="Repositories\Abstract\IMedicalAppointmentRepository.cs" />
@@ -175,6 +176,7 @@
     <Compile Include="Repositories\Abstract\IRenovationRepository.cs" />
     <Compile Include="Repositories\Abstract\IReviewRepository.cs" />
     <Compile Include="Repositories\Abstract\IRoomRepository.cs" />
+    <Compile Include="Repositories\AnamnesisRepository.cs" />
     <Compile Include="Repositories\CSV\Converter\EquipmentCSVConverter.cs" />
     <Compile Include="Repositories\CSV\Converter\InventoryManagmentCSVConverter.cs" />
     <Compile Include="Repositories\CSV\Converter\MedicalAppointmentCSVConverter.cs" />
