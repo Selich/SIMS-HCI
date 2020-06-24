@@ -27,6 +27,12 @@ namespace Project.Repositories
         public IEnumerable<Medicine> GetAllEager() => GetAll();
         public Medicine GetEager(long id) => GetById(id);
         public Medicine GetByName(string name) => GetByName(name);
+        public Medicine GetLazy(long id)
+        {
+            var medicine = GetById(id);
+            medicine.Alternatives = null;
+            return medicine;
+        }
 
     }
 }

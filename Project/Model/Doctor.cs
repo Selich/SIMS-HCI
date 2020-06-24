@@ -10,8 +10,7 @@ namespace Project.Model
 {
    public class Doctor : Employee
    {
-        
-      public string Password { get; set; }
+
       public string MedicalRole { get; set; }
       
       public List<Approval> Approval {get; set;}
@@ -24,5 +23,21 @@ namespace Project.Model
             Id = id;
         }
       
-   }
+      public Doctor(long id)
+      {
+          Id = id;
+      }
+      
+      public Doctor(long id, Address address, string firstName, string lastName, string jmbg, string telephoneNumber, string gender, DateTime dateOfBirth, double salary, TimeInterval annualLeave, TimeInterval workingHours, string email, string password, string medicalRole, string hospital)
+            :base(id,  address,  firstName,  lastName,  jmbg,  telephoneNumber,  gender,  dateOfBirth,  salary,  annualLeave,  workingHours,  email,  password)
+        {
+            MedicalRole = medicalRole;
+      }
+
+      public Doctor(Address address, string firstName, string lastName, string jmbg, string telephoneNumber, string gender, DateTime dateOfBirth, double salary, TimeInterval annualLeave, TimeInterval workingHours, string email, string password, string medicalRole)
+            : base(address, firstName, lastName, jmbg, telephoneNumber, gender, dateOfBirth, salary, annualLeave, workingHours, email, password)
+      {
+          MedicalRole = medicalRole;
+      }
+    }
 }
