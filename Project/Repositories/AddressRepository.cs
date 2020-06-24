@@ -21,10 +21,18 @@ namespace Project.Repositories
 
         public new IEnumerable<Address> Find(Func<Address, bool> predicate)
             => GetAllEager().Where(predicate);
+
+
         public new Address Save(Address address)
-            => (IsAddressUnique(address))
-                ? base.Save(address)
-                : Find(item => item.Equals(address)).SingleOrDefault();
+        {
+            //if (IsAddressUnique(address)) // isUniq je uvek false
+            //{
+            //    return base.Save(address);
+            //} else {
+            //    return Find(item => item.Equals(address)).SingleOrDefault();
+            //}
+            return base.Save(address);
+        }
 
         private bool IsAddressUnique(Address address)
             => Find(item => item.Equals(address)) == null;

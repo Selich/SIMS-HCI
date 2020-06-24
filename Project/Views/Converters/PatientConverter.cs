@@ -10,10 +10,17 @@ namespace Project.Views.Converters
 {
     public class PatientConverter : IConverter<Project.Model.Patient, PatientDTO>
     {
+        private AddressConverter _addressConverter;
+
+        public PatientConverter(AddressConverter addressConverter)
+        {
+            _addressConverter = addressConverter;
+        }
+
         public Project.Model.Patient ConvertDTOToEntity(PatientDTO dto)
             => new Project.Model.Patient(
                 dto.Id,
-                new Address(),
+                _addressConverter.ConvertDTOToEntity(dto.Address),
                 dto.FirstName,
                 dto.LastName,
                 dto.Jmbg,
@@ -32,14 +39,7 @@ namespace Project.Views.Converters
         public PatientDTO ConvertEntityToDTO(Project.Model.Patient entity)
                 => new PatientDTO(
                 entity.Id,
-                new AddressDTO(
-                    //entity.Address.Id,
-                    //entity.Address.Number,
-                    //entity.Address.Street,
-                    //entity.Address.City,
-                    //entity.Address.Country,
-                    //entity.Address.PostCode
-                ),
+                _addressConverter.ConvertEntityToDTO(entity.Address),
                 entity.FirstName,
                 entity.LastName,
                 entity.Jmbg,

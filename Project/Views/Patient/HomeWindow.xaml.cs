@@ -73,7 +73,14 @@ namespace Project.Views.Patient
             AddressDTO tempAddress = new AddressDTO() { City = "Novi Sad", Country = "Serbia", Number = "25", PostCode = "21000", Street = "Petra Petrovica" };
             LoggedInPatient = new PatientDTO() {Id = 0, FirstName = "Uros", LastName = "Milovanovic", DateOfBirth = new DateTime(1998, 8, 25), Email = "urke123@gmail.com", Gender = "Male", InsurenceNumber = "1234567", Jmbg = "1234567890", TelephoneNumber= "06551232123", Address = tempAddress };
 
-            Appoitments = (ObservableCollection<MedicalAppointmentDTO>)app.MedicalAppointmentController.GetAllByPatientID(LoggedInPatient.Id);
+            Appoitments = new ObservableCollection<Model.MedicalAppointmentDTO>();
+            var list = app.MedicalAppointmentController.GetAllByPatientID(LoggedInPatient.Id);
+            foreach (MedicalAppointmentDTO appoitment in list)
+            {
+                Appoitments.Add(appoitment);
+            }
+
+
 
             AvailableAppoitments = new ObservableCollection<Model.MedicalAppointmentDTO>();
 

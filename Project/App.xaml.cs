@@ -230,17 +230,17 @@ namespace Project
 
                 //new RoomDTO(111, RoomType.hospitalRoom, "1. Sprat", "Check"),
             // Converters
-            var patientConverter = new PatientConverter();
-            var medicineConverter = new MedicineConverter();
             var addressConverter = new AddressConverter();
+            var patientConverter = new PatientConverter(addressConverter);
+            var medicineConverter = new MedicineConverter();
             var questionConverter = new QuestionConverter(patientConverter);
             var prescriptionConverter = new PrescriptionConverter(patientConverter, medicineConverter);
             var medicalConsumableConverter = new MedicalConsumableConverter();
             var roomConverter = new RoomConverter();
             var equipmentConverter = new EquipmentConverter(roomConverter);
-            var guestConverter = new GuestConverter();
+            var guestConverter = new GuestConverter(addressConverter);
             var hospitalConverter = new HospitalConverter();
-            var doctorConverter = new DoctorConverter(hospitalConverter);
+            var doctorConverter = new DoctorConverter(addressConverter);
             var medicalAppoitmentConverter = new MedicalAppointmentConverter(roomConverter, guestConverter, doctorConverter);
             var renovationConverter = new RenovationConverter(roomConverter);
             var feedbackConverter = new FeedbackConverter();
@@ -297,8 +297,8 @@ namespace Project
             var renovationService = new RenovationService(renovationRepository);
             var feedbackService = new FeedbackService(feedbackRepository);
             var reviewService = new ReviewService(reviewRepository);
-            var employeeService = new EmployeeService(secretaryRepository, doctorRepository);
-            var authenticationService = new AuthenticationService(employeeService, patientService);
+            //var employeeService = new EmployeeService(secretaryRepository, doctorRepository);
+            //var authenticationService = new AuthenticationService(employeeService, patientService);
             var secretaryService = new SecretaryService(secretaryRepository);
             var inventoryManagementService = new InventoryManagementService(inventoryManagementRepository);
             var orderService = new OrderService(orderRepository);
