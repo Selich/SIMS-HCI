@@ -34,5 +34,9 @@ namespace Project.Repositories
             return medicine;
         }
 
+        public Medicine RegisterMedicine(string name, string purpose, string administration, string type, string description)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

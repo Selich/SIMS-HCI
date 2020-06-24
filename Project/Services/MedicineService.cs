@@ -33,6 +33,8 @@ namespace Project.Services
         public  Medicine GetByName(string name)
             => _medicineRepository.GetByName(name);
 
+        public Medicine RegisterMedicine(string name, string purpose, string administration, string type, string description)
+            => _medicineRepository.RegisterMedicine(name, purpose, administration, type, description);
 
     }
 }
