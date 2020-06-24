@@ -17,21 +17,35 @@ namespace Project.Repositories
     {
         private const string ENTITY_NAME = "MedicalAppointment";
         private readonly IMedicalAppointmentToDoctorRepository _medicalAppointmentToDoctorRepository;
+        private readonly IRepository<Patient, long> _patientRepository;
 
         public MedicalAppointmentRepository(
             ICSVStream<MedicalAppointment> stream,
             IMedicalAppointmentToDoctorRepository  medicalAppointmentToDoctorRepository,
+            IRepository<Patient, long> patientRepository,
             ISequencer<long> sequencer
             ) : base(ENTITY_NAME, stream, sequencer)
         {
             _medicalAppointmentToDoctorRepository = medicalAppointmentToDoctorRepository;
+            _patientRepository = patientRepository;
         }
         public MedicalAppointment GetEager(long id)
             => GetById(id);
         public IEnumerable<MedicalAppointment> GetAllEager()
             => GetAll();
+
         public IEnumerable<MedicalAppointment> GetAllByPatientId(long id)
-            => GetAll().Where(item => item.Patient.Id == id).ToList();
+        {
+            var list = GetAll().Where(item => item.Patient.Id == id).ToList();
+            Patient patient = _patientRepository.GetById(id);
+            foreach (MedicalAppointment medicalAppointment in list)
+            {
+                medicalAppointment.Patient = patient;
+            }
+
+            return list;
+        }
+
         public IEnumerable<MedicalAppointment> GetAllByDoctorId(long id)
             => GetAll().Where(item => item.Doctors.Select(doctor => doctor.Id == id).Any()).ToList();
         public IEnumerable<MedicalAppointment> GetAllByRoomId(long id)

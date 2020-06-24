@@ -38,7 +38,6 @@ namespace Project.Repositories.CSV.Converter
                medicalAppointment.Room.Id,
                medicalAppointment.Type,
                medicalAppointment.Patient.Id,
-               ""// doctors
                );
 
         public MedicalAppointment ConvertCSVFormatToEntity(string medicalAppointmentCSVFormat)
