@@ -2,6 +2,8 @@
 using Project.Repositories.Abstract;
 using Project.Repositories.CSV;
 using Project.Repositories.CSV.Stream;
+using Project.Repositories.ManyToMany.Model;
+using Project.Repositories.ManyToMany.Repositories.Abstract;
 using Project.Repositories.Sequencer;
 using System;
 using System.Collections.Generic;
@@ -14,33 +16,45 @@ namespace Project.Repositories
     public class MedicalAppointmentRepository : CSVRepository<MedicalAppointment, long>, IMedicalAppointmentRepository, IEagerCSVRepository<MedicalAppointment, long>
     {
         private const string ENTITY_NAME = "MedicalAppointment";
+        private readonly IMedicalAppointmentToDoctorRepository _medicalAppointmentToDoctorRepository;
 
         public MedicalAppointmentRepository(
             ICSVStream<MedicalAppointment> stream,
+            IMedicalAppointmentToDoctorRepository  medicalAppointmentToDoctorRepository,
             ISequencer<long> sequencer
             ) : base(ENTITY_NAME, stream, sequencer)
         {
+            _medicalAppointmentToDoctorRepository = medicalAppointmentToDoctorRepository;
         }
-        // TODO: Implement N to N 
-        public new MedicalAppointment Save(MedicalAppointment medicalAppointment){
-            return base.Save(medicalAppointment);
-        }
+        public MedicalAppointment GetEager(long id)
+            => GetById(id);
+        public IEnumerable<MedicalAppointment> GetAllEager()
+            => GetAll();
         public IEnumerable<MedicalAppointment> GetAllByPatientId(long id)
             => GetAll().Where(item => item.Patient.Id == id).ToList();
-        // TODO : Test method
         public IEnumerable<MedicalAppointment> GetAllByDoctorId(long id)
             => GetAll().Where(item => item.Doctors.Select(doctor => doctor.Id == id).Any()).ToList();
         public IEnumerable<MedicalAppointment> GetAllByRoomId(long id)
             => GetAll().Where(item => item.Room.Id == id).ToList();
 
-        IEnumerable<MedicalAppointment> IEagerCSVRepository<MedicalAppointment, long>.GetAllEager()
+        public MedicalAppointment Remove(MedicalAppointment entity){
+            foreach (Doctor item in entity.Doctors)
+                _medicalAppointmentToDoctorRepository.Remove(new MedicalAppointmentToDoctor(item.Id, entity.Id));
+            return Remove(entity);
+
+        }
+        public new MedicalAppointment Save(MedicalAppointment entity)
         {
-            throw new NotImplementedException();
+            foreach (Doctor item in entity.Doctors)
+                _medicalAppointmentToDoctorRepository.Save(new MedicalAppointmentToDoctor(item.Id, entity.Id));
+            return base.Save(entity);
+        }
+        public MedicalAppointment Update(MedicalAppointment entity)
+        {
+            foreach (Doctor item in entity.Doctors)
+                _medicalAppointmentToDoctorRepository.Update(new MedicalAppointmentToDoctor(item.Id, entity.Id));
+            return Update(entity);
         }
 
-        MedicalAppointment IEagerCSVRepository<MedicalAppointment, long>.GetEager(long id)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

@@ -16,30 +16,36 @@ namespace Project.Repositories
         IEagerCSVRepository<Patient, long>
     {
         private const string ENTITY_NAME = "Patient";
+        private readonly IAddressRepository _addressRepository;
 
         public PatientRepository(
             ICSVStream<Patient> stream,
+            IAddressRepository addressRepository,
             ISequencer<long> sequencer
             ) : base(ENTITY_NAME, stream, sequencer)
         {
+            _addressRepository = addressRepository;
         }
-        public new IEnumerable<Patient> Find(Func<Patient, bool> predicate) => GetAllEager().Where(predicate);
-
-        public IEnumerable<Patient> GetAllEager() => GetAll();
-        public Patient GetEager(long id) => GetById(id);
-
+        public new IEnumerable<Patient> Find(Func<Patient, bool> predicate) 
+            => GetAllEager().Where(predicate);
+        public IEnumerable<Patient> GetAllEager() 
+            => GetAll();
+        public Patient GetEager(long id) 
+            => GetById(id);
         public new Patient Save(Patient patient)
         {
-            if (IsEmailUnique(patient.Email))
+            if (IsEmailUnique(patient.Email)){
+                patient.Address = _addressRepository.Save(patient.Address);
                 return base.Save(patient);
+            }
             else
                 throw new Exception();
         }
         private bool IsEmailUnique(string email)
-         => GetPatientByEmail(email) == null;
+            => GetPatientByEmail(email) == null;
 
         private Patient GetPatientByEmail(string email)
-         => _stream.ReadAll().SingleOrDefault(patient => patient.Email.Equals(email));
+            => _stream.ReadAll().SingleOrDefault(patient => patient.Email.Equals(email));
 
     }
 }

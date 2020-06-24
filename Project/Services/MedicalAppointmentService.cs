@@ -13,15 +13,12 @@ namespace Project.Services
     class MedicalAppointmentService : IMedicalAppointmentService
     {
         private readonly IMedicalAppointmentRepository _medicalAppointmentRepository;
-        private readonly IMedicalAppointmentToDoctorRepository _medicalAppointmentToDoctorRepository;
 
         public MedicalAppointmentService(
-            IMedicalAppointmentRepository medicalAppointmentRepository,
-            IMedicalAppointmentToDoctorRepository medicalAppointmentToDoctorRepository
+            IMedicalAppointmentRepository medicalAppointmentRepository
         )
         {
             _medicalAppointmentRepository = medicalAppointmentRepository;
-            _medicalAppointmentToDoctorRepository = medicalAppointmentToDoctorRepository;
         }
         public IEnumerable<MedicalAppointment> GetAll()
             => _medicalAppointmentRepository.GetAll();
@@ -42,28 +39,12 @@ namespace Project.Services
         }
 
         public MedicalAppointment Remove(MedicalAppointment entity)
-        {
-            foreach (Doctor item in entity.Doctors)
-                _medicalAppointmentToDoctorRepository.Remove(new MedicalAppointmentToDoctor(item.Id, entity.Id));
-
-            return _medicalAppointmentRepository.Remove(entity);
-
-        }
+            => _medicalAppointmentRepository.Remove(entity);
 
         public MedicalAppointment Save(MedicalAppointment entity)
-        {
-            foreach (Doctor item in entity.Doctors)
-                _medicalAppointmentToDoctorRepository.Save(new MedicalAppointmentToDoctor(item.Id, entity.Id));
-
-            return _medicalAppointmentRepository.Save(entity);
-        }
+            => _medicalAppointmentRepository.Save(entity);
 
         public MedicalAppointment Update(MedicalAppointment entity)
-        {
-            foreach (Doctor item in entity.Doctors)
-                _medicalAppointmentToDoctorRepository.Update(new MedicalAppointmentToDoctor(item.Id, entity.Id));
-
-            return _medicalAppointmentRepository.Update(entity);
-        }
+            => _medicalAppointmentRepository.Update(entity);
     }
 }

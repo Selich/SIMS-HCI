@@ -26,16 +26,10 @@ namespace Project.Services
             => _patientRepository.GetById(id);
 
         public Patient Save(Patient patient) 
-        {
-            patient.Address = _addressService.Save(patient.Address);
-            return _patientRepository.Save(patient);
-        }
+            => _patientRepository.Save(patient);
 
         public Patient Update(Patient patient) 
-        {
-            patient.Address = _addressService.Save(patient.Address);
-            return _patientRepository.Update(patient);
-        }
+            => _patientRepository.Update(patient);
 
         public Patient Remove(Patient client) 
             => _patientRepository.Remove(client);
