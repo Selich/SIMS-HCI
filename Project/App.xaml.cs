@@ -141,6 +141,7 @@ namespace Project
         private static string PRESCRIPTION_FILEPATH = ConfigurationManager.AppSettings["PrescriptionPath"].ToString();
         private static string MEDICAL_CONSUMABLE_FILEPATH= ConfigurationManager.AppSettings["MedicalConsumablesPath"].ToString();
         private static string EQUIPMENT_FILEPATH = ConfigurationManager.AppSettings["EquipmentPath"].ToString();
+        private static string ORDER_FILEPATH = ConfigurationManager.AppSettings["OrderPath"].ToString();
         private static string MEDICAL_APPOINTMENT_FILEPATH = ConfigurationManager.AppSettings["MedicalAppointmentPath"].ToString();
         private static string ROOM_PATH = ConfigurationManager.AppSettings["RoomPath"].ToString();
         private static string RENOVATION_PATH = ConfigurationManager.AppSettings["RenovationPath"].ToString();
@@ -238,6 +239,7 @@ namespace Project
             var renovationConverter = new RenovationConverter(roomConverter);
             var feedbackConverter = new FeedbackConverter();
             var reviewConverter = new ReviewConverter(doctorConverter);
+            var orderConverter = new OrderConverter(medicalConsumableConverter,medicineConverter,equipmentConverter);
 
             // Repositories
             // Many to Many
@@ -256,9 +258,14 @@ namespace Project
             var equipmentRepository = new EquipmentRepository(new CSVStream<Equipment>(EQUIPMENT_FILEPATH, new EquipmentCSVConverter(DELIMITER)), new LongSequencer());
             var medicalAppoitmentRepository = new MedicalAppointmentRepository(new CSVStream<MedicalAppointment>(MEDICAL_APPOINTMENT_FILEPATH, new MedicalAppointmentCSVConverter(DELIMITER)), medicalAppointmentToDoctorRepository, new LongSequencer());
             var roomRepository = new RoomRepository(new CSVStream<Room>(ROOM_PATH, new RoomCSVConverter(DELIMITER)),new LongSequencer());
+
+            var orderRepository = new OrderRepository( new CSVStream<Order>(ORDER_FILEPATH, new OrderCSVConverter(DELIMITER, DATETIME_FORMAT)), medicineRepository, equipmentRepository, medicalConsumableRepository, new LongSequencer());
+
             var renovationRepository = new RenovationRepository(new CSVStream<Renovation>(RENOVATION_PATH, new RenovationCSVConverter(DELIMITER, DATETIME_FORMAT)), new LongSequencer());
             var feedbackRepository = new FeedbackRepository(new CSVStream<Feedback>(FEEDBACK_FILEPATH, new FeedbackCSVConverter(DELIMITER)), new LongSequencer());
             var reviewRepository=new ReviewRepository(new CSVStream<Review>(REVIEW_PATH, new ReviewCSVConverter(DELIMITER)), new LongSequencer());
+
+
             // Services
             var patientService = new PatientService(patientRepository);
             var questionService = new QuestionService(questionRepository);
@@ -273,6 +280,7 @@ namespace Project
             var renovationService = new RenovationService(renovationRepository);
             var feedbackService = new FeedbackService(feedbackRepository);
             var reviewService = new ReviewService(reviewRepository);
+            var orderService = new OrderService(orderRepository);
             // Controllers
             PatientController = new PatientController(patientService, patientConverter);
             AddressController = new AddressController(addressService, addressConverter);
@@ -288,6 +296,7 @@ namespace Project
             RenovationController = new RenovationController(renovationService, renovationConverter);
             FeedbackController = new FeedbackController(feedbackService, feedbackConverter);
             ReviewController = new ReviewController(reviewService, reviewConverter);
+            OrderController = new OrderController(orderService, orderConverter);
             // Generators
             SecretaryAppointmentReportGenerator = new SecretaryAppointmentReportGenerator(REPORT_APPOINTMENT_PATH);
             PatientAppointmentReportGenerator = new PatientAppointmentReportGenerator(REPORT_APPOINTMENT_PATH);
@@ -312,6 +321,7 @@ namespace Project
         public IController<EquipmentDTO, long> EquipmentController { get; private set; }
         public IController<RoomDTO, long> RoomController { get; private set; }
         public IController<RenovationDTO, long> RenovationController { get; private set; }
+        public IController<OrderDTO, long> OrderController { get; private set; }
 
         public IController<MedicalAppointmentDTO, long> MedicalAppointmentController { get; private set; }
 
