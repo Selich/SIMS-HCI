@@ -42,14 +42,23 @@ namespace Project.Repositories.CSV.Converter
         public MedicalAppointment ConvertCSVFormatToEntity(string medicalAppointmentCSVFormat)
         {
             string[] tokens = medicalAppointmentCSVFormat.Split(_delimiter.ToCharArray());
+
+            long l = long.Parse(tokens[0]);
+            DateTime b = DateTime.Parse(tokens[1]);
+            DateTime e = DateTime.Parse(tokens[1]);
+            Room room = new Room(long.Parse(tokens[3]));
+            MedicalAppointmentType medicalAppointmentType = MedicalAppointmentType.examination;// = 2;// (MedicalAppointmentType) tokens[4];
+            Patient patient = new Patient(long.Parse(tokens[5]));
+            List<Doctor> list;
+
             return new MedicalAppointment(
                 long.Parse(tokens[0]),
                 DateTime.Parse(tokens[1]),
                 DateTime.Parse(tokens[2]),
                 new Room(long.Parse(tokens[3])),
-                (MedicalAppointmentType)int.Parse(tokens[4]),
+                medicalAppointmentType,
                 new Patient(long.Parse(tokens[5])),
-                null //doctors
+                new List<Doctor>()
                 );
         }
     }

@@ -669,9 +669,20 @@
                                     <ColumnDefinition Width="1106*"/>
                                 </Grid.ColumnDefinitions>
                                 <Label Content="Dijanoza&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;24&#xD;&#xA;" HorizontalAlignment="Left" Height="54" Margin="257.065,-79.16,0,0" VerticalAlignment="Top" Width="133.2" FontSize="32" Grid.Column="2"/>
-                                <Button Click="Alert_Click" Content="Sacuvaj" HorizontalAlignment="Left" Height="39.9"  Width="196.8" Margin="857.823,494.837,0,25.543" Grid.Column="2"/>
-                                <TextBox  HorizontalAlignment="Left" Height="370.06" TextWrapping="Wrap" Text="Zamaranje pri hodu (po ravnom, uzbrdo) ili naporu, bolovi i tegobe iznad grudne kosti (karakter bola, prostiranje i trajanje), napadi gušenja i lupanja srca, otok nogu i trbuha, grčevi u listovima prilokom hodanja i posle koliko metara, vrednosti prethodno kontrolisanog krvnog pritiska." VerticalAlignment="Top" Width="1047.6" FontSize="24" Margin="7.231,85,0,0" Grid.Column="2" Background="#FFEDEDED" BorderBrush="Gray" BorderThickness="2" />
+                                <Button Click="FeedBack_Click" Content="Posalji izvestaj" HorizontalAlignment="Left" Height="39.9"  Width="196.8" Margin="857.823,494.837,0,25.543" Grid.Column="2"/>
+                                <TextBox Name="Feedback_TextBox" HorizontalAlignment="Left" Height="370.06" TextWrapping="Wrap" Text="Zamaranje pri hodu (po ravnom, uzbrdo) ili naporu, bolovi i tegobe iznad grudne kosti (karakter bola, prostiranje i trajanje), napadi gušenja i lupanja srca, otok nogu i trbuha, grčevi u listovima prilokom hodanja i posle koliko metara, vrednosti prethodno kontrolisanog krvnog pritiska." VerticalAlignment="Top" Width="778.8" FontSize="24" Margin="7.231,85,0,0" Grid.Column="2" Background="#FFEDEDED" BorderBrush="Gray" BorderThickness="2" />
                                 <Label Content="Feedback&#xA;" Margin="421.937,27.32,511.198,480.28" FontSize="24" Grid.Column="2"/>
+
+                                <ComboBox x:Name="ComboBoxTypeFeedback" HorizontalAlignment="Left" VerticalAlignment="Top" Width="196.8" Height="39.16"
+                                    materialDesign:HintAssist.Hint="Izbor tipa anamneze"
+                                    materialDesign:HintAssist.HintOpacity=".26"
+                                    IsEditable="True" Grid.Column="2" Margin="857.823,415.9,0,0">
+                                    <ComboBoxItem Content="Sistem puca"/>
+                                    <ComboBoxItem Content="Podatci nisu upisani"/>
+                                    <ComboBoxItem Content="Sistem je usporio"/>
+                                    <ComboBoxItem Content="Pohvale"/>
+                                </ComboBox>
+                                <Label Content="Tip Izvestaja&#xA;" Margin="857.823,324.92,51.674,182.68" FontSize="24" Grid.Column="2"/>
                             </Grid>
                         </TabItem>
                     </TabControl>

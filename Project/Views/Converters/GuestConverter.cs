@@ -25,18 +25,23 @@ namespace Project.Views.Converters
                 dto.Weight);
 
         public GuestDTO ConvertEntityToDTO(Guest entity)
-        {
-            throw new NotImplementedException();
-        }
+            => new GuestDTO(null,
+                entity.FirstName,
+                entity.LastName,
+                entity.Jmbg,
+                entity.TelephoneNumber,
+                entity.Gender,
+                entity.DateOfBirth,
+                entity.InsurenceNumber,
+                entity.Profession,
+                entity.BloodType,
+                entity.Height,
+                entity.Weight);
 
         public List<Guest> ConvertListDTOToListEntity(IEnumerable<GuestDTO> dtos)
-        {
-            throw new NotImplementedException();
-        }
+         => dtos.Select(dto => ConvertDTOToEntity(dto)).ToList();
 
         public IEnumerable<GuestDTO> ConvertListEntityToListDTO(List<Guest> entities)
-        {
-            throw new NotImplementedException();
-        }
+         => entities.Select(entity => ConvertEntityToDTO(entity)).ToList();
     }
 }
