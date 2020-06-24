@@ -166,7 +166,7 @@ namespace Project.Views.Patient
         private void ViewAvailable_Click(object sender, RoutedEventArgs e)
         {
             RoomDTO tempRoom = new RoomDTO() { Floor = "One", Id = 4, Ward = "Check" };
-            DoctorDTO tempDoctor = new DoctorDTO() { FirstName = "Filip Zdelar" };
+            DoctorDTO tempDoctor = new DoctorDTO() { FirstName = "Filip Zdelar", Address = LoggedInPatient.Address };
             ReviewDTO tempReview = new ReviewDTO(5, "yes");
             List<DoctorDTO> tempDoctors = new List<DoctorDTO>();
             tempDoctors.Add(tempDoctor);
