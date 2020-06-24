@@ -61,7 +61,7 @@ namespace Project.Views.Doctor
             InitializeComponent();
 
             PecepiesList.ItemsSource = app.PrescriptionController.GetAll();
-
+            
             this.DataContext = this;
             HideTextBoxes();
             HidePlaceHolders();
@@ -580,6 +580,11 @@ namespace Project.Views.Doctor
             {
                 button.Content = "Odjavi sa intezivne nege";
             }
+        }
+
+        private void Add_Anamnesis_Clcik(object sender, RoutedEventArgs e)
+        {
+            app.AnamnesisController.Save(new AnamnesisDTO(1, "anamneza", ComboBoxTypeAnamesis.SelectedValue.ToString().Remove(0,38), Anamnesis_Text.Text, null));
         }
     }
 }

@@ -20,13 +20,12 @@ namespace Project.Repositories
 
         public AnamnesisRepository(
             ICSVStream<Anamnesis> stream,
-            IAddressRepository addressRepository,
             ISequencer<long> sequencer
             ) : base(ENTITY_NAME, stream, sequencer)
         {
         }
 
-        public IEnumerable<Anamnesis> Find(Func<Anamnesis, bool> predicate)
+        public new IEnumerable<Anamnesis> Find(Func<Anamnesis, bool> predicate)
             => GetAllEager().Where(predicate);
 
         public IEnumerable<Anamnesis> GetAllEager()

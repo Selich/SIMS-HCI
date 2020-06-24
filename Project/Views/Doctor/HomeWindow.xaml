@@ -339,8 +339,19 @@
                                     <ComboBoxItem Content="Humani insulin"/>
                                     <ComboBoxItem Content="Varfarin"/>
                                 </ComboBox>
-                                <TextBox Padding="4" BorderBrush="Gray" BorderThickness="2"  HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding description}" Width="247.066" FontSize="16" Margin="52.498,95.03,0,35.747" Grid.ColumnSpan="2" ToolTip="Anamneza za tadi pregled"/>
-                                <Label Content=" Prepisani lekovi" HorizontalAlignment="Left" Margin="32.8,47.066,0,0" VerticalAlignment="Top" Grid.Column="1" Height="33.56" Width="154.8" FontSize="16"/>
+                                <TextBox Padding="4" BorderBrush="Gray" BorderThickness="2"  HorizontalAlignment="Left" TextWrapping="Wrap" Width="247.066" FontSize="16" Margin="52.498,95.03,0,223.783" Grid.ColumnSpan="2" ToolTip="Anamneza za tadi pregled" Text="Sve valja" Name="Anamnesis_Text"/>
+                                <Label Content="Anamneza" HorizontalAlignment="Left" Margin="32.8,47.066,0,0" VerticalAlignment="Top" Grid.Column="1" Height="33.56" Width="154.8" FontSize="16"/>
+                                <Button Click="Add_Anamnesis_Clcik"  Content="Dodaj anamnezu" HorizontalAlignment="Left" Height="39.9" Margin="52.498,482.633,0,0" VerticalAlignment="Top" Width="247.066" Grid.ColumnSpan="2"/>
+                                <Label Content="Tip anamneze" HorizontalAlignment="Left" Margin="32.8,366.457,0,0" VerticalAlignment="Top" Grid.Column="1" Height="33.56" Width="154.8" FontSize="16"/>
+                                <ComboBox Margin="52.498,405.017,0,0" x:Name="ComboBoxTypeAnamesis" HorizontalAlignment="Left" VerticalAlignment="Top" Width="247.066" Height="39.16"
+                                    materialDesign:HintAssist.Hint="Izbor tipa anamneze"
+                                    materialDesign:HintAssist.HintOpacity=".26"
+                                    IsEditable="True" Grid.ColumnSpan="2">
+                                    <ComboBoxItem Content="Opis"/>
+                                    <ComboBoxItem Content="Upozorenje"/>
+                                    <ComboBoxItem Content="Preporuka"/>
+                                    <ComboBoxItem Content="Objasnjenje"/>
+                                </ComboBox>
                             </Grid>
                         </TabItem>
                         <TabItem Header="Davanje uputa" >

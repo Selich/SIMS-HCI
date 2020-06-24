@@ -757,6 +757,7 @@
     <None Include="Resources\Data\equipment.csv" />
     <None Include="Resources\Data\equipmentInventory.csv" />
     <None Include="Resources\Data\equipmentOrder.csv" />
+    <None Include="Resources\Data\anamnesis.csv" />
     <None Include="Resources\Data\ManyToMany\medicalAppointmentsToDoctors.csv" />
     <None Include="Resources\Data\medicalAppointments.csv" />
     <None Include="Resources\Data\medicalConsumables.csv" />

@@ -13,13 +13,15 @@ namespace Project.Views.Model
         public string Name { get; set; }
         public string Type { get; set; }
         public string Description { get; set; }
+        public MedicalAppointmentDTO MedicalAppointmentDTO { get; set; }
 
-        public AnamnesisDTO(long Id, string name, string type, string description)
+        public AnamnesisDTO(long Id, string name, string type, string description, MedicalAppointmentDTO medicalAppointmentDTO)
         {
             this.Id = Id;
             Name = name;
             Type = type;
             Description = description;
+            this.MedicalAppointmentDTO = medicalAppointmentDTO;
         }
 
         public AnamnesisDTO()
