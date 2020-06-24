@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Project.Views.Converters
 {
-    public  class AddressConverter : IConverter<Address, AddressDTO>
+    public class AddressConverter : IConverter<Address, AddressDTO>
     {
         public Address ConvertDTOToEntity(AddressDTO dto)
             => new Address(
