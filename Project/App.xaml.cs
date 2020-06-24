@@ -273,6 +273,8 @@ namespace Project
             var renovationService = new RenovationService(renovationRepository);
             var feedbackService = new FeedbackService(feedbackRepository);
             var reviewService = new ReviewService(reviewRepository);
+            var employeeService = new EmployeeService(secretaryRepository, doctorRepository);
+            var authenticationService = new AuthenticationService(employeeService, patientService);
             // Controllers
             PatientController = new PatientController(patientService, patientConverter);
             AddressController = new AddressController(addressService, addressConverter);

@@ -12,7 +12,6 @@ namespace Project.Services
     public class PatientService : IService<Patient, long>
     {
         private readonly IPatientRepository _patientRepository;
-        private readonly AddressService _addressService;
 
         public PatientService(IPatientRepository patientRepository)
         {
@@ -34,5 +33,7 @@ namespace Project.Services
         public Patient Remove(Patient client) 
             => _patientRepository.Remove(client);
 
+        public Patient GetByEmail(string email)
+            => _patientRepository.GetByEmail(email);
     }
 }
