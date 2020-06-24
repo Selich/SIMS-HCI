@@ -18,6 +18,11 @@ namespace Project.Model
       public List<MedicalAppointment> Appointments {get;set;}
       
       public Doctor() {}
+
+      public Doctor(long id) 
+        {
+            Id = id;
+        }
       
    }
 }

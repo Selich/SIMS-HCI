@@ -38,6 +38,15 @@ namespace Project.Views.Model
             Equipment = new List<EquipmentDTO>();
         }
 
+        public InventoryManagmentDTO(long id, DateTime beginning, DateTime end, RoomDTO room,List<EquipmentDTO> equipment)
+        {
+            Id = id;
+            Beginning = beginning;
+            End = end;
+            Room = room;
+            Equipment = equipment;
+        }
+
         public InventoryManagmentDTO(DateTime beginning, DateTime end, RoomDTO room)
         {
             Beginning = beginning;

@@ -145,7 +145,8 @@ namespace Project
         private static string ROOM_PATH = ConfigurationManager.AppSettings["RoomPath"].ToString();
         private static string RENOVATION_PATH = ConfigurationManager.AppSettings["RenovationPath"].ToString();
         private static string FEEDBACK_FILEPATH = ConfigurationManager.AppSettings["FeedbackPath"].ToString();
-
+        private static string REVIEW_PATH = ConfigurationManager.AppSettings["ReviewPath"].ToString();
+        
         // Many to many
         private static string MEDICAL_APPOINTMENT_TO_DOCTOR_FILEPATH = ConfigurationManager.AppSettings["MedicalAppointmentToDoctorPath"].ToString();
         
@@ -236,6 +237,7 @@ namespace Project
             var medicalAppoitmentConverter = new MedicalAppointmentConverter(roomConverter, guestConverter, doctorConverter);
             var renovationConverter = new RenovationConverter(roomConverter);
             var feedbackConverter = new FeedbackConverter();
+            var reviewConverter = new ReviewConverter(doctorConverter);
 
             // Repositories
             // Many to Many
@@ -256,7 +258,7 @@ namespace Project
             var roomRepository = new RoomRepository(new CSVStream<Room>(ROOM_PATH, new RoomCSVConverter(DELIMITER)),new LongSequencer());
             var renovationRepository = new RenovationRepository(new CSVStream<Renovation>(RENOVATION_PATH, new RenovationCSVConverter(DELIMITER, DATETIME_FORMAT)), new LongSequencer());
             var feedbackRepository = new FeedbackRepository(new CSVStream<Feedback>(FEEDBACK_FILEPATH, new FeedbackCSVConverter(DELIMITER)), new LongSequencer());
-
+            var reviewRepository=new ReviewRepository(new CSVStream<Review>(REVIEW_PATH, new ReviewCSVConverter(DELIMITER)), new LongSequencer());
             // Services
             var patientService = new PatientService(patientRepository);
             var questionService = new QuestionService(questionRepository);
@@ -270,7 +272,7 @@ namespace Project
             var roomService = new RoomService(roomRepository);
             var renovationService = new RenovationService(renovationRepository);
             var feedbackService = new FeedbackService(feedbackRepository);
-
+            var reviewService = new ReviewService(reviewRepository);
             // Controllers
             PatientController = new PatientController(patientService, patientConverter);
             AddressController = new AddressController(addressService, addressConverter);
@@ -285,7 +287,7 @@ namespace Project
             RoomController = new RoomController(roomService, roomConverter);
             RenovationController = new RenovationController(renovationService, renovationConverter);
             FeedbackController = new FeedbackController(feedbackService, feedbackConverter);
-
+            ReviewController = new ReviewController(reviewService, reviewConverter);
             // Generators
             SecretaryAppointmentReportGenerator = new SecretaryAppointmentReportGenerator(REPORT_APPOINTMENT_PATH);
             PatientAppointmentReportGenerator = new PatientAppointmentReportGenerator(REPORT_APPOINTMENT_PATH);
@@ -315,6 +317,8 @@ namespace Project
 
         public IController<QuestionDTO, long> QuestionController { get; private set; }
         public IController<FeedbackDTO, long> FeedbackController { get; private set; }
+
+        public IController<ReviewDTO, long> ReviewController { get; private set; }
         public IController<PrescriptionDTO, long> PrescriptionController { get; private set; }
 
     }

@@ -133,6 +133,7 @@
     </ApplicationDefinition>
     <Compile Include="Controllers\AuthenticationController.cs" />
     <Compile Include="Controllers\AddressController.cs" />
+    <Compile Include="Controllers\InventoryManagmentController.cs" />
     <Compile Include="Controllers\DoctorController..cs" />
     <Compile Include="Controllers\PrescriptionController.cs" />
     <Compile Include="Controllers\DocumentController.cs" />
@@ -162,6 +163,7 @@
     <Compile Include="Model\Referrals\ExamReferral.cs" />
     <Compile Include="Model\Referrals\OperationReferral.cs" />
     <Compile Include="Repositories\Abstract\IEquipmentRepository.cs" />
+    <Compile Include="Repositories\Abstract\IInventoryManagmentRepository.cs" />
     <Compile Include="Repositories\Abstract\IMedicalAppointmentRepository.cs" />
     <Compile Include="Repositories\Abstract\IMedicineRepository.cs" />
     <Compile Include="Repositories\Abstract\IOrderRepository.cs" />
@@ -172,6 +174,7 @@
     <Compile Include="Repositories\Abstract\IRenovationRepository.cs" />
     <Compile Include="Repositories\Abstract\IRoomRepository.cs" />
     <Compile Include="Repositories\CSV\Converter\EquipmentCSVConverter.cs" />
+    <Compile Include="Repositories\CSV\Converter\InventoryManagmentCSVConverter.cs" />
     <Compile Include="Repositories\CSV\Converter\MedicalAppointmentCSVConverter.cs" />
     <Compile Include="Repositories\CSV\Converter\MedicineCSVConverter.cs" />
     <Compile Include="Repositories\CSV\Converter\OrderCSVConverter.cs" />
@@ -183,6 +186,7 @@
     <Compile Include="Repositories\CSV\Converter\FeedbackCSVConverter.cs" />
     <Compile Include="Repositories\CSV\Converter\RoomCSVConverter.cs" />
     <Compile Include="Repositories\EquipmentRepository.cs" />
+    <Compile Include="Repositories\InventoryManagmentRepository.cs" />
     <Compile Include="Repositories\ManyToMany\Converter\MedicalAppointmentToDoctorCSVConverter.cs" />
     <Compile Include="Repositories\ManyToMany\Model\MedicalAppointmentToDoctor.cs" />
     <Compile Include="Repositories\ManyToMany\Repositories\Abstract\IMedicalAppointmentToDoctorRepository.cs" />
@@ -198,10 +202,11 @@
     <Compile Include="Repositories\RoomRepository.cs" />
     <Compile Include="Services\Abstract\IMedicalAppoitmentService.cs" />
     <Compile Include="Services\EquipmentService.cs" />
+    <Compile Include="Services\InventoryManagmentService.cs" />
     <Compile Include="Services\Factory\AdmitionReferralFactory.cs" />
     <Compile Include="Services\Factory\ExamReferralFactory.cs" />
-    <Compile Include="Services\Factory\IReferralFactory.cs" />
     <Compile Include="Services\Factory\OperationReferralFactory.cs" />
+    <Compile Include="Services\Factory\IReferralFactory.cs" />
     <Compile Include="Services\MedicalAppointmentService.cs" />
     <Compile Include="Services\MedicineService.cs" />
     <Compile Include="Services\OrderService.cs" />
@@ -230,6 +235,7 @@
     <Compile Include="Views\Converters\GuestConverter.cs" />
     <Compile Include="Views\Converters\IConverter.cs" />
     <Compile Include="Views\Converters\AddressConverter.cs" />
+    <Compile Include="Views\Converters\InventoryManagmentConverter.cs" />
     <Compile Include="Views\Converters\MedicalAppointmentConverter.cs" />
     <Compile Include="Views\Converters\MedicineConverter.cs" />
     <Compile Include="Views\Converters\MedicalConsumableConverter.cs" />
@@ -278,7 +284,7 @@
     <Compile Include="Model\Equipment.cs" />
     <Compile Include="Model\Feedback.cs" />
     <Compile Include="Model\Hospital.cs" />
-    <Compile Include="Model\InventoryReplacement.cs" />
+    <Compile Include="Model\InventoryManagment.cs" />
     <Compile Include="Model\MedicalAppointment.cs" />
     <Compile Include="Model\MedicalAppointmentType.cs" />
     <Compile Include="Model\MedicalConsumables.cs" />

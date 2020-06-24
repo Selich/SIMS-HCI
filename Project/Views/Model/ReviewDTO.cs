@@ -7,15 +7,27 @@ using System;
 
 namespace Project.Views.Model
 {
-   public class ReviewDTO
-   {
+    public class ReviewDTO
+    {
+        public long Id { get; set; }
         public int Rating { get; set; }
         public string Description { get; set; }
 
-        public ReviewDTO(int rating, string description)
+        public DoctorDTO Doctor{get; set;}
+
+        public ReviewDTO(int rating, string description,DoctorDTO doctor)
         {
             Rating = rating;
             Description = description;
+            Doctor = doctor;
+        }
+
+        public ReviewDTO(long id,int rating, string description,DoctorDTO doctor)
+        {
+            Id = id;
+            Rating = rating;
+            Description = description;
+            Doctor = doctor;
         }
 
         public ReviewDTO()
