@@ -22,9 +22,11 @@ namespace Project.Repositories
 
         public DoctorRepository(
             ICSVStream<Doctor> stream,
+            IAddressRepository addressRepository,
             ISequencer<long> sequencer
             ) : base(ENTITY_NAME, stream, sequencer)
         {
+            _addressRepository = addressRepository;
         }
         public new IEnumerable<Doctor> Find(Func<Doctor, bool> predicate) => GetAllEager().Where(predicate);
 

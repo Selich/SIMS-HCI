@@ -151,6 +151,7 @@ namespace Project
         private static string SECRETARY_PATH = ConfigurationManager.AppSettings["SecretaryPath"].ToString();
         private static string INVENTORY_PATH = ConfigurationManager.AppSettings["InventoryPath"].ToString();
         private static string INVENTORY_EQUIPMENT_PATH = ConfigurationManager.AppSettings["InventoryEquipmentPath"].ToString();
+        private static string DOCTOR_PATH = ConfigurationManager.AppSettings["DoctorPath"].ToString();
 
         // Many to many
         private static string MEDICAL_APPOINTMENT_TO_DOCTOR_FILEPATH = ConfigurationManager.AppSettings["MedicalAppointmentToDoctorPath"].ToString();
@@ -281,7 +282,7 @@ namespace Project
             var reviewRepository=new ReviewRepository(new CSVStream<Review>(REVIEW_PATH, new ReviewCSVConverter(DELIMITER)), new LongSequencer());
             var secretaryRepository=new SecretaryRepository(new CSVStream<Secretary>(SECRETARY_PATH, new SecretaryCSVConverter(DELIMITER,DATETIME_FORMAT)), new LongSequencer());
             var inventoryManagementRepository = new InventoryManagementRepository(new CSVStream<InventoryManagement>(INVENTORY_PATH, new InventoryManagementCSVConverter(DELIMITER,DATETIME_FORMAT)), inventoryManagementToEquipmentRepository, new LongSequencer());
-
+            var doctorRepository = new DoctorRepository(new CSVStream<Doctor>(DOCTOR_PATH, new DoctorCSVConverter(DELIMITER, DATETIME_FORMAT)),addressRepository,new LongSequencer());
 
             // Services
             var patientService = new PatientService(patientRepository);
@@ -297,11 +298,12 @@ namespace Project
             var renovationService = new RenovationService(renovationRepository);
             var feedbackService = new FeedbackService(feedbackRepository);
             var reviewService = new ReviewService(reviewRepository);
-            //var employeeService = new EmployeeService(secretaryRepository, doctorRepository);
-            //var authenticationService = new AuthenticationService(employeeService, patientService);
+            var employeeService = new EmployeeService(secretaryRepository, doctorRepository);
+            var authenticationService = new AuthenticationService(employeeService, patientService);
             var secretaryService = new SecretaryService(secretaryRepository);
             var inventoryManagementService = new InventoryManagementService(inventoryManagementRepository);
             var orderService = new OrderService(orderRepository);
+            var doctorService = new DoctorService(doctorRepository);
             // Controllers
             PatientController = new PatientController(patientService, patientConverter);
             AddressController = new AddressController(addressService, addressConverter);
@@ -320,6 +322,7 @@ namespace Project
             SecretaryController = new SecretaryController(secretaryService, secretaryConverter);
             InventoryManagementController = new InventoryManagementController(inventoryManagementService, inventoryManagementConverter);
             OrderController = new OrderController(orderService, orderConverter);
+            DoctorController = new DoctorController(doctorService, doctorConverter);
             // Generators
             SecretaryAppointmentReportGenerator = new SecretaryAppointmentReportGenerator(REPORT_APPOINTMENT_PATH);
             PatientAppointmentReportGenerator = new PatientAppointmentReportGenerator(REPORT_APPOINTMENT_PATH);
@@ -349,6 +352,7 @@ namespace Project
         public IController<InventoryManagementDTO, long> InventoryManagementController { get; private set; }
         public IController<OrderDTO, long> OrderController { get; private set; }
 
+        public IController<DoctorDTO, long> DoctorController { get; private set; }
         public MedicalAppointmentController MedicalAppointmentController { get; private set; }
 
         public IController<QuestionDTO, long> QuestionController { get; private set; }

@@ -195,6 +195,7 @@
     <Compile Include="Repositories\CSV\Converter\FeedbackCSVConverter.cs" />
     <Compile Include="Repositories\CSV\Converter\ReviewCSVConverter.cs" />
     <Compile Include="Repositories\CSV\Converter\RoomCSVConverter.cs" />
+    <Compile Include="Repositories\CSV\Converter\DoctorCSVConverter.cs" />
     <Compile Include="Repositories\CSV\Converter\SecretaryCSVConverter.cs" />
     <Compile Include="Repositories\DoctorRepository.cs" />
     <Compile Include="Repositories\EquipmentRepository.cs" />
