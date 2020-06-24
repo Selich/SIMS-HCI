@@ -11,15 +11,16 @@ using Project.Services;
 using Project.Views.Converters;
 using Project.Views.Model;
 using Project;
+using Project.Services.Abstract;
 
 namespace Controller
 {
     public class MedicineController : IController<MedicineDTO, long>
     {
-        private IService<Medicine, long> _service;
+        private IMedicineService _service;
         private IConverter<Medicine, MedicineDTO> _medicineConverter;
         public MedicineController(
-            IService<Medicine, long> service,
+            IMedicineService service,
             IConverter<Medicine, MedicineDTO> medicineConverter
             )
         {
@@ -41,9 +42,9 @@ namespace Controller
 
         public MedicineDTO Update(MedicineDTO entity)
             => _medicineConverter.ConvertEntityToDTO(_service.Update(_medicineConverter.ConvertDTOToEntity(entity)));
-
-        /*
+        
         public  MedicineDTO GetByName(string name)
-            => _medicineConverter.ConvertEntityToDTO(_service.GetByName(name));*/
+            => _medicineConverter.ConvertEntityToDTO(_service.GetByName(name));
+        
     }
 }

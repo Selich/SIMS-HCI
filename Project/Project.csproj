@@ -204,6 +204,7 @@
     <Compile Include="Repositories\ReviewRepository.cs" />
     <Compile Include="Repositories\RoomRepository.cs" />
     <Compile Include="Services\Abstract\IMedicalAppoitmentService.cs" />
+    <Compile Include="Services\Abstract\IMedicineService.cs" />
     <Compile Include="Services\EquipmentService.cs" />
     <Compile Include="Services\InventoryManagmentService.cs" />
     <Compile Include="Services\Factory\AdmitionReferralFactory.cs" />
