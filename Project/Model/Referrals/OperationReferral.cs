@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project.Model.Referral
+namespace Project.Model.Referrals
 {
     class OperationReferral : Referral
     {
