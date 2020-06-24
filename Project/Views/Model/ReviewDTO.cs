@@ -21,6 +21,11 @@ namespace Project.Views.Model
             Description = description;
             Doctor = doctor;
         }
+        public ReviewDTO(int rating, string description)
+        {
+            Rating = rating;
+            Description = description;
+        }
 
         public ReviewDTO(long id,int rating, string description,DoctorDTO doctor)
         {
