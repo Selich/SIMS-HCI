@@ -11,40 +11,48 @@ using Project.Services;
 using Project.Views.Converters;
 using Project.Views.Model;
 using Project;
-using Project.Services.Abstract;
+using Project.Services;
 
 namespace Controller
 {
     public class MedicineController : IController<MedicineDTO, long>
     {
-        private IMedicineService _service;
+        private IService<Medicine,long> _medicineService;
         private IConverter<Medicine, MedicineDTO> _medicineConverter;
+
+
         public MedicineController(
-            IMedicineService service,
+            IService<Medicine, long> medicineService,
             IConverter<Medicine, MedicineDTO> medicineConverter
             )
         {
-            _service = service;
+            _medicineService = medicineService;
             _medicineConverter = medicineConverter;
             
         }
+        
+
         public MedicineDTO GetById(long id)
-            => _medicineConverter.ConvertEntityToDTO(_service.GetById(id));
+            => _medicineConverter.ConvertEntityToDTO(_medicineService.GetById(id));
 
         public IEnumerable<MedicineDTO> GetAll()
-            => _medicineConverter.ConvertListEntityToListDTO((List<Medicine>)_service.GetAll());
+            => _medicineConverter.ConvertListEntityToListDTO((List<Medicine>)_medicineService.GetAll());
 
         public MedicineDTO Remove(MedicineDTO entity)
-            => _medicineConverter.ConvertEntityToDTO(_service.Remove(_medicineConverter.ConvertDTOToEntity(entity)));
+            => _medicineConverter.ConvertEntityToDTO(_medicineService.Remove(_medicineConverter.ConvertDTOToEntity(entity)));
 
         public MedicineDTO Save(MedicineDTO entity)
-            => _medicineConverter.ConvertEntityToDTO(_service.Save(_medicineConverter.ConvertDTOToEntity(entity)));
+            => _medicineConverter.ConvertEntityToDTO(_medicineService.Save(_medicineConverter.ConvertDTOToEntity(entity)));
 
         public MedicineDTO Update(MedicineDTO entity)
-            => _medicineConverter.ConvertEntityToDTO(_service.Update(_medicineConverter.ConvertDTOToEntity(entity)));
+            => _medicineConverter.ConvertEntityToDTO(_medicineService.Update(_medicineConverter.ConvertDTOToEntity(entity)));
         
+        /*
         public  MedicineDTO GetByName(string name)
-            => _medicineConverter.ConvertEntityToDTO(_service.GetByName(name));
-        
+            => _medicineConverter.ConvertEntityToDTO(_medicineService.GetByName(name));
+
+        public MedicineDTO RegisternMedicine(string name, string type, string administration, string purpose, string description)
+           => _medicineConverter.ConvertEntityToDTO(_medicineService.RegisternMedicine(name, type, administration, purpose, description));*/
+
     }
 }

@@ -28,5 +28,9 @@ namespace Project.Repositories
         public Medicine GetEager(long id) => GetById(id);
         public Medicine GetByName(string name) => GetByName(name);
 
+        public Medicine RegisterMedicine(string name, string purpose, string administration, string type, string description)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
