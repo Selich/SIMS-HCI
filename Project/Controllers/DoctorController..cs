@@ -18,7 +18,7 @@ namespace Project.Controllers
         private IConverter<Doctor, DoctorDTO> _converter;
 
         public DoctorController(IService<Doctor, long> service, IConverter<Doctor, DoctorDTO> converter)
-        {
+        { 
             _service = service;
             _converter = converter;
         }

@@ -17,6 +17,8 @@ namespace Project.Repositories
 
     {
         private const string ENTITY_NAME = "Doctor";
+        private readonly IAddressRepository _addressRepository;
+
 
         public DoctorRepository(
             ICSVStream<Doctor> stream,
@@ -32,10 +34,14 @@ namespace Project.Repositories
         public new Doctor Save(Doctor doctor)
         {
             if (IsEmailUnique(doctor.Email))
+            {
+                doctor.Address = _addressRepository.Save(doctor.Address);
                 return base.Save(doctor);
+            }
             else
                 throw new Exception();
         }
+        
         private bool IsEmailUnique(string email)
          => GetPatientByEmail(email) == null;
 

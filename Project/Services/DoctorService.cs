@@ -11,8 +11,7 @@ namespace Project.Services
     class DoctorService : IService<Doctor, long>
     {
         private readonly IDoctorRepository _doctorRepository;
-        private readonly AddressService _addressService;
-
+     
         public DoctorService(IDoctorRepository doctorRepository)
         {
             _doctorRepository = doctorRepository;
@@ -22,17 +21,11 @@ namespace Project.Services
 
         public Doctor GetById(long id) => _doctorRepository.GetById(id);
 
-        public Doctor Save(Doctor patient)
-        {
-            patient.Address = _addressService.Save(patient.Address);
-            return _doctorRepository.Save(patient);
-        }
+        public Doctor Save(Doctor doctor)
+            => _doctorRepository.Save(doctor);
 
         public Doctor Update(Doctor doctor)
-        {
-            doctor.Address = _addressService.Save(doctor.Address);
-            return _doctorRepository.Update(doctor);
-        }
+            => _doctorRepository.Update(doctor);
 
         public Doctor Remove(Doctor client) => _doctorRepository.Remove(client);
 
@@ -46,6 +39,6 @@ namespace Project.Services
 
         public Doctor GetByEmail(string email) => throw new NotImplementedException();
 
-        public List<Doctor> GetAllDoctorsBySpecialization() => throw new NotImplementedException();
+        public List<Doctor> GetAllDoctorsBySpecialization() => throw new NotImplementedException(); 
     }
 }

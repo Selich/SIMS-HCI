@@ -38,7 +38,7 @@ namespace Project.Views.Model
             base(address,  firstName,  lastName,  jmbg,  telephoneNumber,  gender,  dateOfBirth,  salary,  annualLeave,  workingHours,  email,  password)
         {
             MedicalRole = medicalRole;
-            Appointments = new List<MedicalAppointmentDTO>();
+            Appointments = new List<MedicalAppointmentDTO>(); 
         }
 
     }
