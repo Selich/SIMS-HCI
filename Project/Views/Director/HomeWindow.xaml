@@ -415,7 +415,7 @@
 
                     </Grid>
 
-                    <ListBox Name="EquipmentList" ItemsSource="{Binding VisibleEquipment}" ScrollViewer.VerticalScrollBarVisibility="Visible" BorderThickness="2" Background="NavajoWhite" HorizontalAlignment="Left" Height="450" Margin="40,188,0,-8" VerticalAlignment="Top" Width="1043">
+                    <ListBox Name="EquipmentList" ScrollViewer.VerticalScrollBarVisibility="Visible" BorderThickness="2" Background="NavajoWhite" HorizontalAlignment="Left" Height="450" Margin="40,188,0,-8" VerticalAlignment="Top" Width="1043">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth4" Width="1067" Height="90">
@@ -496,7 +496,7 @@
 
                     </Grid>
 
-                    <ListBox ItemsSource="{Binding VisibleMedicalConsumables, NotifyOnSourceUpdated=True}" ScrollViewer.VerticalScrollBarVisibility="Visible" BorderThickness="2" Background="NavajoWhite" HorizontalAlignment="Left" Height="450" Margin="40,188,0,0" VerticalAlignment="Top" Width="1031">
+                    <ListBox Name="MedicalConsumablesList" ScrollViewer.VerticalScrollBarVisibility="Visible" BorderThickness="2" Background="NavajoWhite" HorizontalAlignment="Left" Height="450" Margin="40,188,0,0" VerticalAlignment="Top" Width="1031">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth4" Width="1067" Height="108">
@@ -575,7 +575,7 @@
 
                     </Grid>
 
-                    <ListBox ItemsSource="{Binding VisibleMedicine}" ScrollViewer.VerticalScrollBarVisibility="Visible" BorderThickness="2" Background="NavajoWhite" HorizontalAlignment="Left" Height="450" Margin="40,188,0,0" VerticalAlignment="Top" Width="1016">
+                    <ListBox Name="MedicineList" ScrollViewer.VerticalScrollBarVisibility="Visible" BorderThickness="2" Background="NavajoWhite" HorizontalAlignment="Left" Height="450" Margin="40,188,0,0" VerticalAlignment="Top" Width="1016">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth4" Width="1067" Height="130">
@@ -664,7 +664,7 @@
                             <Button Height="50" Margin="1063,24,20,16" Content="{DynamicResource search}" Click="FilterRooms"/>
 
                         </Grid>
-                        <ListBox Name="RoomsList" ItemsSource="{Binding VisibleRoomList}" SelectedItem="{Binding SelectedRoom,Mode=TwoWay}" ScrollViewer.VerticalScrollBarVisibility="Visible" BorderThickness="2" Background="NavajoWhite" HorizontalAlignment="Left" Height="424" Margin="40,210,0,0" VerticalAlignment="Top" Width="802">
+                        <ListBox Name="VisibleRooms" SelectedItem="{Binding SelectedRoom,Mode=TwoWay}" ScrollViewer.VerticalScrollBarVisibility="Visible" BorderThickness="2" Background="NavajoWhite" HorizontalAlignment="Left" Height="424" Margin="40,210,0,0" VerticalAlignment="Top" Width="802">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth4" Width="742" Height="110">
