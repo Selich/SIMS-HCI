@@ -42,9 +42,9 @@ namespace Project.Repositories
                 throw new Exception();
         }
         private bool IsEmailUnique(string email)
-            => GetPatientByEmail(email) == null;
+            => GetByEmail(email) == null;
 
-        private Patient GetPatientByEmail(string email)
+        public Patient GetByEmail(string email)
             => _stream.ReadAll().SingleOrDefault(patient => patient.Email.Equals(email));
 
     }
