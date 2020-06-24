@@ -22,6 +22,10 @@ namespace Project.Model
 
         public Address()
         { }
+        public Address(long id)
+        {
+            Id = id;
+        }
 
         public Address(long id, string number, string street, string city, string country, string postCode)
         {

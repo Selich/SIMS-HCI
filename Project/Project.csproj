@@ -152,6 +152,7 @@
     <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\ReviewController.cs" />
     <Compile Include="Controllers\RoomController.cs" />
+    <Compile Include="Controllers\SecretaryController.cs" />
     <Compile Include="Model\Appointment.cs" />
     <Compile Include="Model\ApprovalStates\StateApproved.cs" />
     <Compile Include="Model\ApprovalStates\StateInReview.cs" />
@@ -174,6 +175,7 @@
     <Compile Include="Repositories\Abstract\IRenovationRepository.cs" />
     <Compile Include="Repositories\Abstract\IReviewRepository.cs" />
     <Compile Include="Repositories\Abstract\IRoomRepository.cs" />
+    <Compile Include="Repositories\Abstract\ISecretaryRepository.cs" />
     <Compile Include="Repositories\CSV\Converter\EquipmentCSVConverter.cs" />
     <Compile Include="Repositories\CSV\Converter\InventoryManagmentCSVConverter.cs" />
     <Compile Include="Repositories\CSV\Converter\MedicalAppointmentCSVConverter.cs" />
@@ -187,6 +189,7 @@
     <Compile Include="Repositories\CSV\Converter\FeedbackCSVConverter.cs" />
     <Compile Include="Repositories\CSV\Converter\ReviewCSVConverter.cs" />
     <Compile Include="Repositories\CSV\Converter\RoomCSVConverter.cs" />
+    <Compile Include="Repositories\CSV\Converter\SecretaryCSVConverter.cs" />
     <Compile Include="Repositories\EquipmentRepository.cs" />
     <Compile Include="Repositories\InventoryManagmentRepository.cs" />
     <Compile Include="Repositories\ManyToMany\Converter\MedicalAppointmentToDoctorCSVConverter.cs" />
@@ -203,6 +206,7 @@
     <Compile Include="Repositories\RenovationRepository.cs" />
     <Compile Include="Repositories\ReviewRepository.cs" />
     <Compile Include="Repositories\RoomRepository.cs" />
+    <Compile Include="Repositories\SecretaryRepository.cs" />
     <Compile Include="Services\Abstract\IMedicalAppoitmentService.cs" />
     <Compile Include="Services\EquipmentService.cs" />
     <Compile Include="Services\InventoryManagmentService.cs" />
@@ -227,6 +231,7 @@
     <Compile Include="Services\Generators\IReportGenerator.cs" />
     <Compile Include="Services\ReviewService.cs" />
     <Compile Include="Services\RoomService.cs" />
+    <Compile Include="Services\SecretaryService.cs" />
     <Compile Include="Util\Environment.cs" />
     <Compile Include="Util\HelperFunctions.cs" />
     <Compile Include="Views\Commands\DataContext.cs" />
@@ -251,6 +256,7 @@
     <Compile Include="Views\Converters\RenovationConverter.cs" />
     <Compile Include="Views\Converters\ReviewConverter.cs" />
     <Compile Include="Views\Converters\RoomConverter.cs" />
+    <Compile Include="Views\Converters\SecretaryConverter.cs" />
     <Compile Include="Views\Director\AdressToStringConverter.cs" />
     <Compile Include="Views\Doctor\WizardWindow.xaml.cs">
       <DependentUpon>WizardWindow.xaml</DependentUpon>
@@ -750,6 +756,7 @@
     <None Include="Resources\Data\equipment.csv" />
     <None Include="Resources\Data\equipmentInventory.csv" />
     <None Include="Resources\Data\equipmentOrder.csv" />
+    <None Include="Resources\Data\inventoryManagment.csv" />
     <None Include="Resources\Data\ManyToMany\medicalAppointmentsToDoctors.csv" />
     <None Include="Resources\Data\medicalAppointments.csv" />
     <None Include="Resources\Data\medicalConsumables.csv" />
@@ -762,6 +769,7 @@
     <None Include="Resources\Data\reports.csv" />
     <None Include="Resources\Data\reviews.csv" />
     <None Include="Resources\Data\rooms.csv" />
+    <None Include="Resources\Data\secretaries.csv" />
     <None Include="Views\Patient\.vs\slnx.sqlite" />
     <None Include="Views\Patient\.vs\VSWorkspaceState.json" />
   </ItemGroup>
