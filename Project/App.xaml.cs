@@ -345,7 +345,7 @@ namespace Project
         public IController<InventoryManagementDTO, long> InventoryManagementController { get; private set; }
         public IController<OrderDTO, long> OrderController { get; private set; }
 
-        public IController<MedicalAppointmentDTO, long> MedicalAppointmentController { get; private set; }
+        public MedicalAppointmentController MedicalAppointmentController { get; private set; }
 
         public IController<QuestionDTO, long> QuestionController { get; private set; }
         public IController<FeedbackDTO, long> FeedbackController { get; private set; }
