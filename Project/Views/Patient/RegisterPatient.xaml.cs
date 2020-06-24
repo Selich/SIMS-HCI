@@ -30,7 +30,7 @@ namespace Project.Views.Patient
             InitializeComponent();
             this.DataContext = this;
 
-            RegisteringPatient = new Model.PatientDTO() { DateOfBirth = DateTime.Now };
+            RegisteringPatient = new Model.PatientDTO() { DateOfBirth = DateTime.Now, Address= new Model.AddressDTO() };
             app = Application.Current as App;
             //Profile
             //RegisteringPatient = new Model.PatientDTO() { FirstName = "Uros", LastName = "Milovanovic",
