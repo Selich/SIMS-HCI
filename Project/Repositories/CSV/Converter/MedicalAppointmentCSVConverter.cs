@@ -47,7 +47,7 @@ namespace Project.Repositories.CSV.Converter
                 DateTime.Parse(tokens[1]),
                 DateTime.Parse(tokens[2]),
                 new Room(long.Parse(tokens[3])),
-                (MedicalAppointmentType)int.Parse(tokens[4]),
+                (MedicalAppointmentType)Enum.Parse(typeof(MedicalAppointmentType),tokens[4]),
                 new Patient(long.Parse(tokens[5])),
                 null //doctors
                 );
