@@ -268,13 +268,20 @@ namespace Project
             );
             var orderDetailsRepository = new OrderDetailsRepository( new CSVStream<OrderDetails>( ORDER_DETAILS_FILEPATH ,new OrderDetailsCSVConverter(DELIMITER)), new LongSequencer());
             var addressRepository = new AddressRepository(new CSVStream<Address>(ADDRESS_FILEPATH, new AddressCSVConverter(DELIMITER)), new LongSequencer());
+            var doctorRepository = new DoctorRepository(new CSVStream<Doctor>(DOCTOR_PATH, new DoctorCSVConverter(DELIMITER, DATETIME_FORMAT)),addressRepository,new LongSequencer());
             var patientRepository = new PatientRepository(new CSVStream<Patient>(PATIENT_FILEPATH, new PatientCSVConverter(DELIMITER, DATETIME_FORMAT)), addressRepository , new LongSequencer());
             var questionRepository = new QuestionRepository(new CSVStream<Question>(QUESTION_FILEPATH, new QuestionCSVConverter(DELIMITER, DATETIME_FORMAT)), new LongSequencer());
             var medicineRepository = new MedicineRepository(new CSVStream<Medicine>(MEDICINE_FILEPATH, new MedicineCSVConverter(DELIMITER)), new LongSequencer());
             var prescriptionRepository = new PrescriptionRepository(new CSVStream<Prescription>( PRESCRIPTION_FILEPATH, new PrescriptionCSVConverter(DELIMITER, DATETIME_FORMAT)), medicineRepository, patientRepository, new LongSequencer());
             var medicalConsumableRepository = new MedicalConsumableRepository(new CSVStream<MedicalConsumables>(MEDICAL_CONSUMABLE_FILEPATH, new MedicalConsumableCSVConverter(DELIMITER)), new LongSequencer());
             var equipmentRepository = new EquipmentRepository(new CSVStream<Equipment>(EQUIPMENT_FILEPATH, new EquipmentCSVConverter(DELIMITER)), new LongSequencer());
-            var medicalAppoitmentRepository = new MedicalAppointmentRepository(new CSVStream<MedicalAppointment>(MEDICAL_APPOINTMENT_FILEPATH, new MedicalAppointmentCSVConverter(DELIMITER, DATETIME_DETAIL_FORMAT)), medicalAppointmentToDoctorRepository, new LongSequencer());
+            var medicalAppoitmentRepository = new MedicalAppointmentRepository(
+                new CSVStream<MedicalAppointment>(MEDICAL_APPOINTMENT_FILEPATH, 
+                new MedicalAppointmentCSVConverter(DELIMITER, DATETIME_DETAIL_FORMAT)), 
+                medicalAppointmentToDoctorRepository,
+                patientRepository,
+                doctorRepository,
+                new LongSequencer());
             var roomRepository = new RoomRepository(new CSVStream<Room>(ROOM_PATH, new RoomCSVConverter(DELIMITER)),new LongSequencer(),equipmentRepository);
 
             var orderRepository = new OrderRepository( new CSVStream<Order>(ORDER_FILEPATH, new OrderCSVConverter(DELIMITER, DATETIME_FORMAT)), medicineRepository, equipmentRepository, medicalConsumableRepository, orderDetailsRepository, new LongSequencer());
@@ -283,9 +290,11 @@ namespace Project
             var feedbackRepository = new FeedbackRepository(new CSVStream<Feedback>(FEEDBACK_FILEPATH, new FeedbackCSVConverter(DELIMITER)), new LongSequencer());
             var reviewRepository=new ReviewRepository(new CSVStream<Review>(REVIEW_PATH, new ReviewCSVConverter(DELIMITER)), new LongSequencer());
             var anamnesisRepository = new AnamnesisRepository(new CSVStream<Anamnesis>(ANAMNESIS_PATH, new AnamnesisCSVConverter(DELIMITER)), new LongSequencer());
-            var secretaryRepository=new SecretaryRepository(new CSVStream<Secretary>(SECRETARY_PATH, new SecretaryCSVConverter(DELIMITER,DATETIME_FORMAT)), new LongSequencer());
+            var secretaryRepository = new SecretaryRepository(
+                new CSVStream<Secretary>(SECRETARY_PATH, new SecretaryCSVConverter(DELIMITER,DATETIME_FORMAT)), 
+                addressRepository,
+                new LongSequencer());
             var inventoryManagementRepository = new InventoryManagementRepository(new CSVStream<InventoryManagement>(INVENTORY_PATH, new InventoryManagementCSVConverter(DELIMITER,DATETIME_FORMAT)), inventoryManagementToEquipmentRepository, new LongSequencer());
-            var doctorRepository = new DoctorRepository(new CSVStream<Doctor>(DOCTOR_PATH, new DoctorCSVConverter(DELIMITER, DATETIME_FORMAT)),addressRepository,new LongSequencer());
 
             // Services
             var patientService = new PatientService(patientRepository);

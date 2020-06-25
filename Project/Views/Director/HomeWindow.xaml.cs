@@ -20,7 +20,6 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Forms;
 using iTextSharp.text;
-using iTextSharp.text.pdf;
 using System.IO;
 using Xceed.Wpf.AvalonDock.Controls;
 
@@ -507,10 +506,6 @@ namespace Project.Views.Director
 
         private void Generate_Room_Report(object sender, RoutedEventArgs e)
         {
-            string fileType = "pdf";
-            string type = "room";
-            DateTime beginning = new DateTime();
-            DateTime end = new DateTime();
 
 
 

@@ -10,7 +10,6 @@ namespace Project.Model
 {
     public class Question : IIdentifiable<long>
     {
-        private SecretaryDTO secretaryDTO;
 
         public long Id { get; set; }
         public string QuestionText { get; set; }

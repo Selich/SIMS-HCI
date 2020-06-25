@@ -37,7 +37,6 @@ namespace Project.Services.Generators
             Font font = FontFactory.GetFont(FontFactory.HELVETICA, 9);
 
             PatientDTO patientDTO = app.SelectedPatient;
-            PrescriptionController prescriptionController;
 
             //List<Prescription> pateintsPresctiption = prescriptionController.GetAllByPatientID(patientDTO.Id);
 

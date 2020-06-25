@@ -11,7 +11,6 @@ using Project.Services;
 using Project.Views.Converters;
 using Project.Views.Model;
 using Project;
-using Project.Services;
 
 namespace Controller
 {

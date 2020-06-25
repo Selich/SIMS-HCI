@@ -131,6 +131,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controllers\AnamnesisController.cs" />
     <Compile Include="Controllers\AuthenticationController.cs" />
     <Compile Include="Controllers\AddressController.cs" />
     <Compile Include="Controllers\InventoryManagementController.cs" />
@@ -253,6 +254,7 @@
     <Compile Include="Services\ReviewService.cs" />
     <Compile Include="Services\RoomService.cs" />
     <Compile Include="Services\SecretaryService.cs" />
+    <Compile Include="Services\UserService.cs" />
     <Compile Include="Util\Environment.cs" />
     <Compile Include="Util\HelperFunctions.cs" />
     <Compile Include="Views\Commands\DataContext.cs" />

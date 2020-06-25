@@ -11,7 +11,6 @@ namespace Project.Repositories.CSV.Converter
     class MedicalConsumableCSVConverter: ICSVConverter<MedicalConsumables>
     {
         private readonly string _delimiter;
-        private IRepository<MedicalConsumables, long> _medicalConsumableRepository;
         public MedicalConsumableCSVConverter(string delimiter)
         {
             _delimiter = delimiter;
