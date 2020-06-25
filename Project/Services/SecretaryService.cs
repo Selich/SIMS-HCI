@@ -1,5 +1,6 @@
 ﻿using Project.Model;
 using Project.Repositories.Abstract;
+using Project.Services.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Project.Services
 {
-    class SecretaryService: IService<Secretary,long>
+    class SecretaryService: ISecretaryService
     {
         private readonly ISecretaryRepository _secretaryRepository;
 
@@ -19,6 +20,7 @@ namespace Project.Services
 
         public IEnumerable<Secretary> GetAll()
             => _secretaryRepository.GetAll();
+
 
         public Secretary GetById(long id)
             => _secretaryRepository.GetById(id);
@@ -31,6 +33,9 @@ namespace Project.Services
 
         public Secretary Update(Secretary secretary)
             => _secretaryRepository.Update(secretary);
+
+        public Secretary GetByEmail(string email)
+            => _secretaryRepository.GetAll().SingleOrDefault(sec => sec.Email.Equals(email));
 
     }
 }

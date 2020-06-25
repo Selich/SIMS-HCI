@@ -231,6 +231,7 @@
     <Compile Include="Repositories\SecretaryRepository.cs" />
     <Compile Include="Services\Abstract\IPropositionService.cs" />
     <Compile Include="Services\Abstract\IMedicalAppoitmentService.cs" />
+    <Compile Include="Services\Abstract\ISecretaryService.cs" />
     <Compile Include="Services\AnamnesisService.cs" />
     <Compile Include="Services\AuthenticationService.cs" />
     <Compile Include="Services\DoctorService.cs" />
