@@ -84,7 +84,8 @@ namespace Project.Views.Doctor
 
             //ALl medical appoitments
 
-            allMedicalAppointmentDTO = (List<MedicalAppointmentDTO>) app.MedicalAppointmentController.GetAll();
+            allMedicalAppointmentDTO = (List<MedicalAppointmentDTO>)app.MedicalAppointmentController.GetAllByPatientID(1);// GetAll();
+            // allMedicalAppointmentDTO = (List<MedicalAppointmentDTO>) app.MedicalAppointmentController GetAll();
 
             Appoitments = allMedicalAppointmentDTO;
             //Current Appoitments

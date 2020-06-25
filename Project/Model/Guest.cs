@@ -20,6 +20,8 @@ namespace Project.Model
 
         public Guest() { }
 
+        public Guest(long id) : base(id) { } 
+
         public Guest(long id, Address address, string firstName, string lastName, string jmbg, string telephoneNumber, string gender, DateTime dateOfBirth, string insurenceNumber, string profession, string bloodType, float height, float weight)
          : base(id, address, firstName, lastName, jmbg, telephoneNumber, gender, dateOfBirth)
         {
