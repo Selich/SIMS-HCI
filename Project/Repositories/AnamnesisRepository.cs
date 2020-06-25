@@ -20,7 +20,6 @@ namespace Project.Repositories
 
         public AnamnesisRepository(
             ICSVStream<Anamnesis> stream,
-            IAddressRepository addressRepository,
             ISequencer<long> sequencer
             ) : base(ENTITY_NAME, stream, sequencer)
         {

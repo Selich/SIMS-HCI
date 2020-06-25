@@ -148,6 +148,7 @@ namespace Project
         private static string RENOVATION_PATH = ConfigurationManager.AppSettings["RenovationPath"].ToString();
         private static string FEEDBACK_FILEPATH = ConfigurationManager.AppSettings["FeedbackPath"].ToString();
         private static string REVIEW_PATH = ConfigurationManager.AppSettings["ReviewPath"].ToString();
+        private static string ANAMNESIS_PATH = ConfigurationManager.AppSettings["AnamnesisPath"].ToString();
         private static string SECRETARY_PATH = ConfigurationManager.AppSettings["SecretaryPath"].ToString();
         private static string INVENTORY_PATH = ConfigurationManager.AppSettings["InventoryPath"].ToString();
         private static string INVENTORY_EQUIPMENT_PATH = ConfigurationManager.AppSettings["InventoryEquipmentPath"].ToString();
@@ -246,6 +247,7 @@ namespace Project
             var renovationConverter = new RenovationConverter(roomConverter);
             var feedbackConverter = new FeedbackConverter();
             var reviewConverter = new ReviewConverter(doctorConverter);
+            var anamnesisConvertor = new AnamnesisConvertor();
             var secretaryConverter = new SecretaryConverter(questionConverter, addressConverter);
             var inventoryManagementConverter = new InventoryManagementConverter(equipmentConverter, roomConverter);
             var orderConverter = new OrderConverter(medicalConsumableConverter,medicineConverter,equipmentConverter);
@@ -280,6 +282,7 @@ namespace Project
             var renovationRepository = new RenovationRepository(new CSVStream<Renovation>(RENOVATION_PATH, new RenovationCSVConverter(DELIMITER, DATETIME_FORMAT)), new LongSequencer());
             var feedbackRepository = new FeedbackRepository(new CSVStream<Feedback>(FEEDBACK_FILEPATH, new FeedbackCSVConverter(DELIMITER)), new LongSequencer());
             var reviewRepository=new ReviewRepository(new CSVStream<Review>(REVIEW_PATH, new ReviewCSVConverter(DELIMITER)), new LongSequencer());
+            var anamnesisRepository = new AnamnesisRepository(new CSVStream<Anamnesis>(ANAMNESIS_PATH, new AnamnesisCSVConverter(DELIMITER)), new LongSequencer());
             var secretaryRepository=new SecretaryRepository(new CSVStream<Secretary>(SECRETARY_PATH, new SecretaryCSVConverter(DELIMITER,DATETIME_FORMAT)), new LongSequencer());
             var inventoryManagementRepository = new InventoryManagementRepository(new CSVStream<InventoryManagement>(INVENTORY_PATH, new InventoryManagementCSVConverter(DELIMITER,DATETIME_FORMAT)), inventoryManagementToEquipmentRepository, new LongSequencer());
             var doctorRepository = new DoctorRepository(new CSVStream<Doctor>(DOCTOR_PATH, new DoctorCSVConverter(DELIMITER, DATETIME_FORMAT)),addressRepository,new LongSequencer());
@@ -304,6 +307,8 @@ namespace Project
             var inventoryManagementService = new InventoryManagementService(inventoryManagementRepository);
             var orderService = new OrderService(orderRepository);
             var doctorService = new DoctorService(doctorRepository);
+            var anamnesisService = new AnamnesisService(anamnesisRepository);
+
             // Controllers
             PatientController = new PatientController(patientService, patientConverter);
             AddressController = new AddressController(addressService, addressConverter);
@@ -323,6 +328,8 @@ namespace Project
             InventoryManagementController = new InventoryManagementController(inventoryManagementService, inventoryManagementConverter);
             OrderController = new OrderController(orderService, orderConverter);
             DoctorController = new DoctorController(doctorService, doctorConverter);
+            AnamnesisController = new AnamnesisController(anamnesisService, anamnesisConvertor);
+
             // Generators
             SecretaryAppointmentReportGenerator = new SecretaryAppointmentReportGenerator(REPORT_APPOINTMENT_PATH);
             PatientAppointmentReportGenerator = new PatientAppointmentReportGenerator(REPORT_APPOINTMENT_PATH);
@@ -360,6 +367,7 @@ namespace Project
 
         public IController<ReviewDTO, long> ReviewController { get; private set; }
         public IController<PrescriptionDTO, long> PrescriptionController { get; private set; }
+        public IController<AnamnesisDTO, long> AnamnesisController { get; set; }
 
     }
 }

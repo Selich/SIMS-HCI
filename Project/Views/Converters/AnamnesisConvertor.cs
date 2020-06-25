@@ -14,7 +14,7 @@ namespace Project.Views.Converters
             => new Project.Model.Anamnesis(dto.Id, dto.Name, dto.Type, dto.Description);
 
         public AnamnesisDTO ConvertEntityToDTO(Anamnesis entity)
-            => new AnamnesisDTO(entity.Id, entity.Name, entity.Type, entity.Description);
+            => new AnamnesisDTO(entity.Id, entity.Name, entity.Type, entity.Description, null);
 
         public List<Anamnesis> ConvertListDTOToListEntity(IEnumerable<AnamnesisDTO> dtos)
             => dtos.Select(dto => ConvertDTOToEntity(dto)).ToList(); 
