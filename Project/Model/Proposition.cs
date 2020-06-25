@@ -14,7 +14,7 @@ namespace Project.Model
     {
         public long Id { get; set; }
         public string State { get; set; }
-        private IPropositionState CurrentState;
+        public IPropositionState CurrentState { get; set; }
         public List<Approval> Approval { get; set; }
         public Medicine Medicine { get; set; }
       

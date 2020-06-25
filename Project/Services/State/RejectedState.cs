@@ -3,20 +3,34 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Project.Model;
 
 namespace Project.Services.State
 {
     class RejectedState : IPropositionState
     {
-        public string Approve()
+        IPropositionService _propositionService;
+        IService<Approval, long> _approvalService;
+
+        public RejectedState(
+            IPropositionService propositionService,
+            IService<Approval, long> approvalService
+            )
         {
-            throw new NotImplementedException();
+            _approvalService = approvalService;
+            _propositionService = propositionService;
         }
 
-        public string Reject()
+        public Proposition Approve(Proposition proposition)
         {
-            throw new NotImplementedException();
+            Proposition CurrentProposition = _propositionService.GetById(proposition.Id);
+            return CurrentProposition;
+        }
+
+        public Proposition Reject(Proposition proposition)
+        {
+            Proposition CurrentProposition = _propositionService.GetById(proposition.Id);
+            return CurrentProposition;
         }
     }
 }

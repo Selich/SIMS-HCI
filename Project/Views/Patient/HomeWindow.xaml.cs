@@ -82,7 +82,7 @@ namespace Project.Views.Patient
                 Appoitments.Add(appoitment);
             }
             app.DoctorController.Save(new DoctorDTO(tempAddress, "filip", "zdelar", "1234567890123", "123", "Male",
-                DateTime.Now, 123.12, new TimeInterval(), new TimeInterval(), "emai@lams.cs", "pass", "Hirg"));
+                DateTime.Now, 123.12, new TimeInterval(DateTime.Now, DateTime.Now), new TimeInterval(DateTime.Now, DateTime.Now), "emai@lams.cs", "pass", "Hirg"));
 
             AvailableAppoitments = new ObservableCollection<Model.MedicalAppointmentDTO>();
 
