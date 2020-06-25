@@ -7,5 +7,6 @@ namespace Project.Services
     {
         bool IsAvailableAtTimeInterval(MedicalAppointment medicalAppointment, TimeInterval timeInterval);
         IEnumerable<MedicalAppointment> GetAllByPatientId(long id);
+        List<MedicalAppointment> GetAllByDoctorID(long id);
     }
 }

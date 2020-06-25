@@ -20,6 +20,7 @@ namespace Project.Model
         public DateTime DateOfBirth { get; set; }
         public List<Feedback> Feedbacks;
         public Address Address;
+
         public List<Report> Reports { get; set; }
         public User() { }
 
@@ -45,6 +46,10 @@ namespace Project.Model
             DateOfBirth = dateOfBirth;
         }
 
+        public User(long id)
+        {
+            this.Id = id;
+        }
 
         public long GetId() => Id;
 

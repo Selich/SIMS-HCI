@@ -37,6 +37,7 @@ namespace Project.Repositories.CSV.Converter
         public MedicalAppointment ConvertCSVFormatToEntity(string medicalAppointmentCSVFormat)
         {
             string[] tokens = medicalAppointmentCSVFormat.Split(_delimiter.ToCharArray());
+            Guest guest = new Guest(long.Parse(tokens[5]));
 
             return new MedicalAppointment(
                 long.Parse(tokens[0]),
@@ -44,7 +45,8 @@ namespace Project.Repositories.CSV.Converter
                 DateTime.Parse(tokens[2]),
                 new Room(long.Parse(tokens[3])),
                 (MedicalAppointmentType)Enum.Parse(typeof(MedicalAppointmentType),tokens[4]),
-                new Patient(long.Parse(tokens[5]))
+                new Guest(long.Parse(tokens[5])),
+                new List<Doctor>() //doctors
                 );
         }
     }
