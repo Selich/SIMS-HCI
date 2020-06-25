@@ -9,12 +9,12 @@ namespace Project.Services.State
 {
     class RejectedState : IPropositionState
     {
-        public void Approve()
+        public string Approve()
         {
             throw new NotImplementedException();
         }
 
-        public void Reject()
+        public string Reject()
         {
             throw new NotImplementedException();
         }

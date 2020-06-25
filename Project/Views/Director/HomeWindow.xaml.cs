@@ -222,12 +222,12 @@ namespace Project.Views.Director
             Director = new DirectorDTO(address,"Pera", "Peric", "0102031234567", "012/173212", "Male", new DateTime(1985, 11, 5), 13000, null, null, "pera@makedonac.nmac", "pass", "Klinicki Centar Vojvodina");
          
             Propositions = new ObservableCollection<PropositionDTO>();
-            Propositions.Add(new PropositionDTO(1,"Berodual","Berodual je ...", "Odobren",5,2));
-            Propositions.Add(new PropositionDTO(2,"Promazepam", "Promazepam sluzi za ...", "Odbijen",3,7));
-            Propositions.Add(new PropositionDTO(3,"Febricet", "Febricet je valjda za temperaturu, Dr. Kon aj proveri", "Odobren",3,0));
-            Propositions.Add(new PropositionDTO(4,"Strepsils", "Tablete za upalu grla", "Odobren",6,2));
-            Propositions.Add(new PropositionDTO(5,"Venospas", "Revolucionarno lecenje ozoniranjem krvi", "U razmatranju",1,1));
-            Propositions.Add(new PropositionDTO(5, "ZdravkoHerbiko", "Sirup za grlo", "Odbijen", 1, 8));
+            //Propositions.Add(new PropositionDTO(1,"Berodual","Berodual je ...", "Odobren",5,2));
+            //Propositions.Add(new PropositionDTO(2,"Promazepam", "Promazepam sluzi za ...", "Odbijen",3,7));
+            //Propositions.Add(new PropositionDTO(3,"Febricet", "Febricet je valjda za temperaturu, Dr. Kon aj proveri", "Odobren",3,0));
+            //Propositions.Add(new PropositionDTO(4,"Strepsils", "Tablete za upalu grla", "Odobren",6,2));
+            //Propositions.Add(new PropositionDTO(5,"Venospas", "Revolucionarno lecenje ozoniranjem krvi", "U razmatranju",1,1));
+            //Propositions.Add(new PropositionDTO(5, "ZdravkoHerbiko", "Sirup za grlo", "Odbijen", 1, 8));
 
             SecretaryDTO newSecretary;
             DoctorDTO newDoctor;

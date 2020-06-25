@@ -8,15 +8,15 @@ using System.Threading.Tasks;
 
 namespace Project.Services
 {
-    class PropositionService : IService<Proposition, long>
+    class PropositionService : IPropositionService
     {
-        private readonly IRepository<Proposition, long> _propositionRepository;
+        private readonly IPropositionRepository _propositionRepository;
 
         public PropositionService(
-            IRepository<Proposition, long> propositionRepository
+            IPropositionRepository prescriptionRepository
             )
         {
-            _propositionRepository = propositionRepository;
+            _propositionRepository = prescriptionRepository;
         }
         public IEnumerable<Proposition> GetAll() 
             => _propositionRepository.GetAll();
@@ -24,12 +24,22 @@ namespace Project.Services
             => _propositionRepository.GetById(id);
         public Proposition Save(Proposition prescription)
             => _propositionRepository.Save(prescription);
-
+        
+        //TODO add state methods
         public Proposition Update(Proposition prescription)
             => _propositionRepository.Update(prescription);
 
         public Proposition Remove(Proposition prescription)
             => _propositionRepository.Remove(prescription);
 
+        public void Approve(Proposition proposition)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Reject(Proposition proposition)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

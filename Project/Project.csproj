@@ -173,6 +173,7 @@
     <Compile Include="Repositories\Abstract\IMedicalAppointmentRepository.cs" />
     <Compile Include="Repositories\Abstract\IMedicineRepository.cs" />
     <Compile Include="Repositories\Abstract\IOrderRepository.cs" />
+    <Compile Include="Repositories\Abstract\IPropositionRepository.cs" />
     <Compile Include="Repositories\Abstract\IPrescriptionRepository.cs" />
     <Compile Include="Repositories\Abstract\IMedicalConsumableRepository.cs" />
     <Compile Include="Repositories\Abstract\IFeedbackRepository.cs" />
@@ -182,12 +183,14 @@
     <Compile Include="Repositories\Abstract\IRoomRepository.cs" />
     <Compile Include="Repositories\Abstract\ISecretaryRepository.cs" />
     <Compile Include="Repositories\AnamnesisRepository.cs" />
+    <Compile Include="Repositories\CSV\Converter\ApprovalCSVConverter.cs" />
     <Compile Include="Repositories\CSV\Converter\AnamnesisCSVConverter.cs" />
     <Compile Include="Repositories\CSV\Converter\EquipmentCSVConverter.cs" />
     <Compile Include="Repositories\CSV\Converter\InventoryManagementCSVConverter.cs" />
     <Compile Include="Repositories\CSV\Converter\MedicalAppointmentCSVConverter.cs" />
     <Compile Include="Repositories\CSV\Converter\MedicineCSVConverter.cs" />
     <Compile Include="Repositories\CSV\Converter\OrderCSVConverter.cs" />
+    <Compile Include="Repositories\CSV\Converter\PropositionCSVConverter.cs" />
     <Compile Include="Repositories\CSV\Converter\PresriptionCSVConverter.cs" />
     <Compile Include="Repositories\CSV\Converter\MedicalConsumableCSVConverter.cs" />
     <Compile Include="Repositories\CSV\Converter\AddressCSVConverter.cs" />
@@ -220,11 +223,13 @@
     <Compile Include="Repositories\PrescriptionRepository.cs" />
     <Compile Include="Repositories\MedicalConsumableRepository.cs" />
     <Compile Include="Repositories\FeedbackRepository.cs" />
+    <Compile Include="Repositories\PropositionRepository.cs" />
     <Compile Include="Repositories\QuestionRepository.cs" />
     <Compile Include="Repositories\RenovationRepository.cs" />
     <Compile Include="Repositories\ReviewRepository.cs" />
     <Compile Include="Repositories\RoomRepository.cs" />
     <Compile Include="Repositories\SecretaryRepository.cs" />
+    <Compile Include="Services\Abstract\IPropositionService.cs" />
     <Compile Include="Services\Abstract\IMedicalAppoitmentService.cs" />
     <Compile Include="Services\AnamnesisService.cs" />
     <Compile Include="Services\AuthenticationService.cs" />
@@ -240,6 +245,7 @@
     <Compile Include="Services\MedicalAppointmentService.cs" />
     <Compile Include="Services\MedicineService.cs" />
     <Compile Include="Services\OrderService.cs" />
+    <Compile Include="Services\PropositionService.cs" />
     <Compile Include="Services\PrescriptionService.cs" />
     <Compile Include="Services\MedicalConsumableService.cs" />
     <Compile Include="Services\FeedbackService.cs" />
@@ -256,10 +262,10 @@
     <Compile Include="Services\ReviewService.cs" />
     <Compile Include="Services\RoomService.cs" />
     <Compile Include="Services\SecretaryService.cs" />
-    <Compile Include="Services\State\ApprovedState.cs" />
     <Compile Include="Services\State\InReviewState.cs" />
-    <Compile Include="Services\State\IPropositionState.cs" />
     <Compile Include="Services\State\RejectedState.cs" />
+    <Compile Include="Services\State\ApprovedState.cs" />
+    <Compile Include="Services\State\IPropositionState.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="Util\Environment.cs" />
     <Compile Include="Util\HelperFunctions.cs" />

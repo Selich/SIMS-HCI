@@ -4,9 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Project.Services.State
 {
-    class Class1
+    class InReviewState : IPropositionState
     {
+        public string Approve()
+        {
+            throw new NotImplementedException();
+        }
+
+        public string Reject()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

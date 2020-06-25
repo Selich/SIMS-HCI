@@ -13,19 +13,24 @@ namespace Project.Views.Converters
         private MedicineConverter _medicineConverter;
         private ApprovalConverter _approvalConverter;
 
-        public PropositionConverter(MedicineConverter medicineConverter,  ApprovalConverter approvalConverter)
+        public PropositionConverter(MedicineConverter medicineConverter, ApprovalConverter approvalConverter)
         {
             _medicineConverter = medicineConverter;
             _approvalConverter = approvalConverter;
         }
         public Proposition ConvertDTOToEntity(PropositionDTO dto)
             => new Proposition(
-                
+                dto.State,
+                _approvalConverter.ConvertListDTOToListEntity(dto.Approvals),
+                _medicineConverter.ConvertDTOToEntity(dto.Medicine)
             );
 
         public PropositionDTO ConvertEntityToDTO(Proposition entity)
                 => new PropositionDTO(
-                    );
+                entity.Id,
+                entity.State,
+                _medicineConverter.ConvertEntityToDTO(entity.Medicine)
+                );
 
         public List<Proposition> ConvertListDTOToListEntity(IEnumerable<PropositionDTO> dtos)
             => dtos.Select(dto => ConvertDTOToEntity(dto)).ToList();

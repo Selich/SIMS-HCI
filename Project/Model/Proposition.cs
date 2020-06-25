@@ -14,19 +14,25 @@ namespace Project.Model
     {
         public long Id { get; set; }
         public string State { get; set; }
-        private IPropositionState Currentstate;
+        private IPropositionState CurrentState;
         public List<Approval> Approval { get; set; }
         public Medicine Medicine { get; set; }
       
         public Proposition() {}
-        public Proposition(string state, List<Approval> approval, Medicine medicine, Director director)
+
+        public Proposition(long Id)
+        {
+            this.Id = Id;
+        }
+
+        public Proposition(string state, List<Approval> approval, Medicine medicine)
         {
             State = state;
             Approval = approval;
             Medicine = medicine;
         }
 
-        public Proposition(long id, string state, List<Approval> approval, Medicine medicine, Director director)
+        public Proposition(long id, string state, List<Approval> approval, Medicine medicine)
         {
             Id = id;
             State = state;
