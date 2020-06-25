@@ -19,6 +19,12 @@ namespace Project.Model
         public Medicine Medicine { get; set; }
       
         public Proposition() {}
+
+        public Proposition(long Id)
+        {
+            this.Id = Id;
+        }
+
         public Proposition(string state, List<Approval> approval, Medicine medicine)
         {
             State = state;

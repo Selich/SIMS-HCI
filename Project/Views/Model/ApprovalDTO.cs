@@ -9,6 +9,7 @@ namespace Project.Views.Model
 
     public class ApprovalDTO
     {
+        public long Id { get; set; }
         public string Description { get; set; }
         public bool IsApproved { get; set; }
         public DoctorDTO Doctor { get; set; }
@@ -16,7 +17,7 @@ namespace Project.Views.Model
 
         public ApprovalDTO() { }
 
-        public ApprovalDTO(string desc, bool approved, DoctorDTO doctor, PropositionDTO Proposition)
+        public ApprovalDTO(long id, string desc, bool approved, DoctorDTO doctor, PropositionDTO Proposition)
         {
             this.Description = desc;
             this.IsApproved = approved;

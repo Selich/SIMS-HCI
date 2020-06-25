@@ -13,6 +13,7 @@ namespace Project.Repositories.CSV.Converter
 
         public string ConvertEntityToCSVFormat(Approval approval)
           => string.Join(_delimiter,
+              approval.Id,
               approval.Description,
               approval.IsApproved,
               approval.Doctor,
@@ -25,8 +26,10 @@ namespace Project.Repositories.CSV.Converter
             return new Approval(
                 long.Parse(tokens[0]),
                 tokens[1],
-                tokens[2],
-                tokens[3]);
+                bool.Parse(tokens[2]),
+                new Doctor(long.Parse(tokens[3])),
+                new Proposition(long.Parse(tokens[4]))
+                );
         }
     }
 }

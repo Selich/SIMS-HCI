@@ -10,9 +10,16 @@ namespace Project.Model
     public class Approval
     {
         public Proposition Proposition { get; set; }
+        public long Id { get; set; }
 
-        public Approval(string description, bool isApproved, Doctor doctor, Proposition proposition)
+        public Approval(long Id)
         {
+            this.Id = Id;
+        }
+
+        public Approval(long Id, string description, bool isApproved, Doctor doctor, Proposition proposition)
+        {
+            this.Id = Id;
             Description = description;
             IsApproved = isApproved;
             Doctor = doctor;
