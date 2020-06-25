@@ -52,17 +52,6 @@ namespace Project.Views.Secretary
 
         }
 
-        public DoctorSearchModal(SecretaryCreate dataContext)
-        {
-            app = System.Windows.Application.Current as App;
-            InitializeComponent();
-            this.DataContext = dataContext;
-            DoctorList.ItemsSource = app.doctors;
-            MedicalRole_ComboBox.ItemsSource = app.medicalRoles;
-
-            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(DoctorList.ItemsSource);
-            view.Filter = CombinedFilter;
-        }
 
         private bool FirstNameFilter(object item)
           => (String.IsNullOrEmpty(NameSearch_TextBox.Text) ||

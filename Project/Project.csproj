@@ -494,9 +494,6 @@
     <Compile Include="Views\Tabs\SecretaryAppointments.xaml.cs">
       <DependentUpon>SecretaryAppointments.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Tabs\SecretaryCreate.xaml.cs">
-      <DependentUpon>SecretaryCreate.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\Tabs\SecretaryPatients.xaml.cs">
       <DependentUpon>SecretaryPatients.xaml</DependentUpon>
     </Compile>
@@ -719,10 +716,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Tabs\SecretaryAppointments.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Tabs\SecretaryCreate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

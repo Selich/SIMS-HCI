@@ -23,14 +23,14 @@ namespace Project.Repositories.CSV
         protected ICSVStream<Doctor> _doctorStream;
         protected ICSVStream<Secretary> _secretaryStream;
 
-        protected ISequencer<ID> _sequencer;
+        protected LongSequencer _sequencer;
 
         public UserCSVRepository(
             ICSVStream<E> stream,
             ICSVStream<Patient> patientStream,
             ICSVStream<Doctor> doctorStream,
             ICSVStream<Secretary> secretaryStream,
-            ISequencer<ID> sequencer
+            LongSequencer sequencer
             )
         {
             _stream = stream;
@@ -46,22 +46,18 @@ namespace Project.Repositories.CSV
             var patients = _patientStream.ReadAll();
             var doctors = _doctorStream.ReadAll();
             var secretaries = _secretaryStream.ReadAll();
-            if (patients.Select(item => item.Id) is ID)
-            {
-                List<ID> ids = (List<ID>)patients.Select(item => (item as Patient).Id);
-                ids.AddRange((List<ID>) doctors.Select(item => (item as Doctor).Id));
-                ids.AddRange((List<ID>) secretaries.Select(item => (item as Secretary).Id));
-                _sequencer.Initialize(GetMaxId(ids));
 
-            }
+            List<long> ids = (List<long>) patients.Select(item => (item as Patient).Id);
+            ids.AddRange(doctors.Select(item => (item as Doctor).Id));
+            ids.AddRange(secretaries.Select(item => (item as Secretary).Id));
+            _sequencer.Initialize(ids.Max());
 
         }
-        private ID GetMaxId(IEnumerable<ID> entities)
-           => entities.Max();
 
         public E Save(E entity)
         {
-            entity.SetId(_sequencer.GenerateId());
+            if(entity.GetId() is ID)
+                entity.SetId((ID)Convert.ChangeType(_sequencer.GenerateId(), typeof(ID)));
             _stream.AppendToFile(entity);
             return entity;
         }
