@@ -34,6 +34,8 @@ namespace Project.Services
 
         public Proposition Approve(Proposition proposition)
         {
+            // TODO I... IService
+
             Proposition CurrentProposition = _propositionRepository.GetById(proposition.Id);
 
             if (CurrentProposition.State.Equals("InReview"))

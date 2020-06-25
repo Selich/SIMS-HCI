@@ -12,7 +12,7 @@ namespace Project.Services.State
         IPropositionService _propositionService;
         IService<Approval, long> _approvalService;
 
-        public InReviewState(
+        public RejectedState(
             IPropositionService propositionService,
             IService<Approval, long> approvalService
             )
