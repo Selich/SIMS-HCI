@@ -9,14 +9,28 @@ namespace Project.Services.State
 {
     class RejectedState : IPropositionState
     {
+        IPropositionService _propositionService;
+        IService<Approval, long> _approvalService;
+
+        public InReviewState(
+            IPropositionService propositionService,
+            IService<Approval, long> approvalService
+            )
+        {
+            _approvalService = approvalService;
+            _propositionService = propositionService;
+        }
+
         public Proposition Approve(Proposition proposition)
         {
-            throw new NotImplementedException();
+            Proposition CurrentProposition = _propositionService.GetById(proposition.Id);
+            return CurrentProposition;
         }
 
         public Proposition Reject(Proposition proposition)
         {
-            throw new NotImplementedException();
+            Proposition CurrentProposition = _propositionService.GetById(proposition.Id);
+            return CurrentProposition;
         }
     }
 }
