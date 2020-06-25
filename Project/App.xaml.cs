@@ -146,23 +146,23 @@ namespace Project
         private static string ORDER_FILEPATH = ConfigurationManager.AppSettings["OrderPath"].ToString();
         private static string ORDER_DETAILS_FILEPATH = ConfigurationManager.AppSettings["OrderDetailsPath"].ToString();
         private static string MEDICAL_APPOINTMENT_FILEPATH = ConfigurationManager.AppSettings["MedicalAppointmentPath"].ToString();
-        private static string ROOM_PATH = ConfigurationManager.AppSettings["RoomPath"].ToString();
-        private static string RENOVATION_PATH = ConfigurationManager.AppSettings["RenovationPath"].ToString();
+        private static string ROOM_FILEPATH = ConfigurationManager.AppSettings["RoomPath"].ToString();
+        private static string RENOVATION_FILEPATH = ConfigurationManager.AppSettings["RenovationPath"].ToString();
         private static string FEEDBACK_FILEPATH = ConfigurationManager.AppSettings["FeedbackPath"].ToString();
-        private static string REVIEW_PATH = ConfigurationManager.AppSettings["ReviewPath"].ToString();
-        private static string ANAMNESIS_PATH = ConfigurationManager.AppSettings["AnamnesisPath"].ToString();
+        private static string REVIEW_FILEPATH = ConfigurationManager.AppSettings["ReviewPath"].ToString();
+        private static string ANAMNESIS_FILEPATH = ConfigurationManager.AppSettings["AnamnesisPath"].ToString();
         private static string SECRETARY_FILEPATH = ConfigurationManager.AppSettings["SecretaryPath"].ToString();
-        private static string INVENTORY_PATH = ConfigurationManager.AppSettings["InventoryPath"].ToString();
-        private static string INVENTORY_EQUIPMENT_PATH = ConfigurationManager.AppSettings["InventoryEquipmentPath"].ToString();
+        private static string INVENTORY_FILEPATH = ConfigurationManager.AppSettings["InventoryPath"].ToString();
+        private static string INVENTORY_EQUIPMENT_FILEPATH = ConfigurationManager.AppSettings["InventoryEquipmentPath"].ToString();
         private static string DOCTOR_FILEPATH = ConfigurationManager.AppSettings["DoctorPath"].ToString();
 
         // Many to many
         private static string MEDICAL_APPOINTMENT_TO_DOCTOR_FILEPATH = ConfigurationManager.AppSettings["MedicalAppointmentToDoctorPath"].ToString();
         
         // Report paths
-        private static string REPORT_ROOM_PATH = ConfigurationManager.AppSettings["ReportRoomPath"].ToString();
-        private static string REPORT_APPOINTMENT_PATH = ConfigurationManager.AppSettings["ReportAppointmentPath"].ToString();
-        private static string REPORT_PRESCRIPTION_PATH = ConfigurationManager.AppSettings["ReportPrescriptionPath"].ToString();
+        private static string REPORT_ROOM_FILEPATH = ConfigurationManager.AppSettings["ReportRoomPath"].ToString();
+        private static string REPORT_APPOINTMENT_FILEPATH = ConfigurationManager.AppSettings["ReportAppointmentPath"].ToString();
+        private static string REPORT_PRESCRIPTION_FILEPATH = ConfigurationManager.AppSettings["ReportPrescriptionPath"].ToString();
 
         // Constants
         private static string DELIMITER = ConfigurationManager.AppSettings["DelimiterValue"].ToString();
@@ -189,51 +189,6 @@ namespace Project
             roomTypes = new List<string> { "Bolnička Soba", "Operaciona Sala", "Soba za preglede" };
             medicalAppointmentTypes = new List<string> { "Pregled", "Operacija", "Ležanje" };
             SelectedDate = DateTime.Now;
-
-
-            doctors = new List<DoctorDTO>
-            {
-                new DoctorDTO(
-                1, new AddressDTO(1, "7A", "Bulevar despota Stefana", "Novi Sad", "Srbija", "21000"),
-                "Branislav", "Draganic", "123241129993", "+381604223222", "male", new DateTime(), 67000.00,
-                new TimeInterval(new DateTime(), new DateTime()), new TimeInterval(new DateTime(), new DateTime()),
-                "a@g.c", "p", medicalRoles[1])
-            };
-
-            secretaries = new List<SecretaryDTO>
-            {
-                new SecretaryDTO(
-                1, new AddressDTO(1, "7A", "Bulevar despota Stefana", "Novi Sad", "Srbija", "21000"),
-                "Filip", "Zdelar", "123241129993", "+381604223222", "male", new DateTime(), 67000.00,
-                new TimeInterval(new DateTime(), new DateTime()), new TimeInterval(new DateTime(), new DateTime()),
-                "selic.work@gmail.com", "pass"),
-            };
-
-            directors = new List<DirectorDTO>
-            {
-                new DirectorDTO(
-                1, new AddressDTO(1, "7A", "Bulevar despota Stefana", "Novi Sad", "Srbija", "21000"),
-                "Filip", "Zdelar", "123241129993", "+381604223222", "male", new DateTime(), 67000.00,
-                new TimeInterval(new DateTime(), new DateTime()), new TimeInterval(new DateTime(), new DateTime()),
-                "dusan998@gmail.com", "pass"),
-            };
-
-
-            patients = new List<PatientDTO>
-            {
-                new PatientDTO(
-                7, new AddressDTO(1, "7A", "Bulevar despota Stefana", "Novi Sad", "Srbija", "21000"),
-                "Uros", "Milovanovic", "123241129993", "+381604223222", "male", new DateTime().AddYears(2000).AddDays(20),
-                "08763646483684", "Diplomirani Kompjuteras", "0-", 185, 92, "urkem98@gmail.com", "pass"),
-            };
-
-            questions = new List<QuestionDTO>
-            {
-                new QuestionDTO(0,"Da li je moguće zakazivanje preko interneta", "Svakako.", patients[0], secretaries[0], DateTime.Now.AddDays(-5))
-            };
-
-                //new RoomDTO(111, RoomType.hospitalRoom, "1. Sprat", "Check"),
-
 
             // Converters
             var addressConverter = new AddressConverter();
@@ -266,7 +221,7 @@ namespace Project
             );
             var inventoryManagementToEquipmentRepository = new InventoryManagementToEquipmentRepository(
                 new CSVStream<InventoryManagementToEquipment>(
-                    INVENTORY_EQUIPMENT_PATH,
+                    INVENTORY_EQUIPMENT_FILEPATH,
                     new InventoryManagementToEquipmentCSVConverter(DELIMITER)),
                 new LongSequencer()
             );
@@ -292,7 +247,7 @@ namespace Project
                 new CSVStream<Secretary>(SECRETARY_FILEPATH, new SecretaryCSVConverter(DELIMITER, DATETIME_FORMAT)),
                 addressRepository,
                 new LongSequencer());
-            var inventoryManagementRepository = new InventoryManagementRepository(new CSVStream<InventoryManagement>(INVENTORY_PATH, new InventoryManagementCSVConverter(DELIMITER,DATETIME_FORMAT)), inventoryManagementToEquipmentRepository, new LongSequencer());
+            var inventoryManagementRepository = new InventoryManagementRepository(new CSVStream<InventoryManagement>(INVENTORY_FILEPATH, new InventoryManagementCSVConverter(DELIMITER,DATETIME_FORMAT)), inventoryManagementToEquipmentRepository, new LongSequencer());
             var orderDetailsRepository = new OrderDetailsRepository( new CSVStream<OrderDetails>( ORDER_DETAILS_FILEPATH ,new OrderDetailsCSVConverter(DELIMITER)), new LongSequencer());
             var questionRepository = new QuestionRepository(new CSVStream<Question>(QUESTION_FILEPATH, new QuestionCSVConverter(DELIMITER, DATETIME_FORMAT)), new LongSequencer());
             var medicineRepository = new MedicineRepository(new CSVStream<Medicine>(MEDICINE_FILEPATH, new MedicineCSVConverter(DELIMITER)), new LongSequencer());
@@ -306,14 +261,14 @@ namespace Project
                 patientRepository,
                 doctorRepository,
                 new LongSequencer());
-            var roomRepository = new RoomRepository(new CSVStream<Room>(ROOM_PATH, new RoomCSVConverter(DELIMITER)),new LongSequencer(),equipmentRepository);
+            var roomRepository = new RoomRepository(new CSVStream<Room>(ROOM_FILEPATH, new RoomCSVConverter(DELIMITER)),new LongSequencer(),equipmentRepository);
 
             var orderRepository = new OrderRepository( new CSVStream<Order>(ORDER_FILEPATH, new OrderCSVConverter(DELIMITER, DATETIME_FORMAT)), medicineRepository, equipmentRepository, medicalConsumableRepository, orderDetailsRepository, new LongSequencer());
 
-            var renovationRepository = new RenovationRepository(new CSVStream<Renovation>(RENOVATION_PATH, new RenovationCSVConverter(DELIMITER, DATETIME_FORMAT)), new LongSequencer());
+            var renovationRepository = new RenovationRepository(new CSVStream<Renovation>(RENOVATION_FILEPATH, new RenovationCSVConverter(DELIMITER, DATETIME_FORMAT)), new LongSequencer());
             var feedbackRepository = new FeedbackRepository(new CSVStream<Feedback>(FEEDBACK_FILEPATH, new FeedbackCSVConverter(DELIMITER)), new LongSequencer());
-            var reviewRepository=new ReviewRepository(new CSVStream<Review>(REVIEW_PATH, new ReviewCSVConverter(DELIMITER)), new LongSequencer());
-            var anamnesisRepository = new AnamnesisRepository(new CSVStream<Anamnesis>(ANAMNESIS_PATH, new AnamnesisCSVConverter(DELIMITER)), new LongSequencer());
+            var reviewRepository=new ReviewRepository(new CSVStream<Review>(REVIEW_FILEPATH, new ReviewCSVConverter(DELIMITER)), new LongSequencer());
+            var anamnesisRepository = new AnamnesisRepository(new CSVStream<Anamnesis>(ANAMNESIS_FILEPATH, new AnamnesisCSVConverter(DELIMITER)), new LongSequencer());
 
             // Services
             var patientService = new PatientService(patientRepository);
@@ -359,9 +314,9 @@ namespace Project
             AnamnesisController = new AnamnesisController(anamnesisService, anamnesisConvertor);
 
             // Generators
-            SecretaryAppointmentReportGenerator = new SecretaryAppointmentReportGenerator(REPORT_APPOINTMENT_PATH);
-            PatientAppointmentReportGenerator = new PatientAppointmentReportGenerator(REPORT_APPOINTMENT_PATH);
-            PrescriptionReportGenerator = new PrescriptionReportGenerator(REPORT_PRESCRIPTION_PATH);
+            SecretaryAppointmentReportGenerator = new SecretaryAppointmentReportGenerator(REPORT_APPOINTMENT_FILEPATH);
+            PatientAppointmentReportGenerator = new PatientAppointmentReportGenerator(REPORT_APPOINTMENT_FILEPATH);
+            PrescriptionReportGenerator = new PrescriptionReportGenerator(REPORT_PRESCRIPTION_FILEPATH);
 
         }
 
