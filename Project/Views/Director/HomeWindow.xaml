@@ -127,7 +127,7 @@
         <TabItem Header="{DynamicResource employees}">
             <Grid>
                 <materialDesign:Card>
-                    <Grid Name="EmployeeDetailsGrid" Margin="0,0,0,0" Visibility="Collapsed" DataContext="{Binding ElementName=EmployeeList, Path=SelectedItem}">
+                    <Grid Name="EmployeeDetailsGrid" Margin="0,0,0,0" Visibility="Visible" DataContext="{Binding ElementName=EmployeeList, Path=SelectedItem}">
                         <Button Content="{DynamicResource back}" HorizontalAlignment="Left" Margin="36,26,0,0" VerticalAlignment="Top" Width="74" Click="OpenEmplyees"/>
                         <Image Source="/Project;component/Resources/Icons/hospital.png"  HorizontalAlignment="Left" Height="170" Margin="36,90,0,0" VerticalAlignment="Top" Width="170" OpacityMask="#FFF12511"/>
                         <Label Content="Email:" HorizontalAlignment="Left" Margin="219,125,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
@@ -190,11 +190,11 @@
                         <GroupBox Header="{DynamicResource annualLeave}" HorizontalAlignment="Left" Height="276" Margin="559,162,0,0" VerticalAlignment="Top" Width="292">
                             <StackPanel>
                                 <TextBlock Text="{DynamicResource beginning}"/>
-                                <DatePicker SelectedDate="{Binding AnnualLeave.Start, Mode=TwoWay}"/>
+                                <DatePicker Name="HolidayBeginning" SelectedDate="{Binding AnnualLeave.Start, Mode=TwoWay}"/>
 
                                 <TextBlock Text="{DynamicResource end}"/>
-                                <DatePicker SelectedDate="{Binding AnnualLeave.End, Mode=TwoWay}"/>
-                                <Button Margin="0,80" Content="{DynamicResource confirm}"/>
+                                <DatePicker Name="HolidayEnd" SelectedDate="{Binding AnnualLeave.End, Mode=TwoWay}"/>
+                                <Button Margin="0,80" Content="{DynamicResource confirm}" Click="ChangeHoliday" />
                             </StackPanel>
                         </GroupBox>
                         <GroupBox Header="{DynamicResource workingHouts}" HorizontalAlignment="Left" Height="276" Margin="890,162,0,0" VerticalAlignment="Top" Width="292">
@@ -277,7 +277,7 @@
 
 
 
-                <Grid Name="EmployeesGrid" Margin="0,0,0,0" Visibility="Visible">
+                <Grid Name="EmployeesGrid" Margin="0,0,0,0" Visibility="Collapsed">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="847*"/>
                         <ColumnDefinition Width="405*"/>
