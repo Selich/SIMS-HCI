@@ -173,6 +173,7 @@
     <Compile Include="Repositories\Abstract\IMedicalAppointmentRepository.cs" />
     <Compile Include="Repositories\Abstract\IMedicineRepository.cs" />
     <Compile Include="Repositories\Abstract\IOrderRepository.cs" />
+    <Compile Include="Repositories\Abstract\IPropositionRepository.cs" />
     <Compile Include="Repositories\Abstract\IPrescriptionRepository.cs" />
     <Compile Include="Repositories\Abstract\IMedicalConsumableRepository.cs" />
     <Compile Include="Repositories\Abstract\IFeedbackRepository.cs" />
@@ -220,6 +221,7 @@
     <Compile Include="Repositories\PrescriptionRepository.cs" />
     <Compile Include="Repositories\MedicalConsumableRepository.cs" />
     <Compile Include="Repositories\FeedbackRepository.cs" />
+    <Compile Include="Repositories\PropositionRepository.cs" />
     <Compile Include="Repositories\QuestionRepository.cs" />
     <Compile Include="Repositories\RenovationRepository.cs" />
     <Compile Include="Repositories\ReviewRepository.cs" />
@@ -240,6 +242,7 @@
     <Compile Include="Services\MedicalAppointmentService.cs" />
     <Compile Include="Services\MedicineService.cs" />
     <Compile Include="Services\OrderService.cs" />
+    <Compile Include="Services\PropositionService.cs" />
     <Compile Include="Services\PrescriptionService.cs" />
     <Compile Include="Services\MedicalConsumableService.cs" />
     <Compile Include="Services\FeedbackService.cs" />
@@ -255,6 +258,10 @@
     <Compile Include="Services\ReviewService.cs" />
     <Compile Include="Services\RoomService.cs" />
     <Compile Include="Services\SecretaryService.cs" />
+    <Compile Include="Services\State\InReviewState.cs" />
+    <Compile Include="Services\State\RejectedState.cs" />
+    <Compile Include="Services\State\ApprovedState.cs" />
+    <Compile Include="Services\State\IPropositionState.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="Util\Environment.cs" />
     <Compile Include="Util\HelperFunctions.cs" />
@@ -263,6 +270,7 @@
     <Compile Include="Views\Commands\ShowShortcutsCommand.cs" />
     <Compile Include="Views\Converters\AnamnesisConvertor.cs" />
     <Compile Include="Views\Converters\AppointmentConverter.cs" />
+    <Compile Include="Views\Converters\ApprovalConverter.cs" />
     <Compile Include="Views\Converters\BoolToVisibilityConverter.cs" />
     <Compile Include="Views\Converters\DoctorConverter.cs" />
     <Compile Include="Views\Converters\EquipmentConverter.cs" />
@@ -278,6 +286,7 @@
     <Compile Include="Views\Converters\PatientConverter.cs" />
     <Compile Include="Views\Converters\PrescriptionConverter.cs" />
     <Compile Include="Views\Converters\FeedbackConverter.cs" />
+    <Compile Include="Views\Converters\PropositionConverter.cs" />
     <Compile Include="Views\Converters\QuestionConverter.cs" />
     <Compile Include="Views\Converters\RenovationConverter.cs" />
     <Compile Include="Views\Converters\ReviewConverter.cs" />

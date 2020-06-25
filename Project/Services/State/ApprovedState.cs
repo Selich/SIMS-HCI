@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace Project.Services.State
 {
-    class Class1
+    class ApprovedState : IPropositionState
     {
+        public void Approve()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Reject()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

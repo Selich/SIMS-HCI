@@ -8,33 +8,29 @@ using System.Threading.Tasks;
 
 namespace Project.Services
 {
-    class PrescriptionService : IService<Prescription, long>
+    class PropositionService : IService<Proposition, long>
     {
-        private readonly IPrescriptionRepository _prescriptionRepository;
+        private readonly IPropositionRepository _propositionRepository;
 
-        public PrescriptionService(
-            IPrescriptionRepository prescriptionRepository,
-            IService<Medicine, long> medicineService,
-            IService<Patient, long> patientService
+        public PropositionService(
+            IPropositionRepository prescriptionRepository
             )
         {
-            _prescriptionRepository = prescriptionRepository;
+            _propositionRepository = prescriptionRepository;
         }
-        public IEnumerable<Prescription> GetAll() 
-            => _prescriptionRepository.GetAll();
-        public Prescription GetById(long id)
-            => _prescriptionRepository.GetById(id);
-        public Prescription Save(Prescription prescription)
-            => _prescriptionRepository.Save(prescription);
+        public IEnumerable<Proposition> GetAll() 
+            => _propositionRepository.GetAll();
+        public Proposition GetById(long id)
+            => _propositionRepository.GetById(id);
+        public Proposition Save(Proposition prescription)
+            => _propositionRepository.Save(prescription);
+        
+        //TODO add state methods
+        public Proposition Update(Proposition prescription)
+            => _propositionRepository.Update(prescription);
 
-        public Prescription Update(Prescription prescription)
-            => _prescriptionRepository.Update(prescription);
-
-        public Prescription Remove(Prescription prescription)
-            => _prescriptionRepository.Remove(prescription);
-
-        public Prescription GetAllPrescriptionsByPatientsId(long id)
-            => _prescriptionRepository.GetAllPrescriptionsByPatientsId(id);
+        public Proposition Remove(Proposition prescription)
+            => _propositionRepository.Remove(prescription);
 
     }
 }

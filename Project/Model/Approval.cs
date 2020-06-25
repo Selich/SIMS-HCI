@@ -13,5 +13,6 @@ namespace Project.Model
         public bool IsApproved {get;set;}
         public Doctor Doctor {get;set;}
         public Prescription Prescription { get; set; }
+
     }
 }
