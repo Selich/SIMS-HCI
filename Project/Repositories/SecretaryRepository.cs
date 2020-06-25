@@ -57,7 +57,7 @@ namespace Project.Repositories
         public new Secretary Update(Secretary entity) 
         {
             entity.Address = _addressRepository.Save(entity.Address);
-            return Update(entity);
+            return base.Update(entity);
         }
         private void BindSecretaryWithAddress(IEnumerable<Address> addresses, IEnumerable<Secretary> secretaries)
             => secretaries

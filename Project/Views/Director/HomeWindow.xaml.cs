@@ -298,8 +298,8 @@ namespace Project.Views.Director
             VisibleEmployees = new ObservableCollection<EmployeeDTO>(Employees);
             //(_secretaryRepository.GetAll() as List<Employee>)
             //.Concat(_doctorRepository.GetAll() as List<Employee>);
-            
-            EmployeeList.ItemsSource = new ObservableCollection<SecretaryDTO>(app.SecretaryController.GetAll());
+            //Popunjava listu sa svim zaposlenima
+            RefreshEmployeeList();
 
 
             Equipment = new ObservableCollection<EquipmentDTO>();
@@ -1035,15 +1035,51 @@ namespace Project.Views.Director
 
         }
 
+
+
         private void ChangeHoliday(object sender, RoutedEventArgs e)
         {
-           /* EmployeeDTO employee = EmployeeList.SelectedItem as EmployeeDTO;
+            DateTime Start = HolidayBeginning.SelectedDate.Value.Date;
+            DateTime End = HolidayEnd.SelectedDate.Value.Date;
+            EmployeeDTO employee = EmployeeList.SelectedItem as EmployeeDTO;
             App app = App.Current as App;
-            if (app.SecretaryController.GetById(employee.Id)!=null)
+            foreach (SecretaryDTO sec in Secretaries)
             {
-                app.SecretaryController.Update(()EmployeeList.SelectedItem);
+                if (employee.Id == sec.Id)
+                {
+                    sec.AnnualLeave.Start = Start;
+                    sec.AnnualLeave.End = End;
+                    app.SecretaryController.Update(sec);
+                    RefreshEmployeeList();
+                    return;
+                }
             }
-            */
+            /*
+            foreach (DoctorDTO doc in Doctors)
+            {
+                if (employee.Id == doc.Id)
+                {
+                    doc.AnnualLeave.Start = Start;
+                    doc.AnnualLeave.End = End;
+                    app.DoctorController.Update(doc);
+                    RefreshEmployeeList();
+                    return;
+                }
+            }
+            return; */
+        }
+
+        private void RefreshEmployeeList()
+        {
+            App app = App.Current as App;
+            Employees = new ObservableCollection<EmployeeDTO>();
+            Doctors = new ObservableCollection<DoctorDTO>(app.DoctorController.GetAll());
+            Secretaries = new ObservableCollection<SecretaryDTO>(app.SecretaryController.GetAll());
+            foreach (SecretaryDTO sec in Secretaries)
+                Employees.Add(sec as EmployeeDTO);
+            foreach (DoctorDTO doc in Doctors)
+                Employees.Add(doc as EmployeeDTO);
+            EmployeeList.ItemsSource = Employees;
         }
     }
 }

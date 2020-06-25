@@ -318,6 +318,8 @@ namespace Project
             PatientAppointmentReportGenerator = new PatientAppointmentReportGenerator(REPORT_APPOINTMENT_FILEPATH);
             PrescriptionReportGenerator = new PrescriptionReportGenerator(REPORT_PRESCRIPTION_FILEPATH);
 
+            
+
         }
 
 
