@@ -10,7 +10,7 @@ using System.Linq;
 namespace Project.Repositories
 {
     public class SecretaryRepository:
-        CSVRepository<Secretary, long>,
+        UserCSVRepository<Secretary, User, long>,
         ISecretaryRepository,
         IEagerCSVRepository<Secretary, long>
     {
@@ -24,7 +24,7 @@ namespace Project.Repositories
             ICSVStream<Secretary> secretaryStream,
             IAddressRepository addressRepository,
             ISequencer<long> sequencer
-            ) : base(ENTITY_NAME, stream, sequencer)
+            ) : base(stream, patientStream, doctorStream, secretaryStream, sequencer)
         {
             _addressRepository = addressRepository;
         }
