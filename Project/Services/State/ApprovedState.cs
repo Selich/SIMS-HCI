@@ -24,6 +24,7 @@ namespace Project.Services.State
         public Proposition Approve(Proposition proposition)
         {
             Proposition CurrentProposition = _propositionService.GetById(proposition.Id);
+
             return CurrentProposition;
         }
 

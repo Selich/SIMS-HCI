@@ -190,6 +190,10 @@ namespace Project
             medicalAppointmentTypes = new List<string> { "Pregled", "Operacija", "Ležanje" };
             SelectedDate = DateTime.Now;
 
+           
+                //new RoomDTO(111, RoomType.hospitalRoom, "1. Sprat", "Check"),
+
+
             // Converters
             var addressConverter = new AddressConverter();
             var patientConverter = new PatientConverter(addressConverter);

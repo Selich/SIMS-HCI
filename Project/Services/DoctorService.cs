@@ -17,9 +17,11 @@ namespace Project.Services
             _doctorRepository = doctorRepository;
         }
 
-        public IEnumerable<Doctor> GetAll() => _doctorRepository.GetAll();
+        public IEnumerable<Doctor> GetAll() 
+            => _doctorRepository.GetAll();
 
-        public Doctor GetById(long id) => _doctorRepository.GetById(id);
+        public Doctor GetById(long id) 
+            => _doctorRepository.GetById(id);
 
         public Doctor Save(Doctor doctor)
             => _doctorRepository.Save(doctor);
