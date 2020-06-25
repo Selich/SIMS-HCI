@@ -20,6 +20,12 @@ namespace Project.Model
         public List<Anamnesis> Anamnesis { get; set; }
 
         public MedicalAppointment(long v, DateTime dateTime) { }
+        public MedicalAppointment(long id, DateTime beginning, DateTime end, Room room, MedicalAppointmentType type, Guest patient)
+        : base(id, beginning, end, room)
+        {
+            Type = type;
+            Patient = patient;
+        }
 
         public MedicalAppointment(long id, DateTime beginning, DateTime end, Room room, MedicalAppointmentType type, Guest patient, List<Doctor> doctors)
         : base(id, beginning, end, room)

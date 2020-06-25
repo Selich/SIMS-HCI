@@ -11,15 +11,16 @@ using Project.Views.Model;
 using Project.Model;
 using Project.Services;
 using Project.Views.Converters;
+using Project.Services.Abstract;
 
 namespace Project.Controllers
 {
     public class PatientController : IController<PatientDTO, long>
     {
-        private IService<Patient, long> _service;
+        private IPatientService _service;
         private IConverter<Patient, PatientDTO> _converter;
 
-        public PatientController(IService<Patient, long> service, IConverter<Patient, PatientDTO> converter)
+        public PatientController(IPatientService service, IConverter<Patient, PatientDTO> converter)
         {
             _service = service;
             _converter = converter;
@@ -27,6 +28,8 @@ namespace Project.Controllers
         }
         public PatientDTO GetById(long id) 
             => _converter.ConvertEntityToDTO(_service.GetById(id));
+        public PatientDTO GetByEmail(string email) 
+            => _converter.ConvertEntityToDTO(_service.GetByEmail(email));
 
         public IEnumerable<PatientDTO> GetAll() 
             => _converter.ConvertListEntityToListDTO((List<Patient>)_service.GetAll());

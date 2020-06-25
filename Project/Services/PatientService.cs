@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 using Project.Model;
 using Project.Repositories;
 using Project.Repositories.Abstract;
+using Project.Services.Abstract;
 
 namespace Project.Services
 {
-    public class PatientService : IService<Patient, long>
+    public class PatientService : IPatientService
     {
         private readonly IPatientRepository _patientRepository;
 
@@ -23,7 +24,6 @@ namespace Project.Services
 
         public Patient GetById(long id) 
             => _patientRepository.GetById(id);
-
         public Patient Save(Patient patient) 
             => _patientRepository.Save(patient);
 
