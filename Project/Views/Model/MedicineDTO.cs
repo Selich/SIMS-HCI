@@ -12,9 +12,6 @@ namespace Project.Views.Model
         public string Purpose { get; set; }
         public string Administration { get; set; }
         public bool Approved { get; set; }
-
-        //public PrescriptionDTO prescription { get; set; }
-        
         public List<MedicineDTO> Alternatives { get; set; }
 
         public MedicineDTO() { }

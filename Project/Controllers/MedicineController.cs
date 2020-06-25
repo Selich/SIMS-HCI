@@ -33,7 +33,6 @@ namespace Controller
 
         public MedicineDTO GetById(long id)
             => _medicineConverter.ConvertEntityToDTO(_medicineService.GetById(id));
-
         public IEnumerable<MedicineDTO> GetAll()
             => _medicineConverter.ConvertListEntityToListDTO((List<Medicine>)_medicineService.GetAll());
 
@@ -46,12 +45,11 @@ namespace Controller
         public MedicineDTO Update(MedicineDTO entity)
             => _medicineConverter.ConvertEntityToDTO(_medicineService.Update(_medicineConverter.ConvertDTOToEntity(entity)));
         
-        /*
         public  MedicineDTO GetByName(string name)
             => _medicineConverter.ConvertEntityToDTO(_medicineService.GetByName(name));
 
-        public MedicineDTO RegisternMedicine(string name, string type, string administration, string purpose, string description)
-           => _medicineConverter.ConvertEntityToDTO(_medicineService.RegisternMedicine(name, type, administration, purpose, description));*/
+        // public MedicineDTO RegisternMedicine(string name, string type, string administration, string purpose, string description)
+        //    => _medicineConverter.ConvertEntityToDTO(_medicineService.RegisternMedicine(name, type, administration, purpose, description));*/
 
     }
 }

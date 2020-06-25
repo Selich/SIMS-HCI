@@ -54,7 +54,7 @@ namespace Project.Repositories
             entity.Address = _addressRepository.Save(entity.Address);
             return base.Save(entity);
         }
-        public Secretary Update(Secretary entity) 
+        public new Secretary Update(Secretary entity) 
         {
             entity.Address = _addressRepository.Save(entity.Address);
             return Update(entity);
