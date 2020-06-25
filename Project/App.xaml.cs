@@ -190,48 +190,7 @@ namespace Project
             medicalAppointmentTypes = new List<string> { "Pregled", "Operacija", "Ležanje" };
             SelectedDate = DateTime.Now;
 
-
-            doctors = new List<DoctorDTO>
-            {
-                new DoctorDTO(
-                1, new AddressDTO(1, "7A", "Bulevar despota Stefana", "Novi Sad", "Srbija", "21000"),
-                "Branislav", "Draganic", "123241129993", "+381604223222", "male", new DateTime(), 67000.00,
-                new TimeInterval(new DateTime(), new DateTime()), new TimeInterval(new DateTime(), new DateTime()),
-                "a@g.c", "p", medicalRoles[1])
-            };
-
-            secretaries = new List<SecretaryDTO>
-            {
-                new SecretaryDTO(
-                1, new AddressDTO(1, "7A", "Bulevar despota Stefana", "Novi Sad", "Srbija", "21000"),
-                "Filip", "Zdelar", "123241129993", "+381604223222", "male", new DateTime(), 67000.00,
-                new TimeInterval(new DateTime(), new DateTime()), new TimeInterval(new DateTime(), new DateTime()),
-                "selic.work@gmail.com", "pass"),
-            };
-
-            directors = new List<DirectorDTO>
-            {
-                new DirectorDTO(
-                1, new AddressDTO(1, "7A", "Bulevar despota Stefana", "Novi Sad", "Srbija", "21000"),
-                "Filip", "Zdelar", "123241129993", "+381604223222", "male", new DateTime(), 67000.00,
-                new TimeInterval(new DateTime(), new DateTime()), new TimeInterval(new DateTime(), new DateTime()),
-                "dusan998@gmail.com", "pass"),
-            };
-
-
-            patients = new List<PatientDTO>
-            {
-                new PatientDTO(
-                7, new AddressDTO(1, "7A", "Bulevar despota Stefana", "Novi Sad", "Srbija", "21000"),
-                "Uros", "Milovanovic", "123241129993", "+381604223222", "male", new DateTime().AddYears(2000).AddDays(20),
-                "08763646483684", "Diplomirani Kompjuteras", "0-", 185, 92, "urkem98@gmail.com", "pass"),
-            };
-
-            questions = new List<QuestionDTO>
-            {
-                new QuestionDTO(0,"Da li je moguće zakazivanje preko interneta", "Svakako.", patients[0], secretaries[0], DateTime.Now.AddDays(-5))
-            };
-
+           
                 //new RoomDTO(111, RoomType.hospitalRoom, "1. Sprat", "Check"),
 
 
