@@ -39,7 +39,7 @@ namespace Project.Views.Secretary
             SelectedDate.SelectedDate = DateTime.Now;
 
             ListPatients.ItemsSource = app.PatientController.GetAll();
-            // ListTerms.ItemsSource = terms;
+            ListTerms.ItemsSource = app.MedicalAppointmentController.GetAll();
             ListRooms.ItemsSource = app.RoomController.GetAll();
             AppointmentType.ItemsSource = app.medicalAppointmentTypes;
 

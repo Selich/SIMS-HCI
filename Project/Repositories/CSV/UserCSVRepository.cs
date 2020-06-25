@@ -56,8 +56,7 @@ namespace Project.Repositories.CSV
 
         public E Save(E entity)
         {
-            if(entity.GetId() is ID)
-                entity.SetId((ID)Convert.ChangeType(_sequencer.GenerateId(), typeof(ID)));
+            entity.SetId((ID)Convert.ChangeType(_sequencer.GenerateId(), typeof(ID)));
             _stream.AppendToFile(entity);
             return entity;
         }
@@ -82,8 +81,6 @@ namespace Project.Repositories.CSV
             }
         }
 
-
-
         public E Remove(E entity)
         {
             var entities = _stream.ReadAll().ToList();
@@ -100,7 +97,6 @@ namespace Project.Repositories.CSV
             }
             return default;
         }
-
 
         private void ThrowEntityNotFoundException(string key, object value)
           => throw new Exception(string.Format(NOT_FOUND_ERROR, _entityName, key, value));
