@@ -12,12 +12,21 @@ namespace Project.Views.Converters
     {
         private MedicineConverter _medicineConverter;
         private ApprovalConverter _approvalConverter;
+        private DoctorConverter _doctorConverter;
+        private PropositionConverter _propositionConverter;
 
-        public PropositionConverter(MedicineConverter medicineConverter, ApprovalConverter approvalConverter)
+        public PropositionConverter(MedicineConverter medicineConverter, ApprovalConverter approvalConverter, DoctorConverter doctorConverter)
         {
             _medicineConverter = medicineConverter;
             _approvalConverter = approvalConverter;
+            _doctorConverter = doctorConverter;
         }
+
+        public PropositionConverter(MedicineConverter medicineConverter)
+        {
+            _medicineConverter = medicineConverter;
+        }
+
         public Proposition ConvertDTOToEntity(PropositionDTO dto)
             => new Proposition(
                 dto.State,
@@ -37,5 +46,32 @@ namespace Project.Views.Converters
 
         public IEnumerable<PropositionDTO> ConvertListEntityToListDTO(List<Proposition> entities)
             => entities.Select(entity => ConvertEntityToDTO(entity)).ToList();
+
+        
+        public Approval ConvertDTOToEntity(ApprovalDTO dto)
+            => new Approval(
+                dto.Id,
+                dto.Description,
+                dto.IsApproved,
+                _doctorConverter.ConvertDTOToEntity(dto.Doctor),
+                ConvertDTOToEntity(dto.Proposition)
+
+            );
+
+        public ApprovalDTO ConvertEntityToDTO(Approval entity)
+            => new ApprovalDTO(
+                entity.Id,
+                entity.Description,
+                entity.IsApproved,
+                _doctorConverter.ConvertEntityToDTO(entity.Doctor),
+                ConvertEntityToDTO(entity.Proposition)
+                );
+
+        public List<Approval> ConvertListDTOToListEntity(IEnumerable<ApprovalDTO> dtos)
+            => dtos.Select(dto => ConvertDTOToEntity(dto)).ToList();
+
+        public IEnumerable<ApprovalDTO> ConvertListEntityToListDTO(List<Approval> entities)
+            => entities.Select(entity => ConvertEntityToDTO(entity)).ToList();
+
     }
 }

@@ -158,6 +158,8 @@ namespace Project
         private static string INVENTORY_FILEPATH = ConfigurationManager.AppSettings["InventoryPath"].ToString();
         private static string INVENTORY_EQUIPMENT_FILEPATH = ConfigurationManager.AppSettings["InventoryEquipmentPath"].ToString();
         private static string DOCTOR_FILEPATH = ConfigurationManager.AppSettings["DoctorPath"].ToString();
+        private static string PROPOSITION_FILEPATH = ConfigurationManager.AppSettings["PropositionPath"].ToString();
+        private static string APPROVAL_FILEPATH = ConfigurationManager.AppSettings["ApprovalPath"].ToString();
 
         // Many to many
         private static string MEDICAL_APPOINTMENT_TO_DOCTOR_FILEPATH = ConfigurationManager.AppSettings["MedicalAppointmentToDoctorPath"].ToString();
@@ -223,6 +225,10 @@ namespace Project
             var secretaryConverter = new SecretaryConverter(questionConverter, addressConverter);
             var inventoryManagementConverter = new InventoryManagementConverter(equipmentConverter, roomConverter);
             var orderConverter = new OrderConverter(medicalConsumableConverter, medicineConverter, equipmentConverter);
+
+            ApprovalConverter approvalConverter = new ApprovalConverter(doctorConverter);
+            PropositionConverter propositionConverter = new PropositionConverter(medicineConverter, approvalConverter, doctorConverter);
+
 
             // Repositories
             // Many to Many

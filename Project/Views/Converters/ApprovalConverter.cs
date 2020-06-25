@@ -11,13 +11,19 @@ namespace Project.Views.Converters
     public class ApprovalConverter : IConverter<Approval, ApprovalDTO>
     {
         private DoctorConverter _doctorConverter;
-        private PropositionConverter _propositionConverter;
+        public PropositionConverter _propositionConverter { get; set; }
 
         public ApprovalConverter(DoctorConverter doctorConverter, PropositionConverter propositionConverter)
         {
             _doctorConverter = doctorConverter;
             _propositionConverter = propositionConverter;
         }
+
+        public ApprovalConverter(DoctorConverter doctorConverter)
+        {
+            _doctorConverter = doctorConverter;
+        }
+
         public Approval ConvertDTOToEntity(ApprovalDTO dto)
             => new Approval(
                 dto.Id,
