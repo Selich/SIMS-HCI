@@ -326,10 +326,10 @@ namespace Project
 
             AddressDTO address = new AddressDTO(1, "1", "Ulca", "City", "Serb", "21000");
             DoctorDTO doctor = new DoctorDTO(address, "Pera", "Peric", "1231231231231", "021021", "Male", new DateTime(1990, 5, 5), 123, new TimeInterval(new DateTime(2020, 12, 12), new DateTime(2020, 12, 12)),
-                new TimeInterval(new DateTime(2020, 12, 12), new DateTime(2020, 12, 12)), "pRsdsdcom", "pass", "Rolica");
+                new TimeInterval(new DateTime(2020, 12, 12), new DateTime(2020, 12, 12)), "pRds", "pass", "Rolica");
             SecretaryDTO secretary = new SecretaryDTO(address, "Pera", "Peric", "1231231231231", "021021", "Male", new DateTime(1990, 5, 5), 123, new TimeInterval(new DateTime(2020, 12, 12), new DateTime(2020, 12, 12)),
-               new TimeInterval(new DateTime(2020, 12, 12), new DateTime(2020, 12, 12)), "pegoAdsdgrdsdsca@sda.com", "pass");
-            PatientDTO patient = new PatientDTO(address, "Pera", "Peric", "1231231231231", "021021", "Male", new DateTime(1990, 5, 5), "123", "deljac", "A+", 123, 123, "urkem98@gmail.com", "pass");
+               new TimeInterval(new DateTime(2020, 12, 12), new DateTime(2020, 12, 12)), "pegoAddgca@sda.com", "pass");
+            PatientDTO patient = new PatientDTO(address, "Pera", "Peric", "1231231231231", "021021", "Male", new DateTime(1990, 5, 5), "123", "deljac", "A+", 123, 123, "urk@gmail.com", "pass");
 
             var a = SecretaryController.Save(secretary);
             var b = DoctorController.Save(doctor);

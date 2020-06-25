@@ -44,13 +44,13 @@ namespace Project.Repositories
 
         public new Doctor Save(Doctor doctor)
         {
-            if (IsEmailUnique(doctor.Email))
-            {
+            //if (IsEmailUnique(doctor.Email))
+            //{
                 doctor.Address = _addressRepository.Save(doctor.Address);
                 return base.Save(doctor);
-            }
-            else
-                throw new Exception();
+            //}
+            //else
+            //    throw new Exception();
         }
         
         private bool IsEmailUnique(string email)
