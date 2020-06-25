@@ -26,7 +26,7 @@ namespace Project.Repositories
         public new IEnumerable<Medicine> Find(Func<Medicine, bool> predicate) => GetAllEager().Where(predicate);
         public IEnumerable<Medicine> GetAllLazy() {
             List<Medicine> list = new List<Medicine>();
-            foreach(Medicine medicine in GetAll()){
+            foreach(Medicine medicine in base.GetAll()){
                 medicine.Alternatives.Select(item => item.Alternatives = null);
                 list.Add(medicine);
             }

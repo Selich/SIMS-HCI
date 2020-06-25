@@ -1030,7 +1030,21 @@ namespace Project.Views.Director
              doc.Close();
         }
 
-        
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ChangeHoliday(object sender, RoutedEventArgs e)
+        {
+           /* EmployeeDTO employee = EmployeeList.SelectedItem as EmployeeDTO;
+            App app = App.Current as App;
+            if (app.SecretaryController.GetById(employee.Id)!=null)
+            {
+                app.SecretaryController.Update(()EmployeeList.SelectedItem);
+            }
+            */
+        }
     }
 }
 
