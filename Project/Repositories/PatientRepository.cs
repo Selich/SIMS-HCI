@@ -30,8 +30,14 @@ namespace Project.Repositories
             => GetAllEager().Where(predicate);
         public IEnumerable<Patient> GetAllEager() 
             => GetAll();
-        public Patient GetEager(long id) 
-            => GetById(id);
+
+        public Patient GetEager(long id)
+        {
+            Patient patient = GetById(id);
+            patient.Address = _addressRepository.GetById(patient.Address.Id);
+            return patient;
+        } 
+
         public new Patient Save(Patient patient)
         {
             if (IsEmailUnique(patient.Email)){
