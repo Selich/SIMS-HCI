@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace Project.Views.Converters
 {
-    public class PropositionCOnverter : IConverter<Proposition, PropositionDTO>
+    public class PropositionConverter : IConverter<Proposition, PropositionDTO>
     {
         private DirectionConverter _directionConverter;
         private MedicineConverter _medicineConverter;
         private ApprovalConverter _approvalConverter;
 
-        public PropositionCOnverter(MedicineConverter medicineConverter, DirectionConverter directionConverter, ApprovalConverter approvalConverter)
+        public PropositionConverter(MedicineConverter medicineConverter, DirectionConverter directionConverter, ApprovalConverter approvalConverter)
         {
             _medicineConverter = medicineConverter;
             _directionConverter = directionConverter;

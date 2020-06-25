@@ -15,6 +15,7 @@ namespace Project.Views.Model
         public string State { get; set; }
         public string Description { get; set; }
 
+
         public int Positive { get; set; }
 
         public int Negative { get; set; }
