@@ -50,13 +50,14 @@ namespace Project.Repositories.CSV
             List<long> ids = (List<long>) patients.Select(item => (item as Patient).Id).ToList();
             ids.AddRange(doctors.Select(item => (item as Doctor).Id).ToList());
             ids.AddRange(secretaries.Select(item => (item as Secretary).Id).ToList());
-            var index = (ids.Count == 0) ? 0 : ids.Max();
-            _sequencer.Initialize(index);
+
+            _sequencer.Initialize(ids.Max());
 
         }
 
         public E Save(E entity)
         {
+            InitializeId();
             entity.SetId((ID)Convert.ChangeType(_sequencer.GenerateId(), typeof(ID)));
             _stream.AppendToFile(entity);
             return entity;
