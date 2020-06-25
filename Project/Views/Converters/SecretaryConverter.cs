@@ -22,8 +22,6 @@ namespace Project.Views.Converters
 
         public Project.Model.Secretary ConvertDTOToEntity(SecretaryDTO dto)
         {
-            List<Question> questions = dto.Questions.Select(qu => _questionConverter.ConvertDTOToEntity(qu)).ToList();
-
             return new Project.Model.Secretary(
                     dto.Id,
                     _addressConverter.ConvertDTOToEntity(dto.Address),
@@ -37,15 +35,12 @@ namespace Project.Views.Converters
                     dto.AnnualLeave,
                     dto.WorkingHours,
                     dto.Email,
-                    dto.Password,
-                    questions
+                    dto.Password
                     );
         }
 
         public SecretaryDTO ConvertEntityToDTO(Project.Model.Secretary entity)
         {
-
-            List<QuestionDTO> questions = entity.Questions.Select(qu => _questionConverter.ConvertEntityToDTO(qu)).ToList();
 
             return new SecretaryDTO(
                     entity.Id,
@@ -60,8 +55,7 @@ namespace Project.Views.Converters
                     entity.AnnualLeave,
                     entity.WorkingHours,
                     entity.Email,
-                    entity.Password,
-                    questions
+                    entity.Password
                     );
         }
         public List<Project.Model.Secretary> ConvertListDTOToListEntity(IEnumerable<SecretaryDTO> dtos)
