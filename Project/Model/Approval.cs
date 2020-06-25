@@ -12,6 +12,16 @@ namespace Project.Model
         public string Description {get;set;}
         public bool IsApproved {get;set;}
         public Doctor Doctor {get;set;}
-        public Prescription Prescription { get; set; }
+        public Proposition Proposition { get; set; }
+
+        public Approval() { } 
+
+        public Approval(string description, bool isApproved, Doctor doctor, Proposition proposition)
+        {
+            Description = description;
+            IsApproved = isApproved;
+            Doctor = doctor;
+            Proposition = proposition;
+        }
     }
 }
