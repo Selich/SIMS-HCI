@@ -14,7 +14,7 @@ namespace Project.Repositories
         IPropositionRepository,
         IEagerCSVRepository<Proposition, long>
     {
-        private const string ENTITY_NAME = "Question";
+        private const string ENTITY_NAME = "Proposition";
 
         public PropositionRepository(
             ICSVStream<Proposition> stream,

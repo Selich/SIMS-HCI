@@ -21,12 +21,14 @@ namespace Project.Views.Patient
     public partial class RateAppointment : Window
     {
         public MedicalAppointmentDTO ReviewAppointment { get; set; }
+        private App app;
 
         public RateAppointment(MedicalAppointmentDTO appointment)
         {
             InitializeComponent();
             this.DataContext = this;
             ReviewAppointment = appointment;
+            app = Application.Current as App;
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
@@ -36,6 +38,7 @@ namespace Project.Views.Patient
 
         private void Submit_Click(object sender, RoutedEventArgs e)
         {
+            app.ReviewController.Save(new ReviewDTO(int.Parse(Rating.Text), "Rating from user", ReviewAppointment.Doctors.First()));
             Close();
         }
     }

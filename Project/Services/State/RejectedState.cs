@@ -12,6 +12,10 @@ namespace Project.Services.State
         IPropositionService _propositionService;
         IService<Approval, long> _approvalService;
 
+        public RejectedState()
+        {
+        }
+
         public RejectedState(
             IPropositionService propositionService,
             IService<Approval, long> approvalService

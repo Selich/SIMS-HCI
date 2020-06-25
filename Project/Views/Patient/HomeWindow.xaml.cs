@@ -55,9 +55,10 @@ namespace Project.Views.Patient
             //Appoitments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 14, 11, 0, 0), Type = MedicalAppointmentType.operation, End = new DateTime(2020, 5, 14, 11, 30, 0), IsScheduled = true });
             //Appoitments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 15, 14, 0, 0), Type = MedicalAppointmentType.operation, End = new DateTime(2020, 5, 15, 14, 30, 0), IsScheduled = true });
 
+            AddressDTO tempAddress = new AddressDTO() { City = "Novi Sad", Country = "Serbia", Number = "25", PostCode = "21000", Street = "Petra Petrovica" };
 
             //History
-            DoctorDTO tempDoctor = new DoctorDTO() { FirstName = "Filip Zdelar" };
+            DoctorDTO tempDoctor = new DoctorDTO(tempAddress, "filip", "zdelar", "1234567890123", "123", "Male", DateTime.Now, 123, new TimeInterval(DateTime.Now, DateTime.Now), new TimeInterval(DateTime.Now, DateTime.Now), "emai@lams.cs", "pass", "Hirg");
             ReviewDTO tempReview = new ReviewDTO(5, "yes");
             List<DoctorDTO> tempDoctors = new List<DoctorDTO>();
             tempDoctors.Add(tempDoctor);
@@ -70,8 +71,7 @@ namespace Project.Views.Patient
             PastAppoitments.Add(new MedicalAppointmentDTO() { Id = 5, Room = tempRoom, Beginning = new DateTime(2020, 5, 15, 14, 0, 0), Type = MedicalAppointmentType.operation, End = new DateTime(2020, 5, 15, 14, 30, 0), Doctors = tempDoctors, Review = tempReview, Patient = LoggedInPatient });
             
             //Profile
-            AddressDTO tempAddress = new AddressDTO() { City = "Novi Sad", Country = "Serbia", Number = "25", PostCode = "21000", Street = "Petra Petrovica" };
-            LoggedInPatient = new PatientDTO() {Id = 0, FirstName = "Uros", LastName = "Milovanovic", DateOfBirth = new DateTime(1998, 8, 25), Email = "urke123@gmail.com", Gender = "Male", InsurenceNumber = "1234567", Jmbg = "1234567890", TelephoneNumber= "06551232123", Address = tempAddress };
+            LoggedInPatient = new PatientDTO() {Id = 1, FirstName = "Uros", LastName = "Milovanovic", DateOfBirth = new DateTime(1998, 8, 25), Email = "urke123@gmail.com", Gender = "Male", InsurenceNumber = "1234567", Jmbg = "1234567890", TelephoneNumber= "06551232123", Address = tempAddress };
 
             Appoitments = new ObservableCollection<Model.MedicalAppointmentDTO>();
 
@@ -81,8 +81,7 @@ namespace Project.Views.Patient
             {
                 Appoitments.Add(appoitment);
             }
-            app.DoctorController.Save(new DoctorDTO(tempAddress, "filip", "zdelar", "1234567890123", "123", "Male",
-                DateTime.Now, 123.12, new TimeInterval(DateTime.Now, DateTime.Now), new TimeInterval(DateTime.Now, DateTime.Now), "emai@lams.cs", "pass", "Hirg"));
+            
 
             AvailableAppoitments = new ObservableCollection<Model.MedicalAppointmentDTO>();
 

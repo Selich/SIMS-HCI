@@ -195,7 +195,7 @@ namespace Project
             {
                 new DoctorDTO(
                 1, new AddressDTO(1, "7A", "Bulevar despota Stefana", "Novi Sad", "Srbija", "21000"),
-                "Branislav", "Draganic", "123241129993", "+381604223222", "male", new DateTime(), 67000.00,
+                "Branislav", "Draganic", "123241129993", "+381604223222", "male", new DateTime(), 67000,
                 new TimeInterval(new DateTime(), new DateTime()), new TimeInterval(new DateTime(), new DateTime()),
                 "a@g.c", "p", medicalRoles[1])
             };
@@ -204,7 +204,7 @@ namespace Project
             {
                 new SecretaryDTO(
                 1, new AddressDTO(1, "7A", "Bulevar despota Stefana", "Novi Sad", "Srbija", "21000"),
-                "Filip", "Zdelar", "123241129993", "+381604223222", "male", new DateTime(), 67000.00,
+                "Filip", "Zdelar", "123241129993", "+381604223222", "male", new DateTime(), 67000,
                 new TimeInterval(new DateTime(), new DateTime()), new TimeInterval(new DateTime(), new DateTime()),
                 "selic.work@gmail.com", "pass"),
             };
@@ -213,7 +213,7 @@ namespace Project
             {
                 new DirectorDTO(
                 1, new AddressDTO(1, "7A", "Bulevar despota Stefana", "Novi Sad", "Srbija", "21000"),
-                "Filip", "Zdelar", "123241129993", "+381604223222", "male", new DateTime(), 67000.00,
+                "Filip", "Zdelar", "123241129993", "+381604223222", "male", new DateTime(), 67000,
                 new TimeInterval(new DateTime(), new DateTime()), new TimeInterval(new DateTime(), new DateTime()),
                 "dusan998@gmail.com", "pass"),
             };
