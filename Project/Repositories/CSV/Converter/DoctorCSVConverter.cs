@@ -51,7 +51,7 @@ namespace Project.Repositories.CSV.Converter
                 tokens[5],
                 tokens[6],
                 DateTime.Parse(tokens[7]),
-                double.Parse(tokens[8]),
+                int.Parse(tokens[8]),
                 new TimeInterval(DateTime.Parse(tokens[9]), DateTime.Parse(tokens[10])),
                 new TimeInterval(DateTime.Parse(tokens[11]), DateTime.Parse(tokens[12])),
                 tokens[13],
