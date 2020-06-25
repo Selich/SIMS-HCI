@@ -38,20 +38,24 @@ namespace Project.Repositories
         private bool IsRoomUnique(long id)
          => GetByIdNumber(id) == null;
         private Room GetByIdNumber(long id)
-        => _stream.ReadAll().SingleOrDefault(patient => patient.Id.Equals(id));
+        => _stream.ReadAll().SingleOrDefault(room => room.Id.Equals(id));
+
+        public new IEnumerable<Room> GetAll()
+        => GetAllEager();
 
         public IEnumerable<Room> GetAllEager()
         {
             List<Room> eagerRooms= new List<Room>();
-            var rooms = GetAll();
+            var rooms = base.GetAll();
 
             foreach (Room room in rooms)
                 eagerRooms.Add(GetEager(room.Id));
             return eagerRooms;
         }
+
         public Room GetEager(long id)
         {
-            var room = GetById(id);
+            var room = base.GetById(id);
             var equipment = _equipmentRepository.GetAll();
             room.Equipment = equipment.Where(eq => eq.Room.Id == id).ToList();
             return room;
