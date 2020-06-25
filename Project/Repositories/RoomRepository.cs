@@ -17,12 +17,15 @@ namespace Project.Repositories
         IEagerCSVRepository<Room, long>
     {
         private const string ENTITY_NAME = "Room";
+        private readonly CSVRepository<Equipment, long> _equipmentRepository;
 
         public RoomRepository(
             ICSVStream<Room> stream,
-            ISequencer<long> sequencer
+            ISequencer<long> sequencer,
+            CSVRepository<Equipment, long> equipmentRepository
             ) : base(ENTITY_NAME, stream, sequencer)
         {
+            _equipmentRepository = equipmentRepository;
         }
         public new IEnumerable<Room> Find(Func<Room, bool> predicate) => GetAllEager().Where(predicate);
         public new Room Save(Room room)
@@ -37,8 +40,22 @@ namespace Project.Repositories
         private Room GetByIdNumber(long id)
         => _stream.ReadAll().SingleOrDefault(patient => patient.Id.Equals(id));
 
-        public IEnumerable<Room> GetAllEager() => GetAll();
-        public Room GetEager(long id) => GetById(id);
+        public IEnumerable<Room> GetAllEager()
+        {
+            List<Room> eagerRooms= new List<Room>();
+            var rooms = GetAll();
+
+            foreach (Room room in rooms)
+                eagerRooms.Add(GetEager(room.Id));
+            return eagerRooms;
+        }
+        public Room GetEager(long id)
+        {
+            var room = GetById(id);
+            var equipment = _equipmentRepository.GetAll();
+            room.Equipment = equipment.Where(eq => eq.Room.Id == id).ToList();
+            return room;
+        }
 
     }
 }

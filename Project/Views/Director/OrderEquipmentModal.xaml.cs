@@ -40,20 +40,24 @@ namespace Project.Views.Director
             string Name = NewEquipmentName.Text;
             string Type = NewEquipmentType.Text;
             int Quantity = Int32.Parse(NewEquipmentQuanitity.Text);
+            App app = App.Current as App;
 
             if (Quantity > 0 && Quantity < 10)
             {
+                EquipmentDTO newEquipment = new EquipmentDTO();
+                newEquipment.Description = Description;
+                newEquipment.Name = Name;
+                newEquipment.Type = Type;
+                newEquipment.Room = app.RoomController.GetById(0);
                 for (int i = 0; i < Quantity; i++)
                 {
-                    EquipmentDTO newEquipment = new EquipmentDTO();
-                    newEquipment.Description = Description;
-                    newEquipment.Name = Name;
-                    newEquipment.Type = Type;
-                    newEquipment.Room = Home.Magacin;
-                    Home.Equipment.Add(newEquipment);
-                    Home.VisibleEquipment.Add(newEquipment);
-                    Home.Magacin.Equipment.Add(newEquipment);
+                    app.EquipmentController.Save(newEquipment);
+                   // Home.Equipment.Add(newEquipment);
+                   // Home.VisibleEquipment.Add(newEquipment);
+                   // Home.Magacin.Equipment.Add(newEquipment);
                 }
+                Home.EquipmentList.ItemsSource = app.EquipmentController.GetAll();
+                Home.VisibleRooms.ItemsSource = app.RoomController.GetAll();
             }
             this.Close();
         }

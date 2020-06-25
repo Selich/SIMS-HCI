@@ -212,6 +212,7 @@ namespace Project.Views.Director
 
         public HomeWindow()
         {
+            
            
             InitializeComponent();
             this.DataContext = this;
@@ -296,7 +297,11 @@ namespace Project.Views.Director
 
 
             VisibleEmployees = new ObservableCollection<EmployeeDTO>(Employees);
+            //(_secretaryRepository.GetAll() as List<Employee>)
+            //.Concat(_doctorRepository.GetAll() as List<Employee>);
             
+            EmployeeList.ItemsSource = new ObservableCollection<SecretaryDTO>(app.SecretaryController.GetAll());
+
 
             Equipment = new ObservableCollection<EquipmentDTO>();
             Magacin = new RoomDTO(0,RoomType.hospitalRoom,"magacin","");
@@ -316,7 +321,7 @@ namespace Project.Views.Director
             Magacin.Equipment.Add(novaOprema);
             Equipment.Add(novaOprema);
             VisibleEquipment = new ObservableCollection<EquipmentDTO>(Equipment);
-
+            EquipmentList.ItemsSource= new ObservableCollection<EquipmentDTO>(app.EquipmentController.GetAll());
 
             MedicalConsumables = new ObservableCollection<MedicalConsumableDTO>();
             MedicalConsumables.Add(new MedicalConsumableDTO(1, "Gaza", "zavoj", "zavoj je izmislio Vasko Popa...", 23));
@@ -324,6 +329,7 @@ namespace Project.Views.Director
             MedicalConsumables.Add(new MedicalConsumableDTO(3, "Hidrogen", "rastvor", "zavoj je izmislio Vasko Popa...", 18));
             MedicalConsumables.Add(new MedicalConsumableDTO(4, "Fizioloski rastvor", "rastvor", "zavoj je izmislio Vasko Popa...", 5));
             VisibleMedicalConsumables = new ObservableCollection<MedicalConsumableDTO>(MedicalConsumables);
+            MedicalConsumablesList.ItemsSource = new ObservableCollection<MedicalConsumableDTO>(app.MedicalConsumableController.GetAll());
 
             Medicine = new ObservableCollection<MedicineDTO>();
             Medicine.Add(new MedicineDTO(5, "Berodual", "kortikosteroid", "zavoj je izmislio Vasko Popa...", 23,"","intravenozno",false));
@@ -331,6 +337,7 @@ namespace Project.Views.Director
             Medicine.Add(new MedicineDTO(7, "Fervex", "prasak", "zavoj je izmislio Vasko Popa...", 18, "", "", true));
             Medicine.Add(new MedicineDTO(8, "Zufiofilum", "antibiotik", "zavoj je izmislio Vasko Popa...", 5, "", "", true));
             VisibleMedicine = new ObservableCollection<MedicineDTO>(Medicine);
+            MedicineList.ItemsSource = new ObservableCollection<MedicineDTO>(app.MedicineController.GetAll());
 
 
             RoomList = new ObservableCollection<RoomDTO>();
@@ -342,6 +349,8 @@ namespace Project.Views.Director
             RoomList.Add(new RoomDTO(17, RoomType.medicalRoom, "Pregledi", "1"));
             RoomList.Add(new RoomDTO(5, RoomType.hospitalRoom, "Intenzivna nega", "3"));
             VisibleRoomList = new ObservableCollection<RoomDTO>(RoomList);
+            VisibleRooms.ItemsSource = new ObservableCollection<RoomDTO>(app.RoomController.GetAll());
+            
         }
 
         private void OpenSettingsModal(object sender, RoutedEventArgs e)

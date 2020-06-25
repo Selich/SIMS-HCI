@@ -45,14 +45,17 @@ namespace Project.Views.Director
             if (Int32.TryParse(str, out int Quantity))
             {
                 Medicine.Quantity += Quantity;
-               /* MedicineDTO newMedicine = new MedicineDTO();
-                newMedicine.Name = Medicine.Name;
-                newMedicine.Type = Medicine.Type;
-                newMedicine.Id = Medicine.Id;
-                newMedicine.Description = Medicine.Description;
-                newMedicine.Quantity = Medicine.Quantity + Quantity;
-                Home.Medicine.Add(newMedicine);
-                Home.Medicine.Remove(Medicine);*/
+                App app = App.Current as App;
+                app.MedicineController.Update(Medicine);
+                Home.MedicineList.ItemsSource = app.MedicineController.GetAll();
+                /* MedicineDTO newMedicine = new MedicineDTO();
+                 newMedicine.Name = Medicine.Name;
+                 newMedicine.Type = Medicine.Type;
+                 newMedicine.Id = Medicine.Id;
+                 newMedicine.Description = Medicine.Description;
+                 newMedicine.Quantity = Medicine.Quantity + Quantity;
+                 Home.Medicine.Add(newMedicine);
+                 Home.Medicine.Remove(Medicine);*/
 
             }
             this.Close();
