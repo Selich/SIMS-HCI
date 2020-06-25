@@ -37,7 +37,10 @@ namespace Project.Views.Converters
             );
 
         public PatientDTO ConvertEntityToDTO(Project.Model.Patient entity)
-                => new PatientDTO(
+        {
+            try
+            {
+                return new PatientDTO(
                 entity.Id,
                 _addressConverter.ConvertEntityToDTO(entity.Address),
                 entity.FirstName,
@@ -53,6 +56,14 @@ namespace Project.Views.Converters
                 entity.Weight,
                 entity.Email,
                 entity.Password);
+
+            }
+            catch (System.Exception)
+            {
+                return new PatientDTO();
+
+            }
+        }
 
         public List<Project.Model.Patient> ConvertListDTOToListEntity(IEnumerable<PatientDTO> dtos)
             => dtos.Select(dto => ConvertDTOToEntity(dto)).ToList();

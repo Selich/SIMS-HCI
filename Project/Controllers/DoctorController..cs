@@ -7,6 +7,7 @@ using Project.Model;
 using Project.Services;
 using Project.Views.Converters;
 using Project.Controllers.Abstract;
+using Project.Services.Abstract;
 
 namespace Project.Controllers
 {
@@ -15,10 +16,10 @@ namespace Project.Controllers
     /// </summary>
     public partial class DoctorController : IDoctorController
     {
-        private IService<Doctor, long> _service;
+        private IDoctorService _service;
         private IConverter<Doctor, DoctorDTO> _converter;
 
-        public DoctorController(IService<Doctor, long> service, IConverter<Doctor, DoctorDTO> converter)
+        public DoctorController(IDoctorService service, IConverter<Doctor, DoctorDTO> converter)
         { 
             _service = service;
             _converter = converter;
@@ -26,6 +27,8 @@ namespace Project.Controllers
 
         public DoctorDTO GetById(long id) 
             => _converter.ConvertEntityToDTO(_service.GetById(id));
+        public DoctorDTO GetByEmail(string email)
+            => _converter.ConvertEntityToDTO(_service.GetByEmail(email));
 
         public IEnumerable<DoctorDTO> GetAll() 
             => _converter.ConvertListEntityToListDTO((List<Doctor>)_service.GetAll());
@@ -39,9 +42,5 @@ namespace Project.Controllers
         public DoctorDTO Update(DoctorDTO entity)
             => _converter.ConvertEntityToDTO(_service.Update(_converter.ConvertDTOToEntity(entity)));
 
-        public DoctorDTO GetByEmail(string email)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

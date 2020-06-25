@@ -12,7 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using Project.Views.Model;
 
 namespace Project.Views
 {
@@ -36,7 +36,9 @@ namespace Project.Views
 
         private void Login_Click(object sender, RoutedEventArgs e)
         {
-            var role = app.AuthenticationController.Login(Email, PasswordTextBox.Password);
+            Tuple<UserDTO, string> tuple = app.AuthenticationController.Login(Email, PasswordTextBox.Password);
+            app.currentUser = tuple.Item1;
+            string role = tuple.Item2;
             switch (role)
             {
                 case "Director": new Director.HomeWindow().Show(); break;

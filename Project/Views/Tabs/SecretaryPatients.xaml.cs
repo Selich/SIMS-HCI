@@ -32,7 +32,7 @@ namespace Project.Views.Tabs
             InitializeComponent();
             app = Application.Current as App;
 
-            PatientList.ItemsSource = app.patients;
+            PatientList.ItemsSource = app.PatientController.GetAll();
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(PatientList.ItemsSource);
             view.Filter = CombinedFilter;
         }

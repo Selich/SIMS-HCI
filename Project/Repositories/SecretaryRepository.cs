@@ -63,6 +63,8 @@ namespace Project.Repositories
             => secretaries
             .ToList()
             .ForEach(sec => sec.Address = _addressRepository.GetById(sec.Address.Id));
+        public Secretary GetByEmail(string email)
+            => _stream.ReadAll().SingleOrDefault(item => item.Email.Equals(email));
 
     }
 }

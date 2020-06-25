@@ -14,7 +14,7 @@ namespace Project.Views.Converters
         private QuestionConverter _questionConverter;
         private AddressConverter _addressConverter;
 
-        public SecretaryConverter(QuestionConverter questionConverter,AddressConverter addressConverter)
+        public SecretaryConverter(QuestionConverter questionConverter, AddressConverter addressConverter)
         {
             _questionConverter = questionConverter;
             _addressConverter = addressConverter;
@@ -42,21 +42,31 @@ namespace Project.Views.Converters
         public SecretaryDTO ConvertEntityToDTO(Project.Model.Secretary entity)
         {
 
-            return new SecretaryDTO(
-                    entity.Id,
-                    _addressConverter.ConvertEntityToDTO(entity.Address),
-                    entity.FirstName,
-                    entity.LastName,
-                    entity.Jmbg,
-                    entity.TelephoneNumber,
-                    entity.Gender,
-                    entity.DateOfBirth,
-                    entity.Salary,
-                    entity.AnnualLeave,
-                    entity.WorkingHours,
-                    entity.Email,
-                    entity.Password
-                    );
+            try
+            {
+
+                return new SecretaryDTO(
+                        entity.Id,
+                        _addressConverter.ConvertEntityToDTO(entity.Address),
+                        entity.FirstName,
+                        entity.LastName,
+                        entity.Jmbg,
+                        entity.TelephoneNumber,
+                        entity.Gender,
+                        entity.DateOfBirth,
+                        entity.Salary,
+                        entity.AnnualLeave,
+                        entity.WorkingHours,
+                        entity.Email,
+                        entity.Password
+                        );
+
+            }
+            catch (System.Exception)
+            {
+
+                return new SecretaryDTO();
+            }
         }
         public List<Project.Model.Secretary> ConvertListDTOToListEntity(IEnumerable<SecretaryDTO> dtos)
         => dtos.Select(dto => ConvertDTOToEntity(dto)).ToList();

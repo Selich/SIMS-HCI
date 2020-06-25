@@ -21,6 +21,8 @@ namespace Project.Services
         public IEnumerable<Secretary> GetAll()
             => _secretaryRepository.GetAll();
 
+        public Secretary GetByEmail(string email)
+            => _secretaryRepository.GetByEmail(email);
 
         public Secretary GetById(long id)
             => _secretaryRepository.GetById(id);
@@ -34,8 +36,6 @@ namespace Project.Services
         public Secretary Update(Secretary secretary)
             => _secretaryRepository.Update(secretary);
 
-        public Secretary GetByEmail(string email)
-            => _secretaryRepository.GetAll().SingleOrDefault(sec => sec.Email.Equals(email));
 
     }
 }

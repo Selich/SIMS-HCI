@@ -1,6 +1,7 @@
 ﻿using Project.Controllers.Abstract;
 using Project.Model;
 using Project.Services;
+using Project.Services.Abstract;
 using Project.Views.Converters;
 using Project.Views.Model;
 using System;
@@ -13,11 +14,11 @@ namespace Project.Controllers
 {
     public class SecretaryController: ISecretaryController
     {
-        private IService<Secretary, long> _service;
+        private ISecretaryService _service;
         private IConverter<Secretary, SecretaryDTO> _secretaryConverter;
 
         public SecretaryController(
-            IService<Secretary, long> service,
+            ISecretaryService service,
             IConverter<Secretary, SecretaryDTO> secretaryConverter
          )
         {
@@ -26,23 +27,21 @@ namespace Project.Controllers
         }
 
         public IEnumerable<SecretaryDTO> GetAll()
-        => _secretaryConverter.ConvertListEntityToListDTO((List<Secretary>)_service.GetAll());
+            => _secretaryConverter.ConvertListEntityToListDTO((List<Secretary>)_service.GetAll());
 
         public SecretaryDTO GetByEmail(string email)
-        {
-            throw new NotImplementedException();
-        }
+            => _secretaryConverter.ConvertEntityToDTO(_service.GetByEmail(email));
 
         public SecretaryDTO GetById(long id)
-         => _secretaryConverter.ConvertEntityToDTO(_service.GetById(id));
+            => _secretaryConverter.ConvertEntityToDTO(_service.GetById(id));
 
         public SecretaryDTO Remove(SecretaryDTO entity)
-         => _secretaryConverter.ConvertEntityToDTO(_service.Remove(_secretaryConverter.ConvertDTOToEntity(entity)));
+            => _secretaryConverter.ConvertEntityToDTO(_service.Remove(_secretaryConverter.ConvertDTOToEntity(entity)));
 
         public SecretaryDTO Save(SecretaryDTO entity)
-        => _secretaryConverter.ConvertEntityToDTO(_service.Save(_secretaryConverter.ConvertDTOToEntity(entity)));
+            => _secretaryConverter.ConvertEntityToDTO(_service.Save(_secretaryConverter.ConvertDTOToEntity(entity)));
 
         public SecretaryDTO Update(SecretaryDTO entity)
-         => _secretaryConverter.ConvertEntityToDTO(_service.Update(_secretaryConverter.ConvertDTOToEntity(entity)));
+            => _secretaryConverter.ConvertEntityToDTO(_service.Update(_secretaryConverter.ConvertDTOToEntity(entity)));
     }
 }
