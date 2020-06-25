@@ -22,38 +22,11 @@ namespace Project.Controllers
             SecretaryDTO secretary = app.SecretaryController.GetByEmail(email);
             DoctorDTO doctor = app.DoctorController.GetByEmail(email);
             DirectorDTO director = app.director;
-            if (patient != null)
-            {
-                if (patient.Password == password)
-                {
-                    return Tuple.Create(patient as UserDTO, "Patient");
-                }
-
-            } 
-            // else
-            // if (secretary != null)
-            // {
-            //     if (secretary.Password == password)
-            //     {
-            //         return Tuple.Create(secretary as UserDTO, "Secretary");
-            //     }
-
-            // } else
-            // if (doctor != null)
-            // {
-            //     if (doctor.Password == password)
-            //     {
-            //         return Tuple.Create(doctor as UserDTO, "Doctor");
-            //     }
-            // } else 
-            // if (director.Email == email)
-            // {
-            //     if (director.Password == password)
-            //     {
-                    return Tuple.Create(director as UserDTO, "Director");
-            //     }
-            // }
-            // return null;
+            if(patient.Email == email && patient.Password == password) return Tuple.Create(patient as UserDTO, "Patient");
+            if(secretary.Email == email && secretary.Password == password) return Tuple.Create(secretary as UserDTO, "Secretary");
+            if(doctor.Email == email && doctor.Password == password) return Tuple.Create(doctor as UserDTO, "Doctor");
+            if(director.Email == email && director.Password == password) return Tuple.Create(director as UserDTO, "Director");
+            return null;
         }
     }
 }

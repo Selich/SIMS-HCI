@@ -196,7 +196,7 @@ namespace Project
             medicalAppointmentTypes = new List<string> { "Pregled", "Operacija", "Ležanje" };
             AddressDTO address = new AddressDTO("1", "Bulevar despota Stefan 7A", "Novi Sad", "Srbija", "21000");
 
-            director = new DirectorDTO(address, "Nikola", "Selic", "1231231231231", "021021", "Male", new DateTime(1990, 5, 5), 123, new TimeInterval(new DateTime(2020, 12, 12), new DateTime(2020, 12, 12)), new TimeInterval(new DateTime(2020, 12, 12), new DateTime(2020, 12, 12)), "selic.work@gmail.com", "pass");
+            director = new DirectorDTO(address, "Dusan", "Urosevic", "1231231231231", "021021", "Male", new DateTime(1990, 5, 5), 123, new TimeInterval(new DateTime(2020, 12, 12), new DateTime(2020, 12, 12)), new TimeInterval(new DateTime(2020, 12, 12), new DateTime(2020, 12, 12)), "dusan998@gmail.com", "pass");
             SelectedDate = DateTime.Now;
 
 
