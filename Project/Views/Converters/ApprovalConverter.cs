@@ -32,7 +32,7 @@ namespace Project.Views.Converters
                 entity.Description,
                 entity.IsApproved,
                 _doctorConverter.ConvertEntityToDTO(entity.Doctor),
-                _propositionConverter.ConvertListEntityToListDTO(entity.);
+                _propositionConverter.ConvertEntityToDTO(entity.Proposition)
                 );
 
         public List<Approval> ConvertListDTOToListEntity(IEnumerable<ApprovalDTO> dtos)

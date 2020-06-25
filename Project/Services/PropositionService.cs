@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Project.Services
 {
-    class PropositionService : IService<Proposition, long>
+    class PropositionService : IPropositionService
     {
         private readonly IPropositionRepository _propositionRepository;
 
@@ -32,5 +32,14 @@ namespace Project.Services
         public Proposition Remove(Proposition prescription)
             => _propositionRepository.Remove(prescription);
 
+        public void Approve(Proposition proposition)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Reject(Proposition proposition)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
