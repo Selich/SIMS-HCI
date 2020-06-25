@@ -1,4 +1,5 @@
-﻿using Project.Views.Model;
+﻿using Project.Model;
+using Project.Views.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -84,18 +85,55 @@ namespace Project.Views.Director
             }
         }
 
+
+
         private void CloseRenovationAppointment(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
+        private RoomType GetRoomTypeFromString(string s)
+        {
+            if (s.Equals("Operaciona sala"))
+                return Project.Model.RoomType.operationHall;
+            else if (s.Equals("Soba za preglede"))
+                return Project.Model.RoomType.medicalRoom;
+            else
+                return Project.Model.RoomType.hospitalRoom;
+        }
+
+
         private void SaveRenovationAppointment(object sender, RoutedEventArgs e)
         {
-            Renovation.Beginning = RenBegin.SelectedDate.Value.Date;
-            Renovation.End = RenEnd.SelectedDate.Value.Date;
-            Renovation.Type = RenType.SelectedValue.ToString();
-            Renovation.Room = Home.SelectedRoom;
-            AppointmentList.Add(Renovation);
+            var item = RenType.SelectedValue.ToString();
+            if (item != null )
+            {
+                string text = item.ToString();
+                if (text != null)
+                {
+                    Renovation.Beginning = RenBegin.SelectedDate.Value.Date;
+                    Renovation.End = RenEnd.SelectedDate.Value.Date;
+                    Renovation.Type = RenType.SelectedValue.ToString();
+                    Renovation.Room = Home.SelectedRoom;
+                    if(text.Equals("Promena funkcije"))
+                    {
+                        string type = RoomType.SelectedValue.ToString();
+                        Renovation.NewType = GetRoomTypeFromString(type);
+                    }
+                    else if (text.Equals("Pregradjivanje"))
+                    {
+                        string type = NewRoomType.SelectedValue.ToString();
+                        Renovation.NewType = GetRoomTypeFromString(type);
+                    }
+                    else
+                    {
+                        Renovation.NewType = Home.SelectedRoom.Type;
+                    }
+                    App app = App.Current as App;
+                    app.RenovationController.Save(Renovation);
+                    
+                }
+            } 
 
             this.Close();
         }

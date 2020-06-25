@@ -21,14 +21,14 @@
             <DatePicker Name="RenEnd" IsEnabled="False" HorizontalAlignment="Left" Margin="220,147,0,0" VerticalAlignment="Top" Width="120" DisplayDate="2020-05-20"/>
             <Button Content="{DynamicResource confirm}" HorizontalAlignment="Left" Margin="39,387,0,0" VerticalAlignment="Top" Width="150" Click="SaveRenovationAppointment"/>
             <Button Content="{DynamicResource cancel}" HorizontalAlignment="Left" Margin="256,387,0,0" VerticalAlignment="Top" Width="150" Click="CloseRenovationAppointment"/>
-            <ComboBox Name="RoomType" HorizontalAlignment="Left" Margin="220,202,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBox Name="RoomType" SelectedValuePath="Content" HorizontalAlignment="Left" Margin="220,202,0,0" VerticalAlignment="Top" Width="120">
                 <ComboBoxItem>Operaciona sala</ComboBoxItem>
                 <ComboBoxItem>Soba za preglede</ComboBoxItem>
                 <ComboBoxItem>Intenzivna nega</ComboBoxItem>
             </ComboBox>
             <Label Content="{DynamicResource roomtype}" HorizontalAlignment="Left" Margin="79,200,0,0" VerticalAlignment="Top" FontSize="15"/>
             <Label Content="{DynamicResource newroomtype}" HorizontalAlignment="Left" Margin="79,255,0,0" VerticalAlignment="Top" FontSize="15"/>
-            <ComboBox Name="NewRoomType" HorizontalAlignment="Left" Margin="220,255,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBox Name="NewRoomType" SelectedValuePath="Content" HorizontalAlignment="Left" Margin="220,255,0,0" VerticalAlignment="Top" Width="120">
                 <ComboBoxItem>Operaciona sala</ComboBoxItem>
                 <ComboBoxItem>Soba za preglede</ComboBoxItem>
                 <ComboBoxItem>Intenzivna nega</ComboBoxItem>

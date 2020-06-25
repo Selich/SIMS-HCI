@@ -20,6 +20,7 @@ using Project.Services.Generators;
 using Project.Repositories.ManyToMany.Repositories;
 using Project.Repositories.ManyToMany.Model;
 using Project.Repositories.ManyToMany.Converter;
+using Syncfusion.Windows.Shared;
 
 namespace Project
 {
@@ -342,8 +343,7 @@ namespace Project
             // Generators
             SecretaryAppointmentReportGenerator = new SecretaryAppointmentReportGenerator(REPORT_APPOINTMENT_PATH);
             PatientAppointmentReportGenerator = new PatientAppointmentReportGenerator(REPORT_APPOINTMENT_PATH);
-            PrescriptionReportGenerator = new PrescriptionReportGenerator(REPORT_PRESCRIPTION_PATH);
-
+            PrescriptionReportGenerator = new PrescriptionReportGenerator(REPORT_PRESCRIPTION_PATH); 
         }
 
 
