@@ -5,15 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using Project.Model;
 using Project.Repositories.Abstract;
+using Project.Services.Abstract;
 
 namespace Project.Services
 {
     public class AuthenticationService
     {
         // TODO: Make IEmployeeService
-        // TODO: Make IPatientService
         private readonly EmployeeService _employeeService;
-        private readonly PatientService _patientService;
+        private readonly IPatientService _patientService;
 
         public AuthenticationService(
             EmployeeService employeeService,

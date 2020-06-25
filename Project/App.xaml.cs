@@ -179,6 +179,9 @@ namespace Project
                 PropertyChanged(this, new PropertyChangedEventArgs(name));
             }
         }
+        public PatientDTO a;
+        public DoctorDTO b;
+        public SecretaryDTO c;
 
         public App()
         {
@@ -331,10 +334,17 @@ namespace Project
                new TimeInterval(new DateTime(2020, 12, 12), new DateTime(2020, 12, 12)), "pegoAddgca@sda.com", "pass");
             PatientDTO patient = new PatientDTO(address, "Pera", "Peric", "1231231231231", "021021", "Male", new DateTime(1990, 5, 5), "123", "deljac", "A+", 123, 123, "urk@gmail.com", "pass");
 
-            var a = SecretaryController.Save(secretary);
-            var b = DoctorController.Save(doctor);
-            var c = PatientController.Save(patient);
+            a = PatientController.Save(patient);
+            b = DoctorController.Save(doctor);
+            c = SecretaryController.Save(secretary);
 
+        }
+
+
+        ~App(){
+            a = PatientController.Remove(a);
+            b = DoctorController.Remove(b);
+            c = SecretaryController.Remove(c);
         }
 
 
