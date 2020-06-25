@@ -26,7 +26,7 @@ namespace Project.Repositories
             ICSVStream<Doctor> doctorStream,
             ICSVStream<Secretary> secretaryStream,
             IAddressRepository addressRepository,
-            ISequencer<long> sequencer
+            LongSequencer sequencer
             ) : base(stream, patientStream, doctorStream, secretaryStream, sequencer)
         {
             _addressRepository = addressRepository;

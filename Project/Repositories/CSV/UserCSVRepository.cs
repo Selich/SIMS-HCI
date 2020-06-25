@@ -47,7 +47,7 @@ namespace Project.Repositories.CSV
             var doctors = _doctorStream.ReadAll();
             var secretaries = _secretaryStream.ReadAll();
 
-            List<long> ids = (List<long>) patients.Select(item => (item as Patient).Id);
+            List<long> ids = (List<long>) patients.Select(item => (item as Patient).Id).ToList();
             ids.AddRange(doctors.Select(item => (item as Doctor).Id));
             ids.AddRange(secretaries.Select(item => (item as Secretary).Id));
             _sequencer.Initialize(ids.Max());
