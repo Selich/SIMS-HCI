@@ -37,7 +37,7 @@ namespace Project.Views.Converters
                 _roomConverter.ConvertEntityToDTO(entity.Room),
                 entity.Type,
                 _guestConverter.ConvertEntityToDTO(entity.Patient),
-                null//_doctorConverter.ConvertListEntityToListDTO(entity.Doctors)
+                _doctorConverter.ConvertListEntityToListDTO(entity.Doctors)
                 );
 
         public List<MedicalAppointment> ConvertListDTOToListEntity(IEnumerable<MedicalAppointmentDTO> dtos)

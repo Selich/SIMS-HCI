@@ -74,13 +74,15 @@ namespace Project.Views.Patient
             LoggedInPatient = new PatientDTO() {Id = 0, FirstName = "Uros", LastName = "Milovanovic", DateOfBirth = new DateTime(1998, 8, 25), Email = "urke123@gmail.com", Gender = "Male", InsurenceNumber = "1234567", Jmbg = "1234567890", TelephoneNumber= "06551232123", Address = tempAddress };
 
             Appoitments = new ObservableCollection<Model.MedicalAppointmentDTO>();
+
+
             var list = app.MedicalAppointmentController.GetAllByPatientID(LoggedInPatient.Id);
             foreach (MedicalAppointmentDTO appoitment in list)
             {
                 Appoitments.Add(appoitment);
             }
-
-
+            app.DoctorController.Save(new DoctorDTO(tempAddress, "filip", "zdelar", "1234567890123", "123", "Male",
+                DateTime.Now, 123.12, new TimeInterval(), new TimeInterval(), "emai@lams.cs", "pass", "Hirg"));
 
             AvailableAppoitments = new ObservableCollection<Model.MedicalAppointmentDTO>();
 
@@ -145,7 +147,7 @@ namespace Project.Views.Patient
         private void SaveChanges_Click(object sender, RoutedEventArgs e)
         {
             LoggedInPatient.Password = password.Password;
-
+            app.PatientController.Update(LoggedInPatient);
 
             firstName.IsEnabled = false;
             lastName.IsEnabled = false;
