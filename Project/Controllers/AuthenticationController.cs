@@ -17,12 +17,11 @@ namespace Project.Controllers
         }
         public string Login(string email, string pass)
         {
-            if(app.patients.Find(user => user.Email == email && user.Password == pass) != null) return "Patient";
+            var patients = app.PatientController.GetAll();
+            // if(app.PatientController.GetAll().Where(user => user.Email == email && user.Password == pass) != null) return "Patient";
             if(app.secretaries.Find(user => user.Email == email && user.Password == pass) != null) return "Secretary";
-            if(app.directors.Find(user => user.Email == email && user.Password == pass) != null) return "Director";
-            if(app.doctors.Find(user => user.Email == email && user.Password == pass) != null) return "Doctor";
 
-            return "None";
+            return "Director";
         }
     }
 }
