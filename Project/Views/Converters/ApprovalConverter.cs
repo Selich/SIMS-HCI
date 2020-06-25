@@ -18,15 +18,15 @@ namespace Project.Views.Converters
         }
         public Approval ConvertDTOToEntity(ApprovalDTO dto)
             => new Approval(
-                dto.Description,
-                dto.IsApproved,
-                _doctorConverter.ConvertDTOToEntity(dto.Doctors)
+               // dto.Description,
+               // dto.IsApproved,
+               // _doctorConverter.ConvertDTOToEntity(dto.Doctors)
             );
 
         public ApprovalDTO ConvertEntityToDTO(Approval entity)
             => new ApprovalDTO(
-                enitity.Description,
-                enitity.IsApproved,
+                entity.Description,
+                entity.IsApproved,
                 _doctorConverter.ConvertEntityToDTO(entity.Doctor)
                 );
 

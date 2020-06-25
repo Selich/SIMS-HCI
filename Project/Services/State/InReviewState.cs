@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project.Services.State
 {
-    class Class1
+    class Class2
     {
     }
 }
