@@ -84,7 +84,7 @@ namespace Project.Views.Doctor
 
             //ALl medical appoitments
 
-            allMedicalAppointmentDTO = (List<MedicalAppointmentDTO>)app.MedicalAppointmentController.GetAllByPatientID(1);// GetAll();
+            allMedicalAppointmentDTO = (List<MedicalAppointmentDTO>)app.MedicalAppointmentController.GetAllByDoctorID(1);// GetAll();
             // allMedicalAppointmentDTO = (List<MedicalAppointmentDTO>) app.MedicalAppointmentController GetAll();
 
             Appoitments = allMedicalAppointmentDTO;
@@ -523,7 +523,8 @@ namespace Project.Views.Doctor
 
                 TypeOfTermin = ((MedicalAppointmentDTO)selitem).Type.ToString();
 
-                LoggedInPatient = app.PatientController.GetById(((MedicalAppointmentDTO)selitem).Patient.Id);
+                //LoggedInPatient = ((MedicalAppointmentDTO)selitem).Patient;
+                PatientsName.Text = ((MedicalAppointmentDTO)selitem).Patient.FirstName;
 
             }
         }

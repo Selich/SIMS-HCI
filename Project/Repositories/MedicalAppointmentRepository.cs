@@ -102,5 +102,49 @@ namespace Project.Repositories
             return Update(entity);
         }
 
+        List<MedicalAppointment> IMedicalAppointmentRepository.GetAllByDoctorId(long id)
+        {
+
+            IEnumerable<MedicalAppointment> listOfDoctorsWithAllIds = GetAll();
+
+            
+            foreach (MedicalAppointment medicalAppointment in listOfDoctorsWithAllIds)
+            {
+                medicalAppointment.Patient = _patientRepository.GetById(id);
+                var doctorAndMedicalAppList = _medicalAppointmentToDoctorRepository.GetAllByMedicalAppointmentId(medicalAppointment.Id);
+                foreach (MedicalAppointmentToDoctor pair in doctorAndMedicalAppList)
+                {
+                    if ((pair.DoctorId == id) && (medicalAppointment.Id == pair.MedicalAppointmentId))
+                    {
+                        medicalAppointment.Doctors.Add(_doctorRepository.GetById(pair.DoctorId));
+                    }
+                }
+            }
+
+
+            List<MedicalAppointment> list = new List<MedicalAppointment>();
+
+            foreach (MedicalAppointment medicalAppointment in listOfDoctorsWithAllIds)
+            {
+                foreach(Doctor doctor in medicalAppointment.Doctors)
+                {
+                    doctor.Id = id;
+                    list.Add(medicalAppointment);
+                    break;
+                }
+            }
+            
+
+            foreach (MedicalAppointment medicalAppointment in list)
+            {
+                medicalAppointment.Patient = _patientRepository.GetById(id);
+                var doctorAndMedicalAppList = _medicalAppointmentToDoctorRepository.GetAllByMedicalAppointmentId(medicalAppointment.Id);
+                foreach (MedicalAppointmentToDoctor pair in doctorAndMedicalAppList)
+                {
+                    medicalAppointment.Doctors.Add(_doctorRepository.GetById(pair.DoctorId));
+                }
+            }
+            return list;
+        }
     }
 }
