@@ -521,6 +521,9 @@ namespace Project.Views.Doctor
                 }
 
                 TypeOfTermin = ((MedicalAppointmentDTO)selitem).Type.ToString();
+
+                LoggedInPatient = app.PatientController.GetById(((MedicalAppointmentDTO)selitem).Patient.Id);
+
             }
         }
 
