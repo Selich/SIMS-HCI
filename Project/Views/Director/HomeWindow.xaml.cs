@@ -297,7 +297,11 @@ namespace Project.Views.Director
 
 
             VisibleEmployees = new ObservableCollection<EmployeeDTO>(Employees);
+            //(_secretaryRepository.GetAll() as List<Employee>)
+            //.Concat(_doctorRepository.GetAll() as List<Employee>);
             
+            EmployeeList.ItemsSource = new ObservableCollection<SecretaryDTO>(app.SecretaryController.GetAll());
+
 
             Equipment = new ObservableCollection<EquipmentDTO>();
             Magacin = new RoomDTO(0,RoomType.hospitalRoom,"magacin","");
@@ -346,7 +350,7 @@ namespace Project.Views.Director
             RoomList.Add(new RoomDTO(5, RoomType.hospitalRoom, "Intenzivna nega", "3"));
             VisibleRoomList = new ObservableCollection<RoomDTO>(RoomList);
             VisibleRooms.ItemsSource = new ObservableCollection<RoomDTO>(app.RoomController.GetAll());
-
+            
         }
 
         private void OpenSettingsModal(object sender, RoutedEventArgs e)

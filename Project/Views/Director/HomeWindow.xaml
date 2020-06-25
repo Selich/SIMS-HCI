@@ -322,7 +322,7 @@
                         <Button Height="50" Margin="1073,26,10,26" Content="{DynamicResource search}" Click="EmpoyeeFilter"/>
 
                     </Grid>
-                    <ListBox Name="EmployeeList"  ItemsSource="{Binding VisibleEmployees}" ScrollViewer.VerticalScrollBarVisibility="Visible" BorderThickness="2" Background="NavajoWhite" HorizontalAlignment="Left" Height="424" Margin="40,120,0,0" VerticalAlignment="Top" Width="802" Grid.Row="1">
+                    <ListBox Name="EmployeeList"   ScrollViewer.VerticalScrollBarVisibility="Visible" BorderThickness="2" Background="NavajoWhite" HorizontalAlignment="Left" Height="424" Margin="40,120,0,0" VerticalAlignment="Top" Width="802" Grid.Row="1">
                         <!--    <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth4" Width="726" Height="90">
                             <Grid>
                                 <Image Source="../../Resources/Images/Faces/face1" HorizontalAlignment="Left" Height="65" Margin="26,11,0,0" VerticalAlignment="Top" Width="66" Stretch="Fill"/>

@@ -299,7 +299,7 @@ namespace Project
             var reviewService = new ReviewService(reviewRepository);
             //var employeeService = new EmployeeService(secretaryRepository, doctorRepository);
             //var authenticationService = new AuthenticationService(employeeService, patientService);
-            var secretaryService = new SecretaryService(secretaryRepository);
+            var secretaryService = new SecretaryService(secretaryRepository,addressService);
             var inventoryManagementService = new InventoryManagementService(inventoryManagementRepository);
             var orderService = new OrderService(orderRepository);
             // Controllers
