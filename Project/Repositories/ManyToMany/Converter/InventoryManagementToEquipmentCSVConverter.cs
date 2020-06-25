@@ -31,7 +31,7 @@ namespace Project.Repositories.ManyToMany.Converter
             return new InventoryManagementToEquipment(
                 long.Parse(tokens[0]),
                 long.Parse(tokens[1]),
-                long.Parse(tokens[3])
+                long.Parse(tokens[2])
             );
         }
     }

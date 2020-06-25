@@ -343,7 +343,7 @@ namespace Project
             // Generators
             SecretaryAppointmentReportGenerator = new SecretaryAppointmentReportGenerator(REPORT_APPOINTMENT_PATH);
             PatientAppointmentReportGenerator = new PatientAppointmentReportGenerator(REPORT_APPOINTMENT_PATH);
-            PrescriptionReportGenerator = new PrescriptionReportGenerator(REPORT_PRESCRIPTION_PATH); 
+            PrescriptionReportGenerator = new PrescriptionReportGenerator(REPORT_PRESCRIPTION_PATH);
         }
 
 
