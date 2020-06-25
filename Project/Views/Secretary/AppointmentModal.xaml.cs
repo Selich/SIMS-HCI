@@ -30,12 +30,14 @@ namespace Project.Views.Secretary
             app = Application.Current as App;
             DataContext = dataContext;
 
-            Date.SelectedDate = dataContext.Beginning;
-            StartTime.Text = dataContext.Beginning.Hour + ":" + dataContext.Beginning.Minute;
-            EndTime.Text = dataContext.End.Hour + ":" + dataContext.End.Minute;
-            DoctorList.ItemsSource = dataContext.Doctors;
+            Date.SelectedDate = (dataContext == null) ? default : dataContext.Beginning;
+            var BeginningTerm = (dataContext == null) ? default : dataContext.Beginning;
+            var EndTerm = (dataContext == null) ? default : dataContext.End;
+            StartTime.Text = BeginningTerm.Hour + ":" + BeginningTerm.Minute;
+            EndTime.Text = EndTerm.Hour + ":" + EndTerm.Minute;
+            DoctorList.ItemsSource = (dataContext == null) ? default : dataContext.Doctors;
             AllDoctorList.ItemsSource = app.doctors;
-            Room.Text = dataContext.Room.Id.ToString();
+            Room.Text = (dataContext == null) ? default : dataContext.Room.Id.ToString();
             
 
         }

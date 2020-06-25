@@ -44,11 +44,11 @@ namespace Project.Views.Secretary
             AppointmentType.ItemsSource = app.medicalAppointmentTypes;
 
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(ListPatients.ItemsSource);
-            CollectionView termView = (CollectionView)CollectionViewSource.GetDefaultView(ListTerms.ItemsSource);
+            //CollectionView termView = (CollectionView)CollectionViewSource.GetDefaultView(ListTerms.ItemsSource);
             CollectionView roomView = (CollectionView)CollectionViewSource.GetDefaultView(ListRooms.ItemsSource);
 
             view.Filter = CombinedFilter;
-            termView.Filter = TermFilter;
+            //termView.Filter = TermFilter;
             roomView.Filter = RoomFilter;
 
 
