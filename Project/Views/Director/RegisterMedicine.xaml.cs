@@ -45,8 +45,8 @@ namespace Project.Views.Director
             string Description = NewMedicineDescription.Text;
             string desc = "  "+Type + "\n" + "Detaljno: " + Description;//Posto proposition nema sva polja kao i lek
             PropositionDTO newProposition = new PropositionDTO();
-            newProposition.Description = desc;
-            newProposition.Name = Name;
+            //newProposition.Description = desc;
+            //newProposition.Name = Name;
             newProposition.State = "U razmatranju";
             Home.Propositions.Add(newProposition);
             this.Close();
