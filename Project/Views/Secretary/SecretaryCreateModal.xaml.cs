@@ -38,10 +38,6 @@ namespace Project.Views.Secretary
 
             SelectedDate.SelectedDate = DateTime.Now;
 
-            // List<TimeInterval> terms = new List<TimeInterval>();
-            // for (int i = 1; i <= 48; i++)
-            //     terms.Add(new TimeInterval(DateTime.Now.AddMinutes(30*i), DateTime.Now.AddMinutes(60 * i)));
-
             ListPatients.ItemsSource = app.PatientController.GetAll();
             // ListTerms.ItemsSource = terms;
             ListRooms.ItemsSource = app.RoomController.GetAll();
