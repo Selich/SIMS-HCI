@@ -12,6 +12,10 @@ namespace Project.Services.State
         IPropositionService _propositionService;
         IService<Approval, long> _approvalService;
 
+        public ApprovedState()
+        {
+        }
+
         public ApprovedState(
             IPropositionService propositionService,
             IService<Approval, long> approvalService
@@ -24,16 +28,22 @@ namespace Project.Services.State
         public Proposition Approve(Proposition proposition)
         {
             Proposition CurrentProposition = _propositionService.GetById(proposition.Id);
+            CurrentProposition.Approval.Add(proposition.Approval.Last());
 
+            _approvalService.Save(proposition.Approval.Last());
             return CurrentProposition;
         }
 
         public Proposition Reject(Proposition proposition)
         {
             Proposition CurrentProposition = _propositionService.GetById(proposition.Id);
+
+            CurrentProposition.Approval.Add(proposition.Approval.Last());
+            CurrentProposition.State = "Rejected";
+            _propositionService.Update(CurrentProposition);
+            
+            _approvalService.Save(proposition.Approval.Last());
             return CurrentProposition;
         }
-
-
     }
 }
