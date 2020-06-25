@@ -57,7 +57,7 @@ namespace Project.Repositories.CSV
 
         }
         private ID GetMaxId(IEnumerable<ID> entities)
-           => entities.Count() == 0 ? default : entities.Max();
+           => entities.Max();
 
         public E Save(E entity)
         {
