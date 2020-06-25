@@ -221,8 +221,9 @@ namespace Project
             var inventoryManagementConverter = new InventoryManagementConverter(equipmentConverter, roomConverter);
             var orderConverter = new OrderConverter(medicalConsumableConverter, medicineConverter, equipmentConverter);
 
-            var propositionConverter = new PropositionConverter(medicineConverter, approvalConverter);
-            var approvalConverter = new ApprovalConverter(doctorConverter, propositionConverter);
+            ApprovalConverter approvalConverter = new ApprovalConverter(doctorConverter);
+            PropositionConverter propositionConverter = new PropositionConverter(medicineConverter, approvalConverter, doctorConverter);
+
 
             // Repositories
             // Many to Many
@@ -340,16 +341,16 @@ namespace Project
             //   new TimeInterval(new DateTime(2020, 12, 12), new DateTime(2020, 12, 12)), "pegoAddgca@sda.com", "pass");
             PatientDTO patient = new PatientDTO(address, "Pera", "Peric", "1231231231231", "021021", "Male", new DateTime(1990, 5, 5), "123", "deljac", "A+", 123, 123, "u@m.c", "pass");
 
-            a = PatientController.Save(patient);
-            //b = DoctorController.Save(doctor);
+            //a = PatientController.Save(patient);
+            b = DoctorController.Save(doctor);
             ////c = SecretaryController.Save(secretary);
 
         }
 
 
         ~App(){
-            a = PatientController.Remove(a);
-            //b = DoctorController.Remove(b);
+            //a = PatientController.Remove(a);
+            b = DoctorController.Remove(b);
             //c = SecretaryController.Remove(c);
         }
 
