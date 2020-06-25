@@ -15,12 +15,12 @@ namespace Controller
 {
     public class PropositionController : IController<PropositionDTO, long>
     {
-        private IService<Proposition, long> _service;
+        private IPropositionService _service;
         private IConverter<Proposition, PropositionDTO> _propositionConverter;
 
 
         public PropositionController(
-            IService<Proposition, long> service,
+            IPropositionService service,
             IConverter<Proposition, PropositionDTO> propositionConverter
             )
         {
@@ -42,5 +42,11 @@ namespace Controller
 
         public PropositionDTO Update(PropositionDTO entity) 
             => _propositionConverter.ConvertEntityToDTO(_service.Update(_propositionConverter.ConvertDTOToEntity(entity)));
+
+        public PropositionDTO Approve(PropositionDTO entity)
+            => _propositionConverter.ConvertEntityToDTO(_service.Approve(_propositionConverter.ConvertDTOToEntity(entity)));
+
+        public PropositionDTO Reject(PropositionDTO entity)
+            => _propositionConverter.ConvertEntityToDTO(_service.Reject(_propositionConverter.ConvertDTOToEntity(entity)));
     }
 }

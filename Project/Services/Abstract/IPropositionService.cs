@@ -5,7 +5,7 @@ namespace Project.Services
 {
     public interface IPropositionService : IService<Proposition,long>
     {
-        void Approve(Proposition proposition);
-        void Reject(Proposition proposition);
+        Proposition Approve(Proposition proposition);
+        Proposition Reject(Proposition proposition);
     }
 }

@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Project.Model;
 
 namespace Project.Services.State
 {
     class RejectedState : IPropositionState
     {
-        public string Approve()
+        public Proposition Approve(Proposition proposition)
         {
             throw new NotImplementedException();
         }
 
-        public string Reject()
+        public Proposition Reject(Proposition proposition)
         {
             throw new NotImplementedException();
         }

@@ -32,14 +32,42 @@ namespace Project.Services
         public Proposition Remove(Proposition prescription)
             => _propositionRepository.Remove(prescription);
 
-        public void Approve(Proposition proposition)
+        public Proposition Approve(Proposition proposition)
         {
-            throw new NotImplementedException();
+            Proposition CurrentProposition = _propositionRepository.GetById(proposition.Id);
+
+            if (CurrentProposition.State.Equals("InReview"))
+            {
+                CurrentProposition.CurrentState = new Project.Services.State.InReviewState();
+            } else if (CurrentProposition.State.Equals("ApprovedState"))
+            {
+                CurrentProposition.CurrentState = new Project.Services.State.ApprovedState();
+            } else
+            {
+                CurrentProposition.CurrentState = new Project.Services.State.RejectedState();
+            }
+
+            return CurrentProposition.CurrentState.Approve(CurrentProposition);
         }
 
-        public void Reject(Proposition proposition)
+        public Proposition Reject(Proposition proposition)
         {
-            throw new NotImplementedException();
+            Proposition CurrentProposition = _propositionRepository.GetById(proposition.Id);
+
+            if (CurrentProposition.State.Equals("InReview"))
+            {
+                CurrentProposition.CurrentState = new Project.Services.State.InReviewState();
+            }
+            else if (CurrentProposition.State.Equals("ApprovedState"))
+            {
+                CurrentProposition.CurrentState = new Project.Services.State.ApprovedState();
+            }
+            else
+            {
+                CurrentProposition.CurrentState = new Project.Services.State.RejectedState();
+            }
+
+            return CurrentProposition.CurrentState.Reject(CurrentProposition);
         }
     }
 }
