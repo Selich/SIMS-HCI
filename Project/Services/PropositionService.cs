@@ -40,13 +40,13 @@ namespace Project.Services
 
             if (CurrentProposition.State.Equals("InReview"))
             {
-                CurrentProposition.CurrentState = new Project.Services.State.InReviewState();
+                //CurrentProposition.CurrentState = new Project.Services.State.InReviewState();
             } else if (CurrentProposition.State.Equals("ApprovedState"))
             {
-                CurrentProposition.CurrentState = new Project.Services.State.ApprovedState();
+                //CurrentProposition.CurrentState = new Project.Services.State.ApprovedState();
             } else
             {
-                CurrentProposition.CurrentState = new Project.Services.State.RejectedState();
+                //CurrentProposition.CurrentState = new Project.Services.State.RejectedState();
             }
 
             return CurrentProposition.CurrentState.Approve(CurrentProposition);
@@ -58,15 +58,15 @@ namespace Project.Services
 
             if (CurrentProposition.State.Equals("InReview"))
             {
-                CurrentProposition.CurrentState = new Project.Services.State.InReviewState();
+                //CurrentProposition.CurrentState = new Project.Services.State.InReviewState();
             }
             else if (CurrentProposition.State.Equals("ApprovedState"))
             {
-                CurrentProposition.CurrentState = new Project.Services.State.ApprovedState();
+                //CurrentProposition.CurrentState = new Project.Services.State.ApprovedState();
             }
             else
             {
-                CurrentProposition.CurrentState = new Project.Services.State.RejectedState();
+                //CurrentProposition.CurrentState = new Project.Services.State.RejectedState();
             }
 
             return CurrentProposition.CurrentState.Reject(CurrentProposition);
