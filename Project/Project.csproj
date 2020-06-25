@@ -183,6 +183,7 @@
     <Compile Include="Repositories\Abstract\IRoomRepository.cs" />
     <Compile Include="Repositories\Abstract\ISecretaryRepository.cs" />
     <Compile Include="Repositories\AnamnesisRepository.cs" />
+    <Compile Include="Repositories\CSV\Converter\ApprovalCSVConverter.cs" />
     <Compile Include="Repositories\CSV\Converter\AnamnesisCSVConverter.cs" />
     <Compile Include="Repositories\CSV\Converter\EquipmentCSVConverter.cs" />
     <Compile Include="Repositories\CSV\Converter\InventoryManagementCSVConverter.cs" />
