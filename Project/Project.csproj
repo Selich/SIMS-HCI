@@ -245,13 +245,12 @@
     <Compile Include="Services\MedicalAppointmentService.cs" />
     <Compile Include="Services\MedicineService.cs" />
     <Compile Include="Services\OrderService.cs" />
-    <Compile Include="Services\PropositionService.cs" />
     <Compile Include="Services\PrescriptionService.cs" />
     <Compile Include="Services\MedicalConsumableService.cs" />
     <Compile Include="Services\FeedbackService.cs" />
+    <Compile Include="Services\AddressService.cs" />
     <Compile Include="Services\PropositionService.cs" />
     <Compile Include="Services\QuestionService.cs" />
-    <Compile Include="Services\AddressService.cs" />
     <Compile Include="Services\RenovationService.cs" />
     <Compile Include="Services\ReportService.cs" />
     <Compile Include="Services\Generators\DoctorReportGenrator.cs" />

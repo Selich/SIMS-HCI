@@ -29,7 +29,6 @@ namespace Project.Model
         public string Description {get;set;}
         public bool IsApproved {get;set;}
         public Doctor Doctor { get ; set; }
-        public Proposition Proposition { get; set; }
 
         public Approval() { } 
 
@@ -38,7 +37,6 @@ namespace Project.Model
             Description = description;
             IsApproved = isApproved;
             Doctor = doctor;
-            Proposition = proposition;
         }
     }
 }
