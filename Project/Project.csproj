@@ -185,11 +185,13 @@
     <Compile Include="Repositories\AnamnesisRepository.cs" />
     <Compile Include="Repositories\CSV\Converter\ApprovalCSVConverter.cs" />
     <Compile Include="Repositories\CSV\Converter\AnamnesisCSVConverter.cs" />
+    <Compile Include="Repositories\CSV\Converter\ApprovalCSVConverter.cs" />
     <Compile Include="Repositories\CSV\Converter\EquipmentCSVConverter.cs" />
     <Compile Include="Repositories\CSV\Converter\InventoryManagementCSVConverter.cs" />
     <Compile Include="Repositories\CSV\Converter\MedicalAppointmentCSVConverter.cs" />
     <Compile Include="Repositories\CSV\Converter\MedicineCSVConverter.cs" />
     <Compile Include="Repositories\CSV\Converter\OrderCSVConverter.cs" />
+    <Compile Include="Repositories\CSV\Converter\PropositionCSVConverter.cs" />
     <Compile Include="Repositories\CSV\Converter\PresriptionCSVConverter.cs" />
     <Compile Include="Repositories\CSV\Converter\MedicalConsumableCSVConverter.cs" />
     <Compile Include="Repositories\CSV\Converter\AddressCSVConverter.cs" />
@@ -228,6 +230,7 @@
     <Compile Include="Repositories\ReviewRepository.cs" />
     <Compile Include="Repositories\RoomRepository.cs" />
     <Compile Include="Repositories\SecretaryRepository.cs" />
+    <Compile Include="Services\Abstract\IPropositionService.cs" />
     <Compile Include="Services\Abstract\IMedicalAppoitmentService.cs" />
     <Compile Include="Services\AnamnesisService.cs" />
     <Compile Include="Services\AuthenticationService.cs" />

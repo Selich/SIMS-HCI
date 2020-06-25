@@ -8,7 +8,7 @@ namespace Project.Services.State
 {
     public interface IPropositionState
     {
-        void Approve();
-        void Reject();
+        string Approve();
+        string Reject();
     }
 }
