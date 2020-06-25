@@ -6,6 +6,7 @@
 using System;
 using System.Collections.Generic;
 using Project.Repositories.Abstract;
+using Project.Services.State;
 
 namespace Project.Model
 {
@@ -13,9 +14,9 @@ namespace Project.Model
     {
         public long Id { get; set; }
         public string State { get; set; }
+        private IPropositionState Currentstate;
         public List<Approval> Approval { get; set; }
         public Medicine Medicine { get; set; }
-        public Director Director { get; set; }
       
         public Proposition() {}
         public Proposition(string state, List<Approval> approval, Medicine medicine, Director director)
@@ -23,7 +24,6 @@ namespace Project.Model
             State = state;
             Approval = approval;
             Medicine = medicine;
-            Director = director;
         }
 
         public Proposition(long id, string state, List<Approval> approval, Medicine medicine, Director director)
@@ -32,7 +32,6 @@ namespace Project.Model
             State = state;
             Approval = approval;
             Medicine = medicine;
-            Director = director;
         }
 
         public long GetId() => Id;

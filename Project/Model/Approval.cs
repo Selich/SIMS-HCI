@@ -9,11 +9,9 @@ namespace Project.Model
 
     public class Approval
     {
-        // TODO: Implement design pattern
         public string Description {get;set;}
         public bool IsApproved {get;set;}
         public Doctor Doctor {get;set;}
-
-
+        public Prescription Prescription { get; set; }
     }
 }

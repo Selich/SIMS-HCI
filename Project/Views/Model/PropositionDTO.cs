@@ -21,8 +21,6 @@ namespace Project.Views.Model
 
         public List<ApprovalDTO> Approvals { get; set; }
 
-        public DirectorDTO Director { get; set; }
-
         public PropositionDTO() {  }
 
         public PropositionDTO(string name,string description, string state) {

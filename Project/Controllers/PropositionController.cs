@@ -1,35 +1,46 @@
-// File:    PropositionController.cs
-// Author:  Selic
-// Created: Friday, May 1, 2020 2:33:33 AM
-// Purpose: Definition of Class PropositionController
+// File:    QuestionController.cs
+// Author:  Uros
+// Created: Monday, May 4, 2020 8:43:25 PM
+// Purpose: Definition of Class QuestionController
 
 using System;
+using System.Collections.Generic;
+using Project.Controllers;
 using Project.Model;
-
+using Project.Services;
+using Project.Views.Converters;
+using Project.Views.Model;
 
 namespace Controller
 {
-   public class PropositionController
-   {
-      public Proposition CreateProposition(string name, string purpose, string administration, string description, string type)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public Proposition ApproveProposition(Proposition proposition)
-      {
-         throw new NotImplementedException();
-      }
-      
-      public Proposition GetAllProposition()
-      {
-         throw new NotImplementedException();
-      }
-      
-      public Approval GetAllApprovals(int propositionId)
-      {
-         throw new NotImplementedException();
-      }
-   
-   }
+    public class PropositionController : IController<PropositionDTO, long>
+    {
+        private IService<Proposition, long> _service;
+        private IConverter<Proposition, PropositionDTO> _propositionConverter;
+
+
+        public PropositionController(
+            IService<Proposition, long> service,
+            IConverter<Proposition, PropositionDTO> propositionConverter
+            )
+        {
+            _service = service;
+            _propositionConverter = propositionConverter;
+        }
+
+        public PropositionDTO GetById(long id) 
+            => _propositionConverter.ConvertEntityToDTO(_service.GetById(id));
+
+        public IEnumerable<PropositionDTO> GetAll() 
+            => _propositionConverter.ConvertListEntityToListDTO((List<Proposition>)_service.GetAll());
+
+        public PropositionDTO Remove(PropositionDTO entity) 
+            => _propositionConverter.ConvertEntityToDTO(_service.Remove(_propositionConverter.ConvertDTOToEntity(entity)));
+
+        public PropositionDTO Save(PropositionDTO entity) 
+            => _propositionConverter.ConvertEntityToDTO(_service.Save(_propositionConverter.ConvertDTOToEntity(entity)));
+
+        public PropositionDTO Update(PropositionDTO entity) 
+            => _propositionConverter.ConvertEntityToDTO(_service.Update(_propositionConverter.ConvertDTOToEntity(entity)));
+    }
 }
