@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Project.Repositories.CSV
 {
-    public class UserCSVRepository<E, O, ID> 
+    public class UserCSVRepository<E, O, ID>
         where E : IIdentifiable<ID>
         where O : IIdentifiable<ID>
         where ID : IComparable
@@ -26,7 +26,7 @@ namespace Project.Repositories.CSV
         protected ISequencer<ID> _sequencer;
 
         public UserCSVRepository(
-            ICSVStream<E> stream, 
+            ICSVStream<E> stream,
             ICSVStream<Patient> patientStream,
             ICSVStream<Doctor> doctorStream,
             ICSVStream<Secretary> secretaryStream,
@@ -41,19 +41,23 @@ namespace Project.Repositories.CSV
             InitializeId();
         }
         public IEnumerable<E> GetAll() => _stream.ReadAll();
-        protected void InitializeId() {
-            List<O> list = new List<O>();
-            List<O> patients = _patientStream.ReadAll() as List<O>;
-            List<O> doctors = _doctorStream.ReadAll() as List<O>;
-            List<O> secretaries = _secretaryStream.ReadAll() as List<O>;
+        protected void InitializeId()
+        {
+            var patients = _patientStream.ReadAll();
+            var doctors = _doctorStream.ReadAll();
+            var secretaries = _secretaryStream.ReadAll();
+            if (patients.Select(item => item.Id) is ID)
+            {
+                List<ID> ids = (List<ID>)patients.Select(item => (item as Patient).Id);
+                ids.AddRange((List<ID>) doctors.Select(item => (item as Doctor).Id));
+                ids.AddRange((List<ID>) secretaries.Select(item => (item as Secretary).Id));
+                _sequencer.Initialize(GetMaxId(ids));
 
-            list.AddRange(patients);
-            list.AddRange(doctors);
-            list.AddRange(secretaries);
-            _sequencer.Initialize(GetMaxId(list));
+            }
+
         }
-        private ID GetMaxId(IEnumerable<O> entities)
-           => entities.Count() == 0 ? default : entities.Max(entity => entity.GetId());
+        private ID GetMaxId(IEnumerable<ID> entities)
+           => entities.Count() == 0 ? default : entities.Max(entity => entity);
 
         public E Save(E entity)
         {
