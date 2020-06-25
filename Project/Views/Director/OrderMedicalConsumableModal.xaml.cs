@@ -44,6 +44,9 @@ namespace Project.Views.Director
             if (Int32.TryParse(str, out int Quantity))
             {
                 MedicalConsumable.Quantity += Quantity;
+                App app = App.Current as App;
+                app.MedicalConsumableController.Update(MedicalConsumable);
+                Home.MedicalConsumablesList.ItemsSource = app.MedicalConsumableController.GetAll();
                // ObservableCollection<MedicalConsumableDTO> newList = new ObservableCollection<MedicalConsumableDTO>(Home.VisibleMedicalConsumables);
                 //                                                                              Korisceno pre INotifyPropertyChanged
              //   Home.VisibleMedicalConsumables
