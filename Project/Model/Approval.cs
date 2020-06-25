@@ -35,7 +35,6 @@ namespace Project.Model
             Description = description;
             IsApproved = isApproved;
             Doctor = doctor;
-            Proposition = proposition;
         }
     }
 }
