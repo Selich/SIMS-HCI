@@ -6,13 +6,14 @@ using Project.Views.Model;
 using Project.Model;
 using Project.Services;
 using Project.Views.Converters;
+using Project.Controllers.Abstract;
 
 namespace Project.Controllers
 {
     /// <summary>
     /// Interaction logic for DoctorController.xaml
     /// </summary>
-    public partial class DoctorController : IController<DoctorDTO, long>
+    public partial class DoctorController : IDoctorController
     {
         private IService<Doctor, long> _service;
         private IConverter<Doctor, DoctorDTO> _converter;
@@ -37,5 +38,10 @@ namespace Project.Controllers
 
         public DoctorDTO Update(DoctorDTO entity)
             => _converter.ConvertEntityToDTO(_service.Update(_converter.ConvertDTOToEntity(entity)));
+
+        public DoctorDTO GetByEmail(string email)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

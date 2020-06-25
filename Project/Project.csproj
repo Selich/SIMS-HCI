@@ -131,6 +131,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controllers\Abstract\IDoctorController.cs" />
+    <Compile Include="Controllers\Abstract\IPatientController.cs" />
+    <Compile Include="Controllers\Abstract\ISecretaryController.cs" />
     <Compile Include="Controllers\AnamnesisController.cs" />
     <Compile Include="Controllers\AuthenticationController.cs" />
     <Compile Include="Controllers\AddressController.cs" />

@@ -22,6 +22,7 @@ using Project.Repositories.ManyToMany.Model;
 using Project.Repositories.ManyToMany.Converter;
 using Syncfusion.Windows.Shared;
 using Project.Repositories.CSV;
+using Project.Controllers.Abstract;
 
 namespace Project
 {
@@ -328,23 +329,23 @@ namespace Project
 
 
             AddressDTO address = new AddressDTO(1, "1", "Ulca", "City", "Serb", "21000");
-            DoctorDTO doctor = new DoctorDTO(address, "Pera", "Peric", "1231231231231", "021021", "Male", new DateTime(1990, 5, 5), 123, new TimeInterval(new DateTime(2020, 12, 12), new DateTime(2020, 12, 12)),
-                new TimeInterval(new DateTime(2020, 12, 12), new DateTime(2020, 12, 12)), "pRds", "pass", "Rolica");
-            SecretaryDTO secretary = new SecretaryDTO(address, "Pera", "Peric", "1231231231231", "021021", "Male", new DateTime(1990, 5, 5), 123, new TimeInterval(new DateTime(2020, 12, 12), new DateTime(2020, 12, 12)),
-               new TimeInterval(new DateTime(2020, 12, 12), new DateTime(2020, 12, 12)), "pegoAddgca@sda.com", "pass");
-            PatientDTO patient = new PatientDTO(address, "Pera", "Peric", "1231231231231", "021021", "Male", new DateTime(1990, 5, 5), "123", "deljac", "A+", 123, 123, "urk@gmail.com", "pass");
+            //DoctorDTO doctor = new DoctorDTO(address, "Pera", "Peric", "1231231231231", "021021", "Male", new DateTime(1990, 5, 5), 123, new TimeInterval(new DateTime(2020, 12, 12), new DateTime(2020, 12, 12)),
+            //    new TimeInterval(new DateTime(2020, 12, 12), new DateTime(2020, 12, 12)), "pRds", "pass", "Rolica");
+            //SecretaryDTO secretary = new SecretaryDTO(address, "Pera", "Peric", "1231231231231", "021021", "Male", new DateTime(1990, 5, 5), 123, new TimeInterval(new DateTime(2020, 12, 12), new DateTime(2020, 12, 12)),
+            //   new TimeInterval(new DateTime(2020, 12, 12), new DateTime(2020, 12, 12)), "pegoAddgca@sda.com", "pass");
+            PatientDTO patient = new PatientDTO(address, "Pera", "Peric", "1231231231231", "021021", "Male", new DateTime(1990, 5, 5), "123", "deljac", "A+", 123, 123, "u@m.c", "pass");
 
             a = PatientController.Save(patient);
-            b = DoctorController.Save(doctor);
-            c = SecretaryController.Save(secretary);
+            //b = DoctorController.Save(doctor);
+            ////c = SecretaryController.Save(secretary);
 
         }
 
 
         ~App(){
             a = PatientController.Remove(a);
-            b = DoctorController.Remove(b);
-            c = SecretaryController.Remove(c);
+            //b = DoctorController.Remove(b);
+            //c = SecretaryController.Remove(c);
         }
 
 
@@ -354,11 +355,15 @@ namespace Project
         public IReportGenerator<TimeInterval> PatientAppointmentReportGenerator { get; private set; }
         public IReportGenerator<TimeInterval> PrescriptionReportGenerator { get; private set; }
 
+        // Users
+        public IDoctorController DoctorController { get; private set; }
+        public IPatientController PatientController { get; private set; }
+        public ISecretaryController SecretaryController { get; private set; }
+
+
         // Controllers
         public AuthenticationController AuthenticationController { get; private set; }
-        public IController<SecretaryDTO, long> SecretaryController { get; private set; }
         public ReportController ReportController { get; private set; }
-        public IController<PatientDTO, long> PatientController { get; private set; }
         public IController<AddressDTO, long> AddressController { get; private set; }
         public IController<MedicineDTO, long> MedicineController { get; private set; }
         public IController<MedicalConsumableDTO, long> MedicalConsumableController { get; private set; }
@@ -369,7 +374,6 @@ namespace Project
         public IController<InventoryManagementDTO, long> InventoryManagementController { get; private set; }
         public IController<OrderDTO, long> OrderController { get; private set; }
 
-        public IController<DoctorDTO, long> DoctorController { get; private set; }
         public MedicalAppointmentController MedicalAppointmentController { get; private set; }
 
         public IController<QuestionDTO, long> QuestionController { get; private set; }

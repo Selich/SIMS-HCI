@@ -1,4 +1,5 @@
-﻿using Project.Model;
+﻿using Project.Controllers.Abstract;
+using Project.Model;
 using Project.Services;
 using Project.Views.Converters;
 using Project.Views.Model;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Project.Controllers
 {
-    public class SecretaryController: IController<SecretaryDTO,long>
+    public class SecretaryController: ISecretaryController
     {
         private IService<Secretary, long> _service;
         private IConverter<Secretary, SecretaryDTO> _secretaryConverter;
@@ -26,6 +27,11 @@ namespace Project.Controllers
 
         public IEnumerable<SecretaryDTO> GetAll()
         => _secretaryConverter.ConvertListEntityToListDTO((List<Secretary>)_service.GetAll());
+
+        public SecretaryDTO GetByEmail(string email)
+        {
+            throw new NotImplementedException();
+        }
 
         public SecretaryDTO GetById(long id)
          => _secretaryConverter.ConvertEntityToDTO(_service.GetById(id));
