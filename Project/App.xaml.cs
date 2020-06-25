@@ -66,6 +66,7 @@ namespace Project
         public List<QuestionDTO> questions { get; set; }
         public List<PatientDTO> patients { get; set; }
         public List<DirectorDTO> directors { get; set; }
+        public DirectorDTO director { get; set; }
         public List<SecretaryDTO> secretaries { get; set; }
         public List<EmployeeDTO> employees { get; set; }
         public List<RoomDTO> rooms { get; set; }
@@ -131,6 +132,7 @@ namespace Project
             }
         }
         public SecretaryDTO currentSecretary { get; set; }
+        public UserDTO currentUser { get; set; }
         public List<string> medicalRoles { get; set; }
         public List<string> roomTypes { get; set; }
         public List<string> medicalAppointmentTypes { get; set; }
@@ -180,9 +182,9 @@ namespace Project
                 PropertyChanged(this, new PropertyChangedEventArgs(name));
             }
         }
-        public PatientDTO a;
-        public DoctorDTO b;
-        public SecretaryDTO c;
+        // public PatientDTO a;
+        // public DoctorDTO b;
+        // public SecretaryDTO c;
 
         public App()
         {
@@ -192,10 +194,13 @@ namespace Project
             medicalRoles = new List<string> { "Svi", "Opšte Prakse", "Hirurg", "Dermatolog", "Očni lekar" };
             roomTypes = new List<string> { "Bolnička Soba", "Operaciona Sala", "Soba za preglede" };
             medicalAppointmentTypes = new List<string> { "Pregled", "Operacija", "Ležanje" };
+            AddressDTO address = new AddressDTO("1", "Bulevar despota Stefan 7A", "Novi Sad", "Srbija", "21000");
+
+            director = new DirectorDTO(address, "Nikola", "Selic", "1231231231231", "021021", "Male", new DateTime(1990, 5, 5), 123, new TimeInterval(new DateTime(2020, 12, 12), new DateTime(2020, 12, 12)), new TimeInterval(new DateTime(2020, 12, 12), new DateTime(2020, 12, 12)), "selic.work@gmail.com", "pass");
             SelectedDate = DateTime.Now;
 
-           
-                //new RoomDTO(111, RoomType.hospitalRoom, "1. Sprat", "Check"),
+
+            //new RoomDTO(111, RoomType.hospitalRoom, "1. Sprat", "Check"),
 
 
             // Converters
@@ -328,22 +333,26 @@ namespace Project
 
 
 
-            AddressDTO address = new AddressDTO(1, "1", "Ulca", "City", "Serb", "21000");
-            //DoctorDTO doctor = new DoctorDTO(address, "Pera", "Peric", "1231231231231", "021021", "Male", new DateTime(1990, 5, 5), 123, new TimeInterval(new DateTime(2020, 12, 12), new DateTime(2020, 12, 12)),
-            //    new TimeInterval(new DateTime(2020, 12, 12), new DateTime(2020, 12, 12)), "pRds", "pass", "Rolica");
-            //SecretaryDTO secretary = new SecretaryDTO(address, "Pera", "Peric", "1231231231231", "021021", "Male", new DateTime(1990, 5, 5), 123, new TimeInterval(new DateTime(2020, 12, 12), new DateTime(2020, 12, 12)),
-            //   new TimeInterval(new DateTime(2020, 12, 12), new DateTime(2020, 12, 12)), "pegoAddgca@sda.com", "pass");
-            PatientDTO patient = new PatientDTO(address, "Pera", "Peric", "1231231231231", "021021", "Male", new DateTime(1990, 5, 5), "123", "deljac", "A+", 123, 123, "u@m.c", "pass");
 
-            a = PatientController.Save(patient);
-            //b = DoctorController.Save(doctor);
-            ////c = SecretaryController.Save(secretary);
+            // DoctorDTO doctor = new DoctorDTO(address, "Filip", "Zdelar", "1231231231231", "021021", "Male", new DateTime(1990, 5, 5), 123, new TimeInterval(new DateTime(2020, 12, 12), new DateTime(2020, 12, 12)),
+            //    new TimeInterval(new DateTime(2020, 12, 12), new DateTime(2020, 12, 12)), 
+            //     "f@g.c", "p", "Dermatolog");
+            // SecretaryDTO secretary = new SecretaryDTO(address, "Nikola", "Selic", "1231231231231", "021021", "Male", new DateTime(1990, 5, 5), 123, new TimeInterval(new DateTime(2020, 12, 12), new DateTime(2020, 12, 12)),
+            //   new TimeInterval(new DateTime(2020, 12, 12), new DateTime(2020, 12, 12)), 
+            //     "selic.work@gmail.com", "pass");
+            // PatientDTO patient = new PatientDTO(address, "Uros", "Milovanovic", "1231231231231", "021021", "Male", new DateTime(1990, 5, 5), "123", "deljac", "A+", 123, 123, 
+            //     "urkem98@gmail.com", "pass");
+
+            // a = PatientController.Save(patient);
+            // b = DoctorController.Save(doctor);
+            // c = SecretaryController.Save(secretary);
 
         }
 
 
-        ~App(){
-            a = PatientController.Remove(a);
+        ~App()
+        {
+            // a = PatientController.Remove(a);
             //b = DoctorController.Remove(b);
             //c = SecretaryController.Remove(c);
         }

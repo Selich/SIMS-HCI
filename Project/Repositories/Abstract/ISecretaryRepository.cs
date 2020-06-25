@@ -9,5 +9,6 @@ namespace Project.Repositories.Abstract
 {
     public interface ISecretaryRepository: IRepository<Secretary,long>
     {
+        Secretary GetByEmail(string email);
     }
 }
