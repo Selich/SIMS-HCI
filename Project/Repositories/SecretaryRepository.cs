@@ -19,6 +19,9 @@ namespace Project.Repositories
 
         public SecretaryRepository(
             ICSVStream<Secretary> stream,
+            ICSVStream<Patient> patientStream,
+            ICSVStream<Doctor> doctorStream,
+            ICSVStream<Secretary> secretaryStream,
             IAddressRepository addressRepository,
             ISequencer<long> sequencer
             ) : base(ENTITY_NAME, stream, sequencer)

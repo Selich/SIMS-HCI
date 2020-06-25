@@ -11,7 +11,7 @@ using Project.Repositories.Sequencer;
 namespace Project.Repositories
 {
     public class PatientRepository :
-        CSVRepository<Patient, long>,
+        UserCSVRepository<Patient, User, long>,
         IPatientRepository,
         IEagerCSVRepository<Patient, long>
     {
@@ -20,9 +20,12 @@ namespace Project.Repositories
 
         public PatientRepository(
             ICSVStream<Patient> stream,
+            ICSVStream<Patient> patientStream,
+            ICSVStream<Doctor> doctorStream,
+            ICSVStream<Secretary> secretaryStream,
             IAddressRepository addressRepository,
             ISequencer<long> sequencer
-            ) : base(ENTITY_NAME, stream, sequencer)
+            ) : base(stream, patientStream, doctorStream, secretaryStream, sequencer)
         {
             _addressRepository = addressRepository;
         }
