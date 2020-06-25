@@ -38,7 +38,7 @@ namespace Project.Repositories.CSV.Converter
             string[] tokens = patientCSVFormat.Split(_delimiter.ToCharArray());
             return new Patient(
                 long.Parse(tokens[0]),
-                new Address(), 
+                new Address(long.Parse(tokens[1])), 
                 tokens[2],
                 tokens[3],
                 tokens[4],

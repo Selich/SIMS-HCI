@@ -37,8 +37,7 @@ namespace Project.Repositories.CSV.Converter
                medicalAppointment.End,
                medicalAppointment.Room.Id,
                medicalAppointment.Type,
-               medicalAppointment.Patient.Id,
-               ""// doctors
+               medicalAppointment.Patient.Id
                );
 
         public MedicalAppointment ConvertCSVFormatToEntity(string medicalAppointmentCSVFormat)
@@ -51,7 +50,7 @@ namespace Project.Repositories.CSV.Converter
                 new Room(long.Parse(tokens[3])),
                 (MedicalAppointmentType)Enum.Parse(typeof(MedicalAppointmentType),tokens[4]),
                 new Patient(long.Parse(tokens[5])),
-                null //doctors
+                new List<Doctor>() //doctors
                 );
         }
     }
