@@ -24,21 +24,28 @@ namespace Project.Repositories
         { }
 
         public new IEnumerable<Medicine> Find(Func<Medicine, bool> predicate) => GetAllEager().Where(predicate);
-        public IEnumerable<Medicine> GetAllEager() => GetAll();
         public IEnumerable<Medicine> GetAllLazy() {
             List<Medicine> list = new List<Medicine>();
             foreach(Medicine medicine in GetAll()){
-                medicine.Alternatives = null;
+                medicine.Alternatives.Select(item => item.Alternatives = null);
                 list.Add(medicine);
             }
             return list;
         }
-        public Medicine GetEager(long id) => GetById(id);
-        public Medicine GetByName(string name) => GetByName(name);
+        public IEnumerable<Medicine> GetAllEager() 
+            => GetAll();
+        public new IEnumerable<Medicine> GetAll() 
+            => GetAllLazy();
+        public new Medicine GetById(long id) 
+            => GetLazy(id);
+        public Medicine GetEager(long id) 
+            => GetById(id);
+        public Medicine GetByName(string name) 
+            => GetByName(name);
         public Medicine GetLazy(long id)
         {
             var medicine = GetById(id);
-            medicine.Alternatives = null;
+            medicine.Alternatives.Select(item => item.Alternatives = null);
             return medicine;
         }
 
