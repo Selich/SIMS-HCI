@@ -28,6 +28,10 @@ namespace Project.Views.Model
               base(id, address, firstName, lastName, jmbg, telephoneNumber, gender, dateOfBirth, salary, annualLeave, workingHours, email, password)
         {
         }
+        public SecretaryDTO(AddressDTO address, string firstName, string lastName, string jmbg, string telephoneNumber, string gender, DateTime dateOfBirth, int salary, TimeInterval annualLeave, TimeInterval workingHours, string email, string password) :
+              base(address, firstName, lastName, jmbg, telephoneNumber, gender, dateOfBirth, salary, annualLeave, workingHours, email, password)
+        {
+        }
 
         public SecretaryDTO(AddressDTO address, string firstName, string lastName, string jmbg, string telephoneNumber, string gender, DateTime dateOfBirth, int salary, TimeInterval annualLeave, TimeInterval workingHours, string email, string password, string hospital) :
               base(address, firstName, lastName, jmbg, telephoneNumber, gender, dateOfBirth,salary,annualLeave,workingHours,email,password,hospital)

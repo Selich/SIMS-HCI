@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using Project.Model;
 using Project.Repositories;
+using Project.Services.Abstract;
 using Project.Repositories.Abstract;
 
 namespace Project.Services
 {
-    class DoctorService : IService<Doctor, long>
+    class DoctorService : IDoctorService
     {
         private readonly IDoctorRepository _doctorRepository;
      
@@ -29,7 +30,10 @@ namespace Project.Services
         public Doctor Update(Doctor doctor)
             => _doctorRepository.Update(doctor);
 
-        public Doctor Remove(Doctor client) => _doctorRepository.Remove(client);
+        public Doctor Remove(Doctor client) 
+            => _doctorRepository.Remove(client);
+        public Doctor GetByEmail(string email) 
+            => _doctorRepository.GetByEmail(email);
 
         public bool IsDoctorAvailable(int doctorID) => throw new NotImplementedException();
 
@@ -39,7 +43,6 @@ namespace Project.Services
 
         public List<Doctor> GetAvailableDoctorsTimeInterval(MedicalAppointment medicalAppointment) => throw new NotImplementedException();
 
-        public Doctor GetByEmail(string email) => throw new NotImplementedException();
 
         public List<Doctor> GetAllDoctorsBySpecialization() => throw new NotImplementedException(); 
     }

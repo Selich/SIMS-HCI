@@ -54,10 +54,10 @@ namespace Project.Repositories
         }
         
         private bool IsEmailUnique(string email)
-         => GetPatientByEmail(email) == null;
+            => GetByEmail(email) == null;
 
-        private Doctor GetPatientByEmail(string email)
-         => _stream.ReadAll().SingleOrDefault(doctor => doctor.Email.Equals(email));
+        public Doctor GetByEmail(string email)
+            => _stream.ReadAll().SingleOrDefault(doctor => doctor.Email.Equals(email));
 
     }
 }
