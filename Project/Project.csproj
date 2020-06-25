@@ -243,6 +243,7 @@
     <Compile Include="Services\PrescriptionService.cs" />
     <Compile Include="Services\MedicalConsumableService.cs" />
     <Compile Include="Services\FeedbackService.cs" />
+    <Compile Include="Services\PropositionService.cs" />
     <Compile Include="Services\QuestionService.cs" />
     <Compile Include="Services\AddressService.cs" />
     <Compile Include="Services\RenovationService.cs" />
@@ -255,6 +256,10 @@
     <Compile Include="Services\ReviewService.cs" />
     <Compile Include="Services\RoomService.cs" />
     <Compile Include="Services\SecretaryService.cs" />
+    <Compile Include="Services\State\ApprovedState.cs" />
+    <Compile Include="Services\State\InReviewState.cs" />
+    <Compile Include="Services\State\IPropositionState.cs" />
+    <Compile Include="Services\State\RejectedState.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="Util\Environment.cs" />
     <Compile Include="Util\HelperFunctions.cs" />
@@ -263,6 +268,7 @@
     <Compile Include="Views\Commands\ShowShortcutsCommand.cs" />
     <Compile Include="Views\Converters\AnamnesisConvertor.cs" />
     <Compile Include="Views\Converters\AppointmentConverter.cs" />
+    <Compile Include="Views\Converters\ApprovalConverter.cs" />
     <Compile Include="Views\Converters\BoolToVisibilityConverter.cs" />
     <Compile Include="Views\Converters\DoctorConverter.cs" />
     <Compile Include="Views\Converters\EquipmentConverter.cs" />
@@ -278,6 +284,7 @@
     <Compile Include="Views\Converters\PatientConverter.cs" />
     <Compile Include="Views\Converters\PrescriptionConverter.cs" />
     <Compile Include="Views\Converters\FeedbackConverter.cs" />
+    <Compile Include="Views\Converters\PropositionConverter.cs" />
     <Compile Include="Views\Converters\QuestionConverter.cs" />
     <Compile Include="Views\Converters\RenovationConverter.cs" />
     <Compile Include="Views\Converters\ReviewConverter.cs" />

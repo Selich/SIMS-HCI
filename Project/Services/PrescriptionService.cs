@@ -10,7 +10,7 @@ namespace Project.Services
 {
     class PrescriptionService : IService<Prescription, long>
     {
-        private readonly IPrescriptionRepository _prescriptionRepository;
+        private IPrescriptionRepository _prescriptionRepository;
 
         public PrescriptionService(
             IPrescriptionRepository prescriptionRepository,

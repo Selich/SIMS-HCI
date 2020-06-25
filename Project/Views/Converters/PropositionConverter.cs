@@ -8,38 +8,23 @@ using System.Threading.Tasks;
 
 namespace Project.Views.Converters
 {
-    public class PropositionCOnverter : IConverter<Proposition, PropositionDTO>
+    public class PropositionConverter : IConverter<Proposition, PropositionDTO>
     {
-        private DirectionConverter _directionConverter;
         private MedicineConverter _medicineConverter;
         private ApprovalConverter _approvalConverter;
 
-        public PropositionCOnverter(MedicineConverter medicineConverter, DirectionConverter directionConverter, ApprovalConverter approvalConverter)
+        public PropositionConverter(MedicineConverter medicineConverter,  ApprovalConverter approvalConverter)
         {
             _medicineConverter = medicineConverter;
-            _directionConverter = directionConverter;
             _approvalConverter = approvalConverter;
         }
         public Proposition ConvertDTOToEntity(PropositionDTO dto)
             => new Proposition(
-                dto.Id,
-                dto.State,
-                dto.AnswerText,
-                _patientConverter.ConvertListDTOToListEntity(dto.Approval),
-                _medicineConverter.ConvertDTOToEntity(dto.Medicine),
-                _directionConverter.ConvertDTOToEntity(dto.Director)
                 
             );
 
         public PropositionDTO ConvertEntityToDTO(Proposition entity)
                 => new PropositionDTO(
-                entity.Id,
-                entity.State,
-                entity.AnswerText,
-                _patientConverter.ConvertListEntityToListDTO(entity.Approval),
-                _medicineConverter.ConvertEntityToDTO(entity.Medicine),
-                _directionConverter.ConvertEntityToDTO(entity.Director)
-                
                     );
 
         public List<Proposition> ConvertListDTOToListEntity(IEnumerable<PropositionDTO> dtos)

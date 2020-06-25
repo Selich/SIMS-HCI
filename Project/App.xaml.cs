@@ -256,13 +256,6 @@ namespace Project
             var inventoryManagementConverter = new InventoryManagementConverter(equipmentConverter, roomConverter);
             var orderConverter = new OrderConverter(medicalConsumableConverter,medicineConverter,equipmentConverter);
 
-        //     ICSVStream<Patient> stream,
-        //     IAddressRepository addressRepository,
-        //     ISequencer<long> sequencer
-        //     ) : base(ENTITY_NAME, stream, sequencer)
-        // {
-        //     _addressRepository = addressRepository;
-        // }
             // Repositories
             // Many to Many
             var medicalAppointmentToDoctorRepository = new MedicalAppointmentToDoctorRepository(
@@ -278,12 +271,6 @@ namespace Project
                 new LongSequencer()
             );
 
-
-
-            // var patientCSVRepository = new UserCSVRepository<Patient, User, long>(
-            //     "Patient", patientStrea
-
-            // )
             var addressRepository = new AddressRepository(new CSVStream<Address>(ADDRESS_FILEPATH, new AddressCSVConverter(DELIMITER)), new LongSequencer());
             var patientRepository = new PatientRepository(
                 new CSVStream<Patient>(PATIENT_FILEPATH, new PatientCSVConverter(DELIMITER, DATETIME_FORMAT)),
