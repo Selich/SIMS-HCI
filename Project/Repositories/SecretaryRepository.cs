@@ -34,7 +34,7 @@ namespace Project.Repositories
 
         public new IEnumerable<Secretary> GetAll() 
         {
-            var secretaries = GetAll();
+            var secretaries = base.GetAll();
             var addresses = _addressRepository.GetAll();
             BindSecretaryWithAddress(addresses, secretaries);
             return secretaries;
