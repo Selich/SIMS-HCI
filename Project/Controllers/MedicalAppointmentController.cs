@@ -27,7 +27,7 @@ namespace Controller
         }
         public IEnumerable<MedicalAppointmentDTO> GetAll()
             => _medicalAppointmentConverter.ConvertListEntityToListDTO((List<MedicalAppointment>)_service.GetAll());
-        public IEnumerable<MedicalAppointment> GetAvailableAppoitments(Doctor doctor, Room room, TimeInterval timeInterval)
+        public IEnumerable<MedicalAppointmentDTO> GetAvailableAppoitments(Doctor doctor, Room room, TimeInterval timeInterval)
             => _medicalAppointmentConverter.ConvertListEntityToListDTO((List<MedicalAppointment>)_service.GetAvailableAppoitments(doctor, room, timeInterval));
 
         public IEnumerable<MedicalAppointmentDTO> GetAllByPatientID(long id)
