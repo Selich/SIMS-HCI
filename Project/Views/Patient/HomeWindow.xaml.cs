@@ -49,7 +49,7 @@ namespace Project.Views.Patient
             LoggedInPatient = app.PatientController.GetByEmail(email);
 
             //Appoitments
-            PastAppoitments = new ObservableCollection<Model.MedicalAppointmentDTO>();
+        /*    PastAppoitments = new ObservableCollection<Model.MedicalAppointmentDTO>();
             Appoitments = new ObservableCollection<Model.MedicalAppointmentDTO>();
             var list = app.MedicalAppointmentController.GetAllByPatientID(LoggedInPatient.Id);
             foreach (MedicalAppointmentDTO appoitment in list)
@@ -78,7 +78,7 @@ namespace Project.Views.Patient
 
             Labels = new[] { "7:00", "8:30", "10:00", "11:30", "13:00", "14:30", "16:00", "17:30", "19:00" };
             Formatter = value => value.ToString("N");
-
+            */
 
         }
 

@@ -497,14 +497,7 @@ namespace Project.Views.Director
             Change_employee.Visibility = Visibility.Collapsed;
         }
 
-        private void CloseEmpoyeeProfileChanges(object sender, RoutedEventArgs e)
-        {
-            foreach (System.Windows.Controls.TextBox textBox in employeeData.Children)
-                textBox.IsEnabled = false;
-            Save_employee.Visibility = Visibility.Collapsed;
-        //    Cancel_employee.Visibility = Visibility.Collapsed;
-            Change_employee.Visibility = Visibility.Visible;
-        }
+       
 
         private void Generate_Room_Report(object sender, RoutedEventArgs e)
         {
@@ -1079,7 +1072,7 @@ namespace Project.Views.Director
                     return;
                 }
             }
-            /*
+            
             foreach (DoctorDTO doc in Doctors)
             {
                 if (employee.Id == doc.Id)
@@ -1091,7 +1084,45 @@ namespace Project.Views.Director
                     return;
                 }
             }
-            return; */
+            return; 
+        }
+
+        private void CloseEmpoyeeProfileChanges(object sender, RoutedEventArgs e)
+        {
+            foreach (System.Windows.Controls.TextBox textBox in employeeData.Children)
+                textBox.IsEnabled = false;
+            Save_employee.Visibility = Visibility.Collapsed;
+            Change_employee.Visibility = Visibility.Visible;
+            EmployeeDTO employee = EmployeeList.SelectedItem as EmployeeDTO;
+            App app = App.Current as App;
+            foreach (SecretaryDTO sec in Secretaries)
+            {
+                if (employee.Id == sec.Id)
+                {
+                    sec.FirstName = employee.FirstName;
+                    sec.LastName = employee.LastName;
+                    sec.Email = employee.Email;
+                    sec.Jmbg = employee.Jmbg;
+                    app.SecretaryController.Update(sec);
+                    RefreshEmployeeList();
+                    return;
+                }
+            }
+
+            foreach (DoctorDTO doc in Doctors)
+            {
+                if (employee.Id == doc.Id)
+                {
+                    doc.FirstName = employee.FirstName;
+                    doc.LastName = employee.LastName;
+                    doc.Email = employee.Email;
+                    doc.Jmbg = employee.Jmbg;
+                    app.DoctorController.Update(doc);
+                    RefreshEmployeeList();         
+                    return;
+                }
+            }
+         
         }
 
         public void RefreshEmployeeList()

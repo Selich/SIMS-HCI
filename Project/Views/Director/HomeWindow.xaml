@@ -127,7 +127,7 @@
         <TabItem Header="{DynamicResource employees}">
             <Grid>
                 <materialDesign:Card>
-                    <Grid Name="EmployeeDetailsGrid" Margin="0,0,0,0" Visibility="Visible" DataContext="{Binding ElementName=EmployeeList, Path=SelectedItem}">
+                    <Grid Name="EmployeeDetailsGrid" Margin="0,0,0,0" Visibility="Collapsed" DataContext="{Binding ElementName=EmployeeList, Path=SelectedItem}">
                         <Button Content="{DynamicResource back}" HorizontalAlignment="Left" Margin="36,26,0,0" VerticalAlignment="Top" Width="74" Click="OpenEmplyees"/>
                         <Image Source="/Project;component/Resources/Icons/hospital.png"  HorizontalAlignment="Left" Height="170" Margin="36,90,0,0" VerticalAlignment="Top" Width="170" OpacityMask="#FFF12511"/>
                         <Label Content="Email:" HorizontalAlignment="Left" Margin="219,125,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.223,0.514"/>
@@ -277,7 +277,7 @@
 
 
 
-                <Grid Name="EmployeesGrid" Margin="0,0,0,0" Visibility="Collapsed">
+                <Grid Name="EmployeesGrid" Margin="0,0,0,0" Visibility="Visible">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="847*"/>
                         <ColumnDefinition Width="405*"/>
