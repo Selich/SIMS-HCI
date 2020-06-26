@@ -33,25 +33,15 @@ namespace Project.Views.Tabs
             InitializeComponent();
             app = System.Windows.Application.Current as App;
             CurrentDoctor.Content = app.SelectedDoctor;
-            //nextAppointment.Content = app.MedicalAppointments[0];
 
-            list = app.MedicalAppointments;
-            AppointmentList.ItemsSource = new List<MedicalAppointment>();
-
-
+            AppointmentList.ItemsSource = app.MedicalAppointmentController.GetAll();
+            nextAppointment.Content = app.MedicalAppointmentController.GetAll().ToList()[0];
 
             CurrentDate = app.SelectedDate;
             SelectedDatePick.SelectedDate = CurrentDate;
 
-            //ListDate.Content =
-            //    app.SelectedDate.StartOfWeek(DayOfWeek.Monday).ToShortDateString() +
-            //    ":" +
-            //    app.SelectedDate.StartOfWeek(DayOfWeek.Sunday).ToShortDateString();
-
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(AppointmentList.ItemsSource);
             view.Filter = CombinedFilter;
-
-
         }
         private bool CombinedFilter(object item)
             => DoctorFilter(item) && DateFilter(item);

@@ -29,7 +29,7 @@ namespace Project.Repositories.CSV.Converter
                prescription.Usage,
                prescription.Period,
                prescription.Medicine.Id,
-               prescription.Date,
+               prescription.Date.ToString(_datetimeFormat),
                prescription.Patient.Id
                );
 
@@ -42,7 +42,7 @@ namespace Project.Repositories.CSV.Converter
                 tokens[2],
                 tokens[3],
                 new Medicine(long.Parse(tokens[4])),
-                DateTime.Parse(tokens[5]),
+                DateTime.ParseExact(tokens[5], _datetimeFormat, null),
                 new Patient(long.Parse(tokens[6]))
             );
         }

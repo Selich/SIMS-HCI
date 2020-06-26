@@ -24,7 +24,6 @@ namespace Project.Views.Secretary
     /// </summary>
     public partial class SecretaryCreateModal : Window
     {
-        private readonly IController<PatientDTO, long> _patientController;
         private readonly CancellationTokenSource cts = new CancellationTokenSource();
         public string Name;
         public string Jmbg;
@@ -36,19 +35,19 @@ namespace Project.Views.Secretary
 
             app = System.Windows.Application.Current as App;
 
-            SelectedDate.SelectedDate = DateTime.Now;
+            SelectedDate.SelectedDate = app.SelectedDate;
 
             ListPatients.ItemsSource = app.PatientController.GetAll();
-            ListTerms.ItemsSource = app.MedicalAppointmentController.GetAll();
+            ListTerms.ItemsSource = app.MedicalAppointmentController.GetAvailableAppoitments( app.SelectedDoctor, null, new TimeInterval(DateTime.Now, DateTime.Now.AddDays(1)));
             ListRooms.ItemsSource = app.RoomController.GetAll();
             AppointmentType.ItemsSource = app.medicalAppointmentTypes;
 
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(ListPatients.ItemsSource);
-            //CollectionView termView = (CollectionView)CollectionViewSource.GetDefaultView(ListTerms.ItemsSource);
+            CollectionView termView = (CollectionView)CollectionViewSource.GetDefaultView(ListTerms.ItemsSource);
             CollectionView roomView = (CollectionView)CollectionViewSource.GetDefaultView(ListRooms.ItemsSource);
 
             view.Filter = CombinedFilter;
-            //termView.Filter = TermFilter;
+            termView.Filter = TermFilter;
             roomView.Filter = RoomFilter;
 
 
@@ -79,22 +78,6 @@ namespace Project.Views.Secretary
         private void JMBGSearch_TextBox_TextChanged(object sender, TextChangedEventArgs e)
             => CollectionViewSource.GetDefaultView(ListPatients.ItemsSource).Refresh();
 
-        private void TermSearch_TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            List<TimeInterval> availableTerms = new List<TimeInterval>();
-            for (int i = 0; i < 8; i++)
-            {
-                availableTerms.Add(new TimeInterval(
-                    DateTime.Now.AddHours(i),
-                    DateTime.Now.AddHours(i).AddMinutes(30)
-               ));
-            }
-
-
-            ListTerms.ItemsSource = availableTerms;
-
-            CollectionViewSource.GetDefaultView(ListTerms.ItemsSource).Refresh();
-        }
         private void RoomNumber_TextBox_TextChanged(object sender, TextChangedEventArgs e)
             => CollectionViewSource.GetDefaultView(ListRooms.ItemsSource).Refresh();
         private void SelectedDate_SelectedDatesChanged(object sender, SelectionChangedEventArgs e) { }

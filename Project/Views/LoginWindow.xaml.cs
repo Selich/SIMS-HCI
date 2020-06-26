@@ -37,6 +37,12 @@ namespace Project.Views
         private void Login_Click(object sender, RoutedEventArgs e)
         {
             Tuple<UserDTO, string> tuple = app.AuthenticationController.Login(Email, PasswordTextBox.Password);
+            if (tuple == null)
+            {
+                System.Windows.Forms.MessageBox.Show("Neuspešno prijavljivanje", "Neuspešno prijavljivanje", MessageBoxButtons.OK);
+                return;
+            } 
+            
             app.currentUser = tuple.Item1;
             string role = tuple.Item2;
             switch (role)

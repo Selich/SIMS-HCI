@@ -17,18 +17,27 @@ namespace Controller
     {
         private IMedicalAppointmentService _service;
         private IConverter<MedicalAppointment, MedicalAppointmentDTO> _medicalAppointmentConverter;
+        private IConverter<Doctor, DoctorDTO> _doctorConverter;
+        private IConverter<Room, RoomDTO> _roomConverter;
         public MedicalAppointmentController(
             IMedicalAppointmentService service,
-            IConverter<MedicalAppointment, MedicalAppointmentDTO> medicalAppointmentConverter
+            IConverter<MedicalAppointment, MedicalAppointmentDTO> medicalAppointmentConverter,
+            IConverter<Doctor, DoctorDTO> doctorConverter,
+            IConverter<Room, RoomDTO> roomConverter
             )
         {
             _service = service;
             _medicalAppointmentConverter = medicalAppointmentConverter;
+            _doctorConverter = doctorConverter;
+            _roomConverter = roomConverter;
         }
         public IEnumerable<MedicalAppointmentDTO> GetAll()
             => _medicalAppointmentConverter.ConvertListEntityToListDTO((List<MedicalAppointment>)_service.GetAll());
-        public IEnumerable<MedicalAppointmentDTO> GetAvailableAppoitments(Doctor doctor, Room room, TimeInterval timeInterval)
-            => _medicalAppointmentConverter.ConvertListEntityToListDTO((List<MedicalAppointment>)_service.GetAvailableAppoitments(doctor, room, timeInterval));
+        public IEnumerable<MedicalAppointmentDTO> GetAvailableAppoitments(DoctorDTO doctor, RoomDTO room, TimeInterval timeInterval)
+            => _medicalAppointmentConverter.ConvertListEntityToListDTO((List<MedicalAppointment>)_service.GetAvailableAppoitments(
+                _doctorConverter.ConvertDTOToEntity(doctor), 
+                _roomConverter.ConvertDTOToEntity(room), 
+                timeInterval));
 
         public IEnumerable<MedicalAppointmentDTO> GetAllByPatientID(long id)
             => _medicalAppointmentConverter.ConvertListEntityToListDTO((List<MedicalAppointment>)_service.GetAllByPatientId(id));

@@ -366,7 +366,14 @@ namespace Project
             ReportController = new ReportController();
             PrescriptionController = new PrescriptionController(prescriptionService, prescriptionConverter);
             EquipmentController = new EquipmentController(equipmentService, equipmentConverter);
-            MedicalAppointmentController = new MedicalAppointmentController(medicalAppoitmentService, medicalAppoitmentConverter);
+
+            MedicalAppointmentController = new MedicalAppointmentController(
+                medicalAppoitmentService, 
+                medicalAppoitmentConverter,
+                doctorConverter,
+                roomConverter
+            );
+
             RoomController = new RoomController(roomService, roomConverter);
             RenovationController = new RenovationController(renovationService, renovationConverter);
             FeedbackController = new FeedbackController(feedbackService, feedbackConverter);
