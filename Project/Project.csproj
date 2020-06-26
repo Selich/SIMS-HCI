@@ -185,12 +185,15 @@
     <Compile Include="Repositories\CSV\Converter\MedicalConsumableCSVConverter.cs" />
     <Compile Include="Repositories\CSV\Converter\AddressCSVConverter.cs" />
     <Compile Include="Repositories\CSV\Converter\QuestionCSVConverter.cs" />
+    <Compile Include="Repositories\CSV\Converter\ReferralCSVConventer.cs" />
     <Compile Include="Repositories\CSV\Converter\RenovationCSVConverter.cs" />
     <Compile Include="Repositories\CSV\Converter\FeedbackCSVConverter.cs" />
     <Compile Include="Repositories\CSV\Converter\ReviewCSVConverter.cs" />
     <Compile Include="Repositories\CSV\Converter\RoomCSVConverter.cs" />
     <Compile Include="Repositories\CSV\Converter\DoctorCSVConverter.cs" />
     <Compile Include="Repositories\CSV\Converter\SecretaryCSVConverter.cs" />
+    <Compile Include="Repositories\CSV\ItemCSVRepository.cs" />
+    <Compile Include="Repositories\CSV\ReferralCSVRepository.cs" />
     <Compile Include="Repositories\CSV\UserCSVRepository.cs" />
     <Compile Include="Repositories\DoctorRepository.cs" />
     <Compile Include="Repositories\EquipmentRepository.cs" />
