@@ -345,7 +345,7 @@ namespace Project
             var equipmentService = new EquipmentService(equipmentRepository);
             var medicalAppoitmentService = new MedicalAppointmentService(medicalAppoitmentRepository,APPOINTMENT_LENGTH_IN_MINUTES);
             var roomService = new RoomService(roomRepository);
-            var renovationService = new RenovationService(renovationRepository);
+            var renovationService = new RenovationService(renovationRepository,roomRepository);
             var feedbackService = new FeedbackService(feedbackRepository);
             var reviewService = new ReviewService(reviewRepository);
             var employeeService = new EmployeeService(secretaryRepository, doctorRepository);
@@ -403,6 +403,7 @@ namespace Project
             // //     "selic.work@gmail.com", "pass");
             //  PatientDTO patient = new PatientDTO(address, "Uros", "Milovanovic", "1231231231231", "021021", "Male", new DateTime(1990, 5, 5), "123", "deljac", "A+", 123, 123, 
             //      "urkem98@gmail.com", "pass");
+
 
         }
 

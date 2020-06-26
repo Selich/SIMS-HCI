@@ -232,6 +232,7 @@
     <Compile Include="Services\Abstract\IPatientService.cs" />
     <Compile Include="Services\Abstract\IPropositionService.cs" />
     <Compile Include="Services\Abstract\IMedicalAppoitmentService.cs" />
+    <Compile Include="Services\Abstract\IRenovationService.cs" />
     <Compile Include="Services\Abstract\ISecretaryService.cs" />
     <Compile Include="Services\ApprovalService.cs" />
     <Compile Include="Services\AnamnesisService.cs" />

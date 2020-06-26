@@ -1,5 +1,6 @@
 ﻿using Project.Model;
 using Project.Services;
+using Project.Services.Abstract;
 using Project.Views.Converters;
 using Project.Views.Model;
 using System;
@@ -12,11 +13,11 @@ namespace Project.Controllers
 {
     public class RenovationController:IController<RenovationDTO,long>
     {
-        private IService<Renovation, long> _service;
+        private IRenovationService _service;
         private IConverter<Renovation, RenovationDTO> _renovationConverter;
 
         public RenovationController(
-            IService<Renovation,long> service,
+            IRenovationService service,
             IConverter<Renovation,RenovationDTO> renovationConverter)
         {
             _service = service;
@@ -45,7 +46,8 @@ namespace Project.Controllers
         public RenovationDTO Update(RenovationDTO entity)
             => _renovationConverter.ConvertEntityToDTO(_service.Update(_renovationConverter.ConvertDTOToEntity(entity)));
 
-
+        public void RealiseRenovation(RenovationDTO entity)
+            => _service.RealiseRenovation(_renovationConverter.ConvertDTOToEntity(entity));
 
     }
 }
