@@ -58,6 +58,7 @@ namespace Project.Views.Doctor
         public List<MedicalAppointmentDTO> allMedicalAppointmentDTO { get; set; }
         public List<PropositionDTO> ListOfPropositions { get; set; }
         public string MedicineName { get; set; }
+        public List<PatientDTO> allPatientsDTO { get; set; }
 
         public HomeWindow(string email)
         {
@@ -97,8 +98,10 @@ namespace Project.Views.Doctor
 
             //ALl medical appoitments
 
-            allMedicalAppointmentDTO = (List<MedicalAppointmentDTO>)app.MedicalAppointmentController.GetAllByDoctorID(LoggedInDoctor.Id);// GetAll();
-            // allMedicalAppointmentDTO = (List<MedicalAppointmentDTO>) app.MedicalAppointmentController GetAll();
+            allMedicalAppointmentDTO = (List<MedicalAppointmentDTO>)app.MedicalAppointmentController.GetAllByDoctorID(LoggedInDoctor.Id);
+
+            allPatientsDTO = (List<PatientDTO>)app.PatientController.GetAll();
+            //allPatientsDTO[0].FirstName
 
             Appoitments = allMedicalAppointmentDTO;
 
@@ -106,36 +109,6 @@ namespace Project.Views.Doctor
 
             ListOfPropositions = (List<PropositionDTO>) app.PropositionController.GetAll();
             
-            //Current Appoitments
-            /*
-            RoomDTO tempRoom = new RoomDTO() { Floor = "One", Id = 4, Ward = "Check" };
-            Appoitments = new ObservableCollection<Model.MedicalAppointmentDTO>();
-            Appoitments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 15, 11, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 13, 15, 30, 0), IsScheduled = true });
-            Appoitments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 15, 12, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 13, 18, 30, 0), IsScheduled = true });
-            Appoitments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 14, 13, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 15, 15, 30, 0), IsScheduled = true });
-            Appoitments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 13, 14, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 13, 15, 30, 0), IsScheduled = true });
-            Appoitments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 14, 15, 0, 0), Type = MedicalAppointmentType.operation, End = new DateTime(2020, 5, 14, 1, 30, 0), IsScheduled = true });
-            Appoitments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 15, 16, 0, 0), Type = MedicalAppointmentType.operation, End = new DateTime(2020, 5, 15, 5, 30, 0), IsScheduled = true });
-            Appoitments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 10, 17, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 15, 5, 30, 0), IsScheduled = true });
-            Appoitments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 11, 18, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 15, 18, 30, 0), IsScheduled = true });
-            Appoitments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 12, 19, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 15, 15, 30, 0), IsScheduled = true });
-            Appoitments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 13, 10, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 13, 15, 30, 0), IsScheduled = true });
-            Appoitments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 14, 11, 0, 0), Type = MedicalAppointmentType.operation, End = new DateTime(2020, 5, 14, 15, 30, 0), IsScheduled = true });
-            Appoitments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 15, 11, 0, 0), Type = MedicalAppointmentType.operation, End = new DateTime(2020, 5, 15, 14, 30, 0), IsScheduled = true });
-            Appoitments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 25, 11, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 13, 15, 30, 0), IsScheduled = true });
-            Appoitments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 25, 12, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 13, 18, 30, 0), IsScheduled = true });
-            Appoitments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 24, 13, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 15, 15, 30, 0), IsScheduled = true });
-            Appoitments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 23, 14, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 13, 15, 30, 0), IsScheduled = true });
-            Appoitments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 24, 15, 0, 0), Type = MedicalAppointmentType.operation, End = new DateTime(2020, 5, 14, 1, 30, 0), IsScheduled = true });
-            Appoitments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 25, 16, 0, 0), Type = MedicalAppointmentType.operation, End = new DateTime(2020, 5, 15, 5, 30, 0), IsScheduled = true });
-            Appoitments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 20, 17, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 15, 5, 30, 0), IsScheduled = true });
-            Appoitments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 21, 18, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 15, 18, 30, 0), IsScheduled = true });
-            Appoitments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 22, 19, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 15, 15, 30, 0), IsScheduled = true });
-            Appoitments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 23, 10, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 13, 15, 30, 0), IsScheduled = true });
-            Appoitments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 24, 11, 0, 0), Type = MedicalAppointmentType.operation, End = new DateTime(2020, 5, 14, 15, 30, 0), IsScheduled = true });
-            Appoitments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 25, 11, 0, 0), Type = MedicalAppointmentType.operation, End = new DateTime(2020, 5, 15, 14, 30, 0), IsScheduled = true });
-            */
-
 
             CurrentAppoitments = new ObservableCollection<MedicalAppointmentDTO>();
 
@@ -426,7 +399,6 @@ namespace Project.Views.Doctor
         private void CalendarChoose_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
         {
             SelecetedDate2.Content = SelectedDate.ToShortDateString();
-            //CurrentAppoitments = new ObservableCollection<MedicalAppointmentDTO>();
             CurrentAppoitments.Clear();
             foreach (MedicalAppointmentDTO termin in Appoitments)
             {
@@ -475,15 +447,13 @@ namespace Project.Views.Doctor
             AddMediciniToList.Visibility = Visibility.Hidden;
         }
 
+        
         private void RemoveLek(object sender, RoutedEventArgs e)
         {/*
             var sellek = PecepiesList.SelectedItem;
             PecepiesList.Items.Remove(sellek);*/
         }
-
-
-
-
+        
         private void Termini_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var selitem = Termini.SelectedValue;
@@ -510,12 +480,23 @@ namespace Project.Views.Doctor
                 PatientsW.Text = ((MedicalAppointmentDTO)selitem).Patient.Weight.ToString();
                 //PateintsState.Text = ((MedicalAppointmentDTO)selitem).Patient. ;
                 PatientdApp.Text = ((MedicalAppointmentDTO)selitem).Type.ToString();
-
+                currentMedicalAppointment = ((MedicalAppointmentDTO)selitem);
+                LoggedInPatient = app.PatientController.GetById(((MedicalAppointmentDTO)selitem).Patient.Id);
             }
         }
 
         private void Send_rep(object sender, RoutedEventArgs e)
         {
+            List<Item> items = new List<Item>();
+            foreach (string itemResouce in ListOfRosourcesesListOfResources.Items)
+            {
+                string[] info = itemResouce.Split(' ');
+                
+                ItemDTO item = new ItemDTO(int.Parse(info[1]), "Resurs", "opis", info[0]);
+                app.ItemController.Save(item);
+            }
+            
+
             var alert = new Alert();
             alert.Show();
             ListOfRosourcesesListOfResources.Items.Clear();
@@ -525,7 +506,11 @@ namespace Project.Views.Doctor
         {
             var alert = new Alert();
             alert.Show();
-            PecepiesList.Items.Clear();
+            List<PrescriptionDTO> prescriptionDTOs = (List<PrescriptionDTO>) PecepiesList.ItemsSource;
+            foreach (PrescriptionDTO prescription in prescriptionDTOs)
+            {
+                app.PrescriptionController.Save(prescription);
+            }
         }
 
         private void ListBox_Selected(object sender, RoutedEventArgs e)
@@ -533,7 +518,6 @@ namespace Project.Views.Doctor
             //Req_medicine.Content = Select_prescr.SelectedItem as string;
             ListBox lb = sender as ListBox;
             Req_medicine.Content = lb.SelectedValue.ToString().Remove(0,37);
-            //requiest = ;
         }
 
         private void Approve(object sender, RoutedEventArgs e)
@@ -554,12 +538,12 @@ namespace Project.Views.Doctor
         }
 
         private void Filter(object sender, RoutedEventArgs e)
-        {
+        {/*
             Mira_Miric.Visibility = Visibility.Collapsed ;
             Mira_Miric1.Visibility = Visibility.Collapsed;
             Mira_Miric2.Visibility = Visibility.Collapsed;
             Uros_Milovanocic.Visibility = Visibility.Collapsed;
-
+            */
             //listOfPatients.
         }
 
@@ -579,13 +563,6 @@ namespace Project.Views.Doctor
         private void Add_Anamnesis_Clcik(object sender, RoutedEventArgs e)
         {
             app.AnamnesisController.Save(new AnamnesisDTO(1, "anamneza", ComboBoxTypeAnamesis.SelectedValue.ToString().Remove(0,38), Anamnesis_Text.Text, currentMedicalAppointment));
-            /*app.MedicalAppointmentController.Remove(currentMedicalAppointment);
-            if (currentMedicalAppointment.Anamnesis == null)
-            {
-                currentMedicalAppointment.Anamnesis = new List<AnamnesisDTO>();
-            }
-            currentMedicalAppointment.Anamnesis.Add(new AnamnesisDTO(1, "anamneza", ComboBoxTypeAnamesis.SelectedValue.ToString().Remove(0, 38), Anamnesis_Text.Text, currentMedicalAppointment));
-            app.MedicalAppointmentController.Save(currentMedicalAppointment);*/
         }
 
         private void FeedBack_Click(object sender, RoutedEventArgs e)

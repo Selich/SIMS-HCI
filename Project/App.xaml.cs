@@ -162,6 +162,8 @@ namespace Project
         private static string DOCTOR_FILEPATH = ConfigurationManager.AppSettings["DoctorPath"].ToString();
         private static string PROPOSITION_FILEPATH = ConfigurationManager.AppSettings["PropositionPath"].ToString();
         private static string APPROVAL_FILEPATH = ConfigurationManager.AppSettings["ApprovalPath"].ToString();
+        private static string ITEM_FILEPATH = ConfigurationManager.AppSettings["ItemlPath"].ToString();
+        
         // Referrals
         private static string ADMITION_REFERRAL_FILEPATH = ConfigurationManager.AppSettings["AdmitionReferralPath"].ToString();
         private static string OPERATION_REFERRAL_FILEPATH = ConfigurationManager.AppSettings["OperationReferralPath"].ToString();
@@ -232,7 +234,7 @@ namespace Project
 
             var approvalConverter = new ApprovalConverter(doctorConverter);
             var propositionConverter = new PropositionConverter(medicineConverter, approvalConverter, doctorConverter);
-
+            var itemCOnverter = new ItemConverter();
 
             // Repositories
             // Many to Many
@@ -316,6 +318,7 @@ namespace Project
             var reviewRepository = new ReviewRepository(new CSVStream<Review>(REVIEW_FILEPATH, new ReviewCSVConverter(DELIMITER)), new LongSequencer());
             var anamnesisRepository = new AnamnesisRepository(new CSVStream<Anamnesis>(ANAMNESIS_FILEPATH, new AnamnesisCSVConverter(DELIMITER)), new LongSequencer());
             var propositionRepository = new PropositionRepository(new CSVStream<Proposition>(PROPOSITION_FILEPATH, new PropositionCSVConverter(DELIMITER, DATETIME_FORMAT)), new LongSequencer());
+            var itermRepostory = new ItemRepository(new CSVStream<Item>(ITEM_FILEPATH, new ItemCSVConverter(DELIMITER)), new LongSequencer());
 
             // Referral
             var admitionReferralRepository = new AdmitionReferralRepository(
@@ -331,6 +334,7 @@ namespace Project
                new LongSequencer());
 
             var approvalRepository = new ApprovalRepository(new CSVStream<Approval>(APPROVAL_FILEPATH, new ApprovalCSVConverter(DELIMITER)), new LongSequencer());
+
 
             // Services
             var patientService = new PatientService(patientRepository);
@@ -355,6 +359,7 @@ namespace Project
             var anamnesisService = new AnamnesisService(anamnesisRepository);
             var propositionService = new PropositionService(propositionRepository);
             var approvalService = new ApprovalService(approvalRepository);
+            var itemService = new ItemService(itermRepostory);
 
             // Controllers
             PatientController = new PatientController(patientService, patientConverter);
@@ -377,6 +382,7 @@ namespace Project
             DoctorController = new DoctorController(doctorService, doctorConverter);
             AnamnesisController = new AnamnesisController(anamnesisService, anamnesisConvertor);
             PropositionController = new PropositionController(propositionService, propositionConverter);
+            ItemController = new ItemController(itemService, itemCOnverter);
 
             // Generators
             SecretaryAppointmentReportGenerator = new SecretaryAppointmentReportGenerator(REPORT_APPOINTMENT_FILEPATH);
@@ -448,8 +454,8 @@ namespace Project
         public IController<PrescriptionDTO, long> PrescriptionController { get; private set; }
         public IController<ApprovalDTO, long> ApprovalController { get; set; }
 
-        public IController<AnamnesisDTO, long> AnamnesisController { get; set; }
-    
+        public AnamnesisController AnamnesisController { get; set; }
         public IController<PropositionDTO, long> PropositionController { get; set; }
+        public IController<ItemDTO, long> ItemController { get; set; }
     }
 }

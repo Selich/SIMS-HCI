@@ -55,7 +55,7 @@ namespace Project.Repositories.CSV
             ids.AddRange(medicalConsumabless.Select(item => (item as MedicalConsumables).Id).ToList());
             ids.AddRange(secretaries.Select(item => (item as Medicine).Id).ToList());
 
-            _sequencer.Initialize(ids.Max());
+            //_sequencer.Initialize(ids.Max());
 
         }
 

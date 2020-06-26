@@ -34,6 +34,7 @@ namespace Project.Views.Converters
 
         public GuestDTO ConvertEntityToDTO(Guest entity)
             => new GuestDTO(
+                entity.Id,
                 (entity.Address == null) ? new AddressDTO() : _addressConverter.ConvertEntityToDTO(entity.Address),
                 entity.FirstName,
                 entity.LastName,

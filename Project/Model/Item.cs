@@ -10,6 +10,7 @@ namespace Project.Model
     public class Item : IIdentifiable<long>
     {
         public long Id;
+
         public int Quantity { get; set; }
         public string Name { get; set; }
         public string Type { get; set; }
@@ -32,6 +33,7 @@ namespace Project.Model
             Description = description;
             Name = name;
         }
+
         public long GetId() => Id;
 
         public void SetId(long id) => Id = id;

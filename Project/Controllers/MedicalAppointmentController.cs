@@ -46,5 +46,6 @@ namespace Controller
         public MedicalAppointmentDTO Update(MedicalAppointmentDTO entity)
             => _medicalAppointmentConverter.ConvertEntityToDTO(_service.Update(_medicalAppointmentConverter.ConvertDTOToEntity(entity)));
 
+
     }
 }

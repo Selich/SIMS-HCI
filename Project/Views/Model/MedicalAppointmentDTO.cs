@@ -23,13 +23,6 @@ namespace Project.Views.Model
         public MedicalAppointmentDTO() { }
 
 
-        public MedicalAppointmentDTO(DateTime beginning, DateTime end, RoomDTO room, MedicalAppointmentType type, GuestDTO patient, IEnumerable<DoctorDTO> doctors)
-        : base(beginning, end, room)
-        {
-            Type = type;
-            Patient = patient;
-            Doctors = doctors;
-        }
         public MedicalAppointmentDTO(long id, DateTime beginning, DateTime end, RoomDTO room, MedicalAppointmentType type, GuestDTO patient, IEnumerable<DoctorDTO> doctors)
         : base(id, beginning, end, room)
         {
@@ -38,6 +31,13 @@ namespace Project.Views.Model
             Doctors = doctors;
         }
 
-
+        public MedicalAppointmentDTO(DateTime beginning, DateTime end, RoomDTO room, MedicalAppointmentType type, GuestDTO patient, IEnumerable<DoctorDTO> doctors)
+        : base(beginning, end, room)
+        {
+            Type = type;
+            Patient = patient;
+            Doctors = doctors;
+        }
+        
     }
 }

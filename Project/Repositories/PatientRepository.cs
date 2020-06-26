@@ -62,7 +62,8 @@ namespace Project.Repositories
         public Patient GetByEmail(string email)
         {
             var patient = GetAll().SingleOrDefault(item => item.Email.Equals(email));
-            patient.Address = _addressRepository.GetById(patient.Address.Id);
+            if(patient != null)
+                patient.Address = _addressRepository.GetById(patient.Address.Id);
             return patient;
         }
 

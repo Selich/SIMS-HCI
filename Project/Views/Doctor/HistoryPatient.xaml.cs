@@ -53,8 +53,20 @@ namespace Project.Views.Doctor
             AnamnesisPateint.Text += ((MedicalAppointmentDTO)selitem).Patient.LastName;
             AnamnesisPateint.Text += " ";
             AnamnesisPateint.Text += ((MedicalAppointmentDTO)selitem).Beginning.ToString();
+            AnamnesisPateint.Text += " ";
 
+            List<AnamnesisDTO> anamneses = (List<AnamnesisDTO>) app.AnamnesisController.GetByMedicalAppointmentId(((MedicalAppointmentDTO)selitem).Id);
+            foreach (AnamnesisDTO anamnes in anamneses)
+            {
+                AnamnesisPateint.Text += " /n\n";
+                AnamnesisPateint.Text += anamnes.Type;
+                AnamnesisPateint.Text += " ";
+                AnamnesisPateint.Text += anamnes.Description;
+                AnamnesisPateint.Text += anamnes.Name;
 
+            }
+
+            /*
             if (((MedicalAppointmentDTO)selitem).Anamnesis != null)
             {
                 foreach (AnamnesisDTO anamnesis in ((MedicalAppointmentDTO)selitem).Anamnesis)
@@ -62,7 +74,7 @@ namespace Project.Views.Doctor
                     {
                         AnamnesisPateint.Text += anamnesis.ToString();
                     }
-            }
+            }*/
         }
     }//AnamnesisPateint
 }
