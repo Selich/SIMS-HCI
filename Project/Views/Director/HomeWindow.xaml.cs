@@ -927,9 +927,10 @@ namespace Project.Views.Director
                 System.Windows.MessageBox.Show("Datumi moraju biti razliciti i u prirodnom redosledu");
                 return;
             }
-            DateTime CurrentTime = DateTime.Now;    
+            App app = App.Current as App;
+            app.DoctorsAppointmentReport.Generate(new TimeInterval(Start, End));
                   
-            Document doc = new Document(iTextSharp.text.PageSize.A4, 10, 10, 40, 35);
+           /* Document doc = new Document(iTextSharp.text.PageSize.A4, 10, 10, 40, 35);
             PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream("C:\\Users\\Lenovo_NB\\Desktop\\Izvestaj.pdf",FileMode.Create));
             doc.Open();
 
@@ -991,7 +992,7 @@ namespace Project.Views.Director
 
             }            
 
-             doc.Close();
+             doc.Close();*/
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
