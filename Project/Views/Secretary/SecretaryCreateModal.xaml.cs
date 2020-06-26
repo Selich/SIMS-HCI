@@ -131,7 +131,7 @@ namespace Project.Views.Secretary
             list.Add(app.SelectedDoctor);
             appl.Doctors = list;
 
-            app.MedicalAppointments.Add(appl);
+            app.MedicalAppointmentController.Save(appl);
 
 
 

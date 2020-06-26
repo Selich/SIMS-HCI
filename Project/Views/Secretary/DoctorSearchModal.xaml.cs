@@ -32,7 +32,7 @@ namespace Project.Views.Secretary
         {
             app = System.Windows.Application.Current as App;
             InitializeComponent();
-            DoctorList.ItemsSource = app.doctors;
+            DoctorList.ItemsSource = app.DoctorController.GetAll();
             MedicalRole_ComboBox.ItemsSource = app.medicalRoles;
 
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(DoctorList.ItemsSource);

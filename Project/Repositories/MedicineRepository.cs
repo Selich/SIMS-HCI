@@ -55,23 +55,14 @@ namespace Project.Repositories
         }
 
         public IEnumerable<Medicine> GetAllEager()
-        {
-            throw new NotImplementedException();
-        }
+            => GetAll();
 
-        public Medicine Save(Medicine entity)
-        {
-            throw new NotImplementedException();
-        }
+        public new Medicine Save(Medicine entity)
+            => base.Save(entity);
 
-        public Medicine Update(Medicine entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Medicine Remove(Medicine entity)
-        {
-            throw new NotImplementedException();
-        }
+        public new Medicine Update(Medicine entity)
+            => base.Update(entity);
+        public new Medicine Remove(Medicine entity)
+            => base.Remove(entity);
     }
 }
