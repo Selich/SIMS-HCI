@@ -174,6 +174,8 @@ namespace Project
         private static string REPORT_ROOM_FILEPATH = ConfigurationManager.AppSettings["ReportRoomPath"].ToString();
         private static string REPORT_APPOINTMENT_FILEPATH = ConfigurationManager.AppSettings["ReportAppointmentPath"].ToString();
         private static string REPORT_PRESCRIPTION_FILEPATH = ConfigurationManager.AppSettings["ReportPrescriptionPath"].ToString();
+        private static string REPORT_DOCTOR_APPOINTMENTS_FILEPATH = ConfigurationManager.AppSettings["DoctorsAppointmentsPath"].ToString();
+        
 
         // Constants
         private static string DELIMITER = ConfigurationManager.AppSettings["DelimiterValue"].ToString();
@@ -205,7 +207,7 @@ namespace Project
             medicalAppointmentTypes = new List<string> { "Pregled", "Operacija", "Ležanje" };
             AddressDTO address = new AddressDTO("1", "Bulevar despota Stefan 7A", "Novi Sad", "Srbija", "21000");
 
-            director = new DirectorDTO(address, "Dusan", "Urosevic", "1231231231231", "021021", "Male", new DateTime(1990, 5, 5), 123, new TimeInterval(new DateTime(2020, 12, 12), new DateTime(2020, 12, 12)), new TimeInterval(new DateTime(2020, 12, 12), new DateTime(2020, 12, 12)), "d@g.c", "pass");
+            director = new DirectorDTO(address, "Dusan", "Urosevic", "1231231231231", "021021", "Male", new DateTime(1990, 5, 5), 123, new TimeInterval(new DateTime(2020, 12, 12), new DateTime(2020, 12, 12)), new TimeInterval(new DateTime(2020, 12, 12), new DateTime(2020, 12, 12)), "d@g.c", "pass","Klinicki Centar Vojvodina");
             SelectedDate = DateTime.Now;
 
 
@@ -389,7 +391,7 @@ namespace Project
             SecretaryAppointmentReportGenerator = new SecretaryAppointmentReportGenerator(REPORT_APPOINTMENT_FILEPATH);
             PatientAppointmentReportGenerator = new PatientAppointmentReportGenerator(REPORT_APPOINTMENT_FILEPATH);
             PrescriptionReportGenerator = new PrescriptionReportGenerator(REPORT_PRESCRIPTION_FILEPATH);
-
+            DoctorsAppointmentReport = new DirectorReportGenerator(REPORT_DOCTOR_APPOINTMENTS_FILEPATH);
 
 
 
@@ -408,6 +410,7 @@ namespace Project
         public IReportGenerator<TimeInterval> SecretaryAppointmentReportGenerator { get; private set; }
         public IReportGenerator<TimeInterval> PatientAppointmentReportGenerator { get; private set; }
         public IReportGenerator<TimeInterval> PrescriptionReportGenerator { get; private set; }
+        public IReportGenerator<TimeInterval> DoctorsAppointmentReport { get; private set; }
 
         // Users
         public IDoctorController DoctorController { get; private set; }
