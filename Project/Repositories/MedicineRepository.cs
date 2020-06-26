@@ -12,16 +12,18 @@ using System.Linq;
 namespace Project.Repositories
 {
     public class MedicineRepository :
-        CSVRepository<Medicine, long>,
+        ItemCSVRepository<Medicine, Item, long>,
         IMedicineRepository,
         IEagerCSVRepository<Medicine, long>
     {
         private const string ENTITY_NAME = "Medicine";
         public MedicineRepository(
             ICSVStream<Medicine> stream,
-            ISequencer<long> sequencer
-            ) : base(ENTITY_NAME, stream, sequencer)
-        { }
+            ICSVStream<Equipment> equipmentStream,
+            ICSVStream<MedicalConsumables> medicalConsumablesStream,
+            ICSVStream<Medicine> medicineStream,
+            LongSequencer sequencer
+            ) : base (stream, equipmentStream, medicalConsumablesStream, medicineStream, sequencer) { }
 
         public new IEnumerable<Medicine> Find(Func<Medicine, bool> predicate) => GetAll().Where(predicate);
         public IEnumerable<Medicine> GetAllLazy() {
@@ -53,6 +55,21 @@ namespace Project.Repositories
         }
 
         public IEnumerable<Medicine> GetAllEager()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Medicine Save(Medicine entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Medicine Update(Medicine entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Medicine Remove(Medicine entity)
         {
             throw new NotImplementedException();
         }

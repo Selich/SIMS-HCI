@@ -11,7 +11,8 @@ using System.Threading.Tasks;
 
 namespace Project.Repositories
 {
-    public class EquipmentRepository: CSVRepository<Equipment,long>,
+    public class EquipmentRepository: 
+        ItemCSVRepository<Equipment, Item, long>,
         IEquipmentRepository,
         IEagerCSVRepository<Equipment,long>
     {
@@ -19,10 +20,11 @@ namespace Project.Repositories
 
         public EquipmentRepository(
             ICSVStream<Equipment> stream,
-            ISequencer<long> sequencer
-            ) : base(ENTITY_NAME, stream, sequencer)
-        {
-        }
+            ICSVStream<Equipment> equipmentStream,
+            ICSVStream<MedicalConsumables> medicalConsumablesStream,
+            ICSVStream<Medicine> medicineStream,
+            LongSequencer sequencer
+            ) : base (stream, equipmentStream, medicalConsumablesStream, medicineStream, sequencer) { }
 
         public new IEnumerable<Equipment> Find(Func<Equipment, bool> predicate) => GetAllEager().Where(predicate);
 

@@ -1,4 +1,4 @@
-using System.Configuration;
+﻿using System.Configuration;
 using Project.Repositories;
 using System.Windows;
 using Project.Repositories.CSV.Converter;
@@ -270,13 +270,36 @@ namespace Project
                 new CSVStream<Secretary>(SECRETARY_FILEPATH, new SecretaryCSVConverter(DELIMITER, DATETIME_FORMAT, TIME_FORMAT)),
                 addressRepository,
                 new LongSequencer());
+
+
             var inventoryManagementRepository = new InventoryManagementRepository(new CSVStream<InventoryManagement>(INVENTORY_FILEPATH, new InventoryManagementCSVConverter(DELIMITER, DATETIME_FORMAT)), inventoryManagementToEquipmentRepository, new LongSequencer());
             var orderDetailsRepository = new OrderDetailsRepository(new CSVStream<OrderDetails>(ORDER_DETAILS_FILEPATH, new OrderDetailsCSVConverter(DELIMITER)), new LongSequencer());
             var questionRepository = new QuestionRepository(new CSVStream<Question>(QUESTION_FILEPATH, new QuestionCSVConverter(DELIMITER, DATETIME_FORMAT)), new LongSequencer());
-            var medicineRepository = new MedicineRepository(new CSVStream<Medicine>(MEDICINE_FILEPATH, new MedicineCSVConverter(DELIMITER)), new LongSequencer());
+
+
+            var medicalConsumableRepository = new MedicalConsumableRepository(
+                new CSVStream<MedicalConsumables>(MEDICAL_CONSUMABLE_FILEPATH, new MedicalConsumableCSVConverter(DELIMITER)), 
+                new CSVStream<Equipment>(EQUIPMENT_FILEPATH, new EquipmentCSVConverter(DELIMITER)), 
+                new CSVStream<MedicalConsumables>(MEDICAL_CONSUMABLE_FILEPATH, new MedicalConsumableCSVConverter(DELIMITER)), 
+                new CSVStream<Medicine>(MEDICINE_FILEPATH, new MedicineCSVConverter(DELIMITER)), 
+                new LongSequencer());
+
+            var equipmentRepository = new EquipmentRepository(
+                new CSVStream<Equipment>(EQUIPMENT_FILEPATH, new EquipmentCSVConverter(DELIMITER)), 
+                new CSVStream<Equipment>(EQUIPMENT_FILEPATH, new EquipmentCSVConverter(DELIMITER)), 
+                new CSVStream<MedicalConsumables>(MEDICAL_CONSUMABLE_FILEPATH, new MedicalConsumableCSVConverter(DELIMITER)), 
+                new CSVStream<Medicine>(MEDICINE_FILEPATH, new MedicineCSVConverter(DELIMITER)), 
+                new LongSequencer());
+            var medicineRepository = new MedicineRepository(
+                new CSVStream<Medicine>(MEDICINE_FILEPATH, new MedicineCSVConverter(DELIMITER)), 
+                new CSVStream<Equipment>(EQUIPMENT_FILEPATH, new EquipmentCSVConverter(DELIMITER)), 
+                new CSVStream<MedicalConsumables>(MEDICAL_CONSUMABLE_FILEPATH, new MedicalConsumableCSVConverter(DELIMITER)), 
+                new CSVStream<Medicine>(MEDICINE_FILEPATH, new MedicineCSVConverter(DELIMITER)), 
+                new LongSequencer());
+
             var prescriptionRepository = new PrescriptionRepository(new CSVStream<Prescription>(PRESCRIPTION_FILEPATH, new PrescriptionCSVConverter(DELIMITER, DATETIME_FORMAT)), medicineRepository, patientRepository, new LongSequencer());
-            var medicalConsumableRepository = new MedicalConsumableRepository(new CSVStream<MedicalConsumables>(MEDICAL_CONSUMABLE_FILEPATH, new MedicalConsumableCSVConverter(DELIMITER)), new LongSequencer());
-            var equipmentRepository = new EquipmentRepository(new CSVStream<Equipment>(EQUIPMENT_FILEPATH, new EquipmentCSVConverter(DELIMITER)), new LongSequencer());
+
+
             var medicalAppoitmentRepository = new MedicalAppointmentRepository(
                 new CSVStream<MedicalAppointment>(MEDICAL_APPOINTMENT_FILEPATH,
                 new MedicalAppointmentCSVConverter(DELIMITER, DATETIME_DETAIL_FORMAT)),
@@ -307,7 +330,6 @@ namespace Project
                new CSVStream<Referral>(EXAM_REFERRAL_FILEPATH, new ReferralCSVConventer(DELIMITER, DATETIME_FORMAT)),
                new LongSequencer());
 
-            var propositionRepository = new PropositionRepository(new CSVStream<Proposition>(PROPOSITION_FILEPATH, new PropositionCSVConverter(DELIMITER, DATETIME_FORMAT)), new LongSequencer());
             var approvalRepository = new ApprovalRepository(new CSVStream<Approval>(APPROVAL_FILEPATH, new ApprovalCSVConverter(DELIMITER)), new LongSequencer());
 
             // Services
@@ -333,7 +355,6 @@ namespace Project
             var anamnesisService = new AnamnesisService(anamnesisRepository);
             var propositionService = new PropositionService(propositionRepository);
             var approvalService = new ApprovalService(approvalRepository);
-            var propositionService = new PropositionService(propositionRepository);
 
             // Controllers
             PatientController = new PatientController(patientService, patientConverter);
@@ -411,9 +432,7 @@ namespace Project
 
         public IController<ReviewDTO, long> ReviewController { get; private set; }
         public IController<PrescriptionDTO, long> PrescriptionController { get; private set; }
-        public AnamnesisController AnamnesisController { get; set; }
         public IController<ApprovalDTO, long> ApprovalController { get; set; }
-        public IController<PropositionDTO, long> PropositionController { get; set; }
 
         public IController<AnamnesisDTO, long> AnamnesisController { get; set; }
     

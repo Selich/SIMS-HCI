@@ -17,12 +17,12 @@ namespace Project.Repositories
         IEagerCSVRepository<Room, long>
     {
         private const string ENTITY_NAME = "Room";
-        private readonly CSVRepository<Equipment, long> _equipmentRepository;
+        private readonly ItemCSVRepository<Equipment, Item, long> _equipmentRepository;
 
         public RoomRepository(
             ICSVStream<Room> stream,
             ISequencer<long> sequencer,
-            CSVRepository<Equipment, long> equipmentRepository
+            ItemCSVRepository<Equipment, Item, long> equipmentRepository
             ) : base(ENTITY_NAME, stream, sequencer)
         {
             _equipmentRepository = equipmentRepository;
