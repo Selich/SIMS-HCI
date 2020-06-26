@@ -160,6 +160,10 @@ namespace Project
         private static string DOCTOR_FILEPATH = ConfigurationManager.AppSettings["DoctorPath"].ToString();
         private static string PROPOSITION_FILEPATH = ConfigurationManager.AppSettings["PropositionPath"].ToString();
         private static string APPROVAL_FILEPATH = ConfigurationManager.AppSettings["ApprovalPath"].ToString();
+        // Referrals
+        private static string ADMITION_REFERRAL_FILEPATH = ConfigurationManager.AppSettings["AdmitionReferralPath"].ToString();
+        private static string OPERATION_REFERRAL_FILEPATH = ConfigurationManager.AppSettings["OpetarionReferralPath"].ToString();
+        private static string EXAM_REFERRAL_FILEPATH = ConfigurationManager.AppSettings["ExamReferralPath"].ToString();
 
         // Many to many
         private static string MEDICAL_APPOINTMENT_TO_DOCTOR_FILEPATH = ConfigurationManager.AppSettings["MedicalAppointmentToDoctorPath"].ToString();
