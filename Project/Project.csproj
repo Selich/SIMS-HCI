@@ -316,6 +316,7 @@
     <Compile Include="Views\Model\GuestDTO.cs" />
     <Compile Include="Views\Model\HospitalDTO.cs" />
     <Compile Include="Views\Model\InventoryManagementDTO.cs" />
+    <Compile Include="Views\Model\ItemDTO.cs" />
     <Compile Include="Views\Model\MedicalAppointmentDTO.cs" />
     <Compile Include="Views\Model\MedicalConsumableDTO.cs" />
     <Compile Include="Views\Model\MedicineDTO.cs" />
