@@ -13,12 +13,14 @@ namespace Project.Services
     class MedicalAppointmentService : IMedicalAppointmentService
     {
         private readonly IMedicalAppointmentRepository _medicalAppointmentRepository;
-
+        private int _appointmentLength;
         public MedicalAppointmentService(
-            IMedicalAppointmentRepository medicalAppointmentRepository
+            IMedicalAppointmentRepository medicalAppointmentRepository,
+            string appointmentLengthString
         )
         {
             _medicalAppointmentRepository = medicalAppointmentRepository;
+            _appointmentLength = int.Parse(appointmentLengthString);
         }
         public IEnumerable<MedicalAppointment> GetAll()
             => _medicalAppointmentRepository.GetAll();
