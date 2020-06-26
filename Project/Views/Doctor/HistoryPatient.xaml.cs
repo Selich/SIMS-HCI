@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Project.Views.Model;
+using Project.Model;
 
 namespace Project.Views.Doctor
 {
@@ -19,15 +21,43 @@ namespace Project.Views.Doctor
     /// </summary>
     public partial class HistoryPatient : Window
     {
-        public HistoryPatient()
+        public App app;
+
+        public HistoryPatient(Model.PatientDTO loggedInPatient)
         {
+
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             InitializeComponent();
+            app = Application.Current as App;
+
+            HistoryPatientList.ItemsSource = app.MedicalAppointmentController.GetAllByPatientID(loggedInPatient.Id);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
-    }
+
+        private void HistoryPatientList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            AnamnesisPateint.Text = "";
+            var selitem = HistoryPatientList.SelectedValue;
+
+            AnamnesisPateint.Text += ((MedicalAppointmentDTO)selitem).Patient.FirstName;
+            AnamnesisPateint.Text += " ";
+            AnamnesisPateint.Text += ((MedicalAppointmentDTO)selitem).Patient.LastName;
+            AnamnesisPateint.Text += " ";
+            AnamnesisPateint.Text += ((MedicalAppointmentDTO)selitem).Beginning.ToString();
+
+
+            if (((MedicalAppointmentDTO)selitem).Anamnesis != null)
+            {
+                foreach (AnamnesisDTO anamnesis in ((MedicalAppointmentDTO)selitem).Anamnesis)
+                    if (anamnesis != null)
+                    {
+                        AnamnesisPateint.Text += anamnesis.ToString();
+                    }
+            }
+        }
+    }//AnamnesisPateint
 }

@@ -20,8 +20,9 @@ namespace Project.Views.Doctor
     public partial class WizardWindow : Window
     {
         public int step = 1;
+        public string Email;
 
-        public WizardWindow()
+        public WizardWindow(string email)
         {
             InitializeComponent();
 
@@ -32,11 +33,12 @@ namespace Project.Views.Doctor
             Step4.Visibility = Visibility.Hidden;
             Step5.Visibility = Visibility.Hidden;
             Progres.Value = 1 / 5;
+            Email = email;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var homeWindow = new HomeWindow();
+            var homeWindow = new HomeWindow(Email);
             homeWindow.Show();
             Close();
         }

@@ -110,7 +110,7 @@ namespace Project.Repositories
             
             foreach (MedicalAppointment medicalAppointment in listOfDoctorsWithAllIds)
             {
-                medicalAppointment.Patient = _patientRepository.GetById(id);
+                medicalAppointment.Patient = _patientRepository.GetById(medicalAppointment.Patient.Id);
                 var doctorAndMedicalAppList = _medicalAppointmentToDoctorRepository.GetAllByMedicalAppointmentId(medicalAppointment.Id);
                 foreach (MedicalAppointmentToDoctor pair in doctorAndMedicalAppList)
                 {
@@ -128,16 +128,19 @@ namespace Project.Repositories
             {
                 foreach(Doctor doctor in medicalAppointment.Doctors)
                 {
-                    doctor.Id = id;
-                    list.Add(medicalAppointment);
-                    break;
+                    if (doctor != null)
+                    {
+                        doctor.Id = id;
+                        list.Add(medicalAppointment);
+                        break;
+                    }
                 }
             }
             
 
             foreach (MedicalAppointment medicalAppointment in list)
             {
-                medicalAppointment.Patient = _patientRepository.GetById(id);
+                medicalAppointment.Patient = _patientRepository.GetById(medicalAppointment.Patient.Id);
                 var doctorAndMedicalAppList = _medicalAppointmentToDoctorRepository.GetAllByMedicalAppointmentId(medicalAppointment.Id);
                 foreach (MedicalAppointmentToDoctor pair in doctorAndMedicalAppList)
                 {
