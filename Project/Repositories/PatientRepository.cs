@@ -52,7 +52,7 @@ namespace Project.Repositories
         }
 
         private bool IsEmailUnique(string email)
-            => GetByEmail(email) == null;
+            => GetByEmail(email).Id == 0;
 
         public new Patient Update(Patient patient){
             _addressRepository.Update(patient.Address);

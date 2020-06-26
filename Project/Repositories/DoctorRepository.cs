@@ -63,7 +63,7 @@ namespace Project.Repositories
         }
         
         private bool IsEmailUnique(string email)
-            => GetByEmail(email) == null;
+            => GetByEmail(email).Id == 0;
 
         public Doctor GetByEmail(string email)
             => _stream.ReadAll().SingleOrDefault(doctor => doctor.Email.Equals(email));
