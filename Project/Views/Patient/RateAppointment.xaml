@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Project.Views.Patient"
         xmlns:util="clr-namespace:Project.Views.Utils.Validation"
         mc:Ignorable="d"
-        Title="RateAppointment" Height="284.11" Width="227.509">
+        Title="RateAppointment" Height="333.703" Width="235.074">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="17*"/>
@@ -17,7 +17,7 @@
             <RowDefinition Height="20*"/>
             <RowDefinition Height="399*"/>
         </Grid.RowDefinitions>
-        <StackPanel  Grid.Row="1" Grid.Column ="1" VerticalAlignment="Top" Height="223">
+        <StackPanel  Grid.Row="1" Grid.Column ="1" VerticalAlignment="Top">
             <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column ="1" VerticalAlignment="Bottom" Height="Auto" Margin="5">
                 <Label Content="Doctor:"/>
                 <Label Content="{Binding ReviewAppointment.Doctors[0].FirstName}"/>
@@ -38,6 +38,9 @@
                         <util:ReviewValidate ValidationStep="RawProposedValue"/>
                     </Binding.ValidationRules>
                 </Binding>
+            </TextBox>
+            <Label>Description</Label>
+            <TextBox x:Name="Desc" Margin="5">
             </TextBox>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Height="Auto" Margin="5" >
                 <Button IsDefault="True" Content="Submit" Margin="5" Click="Submit_Click"/>

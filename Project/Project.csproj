@@ -221,6 +221,7 @@
     <Compile Include="Repositories\RoomRepository.cs" />
     <Compile Include="Repositories\SecretaryRepository.cs" />
     <Compile Include="Services\Abstract\IDoctorService.cs" />
+    <Compile Include="Services\Abstract\IAnamnesisService.cs" />
     <Compile Include="Services\Abstract\IPatientService.cs" />
     <Compile Include="Services\Abstract\IPropositionService.cs" />
     <Compile Include="Services\Abstract\IMedicalAppoitmentService.cs" />
@@ -791,6 +792,8 @@
     <None Include="Resources\Data\medicalConsumables.csv" />
     <None Include="Resources\Data\medicines.csv" />
     <None Include="Resources\Data\orderDetails.csv" />
+    <None Include="Resources\Data\approval.csv" />
+    <None Include="Resources\Data\proposition.csv" />
     <None Include="Resources\Data\orders.csv" />
     <None Include="Resources\Data\patientPrescription.csv" />
     <None Include="Resources\Data\patients.csv" />

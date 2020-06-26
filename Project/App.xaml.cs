@@ -390,7 +390,7 @@ namespace Project
 
         public IController<ReviewDTO, long> ReviewController { get; private set; }
         public IController<PrescriptionDTO, long> PrescriptionController { get; private set; }
-        public IController<AnamnesisDTO, long> AnamnesisController { get; set; }
+        public AnamnesisController AnamnesisController { get; set; }
         public IController<ApprovalDTO, long> ApprovalController { get; set; }
         public IController<PropositionDTO, long> PropositionController { get; set; }
 
