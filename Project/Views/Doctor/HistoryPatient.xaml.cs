@@ -22,6 +22,8 @@ namespace Project.Views.Doctor
     public partial class HistoryPatient : Window
     {
         public App app;
+        public List<MedicalAppointmentDTO> medicalAppointmentDTOs { get; set; }
+        public string PatientNameAndSurname { get; set; }
 
         public HistoryPatient(Model.PatientDTO loggedInPatient)
         {
@@ -30,7 +32,10 @@ namespace Project.Views.Doctor
             InitializeComponent();
             app = Application.Current as App;
 
-            HistoryPatientList.ItemsSource = app.MedicalAppointmentController.GetAllByPatientID(loggedInPatient.Id);
+            PatientNameAndSurname = loggedInPatient.FirstName + " " + loggedInPatient.LastName;
+            PatientNameAndSurnameTextBox.Text = PatientNameAndSurname;
+            medicalAppointmentDTOs = (List<MedicalAppointmentDTO>) app.MedicalAppointmentController.GetAllByPatientID(loggedInPatient.Id);
+            HistoryPatientList.ItemsSource = medicalAppointmentDTOs;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

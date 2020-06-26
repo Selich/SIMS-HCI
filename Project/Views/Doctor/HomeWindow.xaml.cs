@@ -56,6 +56,8 @@ namespace Project.Views.Doctor
         public MedicalAppointmentDTO currentMedicalAppointment {get; set;}
         public string Email;
         public List<MedicalAppointmentDTO> allMedicalAppointmentDTO { get; set; }
+        public List<PropositionDTO> ListOfPropositions { get; set; }
+        public string MedicineName { get; set; }
 
         public HomeWindow(string email)
         {
@@ -100,6 +102,10 @@ namespace Project.Views.Doctor
 
             Appoitments = allMedicalAppointmentDTO;
 
+            // LIst of proporsitions
+
+            ListOfPropositions = (List<PropositionDTO>) app.PropositionController.GetAll();
+            
             //Current Appoitments
             /*
             RoomDTO tempRoom = new RoomDTO() { Floor = "One", Id = 4, Ward = "Check" };
@@ -396,7 +402,6 @@ namespace Project.Views.Doctor
         private void AddResource_Click(object sender, RoutedEventArgs e)
         {
             HideResource();
-            //ListOfRosourceses
             string res = "";
             res += TartgetRosource;
             if (NumberTextBox_Copy1 != null && NumberTextBox_Copy1.Text != "")
@@ -407,16 +412,13 @@ namespace Project.Views.Doctor
 
             ListOfRosourcesesListOfResources.Items.Add(res);
             ListOfRosourceses.Add(res);
-            //ListOfResources.ItemTemplate Items.Add(TartgetRosource);
 
         }
 
         private void HideResource()
         {
             NumberTextBox_Copy1.Visibility = Visibility.Collapsed;
-            //NumberTextBox_Copy3.Visibility = Visibility.Collapsed;
             AmountO.Visibility = Visibility.Collapsed;
-            //PerdaysO.Visibility = Visibility.Collapsed;
             ResorurceText.Visibility = Visibility.Collapsed;
             AddResource.Visibility = Visibility.Collapsed;
         }
@@ -437,9 +439,6 @@ namespace Project.Views.Doctor
             {
             }
             
-            //var date = (SelectedDate) sender;
-            //SelecetedDate2.BorderBrush
-            //SelectedDate = (Datesender;
         }
 
         private void Generate_Report(object sender, RoutedEventArgs e)
@@ -452,7 +451,6 @@ namespace Project.Views.Doctor
         private void CooseRecepie_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             TartgetRosource = ComboBox12.SelectedValue.ToString().Remove(0, 38);
-            //ComboBox12.SelectedValue.ToString();//.Remove(0, 38);
             Medicine_toAdd.Content = ComboBox12.SelectedValue.ToString().Remove(0, 38);
             Medicine_toAdd.Visibility = Visibility.Visible;
             NumberTextBox.Visibility = Visibility.Visible;
@@ -464,27 +462,6 @@ namespace Project.Views.Doctor
 
         private void AddLek(object sender, RoutedEventArgs e)
         {
-            /*
-            //ComboBox12.Items.Add(TartgetRosource);
-            String oneRecepie = "";
-            oneRecepie += TartgetRosource;
-            oneRecepie += " ";
-            if (Amount != 0)
-            {
-                oneRecepie +=  Amount.ToString();
-            }
-            if(Freq != 0)
-            {
-                oneRecepie += "x";
-                oneRecepie += Freq.ToString();
-            }
-            Recepies.Add(oneRecepie);
-            PecepiesList.Items.Add(oneRecepie);*/
-
-            //Medicine medicinePrescribe = app.MedicineController.GetByName(TartgetRosource);
-            //PrescriptionDTO prescriptionDTO = new PrescriptionDTO(Amount, Freq.ToString(), "opis", medicinePrescribe, DateTime.Now, LoggedInPatient);
-
-            //Medicine medicinePrescribe = app.PrescriptionController.GetByName(TartgetRosource);
             PrescriptionDTO prescriptionDTO = new PrescriptionDTO(Amount, Freq.ToString(), "opis", new MedicineDTO(ComboBox12.SelectedIndex+1, TartgetRosource, "", "", 1, "", "", true), DateTime.Now, LoggedInPatient);
             
             app.PrescriptionController.Save(prescriptionDTO);
@@ -624,6 +601,13 @@ namespace Project.Views.Doctor
             //propositions[0].State = PropositionState.approved;
         }
 
-
+        private void PropositionListOfItems_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //MedicineName  = app.MedicineController.GetById(((PropositionDTO) PropositionListOfItems.SelectedValue).Medicine.Id).Name;
+            MedicineName = " id:" + ((PropositionDTO)PropositionListOfItems.SelectedValue).Id;
+            MedicineName += " p:" + ((PropositionDTO)PropositionListOfItems.SelectedValue).Negative;
+            MedicineName += " n:" + ((PropositionDTO)PropositionListOfItems.SelectedValue).Positive;
+            Req_medicine.Content = MedicineName;
+        }
     }
 }
