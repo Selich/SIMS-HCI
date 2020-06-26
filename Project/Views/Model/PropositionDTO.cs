@@ -42,5 +42,16 @@ namespace Project.Views.Model
             State = state;
             Medicine = medicine;
         }
+
+        public PropositionDTO(long id, string state, int positive, int negative, string description, MedicineDTO medicine, List<ApprovalDTO> approvals)
+        {
+            Id = id;
+            State = state;
+            Positive = positive;
+            Negative = negative;
+            Medicine = medicine;
+            Approvals = approvals;
+        }
+
     }
 }

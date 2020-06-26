@@ -601,14 +601,14 @@ namespace Project.Views.Doctor
 
         private void Add_Anamnesis_Clcik(object sender, RoutedEventArgs e)
         {
-            //app.AnamnesisController.Save(new AnamnesisDTO(1, "anamneza", ComboBoxTypeAnamesis.SelectedValue.ToString().Remove(0,38), Anamnesis_Text.Text, currentMedicalAppointment));
-            app.MedicalAppointmentController.Remove(currentMedicalAppointment);
+            app.AnamnesisController.Save(new AnamnesisDTO(1, "anamneza", ComboBoxTypeAnamesis.SelectedValue.ToString().Remove(0,38), Anamnesis_Text.Text, currentMedicalAppointment));
+            /*app.MedicalAppointmentController.Remove(currentMedicalAppointment);
             if (currentMedicalAppointment.Anamnesis == null)
             {
                 currentMedicalAppointment.Anamnesis = new List<AnamnesisDTO>();
             }
             currentMedicalAppointment.Anamnesis.Add(new AnamnesisDTO(1, "anamneza", ComboBoxTypeAnamesis.SelectedValue.ToString().Remove(0, 38), Anamnesis_Text.Text, currentMedicalAppointment));
-            app.MedicalAppointmentController.Save(currentMedicalAppointment);
+            app.MedicalAppointmentController.Save(currentMedicalAppointment);*/
         }
 
         private void FeedBack_Click(object sender, RoutedEventArgs e)
@@ -616,6 +616,14 @@ namespace Project.Views.Doctor
 
             app.FeedbackController.Save(new FeedbackDTO(ComboBoxTypeFeedback.SelectedValue.ToString().Remove(0,38) , Feedback_TextBox.Text));
         }
-       
+
+        private void Propose_Click(object sender, RoutedEventArgs e)
+        {
+            app.PropositionController.Save(new PropositionDTO(1, "Reject", 0, 0, "da li bi mogao", new MedicineDTO(1, "Brufen", "za bolu", "za volju", 1, "za bolji zivot", "bela kuca", false), new List<ApprovalDTO>()));
+            List<PropositionDTO> propositions = (List<PropositionDTO>) app.PropositionController.GetAll();
+            //propositions[0].State = PropositionState.approved;
+        }
+
+
     }
 }

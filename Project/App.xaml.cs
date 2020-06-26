@@ -292,6 +292,7 @@ namespace Project
             var feedbackRepository = new FeedbackRepository(new CSVStream<Feedback>(FEEDBACK_FILEPATH, new FeedbackCSVConverter(DELIMITER)), new LongSequencer());
             var reviewRepository = new ReviewRepository(new CSVStream<Review>(REVIEW_FILEPATH, new ReviewCSVConverter(DELIMITER)), new LongSequencer());
             var anamnesisRepository = new AnamnesisRepository(new CSVStream<Anamnesis>(ANAMNESIS_FILEPATH, new AnamnesisCSVConverter(DELIMITER)), new LongSequencer());
+            var propositionRepository = new PropositionRepository(new CSVStream<Proposition>(PROPOSITION_FILEPATH, new PropositionCSVConverter(DELIMITER, DATETIME_FORMAT)), new LongSequencer());
 
             // Referral
             var admitionReferralRepository = new AdmitionReferralRepository(
@@ -332,6 +333,7 @@ namespace Project
             var anamnesisService = new AnamnesisService(anamnesisRepository);
             var propositionService = new PropositionService(propositionRepository);
             var approvalService = new ApprovalService(approvalRepository);
+            var propositionService = new PropositionService(propositionRepository);
 
             // Controllers
             PatientController = new PatientController(patientService, patientConverter);
@@ -354,7 +356,6 @@ namespace Project
             DoctorController = new DoctorController(doctorService, doctorConverter);
             AnamnesisController = new AnamnesisController(anamnesisService, anamnesisConvertor);
             PropositionController = new PropositionController(propositionService, propositionConverter);
-            ApprovalController = new ApprovalController(approvalService, approvalConverter);
 
             // Generators
             SecretaryAppointmentReportGenerator = new SecretaryAppointmentReportGenerator(REPORT_APPOINTMENT_FILEPATH);
@@ -414,5 +415,8 @@ namespace Project
         public IController<ApprovalDTO, long> ApprovalController { get; set; }
         public IController<PropositionDTO, long> PropositionController { get; set; }
 
+        public IController<AnamnesisDTO, long> AnamnesisController { get; set; }
+    
+        public IController<PropositionDTO, long> PropositionController { get; set; }
     }
 }
