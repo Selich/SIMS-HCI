@@ -53,8 +53,19 @@ namespace Project.Repositories
         private bool IsEmailUnique(string email)
             => GetByEmail(email) == null;
 
-        public Patient GetByEmail(string email)
-            => _stream.ReadAll().SingleOrDefault(patient => patient.Email.Equals(email));
+        public new Patient Update(Patient patient){
+            _addressRepository.Update(patient.Address);
+            return base.Update(patient);
+        }
+
+        public Patient GetByEmail(string email){
+            var tempPatient = _stream.ReadAll().SingleOrDefault(patient => patient.Email.Equals(email));
+            if (tempPatient == null)
+                return tempPatient;
+
+            tempPatient.Address = _addressRepository.GetById(tempPatient.Address.Id);
+            return tempPatient;
+        }
 
     }
 }

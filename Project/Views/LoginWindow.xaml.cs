@@ -44,7 +44,7 @@ namespace Project.Views
                 case "Director": new Director.HomeWindow().Show(); break;
                 case "Secretary": new Secretary.SecretaryHomeWindow().Show(); break;
                 case "Doctor": new Doctor.HomeWindow(Email).Show(); break;
-                case "Patient": new Patient.HomeWindow().Show(); break;
+                case "Patient": new Patient.HomeWindow(Email).Show(); break;
                 default: System.Windows.Forms.MessageBox.Show("Neuspešno prijavljivanje", "Neuspešno prijavljivanje", MessageBoxButtons.OK); break;
             }
         }
@@ -53,7 +53,6 @@ namespace Project.Views
         {
             var s = new Patient.RegisterPatient();
             s.Show();
-
         }
     }
 }
