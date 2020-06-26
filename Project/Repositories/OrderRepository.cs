@@ -43,17 +43,19 @@ namespace Project.Repositories
         public Order GetEager(long id) => GetById(id);
         public new Order Save(Order entity)
         {
-            foreach (MedicalConsumables cons in entity.Consumebles)
-                _orderDetailsRepository.Save( new OrderDetails(entity.Id, cons.Id, cons.Quantity)); 
+            Order order = base.Save(entity);
+            foreach (MedicalConsumables cons in order.Consumebles)
+                _orderDetailsRepository.Save( new OrderDetails(order.Id, cons.Id, cons.Quantity)); 
 
-            foreach (Medicine med in entity.Medicine)
-                _orderDetailsRepository.Save( new OrderDetails(entity.Id, med.Id, med.Quantity)); 
+            foreach (Medicine med in order.Medicine)
+                _orderDetailsRepository.Save( new OrderDetails(order.Id, med.Id, med.Quantity)); 
 
-            foreach (Equipment eq in entity.Equipments)
-                _orderDetailsRepository.Save( new OrderDetails(entity.Id, eq.Id, 1)); 
+            foreach (Equipment eq in order.Equipments)
+                _orderDetailsRepository.Save( new OrderDetails(order.Id, eq.Id, 1)); 
+
+            return order;
 
 
-            return base.Save(entity);
         }
     }
 }
