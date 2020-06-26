@@ -49,8 +49,8 @@ namespace Project.Services
         private IEnumerable<MedicalAppointment> GenerateAppointments(TimeInterval interval)
         {
             List<MedicalAppointment> list = new List<MedicalAppointment>();
-            for(DateTime iter = interval.Start; iter <= interval.End; iter.AddMinutes(30))
-                list.Add(new MedicalAppointment(iter, iter.AddMinutes(30), null, MedicalAppointmentType.examination ,null));
+            for(DateTime iter = interval.Start; iter <= interval.End; iter.AddMinutes(_appointmentLength))
+                list.Add(new MedicalAppointment(iter, iter.AddMinutes(_appointmentLength), null, MedicalAppointmentType.examination ,null));
             return list;
         }
 
