@@ -180,7 +180,7 @@ namespace Project
         private static string DATETIME_FORMAT = ConfigurationManager.AppSettings["DateTimeFormat"].ToString();
         private static string DATETIME_DETAIL_FORMAT = ConfigurationManager.AppSettings["DateTimeDetailFormat"].ToString();
         private static string TIME_FORMAT = ConfigurationManager.AppSettings["TimeFormat"].ToString();
-
+        private static string APPOINTMENT_LENGTH_IN_MINUTES = ConfigurationManager.AppSettings["AppointmentLengthInMinutes"].ToString();
 
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -341,7 +341,7 @@ namespace Project
             var prescriptionService = new PrescriptionService(prescriptionRepository, medicineService, patientService);
             var reportService = new ReportService();
             var equipmentService = new EquipmentService(equipmentRepository);
-            var medicalAppoitmentService = new MedicalAppointmentService(medicalAppoitmentRepository);
+            var medicalAppoitmentService = new MedicalAppointmentService(medicalAppoitmentRepository,APPOINTMENT_LENGTH_IN_MINUTES);
             var roomService = new RoomService(roomRepository);
             var renovationService = new RenovationService(renovationRepository);
             var feedbackService = new FeedbackService(feedbackRepository);
