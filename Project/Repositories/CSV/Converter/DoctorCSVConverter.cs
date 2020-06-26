@@ -12,11 +12,14 @@ namespace Project.Repositories.CSV.Converter
     {
         private readonly string _delimiter;
         private readonly string _datetimeFormat;
-     
-        public DoctorCSVConverter(string delimiter, string datetimeFormat)
+        private readonly string _timeFormat;
+
+
+        public DoctorCSVConverter(string delimiter, string datetimeFormat,string timeFormat)
         {
             _delimiter = delimiter;
             _datetimeFormat = datetimeFormat;
+            _timeFormat = timeFormat;
         }
 
         public string ConvertEntityToCSVFormat(Doctor doctor)
@@ -32,8 +35,8 @@ namespace Project.Repositories.CSV.Converter
                doctor.Salary,
                doctor.AnnualLeave.Start.ToString(_datetimeFormat),
                doctor.AnnualLeave.End.ToString(_datetimeFormat),
-               doctor.WorkingHours.Start.ToString(_datetimeFormat),
-               doctor.WorkingHours.End.ToString(_datetimeFormat),
+               doctor.WorkingHours.Start.ToString(_timeFormat),
+               doctor.WorkingHours.End.ToString(_timeFormat),
                doctor.Email,
                doctor.Password,
                doctor.MedicalRole

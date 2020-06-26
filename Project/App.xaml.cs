@@ -247,21 +247,21 @@ namespace Project
             var patientRepository = new PatientRepository(
                 new CSVStream<Patient>(PATIENT_FILEPATH, new PatientCSVConverter(DELIMITER, DATETIME_FORMAT)),
                 new CSVStream<Patient>(PATIENT_FILEPATH, new PatientCSVConverter(DELIMITER, DATETIME_FORMAT)),
-                new CSVStream<Doctor>(DOCTOR_FILEPATH, new DoctorCSVConverter(DELIMITER, DATETIME_FORMAT)),
-                new CSVStream<Secretary>(SECRETARY_FILEPATH, new SecretaryCSVConverter(DELIMITER, DATETIME_FORMAT)),
+                new CSVStream<Doctor>(DOCTOR_FILEPATH, new DoctorCSVConverter(DELIMITER, DATETIME_FORMAT,TIME_FORMAT)),
+                new CSVStream<Secretary>(SECRETARY_FILEPATH, new SecretaryCSVConverter(DELIMITER, DATETIME_FORMAT, TIME_FORMAT)),
                 addressRepository, new LongSequencer());
             var doctorRepository = new DoctorRepository(
-                new CSVStream<Doctor>(DOCTOR_FILEPATH, new DoctorCSVConverter(DELIMITER, DATETIME_FORMAT)),
+                new CSVStream<Doctor>(DOCTOR_FILEPATH, new DoctorCSVConverter(DELIMITER, DATETIME_FORMAT, TIME_FORMAT)),
                 new CSVStream<Patient>(PATIENT_FILEPATH, new PatientCSVConverter(DELIMITER, DATETIME_FORMAT)),
-                new CSVStream<Doctor>(DOCTOR_FILEPATH, new DoctorCSVConverter(DELIMITER, DATETIME_FORMAT)),
-                new CSVStream<Secretary>(SECRETARY_FILEPATH, new SecretaryCSVConverter(DELIMITER, DATETIME_FORMAT)),
+                new CSVStream<Doctor>(DOCTOR_FILEPATH, new DoctorCSVConverter(DELIMITER, DATETIME_FORMAT, TIME_FORMAT)),
+                new CSVStream<Secretary>(SECRETARY_FILEPATH, new SecretaryCSVConverter(DELIMITER, DATETIME_FORMAT, TIME_FORMAT)),
                 addressRepository,
                 new LongSequencer());
             var secretaryRepository = new SecretaryRepository(
-                new CSVStream<Secretary>(SECRETARY_FILEPATH, new SecretaryCSVConverter(DELIMITER, DATETIME_FORMAT)),
+                new CSVStream<Secretary>(SECRETARY_FILEPATH, new SecretaryCSVConverter(DELIMITER, DATETIME_FORMAT, TIME_FORMAT)),
                 new CSVStream<Patient>(PATIENT_FILEPATH, new PatientCSVConverter(DELIMITER, DATETIME_FORMAT)),
-                new CSVStream<Doctor>(DOCTOR_FILEPATH, new DoctorCSVConverter(DELIMITER, DATETIME_FORMAT)),
-                new CSVStream<Secretary>(SECRETARY_FILEPATH, new SecretaryCSVConverter(DELIMITER, DATETIME_FORMAT)),
+                new CSVStream<Doctor>(DOCTOR_FILEPATH, new DoctorCSVConverter(DELIMITER, DATETIME_FORMAT, TIME_FORMAT)),
+                new CSVStream<Secretary>(SECRETARY_FILEPATH, new SecretaryCSVConverter(DELIMITER, DATETIME_FORMAT, TIME_FORMAT)),
                 addressRepository,
                 new LongSequencer());
             var inventoryManagementRepository = new InventoryManagementRepository(new CSVStream<InventoryManagement>(INVENTORY_FILEPATH, new InventoryManagementCSVConverter(DELIMITER, DATETIME_FORMAT)), inventoryManagementToEquipmentRepository, new LongSequencer());
