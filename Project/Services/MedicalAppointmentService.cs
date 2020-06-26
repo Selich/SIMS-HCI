@@ -44,5 +44,22 @@ namespace Project.Services
         public bool IsAvailableAtTimeInterval(MedicalAppointment medicalAppointment, TimeInterval timeInterval)
             => medicalAppointment.Beginning >= timeInterval.Start && medicalAppointment.End <= timeInterval.End;
 
+        public IEnumerable<MedicalAppointment> GetlAvailableAppoitments(Doctor doctor, Room room, TimeInterval timeInterval)
+        {
+            return new List<MedicalAppointment>();
+        }
+
+        private IEnumerable<MedicalAppointment> GetlAvailableAppoitmentsByDoctor(Doctor doctor)
+        {     
+            return new List<MedicalAppointment>();
+        }
+
+        private IEnumerable<MedicalAppointment> GetlAvailableAppoitmentsByTimeInterval(TimeInterval timeinterval)
+        {
+            return new List<MedicalAppointment>();
+        }
+
     }
+
 }
+

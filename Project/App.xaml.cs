@@ -398,7 +398,21 @@ namespace Project
             // //PatientController.Save(patient);
             // //DoctorController.Save(doctor);
             // // c = SecretaryController.Save(secretary);
-
+            List<EquipmentDTO> eq = new List<EquipmentDTO>();
+            eq.Add(new EquipmentDTO(1, "", "", "", new RoomDTO()));
+            eq.Add(new EquipmentDTO(2, "", "", "", new RoomDTO()));
+            eq.Add(new EquipmentDTO(3, "", "", "", new RoomDTO()));
+            List<MedicineDTO> med = new List<MedicineDTO>();
+            med.Add(new MedicineDTO(1, "", "", "", 12, "", "", true));
+            med.Add(new MedicineDTO(2, "", "", "", 5, "", "", true));
+            med.Add(new MedicineDTO(7, "", "", "", 4, "", "", true));
+            List<MedicalConsumableDTO> con = new List<MedicalConsumableDTO>();
+            con.Add(new MedicalConsumableDTO(1, "", "", "", 12));
+            con.Add(new MedicalConsumableDTO(3, "", "", "", 5));
+            con.Add(new MedicalConsumableDTO(7, "", "", "", 6));
+            DateTime today = DateTime.Now;
+            OrderDTO order = new OrderDTO(1, today, "dobavljac", eq, con, med);
+            OrderController.Save(order);
         }
 
         // Generators
