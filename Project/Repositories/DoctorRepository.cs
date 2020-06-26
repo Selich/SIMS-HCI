@@ -33,13 +33,22 @@ namespace Project.Repositories
         }
         public new IEnumerable<Doctor> Find(Func<Doctor, bool> predicate) => GetAllEager().Where(predicate);
 
-        public IEnumerable<Doctor> GetAllEager() => GetAll();
+        public IEnumerable<Doctor> GetAllEager() 
+            => GetAll();
 
         public new Doctor GetById(long id)
         {
             Doctor doctor = GetById(id);
             doctor.Address = _addressRepository.GetById(doctor.Address.Id);
             return doctor;
+        }
+
+        public new IEnumerable<Doctor> GetAll()
+        {
+            var doctors = base.GetAll();
+            var addresses = _addressRepository.GetAll();
+            BindDoctorWithAddress(addresses, doctors);
+            return doctors;
         }
 
         public new Doctor Save(Doctor doctor)
@@ -68,9 +77,15 @@ namespace Project.Repositories
         }
 
         public Doctor GetEager(long id)
-        {
-            throw new NotImplementedException();
-        }
+        => GetById(id);
+
+        private void BindDoctorWithAddress(IEnumerable<Address> addresses, IEnumerable<Doctor> doctors)
+            => doctors
+            .ToList()
+            .ForEach(doc => doc.Address = _addressRepository.GetById(doc.Address.Id));
+        
+
+
     }
 }
 
