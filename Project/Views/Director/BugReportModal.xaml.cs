@@ -34,7 +34,8 @@ namespace Project.Views.Director
             String desc = feedbackDescription.Text.ToString();
 
             FeedbackDTO newFeedback = new FeedbackDTO(type, desc);
-            Feedbacks.Add(newFeedback);
+            App app = App.Current as App;
+            app.FeedbackController.Save(newFeedback);
             this.Close();
         }
 
