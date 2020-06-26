@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project.Views.Model
 {
-    public class MedicineDTO : ConsumablesDTO
+    public class MedicineDTO : ItemDTO
     {
         public long Id { get; set; }
         public string Purpose { get; set; }
