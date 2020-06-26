@@ -788,6 +788,9 @@
     <None Include="Resources\Data\medicines.csv" />
     <None Include="Resources\Data\orderDetails.csv" />
     <None Include="Resources\Data\orders.csv" />
+    <None Include="Resources\Data\proposition.csv">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
     <None Include="Resources\Data\patientPrescription.csv" />
     <None Include="Resources\Data\patients.csv" />
     <None Include="Resources\Data\prescriptions.csv" />

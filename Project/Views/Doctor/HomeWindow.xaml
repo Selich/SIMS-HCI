@@ -565,6 +565,7 @@
                                 <Button Click="Alert_Click" Content="Sačuvati" HorizontalAlignment="Left" Height="39.9"  Width="196.8" Margin="277.414,494.837,0,25.543" ToolTip="Sačuvati izmene opisa leka" Grid.ColumnSpan="2" Grid.Column="1" />
                                 <TextBox BorderBrush="Gray" BorderThickness="2"  HorizontalAlignment="Left" Height="370.06" TextWrapping="Wrap" Text="Zamaranje pri hodu (po ravnom, uzbrdo) ili naporu, bolovi i tegobe iznad grudne kosti (karakter bola, prostiranje i trajanje), napadi gušenja i lupanja srca, otok nogu i trbuha, grčevi u listovima prilokom hodanja i posle koliko metara, vrednosti prethodno kontrolisanog krvnog pritiska." VerticalAlignment="Top" Width="714" FontSize="24" Margin="277.414,85,0,0" Background="#FFE4E4E4" ToolTip="Opis leka koji bi, spram potrebe, trebao izmeniti" Grid.ColumnSpan="2" Grid.Column="1"/>
                                 <Label Name="Req_medicine" Content="Brufen" Margin="277.414,45.32,299.1,480.28" FontSize="18" Grid.ColumnSpan="2" Grid.Column="1"/>
+                                <Button Click="Propose_Click" Content="" HorizontalAlignment="Left" Height="39.9"  Width="196.8" Margin="146.638,494.837,0,25.543" ToolTip="Sačuvati izmene opisa leka" Grid.Column="2" />
 
                             </Grid>
                         </TabItem>
