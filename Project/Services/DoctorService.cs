@@ -44,6 +44,6 @@ namespace Project.Services
         public List<Doctor> GetAvailableDoctorsTimeInterval(MedicalAppointment medicalAppointment) => throw new NotImplementedException();
 
 
-        public List<Doctor> GetAllDoctorsBySpecialization() => throw new NotImplementedException(); 
+        public List<Doctor> GetAllDoctorsBySpecialization(string specialization) => _doctorRepository.GetBySpecialization(specialization); 
     }
 }

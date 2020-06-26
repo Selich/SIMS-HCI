@@ -59,6 +59,13 @@ namespace Project.Repositories
         public Doctor GetByEmail(string email)
             => _stream.ReadAll().SingleOrDefault(doctor => doctor.Email.Equals(email));
 
+        public List<Doctor> GetBySpecialization(string specialization)
+        {
+            List<Doctor> doctors = (List<Doctor>) GetAll();
+            doctors.Where(doctor => doctor.MedicalRole.Equals(specialization));
+            return doctors;
+           // => GetAll().Where(doctor => doctor.MedicalRole.Equals(specialization)).Any());
+        } 
     }
 }
 
