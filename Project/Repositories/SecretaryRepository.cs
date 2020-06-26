@@ -45,7 +45,7 @@ namespace Project.Repositories
 
         public new Secretary GetById(long id) 
         {
-            var secretary = GetById(id);
+            var secretary = base.GetById(id);
             secretary.Address = _addressRepository.GetById(secretary.Address.Id);
             return secretary;
         }

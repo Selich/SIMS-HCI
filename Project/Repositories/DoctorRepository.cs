@@ -38,7 +38,7 @@ namespace Project.Repositories
 
         public new Doctor GetById(long id)
         {
-            Doctor doctor = GetById(id);
+            Doctor doctor = base.GetById(id);
             doctor.Address = _addressRepository.GetById(doctor.Address.Id);
             return doctor;
         }
