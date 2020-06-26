@@ -28,7 +28,7 @@ namespace Project.Services.Generators
             DateTime End = time.End;
             DirectorDTO Director = app.director;
             Document doc = new Document(iTextSharp.text.PageSize.A4, 10, 10, 40, 35);
-            PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream(_path+$@"\DirectorReport.pdf", FileMode.Create));
+            PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream("C:\\Users\\Lenovo_NB\\Desktop\\Izvestaj.pdf", FileMode.Create));
             List<DoctorDTO> Doctors = (List<DoctorDTO>)app.DoctorController.GetAll();
             doc.Open();
 
@@ -50,7 +50,7 @@ namespace Project.Services.Generators
 
             for (int i = 0; i < Doctors.Count; i++)
             {
-                List<MedicalAppointmentDTO> appointments = Doctors[i].Appointments;
+                List<MedicalAppointmentDTO> appointments = app.MedicalAppointmentController.GetAll().Where(app => app.Doctors.Contains(Doctors[i])).ToList();
                 if (appointments == null)
                     doc.Add(new iTextSharp.text.Paragraph($"Dr.{Doctors[i].FirstName} {Doctors[i].LastName} nema termina u ovom periodu."));
                 else
