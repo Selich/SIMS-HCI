@@ -1,4 +1,5 @@
-﻿using Project.Views.Model;
+﻿using Project.Model;
+using Project.Views.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,6 +46,7 @@ namespace Project.Views.Director
 
         private void SaveEmployeeDataChanges(object sender, RoutedEventArgs e)
         {
+            App app = App.Current as App;
             string Type = NewEmployeeType.SelectedValue.ToString();
             string Role = NewEmployeeRole.SelectedValue.ToString();
             string FirstName = NewEmployeeFirstName.Text;
@@ -68,7 +70,7 @@ namespace Project.Views.Director
                 return;
             }
             DateTime EmployeeDate = new DateTime(Int32.Parse(splitDate[2]), Int32.Parse(splitDate[1]),Int32.Parse(splitDate[0]));
-
+            DateTime now = DateTime.Now;
             if (Type.Equals("Lekar"))
             {
                 DoctorDTO doctor = new DoctorDTO();
@@ -80,9 +82,13 @@ namespace Project.Views.Director
                 doctor.Email = Email;
                 doctor.Jmbg = Jmbg;
                 doctor.Hospital = Hospital;
-                Home.Employees.Add(doctor);
-                Home.VisibleEmployees.Add(doctor);
-                Home.Doctors.Add(doctor);
+                doctor.AnnualLeave = new TimeInterval(now, now);
+                doctor.WorkingHours = new TimeInterval(now, now);
+                doctor.Gender = "Male";
+                doctor.Salary = 22000;
+                doctor.Password = "generic_password";
+                app.DoctorController.Save(doctor);
+                Home.RefreshEmployeeList();
             }
             else
             {
@@ -94,9 +100,13 @@ namespace Project.Views.Director
                 secretary.Email = Email;
                 secretary.Jmbg = Jmbg;
                 secretary.Hospital = Hospital;
-                Home.Employees.Add(secretary);
-                Home.VisibleEmployees.Add(secretary);
-                Home.Secretaries.Add(secretary);
+                secretary.AnnualLeave = new TimeInterval(now, now);
+                secretary.WorkingHours = new TimeInterval(now, now);
+                secretary.Gender = "Male";
+                secretary.Salary = 22000;
+                secretary.Password = "generic_password";
+                app.SecretaryController.Save(secretary);
+                Home.RefreshEmployeeList();
 
             }
 
