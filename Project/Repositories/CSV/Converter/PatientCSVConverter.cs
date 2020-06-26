@@ -36,23 +36,32 @@ namespace Project.Repositories.CSV.Converter
         public Patient ConvertCSVFormatToEntity(string patientCSVFormat)
         {
             string[] tokens = patientCSVFormat.Split(_delimiter.ToCharArray());
-            return new Patient(
-                long.Parse(tokens[0]),
-                new Address(long.Parse(tokens[1])), 
-                tokens[2],
-                tokens[3],
-                tokens[4],
-                tokens[5],
-                tokens[6],
-                DateTime.Parse(tokens[7]),
-                tokens[8],
-                tokens[9],
-                tokens[10],
-                float.Parse(tokens[11]),
-                float.Parse(tokens[12]),
-                tokens[13],
-                tokens[14]
-            );
+            try
+            {
+                return new Patient(
+                    long.Parse(tokens[0]),
+                    new Address(long.Parse(tokens[1])),
+                    tokens[2],
+                    tokens[3],
+                    tokens[4],
+                    tokens[5],
+                    tokens[6],
+                    DateTime.Parse(tokens[7]),
+                    tokens[8],
+                    tokens[9],
+                    tokens[10],
+                    float.Parse(tokens[11]),
+                    float.Parse(tokens[12]),
+                    tokens[13],
+                    tokens[14]
+                );
+
+            }
+            catch (System.Exception)
+            {
+                return new Patient();
+
+            }
         }
     }
 }
