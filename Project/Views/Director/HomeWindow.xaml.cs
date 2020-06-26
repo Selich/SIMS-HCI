@@ -542,38 +542,7 @@ namespace Project.Views.Director
 
         }
 
-        private void UpdateEmployeeWorkingHours(object sender, RoutedEventArgs e)
-        {
-            int s;
-            if(!Int32.TryParse(WHStartHour.Text,out s) || !Int32.TryParse(WHStartMinute.Text, out s) || !Int32.TryParse(WHEndHour.Text, out s) || !Int32.TryParse(WHEndMinute.Text, out s))
-            {
-                System.Windows.MessageBox.Show("Samo brojevi u polja za vreme");
-                return;
-            }
-
-            int startHour = Int32.Parse(WHStartHour.Text);
-            int startMinute = Int32.Parse(WHStartMinute.Text);
-            int endHour = Int32.Parse(WHEndHour.Text);
-            int endMinute = Int32.Parse(WHEndMinute.Text);
-
-            if(startHour<0 || startHour>23 || endHour<0 || endHour > 23)
-            {
-                System.Windows.MessageBox.Show("Nevalidna vrednost za sat (0-23)");
-                return;
-            }
-
-            if (startMinute < 0 || startMinute > 59 || endMinute < 0 || endMinute > 59)
-            {
-                System.Windows.MessageBox.Show("Nevalidna vrednost za minut (0-59)");
-                return;
-            }
-
-            DateTime begin = new DateTime(2000, 1, 1, startHour, startMinute, 0);
-            DateTime end = new DateTime(2000, 1, 1, endHour, endMinute, 0);
-            TimeInterval interval = new TimeInterval(begin, end);
-            EmployeeDTO selected = EmployeeDetailsGrid.DataContext as EmployeeDTO;
-            selected.WorkingHours = interval;
-        }
+        
 
         private void EmpoyeeFilter(object sender, RoutedEventArgs e)
         {
@@ -1037,6 +1006,60 @@ namespace Project.Views.Director
 
         }
 
+        private void UpdateEmployeeWorkingHours(object sender, RoutedEventArgs e)
+        {
+            int s;
+            if (!Int32.TryParse(WHStartHour.Text, out s) || !Int32.TryParse(WHStartMinute.Text, out s) || !Int32.TryParse(WHEndHour.Text, out s) || !Int32.TryParse(WHEndMinute.Text, out s))
+            {
+                System.Windows.MessageBox.Show("Samo brojevi u polja za vreme");
+                return;
+            }
+
+            int startHour = Int32.Parse(WHStartHour.Text);
+            int startMinute = Int32.Parse(WHStartMinute.Text);
+            int endHour = Int32.Parse(WHEndHour.Text);
+            int endMinute = Int32.Parse(WHEndMinute.Text);
+
+            if (startHour < 0 || startHour > 23 || endHour < 0 || endHour > 23)
+            {
+                System.Windows.MessageBox.Show("Nevalidna vrednost za sat (0-23)");
+                return;
+            }
+
+            if (startMinute < 0 || startMinute > 59 || endMinute < 0 || endMinute > 59)
+            {
+                System.Windows.MessageBox.Show("Nevalidna vrednost za minut (0-59)");
+                return;
+            }
+
+            EmployeeDTO employee = EmployeeList.SelectedItem as EmployeeDTO;
+            App app = App.Current as App;
+            DateTime begin = new DateTime(2000, 1, 1, startHour, startMinute, 0);
+            DateTime end = new DateTime(2000, 1, 1, endHour, endMinute, 0);
+            TimeInterval interval = new TimeInterval(begin, end);
+            foreach (SecretaryDTO sec in Secretaries)
+            {
+                if (employee.Id == sec.Id)
+                {
+                    sec.WorkingHours = interval;
+                    app.SecretaryController.Update(sec);
+                    RefreshEmployeeList();
+                    return;
+                }
+            }
+            
+            foreach (DoctorDTO doc in Doctors)
+            {
+                if (employee.Id == doc.Id)
+                {
+                    doc.WorkingHours = interval;
+                    app.DoctorController.Update(doc);
+                    RefreshEmployeeList();
+                    return;
+                }
+            }
+            return; 
+        }
 
 
         private void ChangeHoliday(object sender, RoutedEventArgs e)
