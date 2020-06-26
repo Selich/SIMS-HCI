@@ -26,6 +26,7 @@ namespace Project.Model
         {
             Type = type;
             Patient = patient;
+            Doctors = new List<Doctor>();
         }
 
         public MedicalAppointment(long id, DateTime beginning, DateTime end, Room room, MedicalAppointmentType type, Guest patient, List<Doctor> doctors)

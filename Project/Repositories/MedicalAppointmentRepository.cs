@@ -57,12 +57,11 @@ namespace Project.Repositories
         public IEnumerable<MedicalAppointment> GetAllEager()
         {
             var list = base.GetAll();
-            return list;
-            // var newList = new List<MedicalAppointment>();
-            // foreach (var item in list)
-            //     newList.Add(PopulateMedicalAppointment(item));
+            var newList = new List<MedicalAppointment>();
+            foreach (var item in list)
+                newList.Add(PopulateMedicalAppointment(item));
             
-            // return newList;
+            return newList;
         }
 
         public IEnumerable<MedicalAppointment> GetAllByPatientId(long id)
