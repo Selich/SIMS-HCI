@@ -202,9 +202,6 @@ namespace Project
             SelectedDate = DateTime.Now;
 
 
-            //new RoomDTO(111, RoomType.hospitalRoom, "1. Sprat", "Check"),
-
-
             // Converters
             var addressConverter = new AddressConverter();
             var patientConverter = new PatientConverter(addressConverter);
@@ -340,30 +337,20 @@ namespace Project
 
 
 
-             DoctorDTO doctor = new DoctorDTO(address, "Filip", "Zdelar", "1231231231231", "021021", "Male", new DateTime(1990, 5, 5), 123, new TimeInterval(new DateTime(2020, 12, 12), new DateTime(2020, 12, 12)),
-                new TimeInterval(new DateTime(2020, 12, 12), new DateTime(2020, 12, 12)), 
-                 "f@g.c", "p", "Dermatolog");
-            // SecretaryDTO secretary = new SecretaryDTO(address, "Nikola", "Selic", "1231231231231", "021021", "Male", new DateTime(1990, 5, 5), 123, new TimeInterval(new DateTime(2020, 12, 12), new DateTime(2020, 12, 12)),
-            //   new TimeInterval(new DateTime(2020, 12, 12), new DateTime(2020, 12, 12)), 
-            //     "selic.work@gmail.com", "pass");
-             PatientDTO patient = new PatientDTO(address, "Uros", "Milovanovic", "1231231231231", "021021", "Male", new DateTime(1990, 5, 5), "123", "deljac", "A+", 123, 123, 
-                 "urkem98@gmail.com", "pass");
+            //  DoctorDTO doctor = new DoctorDTO(address, "Filip", "Zdelar", "1231231231231", "021021", "Male", new DateTime(1990, 5, 5), 123, new TimeInterval(new DateTime(2020, 12, 12), new DateTime(2020, 12, 12)),
+            //     new TimeInterval(new DateTime(2020, 12, 12), new DateTime(2020, 12, 12)), 
+            //      "f@g.c", "p", "Dermatolog");
+            // // SecretaryDTO secretary = new SecretaryDTO(address, "Nikola", "Selic", "1231231231231", "021021", "Male", new DateTime(1990, 5, 5), 123, new TimeInterval(new DateTime(2020, 12, 12), new DateTime(2020, 12, 12)),
+            // //   new TimeInterval(new DateTime(2020, 12, 12), new DateTime(2020, 12, 12)), 
+            // //     "selic.work@gmail.com", "pass");
+            //  PatientDTO patient = new PatientDTO(address, "Uros", "Milovanovic", "1231231231231", "021021", "Male", new DateTime(1990, 5, 5), "123", "deljac", "A+", 123, 123, 
+            //      "urkem98@gmail.com", "pass");
 
-            //PatientController.Save(patient);
-            //DoctorController.Save(doctor);
-            // c = SecretaryController.Save(secretary);
+            // //PatientController.Save(patient);
+            // //DoctorController.Save(doctor);
+            // // c = SecretaryController.Save(secretary);
 
         }
-
-
-        ~App()
-        {
-            // a = PatientController.Remove(a);
-            //b = DoctorController.Remove(b);
-            //c = SecretaryController.Remove(c);
-        }
-
-
 
         // Generators
         public IReportGenerator<TimeInterval> SecretaryAppointmentReportGenerator { get; private set; }
