@@ -412,17 +412,21 @@
                                     <ComboBoxItem Content="2024"/>
                                     <ComboBoxItem Content="2025"/>
                                 </ComboBox>
-                                <ComboBox Margin="50.628,216.617,0,0" x:Name="ComboBox12_Copy3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="171.6" Height="30"
+                                <ComboBox Margin="50.628,216.617,0,0" x:Name="ListOfFiltratedDoctors" HorizontalAlignment="Left" VerticalAlignment="Top" Width="171.6" Height="30"
                                     materialDesign:HintAssist.Hint="Izbor doktora za termin"
                                     materialDesign:HintAssist.HintOpacity=".26"
-                                    IsEditable="True">
-                                    <ComboBoxItem Content="Predag Kon"/>
-                                    <ComboBoxItem Content="Filip Zdelar"/>
-                                    <ComboBoxItem Content="Nataša Petrović"/>
-                                    <ComboBoxItem Content="Ana Milošević"/>
-                                    <ComboBoxItem Content="Pavle Pavlić"/>
-                                    <ComboBoxItem Content="Nikola Pešić"/>
+                                    IsEditable="True" ItemsSource="{Binding DoctorsFilter, Mode=OneWay}">
+                                    <ComboBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="{Binding firstName,Mode=OneWay}" HorizontalAlignment="Left"/>
+                                                <TextBlock Text=" -  "  />
+                                                <TextBlock Text="{Binding DoctorsFilter.lastName,Mode=OneWay}" HorizontalAlignment="Right"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ComboBox.ItemTemplate>
                                 </ComboBox>
+
                             </Grid>
                         </TabItem>
                         <TabItem Header="Izveštaj o operaciji" Name="OperacijeTab">
@@ -517,7 +521,7 @@
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Text="{Binding Beginning}" HorizontalAlignment="Left"/>
-                                    <TextBlock Text="   "  />
+                                    <TextBlock Text="  "  />
                                     <TextBlock Text="{Binding Type}" HorizontalAlignment="Right"/>
                                 </StackPanel>
                             </DataTemplate>

@@ -31,6 +31,8 @@ namespace Project.Views.Doctor
 
 
         public DoctorDTO LoggedInDoctor { get; set; }
+        public List<DoctorDTO> AllDoctors { get; }
+        public List<DoctorDTO> DoctorsFilter { get; }
         public PatientDTO LoggedInPatient { get; set; }
 
         public String TartgetRosource { get; set; }
@@ -78,6 +80,12 @@ namespace Project.Views.Doctor
             AddressDTO tempAddress = new AddressDTO() { City = "Novi Sad", Country = "Serbia", Number = "25", PostCode = "21000", Street = "Laze Kostica" };
             //LoggedInDoctor = new DoctorDTO() { FirstName = "Predrag", LastName = "Kon", DateOfBirth = new DateTime(1998, 8, 25), Email = "pred12@gmail.com", Gender = "Muski", Jmbg = "0234567890111", TelephoneNumber = "06551232123", Address = tempAddress, MedicalRole= "Specijalista" };
             LoggedInDoctor = app.DoctorController.GetByEmail(email);
+
+            AllDoctors = (List<DoctorDTO>) app.DoctorController.GetAll();
+            DoctorsFilter = AllDoctors;
+            ListOfFiltratedDoctors.ItemsSource = DoctorsFilter;
+
+
             Email = email;
 
             LoggedInPatient = new PatientDTO() { Id = 1, FirstName = "Uros", LastName = "Milovanovic", DateOfBirth = new DateTime(1998, 8, 25), Email = "urke123@gmail.com", Gender = "Muski", InsurenceNumber = "1234567", Jmbg = "1234567890", TelephoneNumber = "06551232123", Address = tempAddress};
@@ -87,10 +95,11 @@ namespace Project.Views.Doctor
 
             //ALl medical appoitments
 
-            allMedicalAppointmentDTO = (List<MedicalAppointmentDTO>)app.MedicalAppointmentController.GetAllByDoctorID(5);// GetAll();
+            allMedicalAppointmentDTO = (List<MedicalAppointmentDTO>)app.MedicalAppointmentController.GetAllByDoctorID(LoggedInDoctor.Id);// GetAll();
             // allMedicalAppointmentDTO = (List<MedicalAppointmentDTO>) app.MedicalAppointmentController GetAll();
 
             Appoitments = allMedicalAppointmentDTO;
+
             //Current Appoitments
             /*
             RoomDTO tempRoom = new RoomDTO() { Floor = "One", Id = 4, Ward = "Check" };
@@ -146,7 +155,6 @@ namespace Project.Views.Doctor
             Kol_med.Visibility = Visibility.Hidden;
             Uc_med.Visibility = Visibility.Hidden;
             AddMediciniToList.Visibility = Visibility.Hidden;
-
         }
 
         private void HideTextBoxes()
@@ -555,6 +563,7 @@ namespace Project.Views.Doctor
         {
             var alert = new Alert();
             alert.Show();
+            
             approve.Visibility = Visibility.Collapsed;
             reject.Visibility = Visibility.Visible;
         }

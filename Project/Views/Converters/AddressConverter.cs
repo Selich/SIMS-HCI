@@ -21,14 +21,23 @@ namespace Project.Views.Converters
             );
 
         public AddressDTO ConvertEntityToDTO(Address entity)
-            => new AddressDTO(
-                entity.Id,
-                entity.Number,
-                entity.Street,
-                entity.City,
-                entity.Country,
-                entity.PostCode
-            );
+        {
+            try
+            {
+                return new AddressDTO(
+                    entity.Id,
+                    entity.Number,
+                    entity.Street,
+                    entity.City,
+                    entity.Country,
+                    entity.PostCode
+                );
+            }
+            catch (System.Exception)
+            {
+                return new AddressDTO();
+            }
+        }
 
         public List<Address> ConvertListDTOToListEntity(IEnumerable<AddressDTO> dtos)
             => dtos.Select(dto => ConvertDTOToEntity(dto)).ToList();

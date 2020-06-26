@@ -20,6 +20,6 @@ namespace Project.Services.Abstract
 
          Doctor GetByEmail(string email);
 
-         List<Doctor> GetAllDoctorsBySpecialization(); 
+         List<Doctor> GetAllDoctorsBySpecialization(string specialization); 
     }
 }
