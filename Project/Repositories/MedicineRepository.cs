@@ -23,7 +23,7 @@ namespace Project.Repositories
             ) : base(ENTITY_NAME, stream, sequencer)
         { }
 
-        public new IEnumerable<Medicine> Find(Func<Medicine, bool> predicate) => GetAllEager().Where(predicate);
+        public new IEnumerable<Medicine> Find(Func<Medicine, bool> predicate) => GetAll().Where(predicate);
         public IEnumerable<Medicine> GetAllLazy() {
             List<Medicine> list = new List<Medicine>();
             foreach(Medicine medicine in base.GetAll()){
@@ -32,10 +32,6 @@ namespace Project.Repositories
             }
             return list;
         }
-        public IEnumerable<Medicine> GetAllEager() 
-            => GetAll();
-        public new IEnumerable<Medicine> GetAll() 
-            => GetAllLazy();
         public new Medicine GetById(long id) 
             => GetLazy(id);
         public Medicine GetEager(long id) 
@@ -48,8 +44,15 @@ namespace Project.Repositories
             medicine.Alternatives.Select(item => item.Alternatives = null);
             return medicine;
         }
+        public new IEnumerable<Medicine> GetAll()
+        {
+            var list =  base.GetAll();
+            list.Select(item => item.Alternatives.Select(med => med.Alternatives = null));
+            return list;
 
-        public Medicine RegisterMedicine(string name, string purpose, string administration, string type, string description)
+        }
+
+        public IEnumerable<Medicine> GetAllEager()
         {
             throw new NotImplementedException();
         }
