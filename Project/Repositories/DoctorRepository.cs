@@ -35,7 +35,7 @@ namespace Project.Repositories
 
         public IEnumerable<Doctor> GetAllEager() => GetAll();
 
-        public Doctor GetEager(long id)
+        public new Doctor GetById(long id)
         {
             Doctor doctor = GetById(id);
             doctor.Address = _addressRepository.GetById(doctor.Address.Id);
@@ -65,7 +65,12 @@ namespace Project.Repositories
             doctors.Where(doctor => doctor.MedicalRole.Equals(specialization));
             return doctors;
            // => GetAll().Where(doctor => doctor.MedicalRole.Equals(specialization)).Any());
-        } 
+        }
+
+        public Doctor GetEager(long id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 
