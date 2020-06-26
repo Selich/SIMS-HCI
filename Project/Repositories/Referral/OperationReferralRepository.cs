@@ -3,11 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Project.Model.Referrals;
+using Project.Repositories.CSV;
+using Project.Repositories.CSV.Stream;
+using Project.Repositories.Sequencer;
 
 namespace Project.Repositories.Referral
 {
-    public class OperationReferralRepository : IReferralRepository
+    public class OperationReferralRepository:
+        CSVRepository<ExamReferral, long>,
+        IReferralRepository,
+        IEagerCSVRepository<Model.Referral, long>
     {
+        private const string ENTITY_NAME = "OperationReferral";
+
+        // TODO: Multiple IDs
+        public OperationReferralRepository(
+            ICSVStream<ExamReferral> stream,
+            ISequencer<long> sequencer
+            ) : base(ENTITY_NAME, stream, sequencer)
+        {
+        }
         public IEnumerable<Model.Referral> Find(Func<Model.Referral, bool> predicate)
         {
             throw new NotImplementedException();
@@ -18,7 +34,17 @@ namespace Project.Repositories.Referral
             throw new NotImplementedException();
         }
 
+        public IEnumerable<Model.Referral> GetAllEager()
+        {
+            throw new NotImplementedException();
+        }
+
         public Model.Referral GetById(long id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Model.Referral GetEager(long id)
         {
             throw new NotImplementedException();
         }

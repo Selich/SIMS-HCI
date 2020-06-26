@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project.Model.Referrals
 {
-    class AdmitionReferral : Referral
+    public class AdmitionReferral : Referral
     {
     }
 }

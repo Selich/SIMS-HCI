@@ -23,6 +23,8 @@ using Project.Repositories.ManyToMany.Converter;
 //using Syncfusion.Windows.Shared;
 using Project.Repositories.CSV;
 using Project.Controllers.Abstract;
+using Project.Repositories.Referral;
+using Project.Model.Referrals;
 
 namespace Project
 {
@@ -290,6 +292,19 @@ namespace Project
             var feedbackRepository = new FeedbackRepository(new CSVStream<Feedback>(FEEDBACK_FILEPATH, new FeedbackCSVConverter(DELIMITER)), new LongSequencer());
             var reviewRepository = new ReviewRepository(new CSVStream<Review>(REVIEW_FILEPATH, new ReviewCSVConverter(DELIMITER)), new LongSequencer());
             var anamnesisRepository = new AnamnesisRepository(new CSVStream<Anamnesis>(ANAMNESIS_FILEPATH, new AnamnesisCSVConverter(DELIMITER)), new LongSequencer());
+
+            // Referral
+            var admitionReferralRepository = new AdmitionReferralRepository(
+                new CSVStream<AdmitionReferral>(ADMITION_REFERRAL_FILEPATH, new AnamnesisCSVConverter(DELIMITER)), 
+                new LongSequencer()
+            );
+            var operationReferralRepository = new OperationReferralRepository(
+                new CSVStream<OperationReferral>(ANAMNESIS_FILEPATH, new AnamnesisCSVConverter(DELIMITER)),
+                new LongSequencer());
+
+            var examReferralRepository = new ExamReferralRepository(
+                new CSVStream<ExamReferral>(ANAMNESIS_FILEPATH, new AnamnesisCSVConverter(DELIMITER)),
+                new LongSequencer());
 
             // Services
             var patientService = new PatientService(patientRepository);
