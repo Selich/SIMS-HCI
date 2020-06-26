@@ -40,15 +40,16 @@ namespace Project.Views.Director
 
         private void SaveMedicineRegistration(object sender, RoutedEventArgs e)
         {
+            App app = App.Current as App;
             string Type = NewMedicineType.SelectedValue.ToString();
             string Name = NewMedicineName.Text;
             string Description = NewMedicineDescription.Text;
-            string desc = "  "+Type + "\n" + "Detaljno: " + Description;//Posto proposition nema sva polja kao i lek
             PropositionDTO newProposition = new PropositionDTO();
-            //newProposition.Description = desc;
-            //newProposition.Name = Name;
-            newProposition.State = "U razmatranju";
-            Home.Propositions.Add(newProposition);
+            newProposition.State = "inReview";
+            newProposition.Medicine = new MedicineDTO(Name, Type, Description, 0, "placeholder", "administration_placeholder", false);
+            newProposition.Approvals = new List<ApprovalDTO>();
+            app.PropositionController.Save(newProposition);
+            
             this.Close();
         }
     }

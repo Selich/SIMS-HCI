@@ -801,7 +801,6 @@
     <None Include="Resources\Data\medicines.csv" />
     <None Include="Resources\Data\orderDetails.csv" />
     <None Include="Resources\Data\approval.csv" />
-    <None Include="Resources\Data\proposition.csv" />
     <None Include="Resources\Data\orders.csv" />
     <None Include="Resources\Data\proposition.csv">
       <Generator>MSBuild:Compile</Generator>
