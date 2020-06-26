@@ -97,9 +97,12 @@ namespace Project.Repositories
         }
         public MedicalAppointment Update(MedicalAppointment entity)
         {
-            foreach (Doctor item in entity.Doctors)
-                _medicalAppointmentToDoctorRepository.Update(new MedicalAppointmentToDoctor(item.Id, entity.Id));
-            return Update(entity);
+            var entity = base.Remove(entity);
+            entity.Doctors.Select(item => _medicalAppointmentToDoctorRepository.Update(
+                new MedicalAppointmentToDoctor(entity.Id, item.Id))
+                );
+
+            return Save(entity);
         }
 
         List<MedicalAppointment> IMedicalAppointmentRepository.GetAllByDoctorId(long id)
