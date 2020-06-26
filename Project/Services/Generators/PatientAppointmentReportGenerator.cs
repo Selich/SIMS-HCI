@@ -36,22 +36,16 @@ namespace Project.Services.Generators
 
             Font font = FontFactory.GetFont(FontFactory.HELVETICA, 9);
 
+            App app = Application.Current as App;
+            List<MedicalAppointmentDTO> list = (List<MedicalAppointmentDTO>)app.MedicalAppointmentController.GetAllByPatientID(1);
 
-            List<MedicalAppointmentDTO> list = new List<MedicalAppointmentDTO>();
-
-            //TEMP data need to fix
-            RoomDTO tempRoom = new RoomDTO() { Floor = "First", Id = 101, Ward = "General Practice" };
-            DoctorDTO tempDoctor = new DoctorDTO() { FirstName = "Filip", LastName="Petrovic", MedicalRole="General Practise" };
-            List<DoctorDTO> tempDoctors = new List<DoctorDTO>();
-            tempDoctors.Add(tempDoctor);
-            ReviewDTO tempReview = new ReviewDTO(5, "Good idk");
-            list.Add(new MedicalAppointmentDTO() { Id = 0, Room = tempRoom, Beginning = new DateTime(2020, 5, 10, 15, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 10, 15, 30, 0), Doctors = tempDoctors, Review = tempReview });
-            list.Add(new MedicalAppointmentDTO() { Id = 1, Room = tempRoom, Beginning = new DateTime(2020, 5, 11, 18, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 11, 18, 30, 0), Doctors = tempDoctors, Review = tempReview });
-            list.Add(new MedicalAppointmentDTO() { Id = 2, Room = tempRoom, Beginning = new DateTime(2020, 5, 12, 15, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 12, 15, 30, 0), Doctors = tempDoctors, Review = tempReview });
-            list.Add(new MedicalAppointmentDTO() { Id = 3, Room = tempRoom, Beginning = new DateTime(2020, 5, 13, 15, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 13, 15, 30, 0), Doctors = tempDoctors, Review = tempReview });
-            list.Add(new MedicalAppointmentDTO() { Id = 4, Room = tempRoom, Beginning = new DateTime(2020, 5, 14, 11, 0, 0), Type = MedicalAppointmentType.operation, End = new DateTime(2020, 5, 14, 11, 30, 0), Doctors = tempDoctors, Review = tempReview });
-            list.Add(new MedicalAppointmentDTO() { Id = 5, Room = tempRoom, Beginning = new DateTime(2020, 5, 15, 14, 0, 0), Type = MedicalAppointmentType.operation, End = new DateTime(2020, 5, 15, 14, 30, 0), Doctors = tempDoctors, Review = tempReview });
-
+            for(int i = 0; i < list.Count; i++)
+            {
+                if((list[i].Beginning < interval.Start) || (list[i].Beginning > interval.End)){
+                    list.RemoveAt(i);
+                }
+            }
+            
 
             doc.Open();
             doc.AddTitle("Patient Appoitment Report");

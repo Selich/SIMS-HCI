@@ -39,53 +39,26 @@ namespace Project.Views.Patient
         public string[] Labels { get; }
         public Func<double, string> Formatter { get; set; }
 
-        public HomeWindow()
+        public HomeWindow(string email)
         {
             InitializeComponent();
             this.DataContext = this;
             app = Application.Current as App;
 
-            //Current Appoitments
-
-            //Appoitments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 10, 15, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 10, 15, 30, 0), IsScheduled = true });
-            //Appoitments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 11, 18, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 11, 18, 30, 0), IsScheduled = true });
-            //Appoitments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 12, 15, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 12, 15, 30, 0), IsScheduled = true });
-            //Appoitments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 13, 15, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 13, 15, 30, 0), IsScheduled = true });
-            //Appoitments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 14, 11, 0, 0), Type = MedicalAppointmentType.operation, End = new DateTime(2020, 5, 14, 11, 30, 0), IsScheduled = true });
-            //Appoitments.Add(new MedicalAppointmentDTO() { Room = tempRoom, Beginning = new DateTime(2020, 5, 15, 14, 0, 0), Type = MedicalAppointmentType.operation, End = new DateTime(2020, 5, 15, 14, 30, 0), IsScheduled = true });
-
-
-            //History
-            //DoctorDTO tempDoctor = new DoctorDTO(tempAddress, "filip", "zdelar", "1234567890123", "123", "Male", DateTime.Now, 123, new TimeInterval(DateTime.Now, DateTime.Now), new TimeInterval(DateTime.Now, DateTime.Now), "emai@lams.cs", "pass", "Hirg");
-            //ReviewDTO tempReview = new ReviewDTO(5, "yes");
-            //List<DoctorDTO> tempDoctors = new List<DoctorDTO>();
-            //tempDoctors.Add(tempDoctor);
-            //PastAppoitments.Add(new MedicalAppointmentDTO() { Id = 0, Room = tempRoom, Beginning = new DateTime(2020, 5, 10, 15, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 10, 15, 30, 0), Doctors = tempDoctors, Review = tempReview, Patient = LoggedInPatient });
-            //PastAppoitments.Add(new MedicalAppointmentDTO() { Id = 1, Room = tempRoom, Beginning = new DateTime(2020, 5, 11, 18, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 11, 18, 30, 0), Doctors = tempDoctors, Review = tempReview, Patient = LoggedInPatient });
-            //PastAppoitments.Add(new MedicalAppointmentDTO() { Id = 2, Room = tempRoom, Beginning = new DateTime(2020, 5, 12, 15, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 12, 15, 30, 0), Doctors = tempDoctors, Review = tempReview, Patient = LoggedInPatient });
-            //PastAppoitments.Add(new MedicalAppointmentDTO() { Id = 3, Room = tempRoom, Beginning = new DateTime(2020, 5, 13, 15, 0, 0), Type = MedicalAppointmentType.examination, End = new DateTime(2020, 5, 13, 15, 30, 0), Doctors = tempDoctors, Review = tempReview, Patient = LoggedInPatient });
-            //PastAppoitments.Add(new MedicalAppointmentDTO() { Id = 4, Room = tempRoom, Beginning = new DateTime(2020, 5, 14, 11, 0, 0), Type = MedicalAppointmentType.operation, End = new DateTime(2020, 5, 14, 11, 30, 0), Doctors = tempDoctors, Review = tempReview, Patient = LoggedInPatient });
-            //PastAppoitments.Add(new MedicalAppointmentDTO() { Id = 5, Room = tempRoom, Beginning = new DateTime(2020, 5, 15, 14, 0, 0), Type = MedicalAppointmentType.operation, End = new DateTime(2020, 5, 15, 14, 30, 0), Doctors = tempDoctors, Review = tempReview, Patient = LoggedInPatient });
-
             //Profile
-            AddressDTO tempAddress = new AddressDTO() { City = "Novi Sad", Country = "Serbia", Number = "25", PostCode = "21000", Street = "Petra Petrovica" };
-            RoomDTO tempRoom = new RoomDTO() { Floor = "One", Id = 4, Ward = "Check" };
-            LoggedInPatient = new PatientDTO() { Id = 1, FirstName = "Uros", LastName = "Milovanovic", DateOfBirth = new DateTime(1998, 8, 25), Email = "urke123@gmail.com", Gender = "Male", InsurenceNumber = "1234567", Jmbg = "1234567890", TelephoneNumber = "06551232123", Address = tempAddress };
+            LoggedInPatient = app.PatientController.GetByEmail(email);
 
+            //Appoitments
             PastAppoitments = new ObservableCollection<Model.MedicalAppointmentDTO>();
             Appoitments = new ObservableCollection<Model.MedicalAppointmentDTO>();
-
-
             var list = app.MedicalAppointmentController.GetAllByPatientID(LoggedInPatient.Id);
             foreach (MedicalAppointmentDTO appoitment in list)
             {
                 appoitment.Anamnesis = (List<AnamnesisDTO>)app.AnamnesisController.GetByMedicalAppointmentId(appoitment.Id);
-                if (appoitment.Beginning > DateTime.Now)
-                {
+                if (appoitment.Beginning > DateTime.Now){
                     Appoitments.Add(appoitment);
                 }
-                else
-                {
+                else{
                     PastAppoitments.Add(appoitment);
                 }
             }
@@ -123,7 +96,11 @@ namespace Project.Views.Patient
 
         private void History_Click(object sender, RoutedEventArgs e)
         {
-            var s = new Patient.History();
+            var tempApp = new List<MedicalAppointmentDTO>();
+            foreach(MedicalAppointmentDTO item in PastAppoitments){
+                tempApp.Add(item);
+            }
+            var s = new Patient.History(tempApp);
             s.Show();
         }
 
