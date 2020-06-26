@@ -30,9 +30,9 @@ namespace Project.Repositories.CSV.Converter
             string[] tokens = orderCSVFormat.Split(_delimiter.ToCharArray());
             return new OrderDetails(
                 long.Parse(tokens[0]),
+                long.Parse(tokens[1]),
                 long.Parse(tokens[2]),
-                long.Parse(tokens[3]),
-                long.Parse(tokens[4])
+                long.Parse(tokens[3])
             );
         }
     }
