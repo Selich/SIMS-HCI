@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project.Repositories.Abstract;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 namespace Project.Model
 {
 
-    public class Approval
+    public class Approval : IIdentifiable<long>
     {
         public long Id { get; set; }
         public string Description {get;set;}
@@ -36,5 +37,9 @@ namespace Project.Model
             IsApproved = isApproved;
             Doctor = doctor;
         }
+
+        public long GetId() => Id;
+
+        public void SetId(long id) => Id = id;
     }
 }
