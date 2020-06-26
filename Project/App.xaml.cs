@@ -294,17 +294,17 @@ namespace Project
             var anamnesisRepository = new AnamnesisRepository(new CSVStream<Anamnesis>(ANAMNESIS_FILEPATH, new AnamnesisCSVConverter(DELIMITER)), new LongSequencer());
 
             // Referral
-            var admitionReferralRepository = new AdmitionReferralRepository(
-                new CSVStream<AdmitionReferral>(ADMITION_REFERRAL_FILEPATH, new AnamnesisCSVConverter(DELIMITER)), 
-                new LongSequencer()
-            );
-            var operationReferralRepository = new OperationReferralRepository(
-                new CSVStream<OperationReferral>(ANAMNESIS_FILEPATH, new AnamnesisCSVConverter(DELIMITER)),
-                new LongSequencer());
+            //var admitionReferralRepository = new AdmitionReferralRepository(
+            //    new CSVStream<AdmitionReferral>(ADMITION_REFERRAL_FILEPATH, new AnamnesisCSVConverter(DELIMITER)), 
+            //    new LongSequencer()
+            //);
+            //var operationReferralRepository = new OperationReferralRepository(
+            //    new CSVStream<OperationReferral>(ANAMNESIS_FILEPATH, new AnamnesisCSVConverter(DELIMITER)),
+            //    new LongSequencer());
 
-            var examReferralRepository = new ExamReferralRepository(
-                new CSVStream<ExamReferral>(ANAMNESIS_FILEPATH, new AnamnesisCSVConverter(DELIMITER)),
-                new LongSequencer());
+            //var examReferralRepository = new ExamReferralRepository(
+            //    new CSVStream<ExamReferral>(ANAMNESIS_FILEPATH, new AnamnesisCSVConverter(DELIMITER)),
+            //    new LongSequencer());
 
             var propositionRepository = new PropositionRepository(new CSVStream<Proposition>(PROPOSITION_FILEPATH, new PropositionCSVConverter(DELIMITER, DATETIME_FORMAT)), new LongSequencer());
             var approvalRepository = new ApprovalRepository(new CSVStream<Approval>(APPROVAL_FILEPATH, new ApprovalCSVConverter(DELIMITER)), new LongSequencer());
