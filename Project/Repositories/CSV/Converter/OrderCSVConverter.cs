@@ -20,30 +20,32 @@ namespace Project.Repositories.CSV.Converter
 
         public string ConvertEntityToCSVFormat(Order order)
         {
-            string MedicineIDs="";
-            string ConsumableIDs="";
-            string EquipmentIDs="";
-
             return string.Join(_delimiter,
                 order.Id,
                 order.Date.ToString(_datetimeFormat),
-                order.Supplier,
-                MedicineIDs, 
-                ConsumableIDs,
-                EquipmentIDs
+                order.Supplier
                 );
-        } 
+        }
         public Order ConvertCSVFormatToEntity(string orderCSVFormat)
         {
             string[] tokens = orderCSVFormat.Split(_delimiter.ToCharArray());
-            return new Order(
-                long.Parse(tokens[0]),
-                DateTime.Parse(tokens[1]),
-                tokens[2],
-                new List<Equipment>(),
-                new List<MedicalConsumables>(),
-                new List<Medicine>()
-            );
+            try
+            {
+                return new Order(
+                    long.Parse(tokens[0]),
+                    DateTime.Parse(tokens[1]),
+                    tokens[2],
+                    new List<Equipment>(),
+                    new List<MedicalConsumables>(),
+                    new List<Medicine>()
+                );
+
+            }
+            catch (System.Exception)
+            {
+
+                return new Order();
+            }
         }
     }
 }

@@ -50,6 +50,7 @@ namespace Project.Repositories
             else
                 throw new Exception();
         }
+
         private bool IsEmailUnique(string email)
             => GetByEmail(email) == null;
 
@@ -58,13 +59,11 @@ namespace Project.Repositories
             return base.Update(patient);
         }
 
-        public Patient GetByEmail(string email){
-            var tempPatient = _stream.ReadAll().SingleOrDefault(patient => patient.Email.Equals(email));
-            if (tempPatient == null)
-                return tempPatient;
-
-            tempPatient.Address = _addressRepository.GetById(tempPatient.Address.Id);
-            return tempPatient;
+        public Patient GetByEmail(string email)
+        {
+            var patient = GetAll().SingleOrDefault(item => item.Email.Equals(email));
+            patient.Address = _addressRepository.GetById(patient.Address.Id);
+            return patient;
         }
 
     }
