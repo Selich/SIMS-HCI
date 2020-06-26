@@ -173,6 +173,7 @@ namespace Project
         private static string DELIMITER = ConfigurationManager.AppSettings["DelimiterValue"].ToString();
         private static string DATETIME_FORMAT = ConfigurationManager.AppSettings["DateTimeFormat"].ToString();
         private static string DATETIME_DETAIL_FORMAT = ConfigurationManager.AppSettings["DateTimeDetailFormat"].ToString();
+        private static string TIME_FORMAT = ConfigurationManager.AppSettings["TimeFormat"].ToString();
 
 
 
