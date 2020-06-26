@@ -52,9 +52,10 @@ namespace Project.Views.Doctor
         public List<String> Recepies { get; set; }
 
         public MedicalAppointmentDTO currentMedicalAppointment {get; set;}
+        public string Email;
         public List<MedicalAppointmentDTO> allMedicalAppointmentDTO { get; set; }
 
-        public HomeWindow()
+        public HomeWindow(string email)
         {
 
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
@@ -75,7 +76,9 @@ namespace Project.Views.Doctor
 
             // Doctor
             AddressDTO tempAddress = new AddressDTO() { City = "Novi Sad", Country = "Serbia", Number = "25", PostCode = "21000", Street = "Laze Kostica" };
-            LoggedInDoctor = new DoctorDTO() { FirstName = "Predrag", LastName = "Kon", DateOfBirth = new DateTime(1998, 8, 25), Email = "pred12@gmail.com", Gender = "Muski", Jmbg = "0234567890111", TelephoneNumber = "06551232123", Address = tempAddress, MedicalRole= "Specijalista" };
+            //LoggedInDoctor = new DoctorDTO() { FirstName = "Predrag", LastName = "Kon", DateOfBirth = new DateTime(1998, 8, 25), Email = "pred12@gmail.com", Gender = "Muski", Jmbg = "0234567890111", TelephoneNumber = "06551232123", Address = tempAddress, MedicalRole= "Specijalista" };
+            LoggedInDoctor = app.DoctorController.GetByEmail(email);
+            Email = email;
 
             LoggedInPatient = new PatientDTO() { Id = 1, FirstName = "Uros", LastName = "Milovanovic", DateOfBirth = new DateTime(1998, 8, 25), Email = "urke123@gmail.com", Gender = "Muski", InsurenceNumber = "1234567", Jmbg = "1234567890", TelephoneNumber = "06551232123", Address = tempAddress};
 
@@ -84,7 +87,7 @@ namespace Project.Views.Doctor
 
             //ALl medical appoitments
 
-            allMedicalAppointmentDTO = (List<MedicalAppointmentDTO>)app.MedicalAppointmentController.GetAllByDoctorID(1);// GetAll();
+            allMedicalAppointmentDTO = (List<MedicalAppointmentDTO>)app.MedicalAppointmentController.GetAllByDoctorID(5);// GetAll();
             // allMedicalAppointmentDTO = (List<MedicalAppointmentDTO>) app.MedicalAppointmentController GetAll();
 
             Appoitments = allMedicalAppointmentDTO;
@@ -135,7 +138,7 @@ namespace Project.Views.Doctor
             app = Application.Current as App;
             Recepies = new List<string>();
             TypeOfTermin = "";
-            Title.Text += " Predrag Kon";// + tempDoctor.FirstName + " " + tempDoctor.LastName;
+            Title.Text += " " + LoggedInDoctor.FirstName + " " + LoggedInDoctor.LastName;
 
             Medicine_toAdd.Visibility = Visibility.Hidden;
             NumberTextBox.Visibility = Visibility.Hidden;
@@ -225,16 +228,8 @@ namespace Project.Views.Doctor
             label6.Visibility = Visibility.Visible;
             label7.Visibility = Visibility.Visible;
             label8.Visibility = Visibility.Visible;
-            /*
-            textbox1.Visibility = Visibility.Collapsed;
-            textbox2.Visibility = Visibility.Collapsed;
-            textbox3.Visibility = Visibility.Collapsed;
-            textbox4.Visibility = Visibility.Collapsed;
-            textbox5.Visibility = Visibility.Collapsed;
-            textbox6.Visibility = Visibility.Collapsed;
-            textbox7.Visibility = Visibility.Collapsed;
-            textbox8.Visibility = Visibility.Collapsed;
-            textbox9.Visibility = Visibility.Collapsed;*/
+
+            app.DoctorController.Update(LoggedInDoctor);
 
 
             HidePlaceHolders();
@@ -265,7 +260,7 @@ namespace Project.Views.Doctor
 
         private void History_Click(object sender, RoutedEventArgs e)
         {
-            var s = new Doctor.HistoryPatient();
+            var s = new Doctor.HistoryPatient(LoggedInPatient);
             s.Show();
         }
         
@@ -290,7 +285,7 @@ namespace Project.Views.Doctor
 
         private void Wizard_Click(object sender, RoutedEventArgs e)
         {
-            var wiz = new WizardWindow();
+            var wiz = new WizardWindow(Email);
             wiz.Show();
             //Close();
         }
@@ -525,6 +520,11 @@ namespace Project.Views.Doctor
 
                 //LoggedInPatient = ((MedicalAppointmentDTO)selitem).Patient;
                 PatientsName.Text = ((MedicalAppointmentDTO)selitem).Patient.FirstName;
+                PatientsLasName.Text = ((MedicalAppointmentDTO)selitem).Patient.LastName;
+                PatientsH.Text = ((MedicalAppointmentDTO)selitem).Patient.Height.ToString();
+                PatientsW.Text = ((MedicalAppointmentDTO)selitem).Patient.Weight.ToString();
+                //PateintsState.Text = ((MedicalAppointmentDTO)selitem).Patient. ;
+                PatientdApp.Text = ((MedicalAppointmentDTO)selitem).Type.ToString();
 
             }
         }
@@ -592,7 +592,14 @@ namespace Project.Views.Doctor
 
         private void Add_Anamnesis_Clcik(object sender, RoutedEventArgs e)
         {
-            app.AnamnesisController.Save(new AnamnesisDTO(1, "anamneza", ComboBoxTypeAnamesis.SelectedValue.ToString().Remove(0,38), Anamnesis_Text.Text, currentMedicalAppointment));
+            //app.AnamnesisController.Save(new AnamnesisDTO(1, "anamneza", ComboBoxTypeAnamesis.SelectedValue.ToString().Remove(0,38), Anamnesis_Text.Text, currentMedicalAppointment));
+            app.MedicalAppointmentController.Remove(currentMedicalAppointment);
+            if (currentMedicalAppointment.Anamnesis == null)
+            {
+                currentMedicalAppointment.Anamnesis = new List<AnamnesisDTO>();
+            }
+            currentMedicalAppointment.Anamnesis.Add(new AnamnesisDTO(1, "anamneza", ComboBoxTypeAnamesis.SelectedValue.ToString().Remove(0, 38), Anamnesis_Text.Text, currentMedicalAppointment));
+            app.MedicalAppointmentController.Save(currentMedicalAppointment);
         }
 
         private void FeedBack_Click(object sender, RoutedEventArgs e)

@@ -8,7 +8,21 @@
         Title="HistoryPatient" Height="510" Width="933.2">
     <Grid>
         <Button Click="Button_Click" Content="Nazad" HorizontalAlignment="Left" Height="37.2" Margin="27.1,409.2,0,0" VerticalAlignment="Top" Width="110.4" ToolTip="Vratiti se na korisnicku stranicu"/>
-        <TextBlock FontSize="14" HorizontalAlignment="Left" Height="242.4" Margin="417.1,144.3,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="470.4" Background="#FFEBEBEB"><Run Text="Pacijent je dosa na lecenje povodom stomačnih tegoba koje je imao veče pre dolaska. Izmerana mu je temperatura od 38 stepeni. Nije imao oblike virusa "/><LineBreak/><Run/><LineBreak/><Run Text="- Kasalj, alergija, virus"/><LineBreak/><Run Text="- Brmazepan 2x1, Muicil 3x2"/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
+        <TextBlock FontSize="14" HorizontalAlignment="Left" Height="242.4" Margin="658.7,144.3,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228.8" Background="#FFEBEBEB"  Name="AnamnesisPateint" Text="{Binding AnamnesisPateint.}"/>
+        <ListBox Name="HistoryPatientList"  HorizontalAlignment="Left" Height="304.987" Margin="339.1,141.413,0,0" VerticalAlignment="Top" Width="287.6" BorderBrush="Gray" BorderThickness="2" SelectionChanged="HistoryPatientList_SelectionChanged"
+                 ItemsSource="{Binding Path=HistoryPatientList, UpdateSourceTrigger=PropertyChanged}" >
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding  HistoryPatientList.Id}" />
+                        <!--
+                        <TextBlock Text="{Binding  HistoryPatientList.Beginning}" />
+                        <TextBlock Text=" n" />
+                        <TextBlock Text="{Binding  HistoryPatientList.Type}" />-->
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
         <ListBox HorizontalAlignment="Left" Height="242.4" Margin="27.1,144.3,0,0" VerticalAlignment="Top" Width="285.6" Background="#FFEDEDED" ToolTip="Lista shiv pregleda">
             <ListBoxItem FontSize="14" Content="23. 11. 2019 - Pregled - Dr. Kon" Width="275.6"/>
             <ListBoxItem FontSize="14" Content="02. 01. 2020 - Kontrola - Dr. Kon" Width="275.6"/>

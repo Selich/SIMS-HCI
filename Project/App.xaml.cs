@@ -20,7 +20,7 @@ using Project.Services.Generators;
 using Project.Repositories.ManyToMany.Repositories;
 using Project.Repositories.ManyToMany.Model;
 using Project.Repositories.ManyToMany.Converter;
-using Syncfusion.Windows.Shared;
+//using Syncfusion.Windows.Shared;
 using Project.Repositories.CSV;
 using Project.Controllers.Abstract;
 
@@ -340,17 +340,17 @@ namespace Project
 
 
 
-            // DoctorDTO doctor = new DoctorDTO(address, "Filip", "Zdelar", "1231231231231", "021021", "Male", new DateTime(1990, 5, 5), 123, new TimeInterval(new DateTime(2020, 12, 12), new DateTime(2020, 12, 12)),
-            //    new TimeInterval(new DateTime(2020, 12, 12), new DateTime(2020, 12, 12)), 
-            //     "f@g.c", "p", "Dermatolog");
+             DoctorDTO doctor = new DoctorDTO(address, "Filip", "Zdelar", "1231231231231", "021021", "Male", new DateTime(1990, 5, 5), 123, new TimeInterval(new DateTime(2020, 12, 12), new DateTime(2020, 12, 12)),
+                new TimeInterval(new DateTime(2020, 12, 12), new DateTime(2020, 12, 12)), 
+                 "f@g.c", "p", "Dermatolog");
             // SecretaryDTO secretary = new SecretaryDTO(address, "Nikola", "Selic", "1231231231231", "021021", "Male", new DateTime(1990, 5, 5), 123, new TimeInterval(new DateTime(2020, 12, 12), new DateTime(2020, 12, 12)),
             //   new TimeInterval(new DateTime(2020, 12, 12), new DateTime(2020, 12, 12)), 
             //     "selic.work@gmail.com", "pass");
-            // PatientDTO patient = new PatientDTO(address, "Uros", "Milovanovic", "1231231231231", "021021", "Male", new DateTime(1990, 5, 5), "123", "deljac", "A+", 123, 123, 
-            //     "urkem98@gmail.com", "pass");
+             PatientDTO patient = new PatientDTO(address, "Uros", "Milovanovic", "1231231231231", "021021", "Male", new DateTime(1990, 5, 5), "123", "deljac", "A+", 123, 123, 
+                 "urkem98@gmail.com", "pass");
 
-            // a = PatientController.Save(patient);
-            // b = DoctorController.Save(doctor);
+            //PatientController.Save(patient);
+            //DoctorController.Save(doctor);
             // c = SecretaryController.Save(secretary);
 
         }

@@ -9,6 +9,11 @@ namespace Project.Views.Model
 {
    public class AnamnesisDTO
    {
+        private int v1;
+        private string v2;
+        private string v3;
+        private string text;
+
         public long Id { get; set; }
         public string Name { get; set; }
         public string Type { get; set; }
@@ -26,6 +31,14 @@ namespace Project.Views.Model
 
         public AnamnesisDTO()
         {
+        }
+
+        public AnamnesisDTO(long Id, string name, string type, string description)
+        {
+            this.Id = Id;
+            Name = name;
+            Type = type;
+            Description = description;
         }
     }
 }
