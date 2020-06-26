@@ -47,7 +47,7 @@ namespace Project.Services
         public MedicalAppointment Update(MedicalAppointment entity)
             => _medicalAppointmentRepository.Update(entity);
 
-        public List<MedicalAppointment> GetAllByDoctorID(long id)
+        public IEnumerable<MedicalAppointment> GetAllByDoctorID(long id)
             => _medicalAppointmentRepository.GetAllByDoctorId(id);
     }
 }
