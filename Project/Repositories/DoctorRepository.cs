@@ -66,7 +66,15 @@ namespace Project.Repositories
             => GetByEmail(email).Id == 0;
 
         public Doctor GetByEmail(string email)
-            => _stream.ReadAll().SingleOrDefault(doctor => doctor.Email.Equals(email));
+        {
+            var doctor = GetAll().SingleOrDefault(item => item.Email.Equals(email));
+            if(doctor != null)
+            {
+                doctor.Address = _addressRepository.GetById(doctor.Address.Id);
+                return doctor;
+            }
+            return new Doctor();
+        }
 
         public List<Doctor> GetBySpecialization(string specialization)
         {

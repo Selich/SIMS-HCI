@@ -9,6 +9,6 @@ namespace Project.Services
         IEnumerable<MedicalAppointment> GetAllByPatientId(long id);
         IEnumerable<MedicalAppointment> GetAllByDoctorID(long id);
 
-        IEnumerable<MedicalAppointment> GetlAvailableAppoitments(Doctor doctor,Room room,TimeInterval timeInterval);
+        IEnumerable<MedicalAppointment> GetAvailableAppoitments(Doctor doctor,Room room,TimeInterval timeInterval);
     }
 }

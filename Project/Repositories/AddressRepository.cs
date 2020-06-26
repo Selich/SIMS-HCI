@@ -37,6 +37,7 @@ namespace Project.Repositories
         private bool IsAddressUnique(Address address)
             => Find(item => item.Equals(address)) == null;
 
+
         public Address GetEager(long id) => GetById(id);
         public IEnumerable<Address> GetAllEager() => GetAll();
     }

@@ -44,17 +44,54 @@ namespace Project.Services
         public bool IsAvailableAtTimeInterval(MedicalAppointment medicalAppointment, TimeInterval timeInterval)
             => medicalAppointment.Beginning >= timeInterval.Start && medicalAppointment.End <= timeInterval.End;
 
-        public IEnumerable<MedicalAppointment> GetlAvailableAppoitments(Doctor doctor, Room room, TimeInterval timeInterval)
+        private IEnumerable<MedicalAppointment> GenerateAppointments(TimeInterval interval)
         {
-            return new List<MedicalAppointment>();
+            List<MedicalAppointment> list = new List<MedicalAppointment>();
+            for(DateTime iter = interval.Start; iter <= interval.End; iter.AddMinutes(30))
+                list.Add(new MedicalAppointment(iter, iter.AddMinutes(30), null, MedicalAppointmentType.examination ,null));
+            return list;
         }
 
-        private IEnumerable<MedicalAppointment> GetlAvailableAppoitmentsByDoctor(Doctor doctor)
+        public IEnumerable<MedicalAppointment> GetAvailableAppoitments(Doctor doctor, Room room, TimeInterval timeInterval)
+        {
+            var dif = (timeInterval.End  - timeInterval.Start).TotalDays;
+            var workHours = doctor.WorkingHours;
+
+            // Doctor working hours
+            List<MedicalAppointment> listFreeApp = new List<MedicalAppointment>();
+            for(int i = 0; i < dif; i++){
+                // var day = doctor.WorkingHours.Start.AddDays(i);
+                var startHours = doctor.WorkingHours.Start.Hour;
+                var startMinutes = doctor.WorkingHours.Start.Minute;
+                var endHours = doctor.WorkingHours.Start.Hour;
+                var endMinutes = doctor.WorkingHours.Start.Minute;
+                var currDay = timeInterval.Start.AddDays(i);
+                DateTime startWH = new DateTime(currDay.Year, currDay.Month, currDay.Day, startHours, startMinutes, 0);
+                DateTime endWH = new DateTime(currDay.Year, currDay.Month, currDay.Day, endHours, endMinutes, 0);
+                listFreeApp.AddRange(GenerateAppointments(new TimeInterval(startWH, endWH)));
+            }
+
+
+            // Filter free by doctorsApp
+            if(doctor != null){
+                doctor.Appointments.ForEach(app => listFreeApp.Remove(listFreeApp.Where(item => item.Beginning == app.Beginning && item.End == app.End).SingleOrDefault())); 
+            }
+
+            if(room != null) 
+                listFreeApp = listFreeApp.Where(item => item.Room == room).ToList();
+
+
+
+            return listFreeApp;
+
+        }
+
+        private IEnumerable<MedicalAppointment> GetAvailableAppoitmentsByDoctor(Doctor doctor)
         {     
             return new List<MedicalAppointment>();
         }
 
-        private IEnumerable<MedicalAppointment> GetlAvailableAppoitmentsByTimeInterval(TimeInterval timeinterval)
+        private IEnumerable<MedicalAppointment> GetAvailableAppoitmentsByTimeInterval(TimeInterval timeinterval)
         {
             return new List<MedicalAppointment>();
         }

@@ -64,7 +64,16 @@ namespace Project.Repositories
             .ToList()
             .ForEach(sec => sec.Address = _addressRepository.GetById(sec.Address.Id));
         public Secretary GetByEmail(string email)
-            => _stream.ReadAll().SingleOrDefault(item => item.Email.Equals(email));
+        {
+            var secretary = GetAll().SingleOrDefault(item => item.Email.Equals(email));
+            if(secretary != null)
+            {
+                secretary.Address = _addressRepository.GetById(secretary.Address.Id);
+                return secretary;
+            }
+            return new Secretary();
+
+        }
 
     }
 }

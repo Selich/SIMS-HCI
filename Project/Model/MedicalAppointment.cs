@@ -21,6 +21,13 @@ namespace Project.Model
         public MedicalAppointment(long id) : base(id) { }
 
         public MedicalAppointment(long id, DateTime dateTime) { }
+        public MedicalAppointment(DateTime beginning, DateTime end, Room room, MedicalAppointmentType type, Guest patient)
+        : base(beginning, end, room)
+        {
+            Type = type;
+            Patient = patient;
+            Doctors = new List<Doctor>();
+        }
         public MedicalAppointment(long id, DateTime beginning, DateTime end, Room room, MedicalAppointmentType type, Guest patient)
         : base(id, beginning, end, room)
         {
