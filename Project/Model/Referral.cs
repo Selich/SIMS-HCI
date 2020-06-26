@@ -8,19 +8,15 @@ namespace Project.Model
         public long Id { get; set; }
         public DateTime Date { get; set; }
         public string Type { get; set; }
+        public MedicalAppointment MedicalAppointment { get; set; }
 
         public Referral() { }
 
-        public Referral(DateTime date, string type)
-        {
-            Date = date;
-            Type = type;
-        }
-        public Referral(long id, DateTime date, string type)
+        public Referral(long id, DateTime date, MedicalAppointment medicalAppointment)
         {
             Id = id;
             Date = date;
-            Type = type;
+            MedicalAppointment = medicalAppointment;
         }
 
         public long GetId() => Id;

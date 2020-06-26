@@ -18,8 +18,9 @@ namespace Project.Model
         public List<Consumebles> Consumebles{ get; set; }
         public Review Review{ get; set; }
         public List<Anamnesis> Anamnesis { get; set; }
+        public MedicalAppointment(long id) : base(id) { }
 
-        public MedicalAppointment(long v, DateTime dateTime) { }
+        public MedicalAppointment(long id, DateTime dateTime) { }
         public MedicalAppointment(long id, DateTime beginning, DateTime end, Room room, MedicalAppointmentType type, Guest patient)
         : base(id, beginning, end, room)
         {

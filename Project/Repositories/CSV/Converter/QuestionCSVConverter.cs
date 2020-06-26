@@ -20,7 +20,6 @@ namespace Project.Repositories.CSV.Converter
             _delimiter = delimiter;
             _datetimeFormat = datetimeFormat;
 
-
         }
 
         public string ConvertEntityToCSVFormat(Question question)

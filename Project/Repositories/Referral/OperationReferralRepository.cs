@@ -11,7 +11,7 @@ using Project.Repositories.Sequencer;
 namespace Project.Repositories.Referral
 {
     public class OperationReferralRepository:
-        CSVRepository<ExamReferral, long>,
+        CSVRepository<Model.Referral, long>,
         IReferralRepository,
         IEagerCSVRepository<Model.Referral, long>
     {
@@ -19,7 +19,7 @@ namespace Project.Repositories.Referral
 
         // TODO: Multiple IDs
         public OperationReferralRepository(
-            ICSVStream<ExamReferral> stream,
+            ICSVStream<Model.Referral> stream,
             ISequencer<long> sequencer
             ) : base(ENTITY_NAME, stream, sequencer)
         {
