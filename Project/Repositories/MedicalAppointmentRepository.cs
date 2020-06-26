@@ -36,10 +36,13 @@ namespace Project.Repositories
         private MedicalAppointment PopulateMedicalAppointment(MedicalAppointment appointment){
             appointment.Patient = _patientRepository.GetById(appointment.Patient.Id);
             var list =_medicalAppointmentToDoctorRepository.GetAllByMedicalAppointmentId(appointment.Id);
+            appointment.Doctors = new List<Doctor>();
             return BindMedicalAppointmentToDoctors(appointment, list);
         }
         private MedicalAppointment BindMedicalAppointmentToDoctors(MedicalAppointment appointment, IEnumerable<MedicalAppointmentToDoctor> entities){
-            entities.ToList().ForEach(item => appointment.Doctors.Add( _doctorRepository.GetById(item.DoctorId)));
+            foreach (MedicalAppointmentToDoctor pair in entities){
+                appointment.Doctors.Add(_doctorRepository.GetById(pair.DoctorId));
+            }
             return appointment;
         }
 
