@@ -16,6 +16,7 @@ namespace Project.Model
       
       public Room Room;
       public Appointment() {}
+      public Appointment(long id) { Id = id; }
       public Appointment(long id,DateTime beginning, DateTime end, Room room){
          Id = id;
          Beginning = beginning;
