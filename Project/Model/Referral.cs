@@ -3,7 +3,6 @@ using System;
 
 namespace Project.Model
 {
-    // TODO: CHANGE
     public class Referral : IIdentifiable<long>
     {
         public long Id { get; set; }
