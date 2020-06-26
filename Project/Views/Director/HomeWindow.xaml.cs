@@ -219,7 +219,9 @@ namespace Project.Views.Director
 
             _reportController = new ReportController();
             AddressDTO address = new AddressDTO("15", "Bulevar Cara Lazara", "Skoplje", "Severna Makedonija", "17954");
-            Director = new DirectorDTO(address,"Pera", "Peric", "0102031234567", "012/173212", "Male", new DateTime(1985, 11, 5), 13000, null, null, "pera@makedonac.nmac", "pass", "Klinicki Centar Vojvodina");
+            UserDTO c = app.currentUser;
+            Director = new DirectorDTO(c.Address, c.FirstName, c.LastName, c.Jmbg, c.TelephoneNumber, c.Gender, c.DateOfBirth, 13000, null, null, app.director.Email, app.director.Password, "Klinicki Centar Vojvodina");
+                // new DirectorDTO(address,"Pera", "Peric", "0102031234567", "012/173212", "Male", new DateTime(1985, 11, 5), 13000, null, null, "pera@makedonac.nmac", "pass", "Klinicki Centar Vojvodina");
          
             Propositions = new ObservableCollection<PropositionDTO>();
             //Propositions.Add(new PropositionDTO(1,"Berodual","Berodual je ...", "Odobren",5,2));
@@ -1069,7 +1071,7 @@ namespace Project.Views.Director
             return; */
         }
 
-        private void RefreshEmployeeList()
+        public void RefreshEmployeeList()
         {
             App app = App.Current as App;
             Employees = new ObservableCollection<EmployeeDTO>();
