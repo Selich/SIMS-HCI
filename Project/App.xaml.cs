@@ -1,4 +1,4 @@
-﻿using System.Configuration;
+using System.Configuration;
 using Project.Repositories;
 using System.Windows;
 using Project.Repositories.CSV.Converter;
