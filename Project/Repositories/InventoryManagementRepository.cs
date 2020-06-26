@@ -28,11 +28,11 @@ namespace Project.Repositories
 
         public new IEnumerable<InventoryManagement> Find(Func<InventoryManagement, bool> predicate) => GetAllEager().Where(predicate);
         public new InventoryManagement Save(InventoryManagement entity){
-            foreach(var item in entity.Equipment){
-                _inventoryManagementToEquipmentRepository.Save(new InventoryManagementToEquipment(entity.Id, item.Id));
+            InventoryManagement inv = base.Save(entity);
+            foreach(var item in inv.Equipment){
+                _inventoryManagementToEquipmentRepository.Save(new InventoryManagementToEquipment(inv.Id, item.Id));
             }
-
-            return base.Save(entity);
+            return inv;
         }
 
         public IEnumerable<InventoryManagement> GetAllEager() => GetAll();
