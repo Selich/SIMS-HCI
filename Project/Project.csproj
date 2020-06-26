@@ -213,6 +213,10 @@
     <Compile Include="Repositories\FeedbackRepository.cs" />
     <Compile Include="Repositories\PropositionRepository.cs" />
     <Compile Include="Repositories\QuestionRepository.cs" />
+    <Compile Include="Repositories\Referral\AdmitionReferralRepository.cs" />
+    <Compile Include="Repositories\Referral\ExamReferralRepository.cs" />
+    <Compile Include="Repositories\Referral\IReferralRepository.cs" />
+    <Compile Include="Repositories\Referral\OperationReferralRepository.cs" />
     <Compile Include="Repositories\RenovationRepository.cs" />
     <Compile Include="Repositories\ReviewRepository.cs" />
     <Compile Include="Repositories\RoomRepository.cs" />
@@ -781,7 +785,6 @@
     <None Include="Resources\Data\anamnesis.csv" />
     <None Include="Resources\Data\inventoryEquipmentManagement.csv" />
     <None Include="Resources\Data\inventoryManagement.csv" />
-    <None Include="Resources\Data\inventoryManagment.csv" />
     <None Include="Resources\Data\ManyToMany\medicalAppointmentsToDoctors.csv" />
     <None Include="Resources\Data\medicalAppointments.csv" />
     <None Include="Resources\Data\medicalConsumables.csv" />
@@ -792,6 +795,9 @@
     <None Include="Resources\Data\patients.csv" />
     <None Include="Resources\Data\prescriptions.csv" />
     <None Include="Resources\Data\questions.csv" />
+    <None Include="Resources\Data\Referral\admitionReferrals.csv" />
+    <None Include="Resources\Data\Referral\examReferrals.csv" />
+    <None Include="Resources\Data\Referral\operationReferrals.csv" />
     <None Include="Resources\Data\renovations.csv" />
     <None Include="Resources\Data\reports.csv" />
     <None Include="Resources\Data\reviews.csv" />
