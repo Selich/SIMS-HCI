@@ -38,7 +38,7 @@ namespace Project.Views.Patient
 
         private void Submit_Click(object sender, RoutedEventArgs e)
         {
-            app.ReviewController.Save(new ReviewDTO(int.Parse(Rating.Text), "Rating from user", ReviewAppointment.Doctors.First()));
+            app.ReviewController.Save(new ReviewDTO(int.Parse(Rating.Text), Desc.Text, ReviewAppointment.Doctors.First()));
             Close();
         }
     }

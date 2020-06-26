@@ -124,6 +124,7 @@
     <Compile Include="Controllers\AddressController.cs" />
     <Compile Include="Controllers\InventoryManagementController.cs" />
     <Compile Include="Controllers\DoctorController..cs" />
+    <Compile Include="Controllers\ApprovalController.cs" />
     <Compile Include="Controllers\PrescriptionController.cs" />
     <Compile Include="Controllers\DocumentController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
@@ -165,6 +166,7 @@
     <Compile Include="Repositories\Abstract\IPrescriptionRepository.cs" />
     <Compile Include="Repositories\Abstract\IMedicalConsumableRepository.cs" />
     <Compile Include="Repositories\Abstract\IFeedbackRepository.cs" />
+    <Compile Include="Repositories\Abstract\IApprovalRepository.cs" />
     <Compile Include="Repositories\Abstract\IQuestionRepository.cs" />
     <Compile Include="Repositories\Abstract\IRenovationRepository.cs" />
     <Compile Include="Repositories\Abstract\IReviewRepository.cs" />
@@ -213,6 +215,7 @@
     <Compile Include="Repositories\FeedbackRepository.cs" />
     <Compile Include="Repositories\PropositionRepository.cs" />
     <Compile Include="Repositories\QuestionRepository.cs" />
+    <Compile Include="Repositories\ApprovalRepository.cs" />
     <Compile Include="Repositories\Referral\AdmitionReferralRepository.cs" />
     <Compile Include="Repositories\Referral\ExamReferralRepository.cs" />
     <Compile Include="Repositories\Referral\IReferralRepository.cs" />
@@ -222,10 +225,12 @@
     <Compile Include="Repositories\RoomRepository.cs" />
     <Compile Include="Repositories\SecretaryRepository.cs" />
     <Compile Include="Services\Abstract\IDoctorService.cs" />
+    <Compile Include="Services\Abstract\IAnamnesisService.cs" />
     <Compile Include="Services\Abstract\IPatientService.cs" />
     <Compile Include="Services\Abstract\IPropositionService.cs" />
     <Compile Include="Services\Abstract\IMedicalAppoitmentService.cs" />
     <Compile Include="Services\Abstract\ISecretaryService.cs" />
+    <Compile Include="Services\ApprovalService.cs" />
     <Compile Include="Services\AnamnesisService.cs" />
     <Compile Include="Services\AuthenticationService.cs" />
     <Compile Include="Services\DoctorService.cs" />
@@ -790,6 +795,8 @@
     <None Include="Resources\Data\medicalConsumables.csv" />
     <None Include="Resources\Data\medicines.csv" />
     <None Include="Resources\Data\orderDetails.csv" />
+    <None Include="Resources\Data\approval.csv" />
+    <None Include="Resources\Data\proposition.csv" />
     <None Include="Resources\Data\orders.csv" />
     <None Include="Resources\Data\patientPrescription.csv" />
     <None Include="Resources\Data\patients.csv" />

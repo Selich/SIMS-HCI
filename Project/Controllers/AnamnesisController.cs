@@ -7,15 +7,16 @@ using Project.Views.Model;
 using Project.Model;
 using Project.Views.Converters;
 using Project.Services;
+using Project.Services.Abstract;
 
 namespace Project.Controllers
 {
     public class AnamnesisController : IController<AnamnesisDTO, long>
     {
-        private IService<Anamnesis, long> _service;
+        private IAnamnesisService _service;
         private IConverter<Anamnesis, AnamnesisDTO> _anamnesisConverter;
         public AnamnesisController(
-            IService<Anamnesis, long> service,
+            IAnamnesisService service,
             IConverter<Anamnesis, AnamnesisDTO> anamnesisConverter
             )
         {
@@ -36,5 +37,8 @@ namespace Project.Controllers
 
         public AnamnesisDTO Update(AnamnesisDTO entity)
             => _anamnesisConverter.ConvertEntityToDTO(_service.Update(_anamnesisConverter.ConvertDTOToEntity(entity)));
+
+        public IEnumerable<AnamnesisDTO> GetByMedicalAppointmentId(long id)
+            => _anamnesisConverter.ConvertListEntityToListDTO((List<Anamnesis>)_service.GetByMedicalAppointmentId(id));
     }
 }
