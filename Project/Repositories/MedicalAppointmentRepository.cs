@@ -95,6 +95,7 @@ namespace Project.Repositories
                 _medicalAppointmentToDoctorRepository.Save(new MedicalAppointmentToDoctor(item.Id, entity.Id));
             return base.Save(entity);
         }
+
         public MedicalAppointment Update(MedicalAppointment entity)
         {
             foreach (Doctor item in entity.Doctors)

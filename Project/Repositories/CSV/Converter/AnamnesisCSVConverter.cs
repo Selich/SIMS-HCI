@@ -14,7 +14,7 @@ namespace Project.Repositories.CSV.Converter
         }
 
         public string ConvertEntityToCSVFormat(Anamnesis anamnesis)
-            => string.Join(_delimiter, anamnesis.Id, anamnesis.Name, anamnesis.Type, anamnesis.Description);
+            => string.Join(_delimiter, anamnesis.Id, anamnesis.MedicalAppoitmentId, anamnesis.Name, anamnesis.Type, anamnesis.Description);
 
 
         public Anamnesis ConvertCSVFormatToEntity(string entityCSVFormat)
@@ -22,8 +22,9 @@ namespace Project.Repositories.CSV.Converter
             string[] tokens = entityCSVFormat.Split(_delimiter.ToCharArray());
             return new Anamnesis(
                 long.Parse(tokens[0]),
-                tokens[1],
+                long.Parse(tokens[1]),
                 tokens[2],
+                tokens[3],
                 tokens[3]
                 );
         }

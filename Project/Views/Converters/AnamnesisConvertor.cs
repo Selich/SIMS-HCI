@@ -11,7 +11,7 @@ namespace Project.Views.Converters
     public class AnamnesisConvertor : IConverter<Anamnesis, AnamnesisDTO>
     {
         public Anamnesis ConvertDTOToEntity(AnamnesisDTO dto)
-            => new Project.Model.Anamnesis(dto.Id, dto.Name, dto.Type, dto.Description);
+            => new Project.Model.Anamnesis(dto.Id, dto.MedicalAppointmentDTO.Id, dto.Name, dto.Type, dto.Description);
 
         public AnamnesisDTO ConvertEntityToDTO(Anamnesis entity)
             => new AnamnesisDTO(entity.Id, entity.Name, entity.Type, entity.Description, null);

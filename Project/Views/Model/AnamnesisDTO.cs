@@ -20,6 +20,7 @@ namespace Project.Views.Model
         public string Description { get; set; }
         public MedicalAppointmentDTO MedicalAppointmentDTO { get; set; }
 
+
         public AnamnesisDTO(long Id, string name, string type, string description, MedicalAppointmentDTO medicalAppointmentDTO)
         {
             this.Id = Id;

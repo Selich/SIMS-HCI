@@ -31,6 +31,10 @@ namespace Project.Repositories
         public IEnumerable<Anamnesis> GetAllEager()
             => GetAll();
 
+        public IEnumerable<Anamnesis> GetByMedicalAppointmentId(long id)
+            => GetAll().Where(item => item.MedicalAppoitmentId == id).ToList();
+
+
         public Anamnesis GetEager(long id)
             => GetById(id);
     }
