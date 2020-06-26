@@ -39,9 +39,9 @@ namespace Project.Repositories.CSV.Converter
                doctor.MedicalRole
                );
 
-        public Doctor ConvertCSVFormatToEntity(string secretaryCSVFormat)
+        public Doctor ConvertCSVFormatToEntity(string doctorCSVFormat)
         {
-            string[] tokens = secretaryCSVFormat.Split(_delimiter.ToCharArray());
+            string[] tokens = doctorCSVFormat.Split(_delimiter.ToCharArray());
             return new Doctor(
                 long.Parse(tokens[0]),
                 new Address(long.Parse(tokens[1])),

@@ -33,61 +33,41 @@ namespace Project.Repositories
             _doctorRepository = doctorRepository;
         }
 
-        public MedicalAppointment GetEager(long id)
-        {
-            var medicalAppointment = GetById(id);
-            medicalAppointment.Patient = _patientRepository.GetById(medicalAppointment.Patient.Id);
-            var doctorAndMedicalAppList = _medicalAppointmentToDoctorRepository.GetAllByMedicalAppointmentId(medicalAppointment.Id);
-            foreach (MedicalAppointmentToDoctor pair in doctorAndMedicalAppList)
-            {
-                medicalAppointment.Doctors.Add(_doctorRepository.GetById(pair.DoctorId));
-            }
-            return medicalAppointment;
+        private MedicalAppointment PopulateMedicalAppointment(MedicalAppointment appointment){
+            appointment.Patient = _patientRepository.GetById(appointment.Patient.Id);
+            var list =_medicalAppointmentToDoctorRepository.GetAllByMedicalAppointmentId(appointment.Id);
+            return BindMedicalAppointmentToDoctors(appointment, list);
         }
+        private MedicalAppointment BindMedicalAppointmentToDoctors(MedicalAppointment appointment, IEnumerable<MedicalAppointmentToDoctor> entities){
+            entities.ToList().ForEach(item => appointment.Doctors.Add( _doctorRepository.GetById(item.DoctorId)));
+            return appointment;
+        }
+
+        public new MedicalAppointment GetById(long id)
+            => GetEager(id);
+        public MedicalAppointment GetEager(long id)
+            => PopulateMedicalAppointment(base.GetById(id));
+
+        public new IEnumerable<MedicalAppointment> GetAll()
+            => GetAllEager();
+
 
         public IEnumerable<MedicalAppointment> GetAllEager()
-        {
-            var list = GetAll();
-            foreach (MedicalAppointment medicalAppointment in list)
-            {
-                medicalAppointment.Patient = _patientRepository.GetById(medicalAppointment.Patient.Id); ;
-                var doctorAndMedicalAppList = _medicalAppointmentToDoctorRepository.GetAllByMedicalAppointmentId(medicalAppointment.Id);
-                foreach (MedicalAppointmentToDoctor pair in doctorAndMedicalAppList)
-                {
-                    medicalAppointment.Doctors.Add(_doctorRepository.GetById(pair.DoctorId));
-                }
-            }
-            return list;
-        }
+            => base.GetAll().Select(item => item = PopulateMedicalAppointment(item));
+
 
         public IEnumerable<MedicalAppointment> GetAllByPatientId(long id)
-        {
-            var list = GetAll().Where(item => item.Patient.Id == id).ToList();
-            Patient patient = _patientRepository.GetById(id);
-            foreach (MedicalAppointment medicalAppointment in list)
-            {
-                medicalAppointment.Patient = patient;
-                var doctorAndMedicalAppList = _medicalAppointmentToDoctorRepository.GetAllByMedicalAppointmentId(medicalAppointment.Id);
-                foreach (MedicalAppointmentToDoctor pair in doctorAndMedicalAppList)
-                {
-                    medicalAppointment.Doctors.Add(_doctorRepository.GetById(pair.DoctorId));
-                }
-            }
-            return list;
-        }
-
-        //TODO
+            => GetAllEager().Where(item => item.Patient.Id == id).ToList();
         public IEnumerable<MedicalAppointment> GetAllByDoctorId(long id)
-            => GetAll().Where(item => item.Doctors.Select(doctor => doctor.Id == id).Any()).ToList();
-        //TODO
+            => GetAllEager().Where(item => item.Doctors.Select(doctor => doctor.Id == id).Any()).ToList();
         public IEnumerable<MedicalAppointment> GetAllByRoomId(long id)
-            => GetAll().Where(item => item.Room.Id == id).ToList();
+            => GetAllEager().Where(item => item.Room.Id == id).ToList();
 
-        public MedicalAppointment Remove(MedicalAppointment entity){
+        public new MedicalAppointment Remove(MedicalAppointment entity)
+        {
             foreach (Doctor item in entity.Doctors)
                 _medicalAppointmentToDoctorRepository.Remove(new MedicalAppointmentToDoctor(item.Id, entity.Id));
             return Remove(entity);
-
         }
         public new MedicalAppointment Save(MedicalAppointment entity)
         {
@@ -95,59 +75,12 @@ namespace Project.Repositories
                 _medicalAppointmentToDoctorRepository.Save(new MedicalAppointmentToDoctor(item.Id, entity.Id));
             return base.Save(entity);
         }
-        public MedicalAppointment Update(MedicalAppointment entity)
+        public new MedicalAppointment Update(MedicalAppointment entity)
         {
             foreach (Doctor item in entity.Doctors)
                 _medicalAppointmentToDoctorRepository.Update(new MedicalAppointmentToDoctor(item.Id, entity.Id));
-            return Update(entity);
+            return base.Update(entity);
         }
 
-        List<MedicalAppointment> IMedicalAppointmentRepository.GetAllByDoctorId(long id)
-        {
-
-            IEnumerable<MedicalAppointment> listOfDoctorsWithAllIds = GetAll();
-
-            
-            foreach (MedicalAppointment medicalAppointment in listOfDoctorsWithAllIds)
-            {
-                medicalAppointment.Patient = _patientRepository.GetById(medicalAppointment.Patient.Id);
-                var doctorAndMedicalAppList = _medicalAppointmentToDoctorRepository.GetAllByMedicalAppointmentId(medicalAppointment.Id);
-                foreach (MedicalAppointmentToDoctor pair in doctorAndMedicalAppList)
-                {
-                    if ((pair.DoctorId == id) && (medicalAppointment.Id == pair.MedicalAppointmentId))
-                    {
-                        medicalAppointment.Doctors.Add(_doctorRepository.GetById(pair.DoctorId));
-                    }
-                }
-            }
-
-
-            List<MedicalAppointment> list = new List<MedicalAppointment>();
-
-            foreach (MedicalAppointment medicalAppointment in listOfDoctorsWithAllIds)
-            {
-                foreach(Doctor doctor in medicalAppointment.Doctors)
-                {
-                    if (doctor != null)
-                    {
-                        doctor.Id = id;
-                        list.Add(medicalAppointment);
-                        break;
-                    }
-                }
-            }
-            
-
-            foreach (MedicalAppointment medicalAppointment in list)
-            {
-                medicalAppointment.Patient = _patientRepository.GetById(medicalAppointment.Patient.Id);
-                var doctorAndMedicalAppList = _medicalAppointmentToDoctorRepository.GetAllByMedicalAppointmentId(medicalAppointment.Id);
-                foreach (MedicalAppointmentToDoctor pair in doctorAndMedicalAppList)
-                {
-                    medicalAppointment.Doctors.Add(_doctorRepository.GetById(pair.DoctorId));
-                }
-            }
-            return list;
-        }
     }
 }

@@ -26,17 +26,8 @@ namespace Project.Services
         public IEnumerable<MedicalAppointment> GetAllByPatientId(long id)
             => _medicalAppointmentRepository.GetAllByPatientId(id);
 
-        public bool IsAvailableAtTimeInterval(MedicalAppointment medicalAppointment, TimeInterval timeInterval)
-            => medicalAppointment.Beginning >= timeInterval.Start && medicalAppointment.End <= timeInterval.End;
-
-
-        // TODO: Needs Doctor Repository getById call
         public MedicalAppointment GetById(long id)
-        {
-            MedicalAppointment medicalAppointment =_medicalAppointmentRepository.GetById(id);
-            return medicalAppointment;
-            // medicalAppointment.Doctors = _medicalAppointmentToDoctorRepository.GetAllByMedicalAppointmentId(medicalAppointment.Id).Select(item => item.DoctorId)
-        }
+            => _medicalAppointmentRepository.GetById(id);
 
         public MedicalAppointment Remove(MedicalAppointment entity)
             => _medicalAppointmentRepository.Remove(entity);
@@ -47,7 +38,11 @@ namespace Project.Services
         public MedicalAppointment Update(MedicalAppointment entity)
             => _medicalAppointmentRepository.Update(entity);
 
-        public List<MedicalAppointment> GetAllByDoctorID(long id)
+        public IEnumerable<MedicalAppointment> GetAllByDoctorID(long id)
             => _medicalAppointmentRepository.GetAllByDoctorId(id);
+
+        public bool IsAvailableAtTimeInterval(MedicalAppointment medicalAppointment, TimeInterval timeInterval)
+            => medicalAppointment.Beginning >= timeInterval.Start && medicalAppointment.End <= timeInterval.End;
+
     }
 }

@@ -57,7 +57,7 @@ namespace Project.Repositories.CSV
 
         protected void InitializeId() => _sequencer.Initialize(GetMaxId(_stream.ReadAll()));
 
-        E IRepository<E, ID>.Remove(E entity)
+        public E Remove(E entity)
         {
             var entities = _stream.ReadAll().ToList();
             var entityToRemove = entities.SingleOrDefault(ent => ent.GetId().CompareTo(entity.GetId()) == 0);
@@ -80,7 +80,7 @@ namespace Project.Repositories.CSV
         private void ThrowEntityNotFoundException(string key, object value)
           => throw new Exception(string.Format(NOT_FOUND_ERROR, _entityName, key, value));
 
-        E IRepository<E, ID>.Update(E entity)
+        public E Update(E entity)
         {
             try
             {
