@@ -1,6 +1,7 @@
 ﻿using iTextSharp.text;
 using iTextSharp.text.pdf;
 using Project.Model;
+using Project.Repositories;
 using Project.Views.Model;
 using System;
 using System.Collections.Generic;
@@ -15,11 +16,13 @@ namespace Project.Services.Generators
     {
         public App app;
         private string _path;
+        private MedicineRepository _medicineRepository;
 
-        public MedicineReportGenerator(string path)
+        public MedicineReportGenerator(string path, MedicineRepository medicineRepository)
         {
             app = App.Current as App;
             _path = path;
+            _medicineRepository = medicineRepository;
         }
 
         public Report Generate(TimeInterval time)
@@ -28,7 +31,7 @@ namespace Project.Services.Generators
             DirectorDTO Director = app.director;
             Document doc = new Document(iTextSharp.text.PageSize.A4, 10, 10, 40, 35);
             PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream("C:\\Users\\Lenovo_NB\\Desktop\\IzvestajLekovi.pdf", FileMode.Create));
-            List<MedicineDTO> medicines = (List<MedicineDTO>)app.MedicineController.GetAll();
+            List<Medicine> medicines = (List<Medicine>)_medicineRepository.GetAll();
             doc.Open();
 
             doc.Add(new iTextSharp.text.Paragraph($"Bolnica: {Director.Hospital}"));

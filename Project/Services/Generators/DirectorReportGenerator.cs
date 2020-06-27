@@ -1,6 +1,8 @@
 ﻿using iTextSharp.text;
 using iTextSharp.text.pdf;
 using Project.Model;
+using Project.Repositories;
+using Project.Repositories.Abstract;
 using Project.Views.Model;
 using System;
 using System.Collections.Generic;
@@ -15,11 +17,14 @@ namespace Project.Services.Generators
     {
         public App app;
         private string _path;
-
-        public DirectorReportGenerator(string path)
+        private DoctorRepository _doctorRepository;
+        private MedicalAppointmentRepository _medicalAppointmentRepository;
+        public DirectorReportGenerator(string path, DoctorRepository doctorRepository,MedicalAppointmentRepository medicalAppointmentRepository)
         {
             app = App.Current as App;
             _path = path;
+            _doctorRepository = doctorRepository;
+            _medicalAppointmentRepository = medicalAppointmentRepository;
         }
         public Report Generate(TimeInterval time)
         {
@@ -30,7 +35,7 @@ namespace Project.Services.Generators
             DirectorDTO Director = app.director;
             Document doc = new Document(iTextSharp.text.PageSize.A4, 10, 10, 40, 35);
             PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream("C:\\Users\\Lenovo_NB\\Desktop\\Izvestaj.pdf", FileMode.Create));
-            List<DoctorDTO> Doctors = (List<DoctorDTO>)app.DoctorController.GetAll();
+            List<Doctor> Doctors = (List<Doctor>)_doctorRepository.GetAll();
             doc.Open();
 
             doc.Add(new iTextSharp.text.Paragraph($"Bolnica: {Director.Hospital}"));
@@ -51,7 +56,7 @@ namespace Project.Services.Generators
 
             for (int i = 0; i < Doctors.Count; i++)
             {
-                List<MedicalAppointmentDTO> appointments = getAppointmentsByDoctor(Doctors[i]);
+                List<MedicalAppointment> appointments = getAppointmentsByDoctor(Doctors[i]);
                 if (appointments == null)
                     doc.Add(new iTextSharp.text.Paragraph($"Dr.{Doctors[i].FirstName} {Doctors[i].LastName} nema termina u ovom periodu."));
                 else
@@ -92,15 +97,15 @@ namespace Project.Services.Generators
             doc.Close();
             return new Report(_path, CurrentTime, "Upravnik-Zauzetost lekara");
         }
-        private List<MedicalAppointmentDTO> getAppointmentsByDoctor(DoctorDTO doctor)
+        private List<MedicalAppointment> getAppointmentsByDoctor(Doctor doctor)
         {
             long id = doctor.Id;
-            List<MedicalAppointmentDTO> appointments=(List<MedicalAppointmentDTO>)app.MedicalAppointmentController.GetAll();
-            List<MedicalAppointmentDTO> doctorsAppointments = new List<MedicalAppointmentDTO>();
-            foreach (MedicalAppointmentDTO medApp in appointments)
+            List<MedicalAppointment> appointments = (List<MedicalAppointment>)_medicalAppointmentRepository.GetAll();
+            List<MedicalAppointment> doctorsAppointments = new List<MedicalAppointment>();
+            foreach (MedicalAppointment medApp in appointments)
             {
-                List<DoctorDTO> doctors = (List<DoctorDTO>)medApp.Doctors;
-                foreach (DoctorDTO doc in doctors)
+                List<Doctor> doctors = (List<Doctor>)medApp.Doctors;
+                foreach (Doctor doc in doctors)
                     if (doc.Id == id)
                     {
                         doctorsAppointments.Add(medApp);
