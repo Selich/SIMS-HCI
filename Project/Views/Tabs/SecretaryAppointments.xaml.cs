@@ -34,8 +34,8 @@ namespace Project.Views.Tabs
             app = System.Windows.Application.Current as App;
             CurrentDoctor.Content = app.SelectedDoctor;
 
-            AppointmentList.ItemsSource = app.MedicalAppointmentController.GetAll();
-            nextAppointment.Content = app.MedicalAppointmentController.GetAll().ToList()[0];
+            if(app.MedicalAppointmentController.GetAll() != null) AppointmentList.ItemsSource = app.MedicalAppointmentController.GetAll();
+            if(app.MedicalAppointmentController.GetAll().ToList()[0] != null) nextAppointment.Content = app.MedicalAppointmentController.GetAll().ToList()[0];
 
             CurrentDate = app.SelectedDate;
             SelectedDatePick.SelectedDate = CurrentDate;
