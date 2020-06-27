@@ -34,14 +34,14 @@ namespace Project.Views.Tabs
             app = System.Windows.Application.Current as App;
             CurrentDoctor.Content = app.SelectedDoctor;
 
-            AppointmentList.ItemsSource = app.MedicalAppointmentController.GetAll();
-            nextAppointment.Content = app.MedicalAppointmentController.GetAll().ToList()[0];
+            AppointmentList.ItemsSource = new List<MedicalAppointmentDTO>();
+            //nextAppointment.Content = app.MedicalAppointmentController.GetAll().ToList()[0];
 
             CurrentDate = app.SelectedDate;
             SelectedDatePick.SelectedDate = CurrentDate;
 
-            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(AppointmentList.ItemsSource);
-            view.Filter = CombinedFilter;
+            //CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(AppointmentList.ItemsSource);
+            //view.Filter = CombinedFilter;
         }
         private bool CombinedFilter(object item)
             => DoctorFilter(item) && DateFilter(item);
@@ -183,8 +183,8 @@ namespace Project.Views.Tabs
         }
 
 
-        private void SelectedDatePick_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
-            => CollectionViewSource.GetDefaultView(AppointmentList.ItemsSource).Refresh();
+        //private void SelectedDatePick_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        //    => CollectionViewSource.GetDefaultView(AppointmentList.ItemsSource).Refresh();
 
         private void PrevButton_Click(object sender, RoutedEventArgs e)
         {
