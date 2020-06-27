@@ -37,8 +37,12 @@ namespace Project.Views.Secretary
 
             SelectedDate.SelectedDate = app.SelectedDate;
 
+            if (app.SelectedDoctor != null)
+                ListTerms.ItemsSource = app.MedicalAppointmentController.GetAvailableAppoitments(app.SelectedDoctor, null, new TimeInterval(DateTime.Now, DateTime.Now.AddDays(1)));
+            else
+                ListTerms.ItemsSource = app.MedicalAppointmentController.GetAll();
+
             ListPatients.ItemsSource = app.PatientController.GetAll();
-            ListTerms.ItemsSource = app.MedicalAppointmentController.GetAvailableAppoitments( app.SelectedDoctor, null, new TimeInterval(DateTime.Now, DateTime.Now.AddDays(1)));
             ListRooms.ItemsSource = app.RoomController.GetAll();
             AppointmentType.ItemsSource = app.medicalAppointmentTypes;
 
