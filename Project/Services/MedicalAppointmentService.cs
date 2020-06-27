@@ -62,7 +62,8 @@ namespace Project.Services
             var dif = (timeInterval.End - timeInterval.Start).TotalDays;
 
             List<MedicalAppointment> listFreeApp = GenerateAppointments(timeInterval).ToList();
-            if (doctor != null)
+            if(doctor == null) return listFreeApp;
+            else
             {
                 // Doctor working hours
                 for (int i = 0; i < dif; i++)
@@ -82,9 +83,7 @@ namespace Project.Services
                 // Filter free by doctorsApp
                 doctor.Appointments.ForEach(app => listFreeApp.Remove(listFreeApp.Where(item => item.Beginning == app.Beginning && item.End == app.End).SingleOrDefault()));
             }
-
             if (room != null) listFreeApp = listFreeApp.Where(item => item.Room == room).ToList();
-
 
 
             return listFreeApp;

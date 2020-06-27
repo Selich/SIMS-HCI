@@ -8,7 +8,7 @@ namespace Project.Views.Converters
     public class RoomConverter : IConverter<Room, RoomDTO>
     {
         public Room ConvertDTOToEntity(RoomDTO dto) 
-            => new Room( dto.Id, dto.Type, dto.Ward, dto.Floor );
+            => (dto != null) ? new Room( dto.Id, dto.Type, dto.Ward, dto.Floor ) : new Room();
 
         public RoomDTO ConvertEntityToDTO(Room entity) 
             => new RoomDTO(entity.Id, entity.Type, entity.Ward, entity.Floor );

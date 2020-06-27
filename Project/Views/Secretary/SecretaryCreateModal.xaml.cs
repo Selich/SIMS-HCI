@@ -40,18 +40,16 @@ namespace Project.Views.Secretary
             if (app.SelectedDoctor != null)
                 ListTerms.ItemsSource = app.MedicalAppointmentController.GetAvailableAppoitments(app.SelectedDoctor, null, new TimeInterval(DateTime.Now, DateTime.Now.AddDays(1)));
             else
-                ListTerms.ItemsSource = app.MedicalAppointmentController.GetAvailableAppoitments(null, null, new TimeInterval(DateTime.Now, DateTime.Now.AddDays(1)));
+                ListTerms.ItemsSource = new List<MedicalAppointment>();
 
             ListPatients.ItemsSource = app.PatientController.GetAll();
             ListRooms.ItemsSource = app.RoomController.GetAll();
             AppointmentType.ItemsSource = app.medicalAppointmentTypes;
 
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(ListPatients.ItemsSource);
-            CollectionView termView = (CollectionView)CollectionViewSource.GetDefaultView(ListTerms.ItemsSource);
             CollectionView roomView = (CollectionView)CollectionViewSource.GetDefaultView(ListRooms.ItemsSource);
 
             view.Filter = CombinedFilter;
-            termView.Filter = TermFilter;
             roomView.Filter = RoomFilter;
 
 
