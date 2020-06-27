@@ -340,6 +340,7 @@ namespace Project
 
             // Services
             var patientService = new PatientService(patientRepository);
+            var guestService = new GuestService(patientRepository);
             var questionService = new QuestionService(questionRepository);
             var addressService = new AddressService(addressRepository);
             var medicineService = new MedicineService(medicineRepository);
@@ -363,7 +364,8 @@ namespace Project
             var approvalService = new ApprovalService(approvalRepository);
 
             // Controllers
-            PatientController = new PatientController(patientService, patientConverter);
+            PatientController = new PatientController(patientService, patientConverter, guestConverter);
+            GuestController = new GuestController(guestService, guestConverter);
             AddressController = new AddressController(addressService, addressConverter);
             MedicineController = new MedicineController(medicineService, medicineConverter);
             QuestionController = new QuestionController(questionService, questionConverter, patientConverter);
@@ -399,15 +401,6 @@ namespace Project
             MedicineReportGenerator = new MedicineReportGenerator(REPORT_MEDICINE_FILEPATH,medicineRepository);
 
 
-            //  DoctorDTO doctor = new DoctorDTO(address, "Filip", "Zdelar", "1231231231231", "021021", "Male", new DateTime(1990, 5, 5), 123, new TimeInterval(new DateTime(2020, 12, 12), new DateTime(2020, 12, 12)),
-            //     new TimeInterval(new DateTime(2020, 12, 12), new DateTime(2020, 12, 12)), 
-            //      "f@g.c", "p", "Dermatolog");
-            // // SecretaryDTO secretary = new SecretaryDTO(address, "Nikola", "Selic", "1231231231231", "021021", "Male", new DateTime(1990, 5, 5), 123, new TimeInterval(new DateTime(2020, 12, 12), new DateTime(2020, 12, 12)),
-            // //   new TimeInterval(new DateTime(2020, 12, 12), new DateTime(2020, 12, 12)), 
-            // //     "selic.work@gmail.com", "pass");
-            //  PatientDTO patient = new PatientDTO(address, "Uros", "Milovanovic", "1231231231231", "021021", "Male", new DateTime(1990, 5, 5), "123", "deljac", "A+", 123, 123, 
-            //      "urkem98@gmail.com", "pass");
-
             Synchronise(RenovationController);
         }
 
@@ -421,6 +414,7 @@ namespace Project
         // Users
         public IDoctorController DoctorController { get; private set; }
         public IPatientController PatientController { get; private set; }
+        public IController<GuestDTO, long> GuestController { get; private set; }
         public ISecretaryController SecretaryController { get; private set; }
 
 

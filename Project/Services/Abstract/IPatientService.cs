@@ -11,5 +11,6 @@ namespace Project.Services.Abstract
     {
 
         Patient GetByEmail(string email);
+        Patient ClaimGuestAccount(Guest guest, string email, string password);
     }
 }

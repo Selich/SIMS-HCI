@@ -12,7 +12,7 @@ namespace Project.Controllers
     public class ReportController
     {
 
-        public ReportController() {
+        public ReportController(){
 
         }
 

@@ -23,8 +23,8 @@ namespace Project.Repositories.CSV.Converter
             string[] tokens = inventoryCSVFormat.Split(_delimiter.ToCharArray());
             return new InventoryManagement(
                 long.Parse(tokens[0]),
-                DateTime.Parse(tokens[1]),
-                DateTime.Parse(tokens[2]),
+                DateTime.ParseExact(tokens[1], _datetimeFormat, null),
+                DateTime.ParseExact(tokens[2], _datetimeFormat, null),
                 new Room(long.Parse(tokens[3])),
                 new Room(long.Parse(tokens[4]))
             );
