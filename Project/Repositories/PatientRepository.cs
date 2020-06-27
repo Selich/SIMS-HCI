@@ -29,9 +29,9 @@ namespace Project.Repositories
         {
             _addressRepository = addressRepository;
         }
-        public new IEnumerable<Patient> Find(Func<Patient, bool> predicate) 
+        public new IEnumerable<Patient> Find(Func<Patient, bool> predicate)
             => GetAllEager().Where(predicate);
-        public IEnumerable<Patient> GetAllEager() 
+        public IEnumerable<Patient> GetAllEager()
             => GetAll();
 
         public Patient GetEager(long id)
@@ -39,11 +39,12 @@ namespace Project.Repositories
             Patient patient = GetById(id);
             patient.Address = _addressRepository.GetById(patient.Address.Id);
             return patient;
-        } 
+        }
 
         public new Patient Save(Patient patient)
         {
-            if (IsEmailUnique(patient.Email)){
+            if (IsEmailUnique(patient.Email))
+            {
                 patient.Address = _addressRepository.Save(patient.Address);
                 return base.Save(patient);
             }
@@ -54,18 +55,24 @@ namespace Project.Repositories
         private bool IsEmailUnique(string email)
             => GetByEmail(email).Id == 0;
 
-        public new Patient Update(Patient patient){
+        public new Patient Update(Patient patient)
+        {
             _addressRepository.Update(patient.Address);
             return base.Update(patient);
         }
 
         public Patient GetByEmail(string email)
         {
-            var patient = GetAll().SingleOrDefault(item => item.Email.Equals(email));
-            if(patient != null)
+            if (email != "")
             {
-                patient.Address = new Address();
-                return patient;
+                var patient = GetAll().SingleOrDefault(item => item.Email.Equals(email));
+                if (patient != null)
+                {
+                    patient.Address = new Address();
+                    return patient;
+                }
+                return new Patient();
+
             }
             return new Patient();
         }

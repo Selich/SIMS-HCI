@@ -451,7 +451,8 @@
                     Background="Maroon"
                     Margin="476,276,0,0"
                     VerticalAlignment="Top"
-                    Width="268" />
+                    Width="268"
+                    Click="Cancel_Appointment_Click" />
         </Grid>
         <Grid Margin="792,130,-15,32">
             <TextBox Visibility="Hidden"

@@ -348,7 +348,9 @@ namespace Project
             var prescriptionService = new PrescriptionService(prescriptionRepository, medicineService, patientService);
             var reportService = new ReportService();
             var equipmentService = new EquipmentService(equipmentRepository);
-            var medicalAppointmentService = new MedicalAppointmentService(medicalAppointmentRepository,APPOINTMENT_LENGTH_IN_MINUTES);
+            var medicalAppointmentService = new MedicalAppointmentService(
+                medicalAppointmentRepository,
+                APPOINTMENT_LENGTH_IN_MINUTES);
             var roomService = new RoomService(roomRepository);
             var renovationService = new RenovationService(renovationRepository,roomRepository);
             var feedbackService = new FeedbackService(feedbackRepository);

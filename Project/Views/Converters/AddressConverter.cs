@@ -24,6 +24,7 @@ namespace Project.Views.Converters
         {
             try
             {
+                if(entity != null)
                 return new AddressDTO(
                     entity.Id,
                     entity.Number,
@@ -32,6 +33,8 @@ namespace Project.Views.Converters
                     entity.Country,
                     entity.PostCode
                 );
+                else
+                return new AddressDTO();
             }
             catch (System.Exception)
             {
