@@ -2,6 +2,7 @@
 using Project.Repositories;
 using Project.Views.Model;
 using System;
+using System.Diagnostics;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -29,6 +30,7 @@ namespace Project.Views.Secretary
         public string Email { get; set; }
         public string FirstName { get; set; }
         public GuestDTO Guest { get; set; }
+        public PatientDTO Patient { get; set; }
         public string LastName { get; set; }
         public string TelephoneNumber { get; set; }
         public ProfileModal(MedicalAppointmentDTO dataContext)
@@ -52,6 +54,7 @@ namespace Project.Views.Secretary
             Profile_Email.Text = dataContext.Email;
             Profile_DateOfBirth.SelectedDate = dataContext.DateOfBirth;
             Guest = dataContext;
+            Patient = dataContext;
         }
 
         private void HandleEsc(object sender, KeyEventArgs e)
@@ -103,5 +106,11 @@ namespace Project.Views.Secretary
 
         private void Claim_Click(object sender, RoutedEventArgs e)
             => new ClaimAccount(Guest).Show();
+
+        private void Email_Click(object sender, RoutedEventArgs e)
+        {
+            var url = "mailto:" + Patient.Email;
+            Process.Start(url);
+        }
     }
 }
