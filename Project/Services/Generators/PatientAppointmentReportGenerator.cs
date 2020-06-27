@@ -37,12 +37,14 @@ namespace Project.Services.Generators
             Font font = FontFactory.GetFont(FontFactory.HELVETICA, 9);
 
             App app = Application.Current as App;
-            List<MedicalAppointmentDTO> list = (List<MedicalAppointmentDTO>)app.MedicalAppointmentController.GetAllByPatientID(1);
+            List<MedicalAppointmentDTO> list = (List<MedicalAppointmentDTO>)app.MedicalAppointmentController.GetAllByPatientID(app.currentUser.Id);
+
 
             for(int i = 0; i < list.Count; i++)
             {
                 if((list[i].Beginning < interval.Start) || (list[i].Beginning > interval.End)){
                     list.RemoveAt(i);
+                    i--;
                 }
             }
             

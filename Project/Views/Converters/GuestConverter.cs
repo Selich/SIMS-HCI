@@ -19,6 +19,7 @@ namespace Project.Views.Converters
 
         public Guest ConvertDTOToEntity(GuestDTO dto)
             => new Guest(
+                dto.Id,
                 dto.Address == null ? new Address() : _addressConverter.ConvertDTOToEntity(dto.Address),
                 dto.FirstName,
                 dto.LastName,

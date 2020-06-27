@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Project.Services.Abstract;
 
 namespace Project.Services
 {
@@ -14,13 +15,15 @@ namespace Project.Services
     {
         private readonly IMedicalAppointmentRepository _medicalAppointmentRepository;
         private int _appointmentLength;
+        IDoctorService _doctorService;
+
         public MedicalAppointmentService(
             IMedicalAppointmentRepository medicalAppointmentRepository,
-            string appointmentLengthString
+            IDoctorService doctorService
         )
         {
             _medicalAppointmentRepository = medicalAppointmentRepository;
-            _appointmentLength = int.Parse(appointmentLengthString);
+            _doctorService = doctorService;
         }
         public IEnumerable<MedicalAppointment> GetAll()
             => _medicalAppointmentRepository.GetAll();
@@ -86,6 +89,60 @@ namespace Project.Services
 
             return listFreeApp;
 
+        }
+        public IEnumerable<MedicalAppointment> SuggestAvailableAppoitments(string priority, Doctor doctor, TimeInterval timeInterval)
+        {
+            var list = (List<MedicalAppointment>)_medicalAppointmentRepository.GetAllByDoctorId(doctor.Id);
+            var doctorList = new List<Doctor>();
+
+            doctor = _doctorService.GetByEmail(doctor.Email);
+            doctorList.Add(doctor);
+
+            list = TrimListToTimeInterval(list, timeInterval);
+
+            return GenerateAndPopulateForTimeInterval(list, new TimeSpan(0, 30, 0), new TimeSpan(16, 0, 0),timeInterval,doctorList);
+        }
+
+        public List<MedicalAppointment> TrimListToTimeInterval(List<MedicalAppointment> list, TimeInterval timeInterval)
+        {
+            for (int i = 0; i < list.Count; i++)
+            {
+                if ((list[i].Beginning < timeInterval.Start) || (list[i].Beginning > timeInterval.End)){
+                    list.RemoveAt(i);
+                    i--;
+                }
+            }
+            return list;
+        }
+
+        public List<MedicalAppointment> GenerateAndPopulateForTimeInterval(List<MedicalAppointment> list , TimeSpan termDuration, TimeSpan offDuration, TimeInterval timeInterval, List<Doctor> doctorList)
+        {
+            var returnList = new List<MedicalAppointment>();
+            DateTime date = timeInterval.Start.Add(new TimeSpan(8, 0, 0));
+            DateTime termStart, termEnd;
+
+            while (date <= timeInterval.End)
+            {
+                for (int i = 0; i < 16; i++)
+                {
+                    termStart = date;
+                    termEnd = date.Add(termDuration);
+                    date = date.Add(termDuration);
+                    bool valid = true;
+                    foreach (MedicalAppointment item in list){
+                        if ((item.Beginning >= termStart) && (item.Beginning <= termEnd)){
+                            valid = false;
+                        }
+                    }
+                    if (valid){
+                        returnList.Add(new MedicalAppointment(termStart, termEnd, new Room(1), MedicalAppointmentType.examination, new Guest(), doctorList));
+                    }
+                }
+
+                date = date.Add(offDuration);
+            }
+
+            return returnList;
         }
 
         private IEnumerable<MedicalAppointment> GetAvailableAppoitmentsByDoctor(Doctor doctor)

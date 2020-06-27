@@ -339,6 +339,7 @@ namespace Project
             var approvalRepository = new ApprovalRepository(new CSVStream<Approval>(APPROVAL_FILEPATH, new ApprovalCSVConverter(DELIMITER)), new LongSequencer());
 
             // Services
+            
             var patientService = new PatientService(patientRepository);
             var questionService = new QuestionService(questionRepository);
             var addressService = new AddressService(addressRepository);
@@ -347,7 +348,8 @@ namespace Project
             var prescriptionService = new PrescriptionService(prescriptionRepository, medicineService, patientService);
             var reportService = new ReportService();
             var equipmentService = new EquipmentService(equipmentRepository);
-            var medicalAppointmentService = new MedicalAppointmentService(medicalAppointmentRepository,APPOINTMENT_LENGTH_IN_MINUTES);
+            var doctorService = new DoctorService(doctorRepository);
+            var medicalAppointmentService = new MedicalAppointmentService(medicalAppointmentRepository, doctorService);
             var roomService = new RoomService(roomRepository);
             var renovationService = new RenovationService(renovationRepository,roomRepository);
             var feedbackService = new FeedbackService(feedbackRepository);
@@ -357,7 +359,6 @@ namespace Project
             var secretaryService = new SecretaryService(secretaryRepository);
             var inventoryManagementService = new InventoryManagementService(inventoryManagementRepository);
             var orderService = new OrderService(orderRepository);
-            var doctorService = new DoctorService(doctorRepository);
             var anamnesisService = new AnamnesisService(anamnesisRepository);
             var propositionService = new PropositionService(propositionRepository);
             var approvalService = new ApprovalService(approvalRepository);
@@ -398,15 +399,6 @@ namespace Project
             DoctorsAppointmentReport = new DirectorReportGenerator(REPORT_DOCTOR_APPOINTMENTS_FILEPATH,doctorRepository,medicalAppointmentRepository);
             MedicineReportGenerator = new MedicineReportGenerator(REPORT_MEDICINE_FILEPATH,medicineRepository);
 
-
-            //  DoctorDTO doctor = new DoctorDTO(address, "Filip", "Zdelar", "1231231231231", "021021", "Male", new DateTime(1990, 5, 5), 123, new TimeInterval(new DateTime(2020, 12, 12), new DateTime(2020, 12, 12)),
-            //     new TimeInterval(new DateTime(2020, 12, 12), new DateTime(2020, 12, 12)), 
-            //      "f@g.c", "p", "Dermatolog");
-            // // SecretaryDTO secretary = new SecretaryDTO(address, "Nikola", "Selic", "1231231231231", "021021", "Male", new DateTime(1990, 5, 5), 123, new TimeInterval(new DateTime(2020, 12, 12), new DateTime(2020, 12, 12)),
-            // //   new TimeInterval(new DateTime(2020, 12, 12), new DateTime(2020, 12, 12)), 
-            // //     "selic.work@gmail.com", "pass");
-            //  PatientDTO patient = new PatientDTO(address, "Uros", "Milovanovic", "1231231231231", "021021", "Male", new DateTime(1990, 5, 5), "123", "deljac", "A+", 123, 123, 
-            //      "urkem98@gmail.com", "pass");
 
             Synchronise(RenovationController);
         }

@@ -10,5 +10,7 @@ namespace Project.Services
         IEnumerable<MedicalAppointment> GetAllByDoctorID(long id);
 
         IEnumerable<MedicalAppointment> GetAvailableAppoitments(Doctor doctor,Room room,TimeInterval timeInterval);
+        IEnumerable<MedicalAppointment> SuggestAvailableAppoitments(string priority,Doctor doctor,TimeInterval timeInterval);
+
     }
 }

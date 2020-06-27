@@ -45,6 +45,10 @@ namespace Controller
         public IEnumerable<MedicalAppointmentDTO> GetAllByDoctorID(long id)
             => _medicalAppointmentConverter.ConvertListEntityToListDTO((List<MedicalAppointment>)_service.GetAllByDoctorID(id));
 
+            
+        public IEnumerable<MedicalAppointmentDTO> SuggestAvailableAppoitments(string priority, DoctorDTO doctor, TimeInterval timeInterval)
+            => _medicalAppointmentConverter.ConvertListEntityToListDTO((List<MedicalAppointment>)_service.SuggestAvailableAppoitments(priority, _doctorConverter.ConvertDTOToEntity(doctor), timeInterval));
+
         public MedicalAppointmentDTO GetById(long id)
             => _medicalAppointmentConverter.ConvertEntityToDTO(_service.GetById(id));
 
