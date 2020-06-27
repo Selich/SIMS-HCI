@@ -122,6 +122,7 @@
     <Compile Include="Controllers\AnamnesisController.cs" />
     <Compile Include="Controllers\AuthenticationController.cs" />
     <Compile Include="Controllers\AddressController.cs" />
+    <Compile Include="Controllers\GuestController.cs" />
     <Compile Include="Controllers\InventoryManagementController.cs" />
     <Compile Include="Controllers\DoctorController..cs" />
     <Compile Include="Controllers\ApprovalController.cs" />
@@ -244,6 +245,7 @@
     <Compile Include="Services\EquipmentService.cs" />
     <Compile Include="Services\Generators\DirectorReportGenerator.cs" />
     <Compile Include="Services\Generators\MedicineReportGenerator.cs" />
+    <Compile Include="Services\GuestService.cs" />
     <Compile Include="Services\InventoryManagementService.cs" />
     <Compile Include="Services\Factory\AdmitionReferralFactory.cs" />
     <Compile Include="Services\Factory\ExamReferralFactory.cs" />
@@ -455,6 +457,9 @@
     <Compile Include="Views\Secretary\AppointmentModal.xaml.cs">
       <DependentUpon>AppointmentModal.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Secretary\ClaimAccount.xaml.cs">
+      <DependentUpon>ClaimAccount.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Secretary\CreatePatientModal.xaml.cs">
       <DependentUpon>CreatePatientModal.xaml</DependentUpon>
     </Compile>
@@ -663,6 +668,10 @@
     <Page Include="Views\Secretary\AppointmentModal.xaml">
       <SubType>Designer</SubType>
       <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="Views\Secretary\ClaimAccount.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Secretary\CreatePatientModal.xaml">
       <SubType>Designer</SubType>
