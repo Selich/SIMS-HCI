@@ -70,7 +70,7 @@ namespace Project.Repositories
             var doctor = GetAll().SingleOrDefault(item => item.Email.Equals(email));
             if(doctor != null)
             {
-                doctor.Address = _addressRepository.GetById(doctor.Address.Id);
+                doctor.Address = new Address();
                 return doctor;
             }
             return new Doctor();
