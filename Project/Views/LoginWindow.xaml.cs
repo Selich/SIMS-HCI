@@ -36,6 +36,8 @@ namespace Project.Views
 
         private void Login_Click(object sender, RoutedEventArgs e)
         {
+            if(Email != "" && PasswordTextBox.Password != "")
+            {
             Tuple<UserDTO, string> tuple = app.AuthenticationController.Login(Email, PasswordTextBox.Password);
             if (tuple == null)
             {
@@ -52,6 +54,8 @@ namespace Project.Views
                 case "Doctor": new Doctor.HomeWindow(Email).Show(); break;
                 case "Patient": new Patient.HomeWindow(Email).Show(); break;
                 default: System.Windows.Forms.MessageBox.Show("Neuspešno prijavljivanje", "Neuspešno prijavljivanje", MessageBoxButtons.OK); break;
+            }
+
             }
         }
 

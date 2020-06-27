@@ -138,6 +138,7 @@
     <Compile Include="Controllers\PatientController.cs" />
     <Compile Include="Controllers\PropositionController.cs" />
     <Compile Include="Controllers\QuestionController.cs" />
+    <Compile Include="Controllers\ReferralController.cs" />
     <Compile Include="Controllers\RenovationController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\ReviewController.cs" />
@@ -297,6 +298,7 @@
     <Compile Include="Views\Converters\FeedbackConverter.cs" />
     <Compile Include="Views\Converters\PropositionConverter.cs" />
     <Compile Include="Views\Converters\QuestionConverter.cs" />
+    <Compile Include="Views\Converters\ReferralConverter.cs" />
     <Compile Include="Views\Converters\RenovationConverter.cs" />
     <Compile Include="Views\Converters\ReportConverter.cs" />
     <Compile Include="Views\Converters\ReviewConverter.cs" />
@@ -328,6 +330,7 @@
     <Compile Include="Views\Model\PrescriptionDTO.cs" />
     <Compile Include="Views\Model\PropositionDTO.cs" />
     <Compile Include="Views\Model\QuestionDTO.cs" />
+    <Compile Include="Views\Model\ReferralDTO.cs" />
     <Compile Include="Views\Model\RenovationDTO.cs" />
     <Compile Include="Views\Model\ReportDTO.cs" />
     <Compile Include="Views\Model\ReviewDTO.cs" />
