@@ -40,6 +40,8 @@ namespace Project.Views.Director
             set;
         }
 
+        private App app;
+
         public List<EquipmentDTO> Moved { get; set; }
 
         public InventoryManagementDTO InventoryManagment { get; set; }
@@ -50,8 +52,9 @@ namespace Project.Views.Director
         {
             
             InitializeComponent();
+            app = App.Current as App;
             this.DataContext = this;
-            this.Home = home;
+            this.Home = home;   
             this.AppointmentList = list;
             DateTime date;
             if (list == null || list.Count == 0)
@@ -85,8 +88,8 @@ namespace Project.Views.Director
             //if(roomEquipment==null) 
               //  RoomEquipment=new ObservableCollection<EquipmentDTO>(); 
             //else
-            RoomEquipment = new ObservableCollection<EquipmentDTO>(roomEquipment); 
-            Inventory = new ObservableCollection<EquipmentDTO>(Home.Magacin.Equipment);   //
+            RoomEquipment = new ObservableCollection<EquipmentDTO>(); 
+            Inventory = new ObservableCollection<EquipmentDTO>(app.EquipmentController.GetAll().Where(eq=>eq.Room.Id==0));   
             Moved = new List<EquipmentDTO>();
             
 
@@ -101,9 +104,13 @@ namespace Project.Views.Director
         {
             InventoryManagment.Beginning = ManBegin.SelectedDate.Value.Date;
             InventoryManagment.End = ManEnd.SelectedDate.Value.Date;
-            InventoryManagment.Equipment =Moved;
-            InventoryManagment.Room = Home.SelectedRoom;
-            AppointmentList.Add(InventoryManagment);
+            InventoryManagment.Equipment = new List<EquipmentDTO>();
+            foreach (EquipmentDTO eq in RoomEquipment)
+                InventoryManagment.Equipment.Add(eq);
+            
+            InventoryManagment.Room = new RoomDTO(0);
+            InventoryManagment.RoomTo = new RoomDTO(Home.SelectedRoom.Id);
+            app.InventoryManagementController.Save(InventoryManagment);
             this.Close();
         }
 

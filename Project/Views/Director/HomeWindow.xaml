@@ -607,6 +607,7 @@
                     <Button Content="{DynamicResource reportBug}" HorizontalAlignment="Left" Margin="1079,602,0,0" VerticalAlignment="Top" Width="147" Click="OpenBugReportModal"/>
                     <Button Content="{DynamicResource registerMedicine}" HorizontalAlignment="Left" Margin="1048,36,0,0" VerticalAlignment="Top" Width="178" Height="35" RenderTransformOrigin="0.36,0.514" Click="OpenMedicineRegistration"/>
                     <Button Content="Reset" HorizontalAlignment="Left" Margin="841,36,0,0" VerticalAlignment="Top" Width="74" RenderTransformOrigin="-0.068,0.344" Click="ResetMedicineList"/>
+                    <Button Content="Izvestaj" HorizontalAlignment="Left" Margin="1079,220,0,0" VerticalAlignment="Top" Width="153" RenderTransformOrigin="-0.068,0.344" Click="GenerateMedicineReport"/>
 
                 </Grid>
             </materialDesign:Card>

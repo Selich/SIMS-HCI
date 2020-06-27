@@ -175,6 +175,7 @@ namespace Project
         private static string REPORT_APPOINTMENT_FILEPATH = ConfigurationManager.AppSettings["ReportAppointmentPath"].ToString();
         private static string REPORT_PRESCRIPTION_FILEPATH = ConfigurationManager.AppSettings["ReportPrescriptionPath"].ToString();
         private static string REPORT_DOCTOR_APPOINTMENTS_FILEPATH = ConfigurationManager.AppSettings["DoctorsAppointmentsPath"].ToString();
+        private static string REPORT_MEDICINE_FILEPATH = ConfigurationManager.AppSettings["ReportMedicinePath"].ToString();
         
 
         // Constants
@@ -183,7 +184,7 @@ namespace Project
         private static string DATETIME_DETAIL_FORMAT = ConfigurationManager.AppSettings["DateTimeDetailFormat"].ToString();
         private static string TIME_FORMAT = ConfigurationManager.AppSettings["TimeFormat"].ToString();
         private static string APPOINTMENT_LENGTH_IN_MINUTES = ConfigurationManager.AppSettings["AppointmentLengthInMinutes"].ToString();
-
+        
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged(string name)
@@ -317,7 +318,7 @@ namespace Project
             var feedbackRepository = new FeedbackRepository(new CSVStream<Feedback>(FEEDBACK_FILEPATH, new FeedbackCSVConverter(DELIMITER)), new LongSequencer());
             var reviewRepository = new ReviewRepository(new CSVStream<Review>(REVIEW_FILEPATH, new ReviewCSVConverter(DELIMITER)), new LongSequencer());
             var anamnesisRepository = new AnamnesisRepository(new CSVStream<Anamnesis>(ANAMNESIS_FILEPATH, new AnamnesisCSVConverter(DELIMITER)), new LongSequencer());
-            var propositionRepository = new PropositionRepository(new CSVStream<Proposition>(PROPOSITION_FILEPATH, new PropositionCSVConverter(DELIMITER, DATETIME_FORMAT)), new LongSequencer());
+            var propositionRepository = new PropositionRepository(new CSVStream<Proposition>(PROPOSITION_FILEPATH, new PropositionCSVConverter(DELIMITER, DATETIME_FORMAT)), new LongSequencer(),medicineRepository);
 
             // Referral
             var admitionReferralRepository = new AdmitionReferralRepository(
@@ -345,7 +346,7 @@ namespace Project
             var equipmentService = new EquipmentService(equipmentRepository);
             var medicalAppoitmentService = new MedicalAppointmentService(medicalAppoitmentRepository,APPOINTMENT_LENGTH_IN_MINUTES);
             var roomService = new RoomService(roomRepository);
-            var renovationService = new RenovationService(renovationRepository);
+            var renovationService = new RenovationService(renovationRepository,roomRepository);
             var feedbackService = new FeedbackService(feedbackRepository);
             var reviewService = new ReviewService(reviewRepository);
             var employeeService = new EmployeeService(secretaryRepository, doctorRepository);
@@ -391,8 +392,8 @@ namespace Project
             SecretaryAppointmentReportGenerator = new SecretaryAppointmentReportGenerator(REPORT_APPOINTMENT_FILEPATH);
             PatientAppointmentReportGenerator = new PatientAppointmentReportGenerator(REPORT_APPOINTMENT_FILEPATH);
             PrescriptionReportGenerator = new PrescriptionReportGenerator(REPORT_PRESCRIPTION_FILEPATH);
-            DoctorsAppointmentReport = new DirectorReportGenerator(REPORT_DOCTOR_APPOINTMENTS_FILEPATH);
-
+            DoctorsAppointmentReport = new DirectorReportGenerator(REPORT_DOCTOR_APPOINTMENTS_FILEPATH,doctorRepository,medicalAppoitmentRepository);
+            MedicineReportGenerator = new MedicineReportGenerator(REPORT_MEDICINE_FILEPATH,medicineRepository);
 
 
             //  DoctorDTO doctor = new DoctorDTO(address, "Filip", "Zdelar", "1231231231231", "021021", "Male", new DateTime(1990, 5, 5), 123, new TimeInterval(new DateTime(2020, 12, 12), new DateTime(2020, 12, 12)),
@@ -404,6 +405,7 @@ namespace Project
             //  PatientDTO patient = new PatientDTO(address, "Uros", "Milovanovic", "1231231231231", "021021", "Male", new DateTime(1990, 5, 5), "123", "deljac", "A+", 123, 123, 
             //      "urkem98@gmail.com", "pass");
 
+            Synchronise(RenovationController);
         }
 
         // Generators
@@ -411,6 +413,7 @@ namespace Project
         public IReportGenerator<TimeInterval> PatientAppointmentReportGenerator { get; private set; }
         public IReportGenerator<TimeInterval> PrescriptionReportGenerator { get; private set; }
         public IReportGenerator<TimeInterval> DoctorsAppointmentReport { get; private set; }
+        public IReportGenerator<TimeInterval> MedicineReportGenerator { get; private set; }
 
         // Users
         public IDoctorController DoctorController { get; private set; }
@@ -427,7 +430,7 @@ namespace Project
 
         public IController<EquipmentDTO, long> EquipmentController { get; private set; }
         public IController<RoomDTO, long> RoomController { get; private set; }
-        public IController<RenovationDTO, long> RenovationController { get; private set; }
+        public RenovationController RenovationController { get; private set; }
         public IController<InventoryManagementDTO, long> InventoryManagementController { get; private set; }
         public IController<OrderDTO, long> OrderController { get; private set; }
 
@@ -443,5 +446,16 @@ namespace Project
         public IController<AnamnesisDTO, long> AnamnesisController { get; set; }
     
         public IController<PropositionDTO, long> PropositionController { get; set; }
+
+        private void Synchronise(RenovationController renovationController)
+        {
+            List<RenovationDTO> renovations= (List<RenovationDTO>)renovationController.GetAll();
+            DateTime currentTime = DateTime.Now;
+            DateTime currentDate = new DateTime(currentTime.Year, currentTime.Month,currentTime.Day);
+           
+            foreach (RenovationDTO ren in renovations)
+                if (DateTime.Compare(currentDate, ren.Beginning) >= 0)
+                   renovationController.RealiseRenovation(ren);
+        }
     }
 }

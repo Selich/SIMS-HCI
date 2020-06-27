@@ -232,6 +232,7 @@
     <Compile Include="Services\Abstract\IPatientService.cs" />
     <Compile Include="Services\Abstract\IPropositionService.cs" />
     <Compile Include="Services\Abstract\IMedicalAppoitmentService.cs" />
+    <Compile Include="Services\Abstract\IRenovationService.cs" />
     <Compile Include="Services\Abstract\ISecretaryService.cs" />
     <Compile Include="Services\ApprovalService.cs" />
     <Compile Include="Services\AnamnesisService.cs" />
@@ -241,6 +242,7 @@
     <Compile Include="Services\EmployeeService.cs" />
     <Compile Include="Services\EquipmentService.cs" />
     <Compile Include="Services\Generators\DirectorReportGenerator.cs" />
+    <Compile Include="Services\Generators\MedicineReportGenerator.cs" />
     <Compile Include="Services\InventoryManagementService.cs" />
     <Compile Include="Services\Factory\AdmitionReferralFactory.cs" />
     <Compile Include="Services\Factory\ExamReferralFactory.cs" />

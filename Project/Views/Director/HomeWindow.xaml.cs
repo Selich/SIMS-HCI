@@ -911,6 +911,11 @@ namespace Project.Views.Director
         {
             VisibleMedicine = new ObservableCollection<MedicineDTO>(Medicine);
         }
+        private void GenerateMedicineReport(object sender, RoutedEventArgs e)
+        {
+            App app = App.Current as App;
+            app.MedicineReportGenerator.Generate(new TimeInterval(new DateTime(),new DateTime()));
+        }
 
         private void GenerateDoctorReport(object sender, RoutedEventArgs e)
         {
@@ -1138,6 +1143,8 @@ namespace Project.Views.Director
                 Employees.Add(doc as EmployeeDTO);
             EmployeeList.ItemsSource = Employees;
         }
+
+        
     }
 }
 
