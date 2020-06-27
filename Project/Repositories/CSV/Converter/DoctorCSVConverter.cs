@@ -53,10 +53,10 @@ namespace Project.Repositories.CSV.Converter
                 tokens[4],
                 tokens[5],
                 tokens[6],
-                DateTime.ParseExact(tokens[7], _datetimeFormat, null),
+                DateTime.Parse(tokens[7]),
                 int.Parse(tokens[8]),
-                new TimeInterval(DateTime.ParseExact(tokens[9], _datetimeFormat, null), DateTime.ParseExact(tokens[10], _datetimeFormat, null)),
-                new TimeInterval(DateTime.ParseExact(tokens[11], _timeFormat, null), DateTime.ParseExact(tokens[12], _timeFormat, null)),
+                new TimeInterval(DateTime.Parse(tokens[9]), DateTime.Parse(tokens[10])),
+                new TimeInterval(DateTime.Parse(tokens[11]), DateTime.Parse(tokens[12])),
                 tokens[13],
                 tokens[14],
                 tokens[15]

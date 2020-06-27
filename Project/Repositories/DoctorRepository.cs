@@ -39,16 +39,8 @@ namespace Project.Repositories
         public new Doctor GetById(long id)
         {
             Doctor doctor = base.GetById(id);
-            if (doctor != null)
-            {
-                doctor.Address = _addressRepository.GetById(doctor.Address.Id);
-                return doctor;
-            } else
-            {
-                return new Doctor();
-
-            }
-
+            doctor.Address = _addressRepository.GetById(doctor.Address.Id);
+            return doctor;
         }
 
         public new IEnumerable<Doctor> GetAll()
@@ -78,8 +70,7 @@ namespace Project.Repositories
             var doctor = GetAll().SingleOrDefault(item => item.Email.Equals(email));
             if(doctor != null)
             {
-                doctor.Address = new Address();
-                doctor.Appointments = new List<MedicalAppointment>();
+                doctor.Address = _addressRepository.GetById(doctor.Address.Id);
                 return doctor;
             }
             return new Doctor();

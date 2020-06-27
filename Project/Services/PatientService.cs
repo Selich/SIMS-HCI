@@ -1,5 +1,4 @@
-﻿using System.Collections.ObjectModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -36,11 +35,5 @@ namespace Project.Services
 
         public Patient GetByEmail(string email)
             => _patientRepository.GetByEmail(email);
-        public Patient ClaimGuestAccount(Guest guest, string email, string password){
-            Patient tempPatient = _patientRepository.GetById(guest.Id);
-            tempPatient.Email = email;
-            tempPatient.Password = password;
-            return _patientRepository.Update(tempPatient);
-        }
     }
 }

@@ -22,7 +22,7 @@ namespace Project.Views.Secretary
     public partial class AppointmentModal : Window
     {
         public MedicalAppointmentDTO SelectedAppointment;
-        App app;
+        public App app;
 
         public AppointmentModal(MedicalAppointmentDTO dataContext)
         {
@@ -38,7 +38,6 @@ namespace Project.Views.Secretary
             DoctorList.ItemsSource = (dataContext == null) ? default : dataContext.Doctors;
             AllDoctorList.ItemsSource = app.doctors;
             Room.Text = (dataContext == null) ? default : dataContext.Room.Id.ToString();
-            SelectedAppointment = dataContext;
             
 
         }
@@ -157,13 +156,6 @@ namespace Project.Views.Secretary
             IzmeniCancel.Visibility = Visibility.Hidden;
             ConfirmButton.Visibility = Visibility.Hidden;
             Izmeni.Visibility = Visibility.Visible;
-
-        }
-
-        private void Cancel_Appointment_Click(object sender, RoutedEventArgs e)
-        {
-            app.MedicalAppointmentController.Remove(SelectedAppointment);
-            this.Close();
 
         }
     }

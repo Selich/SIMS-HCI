@@ -30,6 +30,7 @@ namespace Project.Views.Secretary
         {
 
             InitializeComponent();
+            DataContext = new DataContext();
         }
 
         private void ViewHelp()

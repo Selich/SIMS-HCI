@@ -36,12 +36,12 @@ namespace Project.Repositories
                 throw new Exception();
         }
         private bool IsRoomUnique(long id)
-            => GetByIdNumber(id) == null;
+         => GetById(id) == null;
         private Room GetByIdNumber(long id)
-            => _stream.ReadAll().SingleOrDefault(room => room.Id.Equals(id));
+        => base.GetById(id);
 
         public new IEnumerable<Room> GetAll()
-            => GetAllEager();
+        => GetAllEager();
 
         public IEnumerable<Room> GetAllEager()
         {

@@ -68,7 +68,7 @@ namespace Project.Repositories
             var secretary = GetAll().SingleOrDefault(item => item.Email.Equals(email));
             if(secretary != null)
             {
-                secretary.Address = new Address();
+                secretary.Address = _addressRepository.GetById(secretary.Address.Id);
                 return secretary;
             }
             return new Secretary();

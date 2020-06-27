@@ -11,6 +11,5 @@ namespace Project.Controllers.Abstract
     public interface IPatientController : IController<PatientDTO, long>
     {
         PatientDTO GetByEmail(string email);
-        PatientDTO ClaimGuestAccount(GuestDTO guest, string email, string password);
     }
 }

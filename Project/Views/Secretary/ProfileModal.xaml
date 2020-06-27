@@ -193,24 +193,6 @@
                             </Style>
                         </Button.Style>
                     </Button>
-                    <Button Content="Claim"
-                            FontSize="11"
-                            HorizontalAlignment="Left"
-                            Margin="280,282,0,0"
-                            VerticalAlignment="Top"
-                            Width="83"
-                            Height="23"
-                            Click="Claim_Click"
-                            x:Name="Claim" />
-                    <Button Content="Email"
-                            FontSize="11"
-                            HorizontalAlignment="Left"
-                            Margin="150,282,0,0"
-                            VerticalAlignment="Top"
-                            Width="83"
-                            Height="23"
-                            Click="Email_Click"
-                            x:Name="Email" />
                 </Grid>
             </Grid>
         </TabItem>

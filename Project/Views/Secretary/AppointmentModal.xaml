@@ -437,7 +437,7 @@
                     Click="ConfirmButton_Click"
                     />
             <ListBox HorizontalAlignment="Left"
-                     Height="170"
+                     Height="206"
                      VerticalAlignment="Top"
                      Width="268"
                      ItemTemplate="{StaticResource roomTemplate}"
@@ -445,14 +445,6 @@
                      Background="White"
                      BorderBrush="#FFA2A2A2"
                      Margin="476,101,0,0" />
-            <Button Content="Odloži Termin"
-                    HorizontalAlignment="Left"
-                    x:Name="Cancel_Appointment"
-                    Background="Maroon"
-                    Margin="476,276,0,0"
-                    VerticalAlignment="Top"
-                    Width="268"
-                    Click="Cancel_Appointment_Click" />
         </Grid>
         <Grid Margin="792,130,-15,32">
             <TextBox Visibility="Hidden"

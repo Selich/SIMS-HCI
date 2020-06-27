@@ -84,7 +84,7 @@ namespace Project.Repositories
             return base.Save(entity);
         }
 
-        public new MedicalAppointment Update(MedicalAppointment entity)
+        public MedicalAppointment Update(MedicalAppointment entity)
         {
             foreach (Doctor item in entity.Doctors)
                 _medicalAppointmentToDoctorRepository.Update(new MedicalAppointmentToDoctor(item.Id, entity.Id));
