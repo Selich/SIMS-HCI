@@ -40,7 +40,7 @@ namespace Project.Views.Secretary
             if (app.SelectedDoctor != null)
                 ListTerms.ItemsSource = app.MedicalAppointmentController.GetAvailableAppoitments(app.SelectedDoctor, null, new TimeInterval(DateTime.Now, DateTime.Now.AddDays(1)));
             else
-                ListTerms.ItemsSource = app.MedicalAppointmentController.GetAll();
+                ListTerms.ItemsSource = app.MedicalAppointmentController.GetAvailableAppoitments(null, null, new TimeInterval(DateTime.Now, DateTime.Now.AddDays(1)));
 
             ListPatients.ItemsSource = app.PatientController.GetAll();
             ListRooms.ItemsSource = app.RoomController.GetAll();
@@ -106,8 +106,10 @@ namespace Project.Views.Secretary
             appl.Patient = ListPatients.SelectedItem as PatientDTO;
             appl.Beginning = (ListTerms.SelectedItem as TimeInterval).Start;
             appl.End = (ListTerms.SelectedItem as TimeInterval).End;
+            appl.End = (ListTerms.SelectedItem as TimeInterval).End;
             appl.Room = ListRooms.SelectedItem as RoomDTO;
             appl.Type = (MedicalAppointmentType) AppointmentType.SelectedItem;
+            
             List<DoctorDTO> list = new List<DoctorDTO>();
             list.Add(app.SelectedDoctor);
             appl.Doctors = list;
