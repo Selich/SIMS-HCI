@@ -102,29 +102,6 @@ namespace Project.Views.Secretary
 
         private void Create_Click(object sender, RoutedEventArgs e)
         {
-            if (RoomSearch_TextBox.Text == "")
-            {
-                System.Windows.Forms.MessageBox.Show(
-                    "Nije izabrana soba. Da li zelite da Vam sistem sam obezbedi dostupnu sobu?",
-                    "Potvrda",
-                    MessageBoxButtons.YesNo
-                    );
-
-            }
-            if (RoomSearch_TextBox.Text == null)
-            {
-                DialogResult result = System.Windows.Forms.MessageBox.Show(
-                    "Nije izabran ni jedan lekar. Da li zelite da Vam sistem sam obezbedi dostupnog lekara?",
-                    "Potvrda",
-                    MessageBoxButtons.YesNoCancel
-                    );
-                if (result == System.Windows.Forms.DialogResult.No)
-                {
-                    var s = new DoctorSearchModal();
-                    s.Show();
-
-                }
-            }
             MedicalAppointmentDTO appl = new MedicalAppointmentDTO();
             appl.Patient = ListPatients.SelectedItem as PatientDTO;
             appl.Beginning = (ListTerms.SelectedItem as TimeInterval).Start;
@@ -136,7 +113,6 @@ namespace Project.Views.Secretary
             appl.Doctors = list;
 
             app.MedicalAppointmentController.Save(appl);
-
 
 
         }
