@@ -26,6 +26,7 @@ namespace Project.Views.Tabs
         public string JMBG { get; set; }
         public string InsNumber { get; set; }
         public string TextInput { get; set; }
+        public GuestDTO Guest { get; set; }
         public SecretaryPatients()
         {
 
@@ -123,7 +124,7 @@ namespace Project.Views.Tabs
         {
             string id = ((Button)sender).Tag.ToString();
             long i = long.Parse(id);
-            PatientDTO pat = app.patients.Find(patient => patient.Id == i);
+            PatientDTO pat = app.PatientController.GetById(i);
             new ProfileModal(pat).Show();
         }
     }
