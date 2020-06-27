@@ -28,12 +28,14 @@ namespace Project.Model
             :base(id,  address,  firstName,  lastName,  jmbg,  telephoneNumber,  gender,  dateOfBirth,  salary,  annualLeave,  workingHours,  email,  password)
       {
             MedicalRole = medicalRole;
+            Appointments = new List<MedicalAppointment>();
       }
 
       public Doctor(Address address, string firstName, string lastName, string jmbg, string telephoneNumber, string gender, DateTime dateOfBirth, int salary, TimeInterval annualLeave, TimeInterval workingHours, string email, string password, string medicalRole)
             : base(address, firstName, lastName, jmbg, telephoneNumber, gender, dateOfBirth, salary, annualLeave, workingHours, email, password)
       {
           MedicalRole = medicalRole;
+            Appointments = new List<MedicalAppointment>();
       }
     }
 }

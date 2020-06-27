@@ -203,7 +203,7 @@ namespace Project
 
             // HCI
 
-            medicalRoles = new List<string> { "Svi", "Opšte Prakse", "Hirurg", "Dermatolog", "Očni lekar" };
+            medicalRoles = new List<string> { "Svi", "Opšte Prakse", "Hirurg", "Dermatolog", "Očni lekar", "Stomatolog" };
             roomTypes = new List<string> { "Bolnička Soba", "Operaciona Sala", "Soba za preglede" };
             medicalAppointmentTypes = new List<string> { "Pregled", "Operacija", "Ležanje" };
             AddressDTO address = new AddressDTO("1", "Bulevar despota Stefan 7A", "Novi Sad", "Srbija", "21000");

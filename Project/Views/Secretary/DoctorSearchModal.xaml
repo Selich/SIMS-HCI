@@ -144,17 +144,6 @@
             <Grid Margin="293,10,0,-15"
                   Height="81"
                   VerticalAlignment="Top">
-                <ComboBox HorizontalAlignment="Left"
-                          Margin="25,25,0,0"
-                          SelectedIndex="0"
-                          SelectionChanged="MedicalRole_ComboBox_SelectionChanged"
-                          x:Name="MedicalRole_ComboBox"
-                          ItemsSource="{Binding MedicalRoles}"
-                          VerticalAlignment="Top"
-                          Width="186" />
-                <Label Content="Specijalizacija:"
-                       HorizontalAlignment="Left"
-                       VerticalAlignment="Top" />
                 <Button Content="Demo"
                         HorizontalAlignment="Right"
                         VerticalAlignment="Bottom"

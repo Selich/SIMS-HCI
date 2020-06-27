@@ -43,13 +43,13 @@ namespace Project.Repositories
             return doctor;
         }
 
-        public new IEnumerable<Doctor> GetAll()
-        {
-            var doctors = base.GetAll();
-            var addresses = _addressRepository.GetAll();
-            BindDoctorWithAddress(addresses, doctors);
-            return doctors;
-        }
+        // public new IEnumerable<Doctor> GetAll()
+        // {
+        //     var doctors = base.GetAll();
+        //     var addresses = _addressRepository.GetAll();
+        //     BindDoctorWithAddress(addresses, doctors);
+        //     return doctors;
+        // }
 
         public new Doctor Save(Doctor doctor)
         {

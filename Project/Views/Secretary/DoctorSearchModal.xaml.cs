@@ -32,11 +32,11 @@ namespace Project.Views.Secretary
         {
             app = System.Windows.Application.Current as App;
             InitializeComponent();
+            //MedicalRole_ComboBox.ItemsSource = app.medicalRoles;
             DoctorList.ItemsSource = app.DoctorController.GetAll();
-            MedicalRole_ComboBox.ItemsSource = app.medicalRoles;
 
-            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(DoctorList.ItemsSource);
-            view.Filter = CombinedFilter;
+            //CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(DoctorList.ItemsSource);
+            //view.Filter = CombinedFilter;
 
         }
         public DoctorSearchModal(SecretaryAppointments dataContext)
@@ -44,11 +44,11 @@ namespace Project.Views.Secretary
             app = System.Windows.Application.Current as App;
             InitializeComponent();
             this.DataContext = dataContext;
-            DoctorList.ItemsSource = app.doctors;
-            MedicalRole_ComboBox.ItemsSource = app.medicalRoles;
+            //MedicalRole_ComboBox.ItemsSource = app.medicalRoles;
+            DoctorList.ItemsSource = app.DoctorController.GetAll();
 
-            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(DoctorList.ItemsSource);
-            view.Filter = CombinedFilter;
+            //CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(DoctorList.ItemsSource);
+            //view.Filter = CombinedFilter;
 
         }
 
@@ -59,14 +59,14 @@ namespace Project.Views.Secretary
         private bool LastNameFilter(object item)
           => (String.IsNullOrEmpty(LastNameSearch_TextBox.Text) ||
             (item as DoctorDTO).LastName.IndexOf(LastNameSearch_TextBox.Text, StringComparison.OrdinalIgnoreCase) >= 0);
-        private bool MedicalRoleFilter(object item)
-          => (MedicalRole_ComboBox.SelectedItem.ToString().Equals(app.medicalRoles[0])) ||
-            (item as DoctorDTO).MedicalRole.IndexOf(MedicalRole_ComboBox.SelectedItem.ToString(), StringComparison.OrdinalIgnoreCase) >= 0;
+        //private bool MedicalRoleFilter(object item)
+        //  => (MedicalRole_ComboBox.SelectedItem.ToString().Equals(app.medicalRoles[0])) ||
+        //    (item as DoctorDTO).MedicalRole.IndexOf(MedicalRole_ComboBox.SelectedItem.ToString(), StringComparison.OrdinalIgnoreCase) >= 0;
 
         private bool CombinedFilter(object item)
             => FirstNameFilter(item) &&
-               LastNameFilter(item) &&
-               MedicalRoleFilter(item);
+               LastNameFilter(item);
+               //MedicalRoleFilter(item);
 
 
 
@@ -76,8 +76,8 @@ namespace Project.Views.Secretary
             => CollectionViewSource.GetDefaultView(DoctorList.ItemsSource).Refresh();
 
 
-        private void MedicalRole_ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-            => CollectionViewSource.GetDefaultView(DoctorList.ItemsSource).Refresh();
+        //private void MedicalRole_ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //    => CollectionViewSource.GetDefaultView(DoctorList.ItemsSource).Refresh();
 
         private void DoctorList_KeyDown(object sender, KeyEventArgs e)
         {
@@ -109,15 +109,15 @@ namespace Project.Views.Secretary
             LastNameSearch_TextBox.Text = "";
             await Task.Delay(1000);
 
-            await Task.Delay(1000);
-            MedicalRole_ComboBox.SelectedIndex = 1;
-            await Task.Delay(1000);
-            MedicalRole_ComboBox.SelectedIndex = 0;
-            await Task.Delay(1000);
+            //await Task.Delay(1000);
+            //MedicalRole_ComboBox.SelectedIndex = 1;
+            //await Task.Delay(1000);
+            //MedicalRole_ComboBox.SelectedIndex = 0;
+            //await Task.Delay(1000);
 
-            await Task.Delay(1000);
-            MedicalRole_ComboBox.SelectedIndex = 1;
-            await Task.Delay(1000);
+            //await Task.Delay(1000);
+            //MedicalRole_ComboBox.SelectedIndex = 1;
+            //await Task.Delay(1000);
 
             await Task.Delay(1000);
             DoctorList.Background = Brushes.Transparent;

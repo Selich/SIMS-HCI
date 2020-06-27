@@ -25,7 +25,7 @@ namespace Project.Services.Generators
 
         public List<MedicalAppointmentDTO> GetAvailableMedicalAppointments(TimeInterval timeInterval)
         {
-            List<MedicalAppointmentDTO> list = app.MedicalAppointments;
+            List<MedicalAppointmentDTO> list = app.MedicalAppointmentController.GetAll().ToList();
             List<MedicalAppointmentDTO> returnList = new List<MedicalAppointmentDTO>();
             foreach (MedicalAppointmentDTO item in list)
                 if ( item.Beginning.CompareTo(timeInterval.Start) <= 0 || item.End.CompareTo(timeInterval.End) >= 0 )
