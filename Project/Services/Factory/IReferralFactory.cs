@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Project.Services.Factory
 {
-    interface IReferralFactory
+    public interface IReferralFactory
     {
         Referral CreateReferral();
     }

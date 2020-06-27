@@ -224,7 +224,7 @@ namespace Project
             var guestConverter = new GuestConverter(addressConverter);
             var hospitalConverter = new HospitalConverter();
             var doctorConverter = new DoctorConverter(addressConverter);
-            var medicalAppoitmentConverter = new MedicalAppointmentConverter(roomConverter, guestConverter, doctorConverter);
+            var medicalAppointmentConverter = new MedicalAppointmentConverter(roomConverter, guestConverter, doctorConverter);
             var renovationConverter = new RenovationConverter(roomConverter);
             var feedbackConverter = new FeedbackConverter();
             var reviewConverter = new ReviewConverter(doctorConverter);
@@ -235,6 +235,9 @@ namespace Project
 
             var approvalConverter = new ApprovalConverter(doctorConverter);
             var propositionConverter = new PropositionConverter(medicineConverter, approvalConverter, doctorConverter);
+
+
+            var referralConverter = new ReferralConverter(medicalAppointmentConverter);
 
 
             // Repositories
@@ -303,7 +306,7 @@ namespace Project
             var prescriptionRepository = new PrescriptionRepository(new CSVStream<Prescription>(PRESCRIPTION_FILEPATH, new PrescriptionCSVConverter(DELIMITER, DATETIME_FORMAT)), medicineRepository, patientRepository, new LongSequencer());
 
 
-            var medicalAppoitmentRepository = new MedicalAppointmentRepository(
+            var medicalAppointmentRepository = new MedicalAppointmentRepository(
                 new CSVStream<MedicalAppointment>(MEDICAL_APPOINTMENT_FILEPATH,
                 new MedicalAppointmentCSVConverter(DELIMITER, DATETIME_DETAIL_FORMAT)),
                 medicalAppointmentToDoctorRepository,
@@ -344,7 +347,7 @@ namespace Project
             var prescriptionService = new PrescriptionService(prescriptionRepository, medicineService, patientService);
             var reportService = new ReportService();
             var equipmentService = new EquipmentService(equipmentRepository);
-            var medicalAppoitmentService = new MedicalAppointmentService(medicalAppoitmentRepository,APPOINTMENT_LENGTH_IN_MINUTES);
+            var medicalAppointmentService = new MedicalAppointmentService(medicalAppointmentRepository,APPOINTMENT_LENGTH_IN_MINUTES);
             var roomService = new RoomService(roomRepository);
             var renovationService = new RenovationService(renovationRepository,roomRepository);
             var feedbackService = new FeedbackService(feedbackRepository);
@@ -371,8 +374,8 @@ namespace Project
             EquipmentController = new EquipmentController(equipmentService, equipmentConverter);
 
             MedicalAppointmentController = new MedicalAppointmentController(
-                medicalAppoitmentService, 
-                medicalAppoitmentConverter,
+                medicalAppointmentService, 
+                medicalAppointmentConverter,
                 doctorConverter,
                 roomConverter
             );
@@ -392,7 +395,7 @@ namespace Project
             SecretaryAppointmentReportGenerator = new SecretaryAppointmentReportGenerator(REPORT_APPOINTMENT_FILEPATH);
             PatientAppointmentReportGenerator = new PatientAppointmentReportGenerator(REPORT_APPOINTMENT_FILEPATH);
             PrescriptionReportGenerator = new PrescriptionReportGenerator(REPORT_PRESCRIPTION_FILEPATH);
-            DoctorsAppointmentReport = new DirectorReportGenerator(REPORT_DOCTOR_APPOINTMENTS_FILEPATH,doctorRepository,medicalAppoitmentRepository);
+            DoctorsAppointmentReport = new DirectorReportGenerator(REPORT_DOCTOR_APPOINTMENTS_FILEPATH,doctorRepository,medicalAppointmentRepository);
             MedicineReportGenerator = new MedicineReportGenerator(REPORT_MEDICINE_FILEPATH,medicineRepository);
 
 
