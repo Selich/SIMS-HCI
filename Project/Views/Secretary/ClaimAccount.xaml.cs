@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -16,30 +17,32 @@ using System.Windows.Shapes;
 namespace Project.Views.Secretary
 {
     /// <summary>
-    /// Interaction logic for RegisterPatient.xaml
+    /// Interaction logic for ClaimAccount.xaml
     /// </summary>
-    public partial class RegisterGuest : Window
+    public partial class ClaimAccount : Window
     {
         App app;
-        public GuestDTO RegisteringPatient { get; set; }
-        public RegisterGuest()
+        public string Email { get; set;  }
+        public string Password { get; set;  }
+        public GuestDTO Guest { get; set;  }
+        public ClaimAccount(GuestDTO guest)
         {
             InitializeComponent();
-            this.DataContext = this;
             app = Application.Current as App;
-            RegisteringPatient = new PatientDTO();
-            RegisteringPatient.DateOfBirth = DateTime.Now;
-
+            GuestDTO Guest = guest;
         }
 
-        private void Submit_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            app.GuestController.Save(RegisteringPatient);
-            Close();
+
+            app.PatientController.ClaimGuestAccount(Guest, Email, Password);
+            this.Close();
         }
-        private void Cancel_Click(object sender, RoutedEventArgs e)
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Close();
+            this.Close();
+
         }
     }
 }
