@@ -217,7 +217,7 @@ namespace Project.Views.Director
             this.DataContext = this;
             var app = System.Windows.Application.Current as App;
 
-            _reportController = new ReportController();
+            _reportController = app.ReportController;
             AddressDTO address = new AddressDTO("15", "Bulevar Cara Lazara", "Skoplje", "Severna Makedonija", "17954");
             UserDTO c = app.currentUser;
             Director = new DirectorDTO(c.Address, c.FirstName, c.LastName, c.Jmbg, c.TelephoneNumber, c.Gender, c.DateOfBirth, 13000, null, null, app.director.Email, app.director.Password, "Klinicki Centar Vojvodina");

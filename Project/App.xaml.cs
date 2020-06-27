@@ -232,7 +232,7 @@ namespace Project
             var secretaryConverter = new SecretaryConverter(questionConverter, addressConverter);
             var inventoryManagementConverter = new InventoryManagementConverter(equipmentConverter, roomConverter);
             var orderConverter = new OrderConverter(medicalConsumableConverter, medicineConverter, equipmentConverter);
-
+            var reportConverter = new ReportConverter();
             var approvalConverter = new ApprovalConverter(doctorConverter);
             var propositionConverter = new PropositionConverter(medicineConverter, approvalConverter, doctorConverter);
 
@@ -366,7 +366,7 @@ namespace Project
             QuestionController = new QuestionController(questionService, questionConverter, patientConverter);
             MedicalConsumableController = new MedicalConsumableController(medicalConsumableService, medicalConsumableConverter);
             AuthenticationController = new AuthenticationController();
-            ReportController = new ReportController();
+            ReportController = new ReportController(reportConverter);
             PrescriptionController = new PrescriptionController(prescriptionService, prescriptionConverter);
             EquipmentController = new EquipmentController(equipmentService, equipmentConverter);
 
