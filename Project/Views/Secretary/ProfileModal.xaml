@@ -210,7 +210,7 @@
                             Width="83"
                             Height="23"
                             Click="Email_Click"
-                            x:Name="Email" />
+                            x:Name="Email_Button" />
                 </Grid>
             </Grid>
         </TabItem>

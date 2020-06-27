@@ -20,11 +20,15 @@ namespace Project.Controllers
     {
         private IPatientService _service;
         private IConverter<Patient, PatientDTO> _converter;
+        private IConverter<Guest, GuestDTO> _guestConverter;
 
-        public PatientController(IPatientService service, IConverter<Patient, PatientDTO> converter)
+
+        public PatientController(IPatientService service, IConverter<Patient, PatientDTO> converter, IConverter<Guest, GuestDTO> guestConverter)
         {
             _service = service;
             _converter = converter;
+            _guestConverter = guestConverter;
+
         }
         public PatientDTO GetById(long id) 
             => _converter.ConvertEntityToDTO(_service.GetById(id));
@@ -44,5 +48,7 @@ namespace Project.Controllers
         public PatientDTO Update(PatientDTO entity)
             => _converter.ConvertEntityToDTO(_service.Update(_converter.ConvertDTOToEntity(entity)));
 
+        public PatientDTO ClaimGuestAccount(GuestDTO guest, string email, string password)
+           => _converter.ConvertEntityToDTO(_service.ClaimGuestAccount(_guestConverter.ConvertDTOToEntity(guest), email, password));
     }
 }

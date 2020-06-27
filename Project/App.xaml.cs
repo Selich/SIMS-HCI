@@ -347,6 +347,7 @@ namespace Project
             var medicalConsumableService = new MedicalConsumableService(medicalConsumableRepository);
             var prescriptionService = new PrescriptionService(prescriptionRepository, medicineService, patientService);
             var reportService = new ReportService();
+            var guestService = new GuestService(patientRepository);
             var equipmentService = new EquipmentService(equipmentRepository);
             var doctorService = new DoctorService(doctorRepository);
             var medicalAppointmentService = new MedicalAppointmentService(medicalAppointmentRepository, doctorService);
@@ -364,7 +365,8 @@ namespace Project
             var approvalService = new ApprovalService(approvalRepository);
 
             // Controllers
-            PatientController = new PatientController(patientService, patientConverter);
+            PatientController = new PatientController(patientService, patientConverter, guestConverter);
+            GuestController = new GuestController(guestService, guestConverter);
             AddressController = new AddressController(addressService, addressConverter);
             MedicineController = new MedicineController(medicineService, medicineConverter);
             QuestionController = new QuestionController(questionService, questionConverter, patientConverter);
@@ -428,6 +430,8 @@ namespace Project
         public RenovationController RenovationController { get; private set; }
         public IController<InventoryManagementDTO, long> InventoryManagementController { get; private set; }
         public IController<OrderDTO, long> OrderController { get; private set; }
+        public IController<GuestDTO, long> GuestController { get; private set; }
+
 
         public MedicalAppointmentController MedicalAppointmentController { get; private set; }
 
