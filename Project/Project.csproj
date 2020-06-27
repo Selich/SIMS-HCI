@@ -242,6 +242,7 @@
     <Compile Include="Services\EmployeeService.cs" />
     <Compile Include="Services\EquipmentService.cs" />
     <Compile Include="Services\Generators\DirectorReportGenerator.cs" />
+    <Compile Include="Services\Generators\MedicineReportGenerator.cs" />
     <Compile Include="Services\InventoryManagementService.cs" />
     <Compile Include="Services\Factory\AdmitionReferralFactory.cs" />
     <Compile Include="Services\Factory\ExamReferralFactory.cs" />

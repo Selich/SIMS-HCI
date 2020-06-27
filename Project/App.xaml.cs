@@ -175,6 +175,7 @@ namespace Project
         private static string REPORT_APPOINTMENT_FILEPATH = ConfigurationManager.AppSettings["ReportAppointmentPath"].ToString();
         private static string REPORT_PRESCRIPTION_FILEPATH = ConfigurationManager.AppSettings["ReportPrescriptionPath"].ToString();
         private static string REPORT_DOCTOR_APPOINTMENTS_FILEPATH = ConfigurationManager.AppSettings["DoctorsAppointmentsPath"].ToString();
+        private static string REPORT_MEDICINE_FILEPATH = ConfigurationManager.AppSettings["ReportMedicinePath"].ToString();
         
 
         // Constants
@@ -183,7 +184,7 @@ namespace Project
         private static string DATETIME_DETAIL_FORMAT = ConfigurationManager.AppSettings["DateTimeDetailFormat"].ToString();
         private static string TIME_FORMAT = ConfigurationManager.AppSettings["TimeFormat"].ToString();
         private static string APPOINTMENT_LENGTH_IN_MINUTES = ConfigurationManager.AppSettings["AppointmentLengthInMinutes"].ToString();
-
+        
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged(string name)
@@ -392,7 +393,7 @@ namespace Project
             PatientAppointmentReportGenerator = new PatientAppointmentReportGenerator(REPORT_APPOINTMENT_FILEPATH);
             PrescriptionReportGenerator = new PrescriptionReportGenerator(REPORT_PRESCRIPTION_FILEPATH);
             DoctorsAppointmentReport = new DirectorReportGenerator(REPORT_DOCTOR_APPOINTMENTS_FILEPATH);
-
+            MedicineReportGenerator = new MedicineReportGenerator(REPORT_MEDICINE_FILEPATH);
 
 
             //  DoctorDTO doctor = new DoctorDTO(address, "Filip", "Zdelar", "1231231231231", "021021", "Male", new DateTime(1990, 5, 5), 123, new TimeInterval(new DateTime(2020, 12, 12), new DateTime(2020, 12, 12)),
@@ -404,7 +405,7 @@ namespace Project
             //  PatientDTO patient = new PatientDTO(address, "Uros", "Milovanovic", "1231231231231", "021021", "Male", new DateTime(1990, 5, 5), "123", "deljac", "A+", 123, 123, 
             //      "urkem98@gmail.com", "pass");
 
-
+            Synchronise(RenovationController);
         }
 
         // Generators
@@ -412,6 +413,7 @@ namespace Project
         public IReportGenerator<TimeInterval> PatientAppointmentReportGenerator { get; private set; }
         public IReportGenerator<TimeInterval> PrescriptionReportGenerator { get; private set; }
         public IReportGenerator<TimeInterval> DoctorsAppointmentReport { get; private set; }
+        public IReportGenerator<TimeInterval> MedicineReportGenerator { get; private set; }
 
         // Users
         public IDoctorController DoctorController { get; private set; }
@@ -428,7 +430,7 @@ namespace Project
 
         public IController<EquipmentDTO, long> EquipmentController { get; private set; }
         public IController<RoomDTO, long> RoomController { get; private set; }
-        public IController<RenovationDTO, long> RenovationController { get; private set; }
+        public RenovationController RenovationController { get; private set; }
         public IController<InventoryManagementDTO, long> InventoryManagementController { get; private set; }
         public IController<OrderDTO, long> OrderController { get; private set; }
 
@@ -444,5 +446,16 @@ namespace Project
         public IController<AnamnesisDTO, long> AnamnesisController { get; set; }
     
         public IController<PropositionDTO, long> PropositionController { get; set; }
+
+        private void Synchronise(RenovationController renovationController)
+        {
+            List<RenovationDTO> renovations= (List<RenovationDTO>)renovationController.GetAll();
+            DateTime currentTime = DateTime.Now;
+            DateTime currentDate = new DateTime(currentTime.Year, currentTime.Month,currentTime.Day);
+           
+            foreach (RenovationDTO ren in renovations)
+                if (DateTime.Compare(currentDate, ren.Beginning) >= 0)
+                   renovationController.RealiseRenovation(ren);
+        }
     }
 }

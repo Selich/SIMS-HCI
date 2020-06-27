@@ -23,6 +23,7 @@ namespace Project.Services.Generators
         }
         public Report Generate(TimeInterval time)
         {
+            
             DateTime CurrentTime = DateTime.Now;
             DateTime Start = time.Start;
             DateTime End = time.End;
@@ -87,8 +88,6 @@ namespace Project.Services.Generators
                     }
                     doc.Add(table);
                 }
-
-
             }
             doc.Close();
             return new Report(_path, CurrentTime, "Upravnik-Zauzetost lekara");
