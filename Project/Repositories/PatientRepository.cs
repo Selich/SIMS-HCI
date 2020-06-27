@@ -32,7 +32,7 @@ namespace Project.Repositories
         public new IEnumerable<Patient> Find(Func<Patient, bool> predicate) 
             => GetAllEager().Where(predicate);
         public IEnumerable<Patient> GetAllEager() 
-            => GetAll();
+            => base.GetAll();
 
         public Patient GetEager(long id)
         {
