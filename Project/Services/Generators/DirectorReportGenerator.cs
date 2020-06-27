@@ -51,7 +51,7 @@ namespace Project.Services.Generators
 
             for (int i = 0; i < Doctors.Count; i++)
             {
-                List<MedicalAppointmentDTO> appointments = app.MedicalAppointmentController.GetAll().Where(app => app.Doctors.Contains(Doctors[i])).ToList();
+                List<MedicalAppointmentDTO> appointments = getAppointmentsByDoctor(Doctors[i]);
                 if (appointments == null)
                     doc.Add(new iTextSharp.text.Paragraph($"Dr.{Doctors[i].FirstName} {Doctors[i].LastName} nema termina u ovom periodu."));
                 else
@@ -91,6 +91,23 @@ namespace Project.Services.Generators
             }
             doc.Close();
             return new Report(_path, CurrentTime, "Upravnik-Zauzetost lekara");
+        }
+        private List<MedicalAppointmentDTO> getAppointmentsByDoctor(DoctorDTO doctor)
+        {
+            long id = doctor.Id;
+            List<MedicalAppointmentDTO> appointments=(List<MedicalAppointmentDTO>)app.MedicalAppointmentController.GetAll();
+            List<MedicalAppointmentDTO> doctorsAppointments = new List<MedicalAppointmentDTO>();
+            foreach (MedicalAppointmentDTO medApp in appointments)
+            {
+                List<DoctorDTO> doctors = (List<DoctorDTO>)medApp.Doctors;
+                foreach (DoctorDTO doc in doctors)
+                    if (doc.Id == id)
+                    {
+                        doctorsAppointments.Add(medApp);
+                        break;
+                    }
+            }
+            return doctorsAppointments;
         }
     }
 
