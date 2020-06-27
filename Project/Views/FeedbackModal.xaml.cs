@@ -19,9 +19,11 @@ namespace Project.Views
     /// </summary>
     public partial class FeedbackModal : Window
     {
+        App app;
         public FeedbackModal()
         {
             InitializeComponent();
+            var app = Application.Current as App;
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)

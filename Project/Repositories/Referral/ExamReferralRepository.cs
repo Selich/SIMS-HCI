@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Project.Model.Referrals;
+using Project.Repositories.Abstract;
 using Project.Repositories.CSV;
 using Project.Repositories.CSV.Stream;
 using Project.Repositories.Sequencer;
@@ -11,55 +12,53 @@ using Project.Repositories.Sequencer;
 namespace Project.Repositories.Referral
 {
     public class ExamReferralRepository:
-        CSVRepository<Model.Referral, long>,
-        IReferralRepository,
-        IEagerCSVRepository<Model.Referral, long>
+        CSVRepository<ExamReferral, long>,
+        IRepository<ExamReferral, long>
     {
         private const string ENTITY_NAME = "ExamReferral";
 
-        // TODO: Multiple IDs
         public ExamReferralRepository(
-            ICSVStream<Model.Referral> stream,
+            ICSVStream<ExamReferral> stream,
             ISequencer<long> sequencer
             ) : base(ENTITY_NAME, stream, sequencer)
         {
         }
-        public IEnumerable<Model.Referral> Find(Func<Model.Referral, bool> predicate)
+        public IEnumerable<ExamReferral> Find(Func<ExamReferral, bool> predicate)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Model.Referral> GetAll()
+        public IEnumerable<ExamReferral> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Model.Referral> GetAllEager()
+        public IEnumerable<ExamReferral> GetAllEager()
         {
             throw new NotImplementedException();
         }
 
-        public Model.Referral GetById(long id)
+        public ExamReferral GetById(long id)
         {
             throw new NotImplementedException();
         }
 
-        public Model.Referral GetEager(long id)
+        public ExamReferral GetEager(long id)
         {
             throw new NotImplementedException();
         }
 
-        public Model.Referral Remove(Model.Referral entity)
+        public ExamReferral Remove(ExamReferral entity)
         {
             throw new NotImplementedException();
         }
 
-        public Model.Referral Save(Model.Referral entity)
+        public ExamReferral Save(ExamReferral entity)
         {
             throw new NotImplementedException();
         }
 
-        public Model.Referral Update(Model.Referral entity)
+        public ExamReferral Update(ExamReferral entity)
         {
             throw new NotImplementedException();
         }

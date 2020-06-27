@@ -325,15 +325,18 @@ namespace Project
 
             // Referral
             var admitionReferralRepository = new AdmitionReferralRepository(
-               new CSVStream<Referral>(ADMITION_REFERRAL_FILEPATH, new ReferralCSVConventer(DELIMITER, DATETIME_FORMAT)), 
+               new CSVStream<AdmitionReferral>(ADMITION_REFERRAL_FILEPATH, 
+               new AdmitionReferralCSVConventer(DELIMITER, DATETIME_FORMAT)), 
                new LongSequencer()
             );
             var operationReferralRepository = new OperationReferralRepository(
-               new CSVStream<Referral>(OPERATION_REFERRAL_FILEPATH, new ReferralCSVConventer(DELIMITER, DATETIME_FORMAT)),
+               new CSVStream<OperationReferral>(OPERATION_REFERRAL_FILEPATH, 
+               new OperationReferralCSVConventer(DELIMITER, DATETIME_FORMAT)),
                new LongSequencer());
 
             var examReferralRepository = new ExamReferralRepository(
-               new CSVStream<Referral>(EXAM_REFERRAL_FILEPATH, new ReferralCSVConventer(DELIMITER, DATETIME_FORMAT)),
+               new CSVStream<ExamReferral>(EXAM_REFERRAL_FILEPATH, 
+               new ExamReferralCSVConventer(DELIMITER, DATETIME_FORMAT)),
                new LongSequencer());
 
             var approvalRepository = new ApprovalRepository(new CSVStream<Approval>(APPROVAL_FILEPATH, new ApprovalCSVConverter(DELIMITER)), new LongSequencer());

@@ -25,13 +25,10 @@ namespace Project.Repositories
 
         public new Address Save(Address address)
         {
-            //if (IsAddressUnique(address)) // isUniq je uvek false
-            //{
-            //    return base.Save(address);
-            //} else {
-            //    return Find(item => item.Equals(address)).SingleOrDefault();
-            //}
-            return base.Save(address);
+            if (IsAddressUnique(address))
+               return base.Save(address);
+            else
+               return Find(item => item.Equals(address)).SingleOrDefault();
         }
 
         private bool IsAddressUnique(Address address)

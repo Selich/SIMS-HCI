@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Project.Model.Referrals;
+using Project.Repositories.Abstract;
 using Project.Repositories.CSV;
 using Project.Repositories.CSV.Stream;
 using Project.Repositories.Sequencer;
@@ -11,55 +12,53 @@ using Project.Repositories.Sequencer;
 namespace Project.Repositories.Referral
 {
     public class AdmitionReferralRepository :
-        CSVRepository<Model.Referral, long>,
-        IReferralRepository,
-        IEagerCSVRepository<Model.Referral, long>
+        CSVRepository<AdmitionReferral, long>,
+        IRepository<AdmitionReferral, long>
     {
         private const string ENTITY_NAME = "AdmitionReferral";
 
-        // TODO: Multiple IDs
         public AdmitionReferralRepository(
-            ICSVStream<Model.Referral> stream,
+            ICSVStream<AdmitionReferral> stream,
             ISequencer<long> sequencer
             ) : base(ENTITY_NAME, stream, sequencer)
         {
         }
-        public IEnumerable<Model.Referral> Find(Func<Model.Referral, bool> predicate)
+        public IEnumerable<AdmitionReferral> Find(Func<AdmitionReferral, bool> predicate)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Model.Referral> GetAll()
+        public IEnumerable<AdmitionReferral> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Model.Referral> GetAllEager()
+        public IEnumerable<AdmitionReferral> GetAllEager()
         {
             throw new NotImplementedException();
         }
 
-        public Model.Referral GetById(long id)
+        public AdmitionReferral GetById(long id)
         {
             throw new NotImplementedException();
         }
 
-        public Model.Referral GetEager(long id)
+        public AdmitionReferral GetEager(long id)
         {
             throw new NotImplementedException();
         }
 
-        public Model.Referral Remove(Model.Referral entity)
+        public AdmitionReferral Remove(AdmitionReferral entity)
         {
             throw new NotImplementedException();
         }
 
-        public Model.Referral Save(Model.Referral entity)
+        public AdmitionReferral Save(AdmitionReferral entity)
         {
             throw new NotImplementedException();
         }
 
-        public Model.Referral Update(Model.Referral entity)
+        public AdmitionReferral Update(AdmitionReferral entity)
         {
             throw new NotImplementedException();
         }
