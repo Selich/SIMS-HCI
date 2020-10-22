@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ## Styleguide
 
 Za pisanje C# koda, koristicemo Microsoft style guide.
